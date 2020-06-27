@@ -14,10 +14,19 @@ body {
 .logo-img {
   width: 300px;
   display: block;
-  margin: 0 auto;
+  margin: 100px auto;
 }
 
 .info-note {
+  text-align: center;
+}
+
+footer {
+  margin: 300px 0;
+}
+
+.info-repo {
   font-weight: 100;
+  margin: 0 auto;
   text-align: center;
 }

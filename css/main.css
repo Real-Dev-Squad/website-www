@@ -1,0 +1,23 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  /*
+  Thin 100
+  Regular 400
+  */
+}
+.welcome-title {
+  margin-top: 100px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.logo-img {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.info-note {
+  font-weight: 100;
+  text-align: center;
+}

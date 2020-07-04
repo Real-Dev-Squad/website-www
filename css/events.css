@@ -1,0 +1,62 @@
+.welcome-title {
+	margin-top: 50px;
+  font-weight: 700;
+}
+
+.logo-img {
+  width: 150px;
+  display: block;
+  margin: 20px auto;
+}
+
+.event-details {
+	margin: 100px auto;
+	display: block;
+}
+
+.event-title {
+	font-size: 4em;
+	font-weight: 100;
+	margin: 10px auto 5px;
+	text-align: center;
+	color: rgb(228,58,99);
+	text-decoration: underline;
+}
+
+.event-date-time {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.session-info {
+	margin: 0 auto;
+	max-width: 700px;
+	border: 2px solid grey;
+	border-radius: 5px;
+	padding: 25px;
+	display: block;
+	box-shadow: 0 20px 30px 0px rgba(228, 58, 99, 0.2);
+}
+
+.topic-name {
+	font-size: 1.7em;
+}
+
+.speaker-name {
+	margin: 0;
+	font-weight: 400;
+}
+
+.speaker-social-info {
+	font-weight: 100;
+	font-size: 0.6em;
+}
+
+.linkedin-info {
+
+}
+
+.speaker-info {
+	font-weight: 100;
+	margin: 0;
+}

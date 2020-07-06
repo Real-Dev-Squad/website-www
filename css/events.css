@@ -19,7 +19,7 @@
 }
 
 .event-details {
-  margin: 50px auto 75px;
+  margin: 75px auto;
   display: block;
 }
 
@@ -34,19 +34,6 @@
 
 .event-date-time {
   margin: 0 auto;
-  text-align: center;
-}
-
-.event-link-info {
-  margin-top: 70px;
-  text-align: center;
-}
-.event-link-info.link-below {
-  margin-top: 125px;
-}
-
-.event-link {
-  margin-top: 40px;
   text-align: center;
 }
 

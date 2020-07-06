@@ -6,7 +6,7 @@ body {
   */
 }
 .welcome-title {
-  margin-top: 100px;
+  margin-top: 70px;
   text-align: center;
   font-weight: 400;
 }
@@ -20,6 +20,14 @@ body {
 .info-note {
   text-align: center;
   font-weight: 400;
+}
+
+.highlighted-text{
+  color: #e20665;
+}
+
+.highlighted-text a{
+  color: #041484;
 }
 
 footer {

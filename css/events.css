@@ -29,7 +29,6 @@
   margin: 10px auto 5px;
   text-align: center;
   color: rgb(228, 58, 99);
-  text-decoration: underline;
 }
 
 .event-date-time {
@@ -49,7 +48,6 @@
 
 .topic-name {
   font-size: 1.7em;
-  text-decoration: underline;
 }
 
 .speaker-name {

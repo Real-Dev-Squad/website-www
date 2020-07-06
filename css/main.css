@@ -39,3 +39,31 @@ footer {
   margin: 0 auto;
   text-align: center;
 }
+
+.cta-button__container {
+  text-align: center;
+  margin: 100px auto 0;
+}
+
+.cta-button {
+  background-color: #041484;
+  border-radius: 5px;
+  color: #fff1f6;
+  cursor: pointer;
+  padding: 30px 50px;
+  font-size: 1.1em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+@media (min-width: 420px) {
+  .cta-button {
+    font-size: 1.7em;
+  }
+}
+
+.cta-button:hover {
+  background-color: #030c4c;
+  transition: background-color 0.2s ease-in;
+  outline: #041484;
+}

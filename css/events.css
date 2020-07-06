@@ -1,5 +1,5 @@
 .welcome-title {
-	margin-top: 50px;
+  margin-top: 50px;
   font-weight: 700;
 }
 
@@ -9,81 +9,95 @@
   margin: 20px auto;
 }
 
+.social-media-logo {
+  width: 30px;
+  margin: 0px 4px;
+}
+
+.social-media-logo:hover {
+  transform: scale(1.1);
+}
+
 .event-details {
-	margin: 50px auto 75px;
-	display: block;
+  margin: 50px auto 75px;
+  display: block;
 }
 
 .event-title {
-	font-size: 4em;
-	font-weight: 100;
-	margin: 10px auto 5px;
-	text-align: center;
-	color: rgb(228,58,99);
-	text-decoration: underline;
+  font-size: 4em;
+  font-weight: 100;
+  margin: 10px auto 5px;
+  text-align: center;
+  color: rgb(228, 58, 99);
+  text-decoration: underline;
 }
 
 .event-date-time {
-	margin: 0 auto;
-	text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .event-link-info {
-	margin-top: 70px;
-	text-align: center;
+  margin-top: 70px;
+  text-align: center;
 }
 .event-link-info.link-below {
-	margin-top: 125px;
+  margin-top: 125px;
 }
 
 .event-link {
-	margin-top: 40px;
-	text-align: center;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .session-info {
-	margin: 0 auto 50px;
-	max-width: 700px;
-	border: 2px solid grey;
-	border-radius: 5px;
-	padding: 25px;
-	display: block;
-	box-shadow: 0 20px 30px 0px rgba(228, 58, 99, 0.2);
+  margin: 0 auto 50px;
+  max-width: 700px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 25px;
+  display: block;
+  box-shadow: 0 20px 30px 0px rgba(228, 58, 99, 0.2);
 }
 
 .topic-name {
-	font-size: 1.7em;
-	text-decoration: underline;
+  font-size: 1.7em;
+  text-decoration: underline;
 }
 
 .speaker-name {
-	margin: 0;
-	font-weight: 400;
-	color: rgb(228,58,99);
+  margin: 0;
+  font-weight: 400;
+  color: rgb(228, 58, 99);
+  display: flex;
+  align-items: center;
 }
 
 .speaker-social-info {
-	font-weight: 100;
-	font-size: 0.6em;
+  font-weight: 100;
+  font-size: 0.6em;
 }
 
 .linkedin-info {
-
 }
 
 .twitter-info {
-	
 }
 
 .speaker-info {
-	font-weight: 100;
-	margin: 0;
+  font-weight: 100;
+  margin: 0;
 }
 
 .event-upcoming {
-	text-align: center;
+  text-align: center;
 }
 
 .speakers-title {
-	text-align: center;
+  text-align: center;
+}
+
+footer {
+  margin-top: 100px;
+  margin-bottom: 75px;
 }

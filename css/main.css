@@ -5,6 +5,19 @@ body {
   Regular 400
   */
 }
+body:before{
+  background-image: url("../img/tswirls.png");
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+
 .welcome-title {
   margin-top: 70px;
   text-align: center;
@@ -42,7 +55,7 @@ footer {
 
 .cta-button__container {
   text-align: center;
-  margin: 100px auto 0;
+  margin: 60px auto;
 }
 
 .cta-button {
@@ -54,6 +67,7 @@ footer {
   font-size: 1.1em;
   white-space: nowrap;
   text-decoration: none;
+  box-shadow: 1px 1px 14px -3px rgba(0,0,0,0.42);
 }
 
 @media (min-width: 420px) {

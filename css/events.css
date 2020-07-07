@@ -6,7 +6,7 @@
 .logo-img {
   width: 150px;
   display: block;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .social-media-logo {
@@ -19,31 +19,53 @@
 }
 
 .event-details {
-  margin: 75px auto;
+  margin: 0px auto;
   display: block;
 }
 
 .event-title {
   font-size: 4em;
-  font-weight: 100;
-  margin: 10px auto 5px;
+  font-weight: 400;
+  margin: 3px auto 3px;
   text-align: center;
-  color: rgb(228, 58, 99);
+  /* color: rgb(228, 58, 99); */
+  color: #FF3366;
+}
+
+@media  screen and (max-width: 640px){
+  .event-title{
+    font-size: 2.7em;
+  }
+}
+@media  screen and (max-width: 440px){
+  .event-title{
+    font-size: 1.95em;
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 640px){
+  .event-title{
+    font-size: 3.3em;
+  }
 }
 
 .event-date-time {
   margin: 0 auto;
   text-align: center;
+  font-weight: 400;
+  font-size: 1.07em;
 }
 
 .session-info {
-  margin: 0 auto 50px;
+  margin: 0 30px 50px;
   max-width: 700px;
   border: 2px solid grey;
   border-radius: 5px;
   padding: 25px;
   display: block;
   box-shadow: 0 20px 30px 0px rgba(228, 58, 99, 0.2);
+  background: #fff;
 }
 
 .topic-name {
@@ -76,13 +98,56 @@
 
 .event-upcoming {
   text-align: center;
+  margin: 0px auto;
+}
+
+.event-upcoming > h2{
+  font-weight: 400;
+  font-size: 2em;
+}
+
+.underline > h2{
+  display: inline-block;
+  box-shadow: 0px 3px 0px #ffc600; 
 }
 
 .speakers-title {
+  font-size: 1.3em;
   text-align: center;
+  margin-bottom: 20px;
+}
+.speakers-title > h2{
+  font-weight: 400;
 }
 
 footer {
   margin-top: 100px;
   margin-bottom: 75px;
+}
+
+.session-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.session-wrapper > *{
+  flex-basis: 40%;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+
+@media screen and (max-width: 600px){
+  .session-wrapper > *{
+    flex-basis: 50%;
+  }  
+  .session-info{
+    margin: 0 auto 50px;
+  }
+}
+
+@media screen and (max-width: 540px){
+  .topic-name{
+    font-size: 1.5em;
+  }
 }

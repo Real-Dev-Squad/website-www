@@ -96,29 +96,22 @@
   margin: 0;
 }
 
+
+
 .event-upcoming {
   text-align: center;
-  margin: 0px auto;
-}
-
-.event-upcoming > h2{
-  font-weight: 400;
+  margin: 0px auto 20px;
   font-size: 2em;
-}
-
-.underline > h2{
-  display: inline-block;
-  box-shadow: 0px 3px 0px #ffc600; 
+  font-weight:400;
 }
 
 .speakers-title {
-  font-size: 1.3em;
+  font-size: 1.9em;
   text-align: center;
-  margin-bottom: 20px;
-}
-.speakers-title > h2{
+  margin-bottom: 35px;
   font-weight: 400;
 }
+
 
 footer {
   margin-top: 100px;

@@ -6,7 +6,6 @@ body {
   */
 }
 body:before{
-  background-image: url("../img/tswirls.png");
   content: '';
   display: block;
   position: fixed;

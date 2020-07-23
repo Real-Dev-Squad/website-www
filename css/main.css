@@ -75,7 +75,7 @@ footer {
   }
 }
 
-.cta-button:hover {
+.cta-button,.block:hover {
   background-color: #030c4c;
   transition: background-color 0.2s ease-in;
   outline: #041484;

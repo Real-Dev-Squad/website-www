@@ -1,0 +1,75 @@
+
+/** BEM CSS USED **/
+
+.subscribe{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin: 50px 0px;
+	width: 100%;
+	padding: 0;
+	text-align: center;
+}
+
+.subscribe__heading{
+	display: flex;
+	flex-direction: column
+}
+
+.subscribe__heading > span{
+	margin: 0px auto 10px;
+	font-size: 1.9rem;
+	font-weight: 500;
+}
+.subscribe__heading > span:nth-of-type(2){
+	font-size: 1.8rem;
+}
+
+.subscribe__inner{
+	margin:15px auto;
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	flex-wrap: wrap;
+}
+.subscribe__input{
+	height: 30px;
+	width: 210px;
+	border: none;
+	font-size: 1rem;
+	margin: 10px 15px;
+	border: 2px solid rgb(227, 4, 100);
+	border-radius: 4px;
+	padding-left: 7px;
+	padding-top: 2px;
+	outline: none;
+}
+
+.subscribe__input:focus,.subscribe__input:active{
+	border: 2px solid rgb(4, 20, 132);
+}
+
+.subscribe__button{
+	background: rgb(4, 20, 132);	
+	background-color: rgb(4, 20, 132);	
+	border: none;
+	color: #fff;
+	font-size:1.15rem;
+	height: 40px;
+	padding: 5px 15px;
+	margin: auto 0px;
+	margin-left: 10px;
+	border-radius: 4px;
+	outline: none;
+}
+
+.subscribe__button:active{
+	box-shadow: 1px 1px 5px 3px rgba(0,0,0,0.1);
+}
+
+.subscribe__button:hover{
+	background: rgb(227, 4, 100);		
+	background-color: rgb(227, 4, 100);
+}
+
+/** End of the File */

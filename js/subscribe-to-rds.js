@@ -2,11 +2,9 @@
 function SubscribeRDS(){
 	this.firebase = null;
 	
-	this.srcArray  = ["https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js",
+	this.srcArray  = [
 	"https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js",
-	"https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js",
-	"https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js",
-	"https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"];
+	"https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"];
 	
 	this.firebaseConfig = {
 		apiKey: "AIzaSyDw-ey9ur4n2UGDrqORomNYkjsC_xShAyo",
@@ -59,7 +57,6 @@ function SubscribeRDS(){
 
 	this.firebaseInitialize = function(){
 		this.firebase = firebase.initializeApp(this.firebaseConfig);
-		this.firebase.analytics();
 		this.firebaseDatabase = this.firebase.database();
 	}
 

@@ -3,7 +3,6 @@ function SubscribeRDS(){
 	this.firebase = null;
 	
 	this.srcArray  = ["https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js",
-	// "https://www.gstatic.com/firebasejs/7.17.1/firebase.js",
 	"https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js",
 	"https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js",
 	"https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js",
@@ -84,19 +83,15 @@ function SubscribeRDS(){
 
 
 	this.subscribeListener = function(){
-		let subscribe_button = document.getElementsByClassName("subscribe__button")[0]; //subscribe button Node
-		/** onClick Event Listener for subscribe button */
+		let subscribe_button = document.getElementsByClassName("subscribe__button")[0];
 		subscribe_button.addEventListener("click",function(event){ 
-			// Note: Async Await Function Callback
 			let subscribe_email = document.getElementsByClassName("subscribe__input")[0].value;
 			var message = null;
 			let fn_this = this;
-			console.log(subscribe_email);
 			if(ValidateEmail(subscribe_email)){
 				try{
 					this.firebaseDatabase.ref().child("users").orderByChild("email").equalTo(subscribe_email).
 					once("value",function(snapshot) {
-								console.log(`Exits: ${snapshot.exists()}`);
 								if (snapshot.exists()) {
 									fn_this.message="You have already subscribed to our newsletter.";
 									fn_this.showMessage();
@@ -117,10 +112,7 @@ function SubscribeRDS(){
 						});
 				}catch(err){
 					this.message = "Something is wrong";
-					console.log(`addEmail fn 
-						Error : ${err}`);
 				}
-				console.log(`Message : ${message}`);
 				this.showMessage();
 			}else{
 				this.message = "Please enter valid email address";

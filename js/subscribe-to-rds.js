@@ -150,12 +150,7 @@ function SubscribeRDS(){
 /** check email is valid or not */
 function ValidateEmail(mail) 
 {
-	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
-	{
-	return true;
-	}else{
-	return false;
-	}
+	return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail));
 }
 
 

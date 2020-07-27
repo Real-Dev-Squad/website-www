@@ -13,7 +13,7 @@
 
 .subscribe__heading{
 	display: flex;
-	flex-direction: column
+	flex-direction: column;
 }
 
 .subscribe__heading > span{
@@ -26,7 +26,7 @@
 }
 
 .subscribe__inner{
-	margin:15px auto;
+	margin: 15px auto;
 	display: flex;
 	justify-content: center;
 	align-self: center;
@@ -45,7 +45,7 @@
 	outline: none;
 }
 
-.subscribe__input:focus,.subscribe__input:active{
+.subscribe__input:focus, .subscribe__input:active{
 	border: 2px solid rgb(4, 20, 132);
 }
 

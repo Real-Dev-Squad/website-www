@@ -1,6 +1,9 @@
 body {
   font-family: 'Roboto', sans-serif;
-  margin: 0;
+  /*
+  Thin 100
+  Regular 400
+  */
 }
 
 .welcome-title {
@@ -29,7 +32,7 @@ body {
 }
 
 footer {
-  margin: 0px 0px 30px;
+  margin: 80px 0 40px;
 }
 
 .info-repo {

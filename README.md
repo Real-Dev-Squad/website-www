@@ -1,6 +1,11 @@
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f178400b-1528-4bae-b454-8cddfd2fde0b/deploy-status)](https://app.netlify.com/sites/realdevsquad/deploys)
+
 # Website
 
 Welcome to Real Dev Squad
+
+Code deployed on: https://realdevsquad.netlify.app/, then served to our domain
 
 ## CSS Structure    
 ### Global CSS  

@@ -1,21 +1,54 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   /*
   Thin 100
   Regular 400
   */
 }
 
+.content-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.link-text {
+  font-size: 24px;
+  text-align: center;
+}
+
+.events-link {
+  margin: 20px 0px 10px 0px;
+  display: block;
+}
+
+.event-box {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.event-box > * {
+  margin-left: 10px;
+}
+
 .welcome-title {
-  margin-top: 70px;
+  margin: 50px 0px;
   text-align: center;
   font-weight: 400;
 }
 
 .logo-img {
-  width: 300px;
+  width: 450px;
   display: block;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 
 .info-note {
@@ -32,7 +65,7 @@ body {
 }
 
 footer {
-  margin: 200px 0;
+  margin: 25px 0;
 }
 
 .info-repo {

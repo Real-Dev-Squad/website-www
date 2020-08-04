@@ -29,43 +29,42 @@
   margin: 3px auto 3px;
   text-align: center;
   /* color: rgb(228, 58, 99); */
-  color: #FF3366;
+  color: #ff3366;
 }
 
-@media  screen and (max-width: 640px){
-  .event-title{
+@media screen and (max-width: 640px) {
+  .event-title {
     font-size: 2.7em;
   }
 }
-@media  screen and (max-width: 440px){
-  .event-title{
+@media screen and (max-width: 440px) {
+  .event-title {
     font-size: 1.95em;
     font-weight: 700;
   }
 }
 
-@media screen and (min-width: 640px){
-  .event-title{
+@media screen and (min-width: 640px) {
+  .event-title {
     font-size: 3.3em;
   }
 }
 
 .event-date-time {
-  margin: 0 auto;
-  text-align: center;
-  font-weight: 400;
-  font-size: 1.07em;
+  font-weight: 600;
+  font-size: 1.1em;
 }
 
 .session-info {
   margin: 0 30px 50px;
   max-width: 700px;
-  border: 2px solid grey;
-  border-radius: 5px;
-  padding: 25px;
+  border-radius: 10px;
+  padding: 40px;
   display: block;
-  box-shadow: 0 20px 30px 0px rgba(228, 58, 99, 0.2);
   background: #fff;
+  -webkit-box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.75);
 }
 
 .topic-name {
@@ -85,24 +84,16 @@
   font-size: 0.6em;
 }
 
-.linkedin-info {
-}
-
-.twitter-info {
-}
-
 .speaker-info {
   font-weight: 100;
   margin: 0;
 }
 
-
-
 .event-upcoming {
   text-align: center;
-  margin: 0px auto 20px;
+  margin: 0px auto 40px;
   font-size: 2em;
-  font-weight:400;
+  font-weight: 400;
 }
 
 .speakers-title {
@@ -112,35 +103,37 @@
   font-weight: 400;
 }
 
-
 footer {
   margin-top: 100px;
   margin-bottom: 75px;
 }
 
-.session-wrapper{
+.session-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.session-wrapper > *{
+.session-wrapper > * {
   flex-basis: 40%;
   flex-shrink: 1;
   flex-grow: 1;
 }
 
-
-@media screen and (max-width: 600px){
-  .session-wrapper > *{
+@media screen and (max-width: 600px) {
+  .session-wrapper > * {
     flex-basis: 50%;
-  }  
-  .session-info{
+  }
+  .session-info {
     margin: 0 auto 50px;
+  }
+  .session-wrapper {
+    display: block;
+    margin: 0 10px;
   }
 }
 
-@media screen and (max-width: 540px){
-  .topic-name{
+@media screen and (max-width: 540px) {
+  .topic-name {
     font-size: 1.5em;
   }
 }

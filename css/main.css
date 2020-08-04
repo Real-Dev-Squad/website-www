@@ -1,17 +1,14 @@
-body {
+html, body {
   font-family: "Roboto", sans-serif;
-  height: 100vh;
+  width: 100%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /*
-  Thin 100
-  Regular 400
-  */
+  font-size: 16px; /* for rem */
 }
 
 .content-wrapper {
-  height: 100%;
+  margin: 0 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,41 +16,14 @@ body {
   position: relative;
 }
 
-.link-text {
-  font-size: 24px;
-  text-align: center;
-}
-
-.events-link {
-  margin: 20px 0px 10px 0px;
-  display: block;
-}
-
-.event-box {
-  margin: 20px 0px;
-  display: flex;
-  justify-content: center;
-}
-
-.event-box > * {
-  margin-left: 10px;
-}
-
-.welcome-title {
-  margin: 50px 0px;
-  text-align: center;
-  font-weight: 400;
-}
-
-.logo-img {
-  width: 450px;
-  display: block;
-  margin: 50px auto;
+.content-wrapper main {
+  max-width: 100%;
 }
 
 .info-note {
   text-align: center;
   font-weight: 400;
+  font-size: 1.5rem;
 }
 
 .highlighted-text {
@@ -62,6 +32,64 @@ body {
 
 .highlighted-text a {
   color: #041484;
+}
+
+.welcome-title {
+  margin-top: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.logo-img {
+  width: 250px;
+  display: block;
+  margin: 30px auto;
+}
+
+.social-media-links {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.125em;
+}
+
+.social-media-links > span {
+  color: #e20665;
+  margin: 0 10px;
+}
+
+.next-event-header {
+  margin-top: 40px;
+}
+
+.next-event {
+  margin: 20px 10px 10px;
+  display: block;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.past-events-header {
+  font-size: 18px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.events-box {
+  margin: 0 20px 50px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.events-box > * {
+  margin: 0 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.events-box span {
+  color: #e20665;
+  display: none;
 }
 
 footer {
@@ -91,14 +119,32 @@ footer {
   box-shadow: 1px 1px 14px -3px rgba(0,0,0,0.42);
 }
 
-@media (min-width: 420px) {
-  .cta-button {
-    font-size: 1.7em;
-  }
-}
-
 .cta-button:hover {
   background-color: #030c4c;
   transition: background-color 0.2s ease-in;
   outline: #041484;
+}
+
+/* Media Queries */
+
+@media (min-width: 420px) {
+  .welcome-title {
+    margin-top: 50px;
+    font-size: 2.75rem;
+  }
+
+  .logo-img {
+    width: 400px;
+  }
+  
+  .cta-button {
+    font-size: 1.7em;
+  }
+
+  .events-box > * {
+    width: auto;
+  }
+  .events-box span {
+    display: inline-block;
+  }
 }

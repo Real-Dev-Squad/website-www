@@ -27,9 +27,9 @@
   font-size: 4em;
   font-weight: 400;
   margin: 3px auto 3px;
-  text-align: center;
   /* color: rgb(228, 58, 99); */
-  color: #ff3366;
+  color: firebrick;
+  font-family: sans-serif;
 }
 
 @media screen and (max-width: 640px) {
@@ -72,9 +72,10 @@
 .speaker-name {
   margin: 0;
   font-weight: 400;
-  color: rgb(228, 58, 99);
+  color: firebrick;
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .speaker-social-info {

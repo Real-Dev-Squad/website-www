@@ -17,7 +17,14 @@ body {
   position: relative;
 }
 
-.content-wrapper nav {
+#user-login {
+  width: 100%;
+  margin: 25px;
+  padding: 10px;
+  text-align: right;
+}
+
+nav {
   padding: 10px 0;
   width: 100%;
 }
@@ -26,7 +33,7 @@ body {
   max-width: 100%;
 }
 
-nav .btn-login {
+.btn-login {
   float: right;
 }
 

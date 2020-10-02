@@ -57,6 +57,25 @@
         or our
         <a href="https://welcome.realdevsquad.com/faq"> FAQ section</a>.
       </h3>
+      <!-----Theme Changer--------->
+      
+      <ul>
+      <li>
+         <span>Dark</span>
+         <span>Light</span>
+      </li>
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('ul').click(function(){
+            $('ul').toggleClass('active')
+            $('section').toggleClass('dark')
+      })
+    })
+    </script>
+      
     </main>
 
     <footer>

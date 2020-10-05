@@ -1,18 +1,16 @@
 const userLogin = document.querySelector("#user-login");
-const loginBtn = document.querySelector('.btn-login');
 
 const setName = (name) => {
-    userLogin.innerHTML = `Hello, ${name}!`;
+    if (name) {
+        userLogin.innerHTML = `Hello, ${name}!`;    
+    }
 }
 
 const fetchData = () => {
-    fetch('./data.json')
+    fetch('https://staging-api.realdevsquad.com/users/self')
     .then(res => res.json())
-    .then(res => { 
-        setTimeout(() => { 
-            setName(res.first_name) 
-        }
-        ,2000);
+    .then(res => {
+        setName(res.first_name)
     })
 }
 

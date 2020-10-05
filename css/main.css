@@ -17,26 +17,16 @@ body {
   position: relative;
 }
 
-#user-login {
-  width: 100%;
-  margin: 25px;
-  padding: 10px;
-  text-align: right;
-}
-
-nav {
-  padding: 10px 0;
-  width: 100%;
-}
-
 .content-wrapper main {
   max-width: 100%;
 }
 
-.btn-login {
-  float: right;
+#user-login {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 10px;
 }
-
 
 .info-note {
   text-align: center;

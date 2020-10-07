@@ -1,3 +1,9 @@
+/* Define variables in the root scope */
+:root {
+  --success-color: darkgreen;
+  --error-color: red;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -44,9 +50,34 @@ body {
   border-radius: 5px;
 }
 
+.form-wrap .form-group input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-group.success input {
+  border-color: var(--success-color);
+  border-width: 2px;
+}
+
+.form-group.error input {
+  border-color: var(--error-color);
+  border-width: 2px;
+}
+
+.form-group small {
+  color: var(--error-color);
+  visibility: hidden;
+}
+
+.form-group.error small {
+  visibility: visible;
+}
+
 .form-wrap button {
-  background-color: #666;
+  background-color: rgb(83, 81, 81);
   color: #fff;
+  border-color: #777;
   display: block;
   width: 100%;
   margin-top: 15px;
@@ -57,7 +88,7 @@ body {
 }
 
 .form-wrap button:hover {
-  background-color: green;
+  background-color: darkblue;
 }
 
 .fab {

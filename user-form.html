@@ -19,54 +19,78 @@
     <div id="container">
       <!-- START of Form Wrapper -->
       <div class="form-wrap">
-        <h2>RDS Account Details</h2>
+        <h2>Account Details</h2>
         <!-- START of Form  -->
-        <form action="/submit" method="POST">
+        <form id="form" class="form" action="/submit" method="POST">
           <div class="form-group">
             <label for="username">Username: </label>
             <input type="text" id="username" name="username" />
+            <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="first_name">First Name: </label>
             <input type="text" id="first_name" name="first_name" />
+            <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="last_name">Last Name: </label>
             <input type="text" id="last_name" name="last_name" />
+            <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="yoe">Experience (in Years): </label>
-            <input type="number" id="yoe" name="yoe" />
+            <input type="text" id="yoe" name="yoe" />
+            <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="company">Company Name: </label>
             <input type="text" id="company" name="company" />
+            <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="designation">Designation: </label>
             <input type="text" id="designation" name="designation" />
+            <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="github_id"><i class="fab fa-github-square"></i> </label>
-            <input type="text" id="github_id" name="github_id" />
+            <input
+              type="text"
+              id="github_id"
+              name="github_id"
+              placeholder="username"
+            />
+            <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="linkedin_id"><i class="fab fa-linkedin"></i> </label>
-            <input type="text" id="linkedin_id" name="linkedin_id" />
+            <input
+              type="text"
+              id="linkedin_id"
+              name="linkedin_id"
+              placeholder="username"
+            />
+            <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="twitter_id"
               ><i class="fab fa-twitter-square"></i>
             </label>
-            <input type="text" id="twitter_id" name="twitter_id" />
+            <input
+              type="text"
+              id="twitter_id"
+              name="twitter_id"
+              placeholder="username"
+            />
+            <small>Error Message</small>
           </div>
 
           <button type="submit">Submit</button>
@@ -76,5 +100,6 @@
       <!-- END of Form Wrapper -->
     </div>
     <!-- END of Container  -->
+    <script src="./js/user-form.js"></script>
   </body>
 </html>

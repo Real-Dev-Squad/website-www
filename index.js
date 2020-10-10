@@ -1,6 +1,5 @@
-const userLogin = document.querySelector("#user-login");
-
 function setNameIfFound(name){
+    const userLogin = document.querySelector("#user-login");
     if (name) {
         userLogin.innerHTML = `Hello, ${name}!`;    
     }

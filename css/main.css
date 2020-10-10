@@ -17,19 +17,15 @@ body {
   position: relative;
 }
 
-.content-wrapper nav {
-  padding: 10px 0;
+nav {
   width: 100%;
+  text-align: right;
+  margin-top: 10px;
 }
 
 .content-wrapper main {
   max-width: 100%;
 }
-
-nav .btn-login {
-  float: right;
-}
-
 
 .info-note {
   text-align: center;

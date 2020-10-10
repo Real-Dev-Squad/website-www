@@ -13,4 +13,4 @@ const fetchData = () => {
     });
 };
 
-fetchData();
+window.addEventListener('DOMContentLoaded', fetchData);

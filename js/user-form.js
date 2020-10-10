@@ -23,7 +23,7 @@ function showSuccess(input) {
   formGroup.className = 'form-group success';
 }
 
-// Username Validator
+// Username Validator 
 function checkUsername(input) {
   //Check presence of first_name
   if (!username.value.trim().startsWith(first_name.value.toLowerCase())) {
@@ -35,8 +35,10 @@ function checkUsername(input) {
     showSuccess(username);
   }
 
-  //Check if username pertains to the appropriate format
-  let pattern = new RegExp(/[0-9~`!#$%\^&*+=\\[\]\\';,/{}|\\":<>\?]/);
+  /**Check if username pertains to the appropriate format
+   ** Validation partially incorrect - doesn't fail when digits are present 
+   **/
+  let pattern = new RegExp(/^[0-9!@#\$%\^\&*\)\(+=._]+$/g);
   if (pattern.test(input.value.trim())) {
     showError(
       username,

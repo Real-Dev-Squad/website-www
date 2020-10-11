@@ -6,11 +6,13 @@ function setNameIfFound(name){
 };
 
 const fetchData = () => {
-    fetch('https://staging-api.realdevsquad.com/users/self')
-    .then(res => res.json())
-    .then(res => {
-        setNameIfFound(res.first_name)
-    });
+    fetch('https://staging-api.realdevsquad.com/users/self', {
+            "credentials": "include"
+        })
+        .then(res => res.json())
+        .then(res => {
+            setNameIfFound(res.first_name)
+        });
 };
 
 window.addEventListener('DOMContentLoaded', fetchData);

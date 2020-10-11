@@ -35,18 +35,6 @@ function checkUsername(input) {
     showSuccess(username);
   }
 
-  /**Check if username pertains to the appropriate format
-   ** Validation partially incorrect - doesn't fail when digits are present 
-   **/
-  let pattern = new RegExp(/^[0-9!@#\$%\^\&*\)\(+=._]+$/g);
-  if (pattern.test(input.value.trim())) {
-    showError(
-      username,
-      'Only Hyphen "-" as a special character is allowed & using Numbers is also prohibited.'
-    );
-  } else {
-    showSuccess(input);
-  }
 }
 
 //Input fields validator

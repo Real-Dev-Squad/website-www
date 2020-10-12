@@ -23,7 +23,7 @@ function showSuccess(input) {
   formGroup.className = 'form-group success';
 }
 
-// Username Validator 
+// Username Validator
 function checkUsername(input) {
   //Check presence of first_name
   if (!username.value.trim().startsWith(first_name.value.toLowerCase())) {
@@ -34,7 +34,6 @@ function checkUsername(input) {
   } else {
     showSuccess(username);
   }
-
 }
 
 //Input fields validator
@@ -65,3 +64,19 @@ form.addEventListener('submit', (e) => {
     twitter_id,
   ]);
 });
+
+const getUserData = async () => {
+  try {
+    let res = await fetch('https://staging-api.realdevsquad.com/users/self', {
+      method: 'GET',
+      mode: 'no-cors',
+      credentials: 'include',
+    });
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getUserData();

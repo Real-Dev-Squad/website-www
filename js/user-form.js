@@ -9,6 +9,8 @@ const github_id = document.getElementById('github_id');
 const linkedin_id = document.getElementById('linkedin_id');
 const twitter_id = document.getElementById('twitter_id');
 
+import usersData from './user-form';
+
 //Error Handler
 function showError(input, message) {
   const formGroup = input.parentElement;
@@ -67,9 +69,8 @@ form.addEventListener('submit', (e) => {
 
 const getUserData = async () => {
   try {
-    let res = await fetch('https://staging-api.realdevsquad.com/users/self', {
+    let res = await fetch('https://localhost:3000/users/self', {
       method: 'GET',
-      mode: 'no-cors',
       credentials: 'include',
     });
     const data = await res.json();

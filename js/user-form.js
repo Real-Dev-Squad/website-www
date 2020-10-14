@@ -8,8 +8,7 @@ const designation = document.getElementById('designation');
 const github_id = document.getElementById('github_id');
 const linkedin_id = document.getElementById('linkedin_id');
 const twitter_id = document.getElementById('twitter_id');
-
-import usersData from './user-form';
+const btn = document.getElementById('submission');
 
 //Error Handler
 function showError(input, message) {
@@ -36,6 +35,17 @@ function checkUsername(input) {
   } else {
     showSuccess(username);
   }
+
+  //Check if username pertains to the appropriate format
+  let pattern = new RegExp(/^[a-zA-Z-]+$/g);
+  if (pattern.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(
+      username,
+      'Only alphabets and "-" are allowed. Numbers are prohibited.'
+    );
+  }
 }
 
 //Input fields validator
@@ -43,11 +53,27 @@ function checkRequired(inputArr) {
   inputArr.forEach((input) => {
     if (input.value.trim() === '') {
       showError(input, 'Field cannot be empty.');
+      btn.disabled = true;
     } else {
       showSuccess(input);
+      btn.disabled = false;
+      btn.style.opacity = 1;
     }
   });
 }
+
+form.addEventListener('keypress', (e) => {
+  checkRequired([
+    username,
+    first_name,
+    last_name,
+    yoe,
+    company,
+    designation,
+    github_id,
+    linkedin_id,
+  ]);
+});
 
 //Form submission handler
 form.addEventListener('submit', (e) => {
@@ -63,14 +89,16 @@ form.addEventListener('submit', (e) => {
     designation,
     github_id,
     linkedin_id,
-    twitter_id,
   ]);
+
+  updateUserData();
 });
 
-const getUserData = async () => {
+const id = username.value;
+const updateUserData = async () => {
   try {
-    let res = await fetch('https://localhost:3000/users/self', {
-      method: 'GET',
+    let res = await fetch(`http://localhost:3000/users/${id}`, {
+      method: 'PATCH',
       credentials: 'include',
     });
     const data = await res.json();
@@ -79,5 +107,3 @@ const getUserData = async () => {
     console.log(err);
   }
 };
-
-getUserData();

@@ -87,10 +87,10 @@ body {
   transition-duration: 0.4s;
 }
 
-.form-wrap button:hover {
-  background-color: darkblue;
-}
-
 .fab {
   font-size: 2em;
+}
+
+#submission {
+  opacity: 0.5;
 }

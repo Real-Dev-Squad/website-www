@@ -97,7 +97,7 @@ form.addEventListener('submit', (e) => {
 const id = username.value;
 const updateUserData = async () => {
   try {
-    let res = await fetch(`http://localhost:3000/users/${id}`, {
+    let res = await fetch(`https://staging-api.realdevsquad.com/users/${id}`, {
       method: 'PATCH',
       credentials: 'include',
     });

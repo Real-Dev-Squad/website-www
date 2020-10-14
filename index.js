@@ -5,7 +5,7 @@ function setNameIfFound(name){
     }
 };
 
-const fetchData = () => {
+function fetchData(){
     fetch('https://staging-api.realdevsquad.com/users/self', {
             "credentials": "include"
         })

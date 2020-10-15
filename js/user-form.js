@@ -27,10 +27,10 @@ function showSuccess(input) {
 // Username Validator
 function checkUsername(input) {
   //Check presence of first_name
-  if (!username.value.trim().startsWith(first_name.value.toLowerCase())) {
+  if (!input.trim().startsWith(first_name.value.toLowerCase())) {
     showError(
       username,
-      'Username should start with your first name. Please avoid using funky words as suffix'
+      'Username must start with first name. Usage of funky words should be avoided.'
     );
   } else {
     showSuccess(username);
@@ -63,6 +63,7 @@ function checkRequired(inputArr) {
 }
 
 form.addEventListener('keypress', (e) => {
+  checkUsername(username.value);
   checkRequired([
     username,
     first_name,
@@ -79,7 +80,7 @@ form.addEventListener('keypress', (e) => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  checkUsername(username);
+  checkUsername(username.value);
   checkRequired([
     username,
     first_name,

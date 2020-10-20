@@ -95,7 +95,21 @@ form.addEventListener('submit', (e) => {
   updateUserData();
 });
 
-const id = username.value;
+let id;
+const getUser = async () => {
+  try {
+    let res = await fetch(`https://staging-api.realdevsquad.com/users/self`, {
+      method: 'GET',
+      credentials: 'include',
+    });
+    const data = await res.json();
+    id = data.id;
+    return id;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const updateUserData = async () => {
   try {
     let res = await fetch(`https://staging-api.realdevsquad.com/users/${id}`, {

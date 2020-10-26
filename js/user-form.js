@@ -2,6 +2,8 @@ const form = document.getElementById('form');
 const username = document.getElementById('username');
 const first_name = document.getElementById('first_name');
 const last_name = document.getElementById('last_name');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
 const yoe = document.getElementById('yoe');
 const company = document.getElementById('company');
 const designation = document.getElementById('designation');
@@ -27,7 +29,7 @@ function showSuccess(input) {
 // Username Validator
 function checkUsername(input) {
   //Check presence of first_name
-  if (!input.trim().startsWith(first_name.value.toLowerCase())) {
+  if (!input.value.trim().startsWith(first_name.value.toLowerCase())) {
     showError(
       username,
       'Username must start with first name. Usage of funky words should be avoided.'
@@ -48,6 +50,26 @@ function checkUsername(input) {
   }
 }
 
+//Email Validator
+function checkEmail(input) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (re.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(input, 'Email is not valid');
+  }
+}
+
+//Phone Validator
+function checkPhone(input) {
+  const re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if (re.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(input, 'Phone number is not valid');
+  }
+}
+
 //Input fields validator
 function checkRequired(inputArr) {
   inputArr.forEach((input) => {
@@ -62,25 +84,13 @@ function checkRequired(inputArr) {
   });
 }
 
-form.addEventListener('keypress', (e) => {
-  checkUsername(username.value);
-  checkRequired([
-    username,
-    first_name,
-    last_name,
-    yoe,
-    company,
-    designation,
-    github_id,
-    linkedin_id,
-  ]);
-});
-
 //Form submission handler
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  checkUsername(username.value);
+  checkUsername(username);
+  checkEmail(email);
+  checkPhone(phone);
   checkRequired([
     username,
     first_name,

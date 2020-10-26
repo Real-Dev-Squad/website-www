@@ -94,3 +94,13 @@ body {
 #submission {
   opacity: 0.5;
 }
+
+input:focus {
+  background: rgb(233, 201, 104);
+}
+
+.hint {
+  font-size: 0.7rem;
+  color: #777;
+  padding-top: 5px;
+}

@@ -32,19 +32,67 @@
         <form id="form" class="form" action="/submit" method="POST">
           <div class="form-group">
             <label for="first_name">First Name: </label>
-            <input type="text" id="first_name" name="first_name" />
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              placeholder="Enter your First Name"
+            />
             <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="last_name">Last Name: </label>
-            <input type="text" id="last_name" name="last_name" />
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              placeholder="Enter your Last Name"
+            />
             <small>Error Message</small>
           </div>
 
           <div class="form-group">
             <label for="username">Choose a username: </label>
-            <input type="text" id="username" name="username" />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Choose an elegant username"
+            />
+            <div class="hint">
+              Hyphens (‘-’) are allowed. Digits are prohibited. Username must
+              start with first name
+            </div>
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email: </label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Enter a valid email"
+            />
+            <div class="hint">
+              We require your email to notify you of future events and won't
+              share them with any third party.
+            </div>
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number: </label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="Enter a valid mobile number with country code"
+            />
+            <div class="hint">
+              We won't share your mobile number with anyone.
+            </div>
             <small>Error Message</small>
           </div>
 

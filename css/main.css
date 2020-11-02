@@ -41,16 +41,45 @@ nav {
   color: #041484;
 }
 
+.interesting-notifications {
+  padding: 10px 8px;
+  border: 1px solid #bdbdbd;
+  border-radius: 10px;
+  background-color: #fafafa;
+  margin: 20px 0 50px;
+}
+
+.interesting-notifications > .notif {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.interesting-notifications > .notif span {
+  background: linear-gradient(90deg,#e30162 25%,#ed579c 90%);
+  color: white;
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+.interesting-notifications > .notif a {
+  margin:0 10px;
+  font-size: 0.85em;
+}
+
 .welcome-title {
-  margin-top: 25px;
+  margin-top: 15px;
   text-align: center;
   font-weight: 700;
 }
 
 .logo-img {
-  width: 250px;
+  width: 200px;
   display: block;
-  margin: 30px auto;
+  margin: 20px auto;
 }
 
 .social-media-links {
@@ -136,8 +165,13 @@ footer {
 /* Media Queries */
 
 @media (min-width: 420px) {
+
+  .interesting-notifications > .notif {
+    font-size: 22px;
+  }  
+
   .welcome-title {
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 2.75rem;
   }
 

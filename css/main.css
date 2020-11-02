@@ -61,12 +61,12 @@ nav {
   padding: 2px 8px;
   font-weight: bold;
   font-size: 0.8em;
-  margin-right: 5px;
+  margin: 0 5px;
   border-radius: 4px;
 }
 
 .interesting-notifications > .notif a {
-  margin:0 10px;
+  margin: 0 5px 0 10px;
   font-size: 0.85em;
 }
 

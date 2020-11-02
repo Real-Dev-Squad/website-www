@@ -68,6 +68,13 @@ nav {
 .interesting-notifications > .notif a {
   margin: 0 10px;
   font-size: 0.85em;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.25s ease-in-out;
+}
+
+.interesting-notifications > .notif a:hover {
+  color: #e30162;
 }
 
 .welcome-title {

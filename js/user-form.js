@@ -128,15 +128,12 @@ const updateUserData = async () => {
     USERNAME,
     FIRST_NAME,
     LAST_NAME,
-    EMAIL,
-    PHONE, 
     YOE,
     COMPANY,
     DESIGNATION,
     GITHUB_ID,
     LINKEDIN_ID,
     TWITTER_ID,
-    PROFILE_PIC
   ]);
 
   try {

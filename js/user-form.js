@@ -1,18 +1,25 @@
+const USERNAME = 'username';
+const FIRST_NAME = 'first_name';
+const LAST_NAME = 'last_name';
+const EMAIL = 'email';
+const PHONE = 'phone';
+const YOE = 'yoe';
+const COMPANY = 'company';
+const DESIGNATION = 'designation';
+const GITHUB_ID = 'github_id';
+const LINKEDIN_ID = 'linkedin_id';
+const TWITTER_ID = 'twitter_id';
+
+function getElementsForKeys (arrKeys) {
+  return arrKeys.map(function(k) {
+    return document.getElementById(k);
+  });
+}
+
 const form = document.getElementById('form');
-const username = document.getElementById('username');
-const first_name = document.getElementById('first_name');
-const last_name = document.getElementById('last_name');
-const email = document.getElementById('email');
-const phone = document.getElementById('phone');
-const yoe = document.getElementById('yoe');
-const company = document.getElementById('company');
-const designation = document.getElementById('designation');
-const github_id = document.getElementById('github_id');
-const linkedin_id = document.getElementById('linkedin_id');
-const twitter_id = document.getElementById('twitter_id');
 const btn = document.getElementById('submission');
 
-//Error Handler
+// Error Handler
 function showError(input, message) {
   const formGroup = input.parentElement;
   formGroup.className = 'form-group error';
@@ -20,13 +27,11 @@ function showError(input, message) {
   small.innerText = message;
 }
 
-//Success Handler
 function showSuccess(input) {
   const formGroup = input.parentElement;
   formGroup.className = 'form-group success';
 }
 
-// Username Validator
 function checkUsername(input) {
   //Check presence of first_name
   if (!input.value.trim().startsWith(first_name.value.toLowerCase())) {
@@ -38,7 +43,7 @@ function checkUsername(input) {
     showSuccess(username);
   }
 
-  //Check if username pertains to the appropriate format
+  // Check if username pertains to the appropriate format
   let pattern = new RegExp(/^[a-zA-Z-]+$/g);
   if (pattern.test(input.value.trim())) {
     showSuccess(input);
@@ -50,7 +55,6 @@ function checkUsername(input) {
   }
 }
 
-//Email Validator
 function checkEmail(input) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (re.test(input.value.trim())) {
@@ -60,7 +64,6 @@ function checkEmail(input) {
   }
 }
 
-//Phone Validator
 function checkPhone(input) {
   const re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   if (re.test(input.value.trim())) {
@@ -71,8 +74,9 @@ function checkPhone(input) {
 }
 
 //Input fields validator
-function checkRequired(inputArr) {
-  inputArr.forEach((input) => {
+function checkRequired(inputKeys) {
+  const arrEls = getElementsForKeys(inputKeys);
+  arrEls.forEach((input) => {
     if (input.value.trim() === '') {
       showError(input, 'Field cannot be empty.');
       btn.disabled = true;
@@ -92,42 +96,59 @@ form.addEventListener('submit', (e) => {
   checkEmail(email);
   checkPhone(phone);
   checkRequired([
-    username,
-    first_name,
-    last_name,
-    yoe,
-    company,
-    designation,
-    github_id,
-    linkedin_id,
+    USERNAME,
+    FIRST_NAME,
+    LAST_NAME,
+    YOE,
+    COMPANY,
+    DESIGNATION,
+    GITHUB_ID,
+    LINKEDIN_ID,
+    TWITTER_ID
   ]);
 
   updateUserData();
 });
 
-let id;
-const getUser = async () => {
-  try {
-    let res = await fetch(`https://staging-api.realdevsquad.com/users/self`, {
-      method: 'GET',
-      credentials: 'include',
-    });
-    const data = await res.json();
-    id = data.id;
-    return id;
-  } catch (error) {
-    console.error(error);
-  }
-};
+function getDataToSend (arrKeys) {
+  return arrKeys.reduce(function(acc, k) {
+    const el = document.getElementById(k);
+
+    if(el && el.tagName === 'INPUT') {
+      acc[k] = el.value;
+    }
+    return acc;
+  }, {})
+}
 
 const updateUserData = async () => {
+  
+  const dataToSend = getDataToSend([
+    USERNAME,
+    FIRST_NAME,
+    LAST_NAME,
+    EMAIL,
+    PHONE, 
+    YOE,
+    COMPANY,
+    DESIGNATION,
+    GITHUB_ID,
+    LINKEDIN_ID,
+    TWITTER_ID
+  ]);
+
+  console.log(dataToSend);
+
   try {
-    let res = await fetch(`https://staging-api.realdevsquad.com/users/${id}`, {
+    const res = await fetch(`AWAITING_API__https://staging-api.realdevsquad.com/users/self`, {
       method: 'PATCH',
       credentials: 'include',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(dataToSend)
     });
-    const data = await res.json();
-    console.log(data);
+
+    const resData = await res.json();
+    console.info(resData);
   } catch (err) {
     console.log(err);
   }

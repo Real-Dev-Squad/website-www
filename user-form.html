@@ -17,18 +17,16 @@
   <body>
     <nav>
       <a
-        href="https://github.com/login/oauth/authorize?client_id=f70fda66a9f61f76386d"
+        href="https://github.com/login/oauth/authorize?client_id=f70fda66a9f61f76386d" 
         class="btn-login"
       >
         Login
       </a>
     </nav>
-    <!-- START of Container -->
+
     <div id="container">
-      <!-- START of Form Wrapper -->
       <div class="form-wrap">
         <h2>Account Details</h2>
-        <!-- START of Form  -->
         <form id="form" class="form" action="/submit" method="POST">
           <div class="form-group">
             <label for="first_name">First Name: </label>
@@ -36,6 +34,7 @@
               type="text"
               id="first_name"
               name="first_name"
+              value="Ankush"
               placeholder="Enter your First Name"
             />
             <small>Error Message</small>
@@ -47,6 +46,7 @@
               type="text"
               id="last_name"
               name="last_name"
+              value="Dharkar"
               placeholder="Enter your Last Name"
             />
             <small>Error Message</small>
@@ -73,6 +73,7 @@
               type="text"
               id="email"
               name="email"
+              value="ankushdharkar@gmail.com"
               placeholder="Enter a valid email"
             />
             <div class="hint">
@@ -88,6 +89,7 @@
               type="text"
               id="phone"
               name="phone"
+              value="9876543210"
               placeholder="Enter a valid mobile number with country code"
             />
             <div class="hint">
@@ -102,6 +104,7 @@
               type="number"
               id="yoe"
               name="yoe"
+              value="8"
               placeholder="'0' if student"
             />
             <small>Error Message</small>
@@ -113,6 +116,7 @@
               type="text"
               id="company"
               name="company"
+              value="AMAZON"
               placeholder="'NA' if student"
             />
             <small>Error Message</small>
@@ -124,6 +128,7 @@
               type="text"
               id="designation"
               name="designation"
+              value="SDE"
               placeholder="'NA' if student"
             />
             <small>Error Message</small>
@@ -135,6 +140,7 @@
               type="text"
               id="github_id"
               name="github_id"
+              value="ankushdharkar"
               placeholder="Type your GitHub username"
             />
             <small>Error Message</small>
@@ -146,6 +152,7 @@
               type="text"
               id="linkedin_id"
               name="linkedin_id"
+              value="ankushdharkar"
               placeholder="Type your LinkedIn username"
             />
             <small>Error Message</small>
@@ -159,6 +166,7 @@
               type="text"
               id="twitter_id"
               name="twitter_id"
+              value="ankushdharkar"
               placeholder="Type your Twitter username"
             />
             <small>Error Message</small>
@@ -166,11 +174,9 @@
 
           <button id="submission" type="submit">Submit</button>
         </form>
-        <!-- END of Form  -->
+
       </div>
-      <!-- END of Form Wrapper -->
     </div>
-    <!-- END of Container  -->
 
     <script src="./js/user-form.js"></script>
   </body>

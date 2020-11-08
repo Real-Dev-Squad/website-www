@@ -74,8 +74,9 @@ body {
   visibility: visible;
 }
 
-.form-wrap button {
-  background-color: rgb(83, 81, 81);
+
+button#submission {
+  background-color: #43A047;
   color: #fff;
   border-color: #777;
   display: block;
@@ -89,10 +90,6 @@ body {
 
 .fab {
   font-size: 2em;
-}
-
-#submission {
-  opacity: 0.5;
 }
 
 input:focus {

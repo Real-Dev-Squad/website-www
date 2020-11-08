@@ -9,6 +9,7 @@ const DESIGNATION = 'designation';
 const GITHUB_ID = 'github_id';
 const LINKEDIN_ID = 'linkedin_id';
 const TWITTER_ID = 'twitter_id';
+const PROFILE_PIC = 'profile_pic';
 
 function getElementsForKeys (arrKeys) {
   return arrKeys.map(function(k) {
@@ -88,7 +89,6 @@ function checkRequired(inputKeys) {
   });
 }
 
-//Form submission handler
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -104,7 +104,8 @@ form.addEventListener('submit', (e) => {
     DESIGNATION,
     GITHUB_ID,
     LINKEDIN_ID,
-    TWITTER_ID
+    TWITTER_ID,
+    PROFILE_PIC
   ]);
 
   updateUserData();
@@ -134,21 +135,25 @@ const updateUserData = async () => {
     DESIGNATION,
     GITHUB_ID,
     LINKEDIN_ID,
-    TWITTER_ID
+    TWITTER_ID,
+    PROFILE_PIC
   ]);
 
-  console.log(dataToSend);
-
   try {
-    const res = await fetch(`AWAITING_API__https://staging-api.realdevsquad.com/users/self`, {
+    const res = await fetch('https://staging-api.realdevsquad.com/users/self', {
       method: 'PATCH',
       credentials: 'include',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify(dataToSend)
     });
 
-    const resData = await res.json();
-    console.info(resData);
+    if(res.status === 204) {
+      window.location.replace('/goto');
+    }
+    else {
+      console.error(res);
+    }
+
   } catch (err) {
     console.log(err);
   }

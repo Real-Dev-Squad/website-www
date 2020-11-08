@@ -88,7 +88,7 @@ button#submission {
   transition-duration: 0.4s;
 }
 
-.fab {
+.fab, .far {
   font-size: 2em;
 }
 

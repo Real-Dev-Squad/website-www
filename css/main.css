@@ -27,6 +27,10 @@ nav {
   max-width: 100%;
 }
 
+nav .btn-login {
+  float: right;
+}
+
 .info-note {
   text-align: center;
   font-weight: 400;

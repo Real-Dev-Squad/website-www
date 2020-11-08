@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details</title>
+    <link rel="stylesheet" href="./css/user-form.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <a
+        href="https://github.com/login/oauth/authorize?client_id=f70fda66a9f61f76386d" 
+        class="btn-login"
+      >
+        Login
+      </a>
+    </nav>
+
+    <div id="container">
+      <div class="form-wrap">
+        <h2>Account Details</h2>
+        <form id="form" class="form" action="/submit" method="POST">
+          <div class="form-group">
+            <label for="first_name">First Name: </label>
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              placeholder="Enter your First Name"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">Last Name: </label>
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              placeholder="Enter your Last Name"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Choose a username: </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Choose an elegant username"
+            />
+            <div class="hint">
+              Hyphens (‘-’) are allowed. Digits are prohibited. Username must
+              start with first name
+            </div>
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email: </label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Enter a valid email"
+            />
+            <div class="hint">
+              We require your email to notify you of future events and won't
+              share them with any third party.
+            </div>
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number: </label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="Enter a valid mobile number with country code"
+            />
+            <div class="hint">
+              We won't share your mobile number with anyone.
+            </div>
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="yoe">Experience (in Years): </label>
+            <input
+              type="number"
+              id="yoe"
+              name="yoe"
+              placeholder="'0' if student"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company Name: </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              placeholder="'NA' if student"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="designation">Designation: </label>
+            <input
+              type="text"
+              id="designation"
+              name="designation"
+              placeholder="'NA' if student"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="github_id"><i class="fab fa-github-square"></i> </label>
+            <input
+              type="text"
+              id="github_id"
+              name="github_id"
+              placeholder="Type your GitHub username"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="linkedin_id"><i class="fab fa-linkedin"></i> </label>
+            <input
+              type="text"
+              id="linkedin_id"
+              name="linkedin_id"
+              placeholder="Type your LinkedIn username"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="twitter_id"
+              ><i class="fab fa-twitter-square"></i>
+            </label>
+            <input
+              type="text"
+              id="twitter_id"
+              name="twitter_id"
+              placeholder="Type your Twitter username"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <div class="form-group">
+            <label for="profile_pic"
+              ><i class="far fa-user-circle"></i>
+            </label>
+            <input
+              type="text"
+              id="profile_pic"
+              name="profile_pic"
+              placeholder="Link to your profile picture"
+            />
+            <small>Error Message</small>
+          </div>
+
+          <button id="submission" type="submit">Submit</button>
+        </form>
+
+      </div>
+    </div>
+
+    <script src="./js/user-form.js"></script>
+  </body>
+</html>

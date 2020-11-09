@@ -32,11 +32,18 @@
   </nav>
 
   <div class="content-wrapper">
-    <nav id="user-login">
-        <a href='https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97'>
+    <nav>
+        <a
+          class="btn-login"
+          href='https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97'
+        >
           Login
         </a>
-    </nav> 
+        <div class="user-greet">
+          <div class="user-greet-msg" > Hello text </div>
+          <img class="user-profile-pic">
+        </div>
+      </nav> 
 
     <section class="interesting-notifications">
       <p class="notif">
@@ -98,7 +105,7 @@
 
     </footer>
   </div>
-<script src="index.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

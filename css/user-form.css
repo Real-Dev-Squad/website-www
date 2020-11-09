@@ -55,6 +55,10 @@ body {
   border-color: #777;
 }
 
+.form-wrap .form-group input:disabled {
+  background: #B0BEC5;
+}
+
 .form-group.success input {
   border-color: var(--success-color);
   border-width: 2px;

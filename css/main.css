@@ -46,7 +46,6 @@ nav .user-greet .user-profile-pic {
 }
 nav .user-greet .user-greet-msg {
   font-size: 1em;
-  border: 1px solid brown;
   display: inline;
   vertical-align: middle;
   margin-right: 10px;

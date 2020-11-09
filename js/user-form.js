@@ -9,7 +9,6 @@ const DESIGNATION = 'designation';
 const GITHUB_ID = 'github_id';
 const LINKEDIN_ID = 'linkedin_id';
 const TWITTER_ID = 'twitter_id';
-const PROFILE_PIC = 'profile_pic';
 
 function getElementsForKeys (arrKeys) {
   return arrKeys.map(function(k) {
@@ -104,8 +103,7 @@ form.addEventListener('submit', (e) => {
     DESIGNATION,
     GITHUB_ID,
     LINKEDIN_ID,
-    TWITTER_ID,
-    PROFILE_PIC
+    TWITTER_ID
   ]);
 
   updateUserData();

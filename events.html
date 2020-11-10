@@ -41,16 +41,19 @@
   </head>
 
   <body>
-		<nav>
-			<ul>
-				<li><a href="./index.html">Home</a></li>
-				<li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
-				<li><a class="active" href="">Events</a></li>
-				<li><a href="https://members.realdevsquad.com/">Members</a></li>
-				<li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
-				<li><a href="https://website-emberjs.vercel.app/">EmberJS Site</a></li>
-			</ul>
-		</nav>
+    <nav class="topnav" id="topNavBar">
+      <a class="active" href="">Events</a>
+      <a href="index.html">Home</a>
+      <a href="https://welcome.realdevsquad.com/">Welcome</a>
+      <a href="https://members.realdevsquad.com/">Members</a>
+      <a href="https://crypto.realdevsquad.com/">Crypto</a>
+      <a href="https://website-emberjs.vercel.app/">EmberJS Site</a>
+      <a href="javascript:void(0);" class="icon" onclick="changeCSS()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </a>
+    </nav>
 
     <header>
       <a href="https://realdevsquad.com/" rel="noopener noreferrer">
@@ -139,5 +142,7 @@
         </a>
       </p>
     </footer>
+    
+    <script src="js/navbar.js"></script>  
   </body>
 </html>

@@ -8,20 +8,54 @@
   <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
   <title>Real Dev Squad</title>
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/navbar.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+
+  <meta property="og:title" content="Real Dev Squad">
+  <meta property="og:description" content="Community of developers who collaborate to build Real software.">
+  <meta property="og:image" content="img/Real-Dev-Squad@2x.png">
+  <meta property="og:url" content="https://realdevsquad.com/index.html">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
+
+  <nav>
+    <ul>
+      <li><a class="active" href="">Home</a></li>
+      <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
+      <li><a href="./events.html">Events</a></li>
+      <li><a href="https://members.realdevsquad.com/">Members</a></li>
+      <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
+      <li><a href="https://website-emberjs.vercel.app/">EmberJS Site</a></li>
+    </ul>
+  </nav>
+
   <div class="content-wrapper">
-    <nav id="user-login">
-        <a href='https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97'>
+    <nav>
+        <a
+          class="btn-login"
+          href='https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97'
+        >
           Login
         </a>
-    </nav> 
+        <div class="user-greet">
+          <div class="user-greet-msg" > Hello text </div>
+          <img class="user-profile-pic">
+        </div>
+      </nav> 
+
+    <section class="interesting-notifications">
+      <p class="notif">
+        <span>New</span>
+        <strong>Crypto</strong>
+        -- New updates to the user dashboard
+        <a href="https://crypto.realdevsquad.com"> Check it out! ➡️ </a>
+      </p>
+    </section>
 
     <main>
       <h1 class="welcome-title"> Welcome to Real Dev Squad </h1>
-
       <img class="logo-img" src="img/Real-Dev-Squad@1x.png" alt="Real Dev Squad logo" />
 
       <section class="social-media-links">
@@ -71,7 +105,7 @@
 
     </footer>
   </div>
-<script src="index.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

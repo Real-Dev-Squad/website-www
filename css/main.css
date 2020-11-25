@@ -32,6 +32,19 @@ nav .btn-login {
   float: right;
 }
 
+nav .button{
+  font-size: 20px;
+  border-radius: 06px;
+  padding: .8rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+nav .icon{
+  width: 20px;
+  height: 20px;
+}
+
 nav .user-greet {
   display: none;
   font-size: 20px;

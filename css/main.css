@@ -32,15 +32,15 @@ nav .btn-login {
   float: right;
 }
 
-nav .button{
+nav .login-btn-text{
   font-size: 16px;
-  border-radius: 06px;
+  border-radius: 6px;
   padding: .3rem;
   background-color: white;
   cursor: pointer;
 }
 
-nav .icon{
+nav .logo{
   width: 15px;
   height: 15px;
 }

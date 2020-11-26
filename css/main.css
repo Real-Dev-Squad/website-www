@@ -33,16 +33,16 @@ nav .btn-login {
 }
 
 nav .button{
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 06px;
-  padding: .8rem;
+  padding: .3rem;
   background-color: white;
   cursor: pointer;
 }
 
 nav .icon{
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
 
 nav .user-greet {

@@ -12,14 +12,16 @@ nav li {
 
 nav li a {
   display: block;
+  border-radius: .5rem;
   color: #ffffff;
+  font-weight: bolder;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 nav li a:hover {
-  background-color: #7078BB;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .active {

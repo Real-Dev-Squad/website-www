@@ -27,6 +27,7 @@ nav {
 }
 
 nav .btn-login {
+  margin-top: 15px;
   font-size: 18px;
   float: right;
 }

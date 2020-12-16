@@ -132,10 +132,86 @@ nav .user-greet .user-greet-msg {
   font-size: 1.125em;
 }
 
+.linkedin-btn{
+  font-size: 16px;
+  border-radius: 10px;
+  padding: .3rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.logo-linkedin{
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
+
+.linkedinlink{
+  text-decoration: none;
+}
+
+
+.twitter-btn{
+  font-size: 16px;
+  border-radius: 10px;
+  padding: .3rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.logo-twitter{
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
+
+.twitterlink{
+  text-decoration: none;
+}
+
+.facebook-btn{
+  font-size: 16px;
+  border-radius: 10px;
+  padding: .3rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+
+.logo-facebook{
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
+
+.facebooklink{
+  text-decoration: none;
+}
+
+.instagram-btn{
+  font-size: 16px;
+  border-radius: 10px;
+  padding: .3rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.logo-instagram{
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
+
+.instagramlink{
+  text-decoration: none;
+}
+
 .social-media-links > span {
   color: #e20665;
   margin: 0 10px;
 }
+
+
 
 .next-event-header {
   margin-top: 40px;

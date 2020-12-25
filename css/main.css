@@ -134,7 +134,7 @@ nav .user-greet .user-greet-msg {
 
 .linkedin-btn{
   font-size: 16px;
-  border-radius: 10px;
+  border: none;
   padding: .3rem;
   background-color: white;
   cursor: pointer;
@@ -153,7 +153,7 @@ nav .user-greet .user-greet-msg {
 
 .twitter-btn{
   font-size: 16px;
-  border-radius: 10px;
+  border: none;
   padding: .3rem;
   background-color: white;
   cursor: pointer;
@@ -161,8 +161,8 @@ nav .user-greet .user-greet-msg {
 
 .logo-twitter{
   vertical-align: middle;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .twitterlink{
@@ -171,7 +171,7 @@ nav .user-greet .user-greet-msg {
 
 .facebook-btn{
   font-size: 16px;
-  border-radius: 10px;
+  border: none;
   padding: .3rem;
   background-color: white;
   cursor: pointer;
@@ -180,8 +180,8 @@ nav .user-greet .user-greet-msg {
 
 .logo-facebook{
   vertical-align: middle;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .facebooklink{
@@ -190,7 +190,7 @@ nav .user-greet .user-greet-msg {
 
 .instagram-btn{
   font-size: 16px;
-  border-radius: 10px;
+  border: none;
   padding: .3rem;
   background-color: white;
   cursor: pointer;
@@ -198,8 +198,8 @@ nav .user-greet .user-greet-msg {
 
 .logo-instagram{
   vertical-align: middle;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .instagramlink{

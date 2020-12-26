@@ -132,7 +132,7 @@ nav .user-greet .user-greet-msg {
   font-size: 1.125em;
 }
 
-.linkedin-btn{
+.social-media-links-btn{
   font-size: 16px;
   border: none;
   padding: .3rem;
@@ -140,69 +140,13 @@ nav .user-greet .user-greet-msg {
   cursor: pointer;
 }
 
-.logo-linkedin{
+.social-media-logo{
   vertical-align: middle;
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
 }
 
-.linkedinlink{
-  text-decoration: none;
-}
-
-
-.twitter-btn{
-  font-size: 16px;
-  border: none;
-  padding: .3rem;
-  background-color: white;
-  cursor: pointer;
-}
-
-.logo-twitter{
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-}
-
-.twitterlink{
-  text-decoration: none;
-}
-
-.facebook-btn{
-  font-size: 16px;
-  border: none;
-  padding: .3rem;
-  background-color: white;
-  cursor: pointer;
-}
-
-
-.logo-facebook{
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-}
-
-.facebooklink{
-  text-decoration: none;
-}
-
-.instagram-btn{
-  font-size: 16px;
-  border: none;
-  padding: .3rem;
-  background-color: white;
-  cursor: pointer;
-}
-
-.logo-instagram{
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-}
-
-.instagramlink{
+.social-media-link{
   text-decoration: none;
 }
 
@@ -210,8 +154,6 @@ nav .user-greet .user-greet-msg {
   color: #e20665;
   margin: 0 10px;
 }
-
-
 
 .next-event-header {
   margin-top: 40px;

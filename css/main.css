@@ -132,6 +132,24 @@ nav .user-greet .user-greet-msg {
   font-size: 1.125em;
 }
 
+.social-media-links-btn{
+  font-size: 16px;
+  border: none;
+  padding: .3rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.social-media-logo{
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+}
+
+.social-media-link{
+  text-decoration: none;
+}
+
 .social-media-links > span {
   color: #e20665;
   margin: 0 10px;

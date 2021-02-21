@@ -17,7 +17,7 @@ function setUserGreeting(username, firstName){
 };
 
 function fetchData () {
-    fetch('https://staging-api.realdevsquad.com/users/self', {
+    fetch('https://api.realdevsquad.com/users/self', {
         headers: {'content-type': 'application/json'},
         credentials: 'include'
     })

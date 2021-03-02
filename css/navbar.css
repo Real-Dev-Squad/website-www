@@ -1,8 +1,3 @@
-.navbar{
-    background-color: #1D1283;
-    padding: 5px ;
-}
-
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -25,15 +20,10 @@ nav li a {
   text-decoration: none;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-    color: #fff;
-    padding:10px 15px;
-}
-
 nav li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.navbar-dark .navbar-nav .nav-link.active {
-    color: #87D870;
-  }
+.active {
+  color: #87D870;
+}

@@ -23,6 +23,9 @@ function fetchData () {
     })
     .then(res => res.json())
     .then(res => {
+        if(res.incompleteUserDetails){
+            return window.location.replace('https://my.realdevsquad.com/signup')
+        }
         setUserGreeting(res.username, res.first_name);
     });
 };

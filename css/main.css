@@ -22,6 +22,10 @@ nav {
   text-align: right;
 }
 
+.nav-logo-li  > a {
+ padding: 7px;
+}
+
 .content-wrapper main {
   max-width: 100%;
 }
@@ -32,7 +36,7 @@ nav .btn-login {
   float: right;
 }
 
-nav .login-btn-text{
+nav .login-btn-text {
   font-size: 16px;
   border-radius: 6px;
   padding: .3rem;
@@ -48,6 +52,7 @@ nav .logo{
 nav .user-greet {
   display: none;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 nav .user-greet .user-profile-pic {
@@ -67,7 +72,7 @@ nav .user-greet .user-greet-msg {
 .info-note {
   text-align: center;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .highlighted-text {
@@ -78,39 +83,58 @@ nav .user-greet .user-greet-msg {
   color: #041484;
 }
 
-.interesting-notifications {
-  padding: 10px 8px;
+.notif-banner {
+  padding: 10px 20px;
   border: 1px solid #bdbdbd;
   border-radius: 10px;
   background-color: #fafafa;
   margin: 20px 0 50px;
+  display: inline-block;
 }
 
-.interesting-notifications > .notif {
+.main-banner {
+  margin-top: 20px;
+}
+
+.main-banner, .new-releases {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-releases > .notif-banner {
+  width: 77%;
+}
+
+.notif-banner > .notif {
   font-size: 16px;
   line-height: 1.5;
   margin: 0;
 }
 
-.interesting-notifications > .notif span {
+.notif-banner > .notif span, .notif-banner > .notif > .label-tag {
   background: linear-gradient(90deg,#e30162 25%,#ed579c 90%);
   color: white;
   padding: 2px 8px;
   font-weight: bold;
   font-size: 0.8em;
-  margin: 0 5px 0 10px;
+  margin-right: 10px;  
   border-radius: 4px;
 }
 
-.interesting-notifications > .notif a {
-  margin: 0 10px;
+.notif-banner > .notif > .label-tag.coming-soon {
+  background: linear-gradient(90deg, #00E676 25%, #64DD17 90%);
+}
+
+.notif-banner > .notif a {
   font-size: 0.85em;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.25s ease-in-out;
+  margin-left: 10px;
 }
 
-.interesting-notifications > .notif a:hover {
+.notif-banner > .notif a:hover {
   color: #e30162;
 }
 
@@ -228,7 +252,7 @@ footer {
 
 @media (min-width: 420px) {
 
-  .interesting-notifications > .notif {
+  .notif-banner > .notif {
     font-size: 22px;
   }  
 

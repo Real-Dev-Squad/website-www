@@ -179,6 +179,24 @@ nav .user-greet .user-greet-msg {
   margin: 0 10px;
 }
 
+
+.video-holder {
+  margin: 175px auto 50px;
+  max-width: 600px;
+}
+
+.video-holder > .video-text {
+  margin: 0 auto 40px;
+  font-size: 34px;
+  text-align: center;
+}
+
+.video-holder > iframe {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
 .next-event-header {
   margin-top: 40px;
 }

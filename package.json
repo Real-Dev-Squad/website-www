@@ -1,0 +1,15 @@
+{
+  "name": "website-www",
+  "version": "1.0.0",
+  "description": "\"www website of Real Dev Squad\"",
+  "main": "index.js",
+  "scripts": {
+    "check": "prettier --check .",
+    "fix": "prettier --write ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "2.2.1"
+  }
+}

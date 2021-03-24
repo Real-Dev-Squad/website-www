@@ -7,6 +7,15 @@ Welcome to Real Dev Squad
 
 Code deployed on: https://realdevsquad.netlify.app/, then served to our domain
 
+## Running the project
+
+Run `npm install` after opening the repository in your editor. This will install all the necessary packages for the project which are mentioned in the `pacakage.json` file of the project.
+
+## Scripts used in project
+
+- `npm run check` checks the formatting of all the files in the project. This script runs in a pre-commit hook. It will warn about the improper formatting present in the file.
+- `npm run fix` can be run for fixing the formatting before commiting your changes or to solve the formatting errors one may get while commiting the changes.
+
 ## CSS Structure
 
 ### Global CSS

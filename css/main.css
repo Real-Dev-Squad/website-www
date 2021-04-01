@@ -22,8 +22,8 @@ nav {
   text-align: right;
 }
 
-.nav-logo-li  > a {
- padding: 7px;
+.nav-logo-li > a {
+  padding: 7px;
 }
 
 .content-wrapper main {
@@ -39,12 +39,12 @@ nav .btn-login {
 nav .login-btn-text {
   font-size: 16px;
   border-radius: 6px;
-  padding: .3rem;
+  padding: 0.3rem;
   background-color: white;
   cursor: pointer;
 }
 
-nav .logo{
+nav .logo {
   width: 15px;
   height: 15px;
 }
@@ -96,7 +96,8 @@ nav .user-greet .user-greet-msg {
   margin-top: 20px;
 }
 
-.main-banner, .new-releases {
+.main-banner,
+.new-releases {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,18 +113,19 @@ nav .user-greet .user-greet-msg {
   margin: 0;
 }
 
-.notif-banner > .notif span, .notif-banner > .notif > .label-tag {
-  background: linear-gradient(90deg,#e30162 25%,#ed579c 90%);
+.notif-banner > .notif span,
+.notif-banner > .notif > .label-tag {
+  background: linear-gradient(90deg, #e30162 25%, #ed579c 90%);
   color: white;
   padding: 2px 8px;
   font-weight: bold;
   font-size: 0.8em;
-  margin-right: 10px;  
+  margin-right: 10px;
   border-radius: 4px;
 }
 
 .notif-banner > .notif > .label-tag.coming-soon {
-  background: linear-gradient(90deg, #00E676 25%, #64DD17 90%);
+  background: linear-gradient(90deg, #00e676 25%, #64dd17 90%);
 }
 
 .notif-banner > .notif a {
@@ -156,21 +158,21 @@ nav .user-greet .user-greet-msg {
   font-size: 1.125em;
 }
 
-.social-media-links-btn{
+.social-media-links-btn {
   font-size: 16px;
   border: none;
-  padding: .3rem;
+  padding: 0.3rem;
   background-color: white;
   cursor: pointer;
 }
 
-.social-media-logo{
+.social-media-logo {
   vertical-align: middle;
   width: 15px;
   height: 15px;
 }
 
-.social-media-link{
+.social-media-link {
   text-decoration: none;
 }
 
@@ -178,7 +180,6 @@ nav .user-greet .user-greet-msg {
   color: #e20665;
   margin: 0 10px;
 }
-
 
 .video-holder {
   margin: 175px auto 50px;
@@ -192,9 +193,9 @@ nav .user-greet .user-greet-msg {
 }
 
 .video-holder > iframe {
-    margin: 0 auto;
-    display: block;
-    width: 100%;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
 }
 
 .next-event-header {
@@ -269,10 +270,9 @@ footer {
 /* Media Queries */
 
 @media (min-width: 420px) {
-
   .notif-banner > .notif {
     font-size: 22px;
-  }  
+  }
 
   .welcome-title {
     margin-top: 20px;

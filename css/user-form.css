@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
 }
 
@@ -56,7 +56,7 @@ body {
 }
 
 .form-wrap .form-group input:disabled {
-  background: #B0BEC5;
+  background: #b0bec5;
 }
 
 .form-group.success input {
@@ -78,9 +78,8 @@ body {
   visibility: visible;
 }
 
-
 button#submission {
-  background-color: #43A047;
+  background-color: #43a047;
   color: #fff;
   border-color: #777;
   display: block;
@@ -92,7 +91,8 @@ button#submission {
   transition-duration: 0.4s;
 }
 
-.fab, .far {
+.fab,
+.far {
   font-size: 2em;
 }
 

@@ -3,7 +3,7 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #1D1283;
+  background-color: #1d1283;
 }
 
 nav li {
@@ -12,7 +12,7 @@ nav li {
 
 nav li a {
   display: block;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   color: #ffffff;
   font-weight: bolder;
   text-align: center;
@@ -25,5 +25,5 @@ nav li a:hover {
 }
 
 .active {
-  color: #87D870;
+  color: #87d870;
 }

@@ -1,164 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>Real Dev Squad</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
-  <title>Real Dev Squad</title>
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/navbar.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Real Dev Squad" />
+    <meta
+      property="og:description"
+      content="Community of developers who collaborate to build Real software."
+    />
+    <meta property="og:image" content="img/Real-Dev-Squad@2x.png" />
+    <meta property="og:url" content="https://realdevsquad.com/index.html" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <meta property="og:title" content="Real Dev Squad">
-  <meta property="og:description" content="Community of developers who collaborate to build Real software.">
-  <meta property="og:image" content="img/Real-Dev-Squad@2x.png">
-  <meta property="og:url" content="https://realdevsquad.com/index.html">
-  <meta name="twitter:card" content="summary_large_image">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YRG12HRZKB"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YRG12HRZKB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      gtag("config", "G-YRG12HRZKB");
+    </script>
+  </head>
 
-    gtag('config', 'G-YRG12HRZKB');
-  </script>
-
-</head>
-
-<body>
-  <nav>
-    <ul>
-      <li class="nav-logo-li">
-        <a href="/">
-          <img src="img/Real-Dev-Squad@1x.png" alt="home nav logo" width=42 />
-        </a>
-      </li>
-      <li><a class="active" href="/">Home</a></li>
-      <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
-      <li><a href="./events.html">Events</a></li>
-      <li><a href="https://members.realdevsquad.com/">Members</a></li>
-      <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
-      <li><a href="https://status.realdevsquad.com/">Status</a></li>
-    </ul>
-  </nav>
-
-  <div class="content-wrapper">
+  <body>
     <nav>
-      <a
-        class="btn-login"
-        href='https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97'
-      >
-      <button class="login-btn-text">Sign In With Github <img class="logo" src="img/github.png" alt="Github Icon" /></button>
-      </a>
-      <div class="user-greet">
-        <div class="user-greet-msg" > Hello text </div>
-        <img class="user-profile-pic">
-      </div>
+      <ul>
+        <li class="nav-logo-li">
+          <a href="/">
+            <img
+              src="img/Real-Dev-Squad@1x.png"
+              alt="home nav logo"
+              width="42"
+            />
+          </a>
+        </li>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
+        <li><a href="./events.html">Events</a></li>
+        <li><a href="https://members.realdevsquad.com/">Members</a></li>
+        <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
+        <li><a href="https://status.realdevsquad.com/">Status</a></li>
+      </ul>
     </nav>
 
-    <section class="main-banner">
-      <section class="notif-banner">
-        <p class="notif">
-          <span>New</span>
-          <strong>1 year Anniversary</strong>
-          -- New features available for you
-          <a href="/releases"> Check them out! ➡️ </a>
+    <div class="content-wrapper">
+      <nav>
+        <a
+          class="btn-login"
+          href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+        >
+          <button class="login-btn-text">
+            Sign In With Github
+            <img class="logo" src="img/github.png" alt="Github Icon" />
+          </button>
+        </a>
+        <div class="user-greet">
+          <div class="user-greet-msg">Hello text</div>
+          <img class="user-profile-pic" />
+        </div>
+      </nav>
+
+      <section class="main-banner">
+        <section class="notif-banner">
+          <p class="notif">
+            <span>New</span>
+            <strong>1 year Anniversary</strong>
+            -- New features available for you
+            <a href="/releases"> Check them out! ➡️ </a>
+          </p>
+        </section>
+      </section>
+
+      <main>
+        <h1 class="welcome-title">Welcome to Real Dev Squad</h1>
+        <img
+          class="logo-img"
+          src="img/Real-Dev-Squad@1x.png"
+          alt="Real Dev Squad logo"
+        />
+
+        <section class="social-media-links">
+          <a
+            class="social-media-link"
+            href="https://www.linkedin.com/company/real-dev-squad/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button class="social-media-links-btn">
+              LinkedIn
+              <img
+                class="social-media-logo"
+                src="img/linkedin.png"
+                alt="linkedinlogo"
+              /></button
+          ></a>
+          <span>|</span>
+          <a
+            class="social-media-link"
+            href="https://twitter.com/realdevsquad"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button class="social-media-links-btn">
+              Twitter
+              <img
+                class="social-media-logo"
+                src="img/twitter.jpg"
+                alt="twitterlogo"
+              />
+            </button>
+          </a>
+          <span>|</span>
+          <a
+            class="social-media-link"
+            href="https://www.facebook.com/Real-Dev-Squad-108713777585062"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button class="social-media-links-btn">
+              Facebook
+              <img
+                class="social-media-logo"
+                src="img/facebook.png"
+                alt="facebooklogo"
+              />
+            </button>
+          </a>
+          <span>|</span>
+          <a
+            class="social-media-link"
+            href="https://instagram.com/realdevsquad"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button class="social-media-links-btn">
+              Instagram
+              <img
+                class="social-media-logo"
+                src="img/instagram.jpg"
+                alt="instagramlogo"
+              />
+            </button>
+          </a>
+        </section>
+
+        <div class="video-holder">
+          <div class="video-text">Check out what Real Dev Squad is:</div>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/8UPjK1wLnTk?controls=0"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <h2 class="next-event-header info-note highlighted-text">
+          You can check out all our events below!!
+        </h2>
+
+        <a class="next-event"> Stay tuned for upcoming events! </a>
+
+        <h3 class="past-events-header">Past Events:</h3>
+        <div class="events-box">
+          <a href="./event-dynamic-programming-october-2020.html"
+            >Dynamic Programming</a
+          >
+          <span>|</span>
+          <a href="./event-nodejs-workshop-october-2020.html"
+            >NodeJS Workshop Part I</a
+          >
+          <span>|</span>
+          <a href="./event-web-mini-conf-july-2020.html"
+            >Web-Mini-Conf-July-2020</a
+          >
+          <span>|</span>
+          <a href="./event-react-hooks-july-2020.html">React Hooks Session</a>
+          <span>|</span>
+          <a href="./event-ssr-correctly-august-2020.html">SSR the right way</a>
+        </div>
+
+        <h3 class="info-note">
+          To know how this page is developed,
+          <br />
+          join our Discord channel by contacting one of
+          <a href="https://members.realdevsquad.com">our existing members</a>
+          <br />
+          or our
+          <a href="https://welcome.realdevsquad.com/faq"> FAQ section</a>.
+        </h3>
+      </main>
+
+      <footer>
+        <p class="info-repo">
+          The contents of this website are deployed from this
+          <a
+            href="https://github.com/Real-Dev-Squad/website"
+            target="_blank"
+            rel="noopener noreferrer"
+            >open sourced repo</a
+          >
         </p>
-      </section>
-    </section>
-    </section>
-
-    <main>
-      <h1 class="welcome-title"> Welcome to Real Dev Squad </h1>
-      <img class="logo-img" src="img/Real-Dev-Squad@1x.png" alt="Real Dev Squad logo" />
-
-      <section class="social-media-links">
-        <a class="social-media-link"
-        href="https://www.linkedin.com/company/real-dev-squad/" target="_blank" rel="noreferrer">
-          <button class="social-media-links-btn" >
-            LinkedIn
-            <img class="social-media-logo" src = "img/linkedin.png" alt="linkedinlogo">
-          </button></a>
-        <span>|</span>
-        <a class="social-media-link"
-        href="https://twitter.com/realdevsquad" target="_blank" rel="noreferrer">
-          <button class="social-media-links-btn" >
-            Twitter
-            <img class="social-media-logo" src = "img/twitter.jpg" alt="twitterlogo">
-          </button>
-        </a>
-        <span>|</span>
-        <a class="social-media-link"
-        href="https://www.facebook.com/Real-Dev-Squad-108713777585062" target="_blank" rel="noreferrer">
-          <button class="social-media-links-btn" >
-            Facebook
-            <img class="social-media-logo" src = "img/facebook.png" alt="facebooklogo">
-          </button>
-        </a>
-        <span>|</span>
-        <a class="social-media-link"
-        href="https://instagram.com/realdevsquad" target="_blank" rel="noreferrer">
-          <button class="social-media-links-btn" >
-            Instagram
-            <img class="social-media-logo" src = "img/instagram.jpg" alt="instagramlogo">
-          </button>
-        </a>
-      </section>
-
-      <div class="video-holder">
-        <div class="video-text"> Check out what Real Dev Squad is: </div>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/8UPjK1wLnTk?controls=0"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-
-      <h2 class="next-event-header info-note highlighted-text">You can check out all our events below!!</h2>
-
-      <a class="next-event">
-        Stay tuned for upcoming events!
-      </a>
-
-      <h3 class="past-events-header"> Past Events: </h3>
-      <div class="events-box">
-        <a href="./event-dynamic-programming-october-2020.html">Dynamic Programming</a>
-        <span>|</span>
-        <a href="./event-nodejs-workshop-october-2020.html">NodeJS Workshop Part I</a>
-        <span>|</span>
-        <a href="./event-web-mini-conf-july-2020.html">Web-Mini-Conf-July-2020</a>
-        <span>|</span>
-        <a href="./event-react-hooks-july-2020.html">React Hooks Session</a>
-        <span>|</span>
-        <a href="./event-ssr-correctly-august-2020.html">SSR the right way</a>
-      </div>
-
-      <h3 class="info-note"> To know how this page is developed,
-        <br>
-        join our Discord channel by contacting one of
-        <a href="https://members.realdevsquad.com">our existing members</a>
-        <br>
-        or our
-        <a href="https://welcome.realdevsquad.com/faq"> FAQ section</a>.
-      </h3>
-    </main>
-
-    <footer>
-      <p class="info-repo">The contents of this website are deployed from this <a
-          href="https://github.com/Real-Dev-Squad/website" target="_blank" rel="noopener noreferrer">open sourced
-          repo</a>
-      </p>
-
-    </footer>
-  </div>
-  <script src="js/main.js"></script>
-</body>
+      </footer>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
 </html>

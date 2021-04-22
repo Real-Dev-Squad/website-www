@@ -18,15 +18,14 @@
 }
 
 .event-details {
-  margin: 0px auto;
   display: block;
+  text-align: center;
 }
 
 .event-title {
   font-size: 4em;
   font-weight: 400;
   margin: 3px auto 3px;
-  /* color: rgb(228, 58, 99); */
   color: firebrick;
   font-family: sans-serif;
 }

@@ -55,6 +55,14 @@ nav .user-greet {
   margin-top: 10px;
 }
 
+.user-greet > a {
+  text-decoration: none;
+  color: black;
+}
+nav .user-greet-hello {
+  display: inline;
+}
+
 nav .user-greet .user-profile-pic {
   width: 2em;
   height: 2em;
@@ -62,10 +70,11 @@ nav .user-greet .user-profile-pic {
   display: inline;
   vertical-align: middle;
 }
+
 nav .user-greet .user-greet-msg {
   font-size: 1em;
   display: inline;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   margin-right: 10px;
 }
 

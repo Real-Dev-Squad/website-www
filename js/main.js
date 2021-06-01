@@ -6,7 +6,7 @@ function setUserGreeting(username, firstName) {
     const msgGreetMsgEl = document.querySelector(".user-greet-msg");
     const userImgEl = document.querySelector(".user-profile-pic");
 
-    const greetMsg = `Hello, ${firstName}!`;
+    const greetMsg = `${firstName}!`;
     msgGreetMsgEl.innerText = greetMsg;
     const userImgURL = `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${username}/img.png`;
     userImgEl.src = userImgURL;

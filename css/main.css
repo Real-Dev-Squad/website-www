@@ -168,8 +168,14 @@ nav .user-greet .user-greet-msg {
 
 .social-media-logo {
   vertical-align: middle;
-  width: 15px;
-  height: 15px;
+  width: 35px;
+  height: 35px;
+}
+
+.social-media-logo:hover{
+  width: 30px;;
+  height: 30px;
+  margin: 2.5px;
 }
 
 .social-media-link {

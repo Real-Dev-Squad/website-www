@@ -1,7 +1,7 @@
 function redirectUserToPage(page) {
   const finalPage =
     page == "signup"
-      ? "https://my.realdevsquad.com/signup"
+      ? "https://my.realdevsquad.com/signup?state=get-started"
       : "https://realdevsquad.com";
 
   window.location.href = finalPage;

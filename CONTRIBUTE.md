@@ -136,7 +136,22 @@ To make a pull request, go to your **forked repository** and you'll see **<branc
 
 ![how-to-create-pull-request](https://i.imgur.com/zYSuNY7.png)
 
-![before-making-pull-request](https://imgur.com/GTnYiKt.png)
+**Before making a pull request**
+  
+   If an issue doesn't exist for a while..
+  - Talk to your AO and decide whether an issue should be created
+  
+   Otherwise make sure that the below points are chekced! 
+   - Changes running locally ✓
+   - PR is linked to an issue. 
+   - Description in your PR to make your reviewer's life easy. 
+   - Screenshot(s) of UI changes attached if required
+   - Reviewers and Assignees added to PR/Issue
+   - Labels added (makes it easy to filter PRs and they're very beautiful) →
+  
+All the above points make the PRs and issues easier to maintain, so make sure each one of them is checked!
+
+
 
 Now the maintainers/admins will review your pull request. They might suggest some changes if required. You should then make the required changes in the **same branch**, commit them and push your changes to the **same branch** (follow the steps 7, 8 and 9 for the same).
 

@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   box-sizing: border-box;
   margin: 0;
@@ -230,25 +230,25 @@ nav .user-greet .user-greet-msg {
   text-decoration: none;
 }
 
-.events-box a:visited{
+.events-box a:visited {
   color: #a10829;
 }
 
 .events-box a:hover {
   background: #f5c4f1;
-  }
+}
 
 .events-box span {
   color: #e20665;
   display: none;
 }
 
-.info-note a{
+.info-note a {
   color: #db0979;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
-.info-note a:hover{
+.info-note a:hover {
   color: #a10829;
 }
 

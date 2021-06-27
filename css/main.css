@@ -267,6 +267,27 @@ footer {
   outline: #041484;
 }
 
+.member-imgs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6rem;
+    min-height: 450px;
+}
+  
+.member-img {
+    padding: 0.6em;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+	position: absolute;
+    --x: 0%;
+  	--y: 0%;
+    --s: 1;
+    transform: scale(var(--s));
+}
+
 /* Media Queries */
 
 @media (min-width: 420px) {

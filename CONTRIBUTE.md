@@ -13,7 +13,7 @@ If you get an issue assigned to you, consider following steps mentioned below.
 
 1. **Forking repository**
 
-Fork this repository using the **Fork** option at the top-right corner of this page. This will create your own copy of this repository. You'll be redirected to your forked repository. Copy the link of this repository (which will look like `https://github.com/<your-username>/website-my/`) as you'll need it in the step 2.
+Fork this repository using the **Fork** option at the top-right corner of this page. This will create your own copy of this repository. You'll be redirected to your forked repository. Copy the link of this repository (which will look like `https://github.com/<your-username>/website-www/`) as you'll need it in the step 2.
 
 ![how-to-fork](https://i.imgur.com/o6LJadj.png)
 
@@ -28,7 +28,7 @@ git clone <link which you copied in the step 1>
 Once you have cloned the repository, now you should go into the folder containing the repository. You can do that with:
 
 ```
-cd website-my
+cd website-www
 ```
 
 3. **Adding remote repository**
@@ -36,7 +36,7 @@ cd website-my
 Add the Real Dev Squad repository as a remote repository, so that you can anytime pull the latest changes from the Real Dev Squad repository which is being deployed. This needs to be done only for the first time.
 
 ```
-git remote add upstream https://github.com/Real-Dev-Squad/website-my/
+git remote add upstream https://github.com/Real-Dev-Squad/website-www/
 ```
 
 4. **Getting the latest code from the develop branch** (Can be skipped if you've cloned the repo just now)

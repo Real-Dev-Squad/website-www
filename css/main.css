@@ -288,15 +288,13 @@ footer {
 
 .member-imgs {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 6rem;
-  min-height: 450px;
+  margin-top: 7rem;
+  min-height: 26rem;
 }
 
 .member-img {
-  padding: 0.6em;
   width: 120px;
   height: 120px;
   border-radius: 50%;

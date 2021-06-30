@@ -6,42 +6,45 @@ const height =
   window.innerHeight ||
   document.documentElement.clientHeight ||
   document.body.clientHeight;
-const constant = width / (height * 2.3);
+const responsiveConstant = width / (height * 2.3);
 
-const randomNumber = (min, max) => {
+const randomNumberWithinRange = (min, max) => {
   return Math.random() * (max - min) + min;
 };
 
-const fetchx = (n) => {
+const fetchX = (n) => {
   const deg = n * (72 * (Math.PI / 180));
   return (width / 5) * Math.cos(deg);
 };
 
-const fetchy = (n) => {
+const fetchY = (n) => {
   const deg = n * (72 * (Math.PI / 180));
   return 160 * Math.sin(deg);
 };
 
-const arr = document.querySelectorAll('.member_animation');
+const memberList = document.querySelectorAll('.member_animation');
 
 const addClassName = () => {
   let n = 0;
-  arr.forEach((ele) => {
-    ele.style.setProperty('--x', `${fetchx(n)}%`);
-    ele.style.setProperty('--y', `${fetchy(n)}%`);
-    ele.classList = 'member-img member_animation';
+  memberList.forEach((member) => {
+    member.style.setProperty('--x', `${fetchX(n)}%`);
+    member.style.setProperty('--y', `${fetchY(n)}%`);
+    member.classList = 'member-img member_animation';
     n += 1;
   });
 };
 
 const removeClassName = () => {
-  arr.forEach((ele) => {
-    ele.classList = 'member-img reverse_animation';
+  memberList.forEach((member) => {
+    member.classList = 'member-img reverse_animation';
   });
 };
 
-arr.forEach((ele) => {
-  ele.style.setProperty('--s', `${randomNumber(0.1, 0.6) * constant + 0.9}`);
+memberList.forEach((member) => {
+  member.style.setProperty(
+    '--s',
+    `${randomNumberWithinRange(0.1, 0.6) * responsiveConstant + 0.9}`,
+  );
 });
 
 window.addEventListener('scroll', () => {

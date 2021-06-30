@@ -34,12 +34,11 @@ const displayMemberImgs = (memberImgArr) => {
   let i = 0;
   for (const img of images) {
     memberImg[i++].src = img.img_url;
-    console.log('Image Set');
   }
 };
 
-const getImgURL = (rdsId, img) =>
-  `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${rdsId}/${img}`;
+const getImgURL = (rdsId) =>
+  `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${rdsId}/img.png`;
 
 const getMemberImgs = () => {
   const memberImgArray = [];
@@ -53,11 +52,11 @@ const getMemberImgs = () => {
     .then((res) => res.json())
     .then((res) => {
       const { members } = res;
-      for (const member of members) {
+      for (const { isMember, username } of members) {
         memberImgArray.push({
-          isMember: member.isMember,
-          memberName: member.username,
-          img_url: getImgURL(member.username, 'img.png'),
+          isMember,
+          username,
+          img_url: getImgURL(username),
         });
       }
       const memberImgArr = memberImgArray.filter((person) => person.isMember);

@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   box-sizing: border-box;
   margin: 0;
@@ -234,11 +234,30 @@ nav .user-greet .user-greet-msg {
   margin: 0 10px;
   text-align: center;
   width: 100%;
+  color: #e20665;
+  text-decoration: none;
+}
+
+.events-box a:visited {
+  color: #a10829;
+}
+
+.events-box a:hover {
+  background: #f5c4f1;
 }
 
 .events-box span {
   color: #e20665;
   display: none;
+}
+
+.info-note a {
+  color: #db0979;
+  text-decoration: none;
+}
+
+.info-note a:hover {
+  color: #a10829;
 }
 
 footer {
@@ -273,6 +292,25 @@ footer {
   background-color: #030c4c;
   transition: background-color 0.2s ease-in;
   outline: #041484;
+}
+
+.member-imgs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+  min-height: 26rem;
+}
+
+.member-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  --x: 0%;
+  --y: 0%;
+  --s: 1;
+  transform: scale(var(--s));
 }
 
 /* Media Queries */

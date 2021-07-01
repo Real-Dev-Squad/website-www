@@ -286,6 +286,25 @@ footer {
   outline: #041484;
 }
 
+.member-imgs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+  min-height: 26rem;
+}
+
+.member-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  --x: 0%;
+  --y: 0%;
+  --s: 1;
+  transform: scale(var(--s));
+}
+
 /* Media Queries */
 
 @media (min-width: 420px) {

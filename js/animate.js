@@ -23,9 +23,11 @@ const fetchY = (n) => {
 };
 
 const memberList = document.querySelectorAll('.member_animation');
+const loaders = document.querySelectorAll('.skeleton-loader');
 
 const addClassName = () => {
   let n = 0;
+  let m = 0;
   memberList.forEach((member) => {
     member.style.setProperty('--x', `${fetchX(n)}%`);
     member.style.setProperty('--y', `${fetchY(n)}%`);

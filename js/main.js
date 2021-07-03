@@ -35,6 +35,8 @@ const displayMemberImgs = (memberImgArr) => {
   for (const img of images) {
     memberImg[i++].src = img.img_url;
   }
+  document.getElementById('shimmer').style.display = 'none';
+  document.getElementById('members').style.display = 'flex';
 };
 
 const getImgURL = (rdsId) =>

@@ -361,12 +361,6 @@ footer {
   background-size: 100px 100%;
 }
 
-@keyframes fullView {
-  100% {
-    width: 100%;
-  }
-}
-
 @keyframes shimmer {
   0% {
     background-position: 0 1000px;

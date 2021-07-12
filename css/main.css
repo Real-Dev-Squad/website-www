@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   box-sizing: border-box;
   margin: 0;
@@ -226,11 +226,30 @@ nav .user-greet .user-greet-msg {
   margin: 0 10px;
   text-align: center;
   width: 100%;
+  color: #e20665;
+  text-decoration: none;
+}
+
+.events-box a:visited {
+  color: #a10829;
+}
+
+.events-box a:hover {
+  background: #f5c4f1;
 }
 
 .events-box span {
   color: #e20665;
   display: none;
+}
+
+.info-note a {
+  color: #db0979;
+  text-decoration: none;
+}
+
+.info-note a:hover {
+  color: #a10829;
 }
 
 footer {
@@ -265,6 +284,87 @@ footer {
   background-color: #030c4c;
   transition: background-color 0.2s ease-in;
   outline: #041484;
+}
+
+.member-imgs {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+  min-height: 26rem;
+}
+
+.member-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  --x: 0%;
+  --y: 0%;
+  --s: 1;
+  transform: scale(var(--s));
+}
+
+.loaders {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+  min-height: 26rem;
+}
+
+.skeleton-loader {
+  position: absolute;
+  margin-top: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  overflow: hidden;
+  background: rgb(255, 255, 255);
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
+    0 5px 10px 10px rgba(0, 0, 0, 0.2);
+  transition: ease box-shadow 0.3s;
+  --x: 0%;
+  --y: 0%;
+  --s: 1;
+  transform: scale(var(--s));
+}
+
+.avatar-head {
+  position: absolute;
+  background: #777;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0px 0px -25px;
+}
+
+.avatar-body {
+  position: absolute;
+  background: #777;
+  margin-top: 49px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  width: 100px;
+  border-radius: 150px 150px 0 0;
+}
+
+.animate {
+  animation: shimmer 8s infinite linear;
+  background: linear-gradient(to top, #b4b6b8 34%, #c5c9c9 30%);
+  background-size: 100px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0 1000px;
+  }
 }
 
 /* Media Queries */

@@ -7,6 +7,7 @@
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
     <title>Real Dev Squad</title>
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/animate.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
@@ -32,9 +33,9 @@
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
+      gtag('js', new Date());
 
-      gtag("config", "G-YRG12HRZKB");
+      gtag('config', 'G-YRG12HRZKB');
     </script>
   </head>
 
@@ -159,6 +160,19 @@
             </button>
           </a>
         </section>
+        <section class="loaders" id="shimmer">
+          <div class="skeleton-loader">
+            <div class="avatar-head animate"></div>
+            <div class="avatar-body animate"></div>
+          </div>
+        </section>
+        <section class="member-imgs" id="members">
+          <img class="member-img member_animation" alt="member-img" />
+          <img class="member-img member_animation" alt="member-img" />
+          <img class="member-img member_animation" alt="member-img" />
+          <img class="member-img member_animation" alt="member-img" />
+          <img class="member-img member_animation" alt="member-img" />
+        </section>
 
         <div class="video-holder">
           <div class="video-text">Check out what Real Dev Squad is:</div>
@@ -228,5 +242,6 @@
       </footer>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/animate.js"></script>
   </body>
 </html>

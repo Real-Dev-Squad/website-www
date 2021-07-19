@@ -2,11 +2,6 @@ const width =
   window.innerWidth ||
   document.documentElement.clientWidth ||
   document.body.clientWidth;
-const height =
-  window.innerHeight ||
-  document.documentElement.clientHeight ||
-  document.body.clientHeight;
-const responsiveConstant = width / (height * 2.3);
 
 const randomNumberWithinRange = (min, max) => {
   return Math.random() * (max - min) + min;
@@ -41,19 +36,19 @@ const removeClassName = () => {
 };
 
 memberList.forEach((member) => {
-  member.style.setProperty(
-    '--s',
-    `${randomNumberWithinRange(0.1, 0.6) * responsiveConstant + 0.9}`,
-  );
+  member.style.setProperty('--s', `${randomNumberWithinRange(0.9, 1.8)}`);
 });
 
-window.addEventListener('scroll', () => {
-  let show = false;
-  if (!show && window.scrollY > height * 0.8 && window.scrollY < height * 1.8) {
-    show = true;
-    addClassName();
-  } else {
-    removeClassName();
-    show = false;
-  }
-});
+let handleIntersection = (entries) => {
+  entries.forEach((element) => {
+    if (element.isIntersecting) {
+      addClassName();
+    } else {
+      removeClassName();
+    }
+  });
+};
+
+const userViewport = document.querySelector('#members');
+observer = new IntersectionObserver(handleIntersection);
+observer.observe(userViewport);

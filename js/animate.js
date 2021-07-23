@@ -50,5 +50,5 @@ let handleIntersection = (entries) => {
 };
 
 const userViewport = document.querySelector('#members');
-observer = new IntersectionObserver(handleIntersection);
+const observer = new IntersectionObserver(handleIntersection);
 observer.observe(userViewport);

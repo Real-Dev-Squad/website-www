@@ -39,13 +39,10 @@ memberList.forEach((member) => {
   member.style.setProperty('--s', `${randomNumberWithinRange(0.9, 1.8)}`);
 });
 
-let handleIntersection = (entries) => {
-  entries.forEach((element) => {
-    if (element.isIntersecting) {
-      addClassName();
-    } else {
-      removeClassName();
-    }
+const handleIntersection = (entries) => {
+  entries.forEach(({ isIntersecting }) => {
+    if (isIntersecting) addClassName();
+    else removeClassName();
   });
 };
 

@@ -9,7 +9,6 @@ body {
 }
 
 .content-wrapper {
-  margin: 0 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,6 +31,7 @@ nav {
 
 nav .btn-login {
   margin-top: 15px;
+  margin-right: 25px;
   font-size: 18px;
   float: right;
 }
@@ -180,6 +180,48 @@ nav .user-greet .user-greet-msg {
   color: #e20665;
   margin: 0 10px;
 }
+
+.description-what-is {
+  background: #041187;
+}
+
+.description-what-is-title {
+  text-align: center;
+  font-size: 48px;
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.description-what-is-content {
+  padding-left: 350px;
+  padding-right: 350px;
+  padding-bottom: 80px;
+  font-size: 26px;
+  color: white;
+}
+
+.description-why-join-title {
+  text-align: center;
+  font-size: 48px;
+  color: #3D3D3D;
+  margin-top: 150px;
+  margin-bottom: 80px;
+}
+
+.description-why-join-content {
+  margin-left: 350px;
+  margin-right: 350px;
+  margin-bottom: 90px;
+  font-size: 26px;
+  color: #3D3D3D;
+}
+
+.title-bullet-points {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
 
 .video-holder {
   margin: 175px auto 50px;

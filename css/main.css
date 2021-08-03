@@ -204,7 +204,7 @@ nav .user-greet .user-greet-msg {
 .description-why-join-title {
   text-align: center;
   font-size: 48px;
-  color: #3D3D3D;
+  color: #3d3d3d;
   margin-top: 150px;
   margin-bottom: 80px;
 }
@@ -214,14 +214,13 @@ nav .user-greet .user-greet-msg {
   margin-right: 350px;
   margin-bottom: 90px;
   font-size: 26px;
-  color: #3D3D3D;
+  color: #3d3d3d;
 }
 
 .title-bullet-points {
   margin-top: 60px;
   margin-bottom: 60px;
 }
-
 
 .video-holder {
   margin: 175px auto 50px;

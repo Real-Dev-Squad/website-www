@@ -192,15 +192,11 @@ nav .user-greet .user-greet-msg {
   line-height: 130%;
   font-size: 2rem;
   color: white;
-  padding-top: 15%;
-  padding-bottom: 7%;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding: 60px 60px 28px;
 }
 
 .description-what-is-content {
-  padding: 0 10%;
-  padding-bottom: 8%;
+  padding: 0 40px 32px;
   font-weight: 400;
   color: white;
   line-height: 175%;
@@ -215,24 +211,19 @@ nav .user-greet .user-greet-msg {
   font-weight: 700;
   font-size: 2rem;
   color: #3d3d3d;
-  margin-top: 15%;
-  margin-bottom: 8%;
-  padding-left: 5%;
-  padding-right: 5%;
+  margin: 60px 20px 32px;
   line-height: 150%;
 }
 
 .description-why-join-content {
-  padding: 0 10%;
-  padding-bottom: 5%;
+  padding: 0px 40px 20px;
   font-weight: 400;
   color: #3d3d3d;
   line-height: 175%;
 }
 
 .title-bullet-points {
-  margin-top: 8%;
-  margin-bottom: 8%;
+  margin: 32px 0;
 }
 
 .video-holder {
@@ -468,30 +459,27 @@ footer {
 @media screen and (min-width: 500px) {
   .description-what-is-title {
     font-size: 2.8rem;
-    padding-top: 6%;
-    padding-bottom: 3%;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding: 90px 60px 45px;
   }
 
   .description-what-is-content {
     font-size: 1.25rem;
-    padding: 0 20%;
-    padding-bottom: 6%;
+    padding: 0px 300px 90px;
   }
 
   .description-why-join-title {
     font-size: 2.8rem;
-    margin-top: 10%;
+    margin-top: 150px;
+    margin-bottom: 100px;
   }
 
   .description-why-join-content {
     font-size: 1.25rem;
-    padding: 0 22%;
-    padding-bottom: 8%;
+    padding: 0px 330px 120px;
   }
 
   .title-bullet-points {
     font-size: 1.75rem;
+    margin: 40px 0;
   }
 }

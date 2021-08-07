@@ -28,8 +28,17 @@ const selectRandom = (memberImgArr, n) => {
   return result;
 };
 
+const numOfMembers = 5;
+let memberSection = document.getElementById('members');
+for (let i = 0; i < numOfMembers; i++) {
+  const memberTags = document.createElement('img');
+  memberTags.classList.add('member-img', 'member_animation');
+  memberTags.setAttribute('alt', 'member-img');
+  memberSection.appendChild(memberTags);
+}
+
 const displayMemberImgs = (memberImgArr) => {
-  const images = selectRandom(memberImgArr, 5);
+  const images = selectRandom(memberImgArr, numOfMembers);
   const memberImg = document.querySelectorAll('.member-img');
   let i = 0;
   for (const img of images) {

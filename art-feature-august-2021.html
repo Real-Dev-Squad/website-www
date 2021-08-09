@@ -1,0 +1,72 @@
+<!Doctype html>
+<html>
+
+  <head>
+    <title></title>
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+  </head>
+
+  <body>
+  
+    <h1 class="welcome-title">Your Art</h1>
+    
+    <div class="editor">
+      <div class="html-container">
+        <input type="text" placeholder="Thinking is the enemy of creativity." />
+        <textarea id="html-code"></textarea>
+      </div>
+      <div class="output-container">
+        <iframe id="output"></iframe>
+      </div>
+    </div>
+    
+    <div class="container">
+      <button class="button">Button</button>
+    </div>
+    
+    <script type="text/javascript">
+    
+      function removeTags(str) {
+        if ((str === null) || (str === ''))
+          return false;
+        
+        str = str.toString();
+
+        return str.replace(/(<([^>]+)>)/ig, '');
+      }
+
+
+      function run() {
+
+        const htmlCode = document
+                                                .querySelector("#html-code")
+                            .value;
+                
+        const sanitizedHtmlCode = `
+                              <div></div>
+                              <style>
+                                div {
+                                  ${removeTags(htmlCode)}
+                                }
+                              </style>`;
+
+        document
+          .getElementById("output")
+          .setAttribute("html-code", sanitizedHtmlCode);
+
+        const output = document.querySelector("#output");
+        output.contentDocument.body.innerHTML = sanitizedHtmlCode;
+
+      }
+
+      document
+        .querySelector("#html-code")
+        .addEventListener("keyup", run);
+
+    </script>
+
+  </body>
+
+</html>

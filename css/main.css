@@ -311,3 +311,66 @@ footer {
     font-size: 18px;
   }
 }
+
+/* for Art Feature */
+
+.welcome-title {
+  margin-top: 20px;
+  font-size: 2.75rem;
+  text-align: center;
+}
+.editor {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.html-container {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 30px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+#html-code {
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+}
+.output-container {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 30px;
+  height: 235px;
+}
+
+#output {
+  width: 200px;
+  height: 228px;
+}
+input {
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+.container{
+  text-align: center;
+}
+
+.button {
+    background: linear-gradient(90deg, #e30162 25%, #ed579c 90%);
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+    border: 1px solid #f3efef;
+    border-radius: 2px;
+    width: 20%;
+    padding: 18px 15px;
+    font-size: 1em;
+    }
+
+

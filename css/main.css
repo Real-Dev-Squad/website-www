@@ -9,8 +9,8 @@ body {
 }
 
 .content-wrapper {
-  margin: 0 25px;
   display: flex;
+  margin: 0 25px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -179,6 +179,51 @@ nav .user-greet .user-greet-msg {
 .social-media-links > span {
   color: #e20665;
   margin: 0 10px;
+}
+
+.description-what-is {
+  background: #041187;
+  margin: 0 -25px;
+}
+
+.description-what-is-title {
+  text-align: center;
+  font-weight: 700;
+  line-height: 130%;
+  font-size: 2rem;
+  color: white;
+  padding: 60px 60px 28px;
+}
+
+.description-what-is-content {
+  padding: 0 40px 32px;
+  font-weight: 400;
+  color: white;
+  line-height: 175%;
+}
+
+.description-why-join {
+  margin: 0 -25px;
+}
+
+.description-why-join-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #3d3d3d;
+  margin: 60px 20px 32px;
+  line-height: 150%;
+}
+
+.description-why-join-content {
+  padding: 0px 40px 20px;
+  font-weight: 400;
+  color: #3d3d3d;
+  line-height: 175%;
+}
+
+.title-bullet-points {
+  margin: 32px 0;
 }
 
 .video-holder {
@@ -375,7 +420,6 @@ footer {
   }
 
   .welcome-title {
-    margin-top: 20px;
     font-size: 2.75rem;
   }
 
@@ -409,5 +453,33 @@ footer {
     text-align: center;
     padding: 10px 20px;
     font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .description-what-is-title {
+    font-size: 2.8rem;
+    padding: 90px 60px 45px;
+  }
+
+  .description-what-is-content {
+    font-size: 1.25rem;
+    padding: 0px 300px 90px;
+  }
+
+  .description-why-join-title {
+    font-size: 2.8rem;
+    margin-top: 150px;
+    margin-bottom: 100px;
+  }
+
+  .description-why-join-content {
+    font-size: 1.25rem;
+    padding: 0px 330px 120px;
+  }
+
+  .title-bullet-points {
+    font-size: 1.75rem;
+    margin: 40px 0;
   }
 }

@@ -33,7 +33,7 @@ let memberSection = document.getElementById('members');
 for (let i = 0; i < numOfMembers; i++) {
   const memberTags = document.createElement('img');
   memberTags.classList.add('member-img', 'member_animation');
-  memberTags.setAttribute('alt', 'member-img');
+  memberTags.setAttribute('alt', 'Member Image');
   memberSection.appendChild(memberTags);
 }
 

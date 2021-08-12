@@ -21,8 +21,7 @@ const memberList = document.querySelectorAll('.member_animation');
 
 const handleIntersection = (entries) => {
   entries.forEach(({ isIntersecting }) => {
-    if (isIntersecting) addClassName();
-    else removeClassName();
+    isIntersecting ? addClassName() : removeClassName();
   });
 };
 

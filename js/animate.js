@@ -8,16 +8,26 @@ const randomNumberWithinRange = (min, max) => {
 };
 
 const fetchX = (n) => {
-  const deg = n * (72 * (Math.PI / 180));
+  const deg = n * ((360 / numOfMembers) * (Math.PI / 180));
   return (width / 5) * Math.cos(deg);
 };
 
 const fetchY = (n) => {
-  const deg = n * (72 * (Math.PI / 180));
+  const deg = n * ((360 / numOfMembers) * (Math.PI / 180));
   return 160 * Math.sin(deg);
 };
 
 const memberList = document.querySelectorAll('.member_animation');
+
+const handleIntersection = (entries) => {
+  entries.forEach(({ isIntersecting }) => {
+    isIntersecting ? addClassName() : removeClassName();
+  });
+};
+
+const userViewport = document.querySelector('#members');
+const observer = new IntersectionObserver(handleIntersection);
+observer.observe(userViewport);
 
 const addClassName = () => {
   let n = 0;
@@ -36,16 +46,14 @@ const removeClassName = () => {
 };
 
 memberList.forEach((member) => {
-  member.style.setProperty('--s', `${randomNumberWithinRange(0.9, 1.8)}`);
+  if (width > 500)
+    member.style.setProperty(
+      '--s',
+      `${randomNumberWithinRange(0.3, 0.7) * (width / (125 * numOfMembers))}`,
+    );
+  else
+    member.style.setProperty(
+      '--s',
+      `${randomNumberWithinRange(0.3, 0.7) * (width / (60 * numOfMembers))}`,
+    );
 });
-
-const handleIntersection = (entries) => {
-  entries.forEach(({ isIntersecting }) => {
-    if (isIntersecting) addClassName();
-    else removeClassName();
-  });
-};
-
-const userViewport = document.querySelector('#members');
-const observer = new IntersectionObserver(handleIntersection);
-observer.observe(userViewport);

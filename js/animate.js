@@ -57,3 +57,4 @@ memberList.forEach((member) => {
       `${randomNumberWithinRange(0.3, 0.7) * (width / (60 * numOfMembers))}`,
     );
 });
+

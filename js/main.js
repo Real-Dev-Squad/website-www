@@ -28,11 +28,25 @@ const selectRandom = (memberImgArr, n) => {
   return result;
 };
 
+const numOfMembers = 5;
+let memberSection = document.getElementById('members');
+for (let i = 0; i < numOfMembers; i++) {
+  const memberLinks = document.createElement('a');
+  memberLinks.classList.add('member-link');
+  const memberTags = document.createElement('img');
+  memberTags.classList.add('member-img', 'member_animation');
+  memberTags.setAttribute('alt', 'Member Image');
+  memberLinks.appendChild(memberTags);
+  memberSection.appendChild(memberLinks);
+}
+
 const displayMemberImgs = (memberImgArr) => {
-  const images = selectRandom(memberImgArr, 5);
+  const images = selectRandom(memberImgArr, numOfMembers);
+  const memberLink = document.querySelectorAll('.member-link');
   const memberImg = document.querySelectorAll('.member-img');
   let i = 0;
   for (const img of images) {
+    memberLink[i].href = img.member_url;
     memberImg[i++].src = img.img_url;
   }
   document.getElementById('shimmer').style.display = 'none';
@@ -41,6 +55,8 @@ const displayMemberImgs = (memberImgArr) => {
 
 const getImgURL = (rdsId) =>
   `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${rdsId}/img.png`;
+
+const getMemberURL = (rdsId) => `https://members.realdevsquad.com/${rdsId}`;
 
 const getMemberImgs = () => {
   const memberImgArray = [];
@@ -59,6 +75,7 @@ const getMemberImgs = () => {
           isMember,
           username,
           img_url: getImgURL(username),
+          member_url: getMemberURL(username),
         });
       }
       const memberImgArr = memberImgArray.filter((person) => person.isMember);

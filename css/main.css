@@ -359,9 +359,9 @@ footer {
 
 .skeleton-loader {
   position: absolute;
-  margin-top: 20px;
-  margin-right: 20px;
-  padding: 10px;
+  margin-top: 1.25rem;
+  margin-right: 1.25rem;
+  padding: 0.625rem;
   overflow: hidden;
   background: rgb(255, 255, 255);
   height: 120px;

@@ -338,6 +338,11 @@ footer {
   min-height: 26rem;
 }
 
+.member-imgs > a {
+  display: flex;
+  justify-content: center;
+}
+
 .member-img {
   width: 120px;
   height: 120px;

@@ -14,4 +14,6 @@ const creatingArtFromHtml = () => {
   sanitizeOutputCode.contentDocument.body.innerHTML = sanitizedHtmlCode;
 };
 
-document.querySelector('button').addEventListener('click', creatingArtFromHtml);
+document
+  .querySelector('html-code')
+  .addEventListener('keyup', creatingArtFromHtml);

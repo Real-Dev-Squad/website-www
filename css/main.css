@@ -540,14 +540,13 @@ input {
 }
 
 .button {
-  background: linear-gradient(90deg, #e30162 25%, #ed579c 90%);
-  cursor: pointer;
+  background-color: #db0979;
   color: white;
+  cursor: pointer;
   font-weight: bold;
   border: none;
   margin-top: 15px;
   border-radius: 5px;
-  width: 17%;
   padding: 15px 15px;
   font-size: 1rem;
 }

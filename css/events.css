@@ -9,12 +9,12 @@
 .dark-theme {
   --color-bg: #1c1b22;
   --color-text: #e1e1ec;
-  --color-bg-card: #312F3B;
+  --color-bg-card: #312f3b;
   --color-links: #0080ff;
   --color-events: #ff0090;
 }
 
-html, 
+html,
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -53,7 +53,8 @@ body {
   font-family: sans-serif;
 }
 
-.info-note, .info-repo {
+.info-note,
+.info-repo {
   color: var(--color-text);
 }
 

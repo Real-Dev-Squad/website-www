@@ -313,7 +313,7 @@ nav .user-greet .user-greet-msg {
 }
 
 .info-note {
-   color: var(--color-text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .info-note a {

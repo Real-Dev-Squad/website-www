@@ -1,9 +1,19 @@
+:root {
+  --color-nav: #1d1283;
+  --color-nav-text: #ffffff;
+}
+
+.dark-theme {
+  --color-nav: #191970;
+  --color-nav-text: #e1e1ec;
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #1d1283;
+  background-color: var(--color-nav);
 }
 
 nav li {
@@ -13,7 +23,7 @@ nav li {
 nav li a {
   display: block;
   border-radius: 0.5rem;
-  color: #ffffff;
+  color: var(--color-nav-text);
   font-weight: bolder;
   text-align: center;
   padding: 19px 16px;
@@ -24,6 +34,15 @@ nav li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+#icon {
+  border-radius: 0.5rem;
+  padding: 19px 16px;
+}
+
+#icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+ 
 .active {
   color: #87d870;
 }

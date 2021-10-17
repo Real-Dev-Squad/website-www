@@ -1,3 +1,9 @@
+nav {
+  width: 100%;
+  text-align: right;
+  height: 5.31rem;
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -6,22 +12,28 @@ nav ul {
   background-color: #1d1283;
 }
 
-nav li {
-  float: left;
+nav  li {
+  float: left;  
 }
 
 nav li a {
   display: block;
   border-radius: 0.5rem;
   color: #ffffff;
-  font-weight: bolder;
   text-align: center;
   padding: 19px 16px;
   text-decoration: none;
+  margin-top: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 
 nav li a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+    color: #88D870;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
 }
 
 .active {

@@ -1,3 +1,10 @@
+nav {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  height: 5.31rem;
+  font-size: 1.25rem;
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -11,17 +18,22 @@ nav li {
 }
 
 nav li a {
+  margin-left: 20px;
+  margin-top: 10px;
   display: block;
   border-radius: 0.5rem;
   color: #ffffff;
-  font-weight: bolder;
+  font-weight: 700;
   text-align: center;
   padding: 19px 16px;
   text-decoration: none;
 }
 
 nav li a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  color: #88d870;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
 }
 
 .active {

@@ -42,11 +42,14 @@ nav li a:hover {
 
 @media screen and (max-width: 600px) {
   ul {
-    height: 7.5em;
+    height: 11.5em;
   }
 
+  nav .btn-login {
+    margin-right: 100px;
+  }
   .main-banner {
-    margin-top: 80px;
+    margin-top: 150px;
   }
 
   .logo-img {

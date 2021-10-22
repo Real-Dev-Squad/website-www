@@ -1,7 +1,7 @@
 nav {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  height: 5.31rem;
+  height: 5.25rem;
   font-size: 1.25rem;
 }
 
@@ -31,11 +31,30 @@ nav li a {
 
 nav li a:hover {
   color: #88d870;
+}
+
+.active {
+  color: #87d870;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 10px;
 }
 
-.active {
-  color: #87d870;
+.btn{
+  background-color: #ff000026;
+  margin-right: 16px
+}
+
+@media screen and (max-width: 600px){
+  ul {
+    height: 7.5em;
+  }
+
+  .main-banner{
+    margin-top: 80px;
+  }
+
+  .logo-img{
+    margin-top: 80px;
+  }
 }

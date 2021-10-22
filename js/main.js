@@ -99,3 +99,6 @@ const fetchData = () => {
 
 window.addEventListener('DOMContentLoaded', fetchData);
 window.addEventListener('DOMContentLoaded', getMemberImgs);
+
+
+

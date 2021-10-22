@@ -40,21 +40,16 @@ nav li a:hover {
   text-underline-offset: 10px;
 }
 
-.btn{
-  background-color: #ff000026;
-  margin-right: 16px
-}
-
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
   ul {
     height: 7.5em;
   }
 
-  .main-banner{
+  .main-banner {
     margin-top: 80px;
   }
 
-  .logo-img{
+  .logo-img {
     margin-top: 80px;
   }
 }

@@ -45,6 +45,10 @@ nav li a:hover {
     height: 11.5em;
   }
 
+  .navbar-ul {
+    height: 9.5rem;
+  }
+
   nav .btn-login {
     margin-right: 100px;
   }

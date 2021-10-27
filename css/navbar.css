@@ -11,6 +11,7 @@ nav ul {
   padding: 0;
   overflow: hidden;
   background-color: #1d1283;
+  height: 5.25rem;
 }
 
 nav li {
@@ -41,12 +42,12 @@ nav li a:hover {
 }
 
 @media screen and (max-width: 600px) {
-  ul {
-    height: 11.5em;
-  }
-
   .navbar-ul {
     height: 9.5rem;
+  }
+
+  .main-navbar-ul {
+    height: 13.75rem;
   }
 
   nav .btn-login {

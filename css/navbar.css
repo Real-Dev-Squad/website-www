@@ -1,8 +1,6 @@
 nav {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
   height: 5.25rem;
-  font-size: 1.25rem;
+  font: 700 1.25rem 'Roboto', sans-serif
 }
 
 nav ul {

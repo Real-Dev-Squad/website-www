@@ -31,8 +31,7 @@ nav {
 }
 
 nav .btn-login {
-  margin-top: 25px;
-  margin-right: 30px;
+  margin: 25px 30px 0 0;
   font-size: 18px;
   float: right;
 }

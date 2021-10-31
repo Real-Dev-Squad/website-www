@@ -18,6 +18,7 @@ html,
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
+  transition: all 0.5s linear;
 }
 
 .welcome-title {
@@ -27,7 +28,7 @@ body {
 .logo-img {
   width: 150px;
   display: block;
-  margin: 10px auto;
+  padding: 10px 0;
 }
 
 .social-media-logo {
@@ -138,7 +139,6 @@ body {
 
 footer {
   margin-top: 100px;
-  margin-bottom: 75px;
 }
 
 .session-wrapper {

@@ -1,9 +1,15 @@
+nav {
+  height: 5.25rem;
+  font: 700 1.25rem 'Roboto', sans-serif;
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #1d1283;
+  height: 5.25rem;
 }
 
 nav li {
@@ -11,19 +17,44 @@ nav li {
 }
 
 nav li a {
+  margin: 10px 0 0 20px;
   display: block;
   border-radius: 0.5rem;
   color: #ffffff;
-  font-weight: bolder;
+  font-weight: 700;
   text-align: center;
   padding: 19px 16px;
   text-decoration: none;
 }
 
 nav li a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  color: #88d870;
 }
 
 .active {
   color: #87d870;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-ul {
+    height: 9.5rem;
+  }
+
+  .main-navbar-ul {
+    height: 13.75rem;
+  }
+
+  nav .btn-login {
+    margin-right: 100px;
+  }
+  .main-banner {
+    margin-top: 150px;
+  }
+
+  .logo-img {
+    margin-top: 80px;
+  }
 }

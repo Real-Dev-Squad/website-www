@@ -31,7 +31,7 @@ nav {
 }
 
 nav .btn-login {
-  margin-top: 15px;
+  margin: 25px 30px 0 0;
   font-size: 18px;
   float: right;
 }
@@ -40,8 +40,10 @@ nav .login-btn-text {
   font-size: 16px;
   border-radius: 6px;
   padding: 0.3rem;
-  background-color: white;
+  background-color: #041484;
+  color: white;
   cursor: pointer;
+  border: 2px solid white;
 }
 
 nav .logo {
@@ -216,7 +218,7 @@ nav .user-greet .user-greet-msg {
 }
 
 .description-why-join-content {
-  padding: 0px 40px 20px;
+  padding: 0px 30px 20px 10px;
   font-weight: 400;
   color: #3d3d3d;
   line-height: 175%;

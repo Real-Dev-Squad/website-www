@@ -1,3 +1,26 @@
+:root {
+  --color-bg: #fff;
+  --color-text: #000;
+  --color-bg-card: #fff;
+  --color-links: #1d1283;
+  --color-events: #e30162;
+}
+
+.dark-theme {
+  --color-bg: #1c1b22;
+  --color-text: #e1e1ec;
+  --color-bg-card: #312f3b;
+  --color-links: #0080ff;
+  --color-events: #ff0090;
+}
+
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: all 0.5s linear;
+}
+
 .welcome-title {
   margin-top: 50px;
 }
@@ -5,11 +28,12 @@
 .logo-img {
   width: 150px;
   display: block;
-  margin: 10px auto;
+  padding: 10px 0;
 }
 
 .social-media-logo {
   width: 30px;
+  height: 30px;
   margin: 0px 4px;
 }
 
@@ -28,6 +52,19 @@
   margin: 3px auto 3px;
   color: firebrick;
   font-family: sans-serif;
+}
+
+.info-note,
+.info-repo {
+  color: var(--color-text);
+}
+
+.info-repo a {
+  color: var(--color-links);
+}
+
+.info-repo a {
+  color: var(--color-links);
 }
 
 @media screen and (max-width: 640px) {
@@ -59,7 +96,7 @@
   border-radius: 10px;
   padding: 40px;
   display: block;
-  background: #fff;
+  background: var(--color-bg-card);
   box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.75);
 }
 
@@ -102,7 +139,6 @@
 
 footer {
   margin-top: 100px;
-  margin-bottom: 75px;
 }
 
 .session-wrapper {

@@ -54,7 +54,8 @@ nav .logo {
 nav .user-greet {
   display: none;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 20px 30px 0 0;
+  float: right;
 }
 
 nav .user-greet .user-profile-pic {
@@ -69,6 +70,7 @@ nav .user-greet .user-greet-msg {
   display: inline;
   vertical-align: middle;
   margin-right: 10px;
+  color: white;
 }
 
 .info-note {

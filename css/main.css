@@ -52,9 +52,8 @@ nav .logo {
 }
 
 nav .user-greet {
-  display: none;
   font-size: 20px;
-  margin-top: 20px 30px 0 0;
+  margin: 20px 30px 0 0;
   float: right;
 }
 

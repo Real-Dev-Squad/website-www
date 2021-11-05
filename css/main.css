@@ -53,7 +53,7 @@ nav .logo {
 
 nav .user-greet {
   font-size: 20px;
-  margin: 20px 30px 0 0;
+  margin: 20px 30px 0 0 !important;
   float: right;
 }
 

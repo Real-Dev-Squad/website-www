@@ -41,7 +41,7 @@
 
   <body>
     <nav>
-      <ul class="main-navbar-ul">
+      <ul>
         <li class="nav-logo-li">
           <a href="/">
             <img
@@ -51,30 +51,32 @@
             />
           </a>
         </li>
+        <li><a class="active" href="/">Home</a></li>
         <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
         <li><a href="./events.html">Events</a></li>
         <li><a href="https://members.realdevsquad.com/">Members</a></li>
         <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
         <li><a href="https://status.realdevsquad.com/">Status</a></li>
-        <nav>
-          <a
-            class="btn-login"
-            href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
-          >
-            <button class="login-btn-text">
-              Sign In With Github
-              <img class="logo" src="img/github.png" alt="Github Icon" />
-            </button>
-          </a>
-          <div class="user-greet">
-            <div class="user-greet-msg">Hello text</div>
-            <img class="user-profile-pic" />
-          </div>
-        </nav>
       </ul>
     </nav>
 
     <div class="content-wrapper">
+      <nav>
+        <a
+          class="btn-login"
+          href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+        >
+          <button class="login-btn-text">
+            Sign In With Github
+            <img class="logo" src="img/github.png" alt="Github Icon" />
+          </button>
+        </a>
+        <div class="user-greet">
+          <div class="user-greet-msg">Hello text</div>
+          <img class="user-profile-pic" />
+        </div>
+      </nav>
+
       <section class="main-banner">
         <section class="notif-banner">
           <p class="notif">
@@ -337,10 +339,6 @@
         </h2>
 
         <!-- <a class="next-event"> Stay tuned for upcoming events! </a> -->
-        <h3 class="past-events-header">Upcoming Features:</h3>
-        <div class="events-box">
-          <a href="./art-feature.html">Art Feature</a>
-        </div>
         <h3 class="past-events-header">Upcoming Events:</h3>
         <div class="events-box">
           <a href="./event-APIs-made-Easier-April-2021.html"

@@ -65,7 +65,7 @@ nav .login-btn-text {
   border-radius: 6px;
   padding: 0.3rem;
   color: white;
-  background-color: var(--color-text);
+  background: var(--color-what-is-title-bg);
   cursor: pointer;
   border: 2px solid white;
 }
@@ -205,7 +205,7 @@ nav .user-greet .user-greet-msg {
 }
 
 .social-media-links > span {
-  color: #e30162;
+  color: var(--color-events);
   margin: 0 10px;
 }
 

@@ -9,7 +9,6 @@
 }
 
 nav {
-  height: 5.25rem;
   font: 700 1.25rem 'Roboto', sans-serif;
 }
 
@@ -42,12 +41,9 @@ nav li a:hover {
 }
 
 #icon {
-  border-radius: 0.5rem;
   padding: 19px 16px;
-}
-
-#icon:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  margin: 10px 0 0 20px;
+  cursor: pointer;
 }
 
 .active {
@@ -70,7 +66,7 @@ nav li a:hover {
     margin-right: 100px;
   }
   .main-banner {
-    margin-top: 150px;
+    margin-top: 50px;
   }
 
   .logo-img {

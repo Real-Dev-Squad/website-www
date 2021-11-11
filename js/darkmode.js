@@ -1,5 +1,5 @@
-onload = onload();
 const icon = document.getElementById('icon');
+onload = onload();
 icon.onclick = function () {
   const element = document.body;
   element.classList.toggle('dark-theme');
@@ -13,33 +13,30 @@ icon.onclick = function () {
 };
 
 function onload() {
-  const themeIcon = document.getElementById('icon');
   if (getCookie('theme') === 'light') {
     document.body.classList.remove('dark-theme');
-    themeIcon.src = 'img/moon.png';
-  } else if (getCookie('theme') === 'dark') {
+    icon.src = 'img/moon.png';
+  } else {
     document.body.classList.add('dark-theme');
-    themeIcon.src = 'img/sun.png';
+    icon.src = 'img/sun.png';
   }
 }
 
-function setCookie(name, value, days) {
-  var expires = '';
-  if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = '; expires=' + date.toUTCString();
-  }
-  document.cookie = name + '=' + (value || '') + expires + '; path=/';
+function setCookie(name, value, days = 30) {
+  const domain = '.realdevsquad.com';
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  const expires = '; expires=' + date.toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; domain=${domain}; path=/`;
 }
 
 function getCookie(name) {
-  var nameEQ = name + '=';
-  var ca = document.cookie.split(';');
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
+  const cookieName = name + '=';
+  const splitCookie = document.cookie.split(';');
+  for (let i = 0; i < splitCookie.length; i++) {
+    var c = splitCookie[i];
     while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    if (c.indexOf(cookieName) == 0) return c.substring(cookieName.length, c.length);
   }
   return null;
 }

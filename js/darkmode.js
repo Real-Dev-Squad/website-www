@@ -36,7 +36,8 @@ function getCookie(name) {
   for (let i = 0; i < splitCookie.length; i++) {
     var c = splitCookie[i];
     while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-    if (c.indexOf(cookieName) == 0) return c.substring(cookieName.length, c.length);
+    if (c.indexOf(cookieName) == 0)
+      return c.substring(cookieName.length, c.length);
   }
   return null;
 }

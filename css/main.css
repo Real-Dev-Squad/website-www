@@ -228,6 +228,7 @@ nav .user-greet .user-greet-msg {
   font-weight: 400;
   color: var(--color-text);
   line-height: 175%;
+  text-align: justify;
 }
 
 .description-why-join {
@@ -244,14 +245,16 @@ nav .user-greet .user-greet-msg {
 }
 
 .description-why-join-content {
-  padding: 0px 30px 20px 10px;
+  padding: 0px 40px 20px 0px;
   font-weight: 400;
   color: var(--color-why-description-text);
   line-height: 175%;
+  text-align: justify;
 }
 
 .title-bullet-points {
-  margin: 32px 0;
+  margin: 30px 2px;
+  text-align: left;
 }
 
 .video-holder {
@@ -485,7 +488,7 @@ footer {
   padding: 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   .cta-button__container {
     text-align: center;
   }
@@ -506,7 +509,7 @@ footer {
 
   .description-what-is-content {
     font-size: 1.25rem;
-    padding: 0px 300px 90px;
+    padding: 0px 65px 70px;
   }
 
   .description-why-join-title {
@@ -517,11 +520,21 @@ footer {
 
   .description-why-join-content {
     font-size: 1.25rem;
-    padding: 0px 330px 120px;
+    padding: 0px 65px 60px 30px;
   }
 
   .title-bullet-points {
     font-size: 1.75rem;
-    margin: 40px 0;
+    margin: 40px 2px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .description-what-is-content {
+    padding: 0px 250px 90px;
+  }
+
+  .description-why-join-content {
+    padding: 0px 250px 80px 210px;
   }
 }

@@ -51,8 +51,7 @@ nav li a:hover {
 }
 
 .btn-login-text {
-  font-family: sans-serif;
-  font-size: 14px;
+  font: 14px, sans-serif;
   border-radius: 6px;
   padding: 5px;
   background-color: #1d1283;

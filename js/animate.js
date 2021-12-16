@@ -1,3 +1,4 @@
+const numOfMembers = 5;
 const width =
   window.innerWidth ||
   document.documentElement.clientWidth ||

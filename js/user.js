@@ -39,3 +39,5 @@ const fetchData = () => {
 };
 
 window.addEventListener('DOMContentLoaded', fetchData);
+
+export { fetchData };

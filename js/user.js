@@ -1,7 +1,6 @@
 const setUserGreeting = (username, firstName) => {
   if (username) {
     const userLoginEl = document.querySelectorAll('.btn-login');
-    console.log(userLoginEl);
 
     const greetingEl = document.querySelectorAll('.user-greet');
     const msgGreetMsgEl = document.querySelectorAll('.user-greet-msg');

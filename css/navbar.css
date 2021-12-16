@@ -51,7 +51,6 @@ nav li a:hover {
 }
 
 .btn-login-text {
-  font: 14px, sans-serif;
   border-radius: 6px;
   padding: 5px;
   background-color: #1d1283;
@@ -67,8 +66,8 @@ nav li a:hover {
 }
 
 .user-profile-pic {
-  width: 2em;
-  height: 2em;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: inline;
   vertical-align: middle;

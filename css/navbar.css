@@ -1,60 +1,162 @@
 nav {
-  height: 5.25rem;
-  font: 700 1.25rem 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #1d1283;
-  height: 5.25rem;
+nav li a {
+  margin: 10px;
+  display: block;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  text-align: center;
+  padding: 19px 16px;
+  text-decoration: none;
 }
 
 nav li {
   float: left;
 }
 
-nav li a {
-  margin: 10px 0 0 20px;
-  display: block;
-  border-radius: 0.5rem;
-  color: #ffffff;
-  font-weight: 700;
-  text-align: center;
-  padding: 19px 16px;
-  text-decoration: none;
-}
-
 nav li a:hover {
-  color: #88d870;
+  color: #49a82e;
 }
 
-.active {
-  color: #87d870;
+.nav-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1d1283;
+}
+
+.nav-logo-li {
+  padding: 14px 20px;
+}
+
+.nav-logo-li a {
+  margin: 0px;
+  padding: 0px;
+}
+
+.nav-login-li {
+  float: right;
+}
+
+.nav-login-li a {
+  padding: 16px;
+}
+
+.nav-login,
+.home-tab {
+  display: none;
+}
+
+.btn-login-text {
+  border-radius: 6px;
+  padding: 5px;
+  background-color: #1d1283;
+  color: white;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.user-greet {
+  display: none;
+  color: #ffffff;
+  margin: 25px;
+}
+
+.user-profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline;
+  vertical-align: middle;
+}
+
+.user-greet-msg {
+  display: inline;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.active-tab {
+  color: #49a82e;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 10px;
 }
 
-@media screen and (max-width: 600px) {
-  .navbar-ul {
-    height: 9.5rem;
+.hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 970px) {
+  nav {
+    background: #1d1283;
   }
 
-  .main-navbar-ul {
-    height: 13.75rem;
+  .hamburger {
+    margin: 20px;
+    display: inline-block;
+    cursor: pointer;
   }
 
-  nav .btn-login {
-    margin-right: 100px;
-  }
-  .main-banner {
-    margin-top: 150px;
+  .nav-menu {
+    background: white;
+    display: none;
+    width: 100%;
+    padding: 10px 0px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
   }
 
+  .nav-menu.active,
+  .home-tab {
+    display: block;
+  }
+
+  nav li a {
+    padding: 10px 40px;
+    text-align: left;
+    color: #1d1283;
+    text-decoration: none;
+    display: block;
+  }
+
+  .nav-login {
+    display: block;
+    margin: 20px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+  }
+
+  .nav-login-li,
+  .nav-logo-li {
+    display: none;
+  }
+
+  .active-tab {
+    text-decoration: none;
+  }
+
+  nav li {
+    float: none;
+  }
+
+  .main-banner,
   .logo-img {
-    margin-top: 80px;
+    margin-top: 40px;
+  }
+
+  .user-greet {
+    margin: 0px;
   }
 }

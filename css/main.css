@@ -17,58 +17,8 @@ body {
   position: relative;
 }
 
-nav {
-  width: 100%;
-  text-align: right;
-}
-
-.nav-logo-li > a {
-  padding: 7px;
-}
-
 .content-wrapper main {
   max-width: 100%;
-}
-
-nav .btn-login {
-  margin: 25px 30px 0 0;
-  font-size: 18px;
-  float: right;
-}
-
-nav .login-btn-text {
-  font-size: 16px;
-  border-radius: 6px;
-  padding: 0.3rem;
-  background-color: #041484;
-  color: white;
-  cursor: pointer;
-  border: 2px solid white;
-}
-
-nav .logo {
-  width: 15px;
-  height: 15px;
-}
-
-nav .user-greet {
-  display: none;
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-nav .user-greet .user-profile-pic {
-  width: 2em;
-  height: 2em;
-  border-radius: 50%;
-  display: inline;
-  vertical-align: middle;
-}
-nav .user-greet .user-greet-msg {
-  font-size: 1em;
-  display: inline;
-  vertical-align: middle;
-  margin-right: 10px;
 }
 
 .info-note {

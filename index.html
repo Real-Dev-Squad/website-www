@@ -41,36 +41,68 @@
 
   <body>
     <nav>
-      <ul class="main-navbar-ul">
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="nav-login">
+        <a
+          class="btn-login"
+          href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+        >
+          <button class="btn-login-text">
+            Sign In
+            <img
+              src="img/github.png"
+              alt="GitHub Icon"
+              height="15px"
+              width="15px"
+            />
+          </button>
+        </a>
+        <div class="user-greet">
+          <div class="user-greet-msg">Hello, User!</div>
+          <img class="user-profile-pic" />
+        </div>
+      </div>
+      <ul class="nav-menu">
         <li class="nav-logo-li">
-          <a href="/">
+          <a href="#">
             <img
               src="img/Real-Dev-Squad@1x.png"
               alt="home nav logo"
-              width="42"
+              height="50px"
+              width="50px"
             />
           </a>
         </li>
+        <li class="home-tab"><a href="http://realdevsquad.com/">Home</a></li>
         <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
         <li><a href="./events.html">Events</a></li>
         <li><a href="https://members.realdevsquad.com/">Members</a></li>
         <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
         <li><a href="https://status.realdevsquad.com/">Status</a></li>
-        <nav>
+        <li class="nav-login-li">
           <a
             class="btn-login"
             href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
           >
-            <button class="login-btn-text">
-              Sign In With Github
-              <img class="logo" src="img/github.png" alt="Github Icon" />
+            <button class="btn-login-text">
+              Sign In With GitHub
+              <img
+                src="img/github.png"
+                alt="GitHub Icon"
+                height="15px"
+                width="15px"
+              />
             </button>
           </a>
           <div class="user-greet">
-            <div class="user-greet-msg">Hello text</div>
+            <div class="user-greet-msg">Hello, User!</div>
             <img class="user-profile-pic" />
           </div>
-        </nav>
+        </li>
       </ul>
     </nav>
 
@@ -390,7 +422,8 @@
         </p>
       </footer>
     </div>
-    <script src="js/main.js"></script>
-    <script src="js/animate.js"></script>
+    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/animate.js"></script>
+    <script src="js/navbar.js"></script>
   </body>
 </html>

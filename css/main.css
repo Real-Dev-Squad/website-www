@@ -5,7 +5,8 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 16px; /* for rem */
+  font-size: 16px;
+  /* for rem */
 }
 
 .content-wrapper {
@@ -19,6 +20,10 @@ body {
 
 .content-wrapper main {
   max-width: 100%;
+}
+
+.wrapper {
+  margin: 25px;
 }
 
 .info-note {
@@ -393,6 +398,7 @@ footer {
   .events-box > * {
     width: auto;
   }
+
   .events-box span {
     display: inline-block;
   }
@@ -406,6 +412,7 @@ footer {
   .cta-button__container {
     text-align: center;
   }
+
   .cta-button {
     max-width: 196px;
     display: inline-block;

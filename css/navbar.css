@@ -65,6 +65,10 @@ nav li a:hover {
   margin: 25px;
 }
 
+.user-greet a {
+  padding: 0;
+}
+
 .user-profile-pic {
   width: 32px;
   height: 32px;

@@ -50,7 +50,7 @@ nav li a:hover {
   display: none;
 }
 
-.btn-login-text { 
+.btn-login-text {
   border-radius: 6px;
   padding: 5px;
   background-color: #1d1283;
@@ -68,11 +68,7 @@ nav li a:hover {
 .user-greet a {
   text-decoration: none;
   color: #fff;
-}
-
-.user-greet a:hover {
-  color: #49a82e;
-  cursor: pointer;
+  padding: 0;
 }
 
 .user-profile-pic {

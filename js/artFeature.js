@@ -15,5 +15,5 @@ const creatingArtFromHtml = () => {
 };
 
 document
-  .querySelector('html-code')
+  .querySelector('#html-code')
   .addEventListener('keyup', creatingArtFromHtml);

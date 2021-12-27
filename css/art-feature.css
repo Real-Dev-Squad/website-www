@@ -8,6 +8,11 @@ body {
   text-align: center;
 }
 
+.under-development {
+  color: red;
+  text-align: center;
+}
+
 .editor {
   margin-top: 70px;
   display: flex;

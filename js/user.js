@@ -37,7 +37,8 @@ const fetchData = () => {
       setUserGreeting(res.username, res.first_name);
     });
 };
+fetchData();
 
-window.addEventListener('DOMContentLoaded', fetchData);
+// window.addEventListener('DOMContentLoaded', fetchData);
 
 export { fetchData };

@@ -79,7 +79,7 @@ Perform the tasks you wanted to, can be anything, ranging from fixing simple typ
 
 7. **Run Scripts**
 
-Don't forget to run `npm run check` and `npm run fix` to fix the formatting issues in the files.
+Don't forget to run `npm run check` and `npm run fix` to fix the formatting issues in the files otherwise you will end up with failing tests and have to do it later after raising your PR.
 
 8. **Committing your changes**
 

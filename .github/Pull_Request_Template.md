@@ -26,6 +26,7 @@ Image/Video
 
 **Note :**
 What to delete and what not to
+
 - Keep the headings and answer the questions.
 - Delete the examples
 - Delete the description below headings `What is the change?` & `Before/After Screenshots`

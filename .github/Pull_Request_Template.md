@@ -4,10 +4,6 @@
 
 ### What is the change?
 
-Provide a small description in points of what did you change
-
-##### Example :
-
 - Done this
 - Made these changes
 
@@ -27,3 +23,9 @@ Image/Video
 
 After :
 Image/Video
+
+**Note :**
+What to delete and what not to
+- Keep the headings and answer the questions.
+- Delete the examples
+- Delete the description below headings `What is the change?` & `Before/After Screenshots`

@@ -24,21 +24,18 @@ const setUserGreeting = (username, firstName) => {
   }
 };
 
-const fetchData = () => {
-  fetch('https://api.realdevsquad.com/users/self', {
+async function fetchData() {
+  const res = await fetch('https://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.incompleteUserDetails) {
-        return window.location.replace('https://my.realdevsquad.com/signup');
-      }
-      setUserGreeting(res.username, res.first_name);
-    });
-};
-fetchData();
+  });
+  const json = await res.json();
+  if (json.incompleteUserDetails) {
+    return window.location.replace('https://my.realdevsquad.com/signup');
+  }
+  setUserGreeting(json.username, json.first_name);
+}
 
-// window.addEventListener('DOMContentLoaded', fetchData);
+fetchData();
 
 export { fetchData };

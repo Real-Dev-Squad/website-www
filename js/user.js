@@ -24,7 +24,7 @@ const setUserGreeting = (username, firstName) => {
   }
 };
 
-async function fetchData() {
+const fetchData = async () => {
   const res = await fetch('https://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
@@ -34,8 +34,8 @@ async function fetchData() {
     return window.location.replace('https://my.realdevsquad.com/signup');
   }
   setUserGreeting(json.username, json.first_name);
-}
+};
 
-fetchData();
+window.addEventListener('DOMContentLoaded', fetchData);
 
 export { fetchData };

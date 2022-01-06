@@ -77,7 +77,11 @@ git checkout -b feature/login-form
 
 Perform the tasks you wanted to, can be anything, ranging from fixing simple typo to re-designing the whole page!
 
-7. **Committing your changes**
+7. **Run Scripts**
+
+Don't forget to run `npm run check` and `npm run fix` to fix the formatting issues in the files otherwise you will end up with failing tests and have to do it later after raising your PR.
+
+8. **Committing your changes**
 
 Now you have made the changes, though they are saved in your system, Git doesn't know what changes you've done. So you have to **commit** your changes. First step is to add the files which you want to add to the staging area, the dot after **add** in the first command tells Git to check for changes in all the files. The second step is about committing your changes. The message part is short description of your commit, like "adds a login form on homepage". Please make sure NOT to have commit messages like "fix issue#34". When we look at the commit history, we should understand what a particular commit is supposed to do based on the commit message.
 
@@ -86,7 +90,7 @@ git add .
 git commit -m "Write message about your commit"
 ```
 
-8. **Making sure you have the latest changes from the develop branch**
+9. **Making sure you have the latest changes from the develop branch**
 
 It may so happen that since the last time you cloned the repo/took a pull from develop, some changes may be merged in the develop branch. So to be on the safer side, we should have those changes as well.
 
@@ -116,7 +120,7 @@ git rebase develop
 
 You should solve the merge conflicts, if any.
 
-9. **Pushing the code**
+10. **Pushing the code**
 
 Now that we have made our changes plus we have the latest changes made by other contributors, we should push our code from **local** branch to the same branch on our **GitHub fork**. We do so by:
 
@@ -128,7 +132,7 @@ For example, if the branch name is `feat/login-form`, we enter `git push origin 
 
 The **origin** refers to your GitHub fork. You can check it by entering `git remote -v`, you should the link to your fork against **origin**.
 
-10. **Making a pull request**
+11. **Making a pull request**
 
 Your GitHub fork now has the changes, but you want those changes to be merged in the Real Dev Squad repository, right? There's a twist, you can't directly merge your code in the Real Dev Squad. Imagine you own a company whose code is open sourced, would you like if anyone could code make changes in the directly without asking you? For the same reason, **Pull Requests** exist. You `request` the repository maintainers/admins to `pull` your code in their repository.
 
@@ -153,6 +157,6 @@ Otherwise make sure that the below points are chekced! ⬇
 
 All the above points make the PRs and issues easier to maintain, so make sure each one of them is checked! ✅✅
 
-Now the maintainers/admins will review your pull request. They might suggest some changes if required. You should then make the required changes in the **same branch**, commit them and push your changes to the **same branch** (follow the steps 7, 8 and 9 for the same).
+Now the maintainers/admins will review your pull request. They might suggest some changes if required. You should then make the required changes in the **same branch**, commit them and push your changes to the **same branch** (follow the steps 8, 9 and 10 for the same).
 
 12. **Congratulations on your first Pull Request in Real Dev Squad! 🎉**

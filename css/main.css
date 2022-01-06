@@ -234,7 +234,7 @@ body {
 
 .events-box > * {
   margin: 0 10px;
-  padding: 5px;
+  padding: 8px;
   text-align: center;
   width: 100%;
   color: #e20665;
@@ -247,6 +247,7 @@ body {
 
 .events-box a:hover {
   background: #f5c4f1;
+  border-radius: 20px;
 }
 
 .events-box span {

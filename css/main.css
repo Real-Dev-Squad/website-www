@@ -103,10 +103,18 @@ body {
   font-weight: 700;
 }
 
+.img-container {
+  min-width: 200px;
+  min-height: 200px;
+}
+
 .logo-img {
   width: 200px;
+  height: 200px;
   display: block;
   margin: 20px auto;
+  overflow-anchor: none;
+  z-index: 1;
 }
 
 .social-media-links {
@@ -396,6 +404,9 @@ footer {
 
   .logo-img {
     width: 400px;
+    height: 400px;
+    overflow-anchor: none;
+    z-index: 1;
   }
 
   .cta-button {

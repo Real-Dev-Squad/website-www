@@ -109,7 +109,6 @@ body {
   display: block;
   margin: 20px auto;
   overflow-anchor: none;
-  z-index: 1;
 }
 
 .social-media-links {
@@ -401,7 +400,6 @@ footer {
     width: 400px;
     height: 400px;
     overflow-anchor: none;
-    z-index: 1;
   }
 
   .cta-button {

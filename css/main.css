@@ -105,6 +105,7 @@ body {
 
 .logo-img {
   width: 200px;
+  height: 200px;
   display: block;
   margin: 20px auto;
 }
@@ -396,6 +397,7 @@ footer {
 
   .logo-img {
     width: 400px;
+    height: 400px;
   }
 
   .cta-button {

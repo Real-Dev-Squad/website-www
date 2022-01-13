@@ -21,6 +21,7 @@ body {
   border-radius: 50%;
   outline: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 
 #scroll-to-top-btn:active{

@@ -9,7 +9,7 @@ body {
   /* for rem */
 }
 
-#scroll-to-top-btn{
+#scroll-to-top-btn {
   position: fixed;
   z-index: 100;
   bottom: 10px;
@@ -24,7 +24,7 @@ body {
   cursor: pointer;
 }
 
-#scroll-to-top-btn:active{
+#scroll-to-top-btn:active {
   background: hsl(334, 100%, 31%);
 }
 

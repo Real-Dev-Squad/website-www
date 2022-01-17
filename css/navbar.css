@@ -50,13 +50,18 @@ nav li a:hover {
   display: none;
 }
 
-.btn-login-text {
+.btn-login-text{
   border-radius: 6px;
   padding: 5px;
   background-color: #1d1283;
   color: white;
   cursor: pointer;
   border: 2px solid white;
+  display: flex;
+}
+
+.btn-login-text img{
+  padding-left: 0.3rem;
 }
 
 .user-greet {

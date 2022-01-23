@@ -1,5 +1,9 @@
 const scrollToTopBtn = document.querySelector('#scroll-to-top-btn');
 
+window.onscroll = function () {
+  scrollFunction();
+};
+
 scrollToTopBtn.addEventListener('click', function () {
   scrollTo({
     top: 0,
@@ -7,3 +11,11 @@ scrollToTopBtn.addEventListener('click', function () {
     behavior: 'smooth',
   });
 });
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    scrollToTopBtn.style.bottom = '20px';
+  } else {
+    scrollToTopBtn.style.bottom = '-100px';
+  }
+}

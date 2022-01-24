@@ -1,7 +1,11 @@
 const scrollToTopBtn = document.querySelector('#scroll-to-top-btn');
 
-window.onscroll = function () {
-  scrollFunction();
+window.onscroll = () => {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    scrollToTopBtn.style.bottom = '20px';
+  } else {
+    scrollToTopBtn.style.bottom = '-100px';
+  }
 };
 
 scrollToTopBtn.addEventListener('click', function () {
@@ -11,11 +15,3 @@ scrollToTopBtn.addEventListener('click', function () {
     behavior: 'smooth',
   });
 });
-
-function scrollFunction() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    scrollToTopBtn.style.bottom = '20px';
-  } else {
-    scrollToTopBtn.style.bottom = '-100px';
-  }
-}

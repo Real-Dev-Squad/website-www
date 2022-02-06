@@ -529,8 +529,8 @@ footer {
 
 .cta-form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 2.4rem;
+  grid-template-columns: 60% 30%;
+  column-gap: 3.6rem;
   row-gap: 1.2rem;
 }
 
@@ -542,7 +542,7 @@ footer {
 }
 
 .cta-form input {
-  width: auto;
+  width: 100%;
   padding: 1.2rem;
   font-size: 1.2rem;
   font-family: inherit;
@@ -580,13 +580,20 @@ footer {
 
 /* MEDIA QUERIES */
 
+@media (max-width: 79em) {
+  .cta-form input {
+    width: 75%;
+  }
+}
+
 @media (max-width: 60em) {
   .section-cta {
     padding: 0.8rem 1.4rem;
   }
 
   .cta-form {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;
+    column-gap: 1.8rem;
   }
 }
 
@@ -597,5 +604,9 @@ footer {
 
   .cta-form {
     grid-template-columns: 1fr;
+  }
+
+  .cta-form input {
+    width: 83%;
   }
 }

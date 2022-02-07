@@ -554,9 +554,7 @@ footer {
   outline: 3px solid #db09795d;
 }
 
-.btn-cta,
-.btn-cta:link,
-.btn-cta:visited {
+.btn-cta {
   display: inline-block;
   font-size: 1.2rem;
   font-weight: 600;

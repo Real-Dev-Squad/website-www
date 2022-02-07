@@ -6,12 +6,31 @@
     <link rel="stylesheet" href="./css/art-feature.css" />
   </head>
   <body>
-    <h1 class="welcome-title">Your Art</h1>
+    <div id="title-container">
+      <h1 class="welcome-title">Your Art</h1>
+      <button id="instruction-button">Instructions</button>
+    </div>
     <h4 class="under-development">-- Feature under Development --</h4>
+
+    <div id="instruction-modal">
+      <div class="instruction-content">
+        <span class="close">&times;</span>
+        <h1>Instructions</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
 
     <div class="editor">
       <div class="html-container">
-        <input type="text" placeholder="Thinking is the enemy of creativity." />
+        <input type="text" placeholder="Enter your art title" />
         <textarea id="html-code"></textarea>
       </div>
       <div class="output-container">

@@ -1,3 +1,4 @@
+import { doesGitHubCookieExist, updateGitHubLink } from '/js/github.js';
 import { fetchData } from '/js/user.js';
 
 const selectRandom = (memberImgArr, n) => {
@@ -67,5 +68,10 @@ const getMemberImgs = () => {
     });
 };
 
-window.addEventListener('DOMContentLoaded', fetchData);
+if (doesGitHubCookieExist()) {
+  window.addEventListener('DOMContentLoaded', fetchData);
+} else {
+  window.addEventListener('DOMContentLoaded', updateGitHubLink);
+}
+
 window.addEventListener('DOMContentLoaded', getMemberImgs);

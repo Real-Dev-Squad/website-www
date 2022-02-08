@@ -1,4 +1,9 @@
+import { doesGitHubCookieExist } from '/js/github.js';
 const setUserGreeting = (username, firstName) => {
+  if (!doesGitHubCookieExist()) {
+    return;
+  }
+
   if (username) {
     const userLoginEl = document.querySelectorAll('.btn-login');
 
@@ -34,10 +39,10 @@ const fetchData = () => {
       if (res.incompleteUserDetails) {
         return window.location.replace('https://my.realdevsquad.com/signup');
       }
-      setUserGreeting(res.username, res.first_name);
+      setUserGreeting(res.username, res.first_name); // BAD
     });
 };
 
-window.addEventListener('DOMContentLoaded', fetchData);
+window.addEventListener('DOMContentLoaded', fetchData); //BAD, Also in index.js
 
 export { fetchData };

@@ -10,9 +10,10 @@ const doesGitHubCookieExist = () => {
 };
 
 const updateGitHubLink = () => {
-  document
-    .querySelector('.btn-login')
-    .setAttribute('href', 'https://github.realdevsquad.com');
+  const allLoginBtns = document.querySelectorAll('.btn-login');
+  allLoginBtns.forEach((btn) => {
+    btn.setAttribute('href', 'https://github.realdevsquad.com');
+  });
 };
 
 export { doesGitHubCookieExist, updateGitHubLink };

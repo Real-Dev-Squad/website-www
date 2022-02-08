@@ -1,4 +1,4 @@
-import { doesGitHubCookieExist } from '/js/github.js';
+import { doesGitHubCookieExist, updateGitHubLink } from '/js/github.js';
 import { fetchData } from '/js/user.js';
 
 const selectRandom = (memberImgArr, n) => {
@@ -71,9 +71,7 @@ const getMemberImgs = () => {
 if (doesGitHubCookieExist()) {
   window.addEventListener('DOMContentLoaded', fetchData);
 } else {
-  document
-    .querySelector('.btn-login')
-    .setAttribute('href', 'https://github.realdevsquad.com');
+  window.addEventListener('DOMContentLoaded', updateGitHubLink);
 }
 
 window.addEventListener('DOMContentLoaded', getMemberImgs);

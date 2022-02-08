@@ -9,4 +9,10 @@ const doesGitHubCookieExist = () => {
   return !!githubCookieStr;
 };
 
-export { doesGitHubCookieExist };
+const updateGitHubLink = () => {
+  document
+    .querySelector('.btn-login')
+    .setAttribute('href', 'https://github.realdevsquad.com');
+};
+
+export { doesGitHubCookieExist, updateGitHubLink };

@@ -494,11 +494,11 @@ footer {
 /***********************/
 
 .section-cta {
-  padding: 4.8rem 15.4rem;
+  padding: 40px 250px;
 }
 
 .cta {
-  display: grid;
+  display: flex;
   border-radius: 9px;
   align-items: center;
   justify-content: center;
@@ -565,8 +565,6 @@ footer {
   cursor: pointer;
   font-family: inherit;
   text-decoration: none;
-  align-items: center;
-  justify-items: center;
   align-self: end;
 
   color: #fff;

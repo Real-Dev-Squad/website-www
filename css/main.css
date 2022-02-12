@@ -7,6 +7,7 @@ body {
   padding: 0;
   font-size: 16px;
   /* for rem */
+  overflow-x: hidden;
 }
 
 #scroll-to-top-btn {
@@ -164,12 +165,12 @@ body {
   margin: 0 10px;
 }
 
-.description-what-is {
+.section-description {
   background: #041187;
   margin: 0 -25px;
 }
 
-.description-what-is-title {
+.description-title {
   text-align: center;
   font-weight: 700;
   line-height: 130%;
@@ -178,7 +179,7 @@ body {
   padding: 60px 60px 28px;
 }
 
-.description-what-is-content {
+.description-content {
   padding: 0 40px 32px;
   font-weight: 400;
   color: white;
@@ -186,11 +187,11 @@ body {
   text-align: justify;
 }
 
-.description-why-join {
+.section-features {
   margin: 0 -25px;
 }
 
-.description-why-join-title {
+.features-title {
   text-align: center;
   font-weight: 700;
   font-size: 2rem;
@@ -199,7 +200,7 @@ body {
   line-height: 150%;
 }
 
-.description-why-join-content {
+.features-content {
   padding: 0px 40px 20px 0px;
   font-weight: 400;
   color: #3d3d3d;
@@ -452,23 +453,23 @@ footer {
 }
 
 @media screen and (min-width: 1100px) {
-  .description-what-is-title {
+  .description-title {
     font-size: 2.8rem;
     padding: 90px 60px 45px;
   }
 
-  .description-what-is-content {
+  .description-content {
     font-size: 1.25rem;
     padding: 0px 65px 70px;
   }
 
-  .description-why-join-title {
+  .features-title {
     font-size: 2.8rem;
     margin-top: 150px;
     margin-bottom: 100px;
   }
 
-  .description-why-join-content {
+  .features-content {
     font-size: 1.25rem;
     padding: 0px 65px 60px 30px;
   }
@@ -480,11 +481,132 @@ footer {
 }
 
 @media screen and (min-width: 1024px) {
-  .description-what-is-content {
+  .description-content {
     padding: 0px 250px 90px;
   }
 
-  .description-why-join-content {
+  .features-content {
     padding: 0px 250px 80px 210px;
+  }
+}
+
+/***********************/
+/* EMAIL CAPTURE FORM */
+/***********************/
+
+.section-cta {
+  padding: 40px 250px;
+}
+
+.cta {
+  display: flex;
+  border-radius: 9px;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.1);
+}
+
+.cta-text-box {
+  padding: 3.6rem 4.8rem 4.8rem;
+  color: #041484;
+}
+
+.cta .heading-secondary {
+  font-size: 2.4rem;
+  margin-bottom: 1.8rem;
+  color: inherit;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2.4rem;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  column-gap: 3.6rem;
+  row-gap: 1.2rem;
+}
+
+.cta-form label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form input {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 9px;
+
+  color: #777;
+  background-color: #edf2ff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-form input:focus {
+  outline: 3px solid #db09795d;
+}
+
+.btn-cta {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1.2rem 2.15rem;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  align-self: end;
+
+  color: #fff;
+  background-color: #041484;
+  transition: all 0.3s;
+}
+
+.btn-cta:hover,
+.btn-cta:active {
+  background-color: #e20665;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 79em) {
+  .cta-form input {
+    width: 75%;
+  }
+}
+
+@media (max-width: 60em) {
+  .section-cta {
+    padding: 0.8rem 1.4rem;
+  }
+
+  .cta-form {
+    grid-template-columns: 60% 40%;
+    column-gap: 1.8rem;
+  }
+}
+
+@media (max-width: 31em) {
+  .section-cta {
+    padding: 0.8rem 1.4rem;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-form input {
+    width: 83%;
   }
 }

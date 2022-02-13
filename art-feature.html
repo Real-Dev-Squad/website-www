@@ -9,18 +9,35 @@
     <h1 class="welcome-title">Your Art</h1>
     <h4 class="under-development">-- Feature under Development --</h4>
 
-    <div class="editor">
-      <div class="html-container">
-        <input type="text" placeholder="Thinking is the enemy of creativity." />
-        <textarea id="html-code"></textarea>
+    <form id="submit-art-form">
+      <div class="editor">
+        <div class="html-container">
+          <input
+            name="artTitle"
+            class="title-input"
+            type="text"
+            placeholder="Thinking is the enemy of creativity."
+            required
+          />
+          <textarea id="html-code" required></textarea>
+        </div>
+        <div class="output-container">
+          <iframe id="output"></iframe>
+        </div>
       </div>
-      <div class="output-container">
-        <iframe id="output"></iframe>
+      <div class="price-container">
+        <input
+          name="artPrice"
+          type="number"
+          min="0"
+          class="price-input"
+          placeholder="Dineros"
+          required
+        />
+        <button type="submit" class="button submit-art">Submit Art</button>
       </div>
-    </div>
-    <div class="container">
-      <button class="button">Submit for 500 Dineros</button>
-    </div>
-    <script src="js/artFeature.js"></script>
+    </form>
+
+    <script src="dist/artBundle.js"></script>
   </body>
 </html>

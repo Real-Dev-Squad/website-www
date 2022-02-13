@@ -1,3 +1,13 @@
+import { db } from './firebaseConfig';
+const submitArtForm = document.querySelector('#submit-art-form');
+const sanitizeOutputCode = document.getElementById('output');
+let htmlCode;
+
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
+// collection ref
+const colRef = collection(db, 'artworks');
+
 const sanitizeHtml = (str) => {
   if (str === null || str === '') return false;
   str = str.toString();
@@ -5,11 +15,11 @@ const sanitizeHtml = (str) => {
 };
 
 const creatingArtFromHtml = () => {
-  const htmlCode = document.getElementById('html-code').value;
+  htmlCode = document.getElementById('html-code').value;
   const sanitizedHtmlCode = `<div></div> <style> div { ${sanitizeHtml(
     htmlCode,
   )} } </style>`;
-  const sanitizeOutputCode = document.getElementById('output');
+
   sanitizeOutputCode.setAttribute('html-code', sanitizedHtmlCode);
   sanitizeOutputCode.contentDocument.body.innerHTML = sanitizedHtmlCode;
 };
@@ -17,3 +27,19 @@ const creatingArtFromHtml = () => {
 document
   .querySelector('#html-code')
   .addEventListener('keyup', creatingArtFromHtml);
+
+submitArtForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  addDoc(colRef, {
+    title: submitArtForm.artTitle.value,
+    css: htmlCode,
+    price: submitArtForm.artPrice.value,
+    createdAt: serverTimestamp(),
+  }).then(() => {
+    submitArtForm.reset();
+
+    sanitizeOutputCode.removeAttribute('html-code');
+    sanitizeOutputCode.contentDocument.body.innerHTML = '';
+  });
+});

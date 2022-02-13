@@ -45,6 +45,24 @@ body {
   height: 325px;
 }
 
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  margin-top: 20px;
+}
+
+.price-container > * {
+  text-align: center;
+}
+
+.price-input {
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 2px;
+}
+
 #output {
   width: 300px;
   height: 328px;

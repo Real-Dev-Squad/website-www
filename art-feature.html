@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Art Feature</title>
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/art-feature.css" />
   </head>
   <body>
-    <div id="title-container">
+    <div class="title-container">
       <h1 class="welcome-title">Your Art</h1>
-      <button id="instruction-button">Instructions</button>
+      <h4 class="under-development">-- Feature under Development --</h4>
+      <div class="container">
+        <button id="instruction-button">Instructions</button>
+      </div>
     </div>
-    <h4 class="under-development">-- Feature under Development --</h4>
 
-    <div id="instruction-modal">
-      <div class="instruction-content">
-        <span class="close">&times;</span>
+    <div class="overlay">
+      <div class="instruction-modal">
+        <button class="close">&times;</button>
         <h1>Instructions</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Hey User! Welcome to CSS Art Feature<br /><br />
+          These are few intructions which you need to follow strictly for
+          presenting your creativity else you won't be getting the desired
+          results:<br /><br />
+          ⦁ Use only CSS format style code.<br />
+          ⦁ You can only style a single div for now with CSS styles written<br />
+          ⦁ Using semicolon(;) is compulsory.<br />
+          • Here is an example, how you can proceed with the Art.<br /><br />
+          <img
+            src="img/art-feature/instructions.gif"
+            alt="Instructions example"
+          /><br /><br />
+          Note : We will bring the functionality of styling multiple divs soon.
         </p>
       </div>
     </div>

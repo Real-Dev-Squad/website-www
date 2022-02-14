@@ -1,3 +1,9 @@
+const instructionButton = document.querySelector('#instruction-button');
+const closeButton = document.querySelector('.close');
+const instructionModal = document.querySelector('.instruction-modal');
+const overlay = document.querySelector('.overlay');
+const mobileScreen = window.matchMedia('(max-width: 480px)');
+
 const sanitizeHtml = (str) => {
   if (str === null || str === '') return false;
   str = str.toString();
@@ -18,14 +24,22 @@ document
   .querySelector('#html-code')
   .addEventListener('keyup', creatingArtFromHtml);
 
-const instructionButton = document.getElementById('instruction-button');
-const closeButton = document.getElementsByClassName('close')[0];
-const instructionModal = document.getElementById('instruction-modal');
+instructionButton.onclick = () => {
+  instructionModal.style.display = overlay.style.display = 'block';
+  document.querySelector('body').style.overflow = 'hidden';
+  if (mobileScreen.matches) {
+    instructionModal.style.height = '350px';
+  }
+};
 
-instructionButton.onclick = () => (instructionModal.style.display = 'block');
-closeButton.onclick = () => (instructionModal.style.display = 'none');
+closeButton.onclick = () => {
+  instructionModal.style.display = overlay.style.display = 'none';
+  document.querySelector('body').style.overflow = 'auto';
+};
+
 window.onclick = (event) => {
-  if (event.target === instructionModal) {
-    instructionModal.style.display = 'none';
+  if (event.target === overlay) {
+    instructionModal.style.display = overlay.style.display = 'none';
+    document.querySelector('body').style.overflow = 'auto';
   }
 };

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Feature</title>
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/art-feature.css" />
+  </head>
+  <body>
+    <div class="title-container">
+      <h1 class="welcome-title">Your Art</h1>
+      <h4 class="under-development">-- Feature under Development --</h4>
+      <div class="container">
+        <button id="instruction-button">Instructions</button>
+      </div>
+    </div>
+
+    <div class="overlay">
+      <div class="instruction-modal">
+        <button class="close">&times;</button>
+        <h1>Instructions</h1>
+        Hey User, Welcome to CSS Art Feature !<br /><br />
+        These are few intructions which you need to follow strictly for
+        presenting your creativity else you won't be getting the desired
+        results:<br />
+        <ul>
+          <li>Use only CSS format style code.</li>
+          <li>
+            You can only style a single div for now with CSS styles written
+          </li>
+          <li>Using semicolon(;) is compulsory.</li>
+          <li>Here is an example, how you can proceed with the Art :</li>
+        </ul>
+        <img
+          class="instruction-gif"
+          src="img/art-feature/instructions.gif"
+          alt="Instructions example"
+        /><br /><br />
+        Note : We will bring the functionality of styling multiple divs soon.
+      </div>
+    </div>
+
+    <div class="editor">
+      <div class="html-container">
+        <input type="text" placeholder="Enter your art title" />
+        <textarea id="html-code"></textarea>
+      </div>
+      <div class="output-container">
+        <iframe id="output"></iframe>
+      </div>
+    </div>
+    <div class="container">
+      <button class="button">Submit for 500 Dineros</button>
+    </div>
+    <script src="js/artFeature.js"></script>
+  </body>
+</html>

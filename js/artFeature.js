@@ -38,8 +38,9 @@ submitArtForm.addEventListener('submit', (e) => {
     createdAt: serverTimestamp(),
   }).then(() => {
     submitArtForm.reset();
-
     sanitizeOutputCode.removeAttribute('html-code');
     sanitizeOutputCode.contentDocument.body.innerHTML = '';
+
+    alert('Art added to the gallery!');
   });
 });

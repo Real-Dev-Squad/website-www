@@ -57,6 +57,11 @@ nav li a:hover {
   color: white;
   cursor: pointer;
   border: 2px solid white;
+  display: flex;
+}
+
+.btn-login-text img {
+  padding-left: 0.3rem;
 }
 
 .user-greet {

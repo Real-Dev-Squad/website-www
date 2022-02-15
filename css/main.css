@@ -5,7 +5,29 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 16px; /* for rem */
+  font-size: 16px;
+  /* for rem */
+  overflow-x: hidden;
+}
+
+#scroll-to-top-btn {
+  position: fixed;
+  z-index: 100;
+  bottom: -100px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: hsl(334, 100%, 45%);
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#scroll-to-top-btn:active {
+  background: hsl(330, 14%, 3%);
 }
 
 .content-wrapper {
@@ -17,56 +39,12 @@ body {
   position: relative;
 }
 
-nav {
-  width: 100%;
-  text-align: right;
-}
-
-.nav-logo-li > a {
-  padding: 7px;
-}
-
 .content-wrapper main {
   max-width: 100%;
 }
 
-nav .btn-login {
-  margin-top: 15px;
-  font-size: 18px;
-  float: right;
-}
-
-nav .login-btn-text {
-  font-size: 16px;
-  border-radius: 6px;
-  padding: 0.3rem;
-  background-color: white;
-  cursor: pointer;
-}
-
-nav .logo {
-  width: 15px;
-  height: 15px;
-}
-
-nav .user-greet {
-  display: none;
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-nav .user-greet .user-profile-pic {
-  width: 2em;
-  height: 2em;
-  border-radius: 50%;
-  display: inline;
-  vertical-align: middle;
-}
-nav .user-greet .user-greet-msg {
-  font-size: 1em;
-  display: inline;
-  vertical-align: middle;
-  margin-right: 10px;
+.wrapper {
+  margin: 25px;
 }
 
 .info-note {
@@ -148,6 +126,7 @@ nav .user-greet .user-greet-msg {
 
 .logo-img {
   width: 200px;
+  height: 200px;
   display: block;
   margin: 20px auto;
 }
@@ -168,8 +147,13 @@ nav .user-greet .user-greet-msg {
 
 .social-media-logo {
   vertical-align: middle;
-  width: 15px;
-  height: 15px;
+  width: 35px;
+  height: 35px;
+  transition: all 0.5s ease-in-out;
+}
+
+.social-media-logo:hover {
+  transform: scale(1.25);
 }
 
 .social-media-link {
@@ -181,12 +165,12 @@ nav .user-greet .user-greet-msg {
   margin: 0 10px;
 }
 
-.description-what-is {
+.section-description {
   background: #041187;
   margin: 0 -25px;
 }
 
-.description-what-is-title {
+.description-title {
   text-align: center;
   font-weight: 700;
   line-height: 130%;
@@ -195,18 +179,19 @@ nav .user-greet .user-greet-msg {
   padding: 60px 60px 28px;
 }
 
-.description-what-is-content {
+.description-content {
   padding: 0 40px 32px;
   font-weight: 400;
   color: white;
   line-height: 175%;
+  text-align: justify;
 }
 
-.description-why-join {
+.section-features {
   margin: 0 -25px;
 }
 
-.description-why-join-title {
+.features-title {
   text-align: center;
   font-weight: 700;
   font-size: 2rem;
@@ -215,15 +200,17 @@ nav .user-greet .user-greet-msg {
   line-height: 150%;
 }
 
-.description-why-join-content {
-  padding: 0px 40px 20px;
+.features-content {
+  padding: 0px 40px 20px 0px;
   font-weight: 400;
   color: #3d3d3d;
   line-height: 175%;
+  text-align: justify;
 }
 
 .title-bullet-points {
-  margin: 32px 0;
+  margin: 30px 2px;
+  text-align: left;
 }
 
 .video-holder {
@@ -269,6 +256,7 @@ nav .user-greet .user-greet-msg {
 
 .events-box > * {
   margin: 0 10px;
+  padding: 8px;
   text-align: center;
   width: 100%;
   color: #e20665;
@@ -281,6 +269,7 @@ nav .user-greet .user-greet-msg {
 
 .events-box a:hover {
   background: #f5c4f1;
+  border-radius: 20px;
 }
 
 .events-box span {
@@ -302,7 +291,7 @@ footer {
 }
 
 .info-repo {
-  font-weight: 100;
+  font-weight: 400;
   margin: 0 auto;
   text-align: center;
 }
@@ -338,6 +327,11 @@ footer {
   min-height: 26rem;
 }
 
+.member-imgs > a {
+  display: flex;
+  justify-content: center;
+}
+
 .member-img {
   width: 120px;
   height: 120px;
@@ -359,9 +353,9 @@ footer {
 
 .skeleton-loader {
   position: absolute;
-  margin-top: 20px;
-  margin-right: 20px;
-  padding: 10px;
+  margin-top: 1.25rem;
+  margin-right: 1.25rem;
+  padding: 0.625rem;
   overflow: hidden;
   background: rgb(255, 255, 255);
   height: 120px;
@@ -424,6 +418,7 @@ footer {
 
   .logo-img {
     width: 400px;
+    height: 400px;
   }
 
   .cta-button {
@@ -433,6 +428,7 @@ footer {
   .events-box > * {
     width: auto;
   }
+
   .events-box span {
     display: inline-block;
   }
@@ -442,10 +438,11 @@ footer {
   padding: 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   .cta-button__container {
     text-align: center;
   }
+
   .cta-button {
     max-width: 196px;
     display: inline-block;
@@ -455,30 +452,161 @@ footer {
   }
 }
 
-@media screen and (min-width: 500px) {
-  .description-what-is-title {
+@media screen and (min-width: 1100px) {
+  .description-title {
     font-size: 2.8rem;
     padding: 90px 60px 45px;
   }
 
-  .description-what-is-content {
+  .description-content {
     font-size: 1.25rem;
-    padding: 0px 300px 90px;
+    padding: 0px 65px 70px;
   }
 
-  .description-why-join-title {
+  .features-title {
     font-size: 2.8rem;
     margin-top: 150px;
     margin-bottom: 100px;
   }
 
-  .description-why-join-content {
+  .features-content {
     font-size: 1.25rem;
-    padding: 0px 330px 120px;
+    padding: 0px 65px 60px 30px;
   }
 
   .title-bullet-points {
     font-size: 1.75rem;
-    margin: 40px 0;
+    margin: 40px 2px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .description-content {
+    padding: 0px 250px 90px;
+  }
+
+  .features-content {
+    padding: 0px 250px 80px 210px;
+  }
+}
+
+/***********************/
+/* EMAIL CAPTURE FORM */
+/***********************/
+
+.section-cta {
+  padding: 40px 250px;
+}
+
+.cta {
+  display: flex;
+  border-radius: 9px;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.1);
+}
+
+.cta-text-box {
+  padding: 3.6rem 4.8rem 4.8rem;
+  color: #041484;
+}
+
+.cta .heading-secondary {
+  font-size: 2.4rem;
+  margin-bottom: 1.8rem;
+  color: inherit;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2.4rem;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  column-gap: 3.6rem;
+  row-gap: 1.2rem;
+}
+
+.cta-form label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form input {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 9px;
+
+  color: #777;
+  background-color: #edf2ff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-form input:focus {
+  outline: 3px solid #db09795d;
+}
+
+.btn-cta {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1.2rem 2.15rem;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  align-self: end;
+
+  color: #fff;
+  background-color: #041484;
+  transition: all 0.3s;
+}
+
+.btn-cta:hover,
+.btn-cta:active {
+  background-color: #e20665;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 79em) {
+  .cta-form input {
+    width: 75%;
+  }
+}
+
+@media (max-width: 60em) {
+  .section-cta {
+    padding: 0.8rem 1.4rem;
+  }
+
+  .cta-form {
+    grid-template-columns: 60% 40%;
+    column-gap: 1.8rem;
+  }
+}
+
+@media (max-width: 31em) {
+  .section-cta {
+    padding: 0.8rem 1.4rem;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-form input {
+    width: 83%;
   }
 }

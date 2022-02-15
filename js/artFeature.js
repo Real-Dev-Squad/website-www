@@ -28,7 +28,7 @@ instructionButton.onclick = () => {
   instructionModal.style.display = overlay.style.display = 'block';
   document.querySelector('body').style.overflow = 'hidden';
   if (mobileScreen.matches) {
-    instructionModal.style.height = '350px';
+    instructionModal.style.height = '70%';
   }
 };
 

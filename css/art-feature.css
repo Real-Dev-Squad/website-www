@@ -2,7 +2,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-img {
+.instruction-gif {
   max-width: 100%;
   width: auto;
   height: auto;
@@ -85,7 +85,6 @@ input {
 }
 
 #instruction-button {
-  position: relative;
   background-color: #db0979;
   color: white;
   cursor: pointer;
@@ -101,7 +100,6 @@ input {
 }
 
 #instruction-button:hover {
-  color: white;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
@@ -109,7 +107,8 @@ input {
 .instruction-modal {
   display: none;
   position: absolute;
-  padding-left: 1rem;
+  padding-left: 20px;
+  padding-bottom: 10px;
   z-index: 2;
   left: 50%;
   top: 50%;

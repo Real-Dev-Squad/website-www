@@ -1,3 +1,4 @@
+@import url("global-variables.css");
 html,
 body {
   font-family: 'Roboto', sans-serif;
@@ -54,16 +55,16 @@ body {
 }
 
 .highlighted-text {
-  color: #e20665;
+  color:var(--color-razzmatazz);
 }
 
 .highlighted-text a {
-  color: #041484;
+  color:var(--color-dark-blue);
 }
 
 .notif-banner {
   padding: 10px 20px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #bdbdbd;  /*black color can also work hare*/
   border-radius: 10px;
   background-color: #fafafa;
   margin: 20px 0 50px;
@@ -93,7 +94,7 @@ body {
 
 .notif-banner > .notif span,
 .notif-banner > .notif > .label-tag {
-  background: linear-gradient(90deg, #e30162 25%, #ed579c 90%);
+  background: linear-gradient(90deg, var(--color-razzmatazz)25%, #ed579c 90%);
   color: white;
   padding: 2px 8px;
   font-weight: bold;
@@ -115,7 +116,7 @@ body {
 }
 
 .notif-banner > .notif a:hover {
-  color: #e30162;
+  color: var(--color-razzmatazz);
 }
 
 .welcome-title {
@@ -161,12 +162,12 @@ body {
 }
 
 .social-media-links > span {
-  color: #e20665;
+  color: var(--color-razzmatazz);
   margin: 0 10px;
 }
 
 .section-description {
-  background: #041187;
+  background: var(--color-dark-blue); /*  background: #041187; */
   margin: 0 -25px;
 }
 
@@ -195,7 +196,7 @@ body {
   text-align: center;
   font-weight: 700;
   font-size: 2rem;
-  color: #3d3d3d;
+  color: var(--color-black-olive);
   margin: 60px 20px 32px;
   line-height: 150%;
 }
@@ -203,7 +204,7 @@ body {
 .features-content {
   padding: 0px 40px 20px 0px;
   font-weight: 400;
-  color: #3d3d3d;
+  color: var(--color-black-olive);
   line-height: 175%;
   text-align: justify;
 }
@@ -259,12 +260,12 @@ body {
   padding: 8px;
   text-align: center;
   width: 100%;
-  color: #e20665;
+  color: var(--color-razzmatazz);
   text-decoration: none;
 }
 
 .events-box a:visited {
-  color: #a10829;
+  color: var(--color-carmine);
 }
 
 .events-box a:hover {
@@ -273,17 +274,18 @@ body {
 }
 
 .events-box span {
-  color: #e20665;
+  color: var(--color-razzmatazz);
   display: none;
 }
 
 .info-note a {
-  color: #db0979;
+  /* color: #db0979; check it also there was a slight differnece */
+  color: var(--color-razzmatazz);
   text-decoration: none;
 }
 
 .info-note a:hover {
-  color: #a10829;
+  color: var(--color-carmine);
 }
 
 footer {
@@ -303,7 +305,7 @@ footer {
 }
 
 .cta-button {
-  background-color: #041484;
+  background-color: var(--color-dark-blue);
   border-radius: 5px;
   color: #fff1f6;
   cursor: pointer;
@@ -317,7 +319,7 @@ footer {
 .cta-button:hover {
   background-color: #030c4c;
   transition: background-color 0.2s ease-in;
-  outline: #041484;
+  outline: var(--color-dark-blue);
 }
 
 .member-imgs {
@@ -509,7 +511,7 @@ footer {
 
 .cta-text-box {
   padding: 3.6rem 4.8rem 4.8rem;
-  color: #041484;
+  color: var(--color-dark-blue);
 }
 
 .cta .heading-secondary {
@@ -569,13 +571,13 @@ footer {
   align-self: end;
 
   color: #fff;
-  background-color: #041484;
+  background-color: var(--color-dark-blue);
   transition: all 0.3s;
 }
 
 .btn-cta:hover,
 .btn-cta:active {
-  background-color: #e20665;
+  background-color: var(--color-razzmatazz);
 }
 
 /* MEDIA QUERIES */

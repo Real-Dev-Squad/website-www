@@ -97,6 +97,7 @@ input {
   padding: 15px;
   font-size: 1rem;
   transition-duration: 0.4s;
+  transition-property: box-shadow;
 }
 
 #instruction-button:hover {

@@ -15,7 +15,7 @@ const sanitizeHtml = (str) => {
 };
 
 const creatingArtFromHtml = () => {
-  htmlCode = document.getElementById('html-code').value;
+  htmlCode = document.getElementById('html-code').value.trim();
   const sanitizedHtmlCode = `<div></div> <style> div { ${sanitizeHtml(
     htmlCode,
   )} } </style>`;
@@ -31,16 +31,22 @@ document
 submitArtForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  addDoc(colRef, {
-    title: submitArtForm.artTitle.value,
-    css: htmlCode,
-    price: submitArtForm.artPrice.value,
-    createdAt: serverTimestamp(),
-  }).then(() => {
-    submitArtForm.reset();
-    sanitizeOutputCode.removeAttribute('html-code');
-    sanitizeOutputCode.contentDocument.body.innerHTML = '';
+  let artTitle = submitArtForm.artTitle.value.trim();
 
-    alert('Art added to the gallery!');
-  });
+  if (artTitle && htmlCode) {
+    addDoc(colRef, {
+      title: submitArtForm.artTitle.value,
+      css: htmlCode,
+      price: submitArtForm.artPrice.value,
+      createdAt: serverTimestamp(),
+    }).then(() => {
+      submitArtForm.reset();
+      sanitizeOutputCode.removeAttribute('html-code');
+      sanitizeOutputCode.contentDocument.body.innerHTML = '';
+
+      alert('Art added to the gallery!');
+    });
+  } else {
+    alert('Input(s) cannot be empty.');
+  }
 });

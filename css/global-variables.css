@@ -1,6 +1,16 @@
 :root { 
-    --color-razzmatazz: #e20665;    
+    --color-vivid-pink: #e20665;    
     --color-dark-blue: #041484;
     --color-black-olive: #3d3d3d;
     --color-carmine : #a10829;
+    --color-darkest-blue:#030c4c;
+    --color-dark-grey:#777;
+    --color-soft-magenta:#f5c4f1;
+    --color-white:white;
+    --color-black:#090708;
+    --color-soft-pink:#ed579c;
+    --color-grey:#bdbdbd;
+    --color-lime-green:#43a047;
+    --color-soft-yellow:#e9c968;
+    --color-greyish-blue:#b0bec5;
   }

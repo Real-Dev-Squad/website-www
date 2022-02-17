@@ -1,9 +1,9 @@
+@import url("global-variables.css");
 /* Define variables in the root scope */
 :root {
   --success-color: darkgreen;
   --error-color: red;
 }
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,8 +23,8 @@ body {
 
 .form-wrap {
   padding: 15px 25px;
-  background: #ffffff;
-  border: 1px solid #f4f4f4;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey);  /*#f4f4f4*/
   border-radius: 2%;
   box-shadow: 0 0 15px -7px rgba(0, 0, 0, 0.65);
 }
@@ -52,11 +52,11 @@ body {
 
 .form-wrap .form-group input:focus {
   outline: 0;
-  border-color: #777;
+  border-color: var(--color-dark-grey);
 }
 
 .form-wrap .form-group input:disabled {
-  background: #b0bec5;
+  background: var(--color-greyish-blue);
 }
 
 .form-group.success input {
@@ -79,9 +79,9 @@ body {
 }
 
 button#submission {
-  background-color: #43a047;
-  color: #fff;
-  border-color: #777;
+  background-color: var(--color-lime-green);
+  color: var(--color-white);
+  border-color: var(--color-dark-grey);
   display: block;
   width: 100%;
   margin-top: 15px;
@@ -97,11 +97,11 @@ button#submission {
 }
 
 input:focus {
-  background: rgb(233, 201, 104);
+  background: var(--color-soft-yellow);
 }
 
 .hint {
   font-size: 0.7rem;
-  color: #777;
+  color: var(--color-dark-grey);
   padding-top: 5px;
 }

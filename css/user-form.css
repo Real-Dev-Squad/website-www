@@ -31,7 +31,7 @@ body {
 
 .form-wrap h2 {
   text-align: center;
-  color: #666;
+  color: var(--color-darkest-grey);
 }
 
 .form-wrap .form-group {
@@ -40,13 +40,13 @@ body {
 
 .form-wrap .form-group label {
   display: block;
-  color: #666;
+  color: var(--color-darkest-grey);
 }
 
 .form-wrap .form-group input {
   width: 100%;
   padding: 10px;
-  border: #666 1px solid;
+  border: var(--color-darkest-grey) 1px solid;
   border-radius: 5px;
 }
 

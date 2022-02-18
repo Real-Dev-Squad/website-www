@@ -26,7 +26,7 @@ nav li a:hover {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  /* background-color: #1d1283; */
+  /* background-color: var(--color-dark-blue); */
   background-color: var(--color-dark-blue);
 }
 
@@ -55,7 +55,7 @@ nav li a:hover {
 .btn-login-text {
   border-radius: 6px;
   padding: 5px;
-  background-color: #1d1283;
+  background-color: var(--color-dark-blue);
   color: var(--color-white);
   cursor: pointer;
   border: 2px solid var(--color-white);
@@ -113,7 +113,7 @@ nav li a:hover {
 
 @media screen and (max-width: 970px) {
   nav {
-    background: #1d1283;
+    background: var(--color-dark-blue);
   }
 
   .hamburger {
@@ -138,7 +138,7 @@ nav li a:hover {
   nav li a {
     padding: 10px 40px;
     text-align: left;
-    color: #1d1283;
+    color: var(--color-dark-blue);
     text-decoration: none;
     display: block;
   }

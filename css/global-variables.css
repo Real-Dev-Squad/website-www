@@ -1,6 +1,7 @@
 :root { 
     --color-vivid-pink: #e20665;    
-    --color-dark-blue: #041484;
+    /* --color-dark-blue: #041484; */
+    --color-dark-blue: #1d1283;
     --color-black-olive: #3d3d3d;
     --color-carmine : #a10829;
     --color-darkest-blue:#030c4c;
@@ -18,4 +19,7 @@
     --color-very-pale-blue:#edf2ff;
     --color-vivid-green:#64dd17;
     --color-cyan-lime-green:#00e676;
+    --color-firebrick:#b22222;
+    --success-color: darkgreen;
+    --error-color: red;
   }

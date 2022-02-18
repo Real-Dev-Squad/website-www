@@ -62,7 +62,7 @@
   padding: 40px;
   display: block;
   background: var(--color-white);
-  box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 18px 0px rgba(var(--color-black-rgb), 0.75);
 }
 
 .topic-name {

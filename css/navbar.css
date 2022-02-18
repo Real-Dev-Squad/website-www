@@ -18,7 +18,8 @@ nav li {
 }
 
 nav li a:hover {
-  color: #49a82e;
+  /* color: #49a82e; */
+  color: var(--color-lime-green);
 }
 
 .nav-menu {
@@ -127,7 +128,7 @@ nav li a:hover {
     display: none;
     width: 100%;
     padding: 10px 0px;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 10px 15px rgba(var(--color-black-rgb), 0.5);
   }
 
   .nav-menu.active,

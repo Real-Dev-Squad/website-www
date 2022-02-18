@@ -1,25 +1,26 @@
 :root { 
+  --color-darkest-blue:#030c4c;
+  --color-dark-blue: #1d1283;
+  --color-very-pale-blue:#edf2ff;
+  /* --color-dark-blue: #041484; */
+  --color-soft-pink:#ed579c;
+  --color-soft-magenta:#f5c4f1;
     --color-vivid-pink: #e20665;    
-    /* --color-dark-blue: #041484; */
-    --color-dark-blue: #1d1283;
-    --color-black-olive: #3d3d3d;
     --color-carmine : #a10829;
-    --color-darkest-blue:#030c4c;
+    --color-firebrick:#b22222;
+    --color-red: red;
+    --color-black-olive: #3d3d3d;
     --color-dark-grey:#777;
-    --color-soft-magenta:#f5c4f1;
-    --color-white:white;
-    /* --color-black:#090708; */
-    --color-black:rgb(9,7,8);
-    --color-soft-pink:#ed579c;
-    --color-grey:#bdbdbd;
-    --color-lime-green:#43a047;
-    --color-soft-yellow:#e9c968;
-    --color-greyish-blue:#b0bec5;
     --color-darkest-grey:#666;
-    --color-very-pale-blue:#edf2ff;
+    --color-light-grey:#fafafa;
+    --color-greyish-blue:#b0bec5;
+    --color-grey:#bdbdbd;
+    --color-white:white;
+    --color-lime-green:#43a047;
     --color-vivid-green:#64dd17;
     --color-cyan-lime-green:#00e676;
-    --color-firebrick:#b22222;
-    --success-color: darkgreen;
-    --error-color: red;
+    --color-dark-green: darkgreen;
+    --color-soft-yellow:#e9c968;
+    --color-black:#090708;
+    --color-black-rgb:0,0,0;
   }

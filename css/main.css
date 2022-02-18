@@ -22,7 +22,7 @@ body {
   border: none;
   border-radius: 50%;
   outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 10px rgba(var(--color-black-rgb) , 0.25);
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -64,10 +64,9 @@ body {
 
 .notif-banner {
   padding: 10px 20px;
-  border: 1px solid var(--color-grey);  /*black color can also work hare*/
+  border: 1px solid var(--color-grey);  
   border-radius: 10px;
-  /* background-color: #fafafa; */
-  background-color: #fafafa ;  /* change it */
+  background-color: var(--color-light-grey) ;  
   margin: 20px 0 50px;
   display: inline-block;
 }
@@ -280,7 +279,6 @@ body {
 }
 
 .info-note a {
-  /* color: #db0979; check it also there was a slight differnece */
   color: var(--color-vivid-pink);
   text-decoration: none;
 }
@@ -308,13 +306,13 @@ footer {
 .cta-button {
   background-color: var(--color-dark-blue);
   border-radius: 5px;
-  color: #fff1f6;
+  color: var(--color-light-grey);
   cursor: pointer;
   padding: 16px 40px;
   font-size: 20px;
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: 1px 1px 14px -3px rgba(0, 0, 0, 0.42);
+  box-shadow: 1px 1px 14px -3px rgba(var(--color-black-rgb), 0.42);
 }
 
 .cta-button:hover {
@@ -364,8 +362,8 @@ footer {
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
-    0 5px 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 10px 0 rgba(var(--color-black-rgb) 0.2),
+    0 5px 10px 10px rgba(var(--color-black-rgb), 0.2);
   transition: ease box-shadow 0.3s;
   --x: 0%;
   --y: 0%;
@@ -507,7 +505,7 @@ footer {
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1.2rem 2.4rem rgba(--color-black-rgb, 0.1);
 }
 
 .cta-text-box {
@@ -551,11 +549,12 @@ footer {
 
   color: var(--color-dark-grey);
   background-color: var(--color-very-pale-blue);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(--color-black-rgb 0.1);
 }
 
 .cta-form input:focus {
-  outline: 3px solid #db09795d;
+  /* outline: 3px solid #db09795d; */
+  outline: 3px solid  var(--color-soft-magenta);
 }
 
 .btn-cta {

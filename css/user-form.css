@@ -1,9 +1,4 @@
 @import url("global-variables.css");
-/* Define variables in the root scope */
-/* :root {
-  --success-color: darkgreen;
-  --error-color: red;
-} */
 * {
   box-sizing: border-box;
   margin: 0;

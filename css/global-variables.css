@@ -7,7 +7,8 @@
     --color-dark-grey:#777;
     --color-soft-magenta:#f5c4f1;
     --color-white:white;
-    --color-black:#090708;
+    /* --color-black:#090708; */
+    --color-black:rgb(9,7,8);
     --color-soft-pink:#ed579c;
     --color-grey:#bdbdbd;
     --color-lime-green:#43a047;
@@ -15,4 +16,6 @@
     --color-greyish-blue:#b0bec5;
     --color-darkest-grey:#666;
     --color-very-pale-blue:#edf2ff;
+    --color-vivid-green:#64dd17;
+    --color-cyan-lime-green:#00e676;
   }

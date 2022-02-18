@@ -67,7 +67,7 @@ body {
   border: 1px solid var(--color-grey);  /*black color can also work hare*/
   border-radius: 10px;
   /* background-color: #fafafa; */
-  background-color: var(--color-vivid-pink) 10%;
+  background-color: #fafafa ;  /* change it */
   margin: 20px 0 50px;
   display: inline-block;
 }
@@ -105,7 +105,7 @@ body {
 }
 
 .notif-banner > .notif > .label-tag.coming-soon {
-  background: linear-gradient(90deg, #00e676 25%, #64dd17 90%);
+  background: linear-gradient(90deg, var(--color-lime-green)25%, var(--color-vivid-green) 90%);
 }
 
 .notif-banner > .notif a {

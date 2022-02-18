@@ -1,3 +1,4 @@
+@import url("global-variables.css");
 .welcome-title {
   margin-top: 50px;
 }
@@ -27,7 +28,7 @@
   font-size: 4em;
   font-weight: 400;
   margin: 3px auto 3px;
-  color: firebrick;
+  color: var(--color-firebrick);
   font-family: sans-serif;
 }
 
@@ -60,7 +61,7 @@
   border-radius: 10px;
   padding: 40px;
   display: block;
-  background: #fff;
+  background: var(--color-white);
   box-shadow: 2px 2px 18px 0px rgba(0, 0, 0, 0.75);
 }
 
@@ -71,7 +72,7 @@
 .speaker-name {
   margin: 0;
   font-weight: 400;
-  color: firebrick;
+  color: var(--color-firebrick);
   display: flex;
   align-items: center;
   margin-bottom: 5px;

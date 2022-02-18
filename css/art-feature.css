@@ -1,3 +1,4 @@
+@import url("global-variables.css");
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -62,8 +63,8 @@ input {
 }
 
 .button {
-  background-color: #db0979;
-  color: white;
+  background-color: var(--color-vivid-pink);
+  color: var(--color-white);
   cursor: pointer;
   font-weight: bold;
   border: none;

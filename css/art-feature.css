@@ -3,6 +3,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.instruction-gif {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  background-size: contain;
+}
+
 .welcome-title {
   margin-top: 20px;
   font-size: 2.75rem;
@@ -15,7 +22,7 @@ body {
 }
 
 .editor {
-  margin-top: 70px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +66,6 @@ input {
 
 .container {
   text-align: center;
-  margin-top: 20px;
 }
 
 .button {
@@ -68,8 +74,119 @@ input {
   cursor: pointer;
   font-weight: bold;
   border: none;
-  margin-top: 15px;
+  margin-top: 35px;
   border-radius: 5px;
   padding: 15px;
   font-size: 1rem;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#instruction-button {
+  background-color: #db0979;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  height: 50%;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1rem;
+  transition-duration: 0.4s;
+  transition-property: box-shadow;
+}
+
+#instruction-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.instruction-modal {
+  display: none;
+  position: absolute;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  overflow: auto;
+  width: 70vw;
+  height: 70vh;
+  background-color: #fefefe;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: #aaa;
+  border: none;
+  background-color: transparent;
+  font-size: 3rem;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  overflow: hidden;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .editor {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+  }
+  .html-container {
+    margin-right: 0px;
+  }
+  .output-container {
+    margin-top: 30px;
+  }
+  .welcome-title {
+    text-align: center;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .editor {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+  }
+  .html-container {
+    margin-right: 0px;
+  }
+  .output-container {
+    margin-top: 30px;
+  }
+  .welcome-title {
+    text-align: center;
+    color: black;
+  }
 }

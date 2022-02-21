@@ -1,4 +1,4 @@
-@import url("global-variables.css");
+@import url('global-variables.css');
 nav {
   font-weight: 700;
 }
@@ -18,7 +18,6 @@ nav li {
 }
 
 nav li a:hover {
-  /* color: #49a82e; */
   color: var(--color-lime-green);
 }
 
@@ -27,7 +26,6 @@ nav li a:hover {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  /* background-color: var(--color-dark-blue); */
   background-color: var(--color-dark-blue);
 }
 

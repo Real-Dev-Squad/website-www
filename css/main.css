@@ -1,3 +1,4 @@
+@import url('global-variables.css');
 html,
 body {
   font-family: 'Roboto', sans-serif;
@@ -17,17 +18,17 @@ body {
   right: 20px;
   width: 50px;
   height: 50px;
-  background: hsl(334, 100%, 45%);
+  background: var(--color-vivid-pink);
   border: none;
   border-radius: 50%;
   outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 10px rgba(var(--color-black-rgb), 0.25);
   cursor: pointer;
   transition: all 0.3s;
 }
 
 #scroll-to-top-btn:active {
-  background: hsl(330, 14%, 3%);
+  background: var(--color-black);
 }
 
 .content-wrapper {
@@ -54,18 +55,18 @@ body {
 }
 
 .highlighted-text {
-  color: #e20665;
+  color: var(--color-vivid-pink);
 }
 
 .highlighted-text a {
-  color: #041484;
+  color: var(--color-dark-blue);
 }
 
 .notif-banner {
   padding: 10px 20px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid var(--color-grey);
   border-radius: 10px;
-  background-color: #fafafa;
+  background-color: var(--color-light-grey);
   margin: 20px 0 50px;
   display: inline-block;
 }
@@ -93,8 +94,12 @@ body {
 
 .notif-banner > .notif span,
 .notif-banner > .notif > .label-tag {
-  background: linear-gradient(90deg, #e30162 25%, #ed579c 90%);
-  color: white;
+  background: linear-gradient(
+    90deg,
+    var(--color-vivid-pink) 25%,
+    var(--color-soft-pink) 90%
+  );
+  color: var(--color-white);
   padding: 2px 8px;
   font-weight: bold;
   font-size: 0.8em;
@@ -103,7 +108,11 @@ body {
 }
 
 .notif-banner > .notif > .label-tag.coming-soon {
-  background: linear-gradient(90deg, #00e676 25%, #64dd17 90%);
+  background: linear-gradient(
+    90deg,
+    var(--color-lime-green) 25%,
+    var(--color-vivid-green) 90%
+  );
 }
 
 .notif-banner > .notif a {
@@ -115,7 +124,7 @@ body {
 }
 
 .notif-banner > .notif a:hover {
-  color: #e30162;
+  color: var(--color-vivid-pink);
 }
 
 .welcome-title {
@@ -141,7 +150,7 @@ body {
   font-size: 16px;
   border: none;
   padding: 0.3rem;
-  background-color: white;
+  background-color: var(--color-white);
   cursor: pointer;
 }
 
@@ -161,12 +170,12 @@ body {
 }
 
 .social-media-links > span {
-  color: #e20665;
+  color: var(--color-vivid-pink);
   margin: 0 10px;
 }
 
 .section-description {
-  background: #041187;
+  background: var(--color-dark-blue);
   margin: 0 -25px;
 }
 
@@ -175,14 +184,14 @@ body {
   font-weight: 700;
   line-height: 130%;
   font-size: 2rem;
-  color: white;
+  color: var(--color-white);
   padding: 60px 60px 28px;
 }
 
 .description-content {
   padding: 0 40px 32px;
   font-weight: 400;
-  color: white;
+  color: var(--color-white);
   line-height: 175%;
   text-align: justify;
 }
@@ -195,7 +204,7 @@ body {
   text-align: center;
   font-weight: 700;
   font-size: 2rem;
-  color: #3d3d3d;
+  color: var(--color-black-olive);
   margin: 60px 20px 32px;
   line-height: 150%;
 }
@@ -203,7 +212,7 @@ body {
 .features-content {
   padding: 0px 40px 20px 0px;
   font-weight: 400;
-  color: #3d3d3d;
+  color: var(--color-black-olive);
   line-height: 175%;
   text-align: justify;
 }
@@ -259,31 +268,31 @@ body {
   padding: 8px;
   text-align: center;
   width: 100%;
-  color: #e20665;
+  color: var(--color-vivid-pink);
   text-decoration: none;
 }
 
 .events-box a:visited {
-  color: #a10829;
+  color: var(--color-carmine);
 }
 
 .events-box a:hover {
-  background: #f5c4f1;
+  background: var(--color-soft-magenta);
   border-radius: 20px;
 }
 
 .events-box span {
-  color: #e20665;
+  color: var(--color-vivid-pink);
   display: none;
 }
 
 .info-note a {
-  color: #db0979;
+  color: var(--color-vivid-pink);
   text-decoration: none;
 }
 
 .info-note a:hover {
-  color: #a10829;
+  color: var(--color-carmine);
 }
 
 footer {
@@ -303,21 +312,21 @@ footer {
 }
 
 .cta-button {
-  background-color: #041484;
+  background-color: var(--color-dark-blue);
   border-radius: 5px;
-  color: #fff1f6;
+  color: var(--color-light-grey);
   cursor: pointer;
   padding: 16px 40px;
   font-size: 20px;
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: 1px 1px 14px -3px rgba(0, 0, 0, 0.42);
+  box-shadow: 1px 1px 14px -3px rgba(var(--color-black-rgb), 0.42);
 }
 
 .cta-button:hover {
-  background-color: #030c4c;
+  background-color: var(--color-darkest-blue);
   transition: background-color 0.2s ease-in;
-  outline: #041484;
+  outline: var(--color-dark-blue);
 }
 
 .member-imgs {
@@ -357,12 +366,12 @@ footer {
   margin-right: 1.25rem;
   padding: 0.625rem;
   overflow: hidden;
-  background: rgb(255, 255, 255);
+  background: var(--color-white);
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
-    0 5px 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 10px 0 rgba(var(--color-black-rgb) 0.2),
+    0 5px 10px 10px rgba(var(--color-black-rgb), 0.2);
   transition: ease box-shadow 0.3s;
   --x: 0%;
   --y: 0%;
@@ -372,7 +381,7 @@ footer {
 
 .avatar-head {
   position: absolute;
-  background: #777;
+  background: var(--color-dark-grey);
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -383,7 +392,7 @@ footer {
 
 .avatar-body {
   position: absolute;
-  background: #777;
+  background: var(--color-dark-grey);
   margin-top: 49px;
   top: 50%;
   left: 50%;
@@ -395,7 +404,7 @@ footer {
 
 .animate {
   animation: shimmer 8s infinite linear;
-  background: linear-gradient(to top, #b4b6b8 34%, #c5c9c9 30%);
+  background: linear-gradient(to top, var(--color-grey) 34%, #c5c9c9 30%);
   background-size: 100px 100%;
 }
 
@@ -504,12 +513,12 @@ footer {
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1.2rem 2.4rem rgba(--color-black-rgb, 0.1);
 }
 
 .cta-text-box {
   padding: 3.6rem 4.8rem 4.8rem;
-  color: #041484;
+  color: var(--color-dark-blue);
 }
 
 .cta .heading-secondary {
@@ -546,13 +555,13 @@ footer {
   border: none;
   border-radius: 9px;
 
-  color: #777;
-  background-color: #edf2ff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: var(--color-dark-grey);
+  background-color: var(--color-very-pale-blue);
+  box-shadow: 0 1px 2px rgba(--color-black-rgb 0.1);
 }
 
 .cta-form input:focus {
-  outline: 3px solid #db09795d;
+  outline: 3px solid var(--color-soft-magenta);
 }
 
 .btn-cta {
@@ -568,14 +577,14 @@ footer {
   text-decoration: none;
   align-self: end;
 
-  color: #fff;
-  background-color: #041484;
+  color: var(--color-white);
+  background-color: var(--color-dark-blue);
   transition: all 0.3s;
 }
 
 .btn-cta:hover,
 .btn-cta:active {
-  background-color: #e20665;
+  background-color: var(--color-vivid-pink);
 }
 
 /* MEDIA QUERIES */

@@ -128,7 +128,6 @@ body {
 }
 
 .welcome-title {
-  margin-top: 15px;
   text-align: center;
   font-weight: 700;
 }
@@ -205,15 +204,14 @@ body {
   font-weight: 700;
   font-size: 2rem;
   color: var(--color-black-olive);
-  margin: 60px 20px 32px;
-  line-height: 150%;
+  margin: 60px 20px 20px;
 }
 
 .features-content {
   padding: 0px 40px 20px 0px;
   font-weight: 400;
   color: var(--color-black-olive);
-  line-height: 175%;
+  line-height: 150%;
   text-align: justify;
 }
 

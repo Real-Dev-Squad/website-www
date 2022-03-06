@@ -2,6 +2,12 @@ const submitArtForm = document.querySelector('#submit-art-form');
 const sanitizeOutputCode = document.getElementById('output');
 let htmlCode;
 
+const instructionButton = document.querySelector('#instruction-button');
+const closeButton = document.querySelector('.close');
+const instructionModal = document.querySelector('.instruction-modal');
+const overlay = document.querySelector('.overlay');
+const mobileScreen = window.matchMedia('(max-width: 480px)');
+
 const sanitizeHtml = (str) => {
   str = str.toString();
   return str.replace(/(<([^>]+)>)/gi, '');
@@ -20,6 +26,7 @@ const creatingArtFromHtml = () => {
 document
   .querySelector('#html-code')
   .addEventListener('keyup', creatingArtFromHtml);
+
 
 submitArtForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -54,3 +61,24 @@ submitArtForm.addEventListener('submit', (e) => {
     alert('Input(s) cannot be empty.');
   }
 });
+
+instructionButton.onclick = () => {
+  instructionModal.style.display = overlay.style.display = 'block';
+  document.querySelector('body').style.overflow = 'hidden';
+  if (mobileScreen.matches) {
+    instructionModal.style.height = '70%';
+  }
+};
+
+closeButton.onclick = () => {
+  instructionModal.style.display = overlay.style.display = 'none';
+  document.querySelector('body').style.overflow = 'auto';
+};
+
+window.onclick = (event) => {
+  if (event.target === overlay) {
+    instructionModal.style.display = overlay.style.display = 'none';
+    document.querySelector('body').style.overflow = 'auto';
+  }
+};
+

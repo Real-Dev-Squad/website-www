@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "check": "prettier --check .",
-    "fix": "prettier --write .",
-    "artBuild": "webpack"
+    "fix": "prettier --write ."
   },
   "author": "",
   "license": "ISC",
@@ -16,10 +15,5 @@
   },
   "pre-commit": [
     "check"
-  ],
-  "dependencies": {
-    "firebase": "^9.6.6",
-    "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2"
-  }
+  ]
 }

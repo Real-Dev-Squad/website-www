@@ -1,12 +1,12 @@
-const submitArtForm = document.querySelector('#submit-art-form');
-const sanitizeOutputCode = document.getElementById('output');
-let htmlCode;
-
 const instructionButton = document.querySelector('#instruction-button');
 const closeButton = document.querySelector('.close');
 const instructionModal = document.querySelector('.instruction-modal');
 const overlay = document.querySelector('.overlay');
 const mobileScreen = window.matchMedia('(max-width: 480px)');
+
+const submitArtForm = document.querySelector('#submit-art-form');
+const sanitizeOutputCode = document.getElementById('output');
+let htmlCode;
 
 const sanitizeHtml = (str) => {
   str = str.toString();
@@ -26,7 +26,6 @@ const creatingArtFromHtml = () => {
 document
   .querySelector('#html-code')
   .addEventListener('keyup', creatingArtFromHtml);
-
 
 submitArtForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -81,4 +80,3 @@ window.onclick = (event) => {
     document.querySelector('body').style.overflow = 'auto';
   }
 };
-

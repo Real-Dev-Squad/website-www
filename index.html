@@ -8,7 +8,7 @@
     <title>Real Dev Squad</title>
     <link rel="stylesheet" href="./src/css/main.css" />
     <link rel="stylesheet" href="./src/css/animate.css" />
-    <link rel="stylesheet" href="./src/NavBar/navbar.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
       rel="stylesheet"
@@ -67,77 +67,14 @@
     <button id="scroll-to-top-btn">
       <img src="./img/arrow_up.svg" alt="scroll to top button" />
     </button>
-    <nav>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <div class="nav-login">
-        <a
-          class="btn-login"
-          href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
-        >
-          <button class="btn-login-text">
-            Sign In
-            <img
-              src="img/github.png"
-              alt="GitHub Icon"
-              height="15px"
-              width="15px"
-            />
-          </button>
-        </a>
-
-        <div class="user-greet">
-          <a href="https://my.realdevsquad.com/">
-            <div class="user-greet-msg">Hello, User!</div>
-            <img class="user-profile-pic" />
-          </a>
-        </div>
-      </div>
-
-      <ul class="nav-menu">
-        <li class="nav-logo-li">
-          <a href="#">
-            <img
-              src="img/Real-Dev-Squad@1x.png"
-              alt="home nav logo"
-              height="50px"
-              width="50px"
-            />
-          </a>
-        </li>
-        <li class="home-tab"><a href="http://realdevsquad.com/">Home</a></li>
-        <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
-        <li><a href="./events.html">Events</a></li>
-        <li><a href="https://members.realdevsquad.com/">Members</a></li>
-        <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
-        <li><a href="https://status.realdevsquad.com/">Status</a></li>
-        <li class="nav-login-li">
-          <a
-            class="btn-login"
-            href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
-          >
-            <button class="btn-login-text">
-              Sign In With GitHub
-              <img
-                src="img/github.png"
-                alt="GitHub Icon"
-                height="15px"
-                width="15px"
-              />
-            </button>
-          </a>
-          <div class="user-greet">
-            <a href="https://my.realdevsquad.com/">
-              <div class="user-greet-msg">Hello, User!</div>
-              <img class="user-profile-pic" />
-            </a>
-          </div>
-        </li>
-      </ul>
-    </nav>
+    <iframe
+      src="./src/NavBar/navbar.html"
+      width="100%"
+      height="100px"
+      frameborder="0"
+      style="overflow: hidden"
+      scrolling="no"
+    ></iframe>
 
     <main>
       <h1 class="welcome-title">Welcome to Real Dev Squad</h1>
@@ -351,7 +288,6 @@
     </footer>
     <script type="module" src="./src/js/index.js"></script>
     <script type="module" src="./src/js/animate.js"></script>
-    <script src="./src/NavBar/navbar.js"></script>
     <script src="./src/js/scrollBtn.js"></script>
   </body>
 </html>

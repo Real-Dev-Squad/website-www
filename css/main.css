@@ -217,9 +217,96 @@ body {
   text-align: justify;
 }
 
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-auto-rows: auto;
+  grid-gap: 5rem;
+}
+.card,
+.modal-card {
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+.card {
+  border: 2px solid #e7e7e7;
+}
+.card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.read-more {
+  border-radius: 10px;
+  outline: none;
+  background: #e3e3e3;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.body-blackout {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 20px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.body-blackout.is-blacked-out {
+  display: block;
+}
+.popup-trigger {
+  display: inline-block;
+}
+.popup-modal {
+  border-radius: 20px;
+  background-color: #fff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 45px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms ease-in-out;
+  z-index: 1011;
+  max-width: 1104px;
+  width: 100%;
+}
+.popup-modal.is--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.popup-modal__close {
+  position: absolute;
+  font-size: 1.2rem;
+  right: -10px;
+  top: -10px;
+  cursor: pointer;
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50%;
+}
+
+.modal-title-bullet-points {
+  font-size: 45px;
+  margin: 30px 2px;
+  text-align: center;
+}
 .title-bullet-points {
   margin: 30px 2px;
-  text-align: left;
+  text-align: center;
 }
 
 .video-holder {
@@ -495,10 +582,23 @@ footer {
   }
 
   .features-content {
-    padding: 0px 250px 80px 210px;
+    padding: 0px 110px 80px 110px;
   }
 }
 
+@media screen and (max-width: 1240px) {
+  .cards {
+    grid-template-columns: repeat(1, 2fr);
+    max-width: 960px;
+    margin: auto;
+  }
+  .card:hover {
+    transform: scale(1);
+  }
+  .features-content {
+    padding: 0px;
+  }
+}
 /***********************/
 /* EMAIL CAPTURE FORM */
 /***********************/

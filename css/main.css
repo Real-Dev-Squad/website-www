@@ -222,6 +222,9 @@ body {
   grid-template-columns: repeat(2, 2fr);
   grid-auto-rows: auto;
   grid-gap: 5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 50px;
 }
 .card,
 .modal-card {
@@ -253,7 +256,6 @@ a {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 20px;
   left: 0;
   top: 0;
   width: 100%;
@@ -279,9 +281,7 @@ a {
   opacity: 0;
   pointer-events: none;
   transition: all 300ms ease-in-out;
-  z-index: 1011;
-  max-width: 1104px;
-  width: 100%;
+  z-index: 1;
 }
 .popup-modal.is--visible {
   opacity: 1;
@@ -549,6 +549,12 @@ footer {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .popup-modal {
+    height: 75vh;
+    overflow: scroll;
+  }
+}
 @media screen and (min-width: 1100px) {
   .description-title {
     font-size: 2.8rem;
@@ -598,6 +604,9 @@ footer {
   }
   .features-content {
     padding: 0px;
+  }
+  .modal-title-bullet-points {
+    font-size: 2rem;
   }
 }
 /***********************/

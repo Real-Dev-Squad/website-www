@@ -75,7 +75,6 @@ if (doesGitHubCookieExist()) {
 }
 
 window.addEventListener('DOMContentLoaded', getMemberImgs);
-console.log('Hello');
 const modalTriggers = document.querySelectorAll('.popup-trigger');
 const modalCloseTrigger = document.querySelector('.popup-modal__close');
 const bodyBlackout = document.querySelector('.body-blackout');
@@ -83,7 +82,6 @@ const bodyBlackout = document.querySelector('.body-blackout');
 modalTriggers.forEach((trigger) => {
   trigger.addEventListener('click', () => {
     const { popupTrigger } = trigger.dataset;
-    console.log('click');
     const popupModal = document.querySelector(
       `[data-popup-modal="${popupTrigger}"]`,
     );
@@ -99,7 +97,6 @@ modalTriggers.forEach((trigger) => {
       });
 
     bodyBlackout.addEventListener('click', () => {
-      // TODO: Turn into a function to close modal
       popupModal.classList.remove('is--visible');
       bodyBlackout.classList.remove('is-blacked-out');
     });

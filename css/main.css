@@ -1,13 +1,16 @@
 @import url('global-variables.css');
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
 html,
 body {
   font-family: 'Roboto', sans-serif;
-  width: 100%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-size: 16px;
-  /* for rem */
   overflow-x: hidden;
 }
 
@@ -37,21 +40,10 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
-}
-
-.content-wrapper main {
-  max-width: 100%;
 }
 
 .wrapper {
   margin: 25px;
-}
-
-.info-note {
-  text-align: center;
-  font-weight: 400;
-  font-size: 1.2rem;
 }
 
 .highlighted-text {
@@ -210,7 +202,6 @@ body {
 }
 
 .features-content {
-  padding: 0px 40px 20px 0px;
   font-weight: 400;
   color: var(--color-black-olive);
   line-height: 175%;
@@ -226,19 +217,23 @@ body {
   margin: 0 auto;
   padding: 50px;
 }
+
 .card,
 .modal-card {
   border-radius: 20px;
   padding: 2rem;
   text-align: center;
 }
+
 .card {
   border: 2px solid var(--color-grey);
 }
+
 .card:hover {
-  transform: scale(1.1);
-  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 250ms linear;
 }
+
 .read-more {
   border-radius: 10px;
   outline: none;
@@ -247,11 +242,15 @@ body {
   border: none;
   padding: 6px 14px;
   cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 .body-blackout {
   display: none;
   position: fixed;
@@ -264,16 +263,22 @@ a {
   background-color: var(--color-black);
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .body-blackout.is-blacked-out {
   display: block;
 }
+
 .popup-trigger {
   display: inline-block;
 }
+
 .popup-modal {
+  height: 90vh;
   border-radius: 20px;
   background-color: var(--color-white);
   position: fixed;
+  display: flex;
+  flex-direction: column;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -282,22 +287,16 @@ a {
   pointer-events: none;
   transition: all 300ms ease-in-out;
   z-index: 1;
+  overflow: scroll;
+  scrollbar-width: 20;
 }
 .popup-modal.is--visible {
   opacity: 1;
   pointer-events: auto;
 }
 .popup-modal__close {
-  position: absolute;
-  font-size: 1.2rem;
-  right: 10px;
-  top: 10px;
   cursor: pointer;
-  background-color: black;
-  color: var(--color-white);
   padding: 10px 20px;
-  border-radius: 50%;
-  font-style: normal;
 }
 
 .modal-title-bullet-points {
@@ -372,6 +371,12 @@ a {
 .events-box span {
   color: var(--color-vivid-pink);
   display: none;
+}
+
+.info-note {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
 .info-note a {
@@ -547,6 +552,10 @@ footer {
     padding: 10px 20px;
     font-size: 18px;
   }
+
+  .card {
+    padding: 20px 10px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -555,7 +564,8 @@ footer {
     overflow: scroll;
   }
 }
-@media screen and (min-width: 1100px) {
+
+@media screen and (min-width: 1024px) {
   .description-title {
     font-size: 2.8rem;
     padding: 90px 60px 45px;
@@ -566,6 +576,15 @@ footer {
     padding: 0px 65px 70px;
   }
 
+  .title-bullet-points {
+    font-size: 1.75rem;
+    margin: 40px 2px;
+  }
+
+  .description-content {
+    padding: 0px 250px 90px;
+  }
+
   .features-title {
     font-size: 2.8rem;
     margin-top: 150px;
@@ -574,22 +593,7 @@ footer {
 
   .features-content {
     font-size: 1.25rem;
-    padding: 0px 65px 60px 30px;
-  }
-
-  .title-bullet-points {
-    font-size: 1.75rem;
-    margin: 40px 2px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .description-content {
-    padding: 0px 250px 90px;
-  }
-
-  .features-content {
-    padding: 0px 110px 80px 110px;
+    padding: 30px;
   }
 }
 

@@ -1,12 +1,11 @@
 @import url('global-variables.css');
 
-/* :root {
+:root {
   --color-bg: #fff;
   --color-text: #000;
 }
-*/
 
-:root {
+.dark-theme {
   --color-bg: #1c1b22;
   --color-text: #e1e1ec;
 }

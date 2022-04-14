@@ -1,6 +1,6 @@
 @import url('global-variables.css');
 
-/* :root {
+:root {
   --color-bg: #fff;
   --color-text: #fff;
   --color-text-secondary: #000;
@@ -9,9 +9,9 @@
   --color-social-media-links-bg: #fff;
   --color-links: #1d1283;
   --color-events: #e30162;
-} */
+}
 
-:root {
+.dark-theme {
   --color-bg: #1c1b22;
   --color-text: #e1e1ec;
   --color-text-secondary: #e1e1ec;
@@ -56,6 +56,18 @@ body {
 
 #scroll-to-top-btn:active {
   background: var(--color-black);
+}
+
+.redirection-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.redirection {
+  text-align: center;
 }
 
 .content-wrapper {
@@ -241,7 +253,7 @@ a {
 .popup-modal {
   height: 90vh;
   border-radius: 20px;
-  background-color: var(--color-white);
+  background-color: var(--color-bg);
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -558,12 +570,11 @@ footer {
   .features-title {
     font-size: 2.8rem;
     margin-top: 150px;
-    margin-bottom: 100px;
+    margin-bottom: 75px;
   }
 
   .features-content {
     font-size: 1.25rem;
-    padding: 30px;
   }
 }
 

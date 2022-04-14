@@ -1,11 +1,11 @@
 @import url('global-variables.css');
 
-/* :root {
+:root {
   --color-nav: #1d1283;
   --color-nav-text: #ffffff;
-} */
+}
 
-:root {
+.dark-theme {
   --color-nav: #191970;
   --color-nav-text: #e1e1ec;
 }

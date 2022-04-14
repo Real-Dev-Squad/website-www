@@ -1,12 +1,12 @@
-/* :root {
+:root {
   --color-bg: #fff;
   --color-text: #000;
   --color-bg-card: #fff;
   --color-links: #1d1283;
   --color-events: #e30162;
-} */
+}
 
-:root {
+.dark-theme {
   --color-bg: #1c1b22;
   --color-text: #e1e1ec;
   --color-bg-card: #312f3b;

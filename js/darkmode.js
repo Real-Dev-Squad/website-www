@@ -1,14 +1,14 @@
-if (getCookie('theme') === 'light') {
-  setCookie('theme', 'light', 30);
-} else if (getCookie('theme') === 'dark') {
-  setCookie('theme', 'dark', 30);
-}
-
-if (getCookie('theme') === 'light') {
-  document.body.classList.remove('dark-theme');
-} else if (getCookie('theme') === 'dark') {
-  document.body.classList.add('dark-theme');
-}
+document.addEventListener('DOMContentLoaded', () => {
+  if (getCookie('theme') === 'light') {
+    setCookie('theme', 'light', 30);
+    document.body.classList.remove('dark-theme');
+  } else if (getCookie('theme') === 'dark') {
+    setCookie('theme', 'dark', 30);
+    document.body.classList.add('dark-theme');
+  } else {
+    setCookie('theme', 'light', 30);
+  }
+});
 
 function setCookie(name, value, days = 30) {
   const domain = '.realdevsquad.com';

@@ -197,6 +197,10 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .instruction-heading {
+    text-align: left;
+  }
+
   .editor {
     flex-direction: column;
   }

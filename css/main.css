@@ -347,10 +347,6 @@ a {
   text-decoration: none;
 }
 
-.events-box a:visited {
-  color: var(--color-carmine);
-}
-
 .events-box a:hover {
   background: var(--color-soft-magenta);
   border-radius: 20px;

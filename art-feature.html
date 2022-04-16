@@ -8,8 +8,7 @@
   </head>
   <body>
     <div class="title-container">
-      <h1 class="welcome-title">Your Art</h1>
-      <h4 class="under-development">-- Feature under Development --</h4>
+      <h1 class="heading">CSS Art</h1>
       <div class="container">
         <button id="instruction-button">Instructions</button>
       </div>
@@ -18,7 +17,7 @@
     <div class="overlay">
       <div class="instruction-modal">
         <button class="close">&times;</button>
-        <h1>Instructions</h1>
+        <h1 class="instruction-heading">Instructions</h1>
         Hey User, Welcome to CSS Art Feature !<br /><br />
         These are few intructions which you need to follow strictly for
         presenting your creativity else you won't be getting the desired
@@ -44,7 +43,7 @@
       <div class="editor">
         <div class="html-container">
           <input type="text" placeholder="Enter your art title" />
-          <textarea id="html-code"></textarea>
+          <textarea id="html-code" class="html-container-textarea"></textarea>
         </div>
         <div class="output-container">
           <iframe id="output">delete</iframe>
@@ -66,7 +65,7 @@
         <button type="submit" class="button submit-art">Submit Art</button>
       </div>
     </form>
-
     <script src="js/artFeature.js"></script>
+    <script src="js/darkmode.js"></script>
   </body>
 </html>

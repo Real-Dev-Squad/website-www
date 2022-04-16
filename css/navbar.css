@@ -1,4 +1,15 @@
 @import url('global-variables.css');
+
+:root {
+  --color-nav: #1d1283;
+  --color-nav-text: #ffffff;
+}
+
+.dark-theme {
+  --color-nav: #191970;
+  --color-nav-text: #e1e1ec;
+}
+
 nav {
   font-weight: 700;
 }
@@ -7,7 +18,7 @@ nav li a {
   margin: 10px;
   display: block;
   border-radius: 0.5rem;
-  color: var(--color-white);
+  color: var(--color-nav-text);
   text-align: center;
   padding: 19px 16px;
   text-decoration: none;
@@ -26,7 +37,7 @@ nav li a:hover {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--color-dark-blue);
+  background-color: var(--color-nav);
 }
 
 .nav-logo-li {
@@ -54,8 +65,8 @@ nav li a:hover {
 .btn-login-text {
   border-radius: 6px;
   padding: 5px;
-  background-color: var(--color-dark-blue);
-  color: var(--color-white);
+  background-color: var(--color-nav);
+  color: var(--color-nav-text);
   cursor: pointer;
   border: 2px solid var(--color-white);
   display: flex;
@@ -67,13 +78,13 @@ nav li a:hover {
 
 .user-greet {
   display: none;
-  color: var(--color-white);
+  color: var(--color-nav-text);
   margin: 23px;
 }
 
 .user-greet a {
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--color-nav-text);
   padding: 0;
 }
 
@@ -122,7 +133,7 @@ nav li a:hover {
   }
 
   .nav-menu {
-    background: var(--color-white);
+    background: var(--color-nav-text);
     display: none;
     width: 100%;
     padding: 10px 0px;
@@ -137,7 +148,7 @@ nav li a:hover {
   nav li a {
     padding: 10px 40px;
     text-align: left;
-    color: var(--color-dark-blue);
+    color: var(--color-nav);
     text-decoration: none;
     display: block;
   }

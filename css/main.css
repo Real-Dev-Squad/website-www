@@ -35,7 +35,7 @@ body {
   padding: 0;
   font-size: 16px;
   overflow-x: hidden;
-  transition: all 0.5s linear;
+  transition: all 0.2s linear;
 }
 
 #scroll-to-top-btn {
@@ -272,9 +272,15 @@ a {
   opacity: 1;
   pointer-events: auto;
 }
+
 .popup-modal__close {
-  cursor: pointer;
   padding: 10px 20px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  border: none;
+  background-color: transparent;
+  font-size: 3rem;
+  font-weight: 900;
 }
 
 .modal-title-bullet-points {

@@ -39,18 +39,30 @@
       </div>
     </div>
 
-    <div class="editor">
-      <div class="html-container">
-        <input type="text" placeholder="Enter your art title" />
-        <textarea id="html-code" class="html-container-textarea"></textarea>
+    <form id="submit-art-form">
+      <div class="editor">
+        <div class="html-container">
+          <input type="text" placeholder="Enter your art title" />
+          <textarea id="html-code" class="html-container-textarea"></textarea>
+        </div>
+        <div class="output-container">
+          <iframe id="output">delete</iframe>
+        </div>
       </div>
-      <div class="output-container">
-        <iframe id="output"></iframe>
+
+      <div class="price-container">
+        <label>Art Price</label>
+        <input
+          name="artPrice"
+          type="number"
+          min="0"
+          class="price-input"
+          placeholder="Dineros"
+          required
+        />
+        <button type="submit" class="button submit-art">Submit Art</button>
       </div>
-    </div>
-    <div class="container">
-      <button class="button">Submit</button>
-    </div>
+    </form>
     <script src="js/artFeature.js"></script>
     <script src="js/darkmode.js"></script>
   </body>

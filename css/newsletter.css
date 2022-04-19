@@ -1,0 +1,117 @@
+/***********************/
+/* EMAIL CAPTURE FORM */
+/***********************/
+
+.section-cta {
+  padding: 40px 250px;
+}
+
+.cta {
+  display: flex;
+  border-radius: 9px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1.2rem 2.4rem rgba(--color-black-rgb, 0.1);
+}
+
+.cta-text-box {
+  padding: 3.6rem 4.8rem 4.8rem;
+  color: var(--color-links);
+}
+
+.cta .heading-secondary {
+  font-size: 2.4rem;
+  margin-bottom: 1.8rem;
+  color: inherit;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2.4rem;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  column-gap: 3.6rem;
+  row-gap: 1.2rem;
+}
+
+.cta-form label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form input {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  border: 2px solid var(--color-black);
+  border-radius: 9px;
+  color: var(--color-dark-grey);
+  box-shadow: 0 1px 2px rgba(--color-black-rgb 0.1);
+}
+
+.cta-form input:focus {
+  outline: 3px solid var(--color-soft-magenta);
+}
+
+.btn-cta {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1.2rem 2.15rem;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  align-self: end;
+
+  color: var(--color-white);
+  background-color: var(--color-dark-blue);
+  transition: all 0.3s;
+}
+
+.btn-cta:hover,
+.btn-cta:active {
+  background-color: var(--color-vivid-pink);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 79em) {
+  .cta-form input {
+    width: 75%;
+  }
+}
+
+@media (max-width: 60em) {
+  .section-cta {
+    padding: 0.8rem 1.4rem;
+  }
+
+  .cta-form {
+    grid-template-columns: 60% 40%;
+    column-gap: 1.8rem;
+  }
+}
+
+@media (max-width: 31em) {
+  .section-cta {
+    padding: 0.8rem 1.4rem;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-form input {
+    width: 83%;
+  }
+}

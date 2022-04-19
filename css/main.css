@@ -260,30 +260,6 @@ footer {
   text-decoration: none;
 }
 
-.cta-button__container {
-  text-align: center;
-  margin: 40px 0 20px;
-  text-align: right;
-}
-
-.cta-button {
-  background-color: var(--color-dark-blue);
-  border-radius: 5px;
-  color: var(--color-light-grey);
-  cursor: pointer;
-  padding: 16px 40px;
-  font-size: 20px;
-  white-space: nowrap;
-  text-decoration: none;
-  box-shadow: 1px 1px 14px -3px rgba(var(--color-black-rgb), 0.42);
-}
-
-.cta-button:hover {
-  background-color: var(--color-dark-blue);
-  transition: background-color 0.2s ease-in;
-  outline: var(--color-dark-blue);
-}
-
 .member-imgs {
   display: none;
   align-items: center;
@@ -381,10 +357,6 @@ footer {
     height: 400px;
   }
 
-  .cta-button {
-    font-size: 20px;
-  }
-
   .events-box > * {
     width: auto;
   }
@@ -396,20 +368,6 @@ footer {
 
 .highlights li {
   padding: 10px;
-}
-
-@media screen and (max-width: 500px) {
-  .cta-button__container {
-    text-align: center;
-  }
-
-  .cta-button {
-    max-width: 196px;
-    display: inline-block;
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 18px;
-  }
 }
 
 @media screen and (min-width: 1024px) {

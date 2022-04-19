@@ -167,132 +167,6 @@ body {
   text-align: justify;
 }
 
-.section-features {
-  margin: 0 -25px;
-}
-
-.features-title {
-  text-align: center;
-  font-weight: 700;
-  font-size: 2rem;
-  color: var(--color-why-description-text);
-  margin: 60px 20px 32px;
-  line-height: 150%;
-}
-
-.features-content {
-  font-weight: 400;
-  color: var(--color-why-description-text);
-  line-height: 175%;
-  text-align: justify;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  grid-auto-rows: auto;
-  grid-gap: 5rem;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 50px;
-}
-
-.card,
-.modal-card {
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-}
-
-.card {
-  border: 2px solid var(--color-grey);
-}
-
-.card:hover {
-  transform: scale(1.05);
-  transition: all 250ms linear;
-}
-
-.read-more {
-  border-radius: 10px;
-  outline: none;
-  background: var(--color-light-grey);
-  color: var(--color-black);
-  border: none;
-  padding: 6px 14px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-a {
-  text-decoration: none;
-}
-
-.body-blackout {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: var(--color-black);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.body-blackout.is-blacked-out {
-  display: block;
-}
-
-.popup-trigger {
-  display: inline-block;
-}
-
-.popup-modal {
-  height: 90vh;
-  border-radius: 20px;
-  background-color: var(--color-bg);
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 45px;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 300ms ease-in-out;
-  z-index: 1;
-  overflow: scroll;
-  scrollbar-width: 20;
-}
-.popup-modal.is--visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.popup-modal__close {
-  padding: 10px 20px;
-  cursor: pointer;
-  color: var(--color-text-secondary);
-  border: none;
-  background-color: transparent;
-  font-size: 3rem;
-  font-weight: 900;
-}
-
-.modal-title-bullet-points {
-  font-size: 45px;
-  margin: 30px 2px;
-  text-align: center;
-}
-.title-bullet-points {
-  margin: 30px 2px;
-  text-align: center;
-}
-
 .video-holder {
   margin: 175px auto 50px;
   max-width: 600px;
@@ -536,17 +410,6 @@ footer {
     padding: 10px 20px;
     font-size: 18px;
   }
-
-  .card {
-    padding: 20px 10px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .popup-modal {
-    height: 75vh;
-    overflow: scroll;
-  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -560,39 +423,7 @@ footer {
     padding: 0px 65px 70px;
   }
 
-  .title-bullet-points {
-    font-size: 1.75rem;
-    margin: 40px 2px;
-  }
-
   .description-content {
     padding: 0px 250px 90px;
-  }
-
-  .features-title {
-    font-size: 2.8rem;
-    margin-top: 150px;
-    margin-bottom: 75px;
-  }
-
-  .features-content {
-    font-size: 1.25rem;
-  }
-}
-
-@media screen and (max-width: 1240px) {
-  .cards {
-    grid-template-columns: repeat(1, 2fr);
-    max-width: 960px;
-    margin: auto;
-  }
-  .card:hover {
-    transform: scale(1);
-  }
-  .features-content {
-    padding: 0px;
-  }
-  .modal-title-bullet-points {
-    font-size: 2rem;
   }
 }

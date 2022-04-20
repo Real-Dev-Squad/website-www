@@ -123,7 +123,7 @@ nav li a:hover {
 
 @media screen and (max-width: 970px) {
   nav {
-    background: var(--color-dark-blue);
+    background: var(--color-nav);
   }
 
   .hamburger {

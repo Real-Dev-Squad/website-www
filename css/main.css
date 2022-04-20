@@ -274,18 +274,19 @@ a {
 }
 
 .popup-modal__close {
-  padding: 10px 20px;
+  padding: 2px 2px;
   cursor: pointer;
   color: var(--color-text-secondary);
   border: none;
   background-color: transparent;
   font-size: 3rem;
   font-weight: 900;
+  text-align: right;
 }
 
 .modal-title-bullet-points {
   font-size: 45px;
-  margin: 30px 2px;
+  margin: 2px 2px;
   text-align: center;
 }
 .title-bullet-points {

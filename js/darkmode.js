@@ -14,7 +14,7 @@ function setCookie(name, value, days = 30) {
   const domain = '.realdevsquad.com';
   const date = new Date();
   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  const expires = '; expires=' + date.toUTCString();
+  const expires = date.toUTCString();
   document.cookie = `${name}=${value}; expires=${expires}; domain=${domain}; path=/`;
 }
 

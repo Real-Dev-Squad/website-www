@@ -1,5 +1,5 @@
 import { doesGitHubCookieExist } from '/js/github.js';
-const setUserGreeting = (username, firstName) => {
+const setUserGreeting = (username, firstName, userProfilePicture) => {
   if (!doesGitHubCookieExist()) {
     return;
   }
@@ -15,7 +15,9 @@ const setUserGreeting = (username, firstName) => {
     msgGreetMsgEl.forEach((element) => {
       element.innerText = greetMsg;
     });
-    const userImgURL = `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${username}/img.png`;
+
+    const userImgURL = userProfilePicture;
+
     userImgEl.forEach((element) => {
       element.src = userImgURL;
     });
@@ -39,7 +41,7 @@ const fetchData = () => {
       if (res.incompleteUserDetails) {
         return window.location.replace('https://my.realdevsquad.com/signup');
       }
-      setUserGreeting(res.username, res.first_name); // BAD
+      setUserGreeting(res.username, res.first_name, res.picture?.url); // BAD
     });
 };
 

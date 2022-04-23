@@ -38,9 +38,6 @@ const displayMemberImgs = (memberImgArr) => {
   document.getElementById('members').style.display = 'flex';
 };
 
-// const getImgURL = (rdsId) =>
-//   `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${rdsId}/img.png`;
-
 const getMemberURL = (rdsId) => `https://members.realdevsquad.com/${rdsId}`;
 
 const getMemberImgs = () => {

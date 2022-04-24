@@ -38,9 +38,6 @@ const displayMemberImgs = (memberImgArr) => {
   document.getElementById('members').style.display = 'flex';
 };
 
-const getImgURL = (rdsId) =>
-  `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${rdsId}/img.png`;
-
 const getMemberURL = (rdsId) => `https://members.realdevsquad.com/${rdsId}`;
 
 const getMemberImgs = () => {
@@ -55,11 +52,13 @@ const getMemberImgs = () => {
     .then((res) => res.json())
     .then((res) => {
       const { members } = res;
-      for (const { isMember, username } of members) {
+      for (const { isMember, username, picture } of members) {
         memberImgArray.push({
           isMember,
           username,
-          img_url: getImgURL(username),
+          img_url:
+            picture?.url ||
+            'https://raw.githubusercontent.com/Real-Dev-Squad/website-www/2271f2ee9834ebabfc102dbc0f8c4848673fc283/img/profile.png',
           member_url: getMemberURL(username),
         });
       }

@@ -38,9 +38,6 @@ const displayMemberImgs = (memberImgArr) => {
   document.getElementById('members').style.display = 'flex';
 };
 
-const getImgURL = (rdsId) =>
-  `https://raw.githubusercontent.com/Real-Dev-Squad/website-static/main/members/${rdsId}/img.png`;
-
 const getMemberURL = (rdsId) => `https://members.realdevsquad.com/${rdsId}`;
 
 const getMemberImgs = () => {
@@ -55,11 +52,13 @@ const getMemberImgs = () => {
     .then((res) => res.json())
     .then((res) => {
       const { members } = res;
-      for (const { isMember, username } of members) {
+      for (const { isMember, username, picture } of members) {
         memberImgArray.push({
           isMember,
           username,
-          img_url: getImgURL(username),
+          img_url:
+            picture?.url ||
+            'https://raw.githubusercontent.com/Real-Dev-Squad/website-www/2271f2ee9834ebabfc102dbc0f8c4848673fc283/img/profile.png',
           member_url: getMemberURL(username),
         });
       }
@@ -75,3 +74,30 @@ if (doesGitHubCookieExist()) {
 }
 
 window.addEventListener('DOMContentLoaded', getMemberImgs);
+const modalTriggers = document.querySelectorAll('.popup-trigger');
+const modalCloseTrigger = document.querySelector('.popup-modal__close');
+const bodyBlackout = document.querySelector('.body-blackout');
+
+modalTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    const { popupTrigger } = trigger.dataset;
+    const popupModal = document.querySelector(
+      `[data-popup-modal="${popupTrigger}"]`,
+    );
+
+    popupModal.classList.add('is--visible');
+    bodyBlackout.classList.add('is-blacked-out');
+
+    popupModal
+      .querySelector('.popup-modal__close')
+      .addEventListener('click', () => {
+        popupModal.classList.remove('is--visible');
+        bodyBlackout.classList.remove('is-blacked-out');
+      });
+
+    bodyBlackout.addEventListener('click', () => {
+      popupModal.classList.remove('is--visible');
+      bodyBlackout.classList.remove('is-blacked-out');
+    });
+  });
+});

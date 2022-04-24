@@ -58,7 +58,7 @@ const getMemberImgs = () => {
           username,
           img_url:
             picture?.url ||
-            'https://davidnelsoncollins.com/wp-content/uploads/2018/11/profiles-empty1.png',
+            'https://raw.githubusercontent.com/Real-Dev-Squad/website-www/2271f2ee9834ebabfc102dbc0f8c4848673fc283/img/profile.png',
           member_url: getMemberURL(username),
         });
       }

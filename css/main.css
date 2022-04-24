@@ -209,6 +209,7 @@ body {
 }
 
 .card:hover {
+  cursor: pointer;
   transform: scale(1.05);
   transition: all 250ms linear;
 }

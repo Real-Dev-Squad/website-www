@@ -53,11 +53,20 @@ const getMemberImgs = () => {
     .then((res) => {
       const { members } = res;
       for (const { isMember, username, picture } of members) {
+        let adjustedPicture = '';
+        if (!!picture) {
+          adjustedPicture = `${picture.url.slice(
+            0,
+            53,
+          )}w_200,h_200${picture.url.slice(52)}`;
+        } else {
+          adjustedPicture = picture;
+        }
         memberImgArray.push({
           isMember,
           username,
           img_url:
-            picture?.url ||
+            adjustedPicture ||
             'https://raw.githubusercontent.com/Real-Dev-Squad/website-www/2271f2ee9834ebabfc102dbc0f8c4848673fc283/img/profile.png',
           member_url: getMemberURL(username),
         });

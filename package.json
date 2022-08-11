@@ -15,8 +15,5 @@
   },
   "pre-commit": [
     "check"
-  ],
-  "dependencies": {
-    "local-ssl-proxy": "^1.3.0"
-  }
+  ]
 }

@@ -19,7 +19,8 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
     const userImgURL = userProfilePicture;
 
     userImgEl.forEach((element) => {
-      element.src = userImgURL;
+      if (!!userImgURL) element.src = userImgURL;
+      else element.src = '/img/profile.png';
     });
 
     greetingEl.forEach((element) => {

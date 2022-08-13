@@ -19,7 +19,7 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
     const userImgURL = userProfilePicture;
 
     userImgEl.forEach((element) => {
-      element.src = userImgURL;
+      element.src = userImgURL || '/img/profile.png';
     });
 
     greetingEl.forEach((element) => {

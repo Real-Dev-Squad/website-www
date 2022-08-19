@@ -72,6 +72,11 @@
       };
 
       window.addEventListener('load', () => {
+        document
+          .getElementById('signout-option')
+          .addEventListener('click', () => {
+            signout();
+          });
         document.querySelectorAll('.user-greet').forEach((greet) => {
           greet.addEventListener('click', () => {
             document.querySelectorAll('.dropdown').forEach((dropdown) => {
@@ -88,7 +93,7 @@
       <ul>
         <li><a href="https://my.realdevsquad.com/">My Profile</a></li>
         <hr />
-        <li onclick="signout()">Sign out</li>
+        <li id="signout-option">Sign out</li>
       </ul>
     </div>
     <button id="scroll-to-top-btn">

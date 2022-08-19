@@ -80,6 +80,7 @@ nav li a:hover {
   display: none;
   color: var(--color-nav-text);
   margin: 23px;
+  cursor: pointer;
 }
 
 .user-greet a {
@@ -100,6 +101,45 @@ nav li a:hover {
   display: inline;
   vertical-align: middle;
   margin-right: 10px;
+}
+
+.dropdown {
+  width: 180px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 55px;
+  right: 16px;
+  z-index: 100;
+}
+
+.dropdown ul {
+  padding: 0;
+}
+
+.dropdown hr {
+  border-bottom: 2px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.dropdown li {
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.dropdown a {
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.hide {
+  display: none;
 }
 
 .active-tab {
@@ -143,6 +183,10 @@ nav li a:hover {
   .nav-menu.active,
   .home-tab {
     display: block;
+  }
+
+  .dropdown {
+    width: 150px;
   }
 
   nav li a {

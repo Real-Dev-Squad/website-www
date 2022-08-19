@@ -63,10 +63,34 @@
       gtag('js', new Date());
 
       gtag('config', 'G-YRG12HRZKB');
+
+      const signout = () => {
+        fetch('https://api.realdevsquad.com/auth/signout', {
+          method: 'GET',
+          credentials: 'include',
+        });
+      };
+
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.user-greet').forEach((greet) => {
+          greet.addEventListener('click', () => {
+            document.querySelectorAll('.dropdown').forEach((dropdown) => {
+              dropdown.classList.toggle('hide');
+            });
+          });
+        });
+      });
     </script>
   </head>
 
   <body>
+    <div class="dropdown hide">
+      <ul>
+        <li><a href="https://my.realdevsquad.com/">My Profile</a></li>
+        <hr />
+        <li onclick="signout()">Sign out</li>
+      </ul>
+    </div>
     <button id="scroll-to-top-btn">
       <img src="./img/arrow_up.svg" alt="scroll to top button" />
     </button>
@@ -93,10 +117,8 @@
         </a>
 
         <div class="user-greet">
-          <a href="https://my.realdevsquad.com/">
-            <div class="user-greet-msg">Hello, User!</div>
-            <img class="user-profile-pic" />
-          </a>
+          <div class="user-greet-msg">Hello, User!</div>
+          <img class="user-profile-pic" />
         </div>
       </div>
 
@@ -133,10 +155,8 @@
             </button>
           </a>
           <div class="user-greet">
-            <a href="https://my.realdevsquad.com/">
-              <div class="user-greet-msg">Hello, User!</div>
-              <img class="user-profile-pic" />
-            </a>
+            <div class="user-greet-msg">Hello, User!</div>
+            <img class="user-profile-pic" />
           </div>
         </li>
       </ul>

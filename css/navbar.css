@@ -3,6 +3,7 @@
 :root {
   --color-nav: #1d1283;
   --color-nav-text: #ffffff;
+  --dropdown-hover: #d7d6d6;
 }
 
 .dark-theme {
@@ -80,6 +81,7 @@ nav li a:hover {
   display: none;
   color: var(--color-nav-text);
   margin: 23px;
+  cursor: pointer;
 }
 
 .user-greet a {
@@ -100,6 +102,49 @@ nav li a:hover {
   display: inline;
   vertical-align: middle;
   margin-right: 10px;
+}
+
+.dropdown {
+  width: 180px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-black);
+  border-radius: 0.5rem;
+  color: var(--color-black);
+  position: absolute;
+  top: 58px;
+  right: 16px;
+  z-index: 100;
+}
+
+.dropdown-list {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-link {
+  color: var(--color-black);
+}
+
+.line {
+  border: none;
+  border-bottom: 2px solid var(--color-black);
+  margin: 0;
+}
+
+.dropdown-item {
+  padding: 1rem;
+  margin: 0 auto;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: var(--dropdown-hover);
+  border-radius: 0.5rem;
+}
+
+.hide {
+  display: none;
 }
 
 .active-tab {
@@ -143,6 +188,10 @@ nav li a:hover {
   .nav-menu.active,
   .home-tab {
     display: block;
+  }
+
+  .dropdown {
+    width: 150px;
   }
 
   nav li a {

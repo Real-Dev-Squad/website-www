@@ -132,7 +132,7 @@ nav li a:hover {
 }
 
 .dropdown-item {
-  padding: 1rem 1rem;
+  padding: 1rem;
   margin: 0 auto;
   list-style-type: none;
   cursor: pointer;

@@ -21,8 +21,6 @@ document.getElementById('signout-option').addEventListener('click', () => {
 
 document.querySelectorAll('.user-greet').forEach((greet) => {
   greet.addEventListener('click', () => {
-    document.querySelectorAll('.dropdown').forEach((dropdown) => {
-      dropdown.classList.toggle('hide');
-    });
+    document.querySelector('.dropdown').classList.toggle('hide');
   });
 });

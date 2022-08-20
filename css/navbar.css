@@ -111,13 +111,14 @@ nav li a:hover {
   border-radius: 0.5rem;
   color: var(--color-black);
   position: absolute;
-  top: 55px;
+  top: 58px;
   right: 16px;
   z-index: 100;
 }
 
 .dropdown-list {
   padding: 0;
+  margin: 0;
 }
 
 .dropdown-link {
@@ -127,10 +128,11 @@ nav li a:hover {
 .line {
   border: none;
   border-bottom: 2px solid var(--color-black);
+  margin: 0;
 }
 
 .dropdown-item {
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   margin: 0 auto;
   list-style-type: none;
   cursor: pointer;
@@ -138,6 +140,7 @@ nav li a:hover {
 
 .dropdown-item:hover {
   background-color: var(--dropdown-hover);
+  border-radius: 0.5rem;
 }
 
 .hide {

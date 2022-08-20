@@ -63,37 +63,21 @@
       gtag('js', new Date());
 
       gtag('config', 'G-YRG12HRZKB');
-
-      const signout = () => {
-        fetch('https://api.realdevsquad.com/auth/signout', {
-          method: 'GET',
-          credentials: 'include',
-        });
-      };
-
-      window.addEventListener('load', () => {
-        document
-          .getElementById('signout-option')
-          .addEventListener('click', () => {
-            signout();
-          });
-        document.querySelectorAll('.user-greet').forEach((greet) => {
-          greet.addEventListener('click', () => {
-            document.querySelectorAll('.dropdown').forEach((dropdown) => {
-              dropdown.classList.toggle('hide');
-            });
-          });
-        });
-      });
     </script>
   </head>
 
   <body>
     <div class="dropdown hide">
-      <ul>
-        <li><a href="https://my.realdevsquad.com/">My Profile</a></li>
-        <hr />
-        <li id="signout-option">Sign out</li>
+      <ul class="dropdown-list">
+        <li class="dropdown-item">
+          <a class="dropdown-link" href="https://my.realdevsquad.com/"
+            >My Profile</a
+          >
+        </li>
+        <hr class="line" />
+        <li class="dropdown-item dropdown-link" id="signout-option">
+          Sign out
+        </li>
       </ul>
     </div>
     <button id="scroll-to-top-btn">

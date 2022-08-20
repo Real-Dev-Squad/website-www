@@ -3,6 +3,10 @@
 :root {
   --color-nav: #1d1283;
   --color-nav-text: #ffffff;
+  --dropdown-background: #ffffff;
+  --dropdown-border: #000000;
+  --dropdown-text: #000000;
+  --dropdown-hover: #d7d6d6;
 }
 
 .dark-theme {
@@ -105,37 +109,38 @@ nav li a:hover {
 
 .dropdown {
   width: 180px;
-  background-color: white;
-  border: 2px solid black;
+  background-color: var(--dropdown-background);
+  border: 2px solid var(--dropdown-border);
   border-radius: 0.5rem;
+  color: var(--dropdown-text);
   position: absolute;
   top: 55px;
   right: 16px;
   z-index: 100;
 }
 
-.dropdown ul {
+.dropdown-list {
   padding: 0;
 }
 
-.dropdown hr {
-  border-bottom: 2px solid black;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+.dropdown-link {
+  color: var(--dropdown-text);
 }
 
-.dropdown li {
+.line {
+  border: none;
+  border-bottom: 2px solid var(--dropdown-border);
+}
+
+.dropdown-item {
   padding: 0.5rem 1rem;
   margin: 0 auto;
   list-style-type: none;
   cursor: pointer;
 }
 
-.dropdown a {
-  color: black;
-  padding: 0;
-  margin: 0;
+.dropdown-item:hover {
+  background-color: var(--dropdown-hover);
 }
 
 .hide {

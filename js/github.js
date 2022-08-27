@@ -13,7 +13,7 @@ const doesGitHubCookieExist = () => {
 const SIGN_IN_GITHUB_OAUTH = () => {
   let originURL = window?.location?.origin ?? '/';
   let githubOauth =
-    'https://github.com/login/oauth/authorize?client_id=45f5cee93a0396939229&state=';
+    'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97&state=';
   let encodedOriginURL = btoa(originURL);
 
   return githubOauth + encodedOriginURL;

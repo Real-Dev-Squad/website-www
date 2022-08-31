@@ -167,6 +167,13 @@ body {
   text-align: justify;
 }
 
+.join-description {
+  padding: 0 150px 32px;
+  font-weight: 400;
+  line-height: 175%;
+  text-align: justify;
+}
+
 .section-features {
   margin: 0 -25px;
 }

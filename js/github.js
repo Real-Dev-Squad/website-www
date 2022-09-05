@@ -1,5 +1,4 @@
-// VF Flow: https://github.com/Real-Dev-Squad/website-www/issues/233
-const GITHUB_MOCK_URL = 'https://github.realdevsquad.com/';
+import { GITHUB_MOCK_URL, GITHUB_OBJECT_KEY, GITHUB_O_AUTH } from './contants';
 
 const doesGitHubCookieExist = () => {
   const cookieStr = document.cookie || '';
@@ -10,23 +9,21 @@ const doesGitHubCookieExist = () => {
   return !!githubCookieStr;
 };
 
-const SIGN_IN_GITHUB_OAUTH = () => {
+const signInGithubOAuth = () => {
   let originURL = window?.location?.origin ?? '/';
-  let githubOauth =
-    'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97&state=';
   let encodedOriginURL = btoa(originURL);
-
-  return githubOauth + encodedOriginURL;
+  return GITHUB_O_AUTH + encodedOriginURL;
 };
 
 const updateGitHubLink = () => {
-  const githubMock = JSON.parse(localStorage.getItem('githubMock')) ?? {};
-  const githubMockExpired = new Date().getTime() > (githubMock.expiresIn ?? 0);
+  const githubMock = JSON.parse(localStorage.getItem(GITHUB_OBJECT_KEY)) ?? {};
+  const isGithubMockExpired =
+    new Date().getTime() > (githubMock.expiresIn ?? 0);
 
   let signUpLink = GITHUB_MOCK_URL;
 
-  if (githubMock.visited && !githubMockExpired) {
-    signUpLink = SIGN_IN_GITHUB_OAUTH();
+  if (githubMock.visited && !isGithubMockExpired) {
+    signUpLink = signInGithubOAuth();
   }
 
   const allLoginBtns = document.querySelectorAll('.btn-login');
@@ -39,7 +36,7 @@ const updateGitHubLink = () => {
         visited: true,
         expiresIn: new Date().getTime() + 15 ** 9,
       };
-      localStorage.setItem('githubMock', JSON.stringify(githubMock));
+      localStorage.setItem(GITHUB_OBJECT_KEY, JSON.stringify(githubMock));
       window.location = btn.getAttribute('href');
     });
   });

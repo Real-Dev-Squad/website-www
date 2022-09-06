@@ -167,6 +167,11 @@ body {
   text-align: justify;
 }
 
+.under-dev {
+  color: red;
+  text-align: center;
+}
+
 .join-description {
   padding: 0 150px 32px;
   font-weight: 400;

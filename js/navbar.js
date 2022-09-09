@@ -24,3 +24,16 @@ document.querySelectorAll('.user-greet').forEach((greet) => {
     document.querySelector('.dropdown').classList.toggle('hide');
   });
 });
+
+//This code removes the dropdown if the user clicks anywhere apart from the user-greet
+const dropdownTrigger = document.querySelectorAll('.user-greet');
+
+document.addEventListener('click', (event) => {
+  if (
+    dropdownTrigger[0] != event.target.parentElement &&
+    dropdownTrigger[1] != event.target.parentElement &&
+    !document.querySelector('.dropdown').classList.contains('hide')
+  ) {
+    document.querySelector('.dropdown').classList.add('hide');
+  }
+});

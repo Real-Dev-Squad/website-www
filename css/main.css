@@ -695,6 +695,51 @@ footer {
   background-color: var(--color-vivid-pink);
 }
 
+#section-map {
+  display: none;
+}
+
+.map-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-why-description-text);
+  margin: 50px 20px 32px;
+  line-height: 150%;
+}
+
+.map-box {
+  height: 300px;
+  overflow: hidden;
+  border: 3px solid #e20665;
+  margin: 25px 10%;
+}
+
+#map {
+  overflow: visible;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+}
+.mapboxgl-canvas-container {
+  width: 100% !important;
+}
+.mapboxgl-canvas {
+  width: 100% !important;
+}
+
+.marker {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  background-size: 100%;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 79em) {

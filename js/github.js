@@ -1,4 +1,8 @@
-import { GITHUB_MOCK_URL, GITHUB_OBJECT_KEY, GITHUB_O_AUTH } from './contants';
+import {
+  GITHUB_MOCK_URL,
+  GITHUB_OBJECT_KEY,
+  GITHUB_OAUTH,
+} from './contants.js';
 
 const doesGitHubCookieExist = () => {
   const cookieStr = document.cookie || '';
@@ -10,9 +14,9 @@ const doesGitHubCookieExist = () => {
 };
 
 const signInGithubOAuth = () => {
-  let originURL = window?.location?.origin ?? '/';
-  let encodedOriginURL = btoa(originURL);
-  return GITHUB_O_AUTH + encodedOriginURL;
+  let originURL = window.location.origin;
+  if (!originURL) return GITHUB_OAUTH;
+  return GITHUB_OAUTH + '&state=' + originURL;
 };
 
 const updateGitHubLink = () => {
@@ -21,12 +25,12 @@ const updateGitHubLink = () => {
     new Date().getTime() > (githubMock.expiresIn ?? 0);
 
   let signUpLink = GITHUB_MOCK_URL;
-
   if (githubMock.visited && !isGithubMockExpired) {
     signUpLink = signInGithubOAuth();
   }
 
   const allLoginBtns = document.querySelectorAll('.btn-login');
+
   allLoginBtns.forEach((btn) => {
     btn.setAttribute('href', signUpLink);
 

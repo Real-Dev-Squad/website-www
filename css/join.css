@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  --theme-background: #1d1283;
+  --text-white: #ffffff;
+  --text-red: #fd0101;
+  --input-background: #d9d9d9;
+}
+
+.greeting {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.container {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.progress {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  margin: 0 0 2rem;
+}
+
+.info,
+.input-label {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.input-label {
+  font-weight: 400;
+}
+
+.user-input {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 16px;
+  background-color: var(--input-background);
+  width: 21rem;
+  height: 2.5rem;
+  line-height: 2rem;
+  border: none;
+  border-radius: 9px;
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+}
+
+.text-red {
+  color: var(--text-red);
+}
+
+.button-disabled {
+  background-color: var(--input-background) !important;
+  border: none;
+  color: var(--theme-background) !important;
+  cursor: not-allowed !important;
+}
+
+.button-container {
+  display: grid;
+  height: 70vh;
+}
+
+.twin-button-container {
+  margin: 3rem 0;
+}
+
+.button-filled,
+.button-outline {
+  background-color: var(--theme-background);
+  border-radius: 9px;
+  width: 11rem;
+  height: 3rem;
+  color: var(--text-white);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin: auto;
+}
+
+.button-outline {
+  background-color: var(--text-white);
+  border: 1px solid var(--theme-background);
+  color: var(--theme-background);
+}
+
+.button-outline:hover {
+  background-color: var(--theme-background);
+  color: var(--text-white);
+  border: none;
+}
+
+.hide-page {
+  display: none;
+}
+
+@media screen and (min-width: 611px) {
+  .user-input {
+    width: 35rem;
+  }
+  .twin-button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

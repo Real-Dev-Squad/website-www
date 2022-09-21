@@ -5,6 +5,10 @@
   --text-white: #ffffff;
   --text-red: #fd0101;
   --input-background: #d9d9d9;
+  --error-border: #ff0000;
+  --error-background: #ffebef;
+  --correct-border: #09a444;
+  --correct-background: rgba(9, 164, 68, 0.2);
 }
 
 .greeting {
@@ -104,6 +108,16 @@
 
 .hide-page {
   display: none;
+}
+
+.incorrect-data {
+  background-color: var(--error-background);
+  border: 1px solid var(--error-border);
+}
+
+.correct-data {
+  background-color: var(--correct-background);
+  border: 1px solid var(--correct-border);
 }
 
 @media screen and (min-width: 611px) {

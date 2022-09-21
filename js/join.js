@@ -8,7 +8,7 @@ const country = document.getElementById('country');
 const next1 = document.getElementById('next1');
 const previous1 = document.getElementById('previous1');
 
-function toggleButton(page = 'page2') {
+function toggleButton(page = 'page1') {
   if (page === 'page1') {
     if (
       state.value.trim().length > 3 &&
@@ -49,7 +49,7 @@ window.addEventListener('load', () => {
   } else if (currentFlowState == 1) {
     page1.classList.add('hide-page');
     page2.classList.remove('hide-page');
-    page3.classList.add('hide-Page');
+    page3.classList.add('hide-page');
     fieldAutofill();
     toggleButton();
   } else if (currentFlowState == 2) {
@@ -101,8 +101,10 @@ previous1.addEventListener('click', () => {
 });
 
 next1.addEventListener('click', () => {
-  window.localStorage.setItem('flowState', flowState.introductionPage);
-  page1.classList.add('hide-page');
-  page2.classList.add('hide-Page');
-  page3.classList.remove('hide-Page');
+  if (!next1.classList.contains('button-disabled')) {
+    window.localStorage.setItem('flowState', flowState.introductionPage);
+    page1.classList.add('hide-page');
+    page2.classList.add('hide-page');
+    page3.classList.remove('hide-page');
+  }
 });

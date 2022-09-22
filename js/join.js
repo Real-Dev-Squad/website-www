@@ -2,14 +2,21 @@ const startBtn = document.getElementById('start');
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 const page3 = document.getElementById('page3');
+
 const city = document.getElementById('city');
 const state = document.getElementById('state');
 const country = document.getElementById('country');
 const next1 = document.getElementById('next1');
 const previous1 = document.getElementById('previous1');
 
-function toggleButton(page = 'page1') {
-  if (page === 'page1') {
+const introduction = document.getElementById('introduction');
+const skills = document.getElementById('skills');
+const college = document.getElementById('college');
+const forFun = document.getElementById('for-fun');
+const funFact = document.getElementById('fun-fact');
+
+function toggleButton(page = 'page2') {
+  if (page === 'page2') {
     if (
       state.value.trim().length > 3 &&
       city.value.trim().length > 3 &&
@@ -107,4 +114,11 @@ next1.addEventListener('click', () => {
     page2.classList.add('hide-page');
     page3.classList.remove('hide-page');
   }
+});
+
+previous2.addEventListener('click', () => {
+  window.localStorage.setItem('flowState', flowState.personalDetailsPage);
+  page1.classList.add('hide-page');
+  page2.classList.remove('hide-page');
+  page3.classList.add('hide-page');
 });

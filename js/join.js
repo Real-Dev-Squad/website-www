@@ -98,7 +98,7 @@ function toggleNextButton() {
   }
 }
 
-function fieldAutofill() {
+function autoFillTheFields() {
   city.value = window.localStorage.getItem('city');
   state.value = window.localStorage.getItem('state');
   country.value = window.localStorage.getItem('country');
@@ -121,7 +121,7 @@ function fieldAutofill() {
 window.addEventListener('load', () => {
   const currentFlowState = window.localStorage.getItem('flowState');
   showPage(currentFlowState);
-  fieldAutofill();
+  autoFillTheFields();
   toggleNextButton(currentFlowState);
 });
 
@@ -193,7 +193,7 @@ startBtn.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.personalDetailsPage);
   let currentFlowState = window.localStorage.getItem('flowState');
   showPage(currentFlowState);
-  fieldAutofill();
+  autoFillTheFields();
   toggleNextButton('page1');
 });
 

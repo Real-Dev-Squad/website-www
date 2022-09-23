@@ -108,6 +108,7 @@ function fieldAutofill() {
   forFun.value = window.localStorage.getItem('forFun');
   funFact.value = window.localStorage.getItem('funFact');
   whyRds.value = window.localStorage.getItem('whyRds');
+  heardAbout.value = window.localStorage.getItem('heardAbout');
   dataValidator(introduction, 100);
   dataValidator(skills, 6);
   dataValidator(college, 5);

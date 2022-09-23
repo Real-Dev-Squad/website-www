@@ -82,7 +82,7 @@ function dataValidator(element, size) {
   }
 }
 
-function toggleButton() {
+function toggleNextButton() {
   if (arePersonalDetailsValid()) {
     next1.classList.remove('button-disabled');
   }
@@ -122,7 +122,7 @@ window.addEventListener('load', () => {
   const currentFlowState = window.localStorage.getItem('flowState');
   showPage(currentFlowState);
   fieldAutofill();
-  toggleButton(currentFlowState);
+  toggleNextButton(currentFlowState);
 });
 
 //initializer
@@ -133,58 +133,58 @@ if (!window.localStorage.getItem('flowState')) {
 //Value updaters
 city.addEventListener('input', () => {
   window.localStorage.setItem('city', city.value);
-  toggleButton();
+  toggleNextButton();
 });
 
 state.addEventListener('input', () => {
   window.localStorage.setItem('state', state.value);
-  toggleButton();
+  toggleNextButton();
 });
 
 country.addEventListener('input', () => {
   window.localStorage.setItem('country', country.value);
-  toggleButton();
+  toggleNextButton();
 });
 
 introduction.addEventListener('input', () => {
   window.localStorage.setItem('introduction', introduction.value);
-  toggleButton();
+  toggleNextButton();
   dataValidator(introduction, 100);
 });
 
 skills.addEventListener('input', () => {
   window.localStorage.setItem('skills', skills.value);
-  toggleButton();
+  toggleNextButton();
   dataValidator(skills, 6);
 });
 
 college.addEventListener('input', () => {
   window.localStorage.setItem('college', college.value);
-  toggleButton();
+  toggleNextButton();
   dataValidator(college, 5);
 });
 
 forFun.addEventListener('input', () => {
   window.localStorage.setItem('forFun', forFun.value);
-  toggleButton();
+  toggleNextButton();
   dataValidator(forFun, 100);
 });
 
 funFact.addEventListener('input', () => {
   window.localStorage.setItem('funFact', funFact.value);
-  toggleButton();
+  toggleNextButton();
   dataValidator(funFact, 100);
 });
 
 whyRds.addEventListener('input', () => {
   window.localStorage.setItem('whyRds', whyRds.value);
-  toggleButton();
+  toggleNextButton();
   dataValidator(whyRds, 100);
 });
 
 heardAbout.addEventListener('input', () => {
   window.localStorage.setItem('heardAbout', heardAbout.value);
-  toggleButton();
+  toggleNextButton();
 });
 
 //Button Enablers
@@ -194,7 +194,7 @@ startBtn.addEventListener('click', () => {
   let currentFlowState = window.localStorage.getItem('flowState');
   showPage(currentFlowState);
   fieldAutofill();
-  toggleButton('page1');
+  toggleNextButton('page1');
 });
 
 previous1.addEventListener('click', () => {

@@ -14,17 +14,21 @@ const flowState = {
 };
 
 const startBtn = document.getElementById('start');
+
+// Getting all pages
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 const page3 = document.getElementById('page3');
 const page4 = document.getElementById('page4');
 
+// variables for personal details Page
 const city = document.getElementById('city');
 const state = document.getElementById('state');
 const country = document.getElementById('country');
 const next1 = document.getElementById('next1');
 const previous1 = document.getElementById('previous1');
 
+// variables for introduction page
 const introduction = document.getElementById('introduction');
 const skills = document.getElementById('skills');
 const college = document.getElementById('college');
@@ -33,6 +37,7 @@ const funFact = document.getElementById('fun-fact');
 const next2 = document.getElementById('next2');
 const previous2 = document.getElementById('previous2');
 
+//variables for why RDS Page
 const whyRds = document.getElementById('whyRds');
 const heardAbout = document.getElementById('heardAbout');
 const previous3 = document.getElementById('previous3');
@@ -50,6 +55,7 @@ function showPage(currentFlowState) {
   }
 }
 
+//Validators
 function arePersonalDetailsValid() {
   return (
     state.value.trim().length > 3 &&
@@ -82,6 +88,7 @@ function dataValidator(element, size) {
   }
 }
 
+// Togglers Fillers
 function toggleNextButton() {
   if (arePersonalDetailsValid()) {
     next1.classList.remove('button-disabled');

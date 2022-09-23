@@ -34,6 +34,7 @@ const next2 = document.getElementById('next2');
 const previous2 = document.getElementById('previous2');
 
 const whyRds = document.getElementById('whyRds');
+const heardAbout = document.getElementById('heardAbout');
 const previous3 = document.getElementById('previous3');
 const next3 = document.getElementById('next3');
 
@@ -49,38 +50,26 @@ function showPage(currentFlowState) {
   }
 }
 
-function personalDetailsChecker() {
-  if (
+function arePersonalDetailsValid() {
+  return (
     state.value.trim().length > 3 &&
     city.value.trim().length > 3 &&
     country.value.trim().length > 3
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  );
 }
 
 function introPageChecker() {
-  if (
+  return (
     introduction.value.trim().split(' ').length > 100 &&
     skills.value.trim().split(' ').length > 6 &&
     college.value.trim().split(' ').length > 5 &&
     forFun.value.trim().split(' ').length > 100 &&
     funFact.value.trim().split(' ').length > 100
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  );
 }
 
 function whyRdsPageChecker() {
-  if (whyRds.value.trim().split(' ').length > 100) {
-    return true;
-  } else {
-    return false;
-  }
+  return whyRds.value.trim().split(' ').length > 100 && heardAbout.value != '';
 }
 
 function dataValidator(element, size) {
@@ -94,7 +83,7 @@ function dataValidator(element, size) {
 }
 
 function toggleButton() {
-  if (personalDetailsChecker()) {
+  if (arePersonalDetailsValid()) {
     next1.classList.remove('button-disabled');
   }
   if (introPageChecker()) {
@@ -192,6 +181,11 @@ whyRds.addEventListener('input', () => {
   dataValidator(whyRds, 100);
 });
 
+heardAbout.addEventListener('input', () => {
+  window.localStorage.setItem('heardAbout', heardAbout.value);
+  toggleButton();
+});
+
 //Button Enablers
 
 startBtn.addEventListener('click', () => {
@@ -209,7 +203,7 @@ previous1.addEventListener('click', () => {
 });
 
 next1.addEventListener('click', () => {
-  if (personalDetailsChecker()) {
+  if (arePersonalDetailsValid()) {
     window.localStorage.setItem('flowState', flowState.introductionPage);
     let currentFlowState = window.localStorage.getItem('flowState');
     showPage(currentFlowState);

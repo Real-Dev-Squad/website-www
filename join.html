@@ -276,6 +276,44 @@
           </div>
         </div>
       </section>
+      <section class="page4" id="page4">
+        <h1 class="greeting">
+          Let’s Help the verifier Understand 🤔 you better.
+        </h1>
+        <div class="container">
+          <h2 class="progress">Step 3 of 3: Why RDS?</h2>
+          <p class="info">Feilds marked with * are mandatory</p>
+          <label class="input-label" for="whyRds">
+            Why do you want to join RDS?
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <textarea
+            name="whyRds"
+            id="whyRds"
+            class="user-input-big"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <br />
+          <label class="input-label" for="heardAbout">
+            How did you hear about us?
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <select name="heardAbout" id="heardAbout" class="user-input">
+            <option value="">Select an option</option>
+            <option value="Twitter"></option>
+          </select>
+          <br />
+          <div class="twin-button-container">
+            <button class="button-outline" id="previous3">Previous</button>
+            <button class="button-filled button-disabled" id="next3">
+              Next
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -296,6 +334,6 @@
     <script src="js/scrollBtn.js"></script>
     <script src="js/darkmode.js"></script>
     <script src="js/featureFlag.js"></script>
-    <script src="./js/join.js"></script>
+    <script type="module" src="/js/join.js"></script>
   </body>
 </html>

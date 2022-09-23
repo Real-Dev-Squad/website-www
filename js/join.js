@@ -1,7 +1,23 @@
+import { doesGitHubCookieExist } from '/js/github.js';
+
+if (doesGitHubCookieExist()) {
+  console.log('Logged in');
+}
+
+const flowState = {
+  notStarted: 0,
+  personalDetailsPage: 1,
+  introductionPage: 2,
+  reasonForRdsPage: 3,
+  previewPage: 4,
+  completedPage: 5,
+};
+
 const startBtn = document.getElementById('start');
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 const page3 = document.getElementById('page3');
+const page4 = document.getElementById('page4');
 
 const city = document.getElementById('city');
 const state = document.getElementById('state');
@@ -17,8 +33,58 @@ const funFact = document.getElementById('fun-fact');
 const next2 = document.getElementById('next2');
 const previous2 = document.getElementById('previous2');
 
+const whyRds = document.getElementById('whyRds');
+const previous3 = document.getElementById('previous3');
+const next3 = document.getElementById('next3');
+
+const pages = [page1, page2, page3, page4];
+
+function showPage(currentFlowState) {
+  for (let i = 0; i < pages.length; i++) {
+    if (i == currentFlowState) {
+      pages[i].classList.remove('hide-page');
+    } else {
+      pages[i].classList.add('hide-page');
+    }
+  }
+}
+
+function personalDetailsChecker() {
+  if (
+    state.value.trim().length > 3 &&
+    city.value.trim().length > 3 &&
+    country.value.trim().length > 3
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function introPageChecker() {
+  if (
+    introduction.value.trim().split(' ').length > 100 &&
+    skills.value.trim().split(' ').length > 6 &&
+    college.value.trim().split(' ').length > 5 &&
+    forFun.value.trim().split(' ').length > 100 &&
+    funFact.value.trim().split(' ').length > 100
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function whyRdsPageChecker() {
+  if (whyRds.value.trim().split(' ').length > 100) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function dataValidator(element, size) {
-  if (element.value.trim().length > size) {
+  if (element.value.trim().split(' ').length > size) {
     element.classList.add('correct-data');
     element.classList.remove('incorrect-data');
   } else {
@@ -27,44 +93,21 @@ function dataValidator(element, size) {
   }
 }
 
-function toggleButton(page = 'page2') {
-  if (page === 'page2') {
-    if (
-      state.value.trim().length > 3 &&
-      city.value.trim().length > 3 &&
-      country.value.trim().length > 3
-    ) {
-      next1.classList.remove('button-disabled');
-    } else {
-      if (!next1.classList.contains('button-disabled')) {
-        next1.classList.add('button-disabled');
-      }
-    }
-  } else if (page === 'page3') {
-    if (
-      introduction.value.trim().length > 100 &&
-      skills.value.trim().length > 50 &&
-      college.value.trim().length > 25 &&
-      forFun.value.trim().length > 100 &&
-      funFact.value.trim().length > 100
-    ) {
-      next2.classList.remove('button-disabled');
-    } else {
-      if (!next2.classList.contains('button-disabled')) {
-        next2.classList.add('button-disabled');
-      }
-    }
+function toggleButton() {
+  if (personalDetailsChecker()) {
+    next1.classList.remove('button-disabled');
+  }
+  if (introPageChecker()) {
+    next2.classList.remove('button-disabled');
+  }
+  if (whyRdsPageChecker()) {
+    next3.classList.remove('button-disabled');
+  } else {
+    next1.classList.add('button-disabled');
+    next2.classList.add('button-disabled');
+    next3.classList.add('button-disabled');
   }
 }
-
-const flowState = {
-  notStarted: 0,
-  personalDetailsPage: 1,
-  introductionPage: 2,
-  reasonForRdsPage: 3,
-  previewPage: 4,
-  completedPage: 5,
-};
 
 function fieldAutofill() {
   city.value = window.localStorage.getItem('city');
@@ -75,39 +118,21 @@ function fieldAutofill() {
   college.value = window.localStorage.getItem('college');
   forFun.value = window.localStorage.getItem('forFun');
   funFact.value = window.localStorage.getItem('funFact');
+  whyRds.value = window.localStorage.getItem('whyRds');
   dataValidator(introduction, 100);
-  dataValidator(skills, 50);
-  dataValidator(college, 25);
+  dataValidator(skills, 6);
+  dataValidator(college, 5);
   dataValidator(forFun, 100);
   dataValidator(funFact, 100);
+  dataValidator(whyRds, 100);
 }
 
 //Direct to the page user left from
 window.addEventListener('load', () => {
   const currentFlowState = window.localStorage.getItem('flowState');
-  if (currentFlowState == 0) {
-    page1.classList.remove('hide-page');
-    page2.classList.add('hide-page');
-    page3.classList.add('hide-page');
-  } else if (currentFlowState == 1) {
-    page1.classList.add('hide-page');
-    page2.classList.remove('hide-page');
-    page3.classList.add('hide-page');
-    fieldAutofill();
-    toggleButton();
-  } else if (currentFlowState == 2) {
-    page1.classList.add('hide-page');
-    page2.classList.add('hide-page');
-    page3.classList.remove('hide-Page');
-    fieldAutofill();
-    toggleButton();
-  } else if (currentFlowState == 3) {
-    page1.classList.add('hide-page');
-    page2.classList.add('hide-page');
-    page3.classList.remove('hide-Page');
-    fieldAutofill();
-    toggleButton('page3');
-  }
+  showPage(currentFlowState);
+  fieldAutofill();
+  toggleButton(currentFlowState);
 });
 
 //initializer
@@ -133,64 +158,80 @@ country.addEventListener('input', () => {
 
 introduction.addEventListener('input', () => {
   window.localStorage.setItem('introduction', introduction.value);
-  toggleButton('page3');
+  toggleButton();
   dataValidator(introduction, 100);
 });
 
 skills.addEventListener('input', () => {
   window.localStorage.setItem('skills', skills.value);
-  toggleButton('page3');
-  dataValidator(skills, 50);
+  toggleButton();
+  dataValidator(skills, 6);
 });
 
 college.addEventListener('input', () => {
   window.localStorage.setItem('college', college.value);
-  toggleButton('page3');
-  dataValidator(college, 25);
+  toggleButton();
+  dataValidator(college, 5);
 });
 
 forFun.addEventListener('input', () => {
   window.localStorage.setItem('forFun', forFun.value);
-  toggleButton('page3');
+  toggleButton();
   dataValidator(forFun, 100);
 });
 
 funFact.addEventListener('input', () => {
   window.localStorage.setItem('funFact', funFact.value);
-  toggleButton('page3');
+  toggleButton();
   dataValidator(funFact, 100);
+});
+
+whyRds.addEventListener('input', () => {
+  window.localStorage.setItem('whyRds', whyRds.value);
+  toggleButton();
+  dataValidator(whyRds, 100);
 });
 
 //Button Enablers
 
 startBtn.addEventListener('click', () => {
-  page1.classList.add('hide-page');
-  page2.classList.remove('hide-page');
-  page3.classList.add('hide-page');
   window.localStorage.setItem('flowState', flowState.personalDetailsPage);
+  let currentFlowState = window.localStorage.getItem('flowState');
+  showPage(currentFlowState);
   fieldAutofill();
   toggleButton('page1');
 });
 
 previous1.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.notStarted);
-  page1.classList.remove('hide-page');
-  page2.classList.add('hide-page');
-  page3.classList.add('hide-page');
+  let currentFlowState = window.localStorage.getItem('flowState');
+  showPage(currentFlowState);
 });
 
 next1.addEventListener('click', () => {
-  if (!next1.classList.contains('button-disabled')) {
+  if (personalDetailsChecker()) {
     window.localStorage.setItem('flowState', flowState.introductionPage);
-    page1.classList.add('hide-page');
-    page2.classList.add('hide-page');
-    page3.classList.remove('hide-page');
+    let currentFlowState = window.localStorage.getItem('flowState');
+    showPage(currentFlowState);
   }
 });
 
 previous2.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.personalDetailsPage);
-  page1.classList.add('hide-page');
-  page2.classList.remove('hide-page');
-  page3.classList.add('hide-page');
+  let currentFlowState = window.localStorage.getItem('flowState');
+  showPage(currentFlowState);
+});
+
+next2.addEventListener('click', () => {
+  if (introPageChecker()) {
+    window.localStorage.setItem('flowState', flowState.reasonForRdsPage);
+    let currentFlowState = window.localStorage.getItem('flowState');
+    showPage(currentFlowState);
+  }
+});
+
+previous3.addEventListener('click', () => {
+  window.localStorage.setItem('flowState', flowState.introductionPage);
+  let currentFlowState = window.localStorage.getItem('flowState');
+  showPage(currentFlowState);
 });

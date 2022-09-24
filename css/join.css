@@ -72,6 +72,7 @@
   border-radius: 9px;
   margin: 1rem 0;
   padding: 0 0.5rem;
+  overflow-y: scroll;
 }
 
 .text-red {

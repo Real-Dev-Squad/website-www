@@ -2,6 +2,7 @@ import { doesGitHubCookieExist } from '/js/github.js';
 
 if (doesGitHubCookieExist()) {
   console.log('Logged in');
+  fetchFirstNameLastName();
 }
 
 const flowState = {
@@ -20,6 +21,7 @@ const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 const page3 = document.getElementById('page3');
 const page4 = document.getElementById('page4');
+const page5 = document.getElementById('page5');
 
 // variables for personal details Page
 const city = document.getElementById('city');
@@ -43,7 +45,33 @@ const heardAbout = document.getElementById('heardAbout');
 const previous3 = document.getElementById('previous3');
 const next3 = document.getElementById('next3');
 
-const pages = [page1, page2, page3, page4];
+//variables for preview pages
+const previewFName = document.getElementById('previewFName');
+const previewLName = document.getElementById('previewLName');
+const previewCity = document.getElementById('previewCity');
+const previewState = document.getElementById('previewState');
+const previewCountry = document.getElementById('previewCountry');
+const previewIntro = document.getElementById('previewIntro');
+const previewSkills = document.getElementById('previewSkills');
+const previewInstitution = document.getElementById('previewInstitution');
+const previewFunFact = document.getElementById('previewFunFact');
+const previewForFun = document.getElementById('previewForFun');
+const previewWhyRds = document.getElementById('previewWhyRds');
+const previewHeardAbout = document.getElementById('previewHeardAbout');
+
+function fetchFirstNameLastName() {
+  fetch('https://api.realdevsquad.com/users/self', {
+    headers: { 'content-type': 'application/json' },
+    credentials: 'include',
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      window.localStorage.setItem('firstName', res.first_name);
+      window.localStorage.setItem('lastName', res.last_name);
+    });
+}
+
+const pages = [page1, page2, page3, page4, page5];
 
 function showPage(currentFlowState) {
   for (let i = 0; i < pages.length; i++) {
@@ -126,12 +154,30 @@ function autoFillTheFields() {
   dataValidator(whyRds, 100);
 }
 
+function previewFiller() {
+  previewFName.innerText = window.localStorage.getItem('firstName');
+  previewLName.innerHTML = window.localStorage.getItem('lastName');
+  previewCity.innerHTML = window.localStorage.getItem('city');
+  previewState.innerHTML = window.localStorage.getItem('state');
+  previewCountry.innerHTML = window.localStorage.getItem('country');
+  previewIntro.innerHTML = window.localStorage.getItem('introduction');
+  previewSkills.innerHTML = window.localStorage.getItem('skills');
+  previewInstitution.innerHTML = window.localStorage.getItem('college');
+  previewForFun.innerHTML = window.localStorage.getItem('forFun');
+  previewFunFact.innerHTML = window.localStorage.getItem('funFact');
+  previewWhyRds.innerHTML = window.localStorage.getItem('whyRds');
+  previewHeardAbout.innerHTML = window.localStorage.getItem('heardAbout');
+}
+
 //Direct to the page user left from
 window.addEventListener('load', () => {
   const currentFlowState = window.localStorage.getItem('flowState');
   showPage(currentFlowState);
   autoFillTheFields();
   toggleNextButton();
+  if (currentFlowState == flowState.previewPage) {
+    previewFiller();
+  }
 });
 
 //initializer
@@ -236,6 +282,19 @@ next2.addEventListener('click', () => {
 
 previous3.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.introductionPage);
+  let currentFlowState = window.localStorage.getItem('flowState');
+  showPage(currentFlowState);
+});
+
+next3.addEventListener('click', () => {
+  window.localStorage.setItem('flowState', flowState.previewPage);
+  let currentFlowState = window.localStorage.getItem('flowState');
+  showPage(currentFlowState);
+  previewFiller();
+});
+
+previous4.addEventListener('click', () => {
+  window.localStorage.setItem('flowState', flowState.reasonForRdsPage);
   let currentFlowState = window.localStorage.getItem('flowState');
   showPage(currentFlowState);
 });

@@ -289,9 +289,11 @@ previous3.addEventListener('click', () => {
 });
 
 previewBtn.addEventListener('click', () => {
-  window.localStorage.setItem('flowState', flowState.previewPage);
-  selectPage();
-  previewFiller();
+  if (whyRdsPageChecker()) {
+    window.localStorage.setItem('flowState', flowState.previewPage);
+    selectPage();
+    previewFiller();
+  }
 });
 
 previous4.addEventListener('click', () => {

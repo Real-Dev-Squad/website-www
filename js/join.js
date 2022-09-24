@@ -92,15 +92,17 @@ function dataValidator(element, size) {
 function toggleNextButton() {
   if (arePersonalDetailsValid()) {
     next1.classList.remove('button-disabled');
+  } else {
+    next1.classList.add('button-disabled');
   }
   if (introPageChecker()) {
     next2.classList.remove('button-disabled');
+  } else {
+    next2.classList.add('button-disabled');
   }
   if (whyRdsPageChecker()) {
     next3.classList.remove('button-disabled');
   } else {
-    next1.classList.add('button-disabled');
-    next2.classList.add('button-disabled');
     next3.classList.add('button-disabled');
   }
 }
@@ -129,7 +131,7 @@ window.addEventListener('load', () => {
   const currentFlowState = window.localStorage.getItem('flowState');
   showPage(currentFlowState);
   autoFillTheFields();
-  toggleNextButton(currentFlowState);
+  toggleNextButton();
 });
 
 //initializer

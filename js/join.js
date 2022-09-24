@@ -43,7 +43,7 @@ const previous2 = document.getElementById('previous2');
 const whyRds = document.getElementById('whyRds');
 const heardAbout = document.getElementById('heardAbout');
 const previous3 = document.getElementById('previous3');
-const next3 = document.getElementById('next3');
+const previewBtn = document.getElementById('next3');
 
 //variables for preview pages
 const previewFName = document.getElementById('previewFName');
@@ -58,6 +58,8 @@ const previewFunFact = document.getElementById('previewFunFact');
 const previewForFun = document.getElementById('previewForFun');
 const previewWhyRds = document.getElementById('previewWhyRds');
 const previewHeardAbout = document.getElementById('previewHeardAbout');
+const previous4 = document.getElementById('previous4');
+//const submit = document.getElementById('next4');
 
 function fetchFirstNameLastName() {
   fetch('https://api.realdevsquad.com/users/self', {
@@ -72,6 +74,11 @@ function fetchFirstNameLastName() {
 }
 
 const pages = [page1, page2, page3, page4, page5];
+
+function selectPage() {
+  let currentFlowState = window.localStorage.getItem('flowState');
+  showPage(currentFlowState);
+}
 
 function showPage(currentFlowState) {
   for (let i = 0; i < pages.length; i++) {
@@ -129,9 +136,9 @@ function toggleNextButton() {
     next2.classList.add('button-disabled');
   }
   if (whyRdsPageChecker()) {
-    next3.classList.remove('button-disabled');
+    previewBtn.classList.remove('button-disabled');
   } else {
-    next3.classList.add('button-disabled');
+    previewBtn.classList.add('button-disabled');
   }
 }
 
@@ -254,47 +261,40 @@ startBtn.addEventListener('click', () => {
 
 previous1.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.notStarted);
-  let currentFlowState = window.localStorage.getItem('flowState');
-  showPage(currentFlowState);
+  selectPage();
 });
 
 next1.addEventListener('click', () => {
   if (arePersonalDetailsValid()) {
     window.localStorage.setItem('flowState', flowState.introductionPage);
-    let currentFlowState = window.localStorage.getItem('flowState');
-    showPage(currentFlowState);
+    selectPage();
   }
 });
 
 previous2.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.personalDetailsPage);
-  let currentFlowState = window.localStorage.getItem('flowState');
-  showPage(currentFlowState);
+  selectPage();
 });
 
 next2.addEventListener('click', () => {
   if (introPageChecker()) {
     window.localStorage.setItem('flowState', flowState.reasonForRdsPage);
-    let currentFlowState = window.localStorage.getItem('flowState');
-    showPage(currentFlowState);
+    selectPage();
   }
 });
 
 previous3.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.introductionPage);
-  let currentFlowState = window.localStorage.getItem('flowState');
-  showPage(currentFlowState);
+  selectPage();
 });
 
-next3.addEventListener('click', () => {
+previewBtn.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.previewPage);
-  let currentFlowState = window.localStorage.getItem('flowState');
-  showPage(currentFlowState);
+  selectPage();
   previewFiller();
 });
 
 previous4.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.reasonForRdsPage);
-  let currentFlowState = window.localStorage.getItem('flowState');
-  showPage(currentFlowState);
+  selectPage();
 });

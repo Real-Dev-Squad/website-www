@@ -2,7 +2,7 @@ import { doesGitHubCookieExist } from '/js/github.js';
 
 if (doesGitHubCookieExist()) {
   console.log('Logged in');
-  fetchFirstNameLastName();
+  fetchSavedDetails();
 }
 
 const flowState = {
@@ -22,6 +22,7 @@ const page2 = document.getElementById('page2');
 const page3 = document.getElementById('page3');
 const page4 = document.getElementById('page4');
 const page5 = document.getElementById('page5');
+const page6 = document.getElementById('page6');
 
 // variables for personal details Page
 const city = document.getElementById('city');
@@ -59,9 +60,17 @@ const previewForFun = document.getElementById('previewForFun');
 const previewWhyRds = document.getElementById('previewWhyRds');
 const previewHeardAbout = document.getElementById('previewHeardAbout');
 const previous4 = document.getElementById('previous4');
-//const submit = document.getElementById('next4');
+const submit = document.getElementById('next4');
 
-function fetchFirstNameLastName() {
+//Vatiables for Completed page
+const personalLink = document.getElementById('personalLink');
+const copyBtn = document.getElementById('copy');
+const url = `https://api.realdevsquad.com/users/${localStorage.getItem(
+  'userName',
+)}/intro`;
+personalLink.innerText = url;
+
+function fetchSavedDetails() {
   fetch('https://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
@@ -70,10 +79,11 @@ function fetchFirstNameLastName() {
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
+      window.localStorage.setItem('userName', res.username);
     });
 }
 
-const pages = [page1, page2, page3, page4, page5];
+const pages = [page1, page2, page3, page4, page5, page6];
 
 function selectPage() {
   let currentFlowState = window.localStorage.getItem('flowState');
@@ -299,4 +309,27 @@ previewBtn.addEventListener('click', () => {
 previous4.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.reasonForRdsPage);
   selectPage();
+});
+
+submit.addEventListener('click', async () => {
+  let userName = localStorage.getItem('userName');
+  let url = `https://api.realdevsquad.com/users/${userName}/intro`;
+  let data = JSON.stringify(localStorage);
+  let method = 'POST';
+  await fetch(url, {
+    credentials: 'include',
+    method: method,
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: data,
+  }).then(() => {
+    window.localStorage.setItem('flowState', flowState.completedPage);
+    selectPage();
+  });
+});
+
+copyBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText(url);
 });

@@ -65,10 +65,6 @@ const submit = document.getElementById('next4');
 //Vatiables for Completed page
 const personalLink = document.getElementById('personalLink');
 const copyBtn = document.getElementById('copy');
-const url = `https://api.realdevsquad.com/users/${localStorage.getItem(
-  'userName',
-)}/intro`;
-personalLink.innerText = url;
 
 function fetchSavedDetails() {
   fetch('https://api.realdevsquad.com/users/self', {
@@ -79,7 +75,11 @@ function fetchSavedDetails() {
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
-      window.localStorage.setItem('userName', res.username);
+      window.localStorage.setItem('userId', res.id);
+      const url = `https://api.realdevsquad.com/users/${localStorage.getItem(
+        'userId',
+      )}/intro`;
+      personalLink.innerText = url;
     });
 }
 
@@ -312,8 +312,8 @@ previous4.addEventListener('click', () => {
 });
 
 submit.addEventListener('click', async () => {
-  let userName = localStorage.getItem('userName');
-  let url = `https://api.realdevsquad.com/users/${userName}/intro`;
+  let userId = window.localStorage.getItem('userId');
+  let url = `https://api.realdevsquad.com/users/${userId}/intro`;
   let data = JSON.stringify(localStorage);
   let method = 'POST';
   await fetch(url, {

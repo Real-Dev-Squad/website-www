@@ -37,7 +37,7 @@ const updateGitHubLink = () => {
 
     btn.addEventListener('click', (event) => {
       event.preventDefault();
-      let githubMock = {
+      const githubMock = {
         visited: true,
         expiresIn: new Date().getTime() + 15 ** 9,
       };

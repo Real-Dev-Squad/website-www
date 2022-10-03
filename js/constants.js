@@ -253,6 +253,6 @@ const MAP_CONTAINER_ID = 'map';
 const MAP_STYLE = 'mapbox://styles/mapbox/streets-v11';
 const MAP_ZOOM = 2.5;
 const MAP_COORDINATES = {
-  LNG: 77.21633849087488,
-  LAT: 28.654553561401826,
+  LNG: 78.476681027237,
+  LAT: 22.1991660760527,
 };

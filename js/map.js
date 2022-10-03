@@ -1,5 +1,4 @@
-const mapBlock = document.getElementById('section-map');
-
+import MAPBOXGL_ACCESS_TOKEN from './config.js';
 mapboxgl.accessToken = MAPBOXGL_ACCESS_TOKEN;
 const map = new mapboxgl.Map({
   container: MAP_CONTAINER_ID,
@@ -9,39 +8,54 @@ const map = new mapboxgl.Map({
 });
 
 const getUsersData = async () => {
-  const userDetailsResponse = await fetch(
-    'https://api.realdevsquad.com/users',
-    {
-      method: 'GET',
-      cache: 'default',
-      headers: {
-        'content-type': 'application/json',
+  try {
+    const userDetailsResponse = await fetch(
+      'https://api.realdevsquad.com/users',
+      {
+        method: 'GET',
+        cache: 'default',
+        headers: {
+          'content-type': 'application/json',
+        },
+        credentials: 'include',
       },
-      credentials: 'include',
-    },
-  );
-  const { users } = await userDetailsResponse.json();
-  const userHaveLocationAndImageDetails = users.filter(
-    (user) =>
-      user.location_coordinates &&
-      Array.isArray(user.location_coordinates) &&
-      user.location_coordinates.length == 2 &&
-      user.picture &&
-      user.picture.url,
-  );
-  addMarkersToMap(userHaveLocationAndImageDetails);
+    );
+    const { users } = await userDetailsResponse.json();
+    if (users) {
+      let userHaveLocationAndImageDetails = users.filter(
+        (user) =>
+          // todo: update location related keys after it finalizes in backend for now in dummy data I used these keys
+          // and tested this feature using that data
+          user.location_coordinates &&
+          Array.isArray(user.location_coordinates) &&
+          user.location_coordinates.length == 2 &&
+          user.picture &&
+          user.picture.url,
+      );
+      addMarkersToMap(userHaveLocationAndImageDetails);
+    }
+  } catch (err) {
+    console.log('get users data error', err);
+  }
 };
 
 async function addMarkersToMap(userDetails) {
-  userDetails.forEach(({ location_coordinates, picture }) => {
-    // Create a DOM element for each marker.
-    const el = document.createElement('div');
-    el.className = 'marker';
-    el.style.backgroundImage = `url(${picture.url})`;
-    // Add markers to the map.
-    new mapboxgl.Marker(el).setLngLat(location_coordinates).addTo(map);
-    mapBlock.style.display = 'block';
-  });
+  if (map._loaded && map._fullyLoaded && userDetails.length && showMap) {
+    userDetails.forEach(({ location_coordinates, picture }) => {
+      // Create a DOM element for each marker.
+      const el = document.createElement('div');
+      el.className = 'marker';
+      el.style.backgroundImage = `url(${picture.url})`;
+      // Add markers to the map.
+      new mapboxgl.Marker(el).setLngLat(location_coordinates).addTo(map);
+      mapSection.classList.remove('element-display-remove');
+      map.resize();
+    });
+  } else {
+    return;
+  }
 }
 
-window.addEventListener('DOMContentLoaded', getUsersData);
+if (showMap) {
+  window.addEventListener('DOMContentLoaded', getUsersData);
+}

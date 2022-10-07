@@ -173,7 +173,7 @@ function toggleNextButton() {
   }
 }
 
-function autoFillTheFields() {
+function getFromLocalStorage() {
   city.value = window.localStorage.getItem('city');
   state.value = window.localStorage.getItem('state');
   country.value = window.localStorage.getItem('country');
@@ -184,6 +184,10 @@ function autoFillTheFields() {
   funFact.value = window.localStorage.getItem('funFact');
   whyRds.value = window.localStorage.getItem('whyRds');
   heardAbout.value = window.localStorage.getItem('heardAbout');
+}
+
+function autoFillTheFields() {
+  getFromLocalStorage();
   dataValidator(introduction, 100);
   dataValidator(skills, 6);
   dataValidator(college, 5);

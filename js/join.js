@@ -88,7 +88,7 @@ const personalLink = document.getElementById('personalLink');
 const copyBtn = document.getElementById('copy');
 
 function fetchSavedDetails() {
-  fetch('http://api.realdevsquad.com/users/self', {
+  fetch('https://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })

@@ -1,10 +1,4 @@
-import { doesGitHubCookieExist } from '/js/github.js';
-
-if (doesGitHubCookieExist()) {
-  console.log('Logged in');
-  fetchSavedDetails();
-}
-
+fetchSavedDetails();
 const flowState = {
   notStarted: 0,
   personalDetailsPage: 1,
@@ -24,6 +18,33 @@ const page4 = document.getElementById('page4');
 const page5 = document.getElementById('page5');
 const page6 = document.getElementById('page6');
 
+const sizeDef = {
+  city: 0,
+  state: 0,
+  country: 0,
+  skills: 6,
+  college: 6,
+  introduction: 100,
+  whyRds: 100,
+  forFun: 100,
+  funFact: 100,
+};
+
+const inputFields = document.querySelectorAll('input');
+const textAreas = document.querySelectorAll('textarea');
+
+//Adding Event Listeners
+inputFields.forEach(inputEventAdder);
+textAreas.forEach(inputEventAdder);
+
+function inputEventAdder(field) {
+  field.addEventListener('input', function () {
+    window.localStorage.setItem(field.id, field.value);
+    dataValidator(field, sizeDef[field.id]);
+    toggleNextButton();
+  });
+}
+
 // variables for personal details Page
 const city = document.getElementById('city');
 const state = document.getElementById('state');
@@ -35,8 +56,8 @@ const previous1 = document.getElementById('previous1');
 const introduction = document.getElementById('introduction');
 const skills = document.getElementById('skills');
 const college = document.getElementById('college');
-const forFun = document.getElementById('for-fun');
-const funFact = document.getElementById('fun-fact');
+const forFun = document.getElementById('forFun');
+const funFact = document.getElementById('funFact');
 const next2 = document.getElementById('next2');
 const previous2 = document.getElementById('previous2');
 
@@ -67,7 +88,7 @@ const personalLink = document.getElementById('personalLink');
 const copyBtn = document.getElementById('copy');
 
 function fetchSavedDetails() {
-  fetch('https://api.realdevsquad.com/users/self', {
+  fetch('http://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })
@@ -203,57 +224,6 @@ if (!window.localStorage.getItem('flowState')) {
 }
 
 //Value updaters
-city.addEventListener('input', () => {
-  window.localStorage.setItem('city', city.value);
-  toggleNextButton();
-});
-
-state.addEventListener('input', () => {
-  window.localStorage.setItem('state', state.value);
-  toggleNextButton();
-});
-
-country.addEventListener('input', () => {
-  window.localStorage.setItem('country', country.value);
-  toggleNextButton();
-});
-
-introduction.addEventListener('input', () => {
-  window.localStorage.setItem('introduction', introduction.value);
-  toggleNextButton();
-  dataValidator(introduction, 100);
-});
-
-skills.addEventListener('input', () => {
-  window.localStorage.setItem('skills', skills.value);
-  toggleNextButton();
-  dataValidator(skills, 6);
-});
-
-college.addEventListener('input', () => {
-  window.localStorage.setItem('college', college.value);
-  toggleNextButton();
-  dataValidator(college, 5);
-});
-
-forFun.addEventListener('input', () => {
-  window.localStorage.setItem('forFun', forFun.value);
-  toggleNextButton();
-  dataValidator(forFun, 100);
-});
-
-funFact.addEventListener('input', () => {
-  window.localStorage.setItem('funFact', funFact.value);
-  toggleNextButton();
-  dataValidator(funFact, 100);
-});
-
-whyRds.addEventListener('input', () => {
-  window.localStorage.setItem('whyRds', whyRds.value);
-  toggleNextButton();
-  dataValidator(whyRds, 100);
-});
-
 heardAbout.addEventListener('input', () => {
   window.localStorage.setItem('heardAbout', heardAbout.value);
   toggleNextButton();

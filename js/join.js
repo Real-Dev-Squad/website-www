@@ -230,7 +230,7 @@ heardAbout.addEventListener('input', () => {
 
 startBtn.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.personalDetailsPage);
-  let currentFlowState = window.localStorage.getItem('flowState');
+  let currentFlowState = localStorage.getItem('flowState');
   showPage(currentFlowState);
   autoFillTheFields();
   toggleNextButton('page1');
@@ -240,31 +240,25 @@ const previousButtons = document.querySelectorAll('.button-outline');
 previousButtons.forEach((previousButton) => {
   previousButton.addEventListener('click', () => {
     let currentFlowState = localStorage.getItem('flowState');
-    window.localStorage.setItem('flowState', currentFlowState - 1);
+    localStorage.setItem('flowState', currentFlowState - 1);
     selectPage();
   });
 });
 
-next1.addEventListener('click', () => {
-  if (arePersonalDetailsValid()) {
-    window.localStorage.setItem('flowState', flowState.introductionPage);
+const nextButtons = document.querySelectorAll('.nextBtn');
+nextButtons.forEach((nextButton) => {
+  nextButton.addEventListener('click', () => {
+    let currentFlowState = Number(localStorage.getItem('flowState'));
+    if (currentFlowState == 1 && arePersonalDetailsValid()) {
+      localStorage.setItem('flowState', (currentFlowState += 1));
+    } else if (currentFlowState == 2 && introPageChecker()) {
+      localStorage.setItem('flowState', (currentFlowState += 1));
+    } else if (currentFlowState == 3 && whyRdsPageChecker()) {
+      localStorage.setItem('flowState', (currentFlowState += 1));
+      previewFiller();
+    }
     selectPage();
-  }
-});
-
-next2.addEventListener('click', () => {
-  if (introPageChecker()) {
-    window.localStorage.setItem('flowState', flowState.reasonForRdsPage);
-    selectPage();
-  }
-});
-
-previewBtn.addEventListener('click', () => {
-  if (whyRdsPageChecker()) {
-    window.localStorage.setItem('flowState', flowState.previewPage);
-    selectPage();
-    previewFiller();
-  }
+  });
 });
 
 submit.addEventListener('click', async () => {

@@ -236,9 +236,13 @@ startBtn.addEventListener('click', () => {
   toggleNextButton('page1');
 });
 
-previous1.addEventListener('click', () => {
-  window.localStorage.setItem('flowState', flowState.notStarted);
-  selectPage();
+const previousButtons = document.querySelectorAll('.button-outline');
+previousButtons.forEach((previousButton) => {
+  previousButton.addEventListener('click', () => {
+    let currentFlowState = localStorage.getItem('flowState');
+    window.localStorage.setItem('flowState', currentFlowState - 1);
+    selectPage();
+  });
 });
 
 next1.addEventListener('click', () => {
@@ -248,21 +252,11 @@ next1.addEventListener('click', () => {
   }
 });
 
-previous2.addEventListener('click', () => {
-  window.localStorage.setItem('flowState', flowState.personalDetailsPage);
-  selectPage();
-});
-
 next2.addEventListener('click', () => {
   if (introPageChecker()) {
     window.localStorage.setItem('flowState', flowState.reasonForRdsPage);
     selectPage();
   }
-});
-
-previous3.addEventListener('click', () => {
-  window.localStorage.setItem('flowState', flowState.introductionPage);
-  selectPage();
 });
 
 previewBtn.addEventListener('click', () => {
@@ -271,11 +265,6 @@ previewBtn.addEventListener('click', () => {
     selectPage();
     previewFiller();
   }
-});
-
-previous4.addEventListener('click', () => {
-  window.localStorage.setItem('flowState', flowState.reasonForRdsPage);
-  selectPage();
 });
 
 submit.addEventListener('click', async () => {

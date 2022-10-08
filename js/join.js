@@ -264,7 +264,6 @@ nextButtons.forEach((nextButton) => {
 });
 
 submit.addEventListener('click', async () => {
-  let userId = window.localStorage.getItem('userId');
   let data = JSON.stringify(localStorage);
   let method = 'POST';
   await fetch(url, {

@@ -22,12 +22,13 @@ const sizeDef = {
   city: 0,
   state: 0,
   country: 0,
-  skills: 6,
-  college: 6,
+  skills: 5,
+  college: 5,
   introduction: 100,
   whyRds: 100,
   forFun: 100,
   funFact: 100,
+  heardAbout: 0,
 };
 
 const inputFields = document.querySelectorAll('input');
@@ -173,27 +174,19 @@ function toggleNextButton() {
   }
 }
 
-function getFromLocalStorage() {
-  city.value = window.localStorage.getItem('city');
-  state.value = window.localStorage.getItem('state');
-  country.value = window.localStorage.getItem('country');
-  introduction.value = window.localStorage.getItem('introduction');
-  skills.value = window.localStorage.getItem('skills');
-  college.value = window.localStorage.getItem('college');
-  forFun.value = window.localStorage.getItem('forFun');
-  funFact.value = window.localStorage.getItem('funFact');
-  whyRds.value = window.localStorage.getItem('whyRds');
-  heardAbout.value = window.localStorage.getItem('heardAbout');
+function getFromLocalStorage(field) {
+  field.value = localStorage.getItem(field.id);
+  dataValidator(field, sizeDef[field.id]);
 }
 
 function autoFillTheFields() {
-  getFromLocalStorage();
-  dataValidator(introduction, 100);
-  dataValidator(skills, 6);
-  dataValidator(college, 5);
-  dataValidator(forFun, 100);
-  dataValidator(funFact, 100);
-  dataValidator(whyRds, 100);
+  inputFields.forEach((inputField) => {
+    getFromLocalStorage(inputField);
+  });
+  textAreas.forEach((textArea) => {
+    getFromLocalStorage(textArea);
+  });
+  getFromLocalStorage(heardAbout);
 }
 
 function previewFiller() {

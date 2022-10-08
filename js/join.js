@@ -31,6 +31,8 @@ const sizeDef = {
   heardAbout: 0,
 };
 
+let url;
+
 const inputFields = document.querySelectorAll('input');
 const textAreas = document.querySelectorAll('textarea');
 
@@ -98,7 +100,7 @@ function fetchSavedDetails() {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
       window.localStorage.setItem('userId', res.id);
-      const url = `https://api.realdevsquad.com/users/${localStorage.getItem(
+      url = `https://api.realdevsquad.com/users/${localStorage.getItem(
         'userId',
       )}/intro`;
       personalLink.innerText = url;
@@ -263,7 +265,6 @@ nextButtons.forEach((nextButton) => {
 
 submit.addEventListener('click', async () => {
   let userId = window.localStorage.getItem('userId');
-  let url = `https://api.realdevsquad.com/users/${userId}/intro`;
   let data = JSON.stringify(localStorage);
   let method = 'POST';
   await fetch(url, {

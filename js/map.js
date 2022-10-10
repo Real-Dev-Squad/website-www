@@ -40,20 +40,18 @@ const getUsersData = async () => {
 };
 
 async function addMarkersToMap(userDetails) {
-  if (map._loaded && map._fullyLoaded && userDetails.length && showMap) {
-    userDetails.forEach(({ location_coordinates, picture }) => {
-      // Create a DOM element for each marker.
-      const el = document.createElement('div');
-      el.className = 'marker';
-      el.style.backgroundImage = `url(${picture.url})`;
-      // Add markers to the map.
-      new mapboxgl.Marker(el).setLngLat(location_coordinates).addTo(map);
-      mapSection.classList.remove('element-display-remove');
-      map.resize();
-    });
-  } else {
+  if (!map._loaded || !map._fullyLoaded || !userDetails.length || !showMap) {
     return;
   }
+  userDetails.forEach(({ location_coordinates, picture }) => {
+    const markerDiv = document.createElement('div');
+    markerDiv.className = 'marker';
+    markerDiv.style.backgroundImage = `url(${picture.url})`;
+    // Add markers to the map.
+    new mapboxgl.Marker(markerDiv).setLngLat(location_coordinates).addTo(map);
+    mapSection.classList.remove('element-display-remove');
+    map.resize();
+  });
 }
 
 if (showMap) {

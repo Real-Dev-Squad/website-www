@@ -707,7 +707,7 @@ footer {
 .map-box {
   height: 300px;
   overflow: hidden;
-  border: 3px solid #e20665;
+  border: 3px solid var(--color-events);
   margin: 2% 10%;
 }
 

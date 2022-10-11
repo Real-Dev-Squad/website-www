@@ -74,11 +74,18 @@
 }
 
 .button-disabled {
-  background-color: var(--input-background) !important;
+  background-color: var(--input-background);
   border: none;
-  color: var(--theme-background) !important;
-  cursor: not-allowed !important;
+  color: var(--theme-background);
+  cursor: not-allowed;
   opacity: 60%;
+  border-radius: 9px;
+  width: 11rem;
+  height: 3rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin: auto;
 }
 
 .button-container {

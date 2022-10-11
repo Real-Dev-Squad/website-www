@@ -160,18 +160,24 @@ function dataValidator(element, size) {
 function toggleNextButton() {
   if (arePersonalDetailsValid()) {
     next1.classList.remove('button-disabled');
+    next1.classList.add('button-filled');
   } else {
     next1.classList.add('button-disabled');
+    next1.classList.remove('button-filled');
   }
   if (introPageChecker()) {
     next2.classList.remove('button-disabled');
+    next2.classList.add('button-filled');
   } else {
     next2.classList.add('button-disabled');
+    next2.classList.remove('button-filled');
   }
   if (whyRdsPageChecker()) {
     previewBtn.classList.remove('button-disabled');
+    previewBtn.classList.add('button-filled');
   } else {
     previewBtn.classList.add('button-disabled');
+    previewBtn.classList.remove('button-filled');
   }
 }
 

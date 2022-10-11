@@ -32,6 +32,7 @@ const sizeDef = {
 };
 
 let url;
+let postUrl = 'https://api.realdevsquad.com/self/intro';
 
 const inputFields = document.querySelectorAll('input');
 const textAreas = document.querySelectorAll('textarea');
@@ -99,7 +100,6 @@ function fetchSavedDetails() {
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
-      window.localStorage.setItem('userId', res.id);
       url = `https://api.realdevsquad.com/users/${localStorage.getItem(
         'userId',
       )}/intro`;
@@ -266,7 +266,7 @@ nextButtons.forEach((nextButton) => {
 submit.addEventListener('click', async () => {
   let data = JSON.stringify(localStorage);
   let method = 'POST';
-  await fetch(url, {
+  await fetch(postUrl, {
     credentials: 'include',
     method: method,
     mode: 'cors',

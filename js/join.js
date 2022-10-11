@@ -100,9 +100,8 @@ function fetchSavedDetails() {
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
-      url = `https://api.realdevsquad.com/users/${localStorage.getItem(
-        'userId',
-      )}/intro`;
+      console.log(res);
+      url = `https://api.realdevsquad.com/users/${res.id}/intro`;
       personalLink.innerText = url;
     });
 }

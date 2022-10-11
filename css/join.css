@@ -1,13 +1,4 @@
-* {
-  --theme-background: #1d1283;
-  --text-white: #ffffff;
-  --text-red: #fd0101;
-  --input-background: #d9d9d9;
-  --error-border: #ff0000;
-  --error-background: #ffebef;
-  --correct-border: #09a444;
-  --correct-background: #ceedda;
-}
+@import url('global-variables.css');
 
 .greeting {
   font-family: 'Roboto', sans-serif;
@@ -60,28 +51,21 @@
   font-size: 16px;
   background-color: var(--input-background);
   width: 30rem;
-  min-height: 2.5rem;
   line-height: 2rem;
   border: none;
   border-radius: 9px;
   margin: 1rem 0;
   padding: 0 0.5rem;
+}
+
+.input-regular {
+  min-height: 2.5rem;
   display: flex;
   justify-content: space-between;
 }
 
-.user-input-big {
-  font-family: 'Roboto';
-  font-weight: 300;
-  font-size: 16px;
-  background-color: var(--input-background);
-  width: 30rem;
+.input-big {
   height: 6.25rem;
-  line-height: 2rem;
-  border: none;
-  border-radius: 9px;
-  margin: 1rem 0;
-  padding: 0 0.5rem;
   overflow-y: scroll;
 }
 

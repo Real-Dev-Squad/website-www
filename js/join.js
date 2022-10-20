@@ -132,7 +132,7 @@ function arePersonalDetailsValid() {
   );
 }
 
-function introPageChecker() {
+function introPageValidator() {
   return (
     introduction.value.trim().split(' ').length > 100 &&
     skills.value.trim().split(' ').length > 6 &&
@@ -142,7 +142,7 @@ function introPageChecker() {
   );
 }
 
-function whyRdsPageChecker() {
+function whyRdsPageValidator() {
   return whyRds.value.trim().split(' ').length > 100 && heardAbout.value != '';
 }
 
@@ -165,14 +165,14 @@ function toggleNextButton() {
     next1.classList.add('button-disabled');
     next1.classList.remove('button-filled');
   }
-  if (introPageChecker()) {
+  if (introPageValidator()) {
     next2.classList.remove('button-disabled');
     next2.classList.add('button-filled');
   } else {
     next2.classList.add('button-disabled');
     next2.classList.remove('button-filled');
   }
-  if (whyRdsPageChecker()) {
+  if (whyRdsPageValidator()) {
     previewBtn.classList.remove('button-disabled');
     previewBtn.classList.add('button-filled');
   } else {
@@ -258,9 +258,9 @@ nextButtons.forEach((nextButton) => {
     let currentFlowState = Number(localStorage.getItem('flowState'));
     if (currentFlowState == 1 && arePersonalDetailsValid()) {
       localStorage.setItem('flowState', (currentFlowState += 1));
-    } else if (currentFlowState == 2 && introPageChecker()) {
+    } else if (currentFlowState == 2 && introPageValidator()) {
       localStorage.setItem('flowState', (currentFlowState += 1));
-    } else if (currentFlowState == 3 && whyRdsPageChecker()) {
+    } else if (currentFlowState == 3 && whyRdsPageValidator()) {
       localStorage.setItem('flowState', (currentFlowState += 1));
       previewFiller();
     }

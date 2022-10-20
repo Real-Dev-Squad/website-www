@@ -5,11 +5,11 @@
 
 Welcome to Real Dev Squad
 
-Code deployed on: https://realdevsquad.netlify.app/, then served to our domain
+Code deployed on: <https://realdevsquad.netlify.app/>, then served to our domain
 
-#### Production Site -> https://www.realdevsquad.com/
+#### Production Site -> <https://www.realdevsquad.com/>
 
-#### Staging Site -> https://staging-realdevsquad.netlify.app/
+#### Staging Site -> <https://staging-realdevsquad.netlify.app/>
 
 ## Running the project
 
@@ -18,7 +18,7 @@ Run `npm install` after opening the repository in your editor. This will install
 ## API Calls
 
 For accessing APIs of Real Dev Squad, do follow this doc.
-https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
+<https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors>
 
 ## Scripts used in project
 

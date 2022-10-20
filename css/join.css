@@ -1,9 +1,7 @@
 @import url('global-variables.css');
 
 .greeting {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 24px;
+  font: 700 24px 'Roboto', sans-serif;
   line-height: 28px;
   text-align: center;
   padding: 0;
@@ -21,9 +19,7 @@
 }
 
 .progress {
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 18px;
+  font: 500 18px 'Roboto';
   line-height: 21px;
   margin: 0 0 2rem;
 }
@@ -31,9 +27,7 @@
 .info,
 .input-label,
 .input-label-dark {
-  font-family: 'Roboto';
-  font-weight: 300;
-  font-size: 16px;
+  font: 300 16px 'Roboto';
   line-height: 19px;
 }
 
@@ -46,9 +40,7 @@
 }
 
 .user-input {
-  font-family: 'Roboto';
-  font-weight: 300;
-  font-size: 16px;
+  font: 300 16px 'Roboto';
   background-color: var(--input-background);
   width: 30rem;
   line-height: 2rem;
@@ -82,9 +74,7 @@
   border-radius: 9px;
   width: 11rem;
   height: 3rem;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
+  font: 700 16px 'Roboto', sans-serif;
   margin: auto;
 }
 
@@ -104,9 +94,7 @@
   width: 11rem;
   height: 3rem;
   color: var(--text-white);
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
+  font: 700 16px 'Roboto', sans-serif;
   cursor: pointer;
   margin: auto;
 }

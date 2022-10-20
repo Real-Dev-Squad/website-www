@@ -7,7 +7,7 @@ Welcome to Real Dev Squad
 
 Code deployed on: https://realdevsquad.netlify.app/, then served to our domain
 
-#### Production Site -> <https://www.realdevsquad.com/>
+#### Production Site -> https://www.realdevsquad.com/
 
 #### Staging Site -> https://staging-realdevsquad.netlify.app/
 

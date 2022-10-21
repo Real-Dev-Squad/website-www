@@ -32,7 +32,7 @@ const sizeDef = {
 };
 
 let url;
-let postUrl = 'https://api.realdevsquad.com/self/intro';
+const postUrl = 'https://api.realdevsquad.com/self/intro';
 
 const inputFields = document.querySelectorAll('input');
 const textAreas = document.querySelectorAll('textarea');
@@ -269,8 +269,8 @@ nextButtons.forEach((nextButton) => {
 });
 
 submit.addEventListener('click', async () => {
-  let data = JSON.stringify(localStorage);
-  let method = 'POST';
+  const data = JSON.stringify(localStorage);
+  const method = 'POST';
   await fetch(postUrl, {
     credentials: 'include',
     method: method,

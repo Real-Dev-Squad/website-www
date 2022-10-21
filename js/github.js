@@ -14,8 +14,8 @@ const doesGitHubCookieExist = () => {
   return !!githubCookieStr;
 };
 
-const signInGithubOAuth = () => {
-  let originURL = window.location.origin;
+const signInGitHubOAuth = () => {
+  const originURL = window.location.origin;
   if (!originURL) return GITHUB_OAUTH;
   return GITHUB_OAUTH + '&state=' + originURL;
 };

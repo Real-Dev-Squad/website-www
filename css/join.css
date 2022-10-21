@@ -125,10 +125,8 @@
   border: 1px solid var(--correct-border);
 }
 
-@media screen and (min-width: 611px) {
-  .user-input {
-    width: 35rem;
-  }
+@media screen and (min-width: 625px) {
+  .user-input,
   .user-input-big {
     width: 35rem;
   }

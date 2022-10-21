@@ -43,7 +43,7 @@
   font: 300 16px 'Roboto';
   background-color: var(--input-background);
   width: 30rem;
-  line-height: 2rem;
+  line-height: 32px;
   border: none;
   border-radius: 9px;
   margin: 1rem 0;

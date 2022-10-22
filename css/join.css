@@ -1,0 +1,138 @@
+@import url('global-variables.css');
+
+.greeting {
+  font: 700 24px 'Roboto', sans-serif;
+  line-height: 28px;
+  text-align: center;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.container {
+  width: max-content;
+  margin: 0 auto;
+  max-width: 35rem;
+}
+
+.container ol li {
+  line-height: 32px;
+}
+
+.progress {
+  font: 500 18px 'Roboto';
+  line-height: 21px;
+  margin: 0 0 2rem;
+}
+
+.info,
+.input-label,
+.input-label-dark {
+  font: 300 16px 'Roboto';
+  line-height: 18px;
+}
+
+.input-label {
+  font-weight: 400;
+}
+
+.input-label-dark {
+  font-weight: 500;
+}
+
+.user-input {
+  font: 300 16px 'Roboto';
+  background-color: var(--input-background);
+  width: 30rem;
+  line-height: 32px;
+  border: none;
+  border-radius: 9px;
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+}
+
+.input-regular {
+  min-height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-big {
+  height: 6.25rem;
+  overflow-y: scroll;
+}
+
+.text-red {
+  color: var(--text-red);
+}
+
+.button-disabled {
+  background-color: var(--input-background);
+  border: none;
+  color: var(--theme-background);
+  cursor: not-allowed;
+  opacity: 60%;
+  border-radius: 9px;
+  width: 11rem;
+  height: 3rem;
+  font: 700 16px 'Roboto', sans-serif;
+  margin: auto;
+}
+
+.button-container {
+  display: grid;
+  height: 70vh;
+}
+
+.twin-button-container {
+  margin: 3rem 0;
+}
+
+.button-filled,
+.button-outline {
+  background-color: var(--theme-background);
+  border-radius: 9px;
+  width: 11rem;
+  height: 3rem;
+  color: var(--text-white);
+  font: 700 16px 'Roboto', sans-serif;
+  cursor: pointer;
+  margin: auto;
+}
+
+.button-outline {
+  background-color: var(--text-white);
+  border: 1px solid var(--theme-background);
+  color: var(--theme-background);
+}
+
+.button-outline:hover {
+  background-color: var(--theme-background);
+  color: var(--text-white);
+  border: none;
+}
+
+.hide-page {
+  display: none;
+}
+
+.incorrect-data {
+  background-color: var(--error-background);
+  border: 1px solid var(--error-border);
+}
+
+.correct-data {
+  background-color: var(--correct-background);
+  border: 1px solid var(--correct-border);
+}
+
+@media screen and (min-width: 625px) {
+  .user-input,
+  .user-input-big {
+    width: 35rem;
+  }
+
+  .twin-button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

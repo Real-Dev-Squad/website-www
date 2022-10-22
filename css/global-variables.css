@@ -18,4 +18,12 @@
   --color-lime-green: #43a047;
   --color-vivid-green: #64dd17;
   --color-cyan-lime-green: #00e676;
+  --theme-background: #1d1283;
+  --text-white: #ffffff;
+  --text-red: #fd0101;
+  --input-background: #d9d9d9;
+  --error-border: #ff0000;
+  --error-background: #ffebef;
+  --correct-border: #09a444;
+  --correct-background: #ceedda;
 }

@@ -9,8 +9,15 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/animate.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/join.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
 
@@ -82,9 +89,9 @@
     </button>
     <nav>
       <div class="hamburger">
-        <span class="bar" />
-        <span class="bar" />
-        <span class="bar" />
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
       <div class="nav-login">
         <a
@@ -149,31 +156,247 @@
     </nav>
 
     <main>
-      <section class="section-join">
-        <h3 class="under-dev">This feature is still under development</h3>
-        <h1 class="features-title">How to join Real Dev Squad</h1>
-        <div class="join-description">
-          <center>
-            <p>
-              Follow Ankush on
-              <a href="https://twitter.com/ankushdharkar">twitter</a>, Message
-              him, he will send you a link to join
-            </p>
-          </center>
+      <section class="page1" id="page1">
+        <h1 class="greeting">
+          Hi there 👋, let's get you started on joining formalities
+        </h1>
+        <div class="button-container">
+          <button class="button-filled" id="start">Start</button>
         </div>
       </section>
-      <div class="video-holder">
-        <div class="video-text">Check out how to join Real Dev Squad:</div>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/8UPjK1wLnTk?controls=0"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        >
-        </iframe>
-      </div>
+      <section class="page2" id="page2">
+        <h1 class="greeting">
+          You are just a few steps 🪜 away from getting a personalized invite.
+        </h1>
+        <div class="container">
+          <h2 class="progress">Step 1 of 4: Personal Details</h2>
+          <p class="info">Fields marked with * are mandatory</p>
+          <label class="input-label" for="city">
+            Your City
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <input
+            class="user-input input-regular"
+            type="text"
+            name="city"
+            id="city"
+            placeholder="Enter your city"
+          />
+          <br />
+          <label class="input-label" for="state">
+            Your State
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <input
+            class="user-input input-regular"
+            type="text"
+            name="state"
+            id="state"
+            placeholder="Enter your state"
+          />
+          <br />
+          <label class="input-label" for="country">
+            Your Country
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <input
+            class="user-input input-regular"
+            type="text"
+            name="country"
+            id="country"
+            placeholder="Enter your country"
+          />
+          <div class="twin-button-container">
+            <button class="button-outline" id="previous1">Previous</button>
+            <button class="button-disabled nextBtn" id="next1">Next</button>
+          </div>
+        </div>
+      </section>
+      <section class="page3" id="page3">
+        <h1 class="greeting">Let’s help others 🫂 know you and your skills.</h1>
+        <div class="container">
+          <h2 class="progress">Step 2 of 4: Introduction</h2>
+          <p class="info">Fields marked with * are mandatory</p>
+          <label class="input-label" for="introduction">
+            Introduce yourself
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <textarea
+            name="introduction"
+            id="introduction"
+            class="user-input input-big"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <br />
+          <label for="skills" class="input-label">
+            Your Skills
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <input
+            type="text"
+            class="user-input input-regular"
+            name="skills"
+            id="skills"
+          />
+          <br />
+          <label for="college" class="input-label">
+            Name of your college / company
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <input
+            type="text"
+            class="user-input input-regular"
+            name="college"
+            id="college"
+          />
+          <br />
+          <label class="input-label" for="forFun">
+            What do you do for fun?
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <textarea
+            name="forFun"
+            id="forFun"
+            class="user-input input-big"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <br />
+          <label class="input-label" for="fun-fact">
+            A fun fact about you
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <textarea
+            name="funFact"
+            id="funFact"
+            class="user-input input-big"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <div class="twin-button-container">
+            <button class="button-outline" id="previous2">Previous</button>
+            <button class="button-disabled nextBtn" id="next2">Next</button>
+          </div>
+        </div>
+      </section>
+      <section class="page4" id="page4">
+        <h1 class="greeting">
+          Let’s help the verifier understand 🤔 you better.
+        </h1>
+        <div class="container">
+          <h2 class="progress">Step 3 of 4: Why Real Dev Squad?</h2>
+          <p class="info">Fields marked with * are mandatory</p>
+          <label class="input-label" for="whyRds">
+            Why do you want to join Real Dev Squad?
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <textarea
+            name="whyRds"
+            id="whyRds"
+            class="user-input input-big"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <br />
+          <label class="input-label" for="heardAbout">
+            How did you hear about us?
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <select
+            name="heardAbout"
+            id="heardAbout"
+            class="user-input input-regular"
+          >
+            <option value="">Select an option</option>
+            <option value="Twitter">Twitter</option>
+            <option value="Linkedin">Linkedin</option>
+            <option value="Referred">
+              Referred by someone from Real Dev Squad
+            </option>
+            <option value="other">Other</option>
+          </select>
+          <br />
+          <div class="twin-button-container">
+            <button class="button-outline" id="previous3">Previous</button>
+            <button class="button-disabled nextBtn" id="next3">Preview</button>
+          </div>
+        </div>
+      </section>
+      <section class="page5" id="page5">
+        <h1 class="greeting">Here's a preview 👀 of the data you entered</h1>
+        <div class="container">
+          <h2 class="progress">Step 4 of 4: Preview</h2>
+          <p class="info">Please validate before submitting</p>
+          <p class="input-label-dark">First Name</p>
+          <p class="user-input input-regular" id="previewFName"></p>
+          <p class="input-label-dark">Last Name</p>
+          <p class="user-input input-regular" id="previewLName"></p>
+          <p class="input-label-dark">Your City</p>
+          <p class="user-input input-regular" id="previewCity"></p>
+          <p class="input-label-dark">Your State</p>
+          <p class="user-input input-regular" id="previewState"></p>
+          <p class="input-label-dark">Your Country</p>
+          <p class="user-input input-regular" id="previewCountry"></p>
+          <p class="input-label-dark">Your Introduction</p>
+          <p class="user-input input-big" id="previewIntro"></p>
+          <p class="input-label-dark">Your Skills</p>
+          <p class="user-input input-regular" id="previewSkills"></p>
+          <p class="input-label-dark">Your Institution</p>
+          <p class="user-input input-regular" id="previewInstitution"></p>
+          <p class="input-label-dark">What you do for fun</p>
+          <p class="user-input input-big" id="previewForFun"></p>
+          <p class="input-label-dark">A fun fact about you</p>
+          <p class="user-input input-big" id="previewFunFact"></p>
+          <p class="input-label-dark">
+            Why do you want to join Real Dev Squad?
+          </p>
+          <p class="user-input input-big" id="previewWhyRds"></p>
+          <p class="input-label-dark">How did you hear about us</p>
+          <p class="user-input input-regular" id="previewHeardAbout"></p>
+          <div class="twin-button-container">
+            <button class="button-outline" id="previous4">Previous</button>
+            <button class="button-filled" id="next4">Submit</button>
+          </div>
+        </div>
+      </section>
+      <section class="page6" id="page6">
+        <h1 class="greeting">Thank you 🫂 for completing all the steps.</h1>
+        <div class="container">
+          <h2 class="progress">Here is your personalized link</h2>
+          <p class="user-input">
+            <a href="" id="personalLink"></a>
+            <button class="copy button-filled" id="copy">copy</button>
+          </p>
+          <p class="user-input-dark">Next Steps</p>
+          <ol>
+            <li>Copy the above link</li>
+            <li>
+              Follow Ankush Dharkar on
+              <a href="https://twitter.com/ankushdharkar">Twitter</a>
+            </li>
+            <li>
+              Message this link to him with a text of Real Dev Squad
+              Verification Link.
+            </li>
+            <li>Wait for him to verify the link</li>
+            <li>
+              If the link is verified you will hear back with a personalized
+              joining link within 7 working days.
+            </li>
+          </ol>
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -183,8 +406,9 @@
           href="https://github.com/Real-Dev-Squad/website"
           target="_blank"
           rel="noopener noreferrer"
-          >open sourced repo</a
         >
+          open sourced repo
+        </a>
       </p>
     </footer>
     <script type="module" src="js/index.js"></script>
@@ -193,5 +417,6 @@
     <script src="js/scrollBtn.js"></script>
     <script src="js/darkmode.js"></script>
     <script src="js/featureFlag.js"></script>
+    <script type="module" src="/js/join.js"></script>
   </body>
 </html>

@@ -35,17 +35,14 @@ submitArtForm.addEventListener('submit', (e) => {
   let artDetails = {
     title: submitArtForm.artTitle.value,
     css: htmlCode,
-    price: submitArtForm.artPrice.value,
+    price: Number(submitArtForm.artPrice.value),
   };
 
   if (artTitle && htmlCode) {
-    fetch(`'endpoint for adding art'`, {
+    fetch('https://api.realdevsquad.com/arts/user/add', {
       method: 'POST',
-
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
       body: JSON.stringify(artDetails),
     })
       .then((response) => response.json())

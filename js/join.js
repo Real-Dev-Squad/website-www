@@ -28,7 +28,7 @@ const sizeDef = {
   whyRds: 100,
   forFun: 100,
   funFact: 100,
-  heardAbout: 0,
+  foundFrom: 0,
 };
 
 let url;
@@ -67,7 +67,7 @@ const previous2 = document.getElementById('previous2');
 
 //variables for why RDS Page
 const whyRds = document.getElementById('whyRds');
-const heardAbout = document.getElementById('heardAbout');
+const foundFrom = document.getElementById('foundFrom');
 const previous3 = document.getElementById('previous3');
 const previewBtn = document.getElementById('next3');
 
@@ -143,7 +143,7 @@ function introPageValidator() {
 }
 
 function whyRdsPageValidator() {
-  return whyRds.value.trim().split(' ').length > 100 && heardAbout.value != '';
+  return whyRds.value.trim().split(' ').length > 100 && foundFrom.value != '';
 }
 
 function dataValidator(element, size) {
@@ -193,7 +193,7 @@ function autoFillTheFields() {
   textAreas.forEach((textArea) => {
     getFromLocalStorage(textArea);
   });
-  getFromLocalStorage(heardAbout);
+  getFromLocalStorage(foundFrom);
 }
 
 function previewFiller() {
@@ -208,7 +208,7 @@ function previewFiller() {
   previewForFun.innerHTML = window.localStorage.getItem('forFun');
   previewFunFact.innerHTML = window.localStorage.getItem('funFact');
   previewWhyRds.innerHTML = window.localStorage.getItem('whyRds');
-  previewHeardAbout.innerHTML = window.localStorage.getItem('heardAbout');
+  previewHeardAbout.innerHTML = window.localStorage.getItem('foundFrom');
 }
 
 //Direct to the page user left from
@@ -228,8 +228,8 @@ if (!window.localStorage.getItem('flowState')) {
 }
 
 //Value updaters
-heardAbout.addEventListener('input', () => {
-  window.localStorage.setItem('heardAbout', heardAbout.value);
+foundFrom.addEventListener('input', () => {
+  window.localStorage.setItem('foundFrom', foundFrom.value);
   toggleNextButton();
 });
 

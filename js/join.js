@@ -32,7 +32,7 @@ const sizeDef = {
 };
 
 let url;
-const postUrl = 'https://api.realdevsquad.com/self/intro';
+const postUrl = 'https://api.realdevsquad.com/users/self/intro';
 
 const inputFields = document.querySelectorAll('input');
 const textAreas = document.querySelectorAll('textarea');

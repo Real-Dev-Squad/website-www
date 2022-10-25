@@ -27,7 +27,7 @@ const updateGitHubLink = () => {
 
   let signUpLink = GITHUB_MOCK_URL;
   if (githubMock.visited && !isGithubMockExpired) {
-    signUpLink = signInGithubOAuth();
+    signUpLink = signInGitHubOAuth();
   }
 
   const allLoginBtns = document.querySelectorAll('.btn-login');

@@ -19,16 +19,16 @@ const page5 = document.getElementById('page5');
 const page6 = document.getElementById('page6');
 
 const sizeDef = {
-  city: 0,
-  state: 0,
-  country: 0,
+  city: 1,
+  state: 1,
+  country: 1,
   skills: 5,
   college: 5,
   introduction: 100,
   whyRds: 100,
   forFun: 100,
   funFact: 100,
-  foundFrom: 0,
+  foundFrom: 1,
 };
 
 let url;
@@ -49,12 +49,270 @@ function inputEventAdder(field) {
   });
 }
 
+const countryList = [
+  'Afghanistan',
+  'Albania',
+  'Algeria',
+  'American Samoa',
+  'Andorra',
+  'Angola',
+  'Anguilla',
+  'Antarctica',
+  'Antigua and Barbuda',
+  'Argentina',
+  'Armenia',
+  'Aruba',
+  'Australia',
+  'Austria',
+  'Azerbaijan',
+  'Bahamas (the)',
+  'Bahrain',
+  'Bangladesh',
+  'Barbados',
+  'Belarus',
+  'Belgium',
+  'Belize',
+  'Benin',
+  'Bermuda',
+  'Bhutan',
+  'Bolivia (Plurinational State of)',
+  'Bonaire, Sint Eustatius and Saba',
+  'Bosnia and Herzegovina',
+  'Botswana',
+  'Bouvet Island',
+  'Brazil',
+  'British Indian Ocean Territory (the)',
+  'Brunei Darussalam',
+  'Bulgaria',
+  'Burkina Faso',
+  'Burundi',
+  'Cabo Verde',
+  'Cambodia',
+  'Cameroon',
+  'Canada',
+  'Cayman Islands (the)',
+  'Central African Republic (the)',
+  'Chad',
+  'Chile',
+  'China',
+  'Christmas Island',
+  'Cocos (Keeling) Islands (the)',
+  'Colombia',
+  'Comoros (the)',
+  'Congo (the Democratic Republic of the)',
+  'Congo (the)',
+  'Cook Islands (the)',
+  'Costa Rica',
+  'Croatia',
+  'Cuba',
+  'Curaçao',
+  'Cyprus',
+  'Czechia',
+  "Côte d'Ivoire",
+  'Denmark',
+  'Djibouti',
+  'Dominica',
+  'Dominican Republic (the)',
+  'Ecuador',
+  'Egypt',
+  'El Salvador',
+  'Equatorial Guinea',
+  'Eritrea',
+  'Estonia',
+  'Eswatini',
+  'Ethiopia',
+  'Falkland Islands (the) [Malvinas]',
+  'Faroe Islands (the)',
+  'Fiji',
+  'Finland',
+  'France',
+  'French Guiana',
+  'French Polynesia',
+  'French Southern Territories (the)',
+  'Gabon',
+  'Gambia (the)',
+  'Georgia',
+  'Germany',
+  'Ghana',
+  'Gibraltar',
+  'Greece',
+  'Greenland',
+  'Grenada',
+  'Guadeloupe',
+  'Guam',
+  'Guatemala',
+  'Guernsey',
+  'Guinea',
+  'Guinea-Bissau',
+  'Guyana',
+  'Haiti',
+  'Heard Island and McDonald Islands',
+  'Holy See (the)',
+  'Honduras',
+  'Hong Kong',
+  'Hungary',
+  'Iceland',
+  'India',
+  'Indonesia',
+  'Iran (Islamic Republic of)',
+  'Iraq',
+  'Ireland',
+  'Isle of Man',
+  'Israel',
+  'Italy',
+  'Jamaica',
+  'Japan',
+  'Jersey',
+  'Jordan',
+  'Kazakhstan',
+  'Kenya',
+  'Kiribati',
+  "Korea (the Democratic People's Republic of)",
+  'Korea (the Republic of)',
+  'Kuwait',
+  'Kyrgyzstan',
+  "Lao People's Democratic Republic (the)",
+  'Latvia',
+  'Lebanon',
+  'Lesotho',
+  'Liberia',
+  'Libya',
+  'Liechtenstein',
+  'Lithuania',
+  'Luxembourg',
+  'Macao',
+  'Madagascar',
+  'Malawi',
+  'Malaysia',
+  'Maldives',
+  'Mali',
+  'Malta',
+  'Marshall Islands (the)',
+  'Martinique',
+  'Mauritania',
+  'Mauritius',
+  'Mayotte',
+  'Mexico',
+  'Micronesia (Federated States of)',
+  'Moldova (the Republic of)',
+  'Monaco',
+  'Mongolia',
+  'Montenegro',
+  'Montserrat',
+  'Morocco',
+  'Mozambique',
+  'Myanmar',
+  'Namibia',
+  'Nauru',
+  'Nepal',
+  'Netherlands (the)',
+  'New Caledonia',
+  'New Zealand',
+  'Nicaragua',
+  'Niger (the)',
+  'Nigeria',
+  'Niue',
+  'Norfolk Island',
+  'Northern Mariana Islands (the)',
+  'Norway',
+  'Oman',
+  'Pakistan',
+  'Palau',
+  'Palestine, State of',
+  'Panama',
+  'Papua New Guinea',
+  'Paraguay',
+  'Peru',
+  'Philippines (the)',
+  'Pitcairn',
+  'Poland',
+  'Portugal',
+  'Puerto Rico',
+  'Qatar',
+  'Republic of North Macedonia',
+  'Romania',
+  'Russian Federation (the)',
+  'Rwanda',
+  'Réunion',
+  'Saint Barthélemy',
+  'Saint Helena, Ascension and Tristan da Cunha',
+  'Saint Kitts and Nevis',
+  'Saint Lucia',
+  'Saint Martin (French part)',
+  'Saint Pierre and Miquelon',
+  'Saint Vincent and the Grenadines',
+  'Samoa',
+  'San Marino',
+  'Sao Tome and Principe',
+  'Saudi Arabia',
+  'Senegal',
+  'Serbia',
+  'Seychelles',
+  'Sierra Leone',
+  'Singapore',
+  'Sint Maarten (Dutch part)',
+  'Slovakia',
+  'Slovenia',
+  'Solomon Islands',
+  'Somalia',
+  'South Africa',
+  'South Georgia and the South Sandwich Islands',
+  'South Sudan',
+  'Spain',
+  'Sri Lanka',
+  'Sudan (the)',
+  'Suriname',
+  'Svalbard and Jan Mayen',
+  'Sweden',
+  'Switzerland',
+  'Syrian Arab Republic',
+  'Taiwan',
+  'Tajikistan',
+  'Tanzania, United Republic of',
+  'Thailand',
+  'Timor-Leste',
+  'Togo',
+  'Tokelau',
+  'Tonga',
+  'Trinidad and Tobago',
+  'Tunisia',
+  'Turkey',
+  'Turkmenistan',
+  'Turks and Caicos Islands (the)',
+  'Tuvalu',
+  'Uganda',
+  'Ukraine',
+  'United Arab Emirates (the)',
+  'United Kingdom of Great Britain and Northern Ireland (the)',
+  'United States Minor Outlying Islands (the)',
+  'United States of America (the)',
+  'Uruguay',
+  'Uzbekistan',
+  'Vanuatu',
+  'Venezuela (Bolivarian Republic of)',
+  'Viet Nam',
+  'Virgin Islands (British)',
+  'Virgin Islands (U.S.)',
+  'Wallis and Futuna',
+  'Western Sahara',
+  'Yemen',
+  'Zambia',
+  'Zimbabwe',
+  'Åland Islands',
+];
+
 // variables for personal details Page
 const city = document.getElementById('city');
 const state = document.getElementById('state');
 const country = document.getElementById('country');
 const next1 = document.getElementById('next1');
 const previous1 = document.getElementById('previous1');
+let htmlCountryList = ' ';
+for (let i = 0; i <= countryList.length; i++) {
+  htmlCountryList += `<option value="${countryList[i]}"> ${countryList[i]} </option>`;
+}
+
+country.innerHTML = htmlCountryList;
 
 // variables for introduction page
 const introduction = document.getElementById('introduction');
@@ -126,32 +384,36 @@ function showPage(currentFlowState) {
 //Validators
 function arePersonalDetailsValid() {
   return (
-    state.value.trim().length > 3 &&
-    city.value.trim().length > 3 &&
-    country.value.trim().length > 3
+    state.value.trim().length >= 3 &&
+    city.value.trim().length >= 3 &&
+    country.value.trim().length >= 3
   );
 }
 
 function introPageValidator() {
   return (
-    introduction.value.trim().split(' ').length > 100 &&
-    skills.value.trim().split(' ').length > 6 &&
-    college.value.trim().split(' ').length > 5 &&
-    forFun.value.trim().split(' ').length > 100 &&
-    funFact.value.trim().split(' ').length > 100
+    introduction.value.trim().split(' ').length >= 100 &&
+    skills.value.trim().split(' ').length >= 5 &&
+    college.value.trim().split(' ').length >= 5 &&
+    forFun.value.trim().split(' ').length >= 100 &&
+    funFact.value.trim().split(' ').length >= 100
   );
 }
 
 function whyRdsPageValidator() {
-  return whyRds.value.trim().split(' ').length > 100 && foundFrom.value != '';
+  return whyRds.value.trim().split(' ').length >= 100 && foundFrom.value != '';
 }
 
 function dataValidator(element, size) {
-  if (element.value.trim().split(' ').length > size) {
-    element.classList.add('correct-data');
+  let counter = document.getElementById(element.id + 'Counter');
+  let words_left = size - element.value.trim().split(' ').length;
+  counter.innerText = `${words_left} word(s) left for your data to be valid`;
+  if (words_left <= 0) {
+    counter.innerText = '';
+  }
+  if (element.value.trim().split(' ').length >= size && element.value != '') {
     element.classList.remove('incorrect-data');
   } else {
-    element.classList.remove('correct-data');
     element.classList.add('incorrect-data');
   }
 }
@@ -183,7 +445,7 @@ function toggleNextButton() {
 
 function getFromLocalStorage(field) {
   field.value = localStorage.getItem(field.id);
-  dataValidator(field, sizeDef[field.id]);
+  //dataValidator(field, sizeDef[field.id]);
 }
 
 function autoFillTheFields() {
@@ -194,6 +456,7 @@ function autoFillTheFields() {
     getFromLocalStorage(textArea);
   });
   getFromLocalStorage(foundFrom);
+  getFromLocalStorage(country);
 }
 
 function previewFiller() {
@@ -233,6 +496,10 @@ foundFrom.addEventListener('input', () => {
   toggleNextButton();
 });
 
+country.addEventListener('input', () => {
+  window.localStorage.setItem('country', country.value);
+  toggleNextButton();
+});
 //Button Enablers
 
 startBtn.addEventListener('click', () => {

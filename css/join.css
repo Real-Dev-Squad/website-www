@@ -26,7 +26,8 @@
 
 .info,
 .input-label,
-.input-label-dark {
+.input-label-dark,
+.counter {
   font: 300 16px 'Roboto';
   line-height: 18px;
 }
@@ -46,7 +47,7 @@
   line-height: 32px;
   border: none;
   border-radius: 9px;
-  margin: 1rem 0;
+  margin: 0.8rem 0 0 0;
   padding: 0 0.5rem;
 }
 
@@ -63,6 +64,13 @@
 
 .text-red {
   color: var(--text-red);
+}
+
+.counter {
+  height: 1rem;
+  position: relative;
+  top: -0.8rem;
+  margin-bottom: 0;
 }
 
 .button-disabled {
@@ -120,14 +128,8 @@
   border: 1px solid var(--error-border);
 }
 
-.correct-data {
-  background-color: var(--correct-background);
-  border: 1px solid var(--correct-border);
-}
-
 @media screen and (min-width: 625px) {
-  .user-input,
-  .user-input-big {
+  .user-input {
     width: 35rem;
   }
 

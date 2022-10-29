@@ -202,13 +202,12 @@
             <span class="text-red">*</span>
           </label>
           <br />
-          <input
+          <select
             class="user-input input-regular"
             type="text"
             name="country"
             id="country"
-            placeholder="Enter your country"
-          />
+          ></select>
           <div class="twin-button-container">
             <button class="button-outline" id="previous1">Previous</button>
             <button class="button-disabled nextBtn" id="next1">Next</button>
@@ -231,7 +230,9 @@
             class="user-input input-big"
             cols="30"
             rows="10"
+            placeholder="Please enter your introduction in 100 words"
           ></textarea>
+          <p id="introductionCounter" class="text-red counter"></p>
           <br />
           <label for="skills" class="input-label">
             Your Skills
@@ -243,7 +244,9 @@
             class="user-input input-regular"
             name="skills"
             id="skills"
+            placeholder="Please enter your skills minimum 5"
           />
+          <p id="skillsCounter" class="text-red counter"></p>
           <br />
           <label for="college" class="input-label">
             Name of your college / company
@@ -255,7 +258,9 @@
             class="user-input input-regular"
             name="college"
             id="college"
+            placeholder="Please enter your institution name along with 'I work/study in xyz institution'"
           />
+          <p id="collegeCounter" class="text-red counter"></p>
           <br />
           <label class="input-label" for="forFun">
             What do you do for fun?
@@ -268,10 +273,12 @@
             class="user-input input-big"
             cols="30"
             rows="10"
+            placeholder="Please enter what do you do for fun in 100 words"
           ></textarea>
+          <p id="forFunCounter" class="text-red counter"></p>
           <br />
           <label class="input-label" for="fun-fact">
-            A fun fact about you
+            Fun facts about you
             <span class="text-red">*</span>
           </label>
           <br />
@@ -281,7 +288,9 @@
             class="user-input input-big"
             cols="30"
             rows="10"
+            placeholder="Please enter fun facts about you in 100 words"
           ></textarea>
+          <p id="funFactCounter" class="text-red counter"></p>
           <div class="twin-button-container">
             <button class="button-outline" id="previous2">Previous</button>
             <button class="button-disabled nextBtn" id="next2">Next</button>
@@ -307,6 +316,7 @@
             cols="30"
             rows="10"
           ></textarea>
+          <p id="whyRdsCounter" class="text-red counter"></p>
           <br />
           <label class="input-label" for="foundFrom">
             How did you hear about us?
@@ -318,7 +328,6 @@
             id="foundFrom"
             class="user-input input-regular"
           >
-            <option value="">Select an option</option>
             <option value="Twitter">Twitter</option>
             <option value="Linkedin">Linkedin</option>
             <option value="Referred">

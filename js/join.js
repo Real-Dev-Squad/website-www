@@ -1,4 +1,7 @@
+import { countryList } from './constants.js';
+
 fetchSavedDetails();
+
 const flowState = {
   notStarted: 0,
   personalDetailsPage: 1,
@@ -19,16 +22,16 @@ const page5 = document.getElementById('page5');
 const page6 = document.getElementById('page6');
 
 const sizeDef = {
-  city: 0,
-  state: 0,
-  country: 0,
+  city: 1,
+  state: 1,
+  country: 1,
   skills: 5,
   college: 5,
   introduction: 100,
   whyRds: 100,
   forFun: 100,
   funFact: 100,
-  foundFrom: 0,
+  foundFrom: 1,
 };
 
 let url;
@@ -55,6 +58,12 @@ const state = document.getElementById('state');
 const country = document.getElementById('country');
 const next1 = document.getElementById('next1');
 const previous1 = document.getElementById('previous1');
+let htmlCountryList = ' ';
+for (let i = 0; i <= countryList.length; i++) {
+  htmlCountryList += `<option value="${countryList[i]}"> ${countryList[i]} </option>`;
+}
+
+country.innerHTML = htmlCountryList;
 
 // variables for introduction page
 const introduction = document.getElementById('introduction');
@@ -126,32 +135,36 @@ function showPage(currentFlowState) {
 //Validators
 function arePersonalDetailsValid() {
   return (
-    state.value.trim().length > 3 &&
-    city.value.trim().length > 3 &&
-    country.value.trim().length > 3
+    state.value.trim().length >= 3 &&
+    city.value.trim().length >= 3 &&
+    country.value.trim().length >= 3
   );
 }
 
 function introPageValidator() {
   return (
-    introduction.value.trim().split(' ').length > 100 &&
-    skills.value.trim().split(' ').length > 6 &&
-    college.value.trim().split(' ').length > 5 &&
-    forFun.value.trim().split(' ').length > 100 &&
-    funFact.value.trim().split(' ').length > 100
+    introduction.value.trim().split(' ').length >= 100 &&
+    skills.value.trim().split(' ').length >= 5 &&
+    college.value.trim().split(' ').length >= 5 &&
+    forFun.value.trim().split(' ').length >= 100 &&
+    funFact.value.trim().split(' ').length >= 100
   );
 }
 
 function whyRdsPageValidator() {
-  return whyRds.value.trim().split(' ').length > 100 && foundFrom.value != '';
+  return whyRds.value.trim().split(' ').length >= 100 && foundFrom.value != '';
 }
 
 function dataValidator(element, size) {
-  if (element.value.trim().split(' ').length > size) {
-    element.classList.add('correct-data');
+  let counter = document.getElementById(element.id + 'Counter');
+  let words_left = size - element.value.trim().split(' ').length;
+  counter.innerText = `Atleast, ${words_left} more word(s) required`;
+  if (words_left <= 0) {
+    counter.innerText = '';
+  }
+  if (element.value.trim().split(' ').length >= size && element.value != '') {
     element.classList.remove('incorrect-data');
   } else {
-    element.classList.remove('correct-data');
     element.classList.add('incorrect-data');
   }
 }
@@ -183,7 +196,6 @@ function toggleNextButton() {
 
 function getFromLocalStorage(field) {
   field.value = localStorage.getItem(field.id);
-  dataValidator(field, sizeDef[field.id]);
 }
 
 function autoFillTheFields() {
@@ -194,6 +206,7 @@ function autoFillTheFields() {
     getFromLocalStorage(textArea);
   });
   getFromLocalStorage(foundFrom);
+  getFromLocalStorage(country);
 }
 
 function previewFiller() {
@@ -233,6 +246,10 @@ foundFrom.addEventListener('input', () => {
   toggleNextButton();
 });
 
+country.addEventListener('input', () => {
+  window.localStorage.setItem('country', country.value);
+  toggleNextButton();
+});
 //Button Enablers
 
 startBtn.addEventListener('click', () => {

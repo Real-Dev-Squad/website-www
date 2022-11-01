@@ -26,7 +26,7 @@ const sizeDef = {
   state: 1,
   country: 1,
   skills: 5,
-  college: 5,
+  college: 1,
   introduction: 100,
   whyRds: 100,
   forFun: 100,
@@ -109,9 +109,19 @@ function fetchSavedDetails() {
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
-      console.log(res);
+      if (res.statusCode === 401) {
+        alert('You are not logged in! Redirecting you to login.');
+        location.href =
+          'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
+      }
       url = `https://api.realdevsquad.com/users/${res.id}/intro`;
       personalLink.innerText = url;
+    })
+    .catch((err) => {
+      alert(
+        'We are facing an internal server error! Please try again after some time',
+      );
+      location.href = 'https://realdevsquad.com';
     });
 }
 
@@ -137,28 +147,37 @@ function arePersonalDetailsValid() {
   return (
     state.value.trim().length >= 3 &&
     city.value.trim().length >= 3 &&
-    country.value.trim().length >= 3
+    country.value.trim() != ''
   );
 }
 
 function introPageValidator() {
   return (
-    introduction.value.trim().split(' ').length >= 100 &&
-    skills.value.trim().split(' ').length >= 5 &&
-    college.value.trim().split(' ').length >= 5 &&
-    forFun.value.trim().split(' ').length >= 100 &&
-    funFact.value.trim().split(' ').length >= 100
+    introduction.value.trim().split(' ').length >= sizeDef.introduction &&
+    introduction.value.trim() != '' &&
+    skills.value.trim().split(' ').length >= sizeDef.skills &&
+    skills.value.trim() != '' &&
+    college.value.trim().split(' ').length >= sizeDef.college &&
+    college.value.trim() != '' &&
+    forFun.value.trim().split(' ').length >= sizeDef.forFun &&
+    forFun.value.trim() != '' &&
+    funFact.value.trim().split(' ').length >= sizeDef.funFact &&
+    funFact.value.trim() != ''
   );
 }
 
 function whyRdsPageValidator() {
-  return whyRds.value.trim().split(' ').length >= 100 && foundFrom.value != '';
+  return (
+    whyRds.value.trim().split(' ').length >= sizeDef.whyRds &&
+    foundFrom.value != '' &&
+    whyRds.value.trim() != ''
+  );
 }
 
 function dataValidator(element, size) {
   let counter = document.getElementById(element.id + 'Counter');
   let words_left = size - element.value.trim().split(' ').length;
-  counter.innerText = `Atleast, ${words_left} more word(s) required`;
+  counter.innerText = `At least, ${words_left} more word(s) required`;
   if (words_left <= 0) {
     counter.innerText = '';
   }

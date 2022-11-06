@@ -69,9 +69,10 @@ const getMemberImgs = () => {
 
 if (doesGitHubCookieExist()) {
   window.addEventListener('DOMContentLoaded', fetchData);
-} else {
-  window.addEventListener('DOMContentLoaded', updateGitHubLink);
 }
+// else {
+//   window.addEventListener('DOMContentLoaded', updateGitHubLink);
+// }
 
 window.addEventListener('DOMContentLoaded', getMemberImgs);
 const modalTriggers = document.querySelectorAll('.popup-trigger');

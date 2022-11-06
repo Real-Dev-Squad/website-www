@@ -70,6 +70,7 @@ const getMemberImgs = () => {
 if (doesGitHubCookieExist()) {
   window.addEventListener('DOMContentLoaded', fetchData);
 }
+// the code redirects the user to fake page , commeting it to prevent user for redirection
 // else {
 //   window.addEventListener('DOMContentLoaded', updateGitHubLink);
 // }

@@ -14,7 +14,7 @@ const updateGitHubLink = () => {
   allLoginBtns.forEach((btn) => {
     btn.setAttribute(
       'href',
-      'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97',
+      'https://github.realdevsquad.com',
     );
   });
 };

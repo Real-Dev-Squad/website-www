@@ -249,10 +249,10 @@ export const countryList = [
   'Zimbabwe',
   'Åland Islands',
 ];
-const MAP_CONTAINER_ID = 'map';
-const MAP_STYLE = 'mapbox://styles/mapbox/streets-v11';
-const MAP_ZOOM = 2.5;
-const MAP_COORDINATES = {
+export const MAP_CONTAINER_ID = 'map';
+export const MAP_STYLE = 'mapbox://styles/mapbox/streets-v11';
+export const MAP_ZOOM = 2.5;
+export const MAP_COORDINATES = {
   LNG: 78.476681027237,
   LAT: 22.1991660760527,
 };

@@ -1,4 +1,11 @@
 import MAPBOXGL_ACCESS_TOKEN from './config.js';
+import {
+  MAP_CONTAINER_ID,
+  MAP_STYLE,
+  MAP_ZOOM,
+  MAP_COORDINATES,
+} from './constants.js';
+
 mapboxgl.accessToken = MAPBOXGL_ACCESS_TOKEN;
 const map = new mapboxgl.Map({
   container: MAP_CONTAINER_ID,

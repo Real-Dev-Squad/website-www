@@ -1,8 +1,5 @@
 // VF Flow: https://github.com/Real-Dev-Squad/website-www/issues/233
-import {
-  GITHUB_MOCK_URL,
-  GITHUB_OAUTH,
-} from './contants.js';
+import { GITHUB_OAUTH } from './contants.js';
 
 const doesGitHubCookieExist = () => {
   const cookieStr = document.cookie || '';

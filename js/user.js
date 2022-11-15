@@ -1,9 +1,4 @@
-import { doesGitHubCookieExist } from '/js/github.js';
 const setUserGreeting = (username, firstName, userProfilePicture) => {
-  if (!doesGitHubCookieExist()) {
-    return;
-  }
-
   if (username) {
     const userLoginEl = document.querySelectorAll('.btn-login');
 
@@ -32,19 +27,20 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
 };
 
 const fetchData = () => {
-  fetch('https://api.realdevsquad.com/users/self', {
+  return fetch('https://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })
     .then((res) => res.json())
     .then((res) => {
+      if (res.error) {
+        throw new Error(res.error);
+      }
       if (res.incompleteUserDetails) {
         return window.location.replace('https://my.realdevsquad.com/signup');
       }
       setUserGreeting(res.username, res.first_name, res.picture?.url); // BAD
     });
 };
-
-window.addEventListener('DOMContentLoaded', fetchData); //BAD, Also in index.js
 
 export { fetchData };

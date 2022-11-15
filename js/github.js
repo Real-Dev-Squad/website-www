@@ -1,15 +1,6 @@
 // VF Flow: https://github.com/Real-Dev-Squad/website-www/issues/233
 import { GITHUB_OAUTH } from './contants.js';
 
-const doesGitHubCookieExist = () => {
-  const cookieStr = document.cookie || '';
-  const githubCookieStr = cookieStr
-    .split('; ')
-    .find((row) => row.startsWith('rds-session='));
-
-  return githubCookieStr;
-};
-
 const signInGitHubOAuth = () => {
   const originURL = window.location.href;
   if (!originURL) return GITHUB_OAUTH;
@@ -26,4 +17,4 @@ const updateGitHubLink = () => {
   });
 };
 
-export { doesGitHubCookieExist, updateGitHubLink };
+export { updateGitHubLink };

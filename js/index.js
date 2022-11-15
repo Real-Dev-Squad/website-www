@@ -1,4 +1,4 @@
-import { doesGitHubCookieExist, updateGitHubLink } from '/js/github.js';
+import { updateGitHubLink } from '/js/github.js';
 import { fetchData } from '/js/user.js';
 
 const selectRandom = (memberImgArr, n) => {
@@ -67,11 +67,10 @@ const getMemberImgs = () => {
     });
 };
 
-if (doesGitHubCookieExist()) {
-  window.addEventListener('DOMContentLoaded', fetchData);
-} else {
-  window.addEventListener('DOMContentLoaded', updateGitHubLink);
-}
+window.addEventListener(
+  'DOMContentLoaded',
+  fetchData().catch((err) => updateGitHubLink()),
+);
 
 window.addEventListener('DOMContentLoaded', getMemberImgs);
 const modalTriggers = document.querySelectorAll('.popup-trigger');

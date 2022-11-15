@@ -5,9 +5,9 @@ const doesGitHubCookieExist = () => {
   const cookieStr = document.cookie || '';
   const githubCookieStr = cookieStr
     .split('; ')
-    .find((row) => row.startsWith('githubLogin='));
+    .find((row) => row.startsWith('rds-session='));
 
-  return !!githubCookieStr;
+  return githubCookieStr;
 };
 
 const signInGitHubOAuth = () => {

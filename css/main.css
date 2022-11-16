@@ -695,6 +695,43 @@ footer {
   background-color: var(--color-vivid-pink);
 }
 
+.map-title {
+  color: var(--color-text-secondary);
+  margin: 2em 1em 1em;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 150%;
+}
+
+.map-box {
+  height: 300px;
+  overflow: hidden;
+  border: 3px solid var(--color-events);
+  margin: 2% 10%;
+}
+
+#map {
+  overflow: visible;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.marker {
+  display: block;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  background-size: 100%;
+}
+
+.element-display-remove {
+  display: none;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 79em) {

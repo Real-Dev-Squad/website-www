@@ -1,4 +1,10 @@
-import { countryList } from './constants.js';
+import {
+  countryList,
+  JOIN_POST_URL,
+  BASE_URL,
+  LOGIN_URL,
+  SELF_URL,
+} from './constants.js';
 
 fetchSavedDetails();
 
@@ -35,7 +41,6 @@ const sizeDef = {
 };
 
 let url;
-const postUrl = 'https://api.realdevsquad.com/users/self/intro';
 
 const inputFields = document.querySelectorAll('input');
 const textAreas = document.querySelectorAll('textarea');
@@ -57,7 +62,6 @@ const city = document.getElementById('city');
 const state = document.getElementById('state');
 const country = document.getElementById('country');
 const next1 = document.getElementById('next1');
-const previous1 = document.getElementById('previous1');
 let htmlCountryList = ' ';
 for (let i = 0; i <= countryList.length; i++) {
   htmlCountryList += `<option value="${countryList[i]}"> ${countryList[i]} </option>`;
@@ -72,12 +76,10 @@ const college = document.getElementById('college');
 const forFun = document.getElementById('forFun');
 const funFact = document.getElementById('funFact');
 const next2 = document.getElementById('next2');
-const previous2 = document.getElementById('previous2');
 
 //variables for why RDS Page
 const whyRds = document.getElementById('whyRds');
 const foundFrom = document.getElementById('foundFrom');
-const previous3 = document.getElementById('previous3');
 const previewBtn = document.getElementById('next3');
 
 //variables for preview pages
@@ -93,7 +95,6 @@ const previewFunFact = document.getElementById('previewFunFact');
 const previewForFun = document.getElementById('previewForFun');
 const previewWhyRds = document.getElementById('previewWhyRds');
 const previewHeardAbout = document.getElementById('previewHeardAbout');
-const previous4 = document.getElementById('previous4');
 const submit = document.getElementById('next4');
 
 //Vatiables for Completed page
@@ -101,7 +102,7 @@ const personalLink = document.getElementById('personalLink');
 const copyBtn = document.getElementById('copy');
 
 function fetchSavedDetails() {
-  fetch('https://api.realdevsquad.com/users/self', {
+  fetch(`${SELF_URL}`, {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })
@@ -111,10 +112,9 @@ function fetchSavedDetails() {
       window.localStorage.setItem('lastName', res.last_name);
       if (res.statusCode === 401) {
         alert('You are not logged in! Redirecting you to login.');
-        location.href =
-          'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
+        location.href = LOGIN_URL;
       }
-      url = `https://api.realdevsquad.com/users/${res.id}/intro`;
+      url = BASE_URL + 'users/' + res.id + '/intro';
       personalLink.innerText = url;
     })
     .catch((err) => {
@@ -307,7 +307,7 @@ nextButtons.forEach((nextButton) => {
 submit.addEventListener('click', async () => {
   const data = JSON.stringify(localStorage);
   const method = 'POST';
-  await fetch(postUrl, {
+  await fetch(JOIN_POST_URL, {
     credentials: 'include',
     method: method,
     mode: 'cors',

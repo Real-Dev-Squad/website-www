@@ -315,10 +315,20 @@ submit.addEventListener('click', async () => {
       'Content-Type': 'application/json',
     },
     body: data,
-  }).then(() => {
-    window.localStorage.setItem('flowState', flowState.completedPage);
-    selectPage();
-  });
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.statusCode === 400) {
+        alert('Improper data. Please Re check the data');
+        return;
+      }
+      window.localStorage.setItem('flowState', flowState.completedPage);
+      selectPage();
+    })
+    .catch((err) => {
+      alert(`Error in saving user data ${err}`);
+      localStorage.setItem('flowState', 4);
+    });
 });
 
 copyBtn.addEventListener('click', () => {

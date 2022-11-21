@@ -256,3 +256,5 @@ export const MAP_COORDINATES = {
   LNG: 78.476681027237,
   LAT: 22.1991660760527,
 };
+export const GITHUB_OAUTH =
+  'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';

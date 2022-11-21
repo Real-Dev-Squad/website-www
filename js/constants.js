@@ -259,5 +259,5 @@ export const MAP_COORDINATES = {
 export const BASE_URL = 'https://api.realdevsquad.com/';
 export const JOIN_POST_URL = BASE_URL + 'users/self/intro';
 export const SELF_URL = BASE_URL + 'users/self';
-export const LOGIN_URL =
+export const GITHUB_OAUTH =
   'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';

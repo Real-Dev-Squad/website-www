@@ -2,7 +2,7 @@ import {
   countryList,
   JOIN_POST_URL,
   BASE_URL,
-  LOGIN_URL,
+  GITHUB_OAUTH,
   SELF_URL,
 } from './constants.js';
 
@@ -112,7 +112,7 @@ function fetchSavedDetails() {
       window.localStorage.setItem('lastName', res.last_name);
       if (res.statusCode === 401) {
         alert('You are not logged in! Redirecting you to login.');
-        location.href = LOGIN_URL;
+        location.href = GITHUB_OAUTH;
       }
       url = BASE_URL + 'users/' + res.id + '/intro';
       personalLink.innerText = url;

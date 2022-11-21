@@ -114,7 +114,7 @@ function fetchSavedDetails() {
         alert('You are not logged in! Redirecting you to login.');
         location.href = GITHUB_OAUTH;
       }
-      url = BASE_URL + 'users/' + res.id + '/intro';
+      url = `${BASE_URL}users/${res.id}/intro`;
       personalLink.innerText = url;
     })
     .catch((err) => {

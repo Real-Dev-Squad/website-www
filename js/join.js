@@ -319,7 +319,7 @@ submit.addEventListener('click', async () => {
     .then((res) => res.json())
     .then((res) => {
       if (res.statusCode !== 200) {
-        alert('Improper data. Please Re check the data');
+        alert('Improper data. Please Re-check the data');
         return;
       }
       window.localStorage.setItem('flowState', flowState.completedPage);

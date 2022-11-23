@@ -243,6 +243,36 @@ function previewFiller() {
   previewHeardAbout.innerHTML = window.localStorage.getItem('foundFrom');
 }
 
+function sendJoinData() {
+  let firstName = window.localStorage.getItem('firstName');
+  let lastName = window.localStorage.getItem('lastName');
+  let city = window.localStorage.getItem('city');
+  let state = window.localStorage.getItem('state');
+  let country = window.localStorage.getItem('country');
+  let introduction = window.localStorage.getItem('introduction');
+  let skills = window.localStorage.getItem('skills');
+  let college = window.localStorage.getItem('college');
+  let forFun = window.localStorage.getItem('forFun');
+  let whyRds = window.localStorage.getItem('whyRds');
+  let foundFrom = window.localStorage.getItem('foundFrom');
+  let funFact = window.localStorage.getItem('funFact');
+  let data = {
+    firstName,
+    lastName,
+    city,
+    state,
+    country,
+    introduction,
+    skills,
+    college,
+    forFun,
+    whyRds,
+    foundFrom,
+    funFact,
+  };
+  return data;
+}
+
 //Direct to the page user left from
 window.addEventListener('load', () => {
   const currentFlowState = window.localStorage.getItem('flowState');
@@ -305,7 +335,6 @@ nextButtons.forEach((nextButton) => {
 });
 
 submit.addEventListener('click', async () => {
-  const data = JSON.stringify(localStorage);
   const method = 'POST';
   await fetch(JOIN_POST_URL, {
     credentials: 'include',
@@ -314,11 +343,11 @@ submit.addEventListener('click', async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: data,
+    body: JSON.stringify(sendJoinData()),
   })
     .then((res) => res.json())
     .then((res) => {
-      if (res.statusCode !== 200) {
+      if (res.message != 'User Data Added Succesfully') {
         alert('Improper data. Please Re-check the data');
         return;
       }

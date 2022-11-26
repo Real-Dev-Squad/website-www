@@ -327,7 +327,6 @@ submit.addEventListener('click', async () => {
     })
     .catch((err) => {
       alert(`Error in saving user data ${err}`);
-      localStorage.setItem('flowState', 4);
     });
 });
 

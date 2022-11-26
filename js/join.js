@@ -244,32 +244,24 @@ function previewFiller() {
 }
 
 function sendJoinData() {
-  let firstName = window.localStorage.getItem('firstName');
-  let lastName = window.localStorage.getItem('lastName');
-  let city = window.localStorage.getItem('city');
-  let state = window.localStorage.getItem('state');
-  let country = window.localStorage.getItem('country');
-  let introduction = window.localStorage.getItem('introduction');
-  let skills = window.localStorage.getItem('skills');
-  let college = window.localStorage.getItem('college');
-  let forFun = window.localStorage.getItem('forFun');
-  let whyRds = window.localStorage.getItem('whyRds');
-  let foundFrom = window.localStorage.getItem('foundFrom');
-  let funFact = window.localStorage.getItem('funFact');
-  let data = {
-    firstName,
-    lastName,
-    city,
-    state,
-    country,
-    introduction,
-    skills,
-    college,
-    forFun,
-    whyRds,
-    foundFrom,
-    funFact,
-  };
+  const selectedData = [
+    'firstName',
+    'lastName',
+    'city',
+    'state',
+    'country',
+    'introduction',
+    'skills',
+    'college',
+    'forFun',
+    'whyRds',
+    'foundFrom',
+    'funFact',
+  ];
+  let data = {};
+  selectedData.forEach((selection) => {
+    data[selection] = window.localStorage.getItem(selection);
+  });
   return data;
 }
 
@@ -347,7 +339,7 @@ submit.addEventListener('click', async () => {
   })
     .then((res) => res.json())
     .then((res) => {
-      if (res.status !== 200) {
+      if (res.status != 200) {
         alert('Improper data. Please Re-check the data');
         return;
       }

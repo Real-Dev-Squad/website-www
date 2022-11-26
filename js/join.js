@@ -106,14 +106,17 @@ function fetchSavedDetails() {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })
-    .then((res) => res.json())
     .then((res) => {
-      window.localStorage.setItem('firstName', res.first_name);
-      window.localStorage.setItem('lastName', res.last_name);
       if (res.statusCode === 401) {
         alert('You are not logged in! Redirecting you to login.');
         location.href = GITHUB_OAUTH;
+        return;
       }
+      res.json();
+    })
+    .then((res) => {
+      window.localStorage.setItem('firstName', res.first_name);
+      window.localStorage.setItem('lastName', res.last_name);
       url = `${BASE_URL}/users/${res.id}/intro`;
       personalLink.innerText = url;
     })
@@ -327,7 +330,7 @@ nextButtons.forEach((nextButton) => {
 });
 
 submit.addEventListener('click', async () => {
-  const method = 'POST';
+  const method = 'PUT';
   await fetch(JOIN_POST_URL, {
     credentials: 'include',
     method: method,
@@ -337,9 +340,8 @@ submit.addEventListener('click', async () => {
     },
     body: JSON.stringify(sendJoinData()),
   })
-    .then((res) => res.json())
     .then((res) => {
-      if (res.status != 200) {
+      if (res.status !== 201) {
         alert('Improper data. Please Re-check the data');
         return;
       }

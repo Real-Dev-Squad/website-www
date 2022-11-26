@@ -97,7 +97,7 @@ const previewWhyRds = document.getElementById('previewWhyRds');
 const previewHeardAbout = document.getElementById('previewHeardAbout');
 const submit = document.getElementById('next4');
 
-//Variables for Completed page
+//Vatiables for Completed page
 const personalLink = document.getElementById('personalLink');
 const copyBtn = document.getElementById('copy');
 

@@ -110,7 +110,6 @@ function fetchSavedDetails() {
       if (res.statusCode === 401) {
         alert('You are not logged in! Redirecting you to login.');
         location.href = GITHUB_OAUTH;
-        return;
       }
       res.json();
     })

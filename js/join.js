@@ -347,7 +347,7 @@ submit.addEventListener('click', async () => {
   })
     .then((res) => res.json())
     .then((res) => {
-      if (res.message != 'User Data Added Succesfully') {
+      if (res.status != 'User Data Added Successfully') {
         alert('Improper data. Please Re-check the data');
         return;
       }

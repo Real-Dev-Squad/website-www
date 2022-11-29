@@ -1,5 +1,4 @@
-{{page-title "Real Dev Squad"}}
-
-Welcome to Real Dev Squad
-
-{{outlet}}
+<body>
+  <Navbar @firstName={{@model.first_name}} @profilePicture={{@model.picture.url}} />
+  {{outlet}}
+</body>

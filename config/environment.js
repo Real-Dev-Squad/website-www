@@ -19,6 +19,8 @@ module.exports = function (environment) {
     },
   };
 
+  ENV.BASE_API_URL = 'http://localhost:3000';
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

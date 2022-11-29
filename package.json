@@ -23,11 +23,13 @@
     "test:ember": "ember test"
   },
   "dependencies": {
-    "ember-truth-helpers": "^3.1.1",
+    "dotenv": "^16.0.2",
     "fastboot-app-server": "^3.3.2",
     "node-fetch": "^3.2.10"
   },
   "devDependencies": {
+    "@fortawesome/ember-fontawesome": "^0.4.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.8.1",
     "@glimmer/component": "^1.1.2",
@@ -52,6 +54,8 @@
     "ember-source": "~4.6.0",
     "ember-template-lint": "^4.10.1",
     "ember-welcome-page": "^6.2.0",
+    "ember-click-outside": "^5.0.1",
+    "ember-truth-helpers": "^3.1.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-ember": "^11.0.2",

@@ -1,12 +1,20 @@
 <nav class='nav'>
-  <button type='button' class='hamburger--toggle' {{on 'click' this.toggleNavbar}}>
+  <button
+    type='button'
+    class='hamburger--toggle'
+    {{on 'click' this.toggleNavbar}}
+  >
     <FaIcon @icon='bars' @size='2x' />
   </button>
 
   <ul class='nav__menu {{if this.isNavOpen "active" ""}}'>
     <li>
       <a href={{this.HOME_PAGE_URL}} class='nav__home'>
-        <img class='nav__home__img' src='assets/images/rds-logo.png' alt='Real_Dev_Squad' />
+        <img
+          class='nav__home__img'
+          src='assets/images/rds-logo.png'
+          alt='Real_Dev_Squad'
+        />
       </a>
     </li>
     <li>
@@ -22,35 +30,40 @@
   </ul>
 
   <div class='nav__login'>
-    {{#if @isLoggedIn }}
-    <div class='nav__user' role="button" class="user" {{on "click" this.toggleMenu}} {{on-click-outside
-      this.outsideClickMenu}}>
-      <div class='user__msg'>Hello, {{@firstName}}</div>
-      <img class='user__pic' src={{@profilePicture}} />
-      <Fa-Icon @icon='chevron-down' />
-    </div>
+    {{#if @isLoggedIn}}
+      <div
+        class='nav__user'
+        role='button'
+        class='user'
+        {{on 'click' this.toggleMenu}}
+        {{on-click-outside this.outsideClickMenu}}
+      >
+        <div class='user__msg'>Hello, {{@firstName}}</div>
+        <img class='user__pic' src={{@profilePicture}} />
+        <Fa-Icon @icon='chevron-down' />
+      </div>
     {{else}}
-    <a class='login' href={{this.AUTH_URL}}>
-      <button class='login__btn' type="button">
-        <span class='login__signin'>Sign In</span>
-        <span class='login__github'>with GitHub</span>
-        <img 
-          class='login__logo' 
-          src='assets/icons/github-logo.png' 
-          alt='GitHub_Icon' 
-          height='20px' 
-          width='20px' 
-        />
-      </button>
-    </a>
+      <a class='login' href={{this.AUTH_URL}}>
+        <button class='login__btn' type='button'>
+          <span class='login__signin'>Sign In</span>
+          <span class='login__github'>with GitHub</span>
+          <img
+            class='login__logo'
+            src='assets/icons/github-logo.png'
+            alt='GitHub_Icon'
+            height='20px'
+            width='20px'
+          />
+        </button>
+      </a>
     {{/if}}
   </div>
 
-  <section class="menu {{if this.isMenuOpen " active-menu" "" }}">
-    <a href={{this.PROFILE_URL}} class="menu__link">
+  <section class='menu {{if this.isMenuOpen " active-menu" ""}}'>
+    <a href={{this.PROFILE_URL}} class='menu__link'>
       My Profile
     </a>
     <hr />
-    <div role="button" class="menu__link" {{on "click" @signOut}}>Sign Out</div>
+    <div role='button' class='menu__link' {{on 'click' (fn @signOut)}}>Sign Out</div>
   </section>
 </nav>

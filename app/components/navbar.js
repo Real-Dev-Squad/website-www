@@ -1,33 +1,35 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { APPS, AUTH } from '../constants/urls';
 
 export default class NavbarComponent extends Component {
   @tracked isNavOpen = false;
   @tracked isMenuOpen = false;
 
-  HOME_PAGE_URL = 'http://realdevsquad.com/';
+  AUTH_URL = AUTH.SIGN_IN;
+  HOME_PAGE_URL = APPS.HOME;
 
   RDS_APPS_MAPPING = [
     {
       siteName: 'Welcome',
-      url: 'https://welcome.realdevsquad.com/',
+      url: APPS.WELCOME,
     },
     {
       siteName: 'Events',
-      url: 'http://realdevsquad.com/events.html',
+      url: APPS.EVENTS,
     },
     {
       siteName: 'Members',
-      url: 'https://members.realdevsquad.com/',
+      url: APPS.MEMBERS,
     },
     {
       siteName: 'Crypto',
-      url: 'https://crypto.realdevsquad.com/',
+      url: APPS.CRYPTO,
     },
     {
       siteName: 'Status',
-      url: 'https://status.realdevsquad.com/',
+      url: APPS.STATUS,
     },
   ];
 

@@ -31,15 +31,15 @@ nav li {
   margin: 15px;
 }
 
-.nav__home__link {
-  display: none;
-}
-
 .nav__element {
   display: block;
   text-decoration: none;
   color: var(--color-white);
   margin: 55px 40px;
+}
+
+.nav__home__link {
+  display: none;
 }
 
 .nav__element.active {
@@ -89,12 +89,12 @@ nav li {
 .user__msg {
   display: inline;
   vertical-align: middle;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .user__pic {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: inline;
   vertical-align: middle;
@@ -169,12 +169,12 @@ nav li {
   }
 
   .nav__login {
-    margin: 20px 20px;
+    margin: 18px 20px;
   }
 
   .menu {
     top: 70px;
-    right: 30px;
+    right: 20px;
   }
 }
 

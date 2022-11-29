@@ -1,9 +1,5 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-
 import ENV from 'website-www/config/environment';
-
-console.log(ENV.BASE_API_URL);
-
 export default class ApplicationAdapter extends JSONAPIAdapter {
   host = ENV.BASE_API_URL;
 

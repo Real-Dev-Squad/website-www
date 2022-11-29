@@ -7,7 +7,7 @@ export default class UserModel extends Model {
   @attr('string', { defaultValue: 'active' }) status;
   @attr roles;
   @attr yoe;
-  @attr('json', { defaultValue: 'dummyProfilePicture.png' }) picture;
+  @attr picture;
   @attr company;
   @attr incompleteUserDetails;
   @attr github_display_name;

@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 
 export default class IndexRoute extends Route {
   @service store;
+  @service router;
 
   async model() {
     return this.store.findRecord('user', 'self');
@@ -13,12 +14,8 @@ export default class IndexRoute extends Route {
   @action
   error(error) {
     if (error instanceof UnauthorizedError) {
-      alert('You are not logged in. Please login to continue.');
-      window.open(
-        'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97',
-        '_self'
-      );
-      return;
+      // TODO: Handle the unauthorized error
+      console.log(error.message);
     }
   }
 }

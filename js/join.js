@@ -245,7 +245,7 @@ function previewFiller() {
   previewHeardAbout.innerHTML = window.localStorage.getItem('foundFrom');
 }
 
-function sendJoinData() {
+function getJoinData() {
   const selectedData = [
     'firstName',
     'lastName',
@@ -337,7 +337,7 @@ submit.addEventListener('click', async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(sendJoinData()),
+    body: JSON.stringify(getJoinData()),
   })
     .then((res) => {
       if (res.status !== 201) {

@@ -107,11 +107,11 @@ function fetchSavedDetails() {
     credentials: 'include',
   })
     .then((res) => {
-      if (res.statusCode === 401) {
+      if (res.status === 401) {
         alert('You are not logged in! Redirecting you to login.');
         location.href = GITHUB_OAUTH;
       }
-      res.json();
+      return res.json();
     })
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);

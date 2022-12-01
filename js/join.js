@@ -106,14 +106,16 @@ function fetchSavedDetails() {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })
-    .then((res) => res.json())
     .then((res) => {
-      window.localStorage.setItem('firstName', res.first_name);
-      window.localStorage.setItem('lastName', res.last_name);
-      if (res.statusCode === 401) {
+      if (res.status === 401) {
         alert('You are not logged in! Redirecting you to login.');
         location.href = GITHUB_OAUTH;
       }
+      return res.json();
+    })
+    .then((res) => {
+      window.localStorage.setItem('firstName', res.first_name);
+      window.localStorage.setItem('lastName', res.last_name);
       url = `${BASE_URL}/users/${res.id}/intro`;
       personalLink.innerText = url;
     })
@@ -243,6 +245,28 @@ function previewFiller() {
   previewHeardAbout.innerHTML = window.localStorage.getItem('foundFrom');
 }
 
+function getJoinData() {
+  const selectedData = [
+    'firstName',
+    'lastName',
+    'city',
+    'state',
+    'country',
+    'introduction',
+    'skills',
+    'college',
+    'forFun',
+    'whyRds',
+    'foundFrom',
+    'funFact',
+  ];
+  let data = {};
+  selectedData.forEach((selection) => {
+    data[selection] = window.localStorage.getItem(selection);
+  });
+  return data;
+}
+
 //Direct to the page user left from
 window.addEventListener('load', () => {
   const currentFlowState = window.localStorage.getItem('flowState');
@@ -305,8 +329,7 @@ nextButtons.forEach((nextButton) => {
 });
 
 submit.addEventListener('click', async () => {
-  const data = JSON.stringify(localStorage);
-  const method = 'POST';
+  const method = 'PUT';
   await fetch(JOIN_POST_URL, {
     credentials: 'include',
     method: method,
@@ -314,11 +337,10 @@ submit.addEventListener('click', async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: data,
+    body: JSON.stringify(getJoinData()),
   })
-    .then((res) => res.json())
     .then((res) => {
-      if (res.statusCode !== 200) {
+      if (res.status !== 201) {
         alert('Improper data. Please Re-check the data');
         return;
       }

@@ -1,7 +1,7 @@
 import Model, { attr } from '@ember-data/model';
 
 export default class UserModel extends Model {
-  @attr('string', { defaultValue: 'User' }) first_name;
+  @attr first_name;
   @attr last_name;
   @attr username;
   @attr('string', { defaultValue: 'active' }) status;

@@ -5,6 +5,7 @@ export const APPS = {
   MEMBERS: 'https://members.realdevsquad.com/',
   CRYPTO: 'https://crypto.realdevsquad.com/',
   STATUS: 'https://status.realdevsquad.com/',
+  PROFILE: 'https://my.realdevsquad.com/',
 };
 
 export const AUTH = {

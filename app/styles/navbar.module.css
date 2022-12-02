@@ -72,7 +72,7 @@ nav li {
   font-size: 14px;
 }
 
-.login__text2 {
+.login__github {
   margin-left: 5px;
 }
 
@@ -179,7 +179,7 @@ nav li {
 }
 
 @media (max-width: 625px) {
-  .login__text2 {
+  .login__github {
     display: none;
   }
 }

@@ -8,30 +8,13 @@ export default class NavbarComponent extends Component {
   @tracked isMenuOpen = false;
 
   AUTH_URL = AUTH.SIGN_IN;
-  HOME_PAGE_URL = APPS.HOME;
-
-  RDS_APPS_MAPPING = [
-    {
-      siteName: 'Welcome',
-      url: APPS.WELCOME,
-    },
-    {
-      siteName: 'Events',
-      url: APPS.EVENTS,
-    },
-    {
-      siteName: 'Members',
-      url: APPS.MEMBERS,
-    },
-    {
-      siteName: 'Crypto',
-      url: APPS.CRYPTO,
-    },
-    {
-      siteName: 'Status',
-      url: APPS.STATUS,
-    },
-  ];
+  HOME_URL = APPS.HOME;
+  WELCOME_URL = APPS.WELCOME;
+  EVENTS_URL = APPS.EVENTS;
+  MEMBERS_URL = APPS.MEMBERS;
+  CRYPTO_URL = APPS.CRYPTO;
+  STATUS_URL = APPS.STATUS;
+  PROFILE_URL = APPS.PROFILE;
 
   @action toggleNavbar() {
     this.isNavOpen = !this.isNavOpen;

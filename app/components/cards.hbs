@@ -1,0 +1,38 @@
+<section class='joining'>
+  <h2 class='joining__title'>Why you should consider joining?</h2>
+  <div class='joining__content'>
+    <ul class='cards'>
+      <div class='body-blackout {{if this.showModal "is-blacked-out" ""}}'></div>
+      {{! Cards }}
+      {{#each this.CARDS_MAPPING as |card|}}
+      <div class='card popup-trigger' {{on "click" (fn this.toggleModal card.id)}}>
+        <h3 class='title-bullet-points'>{{card.title}}</h3>
+        <img src={{card.image}} alt='real-dev' height='220px' width='280px' />
+        <p>
+          {{{card.content}}}
+        </p>
+        <button type='button' class='popup-trigger read-more'>
+          Read More
+        </button>
+      </div>
+      {{/each}}
+
+      {{! Modals }}
+      {{#each this.CARDS_MAPPING as |card|}}
+      {{#if (eq card.id this.clickedModal.id)}}
+        <div class='popup-modal {{if this.showModal "is--visible" ""}} shadow modal-card' {{on-click-outside
+          this.closeModal}}>
+          <button class='popup-modal__close' {{on "click" this.closeModal}}>&times;</button>
+          <h2 class='modal-title-bullet-points'>{{card.title}}</h2>
+          <div>
+            <img src={{card.image}} alt='real-dev' />
+            <p>
+              {{{card.fullContent}}}
+            </p>
+          </div>
+        </div>
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</section>

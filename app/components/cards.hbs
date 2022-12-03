@@ -30,8 +30,7 @@
             {{on-click-outside this.closeModal}}
           >
             <button
-              class='modal__close'
-              {{on 'click' this.closeModal}}
+              class='modal__close' type="button" {{on 'click' this.closeModal}}
             >&times;</button>
             <h2 class='modal__title'>{{card.title}}</h2>
             <div>

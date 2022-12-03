@@ -2,6 +2,7 @@
   text-align: center;
   color: var(--color-darkblack);
   margin: 100px 0px 40px;
+  font-size: 3.5rem;
 }
 
 .joining__content {
@@ -15,14 +16,14 @@
 .cards {
   display: grid;
   grid-template-columns: repeat(2, 2fr);
-  grid-auto-rows: auto;
+  grid-auto-rows: 2fr;
   grid-gap: 5rem;
   max-width: 1240px;
   margin: 0 auto;
   padding: 50px;
 }
 
-.body-blackout {
+.backdrop {
   display: none;
   position: fixed;
   z-index: 1;
@@ -34,13 +35,14 @@
   background-color: var(--color-backdrop);
 }
 
-.body-blackout.is-blacked-out {
+.backdrop--visible {
   display: block;
 }
 
-.card,
-.modal-card {
-  overflow: hidden;
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 20px;
   padding: 2rem;
   text-align: center;
@@ -53,11 +55,13 @@
   transition: all 250ms linear;
 }
 
-.popup-trigger {
-  display: inline-block;
+.card__title {
+  font-size: 2.25rem;
+  margin: 30px 2px;
+  text-align: center;
 }
 
-.read-more {
+.card__read-more {
   border-radius: 10px;
   outline: none;
   background: var(--color-lightgrey);
@@ -66,33 +70,33 @@
   cursor: pointer;
   font-size: 1.25rem;
   font-weight: 700;
+  margin-top: auto;
 }
 
-.popup-modal {
-  height: 90vh;
+.modal {
+  display: none;
+  flex-direction: column;
+  padding: 50px 100px 100px;
+  text-align: center;
   border-radius: 20px;
   background-color: var(--color-white);
   position: fixed;
-  display: flex;
-  flex-direction: column;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 45px;
-  opacity: 0;
   pointer-events: none;
+  transform: translate(-50%, -50%);
   transition: all 300ms ease-in-out;
   z-index: 1;
-  overflow: scroll;
-  scrollbar-width: 20;
+  box-shadow: 0 10px 10px var(--color-darkblack-low-opacity);
+  width: 800px;
 }
 
-.popup-modal.is--visible {
-  opacity: 1;
+.modal--visible {
+  display: flex;
   pointer-events: auto;
 }
 
-.popup-modal__close {
+.modal__close {
   padding: 2px 2px;
   cursor: pointer;
   color: var(--color-darkblack);
@@ -103,22 +107,26 @@
   text-align: right;
 }
 
-.modal-title-bullet-points {
-  font-size: 45px;
-  margin: 2px 2px;
+.modal__title {
+  font-size: 3rem;
+  line-height: 100%;
   text-align: center;
 }
 
-.title-bullet-points {
-  font-size: 36px;
-  margin: 30px 2px;
-  text-align: center;
+.modal__description {
+  text-align: justify;
+}
+
+@media (max-width: 1250px) {
+  .modal {
+    width: 700px;
+  }
 }
 
 @media (max-width: 1024px) {
   .joining__title {
-    font-size: 2.8rem;
-    margin-top: 150px;
+    font-size: 3rem;
+    margin-top: 125px;
     margin-bottom: 75px;
   }
 
@@ -137,20 +145,76 @@
     transform: scale(1);
   }
 
-  .modal-title-bullet-points {
-    font-size: 2rem;
+  .modal {
+    padding: 50px;
+  }
+
+  .modal__title {
+    font-size: 2.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .popup-modal {
-    height: 75vh;
+  .joining__title {
+    font-size: 3rem;
+    margin: 50px 20px;
+  }
+
+  .joining__content {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 30px 10px;
+  }
+
+  .card__title,
+  .modal__title {
+    font-size: 2rem;
+  }
+
+  .modal {
+    width: 500px;
+  }
+}
+
+@media (max-width: 625px) {
+  .joining__title {
+    font-size: 2.5rem;
+  }
+
+  .cards {
+    padding: 20px;
+  }
+
+  .modal {
+    height: 85vh;
     overflow: scroll;
+    width: 350px;
   }
 }
 
 @media (max-width: 425px) {
+  .joining__title {
+    font-size: 2rem;
+    margin: 50px 20px;
+  }
+
+  .cards {
+    padding: 20px;
+  }
+
   .card {
     padding: 20px 10px;
+  }
+
+  .card__title,
+  .modal__title {
+    font-size: 1.75rem;
+  }
+
+  .modal {
+    width: 300px;
+    padding: 25px;
   }
 }

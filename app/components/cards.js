@@ -65,7 +65,7 @@ export default class CardsComponent extends Component {
       title: 'Smart squad members',
       content: `All the members who you would work with, our highly active motivated
             and driven peer group that you can ask for. You may or may not have
-            such a group at your workplace :)`,
+            such a group at your workplace :). If you stay shy and don’t participate, you will be the one at loss.`,
       fullContent: `You will work with other smart developers, some of them who started
             with almost no knowledge of coding or development. The only thing
             that makes them successful is commitment, persistence and
@@ -94,7 +94,7 @@ export default class CardsComponent extends Component {
       title: 'Engineering for evolution',
       content: `We are not a one-trick pony. We do projects in a lot of
             technologies, including standard web technologies like HTML, CSS,
-            JavaScript, React, Ember, Vue, Node, Go, Rust, and more.`,
+            JavaScript, React, Ember, Vue, Node, Go, Rust, and more. We don’t limit ourselves to one thing.`,
       fullContent: `We are not a one-trick pony. We do projects in a lot of
             technologies, including standard web technologies like HTML, CSS,
             JavaScript, React, Ember, Vue, Node, Go, Rust, and more.
@@ -127,7 +127,16 @@ export default class CardsComponent extends Component {
 
   @action toggleModal(id) {
     this.clickedModal = this.CARDS_MAPPING.find((card) => card.id === id);
-    this.showModal = !this.showModal;
+
+    console.log(this.clickedModal);
+    console.log(this.showModal);
+    if (this.showModal) {
+      this.showModal = false;
+    } else {
+      this.showModal = true;
+    }
+    console.log(this.clickedModal);
+    console.log(this.showModal);
   }
 
   @action closeModal() {

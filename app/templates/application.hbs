@@ -1,9 +1,10 @@
 <body>
-  <Navbar 
-    @firstName={{@model.first_name}} 
-    @profilePicture={{@model.picture.url}} 
+  <Navbar
+    @firstName={{@model.first_name}}
+    @profilePicture={{@model.picture.url}}
     @isLoggedIn={{this.isLoggedIn}}
-    @signOut={{this.signOut}} 
+    @signOut={{this.signOut}}
   />
   {{outlet}}
+  <ScrollToTop />
 </body>

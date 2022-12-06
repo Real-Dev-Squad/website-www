@@ -1,5 +1,5 @@
 import { countryList } from './constants.js';
-
+const constantVariables = require('www-constants');
 fetchSavedDetails();
 
 const flowState = {
@@ -14,87 +14,92 @@ const flowState = {
 const startBtn = document.getElementById('start');
 
 // Getting all pages
-const page1 = document.getElementById('page1');
-const page2 = document.getElementById('page2');
-const page3 = document.getElementById('page3');
-const page4 = document.getElementById('page4');
-const page5 = document.getElementById('page5');
-const page6 = document.getElementById('page6');
+// const page1 = document.getElementById('page1');
+// const page2 = document.getElementById('page2');
+// const page3 = document.getElementById('page3');
+// const page4 = document.getElementById('page4');
+// const page5 = document.getElementById('page5');
+// const page6 = document.getElementById('page6');
 
-const sizeDef = {
-  city: 1,
-  state: 1,
-  country: 1,
-  skills: 5,
-  college: 1,
-  introduction: 100,
-  whyRds: 100,
-  forFun: 100,
-  funFact: 100,
-  foundFrom: 1,
-};
+// const sizeDef = {
+//   city: 1,
+//   state: 1,
+//   country: 1,
+//   skills: 5,
+//   college: 1,
+//   introduction: 100,
+//   whyRds: 100,
+//   forFun: 100,
+//   funFact: 100,
+//   foundFrom: 1,
+// };
 
 let url;
-const postUrl = 'https://api.realdevsquad.com/users/self/intro';
+// const postUrl = 'https://api.realdevsquad.com/users/self/intro';
 
-const inputFields = document.querySelectorAll('input');
-const textAreas = document.querySelectorAll('textarea');
+// const inputFields = document.querySelectorAll('input');
+// const textAreas = document.querySelectorAll('textarea');
+//
 
 //Adding Event Listeners
-inputFields.forEach(inputEventAdder);
-textAreas.forEach(inputEventAdder);
+constantVariables.inputFields.forEach(inputEventAdder);
+constantVariables.textAreas.forEach(inputEventAdder);
 
 function inputEventAdder(field) {
   field.addEventListener('input', function () {
     window.localStorage.setItem(field.id, field.value);
-    dataValidator(field, sizeDef[field.id]);
+    dataValidator(field, constantVariables.sizeDef[field.id]);
     toggleNextButton();
   });
 }
 
 // variables for personal details Page
-const city = document.getElementById('city');
-const state = document.getElementById('state');
-const country = document.getElementById('country');
-const next1 = document.getElementById('next1');
-const previous1 = document.getElementById('previous1');
+// const city = document.getElementById('city');
+// const state = document.getElementById('state');
+// const country = document.getElementById('country');
+// const next1 = document.getElementById('next1');
+// const previous1 = document.getElementById('previous1');
+//
 let htmlCountryList = ' ';
-for (let i = 0; i <= countryList.length; i++) {
+for (let i = 0; i <= constantVariables.countryList.length; i++) {
   htmlCountryList += `<option value="${countryList[i]}"> ${countryList[i]} </option>`;
 }
 
 country.innerHTML = htmlCountryList;
 
 // variables for introduction page
-const introduction = document.getElementById('introduction');
-const skills = document.getElementById('skills');
-const college = document.getElementById('college');
-const forFun = document.getElementById('forFun');
-const funFact = document.getElementById('funFact');
-const next2 = document.getElementById('next2');
-const previous2 = document.getElementById('previous2');
+// const introduction = document.getElementById('introduction');
+// const skills = document.getElementById('skills');
+// const college = document.getElementById('college');
+// const forFun = document.getElementById('forFun');
+// const funFact = document.getElementById('funFact');
+// const next2 = document.getElementById('next2');
+// const previous2 = document.getElementById('previous2');
+//
 
 //variables for why RDS Page
-const whyRds = document.getElementById('whyRds');
-const foundFrom = document.getElementById('foundFrom');
-const previous3 = document.getElementById('previous3');
-const previewBtn = document.getElementById('next3');
+// const whyRds = document.getElementById('whyRds');
+// const foundFrom = document.getElementById('foundFrom');
+// const previous3 = document.getElementById('previous3');
+// const previewBtn = document.getElementById('next3');
+//
 
 //variables for preview pages
-const previewFName = document.getElementById('previewFName');
-const previewLName = document.getElementById('previewLName');
-const previewCity = document.getElementById('previewCity');
-const previewState = document.getElementById('previewState');
-const previewCountry = document.getElementById('previewCountry');
-const previewIntro = document.getElementById('previewIntro');
-const previewSkills = document.getElementById('previewSkills');
-const previewInstitution = document.getElementById('previewInstitution');
-const previewFunFact = document.getElementById('previewFunFact');
-const previewForFun = document.getElementById('previewForFun');
-const previewWhyRds = document.getElementById('previewWhyRds');
-const previewHeardAbout = document.getElementById('previewHeardAbout');
-const previous4 = document.getElementById('previous4');
-const submit = document.getElementById('next4');
+// const previewFName = document.getElementById('previewFName');
+// const previewLName = document.getElementById('previewLName');
+// const previewCity = document.getElementById('previewCity');
+// const previewState = document.getElementById('previewState');
+// const previewCountry = document.getElementById('previewCountry');
+// const previewIntro = document.getElementById('previewIntro');
+// const previewSkills = document.getElementById('previewSkills');
+// const previewInstitution = document.getElementById('previewInstitution');
+// const previewFunFact = document.getElementById('previewFunFact');
+// const previewForFun = document.getElementById('previewForFun');
+// const previewWhyRds = document.getElementById('previewWhyRds');
+// const previewHeardAbout = document.getElementById('previewHeardAbout');
+// const previous4 = document.getElementById('previous4');
+// const submit = document.getElementById('next4');
+//
 
 //Vatiables for Completed page
 const personalLink = document.getElementById('personalLink');
@@ -125,7 +130,14 @@ function fetchSavedDetails() {
     });
 }
 
-const pages = [page1, page2, page3, page4, page5, page6];
+const pages = [
+  constantVariables.page1,
+  constantVariables.page2,
+  constantVariables.page3,
+  constantVariables.page4,
+  constantVariables.page5,
+  constantVariables.page6,
+];
 
 function selectPage() {
   let currentFlowState = window.localStorage.getItem('flowState');
@@ -145,32 +157,38 @@ function showPage(currentFlowState) {
 //Validators
 function arePersonalDetailsValid() {
   return (
-    state.value.trim().length >= 3 &&
-    city.value.trim().length >= 3 &&
-    country.value.trim() != ''
+    constantVariables.state.value.trim().length >= 3 &&
+    constantVariables.city.value.trim().length >= 3 &&
+    constantVariables.country.value.trim() != ''
   );
 }
 
 function introPageValidator() {
   return (
-    introduction.value.trim().split(' ').length >= sizeDef.introduction &&
-    introduction.value.trim() != '' &&
-    skills.value.trim().split(' ').length >= sizeDef.skills &&
-    skills.value.trim() != '' &&
-    college.value.trim().split(' ').length >= sizeDef.college &&
-    college.value.trim() != '' &&
-    forFun.value.trim().split(' ').length >= sizeDef.forFun &&
-    forFun.value.trim() != '' &&
-    funFact.value.trim().split(' ').length >= sizeDef.funFact &&
-    funFact.value.trim() != ''
+    constantVariables.introduction.value.trim().split(' ').length >=
+      constantVariables.sizeDef.introduction &&
+    constantVariables.introduction.value.trim() != '' &&
+    constantVariables.skills.value.trim().split(' ').length >=
+      constantVariables.sizeDef.skills &&
+    constantVariables.skills.value.trim() != '' &&
+    constantVariables.college.value.trim().split(' ').length >=
+      constantVariables.sizeDef.college &&
+    constantVariables.college.value.trim() != '' &&
+    constantVariables.forFun.value.trim().split(' ').length >=
+      constantVariables.sizeDef.forFun &&
+    constantVariables.forFun.value.trim() != '' &&
+    constantVariables.funFact.value.trim().split(' ').length >=
+      constantVariables.sizeDef.funFact &&
+    constantVariables.funFact.value.trim() != ''
   );
 }
 
 function whyRdsPageValidator() {
   return (
-    whyRds.value.trim().split(' ').length >= sizeDef.whyRds &&
+    constantVariables.whyRds.value.trim().split(' ').length >=
+      constantVariables.sizeDef.whyRds &&
     foundFrom.value != '' &&
-    whyRds.value.trim() != ''
+    constantVariables.whyRds.value.trim() != ''
   );
 }
 
@@ -191,25 +209,25 @@ function dataValidator(element, size) {
 // Togglers Fillers
 function toggleNextButton() {
   if (arePersonalDetailsValid()) {
-    next1.classList.remove('button-disabled');
-    next1.classList.add('button-filled');
+    constantVariables.next1.classList.remove('button-disabled');
+    constantVariables.next1.classList.add('button-filled');
   } else {
-    next1.classList.add('button-disabled');
-    next1.classList.remove('button-filled');
+    constantVariables.next1.classList.add('button-disabled');
+    constantVariables.next1.classList.remove('button-filled');
   }
   if (introPageValidator()) {
-    next2.classList.remove('button-disabled');
-    next2.classList.add('button-filled');
+    constantVariables.next2.classList.remove('button-disabled');
+    constantVariables.next2.classList.add('button-filled');
   } else {
-    next2.classList.add('button-disabled');
-    next2.classList.remove('button-filled');
+    constantVariables.next2.classList.add('button-disabled');
+    constantVariables.next2.classList.remove('button-filled');
   }
   if (whyRdsPageValidator()) {
-    previewBtn.classList.remove('button-disabled');
-    previewBtn.classList.add('button-filled');
+    constantVariables.previewBtn.classList.remove('button-disabled');
+    constantVariables.previewBtn.classList.add('button-filled');
   } else {
-    previewBtn.classList.add('button-disabled');
-    previewBtn.classList.remove('button-filled');
+    constantVariables.previewBtn.classList.add('button-disabled');
+    constantVariables.previewBtn.classList.remove('button-filled');
   }
 }
 
@@ -218,10 +236,10 @@ function getFromLocalStorage(field) {
 }
 
 function autoFillTheFields() {
-  inputFields.forEach((inputField) => {
+  constantVariables.inputFields.forEach((inputField) => {
     getFromLocalStorage(inputField);
   });
-  textAreas.forEach((textArea) => {
+  constantVariables.textAreas.forEach((textArea) => {
     getFromLocalStorage(textArea);
   });
   getFromLocalStorage(foundFrom);
@@ -229,18 +247,40 @@ function autoFillTheFields() {
 }
 
 function previewFiller() {
-  previewFName.innerText = window.localStorage.getItem('firstName');
-  previewLName.innerHTML = window.localStorage.getItem('lastName');
-  previewCity.innerHTML = window.localStorage.getItem('city');
-  previewState.innerHTML = window.localStorage.getItem('state');
-  previewCountry.innerHTML = window.localStorage.getItem('country');
-  previewIntro.innerHTML = window.localStorage.getItem('introduction');
-  previewSkills.innerHTML = window.localStorage.getItem('skills');
-  previewInstitution.innerHTML = window.localStorage.getItem('college');
-  previewForFun.innerHTML = window.localStorage.getItem('forFun');
-  previewFunFact.innerHTML = window.localStorage.getItem('funFact');
-  previewWhyRds.innerHTML = window.localStorage.getItem('whyRds');
-  previewHeardAbout.innerHTML = window.localStorage.getItem('foundFrom');
+  constantVariables.previewFName.innerText = window.localStorage.getItem(
+    'firstName',
+  );
+  constantVariables.previewLName.innerHTML = window.localStorage.getItem(
+    'lastName',
+  );
+  constantVariables.previewCity.innerHTML = window.localStorage.getItem('city');
+  constantVariables.previewState.innerHTML = window.localStorage.getItem(
+    'state',
+  );
+  constantVariables.previewCountry.innerHTML = window.localStorage.getItem(
+    'country',
+  );
+  constantVariables.previewIntro.innerHTML = window.localStorage.getItem(
+    'introduction',
+  );
+  constantVariables.previewSkills.innerHTML = window.localStorage.getItem(
+    'skills',
+  );
+  constantVariables.previewInstitution.innerHTML = window.localStorage.getItem(
+    'college',
+  );
+  constantVariables.previewForFun.innerHTML = window.localStorage.getItem(
+    'forFun',
+  );
+  constantVariables.previewFunFact.innerHTML = window.localStorage.getItem(
+    'funFact',
+  );
+  constantVariables.previewWhyRds.innerHTML = window.localStorage.getItem(
+    'whyRds',
+  );
+  constantVariables.previewHeardAbout.innerHTML = window.localStorage.getItem(
+    'foundFrom',
+  );
 }
 
 //Direct to the page user left from
@@ -260,13 +300,13 @@ if (!window.localStorage.getItem('flowState')) {
 }
 
 //Value updaters
-foundFrom.addEventListener('input', () => {
-  window.localStorage.setItem('foundFrom', foundFrom.value);
+constantVariables.foundFrom.addEventListener('input', () => {
+  window.localStorage.setItem('foundFrom', constantVariables.foundFrom.value);
   toggleNextButton();
 });
 
-country.addEventListener('input', () => {
-  window.localStorage.setItem('country', country.value);
+constantVariables.country.addEventListener('input', () => {
+  window.localStorage.setItem('country', constantVariables.country.value);
   toggleNextButton();
 });
 //Button Enablers
@@ -307,7 +347,7 @@ nextButtons.forEach((nextButton) => {
 submit.addEventListener('click', async () => {
   const data = JSON.stringify(localStorage);
   const method = 'POST';
-  await fetch(postUrl, {
+  await fetch(constantVariables.postUrl, {
     credentials: 'include',
     method: method,
     mode: 'cors',

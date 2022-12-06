@@ -1,5 +1,13 @@
 import { countryList } from './constants.js';
 const constantVariables = require('www-constants');
+import {
+  countryList,
+  JOIN_POST_URL,
+  BASE_URL,
+  GITHUB_OAUTH,
+  SELF_URL,
+} from './constants.js';
+
 fetchSavedDetails();
 
 const flowState = {
@@ -101,25 +109,26 @@ country.innerHTML = htmlCountryList;
 // const submit = document.getElementById('next4');
 //
 
-//Vatiables for Completed page
+//Variables for Completed page
 const personalLink = document.getElementById('personalLink');
 const copyBtn = document.getElementById('copy');
 
 function fetchSavedDetails() {
-  fetch('https://api.realdevsquad.com/users/self', {
+  fetch(`${SELF_URL}`, {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status === 401) {
+        alert('You are not logged in! Redirecting you to login.');
+        location.href = GITHUB_OAUTH;
+      }
+      return res.json();
+    })
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
-      if (res.statusCode === 401) {
-        alert('You are not logged in! Redirecting you to login.');
-        location.href =
-          'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
-      }
-      url = `https://api.realdevsquad.com/users/${res.id}/intro`;
+      url = `${BASE_URL}/users/${res.id}/intro`;
       personalLink.innerText = url;
     })
     .catch((err) => {
@@ -283,6 +292,28 @@ function previewFiller() {
   );
 }
 
+function getJoinData() {
+  const selectedData = [
+    'firstName',
+    'lastName',
+    'city',
+    'state',
+    'country',
+    'introduction',
+    'skills',
+    'college',
+    'forFun',
+    'whyRds',
+    'foundFrom',
+    'funFact',
+  ];
+  let data = {};
+  selectedData.forEach((selection) => {
+    data[selection] = window.localStorage.getItem(selection);
+  });
+  return data;
+}
+
 //Direct to the page user left from
 window.addEventListener('load', () => {
   const currentFlowState = window.localStorage.getItem('flowState');
@@ -345,20 +376,27 @@ nextButtons.forEach((nextButton) => {
 });
 
 submit.addEventListener('click', async () => {
-  const data = JSON.stringify(localStorage);
-  const method = 'POST';
-  await fetch(constantVariables.postUrl, {
+  const method = 'PUT';
+  await fetch(JOIN_POST_URL, {
     credentials: 'include',
     method: method,
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: data,
-  }).then(() => {
-    window.localStorage.setItem('flowState', flowState.completedPage);
-    selectPage();
-  });
+    body: JSON.stringify(getJoinData()),
+  })
+    .then((res) => {
+      if (res.status !== 201) {
+        alert('Improper data. Please Re-check the data');
+        return;
+      }
+      window.localStorage.setItem('flowState', flowState.completedPage);
+      selectPage();
+    })
+    .catch((err) => {
+      alert(`Error in saving user data ${err}`);
+    });
 });
 
 copyBtn.addEventListener('click', () => {

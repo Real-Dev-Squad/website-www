@@ -1,0 +1,20 @@
+@import 'navbar.module.css';
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'raleway', sans-serif;
+  background-color: var(--color-white);
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}

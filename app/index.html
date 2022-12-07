@@ -2,35 +2,27 @@
 
 <html>
 
-  <head>
+<head>
+  <meta charset="utf-8" />
+  <title>Real Dev Squad</title>
 
-    <meta charset="utf-8" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Real Dev Squad</title>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+  {{content-for "head"}}
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/website-www.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400..900&display=swap" rel="stylesheet" />
+  {{content-for "head-footer"}}
+</head>
 
-    <meta name="description" content="" />
+<body>
+  {{content-for "body"}}
+  <script src="{{rootURL}}assets/vendor.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
-     {{content-for "head"}}
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
-
-    <link
-      integrity=""
-      rel="stylesheet"
-      href="{{rootURL}}assets/website-www.css"
-    />
-     {{content-for "head-footer"}}
-  </head>
-
-  <body>
-     {{content-for "body"}}
-    <script src="{{rootURL}}assets/vendor.js"></script>
-
-    <script src="{{rootURL}}assets/website-www.js"></script>
-     {{content-for "body-footer"}}
-  </body>
+  <script src="{{rootURL}}assets/website-www.js"></script>
+  {{content-for "body-footer"}}
+</body>
 
 </html>
-

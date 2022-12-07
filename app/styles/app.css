@@ -4,6 +4,7 @@
 @import 'cards.module.css';
 @import 'more-about.module.css';
 @import 'scroll-to-top.module.css';
+@import 'members-wheel.module.css';
 
 * {
   margin: 0px;

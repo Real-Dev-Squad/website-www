@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { UnauthorizedError } from '@ember-data/adapter/error';
 import { action } from '@ember/object';
 
-export default class IndexRoute extends Route {
+export default class ApplicationRoute extends Route {
   @service store;
   @service router;
 

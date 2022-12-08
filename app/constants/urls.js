@@ -15,8 +15,24 @@ export const AUTH = {
 };
 
 export const SOCIALS = {
-  LINKEDIN: 'https://www.linkedin.com/company/real-dev-squad',
-  TWITTER: 'https://twitter.com/realdevsquad?lang=en',
-  FACEBOOK: 'https://www.facebook.com/Real-Dev-Squad-108713777585062/',
-  INSTAGRAM: 'https://www.instagram.com/realdevsquad/?hl=en',
+  LINKEDIN: {
+    URL: 'https://www.linkedin.com/company/real-dev-squad',
+    TITLE: 'LinkedIn',
+    ICON: 'linkedin',
+  },
+  TWITTER: {
+    URL: 'https://twitter.com/realdevsquad?lang=en',
+    TITLE: 'Twitter',
+    ICON: 'twitter',
+  },
+  FACEBOOK: {
+    URL: 'https://www.facebook.com/Real-Dev-Squad-108713777585062/',
+    TITLE: 'Facebook',
+    ICON: 'facebook',
+  },
+  INSTAGRAM: {
+    URL: 'https://www.instagram.com/realdevsquad/?hl=en',
+    TITLE: 'Instagram',
+    ICON: 'instagram',
+  },
 };

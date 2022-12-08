@@ -14,50 +14,25 @@
       <h1 class='text__title'>Real Dev Squad</h1>
 
       <div class='social'>
-        <a href={{this.LINKEDIN_URL}} target='_blank' class='social__handles' rel="noopener noreferrer">
-          LinkedIn
-          <img
-            class='social__icon'
-            src='assets/icons/linkedIn-logo.png'
-            alt='LinkedIn Icon'
-          />
-        </a>
-
-        <span class='social__seperators-vertical'></span>
-        <span class='social__seperators-round'>&bull;</span>
-
-        <a href={{this.TWITTER_URL}} target='_blank' class='social__handles' rel="noopener noreferrer">
-          Twitter
-          <img
-            class='social__icon'
-            src='assets/icons/twitter-logo.png'
-            alt='Twitter Icon'
-          />
-        </a>
-
-        <span class='social__seperators-vertical'></span>
-        <span class='social__seperators-round'>&bull;</span>
-
-        <a href={{this.FACEBOOK_URL}} target='_blank' class='social__handles' rel="noopener noreferrer">
-          Facebook
-          <img
-            class='social__icon'
-            src='assets/icons/facebook-logo.png'
-            alt='Facebook Icon'
-          />
-        </a>
-
-        <span class='social__seperators-vertical'></span>
-        <span class='social__seperators-round'>&bull;</span>
-
-        <a href={{this.INSTAGRAM_URL}} target='_blank' class='social__handles' rel="noopener noreferrer">
-          Instagram
-          <img
-            class='social__icon'
-            src='assets/icons/instagram-logo.png'
-            alt='Instagram Icon'
-          />
-        </a>
+        {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
+          <a
+            href={{social.url}}
+            rel='noopener noreferrer'
+            target='_blank'
+            class='social__handles'
+          >
+            {{social.title}}
+            <img
+              class='social__icon'
+              src='assets/icons/{{social.icon}}-logo.png'
+              alt={{social.title}}
+            />
+          </a>
+          {{#if (not-eq social.title 'Instagram')}}
+            <span class='social__seperators-vertical'></span>
+            <span class='social__seperators-round'>&bull;</span>
+          {{/if}}
+        {{/each}}
       </div>
     </span>
     <img

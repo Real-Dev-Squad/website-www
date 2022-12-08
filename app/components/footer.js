@@ -2,21 +2,76 @@ import Component from '@glimmer/component';
 import { APPS, ABOUT, SOCIALS } from '../constants/urls';
 
 export default class FooterComponent extends Component {
-  HOME_URL = APPS.HOME;
-  WELCOME_URL = APPS.WELCOME;
-  EVENTS_URL = APPS.EVENTS;
-  MEMBERS_URL = APPS.MEMBERS;
-  CRYPTO_URL = APPS.CRYPTO;
-  STATUS_URL = APPS.STATUS;
-  PROFILE_URL = APPS.PROFILE;
+  APPS_PROPERTIES = [
+    {
+      url: APPS.HOME,
+      name: 'Home',
+    },
+    {
+      url: APPS.WELCOME,
+      name: 'Welcome',
+    },
+    {
+      url: APPS.EVENTS,
+      name: 'Events',
+    },
+    {
+      url: APPS.MEMBERS,
+      name: 'Members',
+    },
+    {
+      url: APPS.CRYPTO,
+      name: 'Crypto',
+    },
+    {
+      url: APPS.STATUS,
+      name: 'Status',
+    },
+    {
+      url: APPS.PROFILE,
+      name: 'My Profile',
+    },
+  ];
 
-  JOIN_URL = ABOUT.JOIN;
-  FAQ_URL = ABOUT.FAQ;
-  DISCORD_URL = ABOUT.DISCORD;
-  COC_URL = ABOUT.COC;
+  ABOUT_PROPERTIES = [
+    {
+      url: ABOUT.JOIN,
+      name: 'How to Join?',
+    },
+    {
+      url: ABOUT.FAQ,
+      name: 'FAQ',
+    },
+    {
+      url: ABOUT.DISCORD,
+      name: 'Discord',
+    },
+    {
+      url: ABOUT.COC,
+      name: 'Code of Conduct',
+    },
+  ];
 
-  LINKEDIN_URL = SOCIALS.LINKEDIN;
-  TWITTER_URL = SOCIALS.TWITTER;
-  FACEBOOK_URL = SOCIALS.FACEBOOK;
-  INSTAGRAM_URL = SOCIALS.INSTAGRAM;
+  SOCIAL_LINK_PROPERTIES = [
+    {
+      url: SOCIALS.LINKEDIN.URL,
+      icon: SOCIALS.LINKEDIN.ICON,
+      alt: SOCIALS.LINKEDIN.TITLE,
+    },
+    {
+      url: SOCIALS.TWITTER.URL,
+      icon: SOCIALS.TWITTER.ICON,
+      alt: SOCIALS.TWITTER.TITLE,
+    },
+    {
+      url: SOCIALS.FACEBOOK.URL,
+      icon: SOCIALS.FACEBOOK.ICON,
+      alt: SOCIALS.FACEBOOK.TITLE,
+    },
+    {
+      url: SOCIALS.INSTAGRAM.URL,
+      icon: SOCIALS.INSTAGRAM.ICON,
+      alt: SOCIALS.INSTAGRAM.TITLE,
+    },
+  ];
 }

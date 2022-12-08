@@ -17,6 +17,6 @@
     "check"
   ],
   "dependencies": {
-    "www-constants": "^1.0.1"
+    "www-constants": "^1.0.2"
   }
 }

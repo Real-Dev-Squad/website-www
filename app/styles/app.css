@@ -1,5 +1,6 @@
 @import 'navbar.module.css';
 @import 'header.module.css';
+@import 'description.module.css';
 
 * {
   margin: 0px;

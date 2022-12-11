@@ -127,16 +127,7 @@ export default class CardsComponent extends Component {
 
   @action toggleModal(id) {
     this.clickedModal = this.CARDS_MAPPING.find((card) => card.id === id);
-
-    console.log(this.clickedModal);
-    console.log(this.showModal);
-    if (this.showModal) {
-      this.showModal = false;
-    } else {
-      this.showModal = true;
-    }
-    console.log(this.clickedModal);
-    console.log(this.showModal);
+    this.showModal = !this.showModal;
   }
 
   @action closeModal() {

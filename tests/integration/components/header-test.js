@@ -6,21 +6,14 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | header', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('header content renders', async function (assert) {
     await render(hbs`<Header />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Header>
-        template block text
-      </Header>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom('[data-test-logo]').exists();
+    assert.dom('[data-test-subtitle]').hasText('Welcome to the');
+    assert.dom('[data-test-title]').hasText('Real Dev Squad');
+    assert.dom('[data-test-social-link]').exists({ count: 4 });
+    assert.dom('[data-test-social-icon]').exists({ count: 4 });
+    assert.dom('[data-test-welcome-img]').exists();
   });
 });

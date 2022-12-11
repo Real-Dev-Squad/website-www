@@ -6,21 +6,24 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | more-about', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('more about component renders', async function (assert) {
     await render(hbs`<MoreAbout />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <MoreAbout>
-        template block text
-      </MoreAbout>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert
+      .dom('[data-test-note]')
+      .hasText(
+        'To know how this page is getting developed, join our Discord Channel. Contact one of our existing members for the invitation link or check our FAQ section.'
+      );
+    assert
+      .dom('[data-test-members-link]')
+      .hasAttribute('href', 'https://members.realdevsquad.com/');
+    assert
+      .dom('[data-test-faq-link]')
+      .hasAttribute('href', 'https://welcome.realdevsquad.com/faq.html');
+    assert.dom('[data-test-note-image]').exists();
+    assert
+      .dom('[data-test-video-title]')
+      .hasText('Check out what Real Dev Squad is :');
+    assert.dom('[data-test-video]').exists();
   });
 });

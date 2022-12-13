@@ -1,0 +1,50 @@
+<section class='joining'>
+  <h2 class='joining__title'>Why you should consider joining?</h2>
+  <div class='joining__content'>
+    <ul class='cards'>
+      <div class='backdrop {{if this.showModal "backdrop--visible" ""}}'></div>
+      {{! Cards }}
+      {{#each this.CARDS_MAPPING as |card|}}
+        <div class='card' {{on 'click' (fn this.toggleModal card.id)}}>
+          <h3 class='card__title'>{{card.title}}</h3>
+          <img
+            src={{card.image}}
+            alt='Description'
+            height='220px'
+            width='280px'
+          />
+          <p>
+            {{{card.content}}}
+          </p>
+          <button type='button' class='card__read-more'>
+            Read More
+          </button>
+        </div>
+      {{/each}}
+
+      {{! Modals }}
+      {{#each this.CARDS_MAPPING as |card|}}
+        {{#if (and (eq card.id this.clickedModal.id) this.showModal)}}
+          <div
+            class='modal {{if this.showModal "modal--visible" ""}}'
+            {{on-click-outside this.closeModal}}
+            {{on-key 'Escape' this.closeModal event='keyup'}}
+          >
+            <button
+              class='modal__close'
+              type='button'
+              {{on 'click' this.closeModal}}
+            >&times;</button>
+            <h2 class='modal__title'>{{card.title}}</h2>
+            <div>
+              <img src={{card.image}} alt='Description' />
+              <p class='modal__description'>
+                {{{card.fullContent}}}
+              </p>
+            </div>
+          </div>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</section>

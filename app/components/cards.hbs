@@ -30,8 +30,13 @@
             {{on-click-outside this.closeModal}}
           >
             <button
-              class='modal__close' type="button" {{on 'click' this.closeModal}}
-            >&times;</button>
+              class='modal__close'
+              type='button'
+              {{on 'click' this.closeModal}}
+              {{on-key 'Escape' this.closeModal event='keyup'}}
+            >
+              &times;
+            </button>
             <h2 class='modal__title'>{{card.title}}</h2>
             <div>
               <img src={{card.image}} alt='Description' />

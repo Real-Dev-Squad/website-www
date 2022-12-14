@@ -28,9 +28,13 @@
           <div
             class='modal {{if this.showModal "modal--visible" ""}}'
             {{on-click-outside this.closeModal}}
+            {{on-key 'Escape' this.closeModal event='keyup'}}
           >
             <button
-              class='modal__close' type="button" {{on 'click' this.closeModal}}
+              class='modal__close'
+              type='button'
+              {{on 'click' this.closeModal}}
+
             >&times;</button>
             <h2 class='modal__title'>{{card.title}}</h2>
             <div>

@@ -28,12 +28,12 @@
           <div
             class='modal {{if this.showModal "modal--visible" ""}}'
             {{on-click-outside this.closeModal}}
+            {{on-key 'Escape' this.closeModal event='keyup'}}
           >
             <button
               class='modal__close'
               type='button'
               {{on 'click' this.closeModal}}
-              {{on-key 'Escape' this.closeModal event='keyup'}}
             >
               &times;
             </button>

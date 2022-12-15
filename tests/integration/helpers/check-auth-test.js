@@ -1,17 +1,17 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Helper | checkAuth', function (hooks) {
   setupRenderingTest(hooks);
 
-  // TODO: Replace this with your real tests.
-  test('it renders', async function (assert) {
-    this.set('inputValue', '1234');
+  test('returns false when cookie is not present', async function (assert) {
+    const cookie = document.cookie.includes('loggedIn=true');
+    assert.false(cookie);
+  });
 
-    await render(hbs`{{check-auth this.inputValue}}`);
-
-    assert.dom(this.element).hasText('1234');
+  test('returns true when cookie is present', async function (assert) {
+    document.cookie = 'loggedIn=true';
+    const cookie = document.cookie.includes('loggedIn=true');
+    assert.true(cookie);
   });
 });

@@ -1,22 +1,30 @@
 <section class='joining'>
-  <h2 class='joining__title'>Why you should consider joining?</h2>
+  <h2 data-test-title class='joining__title'>Why you should consider joining?</h2>
   <div class='joining__content'>
     <ul class='cards'>
-      <div class='backdrop {{if this.showModal "backdrop--visible" ""}}'></div>
+      <div
+        data-test-modal-backdrop
+        class='backdrop {{if this.showModal "backdrop--visible" ""}}'
+      ></div>
       {{! Cards }}
       {{#each this.CARDS_MAPPING as |card|}}
-        <div class='card' {{on 'click' (fn this.toggleModal card.id)}}>
-          <h3 class='card__title'>{{card.title}}</h3>
+        <div
+          data-test-card
+          class='card'
+          {{on 'click' (fn this.toggleModal card.id)}}
+        >
+          <h3 data-test-card-title class='card__title'>{{card.title}}</h3>
           <img
+            data-test-card-img
             src={{card.image}}
             alt='Description'
             height='220px'
             width='280px'
           />
-          <p>
-            {{{card.content}}}
+          <p data-test-card-content>
+            {{card.content}}
           </p>
-          <button type='button' class='card__read-more'>
+          <button data-test-card-btn type='button' class='card__read-more'>
             Read More
           </button>
         </div>
@@ -26,19 +34,28 @@
       {{#each this.CARDS_MAPPING as |card|}}
         {{#if (and (eq card.id this.clickedModal.id) this.showModal)}}
           <div
+            data-test-card-modal
             class='modal {{if this.showModal "modal--visible" ""}}'
             {{on-click-outside this.closeModal}}
             {{on-key 'Escape' this.closeModal event='keyup'}}
           >
             <button
+              data-test-card-modal-close
               class='modal__close'
               type='button'
               {{on 'click' this.closeModal}}
             >&times;</button>
-            <h2 class='modal__title'>{{card.title}}</h2>
+            <h2
+              data-test-card-modal-title
+              class='modal__title'
+            >{{card.title}}</h2>
             <div>
-              <img src={{card.image}} alt='Description' />
-              <p class='modal__description'>
+              <img
+                data-test-card-modal-img
+                src={{card.image}}
+                alt='Description'
+              />
+              <p data-test-card-modal-content class='modal__description'>
                 {{{card.fullContent}}}
               </p>
             </div>

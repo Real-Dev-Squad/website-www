@@ -9,7 +9,7 @@
       {{! Cards }}
       {{#each this.CARDS_MAPPING as |card|}}
         <a data-test-card href='#' class='card' {{on 'click' (fn this.toggleModal card.id)}}>
-          <h3 data-test-card-title  class='card__title'>{{card.title}}</h3>
+          <h3 data-test-card-title class='card__title'>{{card.title}}</h3>
           <img
             data-test-card-img
             src={{card.image}}
@@ -53,7 +53,7 @@
                 alt='Description'
               />
               <p data-test-card-modal-content class='modal__description'>
-                {{{card.fullContent}}}
+                {{card.fullContent}}
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@
 @import 'header.module.css';
 @import 'description.module.css';
 @import 'cards.module.css';
+@import 'more-about.module.css';
 
 * {
   margin: 0px;

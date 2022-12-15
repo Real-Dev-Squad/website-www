@@ -8,6 +8,10 @@ export const APPS = {
   PROFILE: 'https://my.realdevsquad.com/',
 };
 
+export const ABOUT = {
+  FAQ: 'https://welcome.realdevsquad.com/faq.html',
+};
+
 export const AUTH = {
   SIGN_IN:
     'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97',

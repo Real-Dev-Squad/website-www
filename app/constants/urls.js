@@ -15,6 +15,7 @@ export const ABOUT = {
 export const AUTH = {
   SIGN_IN:
     'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97',
+  SIGN_UP: 'https://my.realdevsquad.com/signup',
 };
 
 export const SOCIALS = {

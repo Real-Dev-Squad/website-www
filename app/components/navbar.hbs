@@ -33,13 +33,12 @@
     {{#if @isLoggedIn}}
       <div
         class='nav__user'
-        role='button'
-        class='user'
+        type='button'
         {{on 'click' this.toggleMenu}}
         {{on-click-outside this.outsideClickMenu}}
       >
         <div class='user__msg'>Hello, {{@firstName}}</div>
-        <img class='user__pic' src={{@profilePicture}} />
+        <img class='user__pic' src={{@profilePicture}} alt='Profile Picture' />
         <Fa-Icon @icon='chevron-down' />
       </div>
     {{else}}
@@ -64,6 +63,6 @@
       My Profile
     </a>
     <hr />
-    <div role='button' class='menu__link' {{on 'click' (fn @signOut)}}>Sign Out</div>
+    <div role='button' class='menu__link' {{on 'click' @signOut}}>Sign Out</div>
   </section>
 </nav>

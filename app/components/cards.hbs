@@ -5,7 +5,11 @@
       <div class='backdrop {{if this.showModal "backdrop--visible" ""}}'></div>
       {{! Cards }}
       {{#each this.CARDS_MAPPING as |card|}}
-        <div class='card' {{on 'click' (fn this.toggleModal card.id)}}>
+        <div
+          type='button'
+          class='card'
+          {{on 'click' (fn this.toggleModal card.id)}}
+        >
           <h3 class='card__title'>{{card.title}}</h3>
           <img
             src={{card.image}}
@@ -14,7 +18,7 @@
             width='280px'
           />
           <p>
-            {{{card.content}}}
+            {{card.content}}
           </p>
           <button type='button' class='card__read-more'>
             Read More
@@ -41,7 +45,7 @@
             <div>
               <img src={{card.image}} alt='Description' />
               <p class='modal__description'>
-                {{{card.fullContent}}}
+                {{card.fullContent}}
               </p>
             </div>
           </div>

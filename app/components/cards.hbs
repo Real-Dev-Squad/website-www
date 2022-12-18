@@ -8,13 +8,8 @@
       ></div>
       {{! Cards }}
       {{#each this.CARDS_MAPPING as |card|}}
-        <div
-          data-test-card
-          class='card'
-          type='button'
-          {{on 'click' (fn this.toggleModal card.id)}}
-        >
-          <h3 data-test-card-title class='card__title'>{{card.title}}</h3>
+        <a data-test-card href='#' class='card' {{on 'click' (fn this.toggleModal card.id)}}>
+          <h3 data-test-card-title  class='card__title'>{{card.title}}</h3>
           <img
             data-test-card-img
             src={{card.image}}

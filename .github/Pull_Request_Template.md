@@ -1,26 +1,26 @@
-### Issue
+## Issue
 
-##### Example : Closes #<issue_number>
+#### Example : Closes #<issue_number>
 
-### What is the change?
+## What is the change?
 
 Provide a small description in points of what did you change
 
-##### Example :
+#### Example :
 
 - Done this
 - Made these changes
 
-### Is Development Tested?
+## Is Development Tested?
 
 - [ ] Yes
 - [ ] No
 
-### Before / After Change Screenshots
+## Before / After Change Screenshots
 
 For visual or interaction changes. Please provide a video / screenshot.
 
-##### Example:
+#### Example:
 
 Before :
 Image/Video

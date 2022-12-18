@@ -1,4 +1,4 @@
-import { APPS, ABOUT } from './app-constants';
+import { APPS, ABOUT } from './urls';
 
 export const APPS_PROPERTIES = [
   {

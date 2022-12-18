@@ -60,16 +60,17 @@ nav li {
   margin: 45px 40px;
 }
 
-.login__btn {
-  border-radius: 6px;
+.login {
   display: flex;
-  padding: 5px;
   align-items: center;
-  background-color: var(--color-navyblue);
+  border: 2px solid var(--color-white);
+  border-radius: 6px;
+  padding: 5px;
+  background-color: none;
   color: var(--color-white);
   cursor: pointer;
-  border: 2px solid var(--color-white);
-  font-size: 14px;
+  font-size: 0.85rem;
+  text-decoration: none;
 }
 
 .login__github {
@@ -82,8 +83,11 @@ nav li {
 
 .nav__user {
   font-weight: 700;
+  font-size: 1rem;
   color: var(--color-white);
   cursor: pointer;
+  border: none;
+  background: none;
 }
 
 .user__msg {

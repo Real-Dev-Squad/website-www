@@ -1,0 +1,77 @@
+<footer class='footer'>
+  <div class='footer__container'>
+    <div class='footer__sites-about'>
+      <div class='col'>
+        <h3 class='col__title'>Sites</h3>
+        <span class='col__underline'></span>
+      </div>
+      <ul class='col__list'>
+        {{#each this.APPS_PROPERTIES as |app|}}
+          <li><a href={{app.url}}>{{app.name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class='footer__sites-about'>
+      <div class='col'>
+        <h3 class='col__title'>About</h3>
+        <span class='col__underline'></span>
+      </div>
+      <ul class='col__list'>
+        {{#each this.ABOUT_PROPERTIES as |about|}}
+          <li><a href={{about.url}}>{{about.name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class='footer__col'>
+      <div class='col left'>
+        <h3 class='col__title'>Social Media</h3>
+        <span class='col__underline'></span>
+      </div>
+      <div>
+        {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
+          <a
+            href={{social.url}}
+            target='_blank'
+            class='social__links'
+            rel='noopener noreferrer'
+          >
+            <img
+              class='social__icons'
+              src='assets/icons/{{social.icon}}-white.png'
+              alt={{social.alt}}
+            />
+          </a>
+        {{/each}}
+      </div>
+    </div>
+    <div class='footer__col'>
+      <div class='col'>
+        <h3 class='col__title'>Newsletter</h3>
+        <span class='col__underline'></span>
+      </div>
+      <div class='newsletter'>
+        <label for='email'></label>
+        <input
+          id='email'
+          type='text'
+          class='newsletter__input'
+          placeholder='Enter your email'
+        />
+        <button type='button' class='newsletter__button'>
+          <img
+            src='assets/icons/right-arrow.png'
+            alt='Right Arrow'
+            height='20px'
+            width='20px'
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class='footer__repo'>
+    <img class='repo__img' src='assets/icons/github-white.png' alt='GitHub' />
+    <p class='repo__text'>The contents of the website are deployed from this
+      <a href={{this.REPOSITORY_URL}} class='repo__link'>open sourced repo</a>
+    </p>
+  </div>
+</footer>

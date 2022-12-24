@@ -1,0 +1,144 @@
+.footer {
+  background-color: var(--color-navyblue);
+  padding: 50px 30px 20px;
+  margin-top: 80px;
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer__sites-about {
+  flex-grow: 0.3;
+  margin-left: 40px;
+}
+
+.footer__col {
+  flex-grow: 0.2;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col__title {
+  color: var(--color-white);
+  font-size: 1.25rem;
+}
+
+.col__underline {
+  margin: 5px 0px;
+  width: 70px;
+  height: 5px;
+  border-radius: 2px;
+  background: linear-gradient(111.3deg, var(--color-darkgrey) 9.6%, var(--color-white) 93.6%);
+}
+
+.left {
+  margin-left: 10px;
+}
+
+.col__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.col__list > li {
+  margin: 10px 0;
+}
+
+.col__list > li > a {
+  text-decoration: none;
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.social__links {
+  text-decoration: none;
+}
+
+.social__icons {
+  height: 50px;
+  width: 50px;
+}
+
+.newsletter {
+  display: flex;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.newsletter__input {
+  width: 90%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--color-white);
+  color: var(--color-white);
+  padding: 5px 2px;
+}
+
+.newsletter__input::placeholder {
+  color: var(--color-white);
+}
+
+.newsletter__button {
+  background: none;
+  border: none;
+}
+
+.footer__repo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.repo__img {
+  height: 50px;
+  width: 50px;
+}
+
+.repo__text {
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-lightgrey);
+}
+
+.repo__link {
+  text-decoration: underline;
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .footer__sites-about{
+    width: 50%;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__col {
+    width: 100%;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .col {
+    align-items: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .footer__sites-about {
+    margin: 20px 0px;
+  }
+}

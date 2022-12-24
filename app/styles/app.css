@@ -4,6 +4,7 @@
 @import 'cards.module.css';
 @import 'more-about.module.css';
 @import 'scroll-to-top.module.css';
+@import 'footer.module.css';
 
 * {
   margin: 0px;
@@ -22,4 +23,8 @@ h1 {
 
 h2 {
   font-size: 4rem;
+}
+
+button {
+  font-family: 'raleway', sans-serif;
 }

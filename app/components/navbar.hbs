@@ -31,30 +31,27 @@
 
   <div class='nav__login'>
     {{#if @isLoggedIn}}
-      <div
+      <button
         class='nav__user'
-        role='button'
-        class='user'
+        type='button'
         {{on 'click' this.toggleMenu}}
         {{on-click-outside this.outsideClickMenu}}
       >
         <div class='user__msg'>Hello, {{@firstName}}</div>
-        <img class='user__pic' src={{@profilePicture}} />
+        <img class='user__pic' src={{@profilePicture}} alt='User' />
         <Fa-Icon @icon='chevron-down' />
-      </div>
+      </button>
     {{else}}
       <a class='login' href={{this.AUTH_URL}}>
-        <button class='login__btn' type='button'>
-          <span class='login__signin'>Sign In</span>
-          <span class='login__github'>with GitHub</span>
-          <img
-            class='login__logo'
-            src='assets/icons/github-logo.png'
-            alt='GitHub_Icon'
-            height='20px'
-            width='20px'
-          />
-        </button>
+        <span class='login__signin'>Sign In</span>
+        <span class='login__github'>with GitHub</span>
+        <img
+          class='login__logo'
+          src='assets/icons/github-logo.png'
+          alt='GitHub_Icon'
+          height='20px'
+          width='20px'
+        />
       </a>
     {{/if}}
   </div>
@@ -64,6 +61,6 @@
       My Profile
     </a>
     <hr />
-    <div role='button' class='menu__link' {{on 'click' (fn @signOut)}}>Sign Out</div>
+    <div role='button' class='menu__link' {{on 'click' @signOut}}>Sign Out</div>
   </section>
 </nav>

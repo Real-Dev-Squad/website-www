@@ -49,6 +49,7 @@
   border-radius: 9px;
   margin: 0.8rem 0 0 0;
   padding: 0 0.5rem;
+  outline-color: var(--theme-background);
 }
 
 .input-regular {

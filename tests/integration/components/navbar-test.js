@@ -8,12 +8,19 @@ module('Integration | Component | navbar', function (hooks) {
   setupRenderingTest(hooks);
 
   test('navbar elements renders', async function (assert) {
+    assert.expect(17);
+
     this.setProperties({
       isLoggedIn: false,
     });
 
+    this.set('signOut', () => {});
+
     await render(hbs`
-      <Navbar @isLoggedIn={{this.isLoggedIn}}/>
+      <Navbar 
+        @isLoggedIn={{this.isLoggedIn}} 
+        @signOut={{this.signOut}}
+      />
     `);
 
     assert.dom('[data-test-home-link]').exists();
@@ -37,17 +44,22 @@ module('Integration | Component | navbar', function (hooks) {
   });
 
   test('navbar renders when user logged in', async function (assert) {
+    assert.expect(3);
+
     this.setProperties({
       firstName: 'John',
       profilePicture: 'https://avatars.githubusercontent.com/u/12345678?v=4',
       isLoggedIn: true,
     });
 
+    this.set('signOut', () => {});
+
     await render(hbs`
       <Navbar
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
+        @signOut={{this.signOut}}
       />
     `);
 
@@ -62,7 +74,16 @@ module('Integration | Component | navbar', function (hooks) {
   });
 
   test('toggle navbar menu in mobile view', async function (assert) {
-    await render(hbs`<Navbar />`);
+    assert.expect(5);
+
+    this.set('signOut', () => {});
+
+    await render(hbs`
+      <Navbar 
+        @isLoggedIn={{this.isLoggedIn}} 
+        @signOut={{this.signOut}}
+      />
+    `);
 
     assert.dom('[data-test-toggle-button]').exists();
     assert.dom('[data-test-nav-menu]').exists();
@@ -75,17 +96,22 @@ module('Integration | Component | navbar', function (hooks) {
   });
 
   test('toggle dropdown menu', async function (assert) {
+    assert.expect(6);
+
     this.setProperties({
       firstName: 'John',
       profilePicture: 'https://avatars.githubusercontent.com/u/12345678?v=4',
       isLoggedIn: true,
     });
 
+    this.set('signOut', () => {});
+
     await render(hbs`
       <Navbar 
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
+        @signOut={{this.signOut}}
       />
     `);
 

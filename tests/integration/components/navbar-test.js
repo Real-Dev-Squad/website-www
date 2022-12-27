@@ -14,7 +14,9 @@ module('Integration | Component | navbar', function (hooks) {
       isLoggedIn: false,
     });
 
-    this.set('signOut', () => {});
+    this.set('signOut', () => {
+      this.isLoggedIn = false;
+    });
 
     await render(hbs`
       <Navbar 
@@ -25,6 +27,7 @@ module('Integration | Component | navbar', function (hooks) {
 
     assert.dom('[data-test-home-link]').exists();
     assert.dom('[data-test-home-img]').exists();
+
     assert.dom('[data-test-home]').hasText('Home');
     assert.dom('[data-test-home]').hasAttribute('href', APPS.HOME);
     assert.dom('[data-test-welcome]').hasText('Welcome');
@@ -43,40 +46,12 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-login-img]').exists();
   });
 
-  test('navbar renders when user logged in', async function (assert) {
-    assert.expect(3);
-
-    this.setProperties({
-      firstName: 'John',
-      profilePicture: 'https://avatars.githubusercontent.com/u/12345678?v=4',
-      isLoggedIn: true,
-    });
-
-    this.set('signOut', () => {});
-
-    await render(hbs`
-      <Navbar
-        @firstName={{this.firstName}}
-        @profilePicture={{this.profilePicture}}
-        @isLoggedIn={{this.isLoggedIn}}
-        @signOut={{this.signOut}}
-      />
-    `);
-
-    assert.dom('[data-test-user-name]').hasText('Hello, John');
-    assert
-      .dom('[data-test-user-image]')
-      .hasAttribute(
-        'src',
-        'https://avatars.githubusercontent.com/u/12345678?v=4'
-      );
-    assert.dom('[data-test-icon]').exists();
-  });
-
   test('toggle navbar menu in mobile view', async function (assert) {
     assert.expect(5);
 
-    this.set('signOut', () => {});
+    this.set('signOut', () => {
+      this.isLoggedIn = false;
+    });
 
     await render(hbs`
       <Navbar 
@@ -89,10 +64,45 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-nav-menu]').exists();
 
     assert.dom('[data-test-nav-menu]').doesNotHaveClass('active');
+
     await click('[data-test-toggle-button]');
     assert.dom('[data-test-nav-menu]').hasClass('active');
+
     await click('[data-test-toggle-button]');
     assert.dom('[data-test-nav-menu]').doesNotHaveClass('active');
+  });
+
+  test('navbar renders when user logged in', async function (assert) {
+    assert.expect(4);
+
+    this.setProperties({
+      firstName: 'John',
+      profilePicture: 'https://avatars.githubusercontent.com/u/12345678?v=4',
+      isLoggedIn: true,
+    });
+
+    this.set('signOut', () => {
+      this.isLoggedIn = false;
+    });
+
+    await render(hbs`
+      <Navbar
+        @firstName={{this.firstName}}
+        @profilePicture={{this.profilePicture}}
+        @isLoggedIn={{this.isLoggedIn}}
+        @signOut={{this.signOut}}
+      />
+    `);
+
+    assert.dom('[data-test-login]').doesNotExist();
+    assert.dom('[data-test-user-name]').hasText('Hello, John');
+    assert
+      .dom('[data-test-user-image]')
+      .hasAttribute(
+        'src',
+        'https://avatars.githubusercontent.com/u/12345678?v=4'
+      );
+    assert.dom('[data-test-icon]').exists();
   });
 
   test('toggle dropdown menu', async function (assert) {
@@ -104,7 +114,9 @@ module('Integration | Component | navbar', function (hooks) {
       isLoggedIn: true,
     });
 
-    this.set('signOut', () => {});
+    this.set('signOut', () => {
+      this.isLoggedIn = false;
+    });
 
     await render(hbs`
       <Navbar 

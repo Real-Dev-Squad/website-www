@@ -95,6 +95,8 @@ module('Integration | Component | navbar', function (hooks) {
       this.isLoggedIn = false;
     });
 
+    this.set('signOut', () => {});
+
     await render(hbs`
       <Navbar
         @firstName={{this.firstName}}

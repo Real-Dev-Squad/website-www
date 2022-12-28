@@ -3,24 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="Upcoming Events" />
+    <meta
+      property="og:description"
+      content="Events on important concepts a Web Developer should know about."
+    />
+    <meta
+      property="og:image"
+      content="https://www.realdevsquad.com/img/events/Sagar_Poster.png"
+    />
+    <meta
+      property="og:url"
+      content="https://www.realdevsquad.com/events.html"
+    />
+
+    <meta property="og:title" content="Upcoming Events" />
+    <meta
+      property="og:description"
+      content="Events on important concepts a Web Developer should know about."
+    />
+    <meta
+      property="og:image"
+      content="https://www.realdevsquad.com/img/events/Vishwanath_Eventloop.png"
+    />
+    <meta
+      property="og:url"
+      content="https://www.realdevsquad.com/events.html"
+    />
+
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <title>New Releases</title>
+    <title>RDS Live</title>
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/live.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
 
-    <meta property="og:title" content="Real Dev Squad" />
-    <meta
-      property="og:description"
-      content="Community of developers who collaborate to build Real software."
-    />
-    <meta property="og:image" content="img/Real-Dev-Squad@2x.png" />
-    <meta property="og:url" content="https://www.realdevsquad.com/index.html" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <script src="/js/analytics.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
@@ -82,11 +105,11 @@
           <a href="http://www.realdevsquad.com/">Home</a>
         </li>
         <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
-        <li><a href="./events.html">Events</a></li>
+        <li><a href="./events.html" href="">Events</a></li>
         <li><a href="https://members.realdevsquad.com/">Members</a></li>
         <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
         <li><a href="https://status.realdevsquad.com/">Status</a></li>
-        <li><a href="./live.html">Live</a></li>
+        <li><a class="active-tab" href="">Live</a></li>
         <li class="nav-login-li">
           <a
             class="btn-login"
@@ -111,80 +134,44 @@
         </li>
       </ul>
     </nav>
+
     <main class="wrapper">
-      <h1 class="welcome-title">New Features</h1>
-      <h2 class="next-event-header info-note highlighted-text">
-        We completed one year officially! 🎉
-      </h2>
-      <a class="next-event"> Some of our most recent features: </a>
-      <br />
-      <section class="new-releases">
-        <section class="notif-banner">
-          <p class="notif">
-            <span class="label-tag">New</span>
-            <strong>Stock Exchange</strong>
-            -- See which stocks are currently the ones trending
-            <a href="https://crypto.realdevsquad.com/trading">
-              Invest now ➡️
-            </a>
-          </p>
-        </section>
-
-        <section class="notif-banner">
-          <p class="notif">
-            <span>New</span>
-            <strong>Auctions</strong>
-            -- Bid for the precious stones
-            <a href="https://crypto.realdevsquad.com/auction">
-              Place a bid ➡️
-            </a>
-          </p>
-        </section>
-
-        <section class="notif-banner">
-          <p class="notif">
-            <span>New</span>
-            <strong>Currency Exchange</strong>
-            -- Need a currency? Why not exchange with the other ones you already
-            have?
-            <a href="https://crypto.realdevsquad.com/currency-exchange">
-              Exchange money ➡️
-            </a>
-          </p>
-        </section>
-
-        <section class="notif-banner">
-          <p class="notif">
-            <span class="label-tag coming-soon">Coming Soon</span>
-            <strong>Send & Receive</strong>
-            -- Borrow money from a friend, or send them some.
-          </p>
-        </section>
-      </section>
-
-      <h3 class="info-note">
-        To know how this page is developed,
-        <br />
-        join our Discord channel by contacting one of
-        <a href="https://members.realdevsquad.com">our existing members</a>
-        <br />
-        or our
-        <a href="https://welcome.realdevsquad.com/faq"> FAQ section</a>.
-      </h3>
+      <h1>RDS live PoC</h1>
+      <button class="btn-leave">Leave</button>
+      <form class="joining-form">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <button type="submit" class="btn-join">Join</button>
+      </form>
+      <div class="conference">
+        <div class="screen-share-container">
+          <h2 class="screen-share-status"></h2>
+          <video
+            class="screen-share-video"
+            autoplay="true"
+            muted="true"
+            playsinline="true"
+          ></video>
+        </div>
+        <div class="presenter-container">
+          <div class="presenter-video-tile">
+            <video
+              class="presenter-video"
+              autoplay="true"
+              muted="true"
+              playsinline="true"
+            ></video>
+            <h3 class="presenter-name"></h3>
+          </div>
+          <div class="presenter-controller">
+            <button class="btn-share-screen">Share</button>
+            <button class="btn-mute-audio">Mute</button>
+            <button class="btn-hide-video">Hide</button>
+          </div>
+        </div>
+      </div>
     </main>
-
-    <footer>
-      <p class="info-repo">
-        The contents of this website are deployed from this
-        <a
-          href="https://github.com/Real-Dev-Squad/website"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          open sourced repo
-        </a>
-      </p>
-    </footer>
+    <script type="module" src="js/live.js"></script>
     <script type="module" src="js/user.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/darkmode.js"></script>

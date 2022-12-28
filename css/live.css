@@ -1,0 +1,19 @@
+.conference {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1em;
+}
+
+.presenter-video {
+  height: 250px;
+  width: 250px;
+  border-radius: 20%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.screen-share-video {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+}

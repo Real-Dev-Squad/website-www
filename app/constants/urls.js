@@ -10,6 +10,7 @@ export const APPS = {
 
 export const ABOUT = {
   FAQ: 'https://welcome.realdevsquad.com/faq.html',
+  REPOSITORY: 'https://github.com/Real-Dev-Squad/website-www',
 };
 
 export const AUTH = {

@@ -1,0 +1,28 @@
+import { SOCIALS } from './urls';
+
+export const SOCIAL_LINK_PROPERTIES = [
+  {
+    title: SOCIALS.LINKEDIN.TITLE,
+    url: SOCIALS.LINKEDIN.URL,
+    icon: SOCIALS.LINKEDIN.ICON,
+    alt: SOCIALS.LINKEDIN.TITLE,
+  },
+  {
+    title: SOCIALS.TWITTER.TITLE,
+    url: SOCIALS.TWITTER.URL,
+    icon: SOCIALS.TWITTER.ICON,
+    alt: SOCIALS.TWITTER.TITLE,
+  },
+  {
+    title: SOCIALS.FACEBOOK.TITLE,
+    url: SOCIALS.FACEBOOK.URL,
+    icon: SOCIALS.FACEBOOK.ICON,
+    alt: SOCIALS.FACEBOOK.TITLE,
+  },
+  {
+    title: SOCIALS.INSTAGRAM.TITLE,
+    url: SOCIALS.INSTAGRAM.URL,
+    icon: SOCIALS.INSTAGRAM.ICON,
+    alt: SOCIALS.INSTAGRAM.TITLE,
+  },
+];

@@ -1,11 +1,10 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 import ENV from 'website-www/config/environment';
-import checkAuth from '../helpers/check-auth';
 
 export default class ApplicationController extends Controller {
-  @tracked isLoggedIn = checkAuth();
+  @service login;
 
   @action async signOut() {
     try {

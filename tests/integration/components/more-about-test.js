@@ -5,7 +5,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | more-about', function (hooks) {
   setupRenderingTest(hooks);
-  
+
   test('more about component renders', async function (assert) {
     await render(hbs`<MoreAbout />`);
 

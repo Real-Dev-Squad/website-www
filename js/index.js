@@ -1,6 +1,3 @@
-import { updateGitHubLink } from '/js/github.js';
-import { fetchData } from '/js/user.js';
-
 const selectRandom = (memberImgArr, n) => {
   const result = new Set();
   const len = memberImgArr.length;
@@ -75,11 +72,6 @@ const getMemberImgs = () => {
       displayMemberImgs(memberImgArr);
     });
 };
-
-window.addEventListener(
-  'DOMContentLoaded',
-  fetchData().catch((err) => updateGitHubLink()),
-);
 
 window.addEventListener('DOMContentLoaded', getMemberImgs);
 const modalTriggers = document.querySelectorAll('.popup-trigger');

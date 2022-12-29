@@ -9,7 +9,8 @@ export default class CardsComponent extends Component {
 
   CARDS_MAPPING = CARDS_DATA;
 
-  @action toggleModal(id) {
+  @action toggleModal(id, event) {
+    event.preventDefault();
     this.clickedModal = this.CARDS_MAPPING.find((card) => card.id === id);
     this.showModal = !this.showModal;
   }

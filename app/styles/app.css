@@ -24,3 +24,7 @@ h1 {
 h2 {
   font-size: 4rem;
 }
+
+button {
+  font-family: 'raleway', sans-serif;
+}

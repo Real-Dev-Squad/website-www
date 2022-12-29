@@ -11,6 +11,7 @@ export const APPS = {
 export const ABOUT = {
   FAQ: 'https://welcome.realdevsquad.com/faq.html',
   REPOSITORY: 'https://github.com/Real-Dev-Squad/website-www',
+  VIDEO: 'https://www.youtube.com/embed/8UPjK1wLnTk?controls=0',
 };
 
 export const AUTH = {

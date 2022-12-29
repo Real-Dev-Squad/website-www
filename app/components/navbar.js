@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { APPS, AUTH } from '../constants/urls';
-
 export default class NavbarComponent extends Component {
   @tracked isNavOpen = false;
   @tracked isMenuOpen = false;
@@ -27,5 +26,12 @@ export default class NavbarComponent extends Component {
 
   @action outsideClickMenu() {
     this.isMenuOpen = false;
+  }
+
+  generateAuthURL() {
+    const originURL = window.location.href;
+    if (!originURL) return AUTH.SIGN_IN;
+    const signInLink = AUTH.SIGN_IN + '&state=' + originURL;
+    return signInLink;
   }
 }

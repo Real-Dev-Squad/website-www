@@ -46,6 +46,8 @@
   border-radius: 20px;
   padding: 2rem;
   text-align: center;
+  text-decoration: none;
+  color: var(--color-darkblack);
   box-shadow: 0 10px 10px var(--color-darkblack-low-opacity);
 }
 
@@ -66,7 +68,7 @@
   outline: none;
   background: var(--color-lightgrey);
   border: none;
-  padding: 6px 14px;
+  padding: 4px 14px;
   cursor: pointer;
   font-size: 1.25rem;
   font-weight: 700;
@@ -102,8 +104,8 @@
   color: var(--color-darkblack);
   border: none;
   background-color: transparent;
-  font-size: 3rem;
-  font-weight: 900;
+  font-size: 5rem;
+  font-weight: 700;
   text-align: right;
 }
 
@@ -176,6 +178,10 @@
   .modal {
     width: 500px;
   }
+
+  .modal__close {
+    font-size: 4rem;
+  }
 }
 
 @media (max-width: 625px) {
@@ -191,6 +197,10 @@
     height: 85vh;
     overflow: scroll;
     width: 350px;
+  }
+
+  .modal__close {
+    font-size: 3rem;
   }
 }
 

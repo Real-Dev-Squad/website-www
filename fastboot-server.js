@@ -1,4 +1,4 @@
-const FastBootAppServer = require('fastboot-app-server');
+import FastBootAppServer from 'fastboot-app-server';
 
 const MY_GLOBAL = 'MY GLOBAL';
 

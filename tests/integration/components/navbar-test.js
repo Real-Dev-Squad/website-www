@@ -72,7 +72,6 @@ module('Integration | Component | navbar', function (hooks) {
 
     assert.dom('[data-test-toggle-button]').exists();
     assert.dom('[data-test-nav-menu]').exists();
-
     assert.dom('[data-test-nav-menu]').doesNotHaveClass('active');
 
     await click('[data-test-toggle-button]');
@@ -90,6 +89,10 @@ module('Integration | Component | navbar', function (hooks) {
       profilePicture: 'https://avatars.githubusercontent.com/u/12345678?v=4',
       isLoggedIn: true,
       isLoading: false,
+    });
+
+    this.set('signOut', () => {
+      this.isLoggedIn = false;
     });
 
     this.set('signOut', () => {

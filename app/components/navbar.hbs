@@ -28,64 +28,75 @@
         Home
       </a>
     </li>
-    <li><a
-        data-test-welcome
-        class='nav__element'
-        href={{this.WELCOME_URL}}
-      >Welcome</a></li>
-    <li><a
-        data-test-events
-        class='nav__element'
-        href={{this.EVENTS_URL}}
-      >Events</a></li>
-    <li><a
-        data-test-members
-        class='nav__element'
-        href={{this.MEMBERS_URL}}
-      >Members</a></li>
-    <li><a
-        data-test-crypto
-        class='nav__element'
-        href={{this.CRYPTO_URL}}
-      >Crypto</a></li>
-    <li><a
-        data-test-status
-        class='nav__element'
-        href={{this.STATUS_URL}}
-      >Status</a></li>
+    <li>
+      <a data-test-welcome class='nav__element' href={{this.WELCOME_URL}}>
+        Welcome
+      </a>
+    </li>
+    <li>
+      <a data-test-events class='nav__element' href={{this.EVENTS_URL}}>
+        Events
+      </a>
+    </li>
+    <li>
+      <a data-test-members class='nav__element' href={{this.MEMBERS_URL}}>
+        Members
+      </a>
+    </li>
+    <li>
+      <a data-test-crypto class='nav__element' href={{this.CRYPTO_URL}}>
+        Crypto
+      </a>
+    </li>
+    <li>
+      <a data-test-status class='nav__element' href={{this.STATUS_URL}}>
+        Status
+      </a>
+    </li>
   </ul>
 
   <div class='nav__login'>
-    {{#if @isLoggedIn}}
-      <button
-        data-test-dropdown-toggle
-        class='nav__user'
-        type='button'
-        {{on 'click' this.toggleMenu}}
-        {{on-click-outside this.outsideClickMenu}}
-      >
-        <div data-test-user-name class='user__msg'>Hello, {{@firstName}}</div>
-        <img
-          data-test-user-image
-          class='user__pic'
-          src={{@profilePicture}}
-          alt='User'
+    {{#if @isLoading}}
+      <div data-test-loading class='nav__loading'>
+        <Fa-Icon
+          class='fa-inverse'
+          @size='2x'
+          @icon='circle-notch'
+          @spin={{true}}
         />
-        <Fa-Icon data-test-icon @icon='chevron-down' />
-      </button>
+      </div>
     {{else}}
-      <a data-test-login class='login' href={{this.AUTH_URL}}>
-        <span class='login__signin'>Sign In</span>
-        <span class='login__github'>with GitHub</span>
-        <img
-          data-test-login-img
-          class='login__logo'
-          src='assets/icons/github-logo.png'
-          alt='GitHub'
-          height='20px'
-          width='20px'
-        />
-      </a>
+      {{#if @isLoggedIn}}
+        <button
+          data-test-dropdown-toggle
+          class='nav__user'
+          type='button'
+          {{on 'click' this.toggleMenu}}
+          {{on-click-outside this.outsideClickMenu}}
+        >
+          <div data-test-user-name class='user__msg'>Hello, {{@firstName}}</div>
+          <img
+            data-test-user-image
+            class='user__pic'
+            src={{@profilePicture}}
+            alt='User'
+          />
+          <Fa-Icon data-test-icon @icon='chevron-down' />
+        </button>
+      {{else}}
+        <a data-test-login class='login' href={{this.authURL}}>
+          <span class='login__signin'>Sign In</span>
+          <span class='login__github'>with GitHub</span>
+          <img
+            data-test-login-img
+            class='login__logo'
+            src='assets/icons/github-logo.png'
+            alt='GitHub'
+            height='20px'
+            width='20px'
+          />
+        </a>
+      {{/if}}
     {{/if}}
   </div>
 

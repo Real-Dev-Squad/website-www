@@ -53,6 +53,11 @@ nav li {
   color: var(--color-green);
 }
 
+.nav__loading {
+  width: 100px;
+  text-align: center;
+}
+
 .nav__login {
   position: absolute;
   right: 0;
@@ -173,7 +178,7 @@ nav li {
   }
 
   .nav__login {
-    margin: 18px 20px;
+    margin: 22px 20px;
   }
 
   .menu {

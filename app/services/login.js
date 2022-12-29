@@ -5,8 +5,9 @@ import { AUTH } from '../constants/urls';
 
 export default class LoginService extends Service {
   @service store;
-  @tracked isLoggedIn = false;
+  @tracked isLoggedIn;
   @tracked userData;
+  @tracked isLoading = true;
 
   constructor() {
     super(...arguments);
@@ -17,19 +18,14 @@ export default class LoginService extends Service {
     try {
       const user = await this.store.findRecord('user', 'self');
       if (user) {
-        this.userData = user;
         if (user.incompleteUserDetails) window.location.replace(AUTH.SIGN_UP);
-        else this.isLoggedIn = true;
-
-        // const originURL = window.location.href;
-        // if (!originURL) return AUTH.SIGN_IN;
-        // const signInLink = AUTH.SIGN_IN + '&state=' + originURL;
-
-        // const loginBtn = document.querySelector('login');
-        // loginBtn.setAttribute('href', signInLink);
+        this.isLoggedIn = true;
+        this.userData = user;
       }
     } catch (error) {
       this.isLoggedIn = false;
+    } finally {
+      this.isLoading = false;
     }
   }
 }

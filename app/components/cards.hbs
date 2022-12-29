@@ -8,7 +8,12 @@
       ></div>
       {{! Cards }}
       {{#each this.CARDS_MAPPING as |card|}}
-        <a data-test-card href='#' class='card' {{on 'click' (fn this.toggleModal card.id)}}>
+        <a
+          data-test-card
+          href='#'
+          class='card'
+          {{on 'click' (fn this.toggleModal card.id)}}
+        >
           <h3 data-test-card-title class='card__title'>{{card.title}}</h3>
           <img
             data-test-card-img
@@ -23,7 +28,7 @@
           <button data-test-card-btn type='button' class='card__read-more'>
             Read More
           </button>
-        </div>
+        </a>
       {{/each}}
 
       {{! Modals }}

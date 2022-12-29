@@ -1,8 +1,8 @@
 <body>
   <Navbar
-    @firstName={{@model.first_name}}
-    @profilePicture={{@model.picture.url}}
-    @isLoggedIn={{this.isLoggedIn}}
+    @firstName={{this.login.userData.first_name}}
+    @profilePicture={{this.login.userData.picture.url}}
+    @isLoggedIn={{this.login.isLoggedIn}}
     @signOut={{this.signOut}}
   />
   {{outlet}}

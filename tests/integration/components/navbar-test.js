@@ -8,19 +8,28 @@ module('Integration | Component | navbar', function (hooks) {
   setupRenderingTest(hooks);
 
   test('navbar elements renders', async function (assert) {
-    assert.expect(17);
+    assert.expect(18);
 
     this.setProperties({
       isLoggedIn: false,
+      isLoading: false,
     });
 
     this.set('signOut', () => {
       this.isLoggedIn = false;
     });
 
+    function generateAuthURL() {
+      const originURL = window.location.href;
+      if (!originURL) return AUTH.SIGN_IN;
+      const signInLink = AUTH.SIGN_IN + '&state=' + originURL;
+      return signInLink;
+    }
+
     await render(hbs`
       <Navbar 
         @isLoggedIn={{this.isLoggedIn}} 
+        @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
       />
     `);
@@ -41,8 +50,9 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-status]').hasText('Status');
     assert.dom('[data-test-status]').hasAttribute('href', APPS.STATUS);
 
+    assert.dom('[data-test-loading]').doesNotExist();
     assert.dom('[data-test-login]').hasText('Sign In with GitHub');
-    assert.dom('[data-test-login]').hasAttribute('href', AUTH.SIGN_IN);
+    assert.dom('[data-test-login]').hasAttribute('href', generateAuthURL());
     assert.dom('[data-test-login-img]').exists();
   });
 
@@ -73,12 +83,13 @@ module('Integration | Component | navbar', function (hooks) {
   });
 
   test('navbar renders when user logged in', async function (assert) {
-    assert.expect(4);
+    assert.expect(5);
 
     this.setProperties({
       firstName: 'John',
       profilePicture: 'https://avatars.githubusercontent.com/u/12345678?v=4',
       isLoggedIn: true,
+      isLoading: false,
     });
 
     this.set('signOut', () => {
@@ -90,10 +101,12 @@ module('Integration | Component | navbar', function (hooks) {
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
+        @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
       />
     `);
 
+    assert.dom('[data-test-loading]').doesNotExist();
     assert.dom('[data-test-login]').doesNotExist();
     assert.dom('[data-test-user-name]').hasText('Hello, John');
     assert
@@ -137,5 +150,24 @@ module('Integration | Component | navbar', function (hooks) {
 
     await click('[data-test-dropdown-toggle]');
     assert.dom('[data-test-dropdown]').doesNotHaveClass('active-menu');
+  });
+
+  test('loading state renders', async function (assert) {
+    this.setProperties({ isLoading: true });
+
+    this.set('signOut', () => {
+      this.isLoggedIn = false;
+    });
+
+    await render(hbs`
+      <Navbar 
+        @isLoading={{this.isLoading}}
+        @signOut={{this.signOut}}
+      />
+    `);
+
+    assert.dom('[data-test-loading]').exists();
+    assert.dom('[data-test-dropdown-toggle]').doesNotExist();
+    assert.dom('[data-test-login]').doesNotExist();
   });
 });

@@ -32,8 +32,14 @@
             />
           </a>
           {{#if (not-eq social.title 'Instagram')}}
-            <span class='social__seperators-vertical'></span>
-            <span class='social__seperators-round'>&bull;</span>
+            <span
+              data-test-vertical-separators
+              class='social__seperators-vertical'
+            ></span>
+            <span
+              data-test-round-separators
+              class='social__seperators-round'
+            >&bull;</span>
           {{/if}}
         {{/each}}
       </div>

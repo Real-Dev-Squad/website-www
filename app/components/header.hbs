@@ -17,7 +17,7 @@
       <div class='social'>
         {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
           <a
-            data-test-social-link
+            data-test-social-link={{social.title}}
             href={{social.url}}
             rel='noopener noreferrer'
             target='_blank'
@@ -25,7 +25,7 @@
           >
             {{social.title}}
             <img
-              data-test-social-icon
+              data-test-social-icon={{social.title}}
               class='social__icon'
               src='assets/icons/{{social.icon}}-logo.png'
               alt={{social.title}}

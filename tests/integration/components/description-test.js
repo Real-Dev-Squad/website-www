@@ -7,6 +7,8 @@ module('Integration | Component | description', function (hooks) {
   setupRenderingTest(hooks);
 
   test('description content renders', async function (assert) {
+    assert.expect(3);
+
     await render(hbs`<Description />`);
 
     assert.dom('[data-test-description-img]').exists();

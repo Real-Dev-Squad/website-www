@@ -1,15 +1,24 @@
 <section class='info-video'>
   <section class='info__section'>
-    <span class='info__note'>
+    <span data-test-note class='info__note'>
       To know how this page is getting developed, join our Discord Channel.
       Contact one of our existing
-      <a class='info__note__link' href={{this.MEMBERS_URL}}>members</a>
+      <a
+        data-test-members-link
+        class='info__note__link'
+        href={{this.MEMBERS_URL}}
+      >
+        members
+      </a>
       for the invitation link or check our
-      <a class='info__note__link' href={{this.FAQ_URL}}>FAQ</a>
+      <a data-test-faq-link class='info__note__link' href={{this.FAQ_URL}}>
+        FAQ
+      </a>
       section.
     </span>
     <span class='info__img'>
       <img
+        data-test-note-image
         class='info__img-market'
         src='assets/images/mobile-marketing.png'
         alt='infoNoteImg'
@@ -17,10 +26,13 @@
     </span>
   </section>
   <section class='video__section'>
-    <h1 class='video__heading'>Check out what Real Dev Squad is :</h1>
+    <h1 data-test-video-title class='video__heading'>
+      Check out what Real Dev Squad is :
+    </h1>
     <iframe
+      data-test-video
       title='Real Dev Squad | About Video'
-      src='https://www.youtube.com/embed/8UPjK1wLnTk?controls=0'
+      src={{this.VIDEO_URL}}
       frameborder='0'
       allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
       allowfullscreen

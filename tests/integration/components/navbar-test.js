@@ -153,6 +153,8 @@ module('Integration | Component | navbar', function (hooks) {
   });
 
   test('loading state renders', async function (assert) {
+    assert.expect(3);
+
     this.setProperties({ isLoading: true });
 
     this.set('signOut', () => {

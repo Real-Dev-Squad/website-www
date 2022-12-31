@@ -1,6 +1,3 @@
-import { updateGitHubLink } from '/js/github.js';
-import { fetchData } from '/js/user.js';
-
 const selectRandom = (memberImgArr, n) => {
   const result = new Set();
   const len = memberImgArr.length;
@@ -53,11 +50,20 @@ const getMemberImgs = () => {
     .then((res) => {
       const { members } = res;
       for (const { isMember, username, picture } of members) {
+        let adjustedPicture = '';
+        if (!!picture) {
+          adjustedPicture = `${picture.url.slice(
+            0,
+            53,
+          )}w_200,h_200${picture.url.slice(52)}`;
+        } else {
+          adjustedPicture = picture;
+        }
         memberImgArray.push({
           isMember,
           username,
           img_url:
-            picture?.url ||
+            adjustedPicture ||
             'https://raw.githubusercontent.com/Real-Dev-Squad/website-www/2271f2ee9834ebabfc102dbc0f8c4848673fc283/img/profile.png',
           member_url: getMemberURL(username),
         });
@@ -66,11 +72,6 @@ const getMemberImgs = () => {
       displayMemberImgs(memberImgArr);
     });
 };
-
-window.addEventListener(
-  'DOMContentLoaded',
-  fetchData().catch((err) => updateGitHubLink()),
-);
 
 window.addEventListener('DOMContentLoaded', getMemberImgs);
 const modalTriggers = document.querySelectorAll('.popup-trigger');

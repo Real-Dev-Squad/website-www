@@ -24,6 +24,7 @@ export default class LoginService extends Service {
       }
     } catch (error) {
       this.isLoggedIn = false;
+      console.error(error);
     } finally {
       this.isLoading = false;
     }

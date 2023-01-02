@@ -24,21 +24,25 @@ export const SOCIALS = {
   LINKEDIN: {
     URL: 'https://www.linkedin.com/company/real-dev-squad',
     TITLE: 'LinkedIn',
-    ICON: 'linkedin',
+    ICON: 'assets/icons/linkedin-logo.png',
+    WHITE_ICON: 'assets/icons/linkedin-white.png',
   },
   TWITTER: {
     URL: 'https://twitter.com/realdevsquad?lang=en',
     TITLE: 'Twitter',
-    ICON: 'twitter',
+    ICON: 'assets/icons/twitter-logo.png',
+    WHITE_ICON: 'assets/icons/twitter-white.png',
   },
   FACEBOOK: {
     URL: 'https://www.facebook.com/Real-Dev-Squad-108713777585062/',
     TITLE: 'Facebook',
-    ICON: 'facebook',
+    ICON: 'assets/icons/facebook-logo.png',
+    WHITE_ICON: 'assets/icons/facebook-white.png',
   },
   INSTAGRAM: {
     URL: 'https://www.instagram.com/realdevsquad/?hl=en',
     TITLE: 'Instagram',
-    ICON: 'instagram',
+    ICON: 'assets/icons/instagram-logo.png',
+    WHITE_ICON: 'assets/icons/instagram-white.png',
   },
 };

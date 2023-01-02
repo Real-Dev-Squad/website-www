@@ -28,11 +28,4 @@ export default class NavbarComponent extends Component {
   @action outsideClickMenu() {
     this.isMenuOpen = false;
   }
-
-  generateAuthURL() {
-    const originURL = window.location.href;
-    if (!originURL) return AUTH.SIGN_IN;
-    const signInLink = AUTH.SIGN_IN + '&state=' + originURL;
-    return signInLink;
-  }
 }

@@ -1,20 +1,33 @@
 <section class='joining'>
-  <h2 class='joining__title'>Why you should consider joining?</h2>
+  <h2 data-test-title class='joining__title'>Why you should consider joining?</h2>
   <div class='joining__content'>
     <ul class='cards'>
-      <div class='backdrop {{if this.showModal "backdrop--visible" ""}}'></div>
+      <div
+        data-test-modal-backdrop
+        class='backdrop {{if this.showModal "backdrop--visible" ""}}'
+      ></div>
       {{! Cards }}
       {{#each this.CARDS_MAPPING as |card|}}
-        <a href='#' class='card' {{on 'click' (fn this.toggleModal card.id)}}>
-          <h3 class='card__title'>{{card.title}}</h3>
+        {{log card.id}}
+        <a
+          data-test-card={{card.id}}
+          href='#'
+          class='card'
+          {{on 'click' (fn this.toggleModal card.id)}}
+        >
+          <h3
+            data-test-card-title={{card.id}}
+            class='card__title'
+          >{{card.title}}</h3>
           <img
+            data-test-card-img={{card.id}}
             src={{card.image}}
             alt='Description'
             height='220px'
             width='280px'
           />
-          <p>{{card.content}}</p>
-          <p class='card__read-more'>Read More</p>
+          <p data-test-card-content={{card.id}}>{{card.content}}</p>
+          <p data-test-card-btn={{card.id}} class='card__read-more'>Read More</p>
         </a>
       {{/each}}
 
@@ -22,21 +35,31 @@
       {{#each this.CARDS_MAPPING as |card|}}
         {{#if (and (eq card.id this.clickedModal.id) this.showModal)}}
           <div
+            data-test-card-modal
             class='modal {{if this.showModal "modal--visible" ""}}'
             {{on-click-outside this.closeModal}}
             {{on-key 'Escape' this.closeModal event='keyup'}}
           >
             <button
+              data-test-card-modal-close
               class='modal__close'
               type='button'
               {{on 'click' this.closeModal}}
             >
               &times;
             </button>
-            <h2 class='modal__title'>{{card.title}}</h2>
+            <h2 data-test-card-modal-title class='modal__title'>
+              {{card.title}}
+            </h2>
             <div>
-              <img src={{card.image}} alt='Description' />
-              <p class='modal__description'>{{card.fullContent}}</p>
+              <img
+                data-test-card-modal-img
+                src={{card.image}}
+                alt='Description'
+              />
+              <p data-test-card-modal-content class='modal__description'>
+                {{card.fullContent}}
+              </p>
             </div>
           </div>
         {{/if}}

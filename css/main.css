@@ -172,13 +172,9 @@ body {
   text-align: center;
 }
 
-.join-description {
-  padding: 0 150px 32px;
-  font-weight: 400;
-  line-height: 175%;
-  text-align: justify;
+.desc-join {
+  color: var(--color-text-secondary);
 }
-
 .section-features {
   margin: 0 -25px;
 }

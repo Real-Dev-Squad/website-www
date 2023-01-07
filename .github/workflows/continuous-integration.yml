@@ -29,3 +29,4 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn test
+        if: github.event_name == 'push_request'

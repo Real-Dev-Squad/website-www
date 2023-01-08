@@ -1,2 +1,12 @@
 {{page-title "Join"}}
 <h1>Welcome to the join section!</h1>
+<Button @text={{"Previous"}} @variant={{"light"}} />
+<Button @text={{"Next"}} @variant={{"dark"}} />
+
+<Input @label="Your City" @param={{"City"}} @placeholder="City" @type="text" @required={{true}} />
+<Dropdown @label="Country" @param="Country" @required={{true}}>
+  <option value="India">India</option>
+  <option value="Russia">Russia</option>
+</Dropdown>
+
+<Textarea @label="Why RDS?" @placeholder="Why RDS?" @required={{true}} />

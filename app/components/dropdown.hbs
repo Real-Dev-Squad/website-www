@@ -1,0 +1,10 @@
+<div class="dropdown input">
+  <label class="label" for={{@param}}>{{@label}}</label>
+  {{#if @required}}
+    <span class="required">*</span>
+  {{/if}}
+  <select class="dropdown__field" name={{@param}} id={{@param}}>
+    <option value="India">India</option>
+    <option value="Russia">Russia</option>
+  </select>
+</div>

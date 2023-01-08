@@ -1,0 +1,7 @@
+<div class="input">
+  <label class="label" for={{@param}}>{{@label}}</label>
+  {{#if @required}}
+    <span class="required">*</span>
+  {{/if}}
+  <input name={{@param}} class="input__field" type={{@type}} id={{@param}} placeholder={{@placeholder}}>
+</div>

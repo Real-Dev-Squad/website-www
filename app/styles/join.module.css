@@ -1,0 +1,14 @@
+.label {
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+}
+
+.required {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  color: red;
+}

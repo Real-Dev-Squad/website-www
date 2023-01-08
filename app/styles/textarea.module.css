@@ -1,0 +1,12 @@
+.textarea__field {
+  width: 440px;
+  height: 149px;
+  display: block;
+  font-size: 22px;
+  border-radius: 6px;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-navyblue);
+  padding: 5px;
+  outline: none;
+  max-width: 440px;
+}

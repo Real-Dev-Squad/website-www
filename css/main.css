@@ -9,6 +9,8 @@
   --color-social-media-links-bg: #fff;
   --color-links: #1d1283;
   --color-events: #e30162;
+  --color-button: #87d870;
+  --color-button-hover: #6dc66d;
 }
 
 .dark-theme {
@@ -190,7 +192,7 @@ body {
 .btn-join {
   width: 22.5rem;
   height: 5.25rem;
-  background: #87d870;
+  background: var(--color-button);
   border-radius: 10px;
   border: none;
   font-family: 'Roboto';
@@ -202,7 +204,7 @@ body {
 }
 
 .btn-join:hover {
-  background: #6dc66d;
+  background: var(--color-button-hover);
   cursor: pointer;
 }
 

@@ -174,7 +174,38 @@ body {
 
 .desc-join {
   color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.desc-join p {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 34px;
+}
+
+.btn-join {
+  width: 22.5rem;
+  height: 5.25rem;
+  background: #87d870;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 34px;
+  color: var(--color-text);
+}
+
+.btn-join:hover {
+  background: #6dc66d;
+  cursor: pointer;
+}
+
 .section-features {
   margin: 0 -25px;
 }
@@ -277,6 +308,7 @@ a {
   overflow: scroll;
   scrollbar-width: 20;
 }
+
 .popup-modal.is--visible {
   opacity: 1;
   pointer-events: auto;
@@ -298,6 +330,7 @@ a {
   margin: 2px 2px;
   text-align: center;
 }
+
 .title-bullet-points {
   margin: 30px 2px;
   text-align: center;
@@ -596,16 +629,20 @@ footer {
     max-width: 960px;
     margin: auto;
   }
+
   .card:hover {
     transform: scale(1);
   }
+
   .features-content {
     padding: 0px;
   }
+
   .modal-title-bullet-points {
     font-size: 2rem;
   }
 }
+
 /***********************/
 /* EMAIL CAPTURE FORM */
 /***********************/

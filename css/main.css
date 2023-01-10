@@ -182,10 +182,7 @@ body {
 }
 
 .desc-join p {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
+  font: normal 400 20px 'Roboto';
   line-height: 34px;
 }
 
@@ -195,10 +192,7 @@ body {
   background: var(--color-button);
   border-radius: 10px;
   border: none;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
+  font: normal 700 36px 'Roboto';
   line-height: 34px;
   color: var(--color-text);
 }

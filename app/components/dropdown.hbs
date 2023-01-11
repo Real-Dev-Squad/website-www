@@ -1,10 +1,15 @@
-<div class="dropdown input">
-  <label class="label" for={{@param}}>{{@label}}</label>
+<div data-test-dropdown class="dropdown">
+  <label data-test-label class="label" for={{@name}}>{{@field}}</label>
   {{#if @required}}
-    <span class="required">*</span>
-  {{/if}}
-  <select class="dropdown__field" name={{@param}} id={{@param}}>
-    <option value="India">India</option>
-    <option value="Russia">Russia</option>
+    <span data-test-required class="required">*</span>
+    <select data-test-dropdown-field class="dropdown__field user-input input-regular" name={{@name}} id={{@name}} required>
+    <option data-test-dropdown-default disabled selected value={{@placeHolder}}>{{@placeHolder}}</option>
+    {{yield}}
   </select>
+  {{else}}
+  <select data-test-dropdown-field class="dropdown__field user-input input-regular" name={{@name}} id={{@name}}>
+    <option data-test-dropdown-default disabled selected value={{@placeHolder}}>{{@placeHolder}}</option>
+    {{yield}}
+  </select>
+  {{/if}}
 </div>

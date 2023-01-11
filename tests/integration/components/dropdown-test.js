@@ -6,21 +6,40 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | dropdown', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('dropdown renders', async function (assert) {
+    assert.expect(13);
 
-    await render(hbs`<Dropdown />`);
+    this.set('name', 'country');
+    this.set('field', 'Country');
+    this.set('required', true);
+    this.set('placeholder', 'Choose Your Country');
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <Dropdown>
-        template block text
-      </Dropdown>
-    `);
+    <Dropdown 
+      @name={{this.name}}
+      @field={{this.field}}
+      @required={{this.required}}
+      @placeHolder={{this.placeholder}}
+    />`);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom('[data-test-dropdown]').hasClass('dropdown');
+
+    assert.dom('[data-test-label]').hasClass('label');
+    assert.dom('[data-test-label]').hasText('Country');
+    assert.dom('[data-test-label]').hasAttribute('for', 'country');
+
+    assert.dom('[data-test-required]').hasClass('required');
+
+    assert.dom('[data-test-dropdown-field]').hasClass('dropdown__field');
+    assert.dom('[data-test-dropdown-field]').hasAttribute('required');
+    assert.dom('[data-test-dropdown-field]').hasAttribute('name', 'country');
+    assert.dom('[data-test-dropdown-field]').hasAttribute('id', 'country');
+
+    assert.dom('[data-test-dropdown-default]').hasText('Choose Your Country');
+    assert.dom('[data-test-dropdown-default]').hasAttribute('disabled');
+    assert.dom('[data-test-dropdown-default]').hasAttribute('selected');
+    assert
+      .dom('[data-test-dropdown-default]')
+      .hasProperty('value', 'Choose Your Country');
   });
 });

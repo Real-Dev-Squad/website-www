@@ -1,0 +1,9 @@
+<div data-test-input class="input-box">
+  <label data-test-label class="label" for={{@name}}>{{@field}}</label>
+  {{#if @required}}
+    <span data-test-required class="required">*</span>
+    <input data-test-input-field name={{@name}} class="input__field user-input input-regular" type={{@type}} id={{@name}} placeholder={{@placeHolder}} required>
+  {{else}}
+    <input data-test-input-field name={{@name}} class="input__field user-input input-regular" type={{@type}} id={{@name}} placeholder={{@placeHolder}}>
+  {{/if}}
+</div>

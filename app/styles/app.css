@@ -33,3 +33,7 @@ h2 {
 button {
   font-family: 'raleway', sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 0;
+}

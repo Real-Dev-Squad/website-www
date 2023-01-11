@@ -6,21 +6,27 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | button', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('button renders', async function (assert) {
+    assert.expect(6);
 
-    await render(hbs`<Button />`);
+    this.set('text', 'Next');
+    this.set('variant', 'dark');
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <Button>
-        template block text
-      </Button>
-    `);
+    <Button 
+      @variant={{this.variant}}
+      @text={{this.text}}
+    />`);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom('[data-test-button]').hasText('Next');
+    assert.dom('[data-test-button]').hasClass('btn');
+    assert.dom('[data-test-button]').hasClass('btn-dark');
+
+    this.set('text', 'Previous');
+    this.set('variant', 'light');
+
+    assert.dom('[data-test-button]').hasText('Previous');
+    assert.dom('[data-test-button]').hasClass('btn');
+    assert.dom('[data-test-button]').hasClass('btn-light');
   });
 });

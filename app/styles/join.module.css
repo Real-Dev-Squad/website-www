@@ -12,3 +12,38 @@
   padding: 0;
   color: red;
 }
+
+.input-big {
+  height: 6.25rem;
+  overflow-y: scroll;
+}
+
+.user-input{
+  font: 300 16px 'Roboto';
+  width: 30rem;
+  line-height: 32px;
+  border-radius: 9px;
+  margin: 0.8rem 0 0 0;
+  padding: 0 0.5rem;
+  display: block;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-navyblue);
+  outline: none;
+  transition: all 0.1s;
+}
+
+.user-input:focus{
+  box-shadow: 0px 0px 0px 4px #1d128340;
+}
+
+.input-regular {
+  min-height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 625px) {
+  .user-input {
+    width: 35rem;
+  }
+}

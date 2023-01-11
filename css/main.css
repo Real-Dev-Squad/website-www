@@ -187,8 +187,8 @@ body {
 }
 
 .btn-join {
-  width: 22.5rem;
-  height: 5.25rem;
+  width: 360px;
+  height: 80px;
   background: var(--color-button);
   border-radius: 10px;
   border: none;
@@ -766,6 +766,11 @@ footer {
 @media (max-width: 79em) {
   .cta-form input {
     width: 75%;
+  }
+  .btn-join {
+    width: 200px;
+    height: 50px;
+    font: normal 700 23px 'Roboto';
   }
 }
 

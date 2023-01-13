@@ -1,2 +1,14 @@
 {{page-title "Join"}}
 <h1>Welcome to the join section!</h1>
+<Button @text="Previous" @variant="light" @disabled={{true}} />
+<Button @text="Next" @variant="dark" @disabled={{false}} />
+
+<InputBox  @field="Your City" @name="city" @placeHolder="City" @type="text" @required={{true}} />
+
+<Dropdown @name="country" @field="Country" @placeHolder="Choose Your Country" @required={{true}}>
+  <option class="dropdown__option" value="India">India</option>
+  <option class="dropdown__option" value="Russia">Russia</option>
+  <option class="dropdown__option" value="Russia">China</option>
+</Dropdown>
+
+<TextAreaBox @field="Why RDS?" @name="why-rds" @placeHolder="Why RDS?" @required={{true}} />

@@ -2,8 +2,6 @@
   <label data-test-label class="label" for={{@name}}>{{@field}}</label>
   {{#if @required}}
     <span data-test-required class="required">*</span>
-    <textarea data-test-textarea-field cols="30" rows="10" placeholder={{@placeHolder}} class="textarea__field user-input input-big" name={{@name}} id={{@name}} required></textarea>
-  {{else}}
-    <textarea data-test-textarea-field cols="30" rows="10" placeholder={{@placeHolder}} class="textarea__field user-input input-big" name={{@name}} id={{@name}}></textarea>
   {{/if}}
+    <textarea data-test-textarea-field cols="30" rows="10" placeholder={{@placeHolder}} class="textarea__field user-input input-big" name={{@name}} id={{@name}} required={{@required}}></textarea>
 </div>

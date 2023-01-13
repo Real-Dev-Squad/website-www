@@ -2,14 +2,9 @@
   <label data-test-label class="label" for={{@name}}>{{@field}}</label>
   {{#if @required}}
     <span data-test-required class="required">*</span>
-    <select data-test-dropdown-field class="dropdown__field user-input input-regular" name={{@name}} id={{@name}} required>
-    <option data-test-dropdown-default disabled selected value={{@placeHolder}}>{{@placeHolder}}</option>
-    {{yield}}
-  </select>
-  {{else}}
-  <select data-test-dropdown-field class="dropdown__field user-input input-regular" name={{@name}} id={{@name}}>
-    <option data-test-dropdown-default disabled selected value={{@placeHolder}}>{{@placeHolder}}</option>
-    {{yield}}
-  </select>
   {{/if}}
+  <select data-test-dropdown-field class="dropdown__field user-input input-regular" name={{@name}} id={{@name}} required={{@required}}>
+    <option data-test-dropdown-default disabled selected value={{@placeHolder}}>{{@placeHolder}}</option>
+    {{yield}}
+  </select>
 </div>

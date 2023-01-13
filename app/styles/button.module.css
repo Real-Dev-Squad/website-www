@@ -1,19 +1,29 @@
-.btn{
+.btn {
   border-radius: 9px;
   width: 11rem;
   height: 3rem;
   color: var(--text-white);
-  font: 700 16px 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
   margin: auto;
 }
 
-.btn-dark{
+.btn-dark {
   color: var(--color-white);
   background-color: var(--color-navyblue);
 }
-.btn-light{
+
+.btn-light {
   color: var(--color-navyblue);
   background-color: var(--color-white);
   border: 1px solid var(--color-navyblue);
+}
+
+.btn-disabled {
+  background-color: var(--color-lightgrey);
+  border: none;
+  color: var(--color-navyblue);
+  cursor: not-allowed;
+  opacity: 60%;
 }

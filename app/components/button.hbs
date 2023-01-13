@@ -1,5 +1,1 @@
-{{#if @disabled}}
-  <button  data-test-button class="btn btn-{{@variant}} btn-disabled" type="button" disabled={{@disabled}}>{{@text}}</button>
-{{else}}
-  <button  data-test-button class="btn btn-{{@variant}}" type="button">{{@text}}</button>
-{{/if}}
+<button data-test-button class='btn btn-{{@variant}} {{if @disabled "btn-disabled" ""}}' type="button" disabled={{@disabled}}>{{@text}}</button>

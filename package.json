@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "dotenv": "^16.0.2",
+    "ember-composable-helpers": "^5.0.0",
+    "ember-set-helper": "^2.0.1",
     "fastboot-app-server": "^3.3.2",
     "node-fetch": "2"
   },

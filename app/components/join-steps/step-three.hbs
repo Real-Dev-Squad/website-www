@@ -1,0 +1,18 @@
+<form class='form__container'>
+  <Reusables::TextAreaBox
+    @field='Why do you want to join Real Dev Squad?'
+    @name='facts'
+    @placeHolder='Tell us fun facts about you that makes you unique in not less than 100 words'
+    @required={{true}}
+  />
+
+  <Reusables::Dropdown
+    @field='How did you hear about us?'
+    @name='heardFrom'
+    @placeHolder='Choose from below options'
+    @required={{true}}
+    @value={{@data.country}}
+    @options={{this.heardFrom}}
+    @onChange={{set @data 'country'}}
+  />
+</form>

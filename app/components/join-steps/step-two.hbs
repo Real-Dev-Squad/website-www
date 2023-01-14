@@ -1,0 +1,38 @@
+<form class='form__container'>
+  <Reusables::TextAreaBox
+    @field='Introduce Yourself'
+    @name='introduction'
+    @placeHolder='We would love to know you in not more than 100 words'
+    @required={{true}}
+  />
+
+  <Reusables::InputBox
+    @field='Your Skills'
+    @name='skills'
+    @placeHolder='Fuel us with your OP skills'
+    @type='text'
+    @required={{true}}
+  />
+
+  <Reusables::InputBox
+    @field='Name of your college/company'
+    @name='skills'
+    @placeHolder='Hogwarts School of Witchcraft and Wizardry'
+    @type='text'
+    @required={{true}}
+  />
+
+  <Reusables::TextAreaBox
+    @field='What do you do for fun?'
+    @name='fun'
+    @placeHolder="Tell us about the things you do in your spare time. Do you play any sports like Cricket? Or are you into reading books or watching movies? Feel free to tell us whatever you'd like. We would love to know more about you in not less than 100 words"
+    @required={{true}}
+  />
+
+  <Reusables::TextAreaBox
+    @field='Fun facts about you'
+    @name='facts'
+    @placeHolder='Tell us fun facts about you that makes you unique in not less than 100 words'
+    @required={{true}}
+  />
+</form>

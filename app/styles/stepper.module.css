@@ -1,0 +1,18 @@
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80vh;
+  margin: 3rem 0;
+}
+
+.stepper__greeting {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.stepper__buttons {
+  margin: 1.5rem;
+}

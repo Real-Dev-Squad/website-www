@@ -1,0 +1,16 @@
+<div data-test-textarea class='textarea-box'>
+  <label data-test-label class='label' for={{@name}}>{{@field}}</label>
+  {{#if @required}}
+    <span data-test-required class='required'>*</span>
+  {{/if}}
+  <textarea
+    data-test-textarea-field
+    id={{@name}}
+    name={{@name}}
+    class='textarea__field user-input input-big'
+    placeholder={{@placeHolder}}
+    cols='30'
+    rows='10'
+    required={{@required}}
+  ></textarea>
+</div>

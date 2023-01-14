@@ -1,0 +1,90 @@
+<section class='stepper'>
+  {{! Headings }}
+  {{#if (eq this.currentStep 0)}}
+    <h1 class='stepper__greeting'>
+      Hi there 👋, let's get you started on joining formalities
+    </h1>
+  {{else if (eq this.currentStep 1)}}
+    <h1 class='stepper__greeting'>You are just a few steps 🪜 away from getting
+      a personalized invite</h1>
+  {{else if (eq this.currentStep 2)}}
+    <h1 class='stepper__greeting'>Let’s help others 🫂 know you and your skills</h1>
+  {{else if (eq this.currentStep 3)}}
+    <h1 class='stepper__greeting'>
+      Let’s help the verifier understand 🤔 you better</h1>
+  {{else if (eq this.currentStep 4)}}
+    <h1 class='stepper__greeting'>
+      Here's a preview 👀 of the data you entered</h1>
+  {{else if (eq this.currentStep 5)}}
+    <h1 class='stepper__greeting'>
+      Thank you 🫂 for completing all the steps.</h1>
+  {{/if}}
+
+  {{! Current Step }}
+  {{#if (not-eq this.currentStep 0)}}
+    {{#if (not-eq this.currentStep 5)}}
+      <h3>Step
+        {{this.currentStep}}
+        of 4 :
+        {{#if (eq this.currentStep 1)}}
+          Personal Details
+        {{else if (eq this.currentStep 2)}}
+          Introduction
+        {{else if (eq this.currentStep 3)}}
+          Why Real Dev Squad?
+        {{else if (eq this.currentStep 4)}}
+          Preview
+        {{/if}}
+      </h3>
+    {{/if}}
+  {{/if}}
+
+  {{! Content }}
+  {{#if (eq this.currentStep 1)}}
+    <JoinSteps::StepOne />
+  {{else if (eq this.currentStep 2)}}
+    <JoinSteps::StepTwo />
+  {{else if (eq this.currentStep 3)}}
+    <JoinSteps::StepThree />
+  {{else if (eq this.currentStep 4)}}
+    <JoinSteps::StepFour />
+  {{else if (eq this.currentStep 5)}}
+    <JoinSteps::StepFive />
+  {{/if}}
+
+  {{! Buttons }}
+  {{#if (eq this.currentStep 0)}}
+    <Reusables::Button
+      @text='Start'
+      @variant='dark'
+      @onClick={{this.incrementStep}}
+    />
+  {{else if (eq this.currentStep 4)}}
+    <div class='stepper__buttons'>
+      <Reusables::Button
+        @text='Previous'
+        @variant='light'
+        @onClick={{this.decrementStep}}
+      />
+      <Reusables::Button
+        @text='Submit'
+        @variant='dark'
+        @onClick={{this.incrementStep}}
+      />
+    </div>
+  {{else if (not-eq this.currentStep 5)}}
+    <div class='stepper__buttons'>
+      <Reusables::Button
+        @text='Previous'
+        @variant='light'
+        @onClick={{this.decrementStep}}
+      />
+      <Reusables::Button
+        @text={{if (eq this.currentStep 3) 'Preview' 'Next'}}
+        @variant='dark'
+        @onClick={{this.incrementStep}}
+      />
+    </div>
+  {{/if}}
+
+</section>

@@ -1,0 +1,31 @@
+<form class='form__container'>
+  <Reusables::InputBox
+    @field='Your City'
+    @name='city'
+    @placeHolder='e.g. Bengaluru'
+    @type='text'
+    @required={{true}}
+    @value={{@data.city}}
+    @onInput={{set @data 'city'}}
+  />
+
+  <Reusables::InputBox
+    @field='Your State'
+    @name='state'
+    @placeHolder='e.g. Karnataka'
+    @type='text'
+    @required={{true}}
+    @value={{@data.city}}
+    @onInput={{set @data 'state'}}
+  />
+
+  <Reusables::Dropdown
+    @field='Your Country'
+    @name='country'
+    @placeHolder='Choose your country'
+    @required={{true}}
+    @value={{@data.country}}
+    @options={{this.countries}}
+    @onChange={{set @data 'country'}}
+  />
+</form>

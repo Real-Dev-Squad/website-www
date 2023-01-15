@@ -1,12 +1,16 @@
 <form class='form__container'>
-  <h3 class='details'>Fields marked with
-    <span class='required'>*</span>
-    are mandatory</h3>
+  <h3 class='details'>
+    Fields marked with<span class='required'>*</span>
+    are mandatory
+  </h3>
+
   <Reusables::TextAreaBox
     @field='Why you want to join Real Dev Squad?'
     @name='facts'
     @placeHolder='Tell us fun facts about you that makes you unique in not less than 100 words'
     @required={{true}}
+    @value={{this.reasonToJoin}}
+    @onInput={{set this 'reasonToJoin'}}
   />
 
   <Reusables::Dropdown
@@ -14,8 +18,8 @@
     @name='heardFrom'
     @placeHolder='Choose from below options'
     @required={{true}}
-    @value={{@data.country}}
+    @value={{this.foundFrom}}
     @options={{this.heardFrom}}
-    @onChange={{set @data 'country'}}
+    @onChange={{set this 'foundFrom'}}
   />
 </form>

@@ -1,12 +1,16 @@
 <form class='form__container'>
-  <h3 class='details'>Fields marked with
-    <span class='required'>*</span>
-    are mandatory</h3>
+  <h3 class='details'>
+    Fields marked with<span class='required'>*</span>
+    are mandatory
+  </h3>
+
   <Reusables::TextAreaBox
     @field='Introduce Yourself'
     @name='introduction'
     @placeHolder='We would love to know you in not more than 100 words'
     @required={{true}}
+    @value={{this.introduction}}
+    @onInput={{set this 'introduction'}}
   />
 
   <Reusables::InputBox
@@ -15,6 +19,8 @@
     @placeHolder='Fuel us with your OP skills'
     @type='text'
     @required={{true}}
+    @value={{this.skills}}
+    @onInput={{set this 'skills'}}
   />
 
   <Reusables::InputBox
@@ -23,6 +29,8 @@
     @placeHolder='Hogwarts School of Witchcraft and Wizardry'
     @type='text'
     @required={{true}}
+    @value={{this.organization}}
+    @onInput={{set this 'organization'}}
   />
 
   <Reusables::TextAreaBox
@@ -30,6 +38,8 @@
     @name='fun'
     @placeHolder="Tell us about the things you do in your spare time. Do you play any sports like Cricket? Or are you into reading books or watching movies? Feel free to tell us whatever you'd like. We would love to know more about you in not less than 100 words"
     @required={{true}}
+    @value={{this.funActivities}}
+    @onInput={{set this 'funActivities'}}
   />
 
   <Reusables::TextAreaBox
@@ -37,5 +47,7 @@
     @name='facts'
     @placeHolder='Tell us fun facts about you that makes you unique in not less than 100 words'
     @required={{true}}
+    @value={{this.funFacts}}
+    @onInput={{set this 'funFacts'}}
   />
 </form>

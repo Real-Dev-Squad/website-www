@@ -12,5 +12,7 @@
     cols='30'
     rows='10'
     required={{@required}}
+    value={{@value}}
+    {{on 'input' (pick 'target.value' @onInput)}}
   ></textarea>
 </div>

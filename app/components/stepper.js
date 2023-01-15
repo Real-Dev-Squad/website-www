@@ -5,19 +5,6 @@ import { action } from '@ember/object';
 export default class StepperComponent extends Component {
   @tracked currentStep = 0;
 
-  // @tracked joinData = {
-  //   city: '',
-  //   state: '',
-  //   country: '',
-  //   introduction: '',
-  //   skills: '',
-  //   organisation: '',
-  //   fun: '',
-  //   facts: '',
-  //   reasonToJoin: '',
-  //   hearAbout: '',
-  // };
-
   @action incrementStep() {
     console.log(this.joinData);
     if (this.currentStep < 5) {

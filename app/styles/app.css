@@ -31,6 +31,8 @@ h2 {
   font-size: 4rem;
 }
 
+input,
+select,
 button {
   font-family: 'raleway', sans-serif;
 }

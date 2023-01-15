@@ -1,1 +1,31 @@
-Five
+<section class='joining'>
+  <div class='joining__copy'>
+    <h3 class='details'>Here is your personalized link</h3>
+    <p id='url' class='copy__link'>
+      {{this.joinLink}}
+    </p>
+    <CopyButton
+      @target='#url'
+      @onSuccess={{this.onSuccess}}
+      @onError={{this.onError}}
+      class='btn btn-dark'
+    >
+      Copy
+    </CopyButton>
+  </div>
+  <div class='joining__info'>
+    <p>Next Steps :</p>
+    <ol>
+      <li>Copy the above link</li>
+      <li>Follow Ankush Dharkar on
+        <a href={{this.ANKUSH_TWITTER}}>Twitter</a>
+      </li>
+      <li>Message this link to him with this Real Dev Squad verification link</li>
+      <li>Wait for him to verify the link</li>
+      <li>
+        If the link is verified you will hear back with a personalized joining
+        link within 7 working days
+      </li>
+    </ol>
+  </div>
+</section>

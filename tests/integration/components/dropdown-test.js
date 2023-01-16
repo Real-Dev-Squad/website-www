@@ -7,7 +7,7 @@ module('Integration | Component | dropdown', function (hooks) {
   setupRenderingTest(hooks);
 
   test('dropdown renders', async function (assert) {
-    assert.expect(13);
+    assert.expect(14);
 
     this.set('name', 'country');
     this.set('field', 'Country');

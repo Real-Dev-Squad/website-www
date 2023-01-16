@@ -11,11 +11,17 @@ module('Integration | Component | button', function (hooks) {
 
     this.set('text', 'Next');
     this.set('variant', 'dark');
+    this.set('click', () => {
+      console.log('Button Clicks');
+    });
+    this.set('test', 'testing');
 
     await render(hbs`
-    <Button 
+    <Reusables::Button 
       @variant={{this.variant}}
       @text={{this.text}}
+      @onClick={{this.click}}
+      @test={{this.test}}
     />`);
 
     assert.dom('[data-test-button]').hasText('Next');

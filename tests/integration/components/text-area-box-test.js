@@ -7,19 +7,21 @@ module('Integration | Component | text-area-box', function (hooks) {
   setupRenderingTest(hooks);
 
   test('textarea renders', async function (assert) {
-    assert.expect(10);
+    assert.expect(11);
 
     this.set('name', 'why-rds');
     this.set('field', 'Why RDS?');
     this.set('placeHolder', 'Why RDS?');
     this.set('required', true);
+    this.set('value', 'Hello, I am textarea');
 
     await render(hbs`
-    <TextAreaBox 
+    <Reusables::TextAreaBox 
       @name={{this.name}}
       @field={{this.field}}
       @placeHolder={{this.placeHolder}}
-      @required={{true}} 
+      @required={{true}}
+      @value={{this.value}} 
     />`);
 
     assert.dom('[data-test-textarea]').hasClass('textarea-box');
@@ -37,5 +39,8 @@ module('Integration | Component | text-area-box', function (hooks) {
     assert
       .dom('[data-test-textarea-field]')
       .hasProperty('placeholder', 'Why RDS?');
+    assert
+      .dom('[data-test-textarea-field]')
+      .hasProperty('value', 'Hello, I am textarea');
   });
 });

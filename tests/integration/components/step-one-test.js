@@ -6,21 +6,13 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | step-one', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('step one renders', async function (assert) {
+    assert.expect(1);
 
-    await render(hbs`<StepOne />`);
+    await render(hbs`<JoinSteps::StepOne />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <StepOne>
-        template block text
-      </StepOne>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert
+      .dom('[data-test-required-heading]')
+      .hasText('Fields marked with * are mandatory');
   });
 });

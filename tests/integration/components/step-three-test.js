@@ -6,21 +6,13 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | step-three', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('step three renders', async function (assert) {
+    assert.expect(1);
 
-    await render(hbs`<StepThree />`);
+    await render(hbs`<JoinSteps::StepThree />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <StepThree>
-        template block text
-      </StepThree>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert
+      .dom('[data-test-required-heading]')
+      .hasText('Fields marked with * are mandatory');
   });
 });

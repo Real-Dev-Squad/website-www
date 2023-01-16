@@ -1,10 +1,11 @@
 <section class='joining'>
   <div class='joining__copy'>
-    <h3 class='details'>Here is your personalized link</h3>
+    <h3 class='details' data-test-link-text>Here is your personalized link</h3>
     <p id='url' class='copy__link'>
       {{this.joinLink}}
     </p>
     <CopyButton
+      data-test-copy-btn
       @target='#url'
       @onSuccess={{this.onSuccess}}
       @onError={{this.onError}}
@@ -14,15 +15,16 @@
     </CopyButton>
   </div>
   <div class='joining__info'>
-    <p>Next Steps :</p>
-    <ol>
-      <li>Copy the above link</li>
-      <li>Follow Ankush Dharkar on
-        <a href={{this.ANKUSH_TWITTER}}>Twitter</a>
+    <p data-test-next-text>Next Steps :</p>
+    <ol data-test-instructions>
+      <li data-test-instone>Copy the above link</li>
+      <li data-test-insttwo>Follow Ankush Dharkar on
+        <a data-test-insttwo-link href={{this.ANKUSH_TWITTER}}>Twitter</a>
       </li>
-      <li>Message this link to him with this Real Dev Squad verification link</li>
-      <li>Wait for him to verify the link</li>
-      <li>
+      <li data-test-instthree>Message this link to him with this Real Dev Squad
+        verification link</li>
+      <li data-test-instfour>Wait for him to verify the link</li>
+      <li data-test-instfive>
         If the link is verified you will hear back with a personalized joining
         link within 7 working days
       </li>

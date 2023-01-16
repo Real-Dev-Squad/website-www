@@ -13,13 +13,17 @@ module('Integration | Component | dropdown', function (hooks) {
     this.set('field', 'Country');
     this.set('required', true);
     this.set('placeholder', 'Choose Your Country');
+    this.set('value', 'India');
+    this.set('options', ['India', 'Russia', 'USA']);
 
     await render(hbs`
-    <Dropdown 
+    <Reusables::Dropdown 
       @name={{this.name}}
       @field={{this.field}}
       @required={{this.required}}
       @placeHolder={{this.placeholder}}
+      @value={{this.value}}
+      @options={{this.options}}
     />`);
 
     assert.dom('[data-test-dropdown]').hasClass('dropdown');
@@ -34,6 +38,10 @@ module('Integration | Component | dropdown', function (hooks) {
     assert.dom('[data-test-dropdown-field]').hasAttribute('required');
     assert.dom('[data-test-dropdown-field]').hasAttribute('name', 'country');
     assert.dom('[data-test-dropdown-field]').hasAttribute('id', 'country');
+
+    assert
+      .dom('[data-test-dropdown-options]')
+      .exists({ count: this.options.length });
 
     assert.dom('[data-test-dropdown-default]').hasText('Choose Your Country');
     assert.dom('[data-test-dropdown-default]').hasAttribute('disabled');

@@ -1,29 +1,18 @@
 <section class='stepper'>
   {{! Headings }}
-  {{#if (eq this.currentStep 0)}}
-    <h1 class='stepper__greeting'>
-      Hi there 👋, let's get you started on joining formalities
-    </h1>
-  {{else if (eq this.currentStep 1)}}
-    <h1 class='stepper__greeting'>You are just a few steps 🪜 away from getting
-      a personalized invite</h1>
-  {{else if (eq this.currentStep 2)}}
-    <h1 class='stepper__greeting'>Let’s help others 🫂 know you and your skills</h1>
-  {{else if (eq this.currentStep 3)}}
-    <h1 class='stepper__greeting'>
-      Let’s help the verifier understand 🤔 you better</h1>
-  {{else if (eq this.currentStep 4)}}
-    <h1 class='stepper__greeting'>
-      Here's a preview 👀 of the data you entered</h1>
-  {{else if (eq this.currentStep 5)}}
-    <h1 class='stepper__greeting'>
-      Thank you 🫂 for completing all the steps.</h1>
-  {{/if}}
+  {{#each this.TITLE_MESSAGES as |message|}}
+    {{#if (eq this.currentStep message.step)}}
+      <h1 data-test-message={{message.id}} class='stepper__greeting'>
+        {{message.greeting}}
+      </h1>
+    {{/if}}
+  {{/each}}
 
   {{! Current Step }}
   {{#if (not-eq this.currentStep 0)}}
     {{#if (not-eq this.currentStep 5)}}
-      <h3 class='details'>Step
+      <h3 class='details' data-test-step-detail>
+        Step
         {{this.currentStep}}
         of 4 :
         {{#if (eq this.currentStep 1)}}
@@ -58,6 +47,7 @@
       @text='Start'
       @variant='dark'
       @onClick={{this.incrementStep}}
+      @test='start'
     />
   {{else if (eq this.currentStep 4)}}
     <div class='stepper__buttons'>
@@ -65,24 +55,30 @@
         @text='Previous'
         @variant='light'
         @onClick={{this.decrementStep}}
+        @test='prev'
       />
       <Reusables::Button
         @text='Submit'
         @variant='dark'
         @onClick={{this.incrementStep}}
+        @test='submit'
       />
     </div>
   {{else if (not-eq this.currentStep 5)}}
     <div class='stepper__buttons'>
       <Reusables::Button
+        data-test-prev-btn
         @text='Previous'
         @variant='light'
         @onClick={{this.decrementStep}}
+        @test='prev'
       />
       <Reusables::Button
+        data-test-next-btn
         @text={{if (eq this.currentStep 3) 'Preview' 'Next'}}
         @variant='dark'
         @onClick={{this.incrementStep}}
+        @test='next'
       />
     </div>
   {{/if}}

@@ -53,6 +53,17 @@
   border-radius: 9px;
   margin: 0.8rem 0 0 0;
   padding: 0 0.5rem;
+  outline-color: var(--theme-background);
+}
+
+.user-select-input {
+  width: 31rem;
+  color: var(--color-default-grey);
+}
+
+select {
+  appearance: none;
+  background: url(../img/drop-down.png) 97% center/30px no-repeat;
 }
 
 .input-regular {
@@ -78,7 +89,7 @@
 }
 
 .button-disabled {
-  background-color: var(--input-background);
+  background-color: var(--color-light-grey);
   border: none;
   color: var(--theme-background);
   cursor: not-allowed;
@@ -142,6 +153,10 @@ footer {
 @media screen and (min-width: 625px) {
   .user-input {
     width: 35rem;
+  }
+
+  .user-select-input {
+    width: 36rem;
   }
 
   .twin-button-container {

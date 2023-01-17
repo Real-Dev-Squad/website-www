@@ -9,6 +9,8 @@
   --color-social-media-links-bg: #fff;
   --color-links: #1d1283;
   --color-events: #e30162;
+  --color-button: #87d870;
+  --color-button-hover: #6dc66d;
 }
 
 .dark-theme {
@@ -172,11 +174,32 @@ body {
   text-align: center;
 }
 
-.join-description {
-  padding: 0 150px 32px;
-  font-weight: 400;
-  line-height: 175%;
-  text-align: justify;
+.desc-join {
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.desc-join p {
+  font: normal 400 20px 'Roboto';
+  line-height: 34px;
+}
+
+.btn-join {
+  width: 360px;
+  height: 80px;
+  background: var(--color-button);
+  border-radius: 10px;
+  border: none;
+  font: normal 700 36px 'Roboto';
+  line-height: 34px;
+  color: var(--color-text);
+}
+
+.btn-join:hover {
+  background: var(--color-button-hover);
+  cursor: pointer;
 }
 
 .section-features {
@@ -281,6 +304,7 @@ a {
   overflow: scroll;
   scrollbar-width: 20;
 }
+
 .popup-modal.is--visible {
   opacity: 1;
   pointer-events: auto;
@@ -302,6 +326,7 @@ a {
   margin: 2px 2px;
   text-align: center;
 }
+
 .title-bullet-points {
   margin: 30px 2px;
   text-align: center;
@@ -600,16 +625,20 @@ footer {
     max-width: 960px;
     margin: auto;
   }
+
   .card:hover {
     transform: scale(1);
   }
+
   .features-content {
     padding: 0px;
   }
+
   .modal-title-bullet-points {
     font-size: 2rem;
   }
 }
+
 /***********************/
 /* EMAIL CAPTURE FORM */
 /***********************/
@@ -737,6 +766,11 @@ footer {
 @media (max-width: 79em) {
   .cta-form input {
     width: 75%;
+  }
+  .btn-join {
+    width: 200px;
+    height: 50px;
+    font: normal 700 23px 'Roboto';
   }
 }
 

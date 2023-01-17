@@ -181,7 +181,7 @@
             type="text"
             name="city"
             id="city"
-            placeholder="Enter your city"
+            placeholder="e.g Bengaluru"
           />
           <br />
           <label class="input-label" for="state">
@@ -194,7 +194,7 @@
             type="text"
             name="state"
             id="state"
-            placeholder="Enter your state"
+            placeholder="e.g Karnataka"
           />
           <br />
           <label class="input-label" for="country">
@@ -203,11 +203,13 @@
           </label>
           <br />
           <select
-            class="user-input input-regular"
+            class="user-input input-regular user-select-input"
             type="text"
             name="country"
             id="country"
-          ></select>
+          >
+            <option value="" disabled selected>e.g India</option>
+          </select>
           <div class="twin-button-container">
             <button class="button-outline" id="previous1">Previous</button>
             <button class="button-disabled nextBtn" id="next1">Next</button>

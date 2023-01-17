@@ -30,3 +30,10 @@ export const SOCIAL_LINK_PROPERTIES = [
     alt: SOCIALS.INSTAGRAM.TITLE,
   },
 ];
+
+export const heardFrom = [
+  'Twitter',
+  'LinkedIn',
+  'Referred by someone from Real Dev Squad',
+  'Other',
+];

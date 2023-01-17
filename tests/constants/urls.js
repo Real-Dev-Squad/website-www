@@ -41,3 +41,5 @@ export const SOCIALS = {
     ICON: 'instagram',
   },
 };
+
+export const ANKUSH_TWITTER = 'https://twitter.com/ankushdharkar';

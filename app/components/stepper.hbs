@@ -1,0 +1,86 @@
+<section class='stepper'>
+  {{! Headings }}
+  {{#each this.TITLE_MESSAGES as |message|}}
+    {{#if (eq this.currentStep message.step)}}
+      <h1 data-test-message={{message.id}} class='stepper__greeting'>
+        {{message.greeting}}
+      </h1>
+    {{/if}}
+  {{/each}}
+
+  {{! Current Step }}
+  {{#if (not-eq this.currentStep 0)}}
+    {{#if (not-eq this.currentStep 5)}}
+      <h3 class='details' data-test-step-detail>
+        Step
+        {{this.currentStep}}
+        of 4 :
+        {{#if (eq this.currentStep 1)}}
+          Personal Details
+        {{else if (eq this.currentStep 2)}}
+          Introduction
+        {{else if (eq this.currentStep 3)}}
+          Why Real Dev Squad?
+        {{else if (eq this.currentStep 4)}}
+          Preview
+        {{/if}}
+      </h3>
+    {{/if}}
+  {{/if}}
+
+  {{! Content }}
+  {{#if (eq this.currentStep 1)}}
+    <JoinSteps::StepOne />
+  {{else if (eq this.currentStep 2)}}
+    <JoinSteps::StepTwo />
+  {{else if (eq this.currentStep 3)}}
+    <JoinSteps::StepThree />
+  {{else if (eq this.currentStep 4)}}
+    <JoinSteps::StepFour />
+  {{else if (eq this.currentStep 5)}}
+    <JoinSteps::StepFive />
+  {{/if}}
+
+  {{! Buttons }}
+  {{#if (eq this.currentStep 0)}}
+    <Reusables::Button
+      @text='Start'
+      @variant='dark'
+      @onClick={{this.incrementStep}}
+      @test='start'
+    />
+  {{else if (eq this.currentStep 4)}}
+    <div class='stepper__buttons'>
+      <Reusables::Button
+        @text='Previous'
+        @variant='light'
+        @onClick={{this.decrementStep}}
+        @test='prev'
+      />
+      <Reusables::Button
+        @text='Submit'
+        @variant='dark'
+        @onClick={{this.incrementStep}}
+        @test='submit'
+      />
+    </div>
+  {{else if (not-eq this.currentStep 5)}}
+    <div class='stepper__buttons'>
+      <Reusables::Button
+        data-test-prev-btn
+        @text='Previous'
+        @variant='light'
+        @onClick={{this.decrementStep}}
+        @test='prev'
+      />
+      <Reusables::Button
+        data-test-next-btn
+        @text={{if (eq this.currentStep 3) 'Preview' 'Next'}}
+        @variant='dark'
+        @onClick={{this.incrementStep}}
+        @test='next'
+      />
+    </div>
+  {{/if}}
+
+</section>

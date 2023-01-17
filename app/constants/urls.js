@@ -46,3 +46,5 @@ export const SOCIALS = {
     WHITE_ICON: 'assets/icons/instagram-white.png',
   },
 };
+
+export const ANKUSH_TWITTER = 'https://twitter.com/ankushdharkar';

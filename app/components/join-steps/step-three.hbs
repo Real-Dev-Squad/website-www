@@ -1,0 +1,26 @@
+<form class='form__container'>
+  <h3 class='details' data-test-required-heading>
+    Fields marked with
+    <span class='required'>*</span>
+    are mandatory
+  </h3>
+
+  <Reusables::TextAreaBox
+    @field='Why you want to join Real Dev Squad?'
+    @name='facts'
+    @placeHolder='Tell us fun facts about you that makes you unique in not less than 100 words'
+    @required={{true}}
+    @value={{this.reasonToJoin}}
+    @onInput={{set this 'reasonToJoin'}}
+  />
+
+  <Reusables::Dropdown
+    @field='How did you hear about us?'
+    @name='heardFrom'
+    @placeHolder='Choose from below options'
+    @required={{true}}
+    @value={{this.foundFrom}}
+    @options={{this.heardFrom}}
+    @onChange={{set this 'foundFrom'}}
+  />
+</form>

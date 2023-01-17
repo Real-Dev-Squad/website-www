@@ -182,8 +182,9 @@ body {
 }
 
 .desc-join p {
-  font: normal 400 20px 'Roboto';
-  line-height: 34px;
+  font: normal 400 16px 'Roboto';
+  line-height: 30px;
+  margin-bottom: 5px;
 }
 
 .btn-join {
@@ -195,6 +196,10 @@ body {
   font: normal 700 36px 'Roboto';
   line-height: 34px;
   color: var(--color-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .btn-join:hover {
@@ -767,6 +772,7 @@ footer {
   .cta-form input {
     width: 75%;
   }
+
   .btn-join {
     width: 200px;
     height: 50px;

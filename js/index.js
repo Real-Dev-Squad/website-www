@@ -101,8 +101,3 @@ modalTriggers.forEach((trigger) => {
     });
   });
 });
-
-const joinBtn = document.getElementById('btn-join');
-joinBTN.addEventListener('click', () => {
-  window.location.href = 'https://realdevsquad.com/join';
-});

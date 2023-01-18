@@ -182,19 +182,23 @@ body {
 }
 
 .desc-join p {
-  font: normal 400 20px 'Roboto';
-  line-height: 34px;
+  font-size: 1rem;
+  margin-bottom: 5px;
 }
 
 .btn-join {
-  width: 360px;
-  height: 80px;
+  width: 200px;
+  height: 50px;
+  font: normal 700 1.5rem 'Roboto';
   background: var(--color-button);
   border-radius: 10px;
   border: none;
-  font: normal 700 36px 'Roboto';
   line-height: 34px;
   color: var(--color-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .btn-join:hover {
@@ -604,6 +608,10 @@ footer {
     margin: 40px 2px;
   }
 
+  .desc-join p {
+    font-size: 1.25rem;
+  }
+
   .description-content {
     padding: 0px 250px 90px;
   }
@@ -616,6 +624,13 @@ footer {
 
   .features-content {
     font-size: 1.25rem;
+  }
+
+  .btn-join {
+    margin-top: 75px;
+    width: 360px;
+    height: 80px;
+    font: normal 700 2.25rem 'Roboto';
   }
 }
 
@@ -766,11 +781,6 @@ footer {
 @media (max-width: 79em) {
   .cta-form input {
     width: 75%;
-  }
-  .btn-join {
-    width: 200px;
-    height: 50px;
-    font: normal 700 23px 'Roboto';
   }
 }
 

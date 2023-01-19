@@ -19,8 +19,10 @@ document.getElementById('signout-option').addEventListener('click', () => {
   signout();
 });
 
-document.getElementById('myprofile-option').addEventListener('click', () => {
-  location.href = 'https://my.realdevsquad.com';
+document.querySelectorAll('myprofile-option').forEach((option) => {
+  option.addEventListener('click', () => {
+    location.href = 'https://my.realdevsquad.com';
+  });
 });
 
 document.querySelectorAll('.user-greet').forEach((greet) => {

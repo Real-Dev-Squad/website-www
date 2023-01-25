@@ -1,0 +1,13 @@
+.not-found{
+    margin: auto;
+    text-align: center;
+  }
+  
+  .not-found-img {
+    width: 40%;
+  }
+  
+  .not-found-text{
+    font-size: 38px;
+    font-weight: bold;
+  }

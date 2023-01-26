@@ -9,7 +9,7 @@
 @import 'input.module.css';
 @import 'dropdown.module.css';
 @import 'stepper.module.css';
-@import 'not-found.css';
+@import 'page-not-found.css';
 
 * {
   margin: 0px;

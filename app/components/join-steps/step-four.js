@@ -89,13 +89,13 @@ export default class StepFourComponent extends Component {
       ...this.stepTwoData,
       ...this.stepThreeData,
     };
-
-    this.JOIN_DATA[0].data = localStorage.getItem('first_name');
-    this.JOIN_DATA[1].data = localStorage.getItem('last_name');
     
     this.JOIN_DATA.forEach((data) => {
       const key = data.key;
       data.data = this.allStepsData[key];
     });
+
+    this.JOIN_DATA[0].data = localStorage.getItem('first_name');
+    this.JOIN_DATA[1].data = localStorage.getItem('last_name');
   }
 }

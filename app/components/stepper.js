@@ -14,7 +14,7 @@ export default class StepperComponent extends Component {
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
   @tracked stepThreeData = JSON.parse(localStorage.getItem('stepThreeData'));
-  JOIN_URL = 'http://localhost:3000/users/self/intro'
+  JOIN_URL = 'https://api.realdevsquad.com/users/self/intro'
 
   setIsValid = (newVal) => this.isValid = newVal;
   setIsPreValid = (newVal) => this.preValid = newVal;
@@ -23,7 +23,6 @@ export default class StepperComponent extends Component {
     if (this.currentStep < 5) {
       this.currentStep += 1;
       localStorage.setItem('currentStep', this.currentStep);
-      console.log('inside increment')
     }
   }
 

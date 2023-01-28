@@ -14,12 +14,12 @@ export default class StepperComponent extends Component {
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
   @tracked stepThreeData = JSON.parse(localStorage.getItem('stepThreeData'));
-  JOIN_URL = 'https://api.realdevsquad.com/users/self/intro'
+  JOIN_URL = 'https://api.realdevsquad.com/users/self/intro';
 
-  setIsValid = (newVal) => this.isValid = newVal;
-  setIsPreValid = (newVal) => this.preValid = newVal;
+  setIsValid = (newVal) => (this.isValid = newVal);
+  setIsPreValid = (newVal) => (this.preValid = newVal);
 
-  @action incrementStep(e) {
+  @action incrementStep() {
     if (this.currentStep < 5) {
       this.currentStep += 1;
       localStorage.setItem('currentStep', this.currentStep);
@@ -49,39 +49,41 @@ export default class StepperComponent extends Component {
     this.isValid = false;
   }
 
-  @action async joinHandler(){
+  @action async joinHandler() {
     const firstName = localStorage.getItem('first_name');
     const lastName = localStorage.getItem('last_name');
-    const data = JSON.stringify({ firstName, lastName, ...this.stepOneData, ...this.stepTwoData, ...this.stepThreeData});
-    try{
+    const data = JSON.stringify({
+      firstName,
+      lastName,
+      ...this.stepOneData,
+      ...this.stepTwoData,
+      ...this.stepThreeData,
+    });
+    try {
       const response = await fetch(this.JOIN_URL, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: data
-      })
+        body: data,
+      });
 
-      if(response.status === 201){
+      if (response.status === 201) {
         this.toast.success(
           'Successfully submitted the form',
           'Success!',
           TOAST_OPTIONS
         );
         this.incrementStep();
-      }else if(response.status === 409){
+      } else if (response.status === 409) {
         this.toast.error(
           'You have already filled the form',
           'User Exist!',
           TOAST_OPTIONS
         );
-      }else{
-        this.toast.error(
-          'Some error occured',
-          'Error ocurred!',
-          TOAST_OPTIONS
-        );
+      } else {
+        this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
       }
-    }catch(err){
+    } catch (err) {
       console.log('Error: ', err);
     }
   }

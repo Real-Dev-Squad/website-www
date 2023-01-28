@@ -89,7 +89,7 @@ export default class StepFourComponent extends Component {
       ...this.stepTwoData,
       ...this.stepThreeData,
     };
-    
+
     this.JOIN_DATA.forEach((data) => {
       const key = data.key;
       data.data = this.allStepsData[key];

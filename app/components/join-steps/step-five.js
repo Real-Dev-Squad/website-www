@@ -8,8 +8,7 @@ export default class StepFiveComponent extends Component {
   @service toast;
   ANKUSH_TWITTER = ANKUSH_TWITTER;
   @tracked id = localStorage.getItem('id');
-  @tracked joinLink =
-    `https://api.realdevsquad.com/users/${this.id}/intro`;
+  @tracked joinLink = `https://api.realdevsquad.com/users/${this.id}/intro`;
 
   @action onSuccess() {
     this.toast.success(

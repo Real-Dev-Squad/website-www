@@ -15,12 +15,17 @@ export default class StepTwoComponent extends Component {
   setIsValid;
   setIsPreValid;
 
-  constructor(...args){
+  constructor(...args) {
     super(...args);
     this.isValid = this.args.isValid;
     this.setIsValid = this.args.setIsValid;
     this.setIsPreValid = this.args.setIsPreValid;
-    const validated = validator(this.data.introduction, 1) && validator(this.data.skills, 1) && validator(this.data.college, 1) && validator(this.data.forFun, 100) && validator(this.data.funFact, 100);
+    const validated =
+      validator(this.data.introduction, 1) &&
+      validator(this.data.skills, 1) &&
+      validator(this.data.college, 1) &&
+      validator(this.data.forFun, 100) &&
+      validator(this.data.funFact, 100);
     localStorage.setItem('isValid', validated);
     this.setIsPreValid(validated);
   }
@@ -28,7 +33,12 @@ export default class StepTwoComponent extends Component {
   @action inputHandler(e) {
     this.data = { ...this.data, [e.target.name]: e.target.value };
     localStorage.setItem('stepTwoData', JSON.stringify(this.data));
-    const validated = validator(this.data.introduction, 1) && validator(this.data.skills, 1) && validator(this.data.college, 1) && validator(this.data.forFun, 100) && validator(this.data.funFact, 100);
+    const validated =
+      validator(this.data.introduction, 1) &&
+      validator(this.data.skills, 1) &&
+      validator(this.data.college, 1) &&
+      validator(this.data.forFun, 100) &&
+      validator(this.data.funFact, 100);
     this.setIsValid(validated);
     localStorage.setItem('isValid', validated);
   }

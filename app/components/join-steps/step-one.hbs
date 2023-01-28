@@ -1,18 +1,16 @@
-<form class='form__container'>
   <h3 class='details' data-test-required-heading>
     Fields marked with
     <span class='required'>*</span>
     are mandatory
   </h3>
-
   <Reusables::InputBox
     @field='Your City'
     @name='city'
     @placeHolder='e.g. Bengaluru'
     @type='text'
     @required={{true}}
-    @value={{this.city}}
-    @onInput={{set this 'city'}}
+    @value={{this.data.city}}
+    @onInput={{this.inputHandler}}
   />
 
   <Reusables::InputBox
@@ -21,8 +19,8 @@
     @placeHolder='e.g. Karnataka'
     @type='text'
     @required={{true}}
-    @value={{this.state}}
-    @onInput={{set this 'state'}}
+    @value={{this.data.state}}
+    @onInput={{this.inputHandler}}
   />
 
   <Reusables::Dropdown
@@ -30,8 +28,7 @@
     @name='country'
     @placeHolder='Choose your country'
     @required={{true}}
-    @value={{@data.country}}
+    @value={{this.data.country}}
     @options={{this.countries}}
-    @onChange={{set this 'country'}}
+    @onChange={{this.inputHandler}}
   />
-</form>

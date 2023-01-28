@@ -10,7 +10,7 @@
     name={{@name}}
     id={{@name}}
     required={{@required}}
-    {{on 'change' (pick 'target.value' @onChange)}}
+    {{on 'change' @onChange}}
   >
     <option
       data-test-dropdown-default

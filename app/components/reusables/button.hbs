@@ -1,7 +1,7 @@
 <button
   data-test-button={{@test}}
   class='btn btn-{{@variant}} {{if @disabled "btn-disabled" ""}}'
-  type='button'
+  type={{@type}}
   disabled={{@disabled}}
   {{on 'click' @onClick}}
 >

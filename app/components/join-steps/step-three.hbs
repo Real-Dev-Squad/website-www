@@ -1,4 +1,3 @@
-<form class='form__container'>
   <h3 class='details' data-test-required-heading>
     Fields marked with
     <span class='required'>*</span>
@@ -7,20 +6,19 @@
 
   <Reusables::TextAreaBox
     @field='Why you want to join Real Dev Squad?'
-    @name='facts'
+    @name='whyRds'
     @placeHolder='Tell us fun facts about you that makes you unique in not less than 100 words'
     @required={{true}}
-    @value={{this.reasonToJoin}}
-    @onInput={{set this 'reasonToJoin'}}
+    @value={{this.data.whyRds}}
+    @onInput={{this.inputHandler}}
   />
 
   <Reusables::Dropdown
     @field='How did you hear about us?'
-    @name='heardFrom'
+    @name='foundFrom'
     @placeHolder='Choose from below options'
     @required={{true}}
-    @value={{this.foundFrom}}
+    @value={{this.data.foundFrom}}
     @options={{this.heardFrom}}
-    @onChange={{set this 'foundFrom'}}
+    @onChange={{this.inputHandler}}
   />
-</form>

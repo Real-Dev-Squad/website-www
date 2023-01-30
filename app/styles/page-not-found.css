@@ -3,11 +3,11 @@
     text-align: center;
   }
   
-  .page-not-found-img {
+  .page-not-found__img {
     width: 20%;
   }
   
-  .page-not-found-text{
+  .page-not-found__text{
     font-size: 15px;
     font-weight: bold;
   }

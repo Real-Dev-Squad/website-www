@@ -12,11 +12,11 @@ module('Unit | Route | page-not-found', function (hooks) {
     await visit('/*');
 
     assert
-      .dom('.page-not-found .page-not-found-img')
+      .dom('.page-not-found .page-not-found__img')
       .hasAttribute('src', '../assets/images/not-found.png')
       .hasAttribute('alt', 'not-found');
     assert
-      .dom('.page-not-found .page-not-found-text')
+      .dom('.page-not-found .page-not-found__text')
       .hasText("The page you're looking for cannot be found!");
   });
 });

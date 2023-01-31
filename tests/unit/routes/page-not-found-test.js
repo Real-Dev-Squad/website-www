@@ -8,7 +8,7 @@ module('Unit | Route | page-not-found', function (hooks) {
     let route = this.owner.lookup('route:page-not-found');
     assert.ok(route);
   });
-  
+
   test('visiting /*', async function (assert) {
     await visit('/*');
 

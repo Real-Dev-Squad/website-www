@@ -8,15 +8,16 @@ module('Unit | Route | page-not-found', function (hooks) {
     let route = this.owner.lookup('route:page-not-found');
     assert.ok(route);
   });
+  
   test('visiting /*', async function (assert) {
     await visit('/*');
 
     assert
-      .dom('.page-not-found .page-not-found__img')
+      .dom('[data-test-img]')
       .hasAttribute('src', '../assets/images/not-found.png')
       .hasAttribute('alt', 'not-found');
     assert
-      .dom('.page-not-found .page-not-found__text')
+      .dom('[data-test-text]')
       .hasText("The page you're looking for cannot be found!");
   });
 });

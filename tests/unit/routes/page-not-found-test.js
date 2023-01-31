@@ -15,7 +15,7 @@ module('Unit | Route | page-not-found', function (hooks) {
     assert
       .dom('[data-test-img]')
       .hasAttribute('src', '../assets/images/not-found.png')
-      .hasAttribute('alt', 'not-found');
+      .hasAttribute('alt', 'Page Not Found');
     assert
       .dom('[data-test-text]')
       .hasText("The page you're looking for cannot be found!");

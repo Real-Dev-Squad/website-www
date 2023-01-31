@@ -31,6 +31,7 @@ export default class StepTwoComponent extends Component {
   }
 
   @action inputHandler(e) {
+    this.setIsPreValid(false);
     this.data = { ...this.data, [e.target.name]: e.target.value };
     localStorage.setItem('stepTwoData', JSON.stringify(this.data));
     const validated =

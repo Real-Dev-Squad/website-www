@@ -7,9 +7,22 @@ module('Integration | Component | step-one', function (hooks) {
   setupRenderingTest(hooks);
 
   test('step one renders', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
-    await render(hbs`<JoinSteps::StepOne />`);
+    this.set('isValid', 'isValidVal');
+    this.set('setIsPreValid', () => {
+      assert.ok(true, 'setIsPreValid works!');
+    });
+    this.set('setIsValid', () => {
+      assert.ok(true, 'setIsValid works!');
+    });
+
+    await render(hbs`
+    <JoinSteps::StepOne 
+    @setIsPreValid={{this.setIsPreValid}}
+    @isValid={{this.isValid}}
+    @setIsValid={{this.setIsValid}}
+    />`);
 
     assert
       .dom('[data-test-required-heading]')

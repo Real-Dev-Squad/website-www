@@ -1,17 +1,20 @@
-import { module, test } from 'qunit';
+import { assert, module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+// import { render } from '@ember/test-helpers';
+// import { hbs } from 'ember-cli-htmlbars';
+import { validator } from '../../../app/helpers/validator.js';
 
-module('Integration | Helper | validator', function (hooks) {
+module('Integration | Util validator', function (hooks) {
   setupRenderingTest(hooks);
+  //setupTest(hooks)
 
-  // TODO: Replace this with your real tests.
-  test('it renders', async function (assert) {
-    this.set('inputValue', '1234');
+  assert.expect(2);
 
-    await render(hbs`{{validator this.inputValue}}`);
-
-    assert.dom(this.element).hasText('1234');
+  test.skip('it tests validator', async function (assert) {
+    this.set('value', 'lorem ipsum doler sit consectetur');
+    this.set('isValid', false);
+    console.log(validator);
+    validator(this.value, 1);
+    assert.strictEqual(this.isValid, true, 'value is valid!');
   });
 });

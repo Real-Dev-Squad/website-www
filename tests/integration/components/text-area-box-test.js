@@ -1,19 +1,22 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, typeIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | text-area-box', function (hooks) {
   setupRenderingTest(hooks);
 
   test('textarea renders', async function (assert) {
-    assert.expect(11);
+    assert.expect(12);
 
     this.set('name', 'why-rds');
     this.set('field', 'Why RDS?');
     this.set('placeHolder', 'Why RDS?');
     this.set('required', true);
     this.set('value', 'Hello, I am textarea');
+    this.set('onInput', (e) => {
+      this.value = e.target.value;
+    });
 
     await render(hbs`
     <Reusables::TextAreaBox 
@@ -22,6 +25,7 @@ module('Integration | Component | text-area-box', function (hooks) {
       @placeHolder={{this.placeHolder}}
       @required={{true}}
       @value={{this.value}} 
+      @onInput={{this.onInput}}
     />`);
 
     assert.dom('[data-test-textarea]').hasClass('textarea-box');
@@ -42,5 +46,12 @@ module('Integration | Component | text-area-box', function (hooks) {
     assert
       .dom('[data-test-textarea-field]')
       .hasProperty('value', 'Hello, I am textarea');
+
+    await typeIn('[data-test-textarea-field]', ' and I am changing!');
+    assert.strictEqual(
+      this.value,
+      'Hello, I am textarea and I am changing!',
+      'on input working!'
+    );
   });
 });

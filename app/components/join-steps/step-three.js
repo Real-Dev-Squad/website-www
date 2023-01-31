@@ -27,6 +27,7 @@ export default class StepThreeComponent extends Component {
   }
 
   @action inputHandler(e) {
+    this.setIsPreValid(false);
     this.data = { ...this.data, [e.target.name]: e.target.value };
     localStorage.setItem('stepThreeData', JSON.stringify(this.data));
     const validated =

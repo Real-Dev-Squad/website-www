@@ -1,32 +1,32 @@
 export const TITLE_MESSAGES = [
   {
-    id: 'one',
+    id: 'zero',
     step: 0,
     greeting: 'Hi there 👋, let’s get you started on joining formalities',
   },
   {
-    id: 'two',
+    id: 'one',
     step: 1,
     greeting:
       'You are just a few steps 🪜 away from getting a personalized invite',
   },
   {
-    id: 'three',
+    id: 'two',
     step: 2,
     greeting: 'Let’s help others 🫂 know you and your skills',
   },
   {
-    id: 'four',
+    id: 'three',
     step: 3,
     greeting: 'Let’s help the verifier understand 🤔 you better',
   },
   {
-    id: 'five',
+    id: 'four',
     step: 4,
     greeting: 'Here’s a preview 👀 of the data you entered',
   },
   {
-    id: 'six',
+    id: 'five',
     step: 5,
     greeting: 'Thank you 🫂 for completing all the steps',
   },

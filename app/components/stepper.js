@@ -4,17 +4,19 @@ import { action } from '@ember/object';
 import { TITLE_MESSAGES } from '../constants/stepper-data';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+
 export default class StepperComponent extends Component {
   @service login;
   @service toast;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
-  @tracked currentStep = +localStorage.getItem('currentStep') ?? 0;
+  // @tracked currentStep = +localStorage.getItem('currentStep') ?? 0;
+  @tracked currentStep = 0;
   TITLE_MESSAGES = TITLE_MESSAGES;
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
   @tracked stepThreeData = JSON.parse(localStorage.getItem('stepThreeData'));
-  JOIN_URL = 'https://api.realdevsquad.com/users/self/intro';
+  JOIN_URL = 'http://localhost:3000/users/self/intro';
 
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
@@ -80,10 +82,9 @@ export default class StepperComponent extends Component {
           'User Exist!',
           TOAST_OPTIONS
         );
-      } else {
-        this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
       }
     } catch (err) {
+      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
       console.log('Error: ', err);
     }
   }

@@ -19,7 +19,7 @@
     >{{@placeHolder}}</option>
     {{#each @options as |choice|}}
       <option
-        data-test-dropdown-options
+        data-test-dropdown-option={{choice}}
         value={{choice}}
         selected={{eq choice @value}}
       >{{choice}}</option>

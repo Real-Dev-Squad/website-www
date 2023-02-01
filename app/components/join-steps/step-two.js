@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { validator } from '../../helpers/validator';
+import { validator } from '../../utils/validator';
 
 export default class StepTwoComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepTwoData')) ?? {
@@ -22,7 +22,7 @@ export default class StepTwoComponent extends Component {
     this.setIsPreValid = this.args.setIsPreValid;
     const validated =
       validator(this.data.introduction, 1) &&
-      validator(this.data.skills, 1) &&
+      validator(this.data.skills, 1, 5) &&
       validator(this.data.college, 1) &&
       validator(this.data.forFun, 100) &&
       validator(this.data.funFact, 100);
@@ -36,7 +36,7 @@ export default class StepTwoComponent extends Component {
     localStorage.setItem('stepTwoData', JSON.stringify(this.data));
     const validated =
       validator(this.data.introduction, 1) &&
-      validator(this.data.skills, 1) &&
+      validator(this.data.skills, 1, 5) &&
       validator(this.data.college, 1) &&
       validator(this.data.forFun, 100) &&
       validator(this.data.funFact, 100);

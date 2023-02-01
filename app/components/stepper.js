@@ -4,20 +4,20 @@ import { action } from '@ember/object';
 import { TITLE_MESSAGES } from '../constants/stepper-data';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import { API_URL } from '../constants/urls'
 
 export default class StepperComponent extends Component {
   @service login;
   @service toast;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
-  // @tracked currentStep = +localStorage.getItem('currentStep') ?? 0;
-  @tracked currentStep = 0;
+  @tracked currentStep = +localStorage.getItem('currentStep') ?? 0;
   TITLE_MESSAGES = TITLE_MESSAGES;
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
   @tracked stepThreeData = JSON.parse(localStorage.getItem('stepThreeData'));
-  JOIN_URL = 'http://localhost:3000/users/self/intro';
-
+  JOIN_URL = API_URL.JOIN_URL;
+  
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
 

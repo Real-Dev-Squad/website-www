@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { heardFrom } from '../../constants/social-data';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { validator } from '../../helpers/validator';
+import { validator } from '../../utils/validator';
 
 export default class StepThreeComponent extends Component {
   // @tracked foundFrom = '';

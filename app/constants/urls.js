@@ -20,6 +20,10 @@ export const AUTH = {
   SIGN_UP: 'https://my.realdevsquad.com/signup',
 };
 
+export const API_URL = {
+  JOIN_URL : 'https://api.realdevsquad.com/users/self/intro',
+}
+
 export const SOCIALS = {
   LINKEDIN: {
     URL: 'https://www.linkedin.com/company/real-dev-squad',

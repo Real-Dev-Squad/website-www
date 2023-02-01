@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { countryList } from '../../constants/country-list';
-import { validator } from '../../helpers/validator';
+import { validator } from '../../utils/validator';
 
 export default class StepOneComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepOneData')) ?? {

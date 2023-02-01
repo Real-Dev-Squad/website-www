@@ -21,8 +21,8 @@ export const AUTH = {
 };
 
 export const API_URL = {
-  JOIN_URL : 'https://api.realdevsquad.com/users/self/intro',
-}
+  JOIN_URL: 'https://api.realdevsquad.com/users/self/intro',
+};
 
 export const SOCIALS = {
   LINKEDIN: {

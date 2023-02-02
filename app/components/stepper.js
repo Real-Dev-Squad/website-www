@@ -36,7 +36,6 @@ export default class StepperComponent extends Component {
   }
 
   @action startHandler() {
-    console.log(this.JOIN_URL);
     if (this.login.isLoggedIn && !this.login.isLoading) {
       localStorage.setItem('id', this.login.userData.id);
       localStorage.setItem('first_name', this.login.userData.first_name);

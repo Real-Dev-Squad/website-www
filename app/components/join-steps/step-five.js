@@ -9,8 +9,8 @@ export default class StepFiveComponent extends Component {
   @service toast;
   ANKUSH_TWITTER = ANKUSH_TWITTER;
   @tracked userId = localStorage.getItem('id');
-  @tracked joinLink =  USER_JOINED_LINK(this.userId);
-  
+  @tracked joinLink = USER_JOINED_LINK(this.userId);
+
   @action onSuccess() {
     this.toast.success(
       'Successfully Copied to clipboard',

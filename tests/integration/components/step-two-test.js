@@ -22,7 +22,7 @@ module('Integration | Component | step-two', function (hooks) {
       @setIsPreValid={{this.setIsPreValid}}
       @isValid={{this.isValid}}
       @setIsValid={{this.setIsValid}}
-     />`);
+    />`);
 
     assert
       .dom('[data-test-required-heading]')

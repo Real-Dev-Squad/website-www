@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import { TITLE_MESSAGES } from '../constants/stepper-data';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
-// import { API_URL } from '../constants/urls';
 import { JOIN_URL } from '../constants/apis';
 
 export default class StepperComponent extends Component {

@@ -19,10 +19,10 @@ module('Integration | Component | step-three', function (hooks) {
 
     await render(hbs`
     <JoinSteps::StepThree
-    @setIsPreValid={{this.setIsPreValid}}
-    @isValid={{this.isValid}}
-    @setIsValid={{this.setIsValid}}
-     />`);
+      @setIsPreValid={{this.setIsPreValid}}
+      @isValid={{this.isValid}}
+      @setIsValid={{this.setIsValid}}
+    />`);
 
     assert
       .dom('[data-test-required-heading]')

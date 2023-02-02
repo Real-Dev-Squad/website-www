@@ -6,7 +6,6 @@ export default class StepFourComponent extends Component {
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
   @tracked stepThreeData = JSON.parse(localStorage.getItem('stepThreeData'));
   @tracked allStepsData = {};
-  @tracked isLoading = this.login.isLoading;
   JOIN_DATA = [
     {
       id: 'one',

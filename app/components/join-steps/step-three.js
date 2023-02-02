@@ -5,7 +5,6 @@ import { action } from '@ember/object';
 import { validator } from '../../utils/validator';
 
 export default class StepThreeComponent extends Component {
-  // @tracked foundFrom = '';
   @tracked data = JSON.parse(localStorage.getItem('stepThreeData')) ?? {
     whyRds: '',
     foundFrom: '',

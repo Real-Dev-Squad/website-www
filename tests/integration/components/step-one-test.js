@@ -19,9 +19,9 @@ module('Integration | Component | step-one', function (hooks) {
 
     await render(hbs`
     <JoinSteps::StepOne 
-    @setIsPreValid={{this.setIsPreValid}}
-    @isValid={{this.isValid}}
-    @setIsValid={{this.setIsValid}}
+      @setIsPreValid={{this.setIsPreValid}}
+      @isValid={{this.isValid}}
+      @setIsValid={{this.setIsValid}}
     />`);
 
     assert

@@ -19,8 +19,7 @@ module.exports = function (environment) {
     },
   };
 
-  // ENV.BASE_API_URL = 'https://api.realdevsquad.com';
-  ENV.BASE_API_URL = 'http://localhost:3000';
+  ENV.BASE_API_URL = 'https://api.realdevsquad.com';
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

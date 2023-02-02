@@ -4,7 +4,8 @@ import { action } from '@ember/object';
 import { TITLE_MESSAGES } from '../constants/stepper-data';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
-import { API_URL } from '../constants/urls';
+// import { API_URL } from '../constants/urls';
+import { JOIN_URL } from '../constants/apis';
 
 export default class StepperComponent extends Component {
   @service login;
@@ -16,7 +17,7 @@ export default class StepperComponent extends Component {
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
   @tracked stepThreeData = JSON.parse(localStorage.getItem('stepThreeData'));
-  JOIN_URL = API_URL.JOIN_URL;
+  JOIN_URL = JOIN_URL;
 
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
@@ -36,6 +37,7 @@ export default class StepperComponent extends Component {
   }
 
   @action startHandler() {
+    console.log(this.JOIN_URL);
     if (this.login.isLoggedIn && !this.login.isLoading) {
       localStorage.setItem('id', this.login.userData.id);
       localStorage.setItem('first_name', this.login.userData.first_name);

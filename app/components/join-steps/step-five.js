@@ -7,8 +7,8 @@ import { ANKUSH_TWITTER } from '../../constants/urls';
 export default class StepFiveComponent extends Component {
   @service toast;
   ANKUSH_TWITTER = ANKUSH_TWITTER;
-  @tracked id = localStorage.getItem('id');
-  @tracked joinLink = `https://api.realdevsquad.com/users/${this.id}/intro`;
+  @tracked userId = localStorage.getItem('id');
+  @tracked joinLink = `https://api.realdevsquad.com/users/${this.userId}/intro`;
 
   @action onSuccess() {
     this.toast.success(

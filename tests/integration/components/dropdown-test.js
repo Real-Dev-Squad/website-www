@@ -22,13 +22,13 @@ module('Integration | Component | dropdown', function (hooks) {
 
     await render(hbs`
     <Reusables::Dropdown 
-    @name={{this.name}}
-    @field={{this.field}}
-    @required={{this.required}}
-    @placeHolder={{this.placeholder}}
-    @value={{this.value}}
-    @options={{this.options}}
-    @onChange={{this.onChange}}
+      @name={{this.name}}
+      @field={{this.field}}
+      @required={{this.required}}
+      @placeHolder={{this.placeholder}}
+      @value={{this.value}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
     />`);
 
     assert.dom('[data-test-dropdown]').hasClass('dropdown');

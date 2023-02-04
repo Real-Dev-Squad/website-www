@@ -1,12 +1,12 @@
-export const validator = (value, words, length = 1) => {
+export const validator = (value, words) => {
   const sanitizedVal = value.trim();
   const splittedVal = sanitizedVal.split(' ');
 
   if (splittedVal[0] === '') {
     return false;
   } else {
-    const isValid =
-      sanitizedVal.length >= length && splittedVal.length >= words;
+    //checking if string is not empty and words is greater/equal to the required words
+    const isValid = sanitizedVal.length >= 1 && splittedVal.length >= words;
     return isValid;
   }
 };

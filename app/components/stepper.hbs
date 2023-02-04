@@ -27,16 +27,16 @@
       </h3>
     {{/if}}
   {{/if}}
-
+<form onsubmit={{this.nextStep}}>
   {{! Content }}
   {{#if (eq this.currentStep 1)}}
-    <JoinSteps::StepOne />
+    <JoinSteps::StepOne @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}} />
   {{else if (eq this.currentStep 2)}}
-    <JoinSteps::StepTwo />
+    <JoinSteps::StepTwo @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}}/>
   {{else if (eq this.currentStep 3)}}
-    <JoinSteps::StepThree />
+    <JoinSteps::StepThree @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}}/>
   {{else if (eq this.currentStep 4)}}
-    <JoinSteps::StepFour />
+    <JoinSteps::StepFour login={{this.login}} />
   {{else if (eq this.currentStep 5)}}
     <JoinSteps::StepFive />
   {{/if}}
@@ -46,8 +46,9 @@
     <Reusables::Button
       @text='Start'
       @variant='dark'
-      @onClick={{this.incrementStep}}
+      @onClick={{this.startHandler}}
       @test='start'
+      @type='button'
     />
   {{else if (eq this.currentStep 4)}}
     <div class='stepper__buttons'>
@@ -56,12 +57,14 @@
         @variant='light'
         @onClick={{this.decrementStep}}
         @test='prev'
+        @type='button'
       />
       <Reusables::Button
         @text='Submit'
         @variant='dark'
-        @onClick={{this.incrementStep}}
+        @onClick={{this.joinHandler}}
         @test='submit'
+        @type='button'
       />
     </div>
   {{else if (not-eq this.currentStep 5)}}
@@ -72,15 +75,18 @@
         @variant='light'
         @onClick={{this.decrementStep}}
         @test='prev'
+        @type='button'
       />
       <Reusables::Button
         data-test-next-btn
         @text={{if (eq this.currentStep 3) 'Preview' 'Next'}}
         @variant='dark'
-        @onClick={{this.incrementStep}}
+        @disabled={{if (or this.preValid this.isValid) false true}}
+        @onClick={{this.nextStep}}
         @test='next'
+        @type='submit'
       />
     </div>
   {{/if}}
-
+</form>
 </section>

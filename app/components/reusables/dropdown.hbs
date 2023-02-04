@@ -10,7 +10,7 @@
     name={{@name}}
     id={{@name}}
     required={{@required}}
-    {{on 'change' (pick 'target.value' @onChange)}}
+    {{on 'change' @onChange}}
   >
     <option
       data-test-dropdown-default
@@ -19,7 +19,7 @@
     >{{@placeHolder}}</option>
     {{#each @options as |choice|}}
       <option
-        data-test-dropdown-options
+        data-test-dropdown-option={{choice}}
         value={{choice}}
         selected={{eq choice @value}}
       >{{choice}}</option>

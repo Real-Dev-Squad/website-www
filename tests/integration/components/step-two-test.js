@@ -7,9 +7,22 @@ module('Integration | Component | step-two', function (hooks) {
   setupRenderingTest(hooks);
 
   test('step two renders', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
-    await render(hbs`<JoinSteps::StepTwo />`);
+    this.set('isValid', 'isValidVal');
+    this.set('setIsPreValid', () => {
+      assert.ok(true, 'setIsPreValid works!');
+    });
+    this.set('setIsValid', () => {
+      assert.ok(true, 'setIsValid works!');
+    });
+
+    await render(hbs`
+    <JoinSteps::StepTwo
+      @setIsPreValid={{this.setIsPreValid}}
+      @isValid={{this.isValid}}
+      @setIsValid={{this.setIsValid}}
+    />`);
 
     assert
       .dom('[data-test-required-heading]')

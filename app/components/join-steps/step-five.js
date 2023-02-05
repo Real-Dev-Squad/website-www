@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { TOAST_OPTIONS } from '../../constants/toast-options';
-import { ANKUSH_TWITTER } from '../../constants/urls';
+import { ANKUSH_TWITTER, APPS } from '../../constants/urls';
 import { USER_JOINED_LINK } from '../../constants/apis';
 export default class StepFiveComponent extends Component {
   @service toast;
@@ -21,5 +21,9 @@ export default class StepFiveComponent extends Component {
 
   @action onError() {
     this.toast.error('Error in copying to clipboard', 'Error!', TOAST_OPTIONS);
+  }
+
+  @action backToHome() {
+    window.location.href = APPS.HOME;
   }
 }

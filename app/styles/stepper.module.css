@@ -82,6 +82,11 @@
   padding-left: 20px;
 }
 
+.button__container {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 625px) {
   .stepper__greeting {
     font-size: 1.5rem;

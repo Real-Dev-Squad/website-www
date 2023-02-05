@@ -8,7 +8,7 @@ module('Integration | Component | step-five', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(10);
+    assert.expect(12);
 
     await render(hbs`<JoinSteps::StepFive />`);
 
@@ -36,5 +36,9 @@ module('Integration | Component | step-five', function (hooks) {
       .hasText(
         'If the link is verified you will hear back with a personalized joining link within 7 working days'
       );
+    assert
+      .dom('[data-test-button="back-to-home"]')
+      .hasText('Back to Home')
+      .exists();
   });
 });

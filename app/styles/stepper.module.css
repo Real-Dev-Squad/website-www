@@ -55,6 +55,9 @@
 
 /* Step Five: Copy Link */
 .joining {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 1.5rem;
 }
 
@@ -80,11 +83,6 @@
   font-weight: 500;
   max-width: 350px;
   padding-left: 20px;
-}
-
-.button__container {
-  display: flex;
-  justify-content: center;
 }
 
 @media screen and (max-width: 625px) {

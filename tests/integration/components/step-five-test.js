@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { ANKUSH_TWITTER } from '../../constants/urls';
 
@@ -8,7 +8,7 @@ module('Integration | Component | step-five', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(12);
+    assert.expect(13);
 
     await render(hbs`<JoinSteps::StepFive />`);
 
@@ -36,9 +36,11 @@ module('Integration | Component | step-five', function (hooks) {
       .hasText(
         'If the link is verified you will hear back with a personalized joining link within 7 working days'
       );
+
     assert
       .dom('[data-test-button="back-to-home"]')
       .hasText('Back to Home')
       .exists();
+    await click('[data-test-button="back-to-home"]');
   });
 });

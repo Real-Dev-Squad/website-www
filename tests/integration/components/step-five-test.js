@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, click } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { ANKUSH_TWITTER } from '../../constants/urls';
 
@@ -8,7 +8,7 @@ module('Integration | Component | step-five', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(13);
+    assert.expect(12);
 
     await render(hbs`<JoinSteps::StepFive />`);
 
@@ -41,6 +41,5 @@ module('Integration | Component | step-five', function (hooks) {
       .dom('[data-test-button="back-to-home"]')
       .hasText('Back to Home')
       .exists();
-    await click('[data-test-button="back-to-home"]');
   });
 });

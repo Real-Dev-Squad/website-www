@@ -8,6 +8,8 @@ module('Acceptance | back to home button', function (hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /join', async function (assert) {
+    assert.expect(3);
+
     await visit('/join');
     assert.strictEqual(currentURL(), '/join', 'We are on the join page');
     await setupRenderingContext(this);

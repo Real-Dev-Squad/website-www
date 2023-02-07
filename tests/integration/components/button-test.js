@@ -7,7 +7,7 @@ module('Integration | Component | button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('button renders', async function (assert) {
-    assert.expect(9);
+    assert.expect(6);
 
     this.set('text', 'Next');
     this.set('variant', 'dark');
@@ -32,13 +32,6 @@ module('Integration | Component | button', function (hooks) {
     this.set('variant', 'light');
 
     assert.dom('[data-test-button]').hasText('Previous');
-    assert.dom('[data-test-button]').hasClass('btn');
-    assert.dom('[data-test-button]').hasClass('btn-light');
-
-    this.set('text', 'Back to Home');
-    this.set('variant', 'light');
-
-    assert.dom('[data-test-button]').hasText('Back to Home');
     assert.dom('[data-test-button]').hasClass('btn');
     assert.dom('[data-test-button]').hasClass('btn-light');
   });

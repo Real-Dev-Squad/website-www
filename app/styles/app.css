@@ -10,6 +10,7 @@
 @import 'dropdown.module.css';
 @import 'stepper.module.css';
 @import 'page-not-found.module.css';
+@import 'join-section.module.css';
 
 * {
   margin: 0px;

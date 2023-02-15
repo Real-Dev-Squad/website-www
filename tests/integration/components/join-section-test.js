@@ -10,6 +10,8 @@ module('Integration | Component | join-section', function (hooks) {
     await render(hbs`<JoinSection />`);
 
     assert.dom('.join').exists();
+    assert.dom('.join .join__titleQuestion').exists();
+    assert.dom('.join .join__titleQuestion').hasText('How to Join');
     assert.dom('.join .join__titleHighlighted').exists();
     assert.dom('.join .join__titleHighlighted').hasText('Real Dev Squad');
     assert.dom('[data-test-para="1"]').exists();

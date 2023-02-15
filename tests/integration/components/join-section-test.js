@@ -9,12 +9,11 @@ module('Integration | Component | join-section', function (hooks) {
   test('it renders the content for join-section component', async function (assert) {
     await render(hbs`<JoinSection />`);
 
-    assert.dom('.join-section').exists();
-    assert.dom('.join-section .join__h2').exists();
-    assert.dom('.join-section .join__h2').hasText('Real Dev Squad');
+    assert.dom('.join').exists();
+    assert.dom('.join .join__titleHighlighted').exists();
+    assert.dom('.join .join__titleHighlighted').hasText('Real Dev Squad');
     assert.dom('[data-test-para="1"]').exists();
     assert.dom('[data-test-para="2"]').exists();
-    assert.dom('.join-section .join_p').exists();
-    assert.dom('.join-section a.button').exists();
+    assert.dom('[data-test-join-button]').exists();
   });
 });

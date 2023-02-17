@@ -7,9 +7,11 @@ module('Integration | Component | join-section', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders the content for join-section component', async function (assert) {
+    assert.expect(11);
+
     await render(hbs`<JoinSection />`);
 
-    assert.dom('.join').exists();
+    assert.dom('[data-test-join]').exists();
     assert.dom('[data-test-join-title]').exists();
     assert.dom('[data-test-join-title]').hasText('How to Join');
     assert.dom('[data-test-join-title-highlighted]').exists();

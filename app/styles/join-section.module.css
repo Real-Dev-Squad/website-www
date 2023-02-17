@@ -2,13 +2,15 @@
   text-align: center;
 }
 
-.join__titleHighlighted {
-  color: var(--color-pinkl);
-  margin-top: -1.1rem;
+.join__title-highlighted {
+  color: var(--color-pink);
+  margin-top: -1rem;
+  font-weight: 800;
+  font-size: 3.5rem;
 }
 
-.join__titleQuestion {
-  font-size: 3.3rem;
+.join__title {
+  font-size: 3rem;
 }
 
 .join__para {
@@ -16,52 +18,38 @@
   text-align: justify;
   margin: auto;
   color: var(--color-darkblack);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 13px;
+  margin-top: 0.875rem;
 }
 
-.button {
+.join__link {
   display: inline-block;
   margin-top: 2.5rem;
   text-decoration: none;
   color: var(--color-white);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   border: none;
   background-color: var(--color-navyblue);
-  border-radius: 0.8rem;
-  padding: 1rem 3rem;
+  border-radius: 1rem;
+  padding: 1.25rem 3rem;;
 }
 
-.button:hover {
+.join__link:hover {
   background-color: var(--color-pinkl);
   transition-duration: 250ms;
 }
 
 @media (max-width: 1024px) {
-  .join__titleHighlighted {
-    font-size: 3.5rem;
-    margin-top: -0.9rem;
-  }
-
-  .join__titleQuestion {
-    font-size: 2.8rem;
-  }
-
   .join__para {
     width: 62%;
   }
 }
 
 @media (max-width: 768px) {
-  .join__titleHighlighted {
-    font-size: 3rem;
+  .join__title-highlighted {
     margin-top: -0.8rem;
-  }
-
-  .join__titleQuestion {
-    font-size: 2.3rem;
   }
 
   .join__para {
@@ -70,29 +58,27 @@
 }
 
 @media (max-width: 625px) {
-  .join__titleHighlighted {
-    font-size: 2.8rem;
-    margin-top: 0;
+  .join__title-highlighted {
+    font-size: 3rem;
   }
 
-  .join__titleQuestion {
-    font-size: 2rem;
+  .join__title {
+    font-size: 2.5rem;
   }
 
   .join__para {
     width: 80%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 425px) {
-  .join__titleHighlighted {
-    font-size: 2.3rem;
-    margin-top: 0;
+  .join__title-highlighted {
+    font-size: 2.25rem;
   }
 
-  .join__titleQuestion {
-    font-size: 1.8rem;
+  .join__title {
+    font-size: 2rem;
   }
 
   .join__para {

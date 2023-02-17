@@ -10,9 +10,9 @@ module('Acceptance | join section button', function (hooks) {
 
     assert.strictEqual(currentURL(), '/');
 
-    assert.dom('[data-test-join-button]').exists();
-    assert.dom('[data-test-join-button]').hasText('Join the Squad');
-    await click('[data-test-join-button]');
+    assert.dom('[data-test-join-link]').exists();
+    assert.dom('[data-test-join-link]').hasText('Join the Squad');
+    await click('[data-test-join-link]');
 
     assert.strictEqual(currentURL(), '/join');
   });

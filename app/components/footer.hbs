@@ -2,40 +2,42 @@
   <div class='footer__container'>
     <div class='footer__sites-about'>
       <div class='col'>
-        <h3 class='col__title'>Sites</h3>
-        <span class='col__underline'></span>
+        <h3 data-test-sites-title class='col__title'>Sites</h3>
+        <span data-test-underline class='col__underline'></span>
       </div>
       <ul class='col__list'>
         {{#each this.APPS_PROPERTIES as |app|}}
-          <li><a href={{app.url}}>{{app.name}}</a></li>
+          <li><a data-test-sites-link={{app.name}} href={{app.url}}>{{app.name}}</a></li>
         {{/each}}
       </ul>
     </div>
     <div class='footer__sites-about'>
       <div class='col'>
-        <h3 class='col__title'>About</h3>
-        <span class='col__underline'></span>
+        <h3 data-test-about-title class='col__title'>About</h3>
+        <span data-test-underline class='col__underline'></span>
       </div>
       <ul class='col__list'>
         {{#each this.ABOUT_PROPERTIES as |about|}}
-          <li><a href={{about.url}}>{{about.name}}</a></li>
+          <li><a data-test-about-link={{about.name}} href={{about.url}}>{{about.name}}</a></li>
         {{/each}}
       </ul>
     </div>
     <div class='footer__col'>
       <div class='col left'>
-        <h3 class='col__title'>Social Media</h3>
-        <span class='col__underline'></span>
+        <h3 data-test-social-media-title class='col__title'>Social Media</h3>
+        <span data-test-underline class='col__underline'></span>
       </div>
       <div>
         {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
           <a
+            data-test-social-link={{social.title}}
             href={{social.url}}
             target='_blank'
             class='social__links'
             rel='noopener noreferrer'
           >
             <img
+              data-test-social-icon={{social.title}}
               class='social__icons'
               src={{social.white_icon}}
               alt={{social.alt}}
@@ -46,19 +48,21 @@
     </div>
     <div class='footer__col'>
       <div class='col'>
-        <h3 class='col__title'>Newsletter</h3>
-        <span class='col__underline'></span>
+        <h3 data-test-newsletter-title class='col__title'>Newsletter</h3>
+        <span data-test-underline class='col__underline'></span>
       </div>
       <div class='newsletter'>
         <label for='email'></label>
         <input
+          data-test-newsletter-input
           id='email'
           type='text'
           class='newsletter__input'
           placeholder='Enter your email'
         />
-        <button type='button' class='newsletter__button'>
+        <button data-test-newsletter-button type='button' class='newsletter__button'>
           <img
+            data-test-newsletter-button-icon
             src='assets/icons/right-arrow.png'
             alt='Right Arrow'
             height='20px'
@@ -69,9 +73,9 @@
     </div>
   </div>
   <div class='footer__repo'>
-    <img class='repo__img' src='assets/icons/github-white.png' alt='GitHub' />
-    <p class='repo__text'>The contents of the website are deployed from this
-      <a href={{this.REPOSITORY_URL}} class='repo__link'>open sourced repo</a>
+    <img data-footer-repo-github-img class='repo__img' src='assets/icons/github-white.png' alt='GitHub' />
+    <p data-footer-repo-text class='repo__text'>The contents of the website are deployed from this
+      <a data-footer-repo-link href={{this.REPOSITORY_URL}} class='repo__link'>open sourced repo</a>
     </p>
   </div>
 </footer>

@@ -9,6 +9,7 @@ import { JOIN_URL } from '../constants/apis';
 export default class StepperComponent extends Component {
   @service login;
   @service toast;
+  @service router;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
@@ -23,6 +24,13 @@ export default class StepperComponent extends Component {
 
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
+
+  constructor() {
+    super(...arguments);
+    if (this.currentStep > 5 || this.currentStep < 0) {
+      this.router.transitionTo(`/page-not-found`);
+    }
+  }
 
   @action incrementStep() {
     if (this.currentStep < 5) {

@@ -11,7 +11,10 @@ export default class StepperComponent extends Component {
   @service toast;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
-  @tracked currentStep = +localStorage.getItem('currentStep') ?? 0;
+  @tracked currentStep =
+    +new URLSearchParams(window.location.search).get('step') ??
+    +localStorage.getItem('currentStep') ??
+    0;
   TITLE_MESSAGES = TITLE_MESSAGES;
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
@@ -25,6 +28,7 @@ export default class StepperComponent extends Component {
     if (this.currentStep < 5) {
       this.currentStep += 1;
       localStorage.setItem('currentStep', this.currentStep);
+      window.history.pushState({}, '', `?step=${this.currentStep}`);
     }
   }
 
@@ -32,6 +36,7 @@ export default class StepperComponent extends Component {
     if (this.currentStep > 0) {
       this.currentStep -= 1;
       localStorage.setItem('currentStep', this.currentStep);
+      window.history.pushState({}, '', `?step=${this.currentStep}`);
     }
   }
 

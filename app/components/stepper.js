@@ -13,8 +13,8 @@ export default class StepperComponent extends Component {
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
-    +new URLSearchParams(window.location.search).get('step') ??
     +localStorage.getItem('currentStep') ??
+    +new URLSearchParams(window.location.search).get('step') ??
     0;
   TITLE_MESSAGES = TITLE_MESSAGES;
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
@@ -24,11 +24,19 @@ export default class StepperComponent extends Component {
 
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
+  queryParams = ['step'];
 
   constructor() {
     super(...arguments);
-    if (this.currentStep > 5 || this.currentStep < 0) {
-      this.router.transitionTo(`/page-not-found`);
+    if (
+      localStorage.getItem('currentStep') <=
+      new URLSearchParams(window.location.search).get('step')
+    ) {
+      this.router.transitionTo('join', {
+        queryParams: {
+          step: localStorage.getItem('currentStep'),
+        },
+      });
     }
   }
 

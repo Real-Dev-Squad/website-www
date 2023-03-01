@@ -4,9 +4,13 @@ import { setupTest } from 'website-www/tests/helpers';
 module('Unit | Controller | join', function (hooks) {
   setupTest(hooks);
 
-  // TODO: Replace this with your real tests.
   test('it exists', function (assert) {
     let controller = this.owner.lookup('controller:join');
     assert.ok(controller);
+  });
+
+  test('it has queryParams', function (assert) {
+    let controller = this.owner.lookup('controller:join');
+    assert.deepEqual(controller.queryParams, ['step']);
   });
 });

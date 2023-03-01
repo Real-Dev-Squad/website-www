@@ -38,6 +38,7 @@ export default class StepperComponent extends Component {
         },
       });
     }
+    window.history.pushState({}, '', `?step=${this.currentStep}`);
   }
 
   @action incrementStep() {

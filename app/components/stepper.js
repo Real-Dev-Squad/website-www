@@ -27,23 +27,18 @@ export default class StepperComponent extends Component {
 
   constructor() {
     super(...arguments);
-    if (
-      localStorage.getItem('currentStep') <=
-      new URLSearchParams(window.location.search).get('step')
-    ) {
-      this.router.transitionTo('join', {
-        queryParams: {
-          step: localStorage.getItem('currentStep'),
-        },
-      });
-    }
+    this.router.transitionTo('join', {
+      queryParams: { step: localStorage.getItem('currentStep') },
+    });
   }
 
   @action incrementStep() {
     if (this.currentStep < 5) {
       this.currentStep += 1;
       localStorage.setItem('currentStep', this.currentStep);
-      window.history.pushState({}, '', `?step=${this.currentStep}`);
+      this.router.transitionTo('join', {
+        queryParams: { step: this.currentStep },
+      });
     }
   }
 
@@ -51,7 +46,9 @@ export default class StepperComponent extends Component {
     if (this.currentStep > 0) {
       this.currentStep -= 1;
       localStorage.setItem('currentStep', this.currentStep);
-      window.history.pushState({}, '', `?step=${this.currentStep}`);
+      this.router.transitionTo('join', {
+        queryParams: { step: this.currentStep },
+      });
     }
   }
 

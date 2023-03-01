@@ -24,7 +24,6 @@ export default class StepperComponent extends Component {
 
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
-  queryParams = ['step'];
 
   constructor() {
     super(...arguments);

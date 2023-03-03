@@ -34,6 +34,7 @@
   "devDependencies": {
     "@ember/jquery": "^2.0.0",
     "@ember/optional-features": "^2.0.0",
+    "@ember/render-modifiers": "^2.0.5",
     "@ember/test-helpers": "^2.8.1",
     "@embroider/compat": "^3.0.0",
     "@embroider/core": "^3.0.0",

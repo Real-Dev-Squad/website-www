@@ -1,3 +1,7 @@
-    {{#each @users as |m|}}
-        d
-    {{/each}}
+{{#if @users}}
+  {{#each @users as |m|}}
+    <img class="circle" src="https://res.cloudinary.com/realdevsquad/image/upload/v1654481317/profile/YzEVZ50DHr37oL1mqqbO/pkdvproffntqvh0thqh0.jpg" />
+  {{/each}}
+{{else}}
+  <div class='circle shine'></div>
+{{/if}}

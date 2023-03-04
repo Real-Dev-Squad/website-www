@@ -13,9 +13,7 @@ export default class StepperComponent extends Component {
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
-    +localStorage.getItem('currentStep') ??
-    +new URLSearchParams(window.location.search).get('step') ??
-    0;
+    +localStorage.getItem('currentStep') ?? +this.args.step ?? 0;
   TITLE_MESSAGES = TITLE_MESSAGES;
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));

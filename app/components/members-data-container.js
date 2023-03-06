@@ -11,7 +11,7 @@ export default class MembersDataContainerComponent extends Component {
   @action async loadMembers() {
     const data = await this.store
       .query('user', {
-        size: 5,
+        size: 6,
       })
       .catch((err) => console.error(err));
     console.log({ data });

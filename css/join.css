@@ -122,6 +122,20 @@ select {
   margin: auto;
 }
 
+.goto-home-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goto-home-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--theme-background);
+  background-color: var(--theme-white);
+  color: var(--theme-background);
+}
+
 .button-outline {
   background-color: var(--text-white);
   border: 1px solid var(--theme-background);

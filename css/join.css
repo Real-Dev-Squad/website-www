@@ -122,11 +122,6 @@ select {
   margin: auto;
 }
 
-.goto-home-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .goto-home-btn {
   display: flex;
   justify-content: center;

@@ -5,8 +5,8 @@ function redirectUserToPage(page) {
     page == 'signup'
       ? 'https://my.realdevsquad.com/signup?state=get-started'
       : page == 'join'
-      ? 'https://my.realdevsquad.com/join'
-      : 'https://my.realdevsquad.com';
+      ? 'https://realdevsquad.com/join'
+      : 'https://realdevsquad.com';
 
   window.location.href = finalPage;
 }

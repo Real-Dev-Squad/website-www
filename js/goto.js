@@ -11,6 +11,14 @@ function redirectUserToPage(page) {
   window.location.href = finalPage;
 }
 
+function redirectToJoinIfNotVisited() {
+  if (hasJoinVisited == 'true' || hasJoinVisited == null) {
+    redirectUserToPage('join.html');
+  } else {
+    redirectUserToPage('home');
+  }
+}
+
 function showSignupFormIfIncomplete() {
   fetch('https://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
@@ -20,10 +28,8 @@ function showSignupFormIfIncomplete() {
     .then((data) => {
       if (data.incompleteUserDetails) {
         redirectUserToPage('signup');
-      } else if (!hasJoinVisited) {
-        redirectUserToPage('join');
       } else {
-        redirectUserToPage('home');
+        redirectToJoinIfNotVisited();
       }
     })
     .catch((e) => {

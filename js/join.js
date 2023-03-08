@@ -6,6 +6,7 @@ import {
   SELF_URL,
 } from './constants.js';
 
+window.localStorage.setItem('hasJoinVisited', true);
 fetchSavedDetails();
 
 const flowState = {
@@ -15,9 +16,7 @@ const flowState = {
   reasonForRdsPage: 3,
   previewPage: 4,
   completedPage: 5,
-  hasJoinVisited: false,
 };
-window.localStorage.setItem('hasJoinVisited', true);
 
 const startBtn = document.getElementById('start');
 
@@ -352,6 +351,7 @@ submit.addEventListener('click', async () => {
     .catch((err) => {
       alert(`Error in saving user data ${err}`);
     });
+  window.localStorage.setItem('hasJoinVisited', false);
 });
 
 copyBtn.addEventListener('click', () => {

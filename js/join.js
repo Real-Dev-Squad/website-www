@@ -15,7 +15,9 @@ const flowState = {
   reasonForRdsPage: 3,
   previewPage: 4,
   completedPage: 5,
+  hasJoinVisited: false,
 };
+window.localStorage.setItem('hasJoinVisited', true);
 
 const startBtn = document.getElementById('start');
 

@@ -1,21 +1,28 @@
+import {
+  SIGNUP,
+  JOIN,
+  HOME,
+  SIGNUP_URL,
+  JOIN_URL,
+  HOME_URL,
+} from './constants.js';
+
 const hasJoinVisited = localStorage.getItem('hasJoinVisited');
 
 function redirectUserToPage(page) {
   const finalPage =
-    page == 'signup'
-      ? 'https://my.realdevsquad.com/signup?state=get-started'
-      : page == 'join'
-      ? 'https://realdevsquad.com/join'
-      : 'https://realdevsquad.com';
+    page == SIGNUP ? SIGNUP_URL : page == JOIN ? JOIN_URL : HOME_URL;
 
   window.location.href = finalPage;
 }
 
-function redirectToJoinIfNotVisited() {
-  if (hasJoinVisited == 'true' || hasJoinVisited == null) {
-    redirectUserToPage('join.html');
+function redirectionHandler(data) {
+  if (data.incompleteUserDetails) {
+    redirectUserToPage(SIGNUP);
+  } else if (hasJoinVisited == 'true' || hasJoinVisited == null) {
+    redirectUserToPage(JOIN);
   } else {
-    redirectUserToPage('home');
+    redirectUserToPage(HOME);
   }
 }
 
@@ -26,14 +33,10 @@ function showSignupFormIfIncomplete() {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.incompleteUserDetails) {
-        redirectUserToPage('signup');
-      } else {
-        redirectToJoinIfNotVisited();
-      }
+      redirectionHandler(data);
     })
     .catch((e) => {
-      redirectUserToPage('home');
+      redirectUserToPage(HOME);
     });
 }
 

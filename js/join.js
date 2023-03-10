@@ -6,7 +6,7 @@ import {
   SELF_URL,
 } from './constants.js';
 
-window.localStorage.setItem('hasJoinVisited', true);
+window.localStorage.setItem('hasVisitedJoin', true);
 fetchSavedDetails();
 
 const flowState = {
@@ -351,7 +351,7 @@ submit.addEventListener('click', async () => {
     .catch((err) => {
       alert(`Error in saving user data ${err}`);
     });
-  window.localStorage.setItem('hasJoinVisited', false);
+  window.localStorage.setItem('hasVisitedJoin', false);
 });
 
 copyBtn.addEventListener('click', () => {

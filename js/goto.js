@@ -1,6 +1,6 @@
 import { SIGNUP_URL, HOME_URL } from './constants.js';
 
-const hasJoinVisited = localStorage.getItem('hasJoinVisited');
+const hasVisitedJoin = localStorage.getItem('hasVisitedJoin');
 
 function redirectUserToPage(page) {
   window.location.href = page;
@@ -9,7 +9,7 @@ function redirectUserToPage(page) {
 function redirectionHandler(data) {
   if (data.incompleteUserDetails) {
     redirectUserToPage(SIGNUP_URL);
-  } else if (hasJoinVisited == 'true' || hasJoinVisited == null) {
+  } else if (hasVisitedJoin == 'true' || hasVisitedJoin == null) {
     redirectUserToPage(`${HOME_URL}/join`);
   } else {
     redirectUserToPage(HOME_URL);

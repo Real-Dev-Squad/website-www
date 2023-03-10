@@ -347,11 +347,11 @@ submit.addEventListener('click', async () => {
       }
       window.localStorage.setItem('flowState', flowState.completedPage);
       selectPage();
+      window.localStorage.setItem('hasVisitedJoin', false);
     })
     .catch((err) => {
       alert(`Error in saving user data ${err}`);
     });
-  window.localStorage.setItem('hasVisitedJoin', false);
 });
 
 copyBtn.addEventListener('click', () => {

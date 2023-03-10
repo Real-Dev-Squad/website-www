@@ -6,6 +6,7 @@ import {
   SELF_URL,
 } from './constants.js';
 
+window.localStorage.setItem('hasVisitedJoin', true);
 fetchSavedDetails();
 
 const flowState = {
@@ -346,6 +347,7 @@ submit.addEventListener('click', async () => {
       }
       window.localStorage.setItem('flowState', flowState.completedPage);
       selectPage();
+      window.localStorage.setItem('hasVisitedJoin', false);
     })
     .catch((err) => {
       alert(`Error in saving user data ${err}`);
@@ -353,5 +355,5 @@ submit.addEventListener('click', async () => {
 });
 
 copyBtn.addEventListener('click', () => {
-  navigator.clipboard.writeText(url);
+  navigator.clipboard.writeText(`Real Dev Squad Verification Link: ${url}`);
 });

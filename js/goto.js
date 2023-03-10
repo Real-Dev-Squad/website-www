@@ -1,10 +1,19 @@
-function redirectUserToPage(page) {
-  const finalPage =
-    page == 'signup'
-      ? 'https://my.realdevsquad.com/signup?state=get-started'
-      : 'https://realdevsquad.com';
+import { SIGNUP_URL, HOME_URL } from './constants.js';
 
-  window.location.href = finalPage;
+const hasVisitedJoin = localStorage.getItem('hasVisitedJoin');
+
+function redirectUserToPage(page) {
+  window.location.href = page;
+}
+
+function redirectionHandler(data) {
+  if (data.incompleteUserDetails) {
+    redirectUserToPage(SIGNUP_URL);
+  } else if (hasVisitedJoin == 'true' || hasVisitedJoin == null) {
+    redirectUserToPage(`${HOME_URL}/join`);
+  } else {
+    redirectUserToPage(HOME_URL);
+  }
 }
 
 function showSignupFormIfIncomplete() {
@@ -14,14 +23,10 @@ function showSignupFormIfIncomplete() {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.incompleteUserDetails) {
-        redirectUserToPage('signup');
-      } else {
-        redirectUserToPage('home');
-      }
+      redirectionHandler(data);
     })
     .catch((e) => {
-      redirectUserToPage('home');
+      redirectUserToPage(HOME_URL);
     });
 }
 

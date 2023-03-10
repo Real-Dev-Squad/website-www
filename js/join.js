@@ -355,5 +355,5 @@ submit.addEventListener('click', async () => {
 });
 
 copyBtn.addEventListener('click', () => {
-  navigator.clipboard.writeText(url);
+  navigator.clipboard.writeText(`Real Dev Squad Verification Link: ${url}`);
 });

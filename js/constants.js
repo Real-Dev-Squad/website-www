@@ -266,5 +266,4 @@ export const HOME = 'home';
 export const JOIN = 'join';
 export const SIGNUP_URL =
   'https://my.realdevsquad.com/signup?state=get-started';
-export const JOIN_URL = 'https://realdevsquad.com/join';
 export const HOME_URL = 'https://realdevsquad.com';

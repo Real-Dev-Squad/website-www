@@ -1,24 +1,18 @@
-import { SIGNUP, JOIN, HOME, SIGNUP_URL, HOME_URL } from './constants.js';
+import { SIGNUP_URL, HOME_URL } from './constants.js';
 
 const hasJoinVisited = localStorage.getItem('hasJoinVisited');
 
 function redirectUserToPage(page) {
-  const finalPage =
-    page == SIGNUP
-      ? SIGNUP_URL
-      : page == JOIN
-      ? `${HOME_URL}/${JOIN}`
-      : HOME_URL;
-  window.location.href = finalPage;
+  window.location.href = page;
 }
 
 function redirectionHandler(data) {
   if (data.incompleteUserDetails) {
-    redirectUserToPage(SIGNUP);
+    redirectUserToPage(SIGNUP_URL);
   } else if (hasJoinVisited == 'true' || hasJoinVisited == null) {
-    redirectUserToPage(JOIN);
+    redirectUserToPage(`${HOME_URL}/join`);
   } else {
-    redirectUserToPage(HOME);
+    redirectUserToPage(HOME_URL);
   }
 }
 
@@ -32,7 +26,7 @@ function showSignupFormIfIncomplete() {
       redirectionHandler(data);
     })
     .catch((e) => {
-      redirectUserToPage(HOME);
+      redirectUserToPage(HOME_URL);
     });
 }
 

@@ -1,0 +1,12 @@
+@import url('global-variables.css');
+
+.intro-main {
+  min-height: 100vh;
+}
+
+.user-input {
+  margin-bottom: 1rem;
+}
+.input-label-dark {
+  margin-left: 0.5rem;
+}

@@ -1,7 +1,4 @@
-import {
-  BASE_URL,
-  SELF_URL,
-} from './constants.js';
+import { BASE_URL, SELF_URL } from './constants.js';
 
 fetchSavedDetails();
 
@@ -35,11 +32,11 @@ function fetchSavedDetails() {
       return res.json();
     })
     .then((res) => {
-      console.log(res)
-      first_name=res.first_name;
-      last_name=res.last_name;
+      console.log(res);
+      first_name = res.first_name;
+      last_name = res.last_name;
       url = `${BASE_URL}/users/${res.id}/intro`;
-      console.log(url)
+      console.log(url);
       fetchIntroDetails(url, first_name, last_name);
     })
     .catch((err) => {
@@ -57,7 +54,7 @@ function fetchIntroDetails(url, first_name, last_name) {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res.data)
+      console.log(res.data);
       renderFName.innerText = first_name;
       renderLName.innerHTML = last_name;
       renderCity.innerHTML = res.data[0].location.city;
@@ -78,4 +75,3 @@ function fetchIntroDetails(url, first_name, last_name) {
       location.href = 'https://realdevsquad.com';
     });
 }
-

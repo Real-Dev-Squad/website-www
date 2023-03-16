@@ -15,8 +15,5 @@
   },
   "pre-commit": [
     "check"
-  ],
-  "volta": {
-    "node": "18.15.0"
-  }
+  ]
 }

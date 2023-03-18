@@ -39,6 +39,7 @@ const sizeDef = {
   forFun: 100,
   funFact: 100,
   foundFrom: 1,
+  numberOfHours: 1,
 };
 
 let url;
@@ -81,6 +82,7 @@ const next2 = document.getElementById('next2');
 //variables for why RDS Page
 const whyRds = document.getElementById('whyRds');
 const foundFrom = document.getElementById('foundFrom');
+const numberOfHours = document.getElementById('numberOfHours');
 const previewBtn = document.getElementById('next3');
 
 //variables for preview pages
@@ -96,6 +98,7 @@ const previewFunFact = document.getElementById('previewFunFact');
 const previewForFun = document.getElementById('previewForFun');
 const previewWhyRds = document.getElementById('previewWhyRds');
 const previewHeardAbout = document.getElementById('previewHeardAbout');
+const previewNumberOfHours = document.getElementById('previewNumberOfHours');
 const submit = document.getElementById('next4');
 
 //Variables for Completed page
@@ -173,21 +176,26 @@ function whyRdsPageValidator() {
   return (
     whyRds.value.trim().split(' ').length >= sizeDef.whyRds &&
     foundFrom.value != '' &&
-    whyRds.value.trim() != ''
+    whyRds.value.trim() != '' &&
+    numberOfHours.value.trim() != '' &&
+    parseInt(numberOfHours.value.trim()) > 0 &&
+    parseInt(numberOfHours.value.trim()) <= 100
   );
 }
 
 function dataValidator(element, size) {
-  let counter = document.getElementById(element.id + 'Counter');
-  let words_left = size - element.value.trim().split(' ').length;
-  counter.innerText = `At least, ${words_left} more word(s) required`;
-  if (words_left <= 0) {
-    counter.innerText = '';
-  }
-  if (element.value.trim().split(' ').length >= size && element.value != '') {
-    element.classList.remove('incorrect-data');
-  } else {
-    element.classList.add('incorrect-data');
+  if (element.id !== 'numberOfHours') {
+    let counter = document.getElementById(element.id + 'Counter');
+    let words_left = size - element.value.trim().split(' ').length;
+    counter.innerText = `At least, ${words_left} more word(s) required`;
+    if (words_left <= 0) {
+      counter.innerText = '';
+    }
+    if (element.value.trim().split(' ').length >= size && element.value != '') {
+      element.classList.remove('incorrect-data');
+    } else {
+      element.classList.add('incorrect-data');
+    }
   }
 }
 
@@ -244,6 +252,7 @@ function previewFiller() {
   previewFunFact.innerHTML = window.localStorage.getItem('funFact');
   previewWhyRds.innerHTML = window.localStorage.getItem('whyRds');
   previewHeardAbout.innerHTML = window.localStorage.getItem('foundFrom');
+  previewNumberOfHours.innerHTML = window.localStorage.getItem('numberOfHours');
 }
 
 function getJoinData() {
@@ -260,11 +269,13 @@ function getJoinData() {
     'whyRds',
     'foundFrom',
     'funFact',
+    'numberOfHours',
   ];
   let data = {};
   selectedData.forEach((selection) => {
     data[selection] = window.localStorage.getItem(selection);
   });
+
   return data;
 }
 

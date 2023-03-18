@@ -321,6 +321,23 @@
           ></textarea>
           <p id="whyRdsCounter" class="text-red counter"></p>
           <br />
+          <label class="input-label" for="numberOfHours"
+            >How many hours per week, are you willing to contribute?
+            <span class="text-red">*</span>
+          </label>
+          <br />
+          <input
+            type="number"
+            name="numberOfHours"
+            id="numberOfHours"
+            class="user-input input-regular"
+            min="1"
+            max="100"
+            step="1"
+            placeholder="Enter Value between 1-100"
+          />
+          <br />
+
           <label class="input-label" for="foundFrom">
             How did you hear about us?
             <span class="text-red">*</span>
@@ -374,6 +391,10 @@
             Why do you want to join Real Dev Squad?
           </p>
           <p class="user-input input-big" id="previewWhyRds"></p>
+          <p class="input-label-dark">
+            How many hours per week, are you willing to contribute?
+          </p>
+          <p class="user-input input-regular" id="previewNumberOfHours"></p>
           <p class="input-label-dark">How did you hear about us</p>
           <p class="user-input input-regular" id="previewHeardAbout"></p>
           <div class="twin-button-container">

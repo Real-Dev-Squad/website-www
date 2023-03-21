@@ -1,6 +1,8 @@
-import { BASE_URL, SELF_URL } from './constants.js';
+import { BASE_URL } from './constants.js';
 
-//fetch API DATA template
+let mainContainer = document.querySelector('.intro-main');
+let notAccess = document.querySelector('.not-access');
+
 async function makeApiCall(
   url,
   method = 'get',
@@ -19,190 +21,232 @@ async function makeApiCall(
     });
     return response;
   } catch (err) {
-    console.error(err);
     throw err;
   }
 }
 
-//fetching userId
-async function fetchSavedDetails(page) {
-  try {
-    const usersRequest = await makeApiCall(`${SELF_URL}`);
-    let usersDataList;
-    usersDataList = await usersRequest.json();
-    return usersDataList.id;
-  } catch (err) {
-    throw err;
+
+function createElement({ type, classList = [], id }) {
+  const element = document.createElement(type);
+  element.classList.add(...classList);
+  element.id = id;
+  return element;
+}
+
+//taking userId from browser current url
+function getUserId() {
+  const currentUrl = window.location.href;
+  if(currentUrl.split('?').length==1){
+    return 'wrong url';
+  }else{
+    return currentUrl.split('?')[1];
   }
+  
 }
 
 //generate form and render information
-async function generateSavedDetailsForm(users) {
-  console.log(users);
-  let renderPage = document.createElement('section');
-  renderPage.className = 'render-page';
-  renderPage.setAttribute('id', 'render-page');
+function generateSavedDetailsForm(users) {
+  const renderIntroPage = createElement({
+    type: 'section',
+    classList: ['render-page'],
+    id: 'render-page'
+  });
+  const greeting = createElement({ type: 'h1', classList: ['greeting'] });
+  greeting.innerText = "Thanks for filling out join form 👀 Here's what was received.";
+  renderIntroPage.appendChild(greeting);
 
-  let greeting = document.createElement('h1');
-  greeting.className = 'greeting';
-  greeting.innerText = "Thanks for filling out 👀 Here's what was received.";
-  renderPage.appendChild(greeting);
+  const container = createElement({ type: 'div', classList: ['container'] });
+  renderIntroPage.appendChild(container);
 
-  let container = document.createElement('div');
-  container.className = 'container';
-  renderPage.appendChild(container);
-
-  let firstName = document.createElement('p');
-  firstName.className = 'input-label-dark';
+  const firstName = createElement({ type: 'p', classList: ['input-label-dark'] });
   firstName.innerText = 'First Name';
-  let renderFirstName = document.createElement('p');
-  renderFirstName.className = 'user-input input-regular';
-  renderFirstName.setAttribute('id', 'renderFName');
-  renderFirstName.innerText = users.firstName;
+  const renderFName = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'renderFName'
+  });
+  renderFName.innerText = users.firstName;
   container.appendChild(firstName);
-  container.appendChild(renderFirstName);
+  container.appendChild(renderFName);
 
-  let lastName = document.createElement('p');
-  lastName.className = 'input-label-dark';
+  const lastName = createElement({ type: 'p', classList: ['input-label-dark'] });
   lastName.innerText = 'Last Name';
-  let renderLastName = document.createElement('p');
-  renderLastName.className = 'user-input input-regular';
-  renderLastName.setAttribute('id', 'renderLName');
-  renderLastName.innerHTML = users.lastName;
+  const renderLName = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'renderLName'
+  });
+  renderLName.innerHTML = users.lastName;
   container.appendChild(lastName);
-  container.appendChild(renderLastName);
+  container.appendChild(renderLName);
 
-  let yourCity = document.createElement('p');
-  yourCity.className = 'input-label-dark';
-  yourCity.innerText = 'Your City';
-  let renderCity = document.createElement('p');
-  renderCity.className = 'user-input input-regular';
-  renderCity.setAttribute('id', 'renderCity');
+  const city = createElement({ type: 'p', classList: ['input-label-dark'] });
+  city.innerText = 'City';
+  const renderCity = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'renderCity'
+  });
   renderCity.innerHTML = users.city;
-  container.appendChild(yourCity);
+  container.appendChild(city);
   container.appendChild(renderCity);
 
-  let yourState = document.createElement('p');
-  yourState.className = 'input-label-dark';
-  yourState.innerText = 'Your State';
-  let renderState = document.createElement('p');
-  renderState.className = 'user-input input-regular';
-  renderState.setAttribute('id', 'renderState');
+  const state = createElement({ type: 'p', classList: ['input-label-dark'] });
+  state.innerText = 'State';
+  const renderState = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'renderState'
+  });
   renderState.innerHTML = users.state;
-  container.appendChild(yourState);
+  container.appendChild(state);
   container.appendChild(renderState);
 
-  let yourCountry = document.createElement('p');
-  yourCountry.className = 'input-label-dark';
-  yourCountry.innerText = 'Your Country';
-  let renderCountry = document.createElement('p');
-  renderCountry.className = 'user-input input-regular';
-  renderCountry.setAttribute('id', 'renderCountry');
+  const country = createElement({ type: 'p', classList: ['input-label-dark'] });
+  country.innerText = 'Country';
+  const renderCountry = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'renderCountry'
+  });
   renderCountry.innerHTML = users.country;
-  container.appendChild(yourCountry);
+  container.appendChild(country);
   container.appendChild(renderCountry);
 
-  let yourIntroduction = document.createElement('p');
-  yourIntroduction.className = 'input-label-dark';
-  yourIntroduction.innerText = 'Your Introduction';
-  let renderIntro = document.createElement('p');
-  renderIntro.className = 'user-input input-big';
-  renderIntro.setAttribute('id', 'renderIntro');
+  const introduction = createElement({ type: 'p', classList: ['input-label-dark'] });
+  introduction.innerText = 'Introduction';
+  const renderIntro = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-big'],
+    id: 'renderIntro'
+  });
   renderIntro.innerHTML = users.introduction;
-  container.appendChild(yourIntroduction);
+  container.appendChild(introduction);
   container.appendChild(renderIntro);
 
-  let yourSkills = document.createElement('p');
-  yourSkills.className = 'input-label-dark';
-  yourSkills.innerText = 'Your Skills';
-  let renderSkills = document.createElement('p');
-  renderSkills.className = 'user-input input-regular';
-  renderSkills.setAttribute('id', 'renderSkills');
+  const skills = createElement({ type: 'p', classList: ['input-label-dark'] });
+  skills.innerText = 'Skills';
+  const renderSkills = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'renderSkills'
+  });
   renderSkills.innerHTML = users.skills;
-  container.appendChild(yourSkills);
+  container.appendChild(skills);
   container.appendChild(renderSkills);
 
-  let yourInstitution = document.createElement('p');
-  yourInstitution.className = 'input-label-dark';
-  yourInstitution.innerText = 'Your Institution';
-  let renderInstitution = document.createElement('p');
-  renderInstitution.className = 'user-input input-regular';
-  renderInstitution.setAttribute('id', 'renderInstitution');
+  const institution = createElement({ type: 'p', classList: ['input-label-dark'] });
+  institution.innerText = 'Institution';
+  const renderInstitution = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'renderSkills'
+  });
   renderInstitution.innerHTML = users.institution;
-  container.appendChild(yourInstitution);
+  container.appendChild(institution);
   container.appendChild(renderInstitution);
 
-  let forFun = document.createElement('p');
-  forFun.className = 'input-label-dark';
+  const forFun = createElement({ type: 'p', classList: ['input-label-dark'] });
   forFun.innerText = 'What you do for fun';
-  let renderForFun = document.createElement('p');
-  renderForFun.className = 'user-input input-big';
-  renderForFun.setAttribute('id', 'renderForFun');
+  const renderForFun = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-big'],
+    id: 'renderForFun'
+  });
   renderForFun.innerHTML = users.forFun;
   container.appendChild(forFun);
   container.appendChild(renderForFun);
 
-  let funFact = document.createElement('p');
-  funFact.className = 'input-label-dark';
+  const funFact = createElement({ type: 'p', classList: ['input-label-dark'] });
   funFact.innerText = 'A fun fact about you';
-  let renderFunFact = document.createElement('p');
-  renderFunFact.className = 'user-input input-big';
-  renderFunFact.setAttribute('id', 'renderFunFact');
+  const renderFunFact = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-big'],
+    id: 'renderFunFact'
+  });
   renderFunFact.innerHTML = users.funFact;
   container.appendChild(funFact);
   container.appendChild(renderFunFact);
 
-  let whyRds = document.createElement('p');
-  whyRds.className = 'input-label-dark';
+  const whyRds = createElement({ type: 'p', classList: ['input-label-dark'] });
   whyRds.innerText = 'Why do you want to join Real Dev Squad?';
-  let renderWhyRds = document.createElement('p');
-  renderWhyRds.className = 'user-input input-big';
-  renderWhyRds.setAttribute('id', 'renderWhyRds');
+  const renderWhyRds = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-big'],
+    id: 'renderWhyRds'
+  });
   renderWhyRds.innerHTML = users.whyRds;
   container.appendChild(whyRds);
   container.appendChild(renderWhyRds);
 
-  let heardAbout = document.createElement('p');
-  heardAbout.className = 'input-label-dark';
+  const heardAbout = createElement({ type: 'p', classList: ['input-label-dark'] });
   heardAbout.innerText = 'How did you hear about us';
-  let renderHeardAbout = document.createElement('p');
-  renderHeardAbout.className = 'user-input input-regular';
-  renderHeardAbout.setAttribute('id', 'renderHeardAbout');
-  renderHeardAbout.innerHTML = users.foundFrom;
+  const renderHeardAbout = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'renderHeardAbout'
+  });
+  renderHeardAbout.innerText = users.foundFrom;
   container.appendChild(heardAbout);
   container.appendChild(renderHeardAbout);
-  document.querySelector('.intro-main').appendChild(renderPage);
+
+  document.querySelector('.intro-main').appendChild(renderIntroPage);
 }
 
 //making userSavedData object from API
 async function showSavedDetails() {
   try {
-    const id = await fetchSavedDetails();
-    const usersRequest = await makeApiCall(`${BASE_URL}/users/${id}/intro`);
-    let usersData = await usersRequest.json();
-    console.log(usersData);
-    let userSavedData = {
-      firstName: usersData.data[0].biodata.firstName,
-      lastName: usersData.data[0].biodata.lastName,
-      city: usersData.data[0].location.city,
-      state: usersData.data[0].location.state,
-      country: usersData.data[0].location.country,
-      introduction: usersData.data[0].intro.introduction,
-      skills: usersData.data[0].professional.skills,
-      institution: usersData.data[0].professional.institution,
-      funFact: usersData.data[0].intro.funFact,
-      forFun: usersData.data[0].intro.forFun,
-      whyRds: usersData.data[0].intro.whyRds,
-      foundFrom: usersData.data[0].foundFrom,
-    };
-    console.log(userSavedData);
-
-    generateSavedDetailsForm(userSavedData);
+    const userId = getUserId();
+    if(userId=='wrong url'){
+      alert('SuperUser You Write Wrong Url');
+      location.href = 'https://www.realdevsquad.com';
+    }
+    const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
+    const usersDataList = await usersRequest.json();
+      const userData = usersDataList.data[0];
+      let userSavedData = {
+        firstName: userData.biodata.firstName,
+        lastName: userData.biodata.lastName,
+        city: userData.location.city,
+        state: userData.location.state,
+        country: userData.location.country,
+        introduction: userData.intro.introduction,
+        skills: userData.professional.skills,
+        institution: userData.professional.institution,
+        funFact: userData.intro.funFact,
+        forFun: userData.intro.forFun,
+        whyRds: userData.intro.whyRds,
+        foundFrom: userData.foundFrom,
+      };
+      generateSavedDetailsForm(userSavedData);
   } catch (err) {
-    console.error(err);
+    alert('SuperUser You Write Wrong UserID');
+    location.href = 'https://www.realdevsquad.com';
   }
 }
 
-window.onload = function () {
-  showSavedDetails();
-};
+(async function setAuth() {
+  try {
+    const res = await fetch(`${BASE_URL}/users/self`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+
+    const selfDetails = await res.json();
+    if (selfDetails.roles.super_user) {
+      notAccess.classList.add('hidden');
+      mainContainer.classList.remove('hidden');
+      showSavedDetails();
+    } else {
+      notAccess.innerText = 'You are not authorized to view this page';
+      mainContainer.classList.add('hidden');
+    }
+  } catch (err) {
+    alert('something went wrong');
+    location.href = 'https://realdevsquad.com';
+  }
+})();
+

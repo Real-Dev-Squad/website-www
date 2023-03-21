@@ -1,12 +1,28 @@
 @import url('global-variables.css');
 
-.intro-main {
-  min-height: 100vh;
-}
-
-.user-input {
-  margin-bottom: 1rem;
-}
 .input-label-dark {
   margin-left: 0.5rem;
+}
+.input-big {
+  height: 10.25rem;
+}
+
+.not-access{
+  text-align: center;
+}
+
+#renderHeardAbout{
+  margin-bottom: 1rem;
+}
+
+.hidden{
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .user-input {
+    font: 300 17px 'Roboto';
+    width: 22rem;
+    line-height: 32px;
+  }
 }

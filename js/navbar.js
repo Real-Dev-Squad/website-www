@@ -7,7 +7,7 @@ hamburger.addEventListener('click', () => {
 });
 
 const signout = () => {
-  fetch('https://api.realdevsquad.com/auth/signout', {
+  fetch('http://localhost:3000/auth/signout', {
     method: 'GET',
     credentials: 'include',
   }).then(() => {

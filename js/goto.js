@@ -17,7 +17,7 @@ function redirectionHandler(data) {
 }
 
 function showSignupFormIfIncomplete() {
-  fetch('https://api.realdevsquad.com/users/self', {
+  fetch('http://localhost:3000/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })

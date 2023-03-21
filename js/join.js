@@ -39,7 +39,6 @@ const sizeDef = {
   forFun: 100,
   funFact: 100,
   foundFrom: 1,
-  numberOfHours: 1,
 };
 
 let url;
@@ -177,9 +176,9 @@ function whyRdsPageValidator() {
     whyRds.value.trim().split(' ').length >= sizeDef.whyRds &&
     foundFrom.value != '' &&
     whyRds.value.trim() != '' &&
-    numberOfHours.value.trim() != '' &&
-    parseInt(numberOfHours.value.trim()) > 0 &&
-    parseInt(numberOfHours.value.trim()) <= 100
+    numberOfHours.value != '' &&
+    parseInt(numberOfHours.value) > 1 &&
+    parseInt(numberOfHours.value) <= 100
   );
 }
 
@@ -195,6 +194,19 @@ function dataValidator(element, size) {
       element.classList.remove('incorrect-data');
     } else {
       element.classList.add('incorrect-data');
+    }
+  } else {
+    let invalidElement = document.getElementById('numberOfHours');
+    if (
+      parseInt(invalidElement.value) < 1 ||
+      parseInt(invalidElement.value) > 100
+    ) {
+      document.getElementById('numberOfHoursCounter').innerHTML =
+        'Invalid Value- must be between 1 to 100';
+      invalidElement.classList.add('incorrect-data');
+    } else {
+      document.getElementById('numberOfHoursCounter').innerHTML = '';
+      invalidElement.classList.remove('incorrect-data');
     }
   }
 }

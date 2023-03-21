@@ -6,6 +6,7 @@ export const APPS = {
   CRYPTO: 'https://crypto.realdevsquad.com/',
   STATUS: 'https://status.realdevsquad.com/',
   PROFILE: 'https://my.realdevsquad.com/',
+  LIVE: 'live',
 };
 
 export const ABOUT = {

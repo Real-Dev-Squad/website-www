@@ -1,62 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>Real Dev Squad | Intro</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/join.css" />
+    <link rel="stylesheet" href="./css/intro.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-  <title>Real Dev Squad | Intro</title>
-  <link rel="stylesheet" href="./css/main.css" />
-  <link rel="stylesheet" href="./css/join.css" />
-  <link rel="stylesheet" href="./css/intro.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-    rel="stylesheet" />
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Real Dev Squad | Intro" />
+    <meta
+      name="description"
+      content="Page for verification of user to join Real Dev Squad."
+    />
 
-  <!-- Primary Meta Tags -->
-  <meta name="title" content="Real Dev Squad | Intro" />
-  <meta name="description" content="Page for verification of user to join Real Dev Squad." />
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Real Dev Squad | Intro" />
+    <meta
+      property="og:description"
+      content="Page for verification of user to join Real Dev Squad."
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/Real-Dev-Squad/website-www/develop/img/Real-Dev-Squad-preview.png"
+    />
 
-  <!-- Open Graph / Facebook Meta Tags -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Real Dev Squad | Intro" />
-  <meta property="og:description" content="Page for verification of user to join Real Dev Squad." />
-  <meta property="og:image"
-    content="https://raw.githubusercontent.com/Real-Dev-Squad/website-www/develop/img/Real-Dev-Squad-preview.png" />
+    <!-- Twitter Meta Tag-->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@RealDevSquad" />
+    <meta property="twitter:title" content="Real Dev Squad | Intro Page" />
+    <meta
+      property="twitter:description"
+      content="Page for verification of user to join Real Dev Squad."
+    />
+    <meta
+      property="twitter:image"
+      content="https://raw.githubusercontent.com/Real-Dev-Squad/website-www/develop/img/Real-Dev-Squad-preview.png"
+    />
 
-  <!-- Twitter Meta Tag-->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:site" content="@RealDevSquad" />
-  <meta property="twitter:title" content="Real Dev Squad | Intro Page" />
-  <meta property="twitter:description" content="Page for verification of user to join Real Dev Squad." />
-  <meta property="twitter:image"
-    content="https://raw.githubusercontent.com/Real-Dev-Squad/website-www/develop/img/Real-Dev-Squad-preview.png" />
+    <script src="/js/analytics.js"></script>
 
-  <script src="/js/analytics.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YRG12HRZKB"
+    ></script>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YRG12HRZKB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+      gtag('config', 'G-YRG12HRZKB');
+    </script>
+  </head>
 
-    gtag('config', 'G-YRG12HRZKB');
-  </script>
-</head>
-
-<body>
-  <div class="not-access"></div>
-  <main class="intro-main"></main>
-  <script src="js/darkmode.js"></script>
-  <script type="module" src="/js/intro.js"></script>
-  <script type="module" src="js/fetchUserData.js" defer></script>
-</body>
-
+  <body>
+    <div class="not-access"></div>
+    <main class="intro-main"></main>
+    <script src="js/darkmode.js"></script>
+    <script type="module" src="/js/intro.js"></script>
+    <script type="module" src="js/fetchUserData.js" defer></script>
+  </body>
 </html>

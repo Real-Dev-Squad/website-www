@@ -25,7 +25,6 @@ async function makeApiCall(
   }
 }
 
-
 function createElement({ type, classList = [], id }) {
   const element = document.createElement(type);
   element.classList.add(...classList);
@@ -36,12 +35,11 @@ function createElement({ type, classList = [], id }) {
 //taking userId from browser current url
 function getUserId() {
   const currentUrl = window.location.href;
-  if(currentUrl.split('?').length==1){
+  if (currentUrl.split('?').length == 1) {
     return 'wrong url';
-  }else{
+  } else {
     return currentUrl.split('?')[1];
   }
-  
 }
 
 //generate form and render information
@@ -49,32 +47,39 @@ function generateSavedDetailsForm(users) {
   const renderIntroPage = createElement({
     type: 'section',
     classList: ['render-page'],
-    id: 'render-page'
+    id: 'render-page',
   });
   const greeting = createElement({ type: 'h1', classList: ['greeting'] });
-  greeting.innerText = "Thanks for filling out join form 👀 Here's what was received.";
+  greeting.innerText =
+    "Thanks for filling out join form 👀 Here's what was received.";
   renderIntroPage.appendChild(greeting);
 
   const container = createElement({ type: 'div', classList: ['container'] });
   renderIntroPage.appendChild(container);
 
-  const firstName = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const firstName = createElement({
+    type: 'p',
+    classList: ['input-label-dark'],
+  });
   firstName.innerText = 'First Name';
   const renderFName = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
-    id: 'renderFName'
+    id: 'renderFName',
   });
   renderFName.innerText = users.firstName;
   container.appendChild(firstName);
   container.appendChild(renderFName);
 
-  const lastName = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const lastName = createElement({
+    type: 'p',
+    classList: ['input-label-dark'],
+  });
   lastName.innerText = 'Last Name';
   const renderLName = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
-    id: 'renderLName'
+    id: 'renderLName',
   });
   renderLName.innerHTML = users.lastName;
   container.appendChild(lastName);
@@ -85,7 +90,7 @@ function generateSavedDetailsForm(users) {
   const renderCity = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
-    id: 'renderCity'
+    id: 'renderCity',
   });
   renderCity.innerHTML = users.city;
   container.appendChild(city);
@@ -96,7 +101,7 @@ function generateSavedDetailsForm(users) {
   const renderState = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
-    id: 'renderState'
+    id: 'renderState',
   });
   renderState.innerHTML = users.state;
   container.appendChild(state);
@@ -107,18 +112,21 @@ function generateSavedDetailsForm(users) {
   const renderCountry = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
-    id: 'renderCountry'
+    id: 'renderCountry',
   });
   renderCountry.innerHTML = users.country;
   container.appendChild(country);
   container.appendChild(renderCountry);
 
-  const introduction = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const introduction = createElement({
+    type: 'p',
+    classList: ['input-label-dark'],
+  });
   introduction.innerText = 'Introduction';
   const renderIntro = createElement({
     type: 'p',
     classList: ['user-input', 'input-big'],
-    id: 'renderIntro'
+    id: 'renderIntro',
   });
   renderIntro.innerHTML = users.introduction;
   container.appendChild(introduction);
@@ -129,18 +137,21 @@ function generateSavedDetailsForm(users) {
   const renderSkills = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
-    id: 'renderSkills'
+    id: 'renderSkills',
   });
   renderSkills.innerHTML = users.skills;
   container.appendChild(skills);
   container.appendChild(renderSkills);
 
-  const institution = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const institution = createElement({
+    type: 'p',
+    classList: ['input-label-dark'],
+  });
   institution.innerText = 'Institution';
   const renderInstitution = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
-    id: 'renderSkills'
+    id: 'renderSkills',
   });
   renderInstitution.innerHTML = users.institution;
   container.appendChild(institution);
@@ -151,7 +162,7 @@ function generateSavedDetailsForm(users) {
   const renderForFun = createElement({
     type: 'p',
     classList: ['user-input', 'input-big'],
-    id: 'renderForFun'
+    id: 'renderForFun',
   });
   renderForFun.innerHTML = users.forFun;
   container.appendChild(forFun);
@@ -162,7 +173,7 @@ function generateSavedDetailsForm(users) {
   const renderFunFact = createElement({
     type: 'p',
     classList: ['user-input', 'input-big'],
-    id: 'renderFunFact'
+    id: 'renderFunFact',
   });
   renderFunFact.innerHTML = users.funFact;
   container.appendChild(funFact);
@@ -173,18 +184,21 @@ function generateSavedDetailsForm(users) {
   const renderWhyRds = createElement({
     type: 'p',
     classList: ['user-input', 'input-big'],
-    id: 'renderWhyRds'
+    id: 'renderWhyRds',
   });
   renderWhyRds.innerHTML = users.whyRds;
   container.appendChild(whyRds);
   container.appendChild(renderWhyRds);
 
-  const heardAbout = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const heardAbout = createElement({
+    type: 'p',
+    classList: ['input-label-dark'],
+  });
   heardAbout.innerText = 'How did you hear about us';
   const renderHeardAbout = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
-    id: 'renderHeardAbout'
+    id: 'renderHeardAbout',
   });
   renderHeardAbout.innerText = users.foundFrom;
   container.appendChild(heardAbout);
@@ -197,28 +211,28 @@ function generateSavedDetailsForm(users) {
 async function showSavedDetails() {
   try {
     const userId = getUserId();
-    if(userId=='wrong url'){
+    if (userId == 'wrong url') {
       alert('SuperUser You Write Wrong Url');
       location.href = 'https://www.realdevsquad.com';
     }
     const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
     const usersDataList = await usersRequest.json();
-      const userData = usersDataList.data[0];
-      let userSavedData = {
-        firstName: userData.biodata.firstName,
-        lastName: userData.biodata.lastName,
-        city: userData.location.city,
-        state: userData.location.state,
-        country: userData.location.country,
-        introduction: userData.intro.introduction,
-        skills: userData.professional.skills,
-        institution: userData.professional.institution,
-        funFact: userData.intro.funFact,
-        forFun: userData.intro.forFun,
-        whyRds: userData.intro.whyRds,
-        foundFrom: userData.foundFrom,
-      };
-      generateSavedDetailsForm(userSavedData);
+    const userData = usersDataList.data[0];
+    let userSavedData = {
+      firstName: userData.biodata.firstName,
+      lastName: userData.biodata.lastName,
+      city: userData.location.city,
+      state: userData.location.state,
+      country: userData.location.country,
+      introduction: userData.intro.introduction,
+      skills: userData.professional.skills,
+      institution: userData.professional.institution,
+      funFact: userData.intro.funFact,
+      forFun: userData.intro.forFun,
+      whyRds: userData.intro.whyRds,
+      foundFrom: userData.foundFrom,
+    };
+    generateSavedDetailsForm(userSavedData);
   } catch (err) {
     alert('SuperUser You Write Wrong UserID');
     location.href = 'https://www.realdevsquad.com';
@@ -249,4 +263,3 @@ async function showSavedDetails() {
     location.href = 'https://realdevsquad.com';
   }
 })();
-

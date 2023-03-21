@@ -27,7 +27,7 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
 };
 
 const fetchData = () => {
-  return fetch('http://localhost:3000/users/self', {
+  return fetch('https://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })

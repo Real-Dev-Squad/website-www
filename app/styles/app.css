@@ -11,6 +11,7 @@
 @import 'stepper.module.css';
 @import 'page-not-found.module.css';
 @import 'join-section.module.css';
+@import 'live-header.module.css';
 
 * {
   margin: 0px;

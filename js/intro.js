@@ -43,7 +43,10 @@ function getUserId() {
 }
 
 function generatenotAuthorizedPage() {
-  const notAuthorizedDiv = createElement({ type: 'div', classList: ['not-authorized'] });
+  const notAuthorizedDiv = createElement({
+    type: 'div',
+    classList: ['not-authorized'],
+  });
   const notAuthorizedImg = createElement({
     type: 'img',
     classList: ['not-authorized-img'],
@@ -54,7 +57,7 @@ function generatenotAuthorizedPage() {
     type: 'h1',
     classList: ['not-authorized-text-h1'],
   });
-  notAuthorizedText.innerText = 'You are not authorized to view this page'
+  notAuthorizedText.innerText = 'You are not authorized to view this page';
   notAuthorizedDiv.append(notAuthorizedImg, notAuthorizedText);
   notAuthorized.append(notAuthorizedDiv);
 }
@@ -84,7 +87,8 @@ function generateSavedDetailsForm(users) {
     id: 'render-page',
   });
   const greeting = createElement({ type: 'h1', classList: ['greeting'] });
-  greeting.innerText ="Thanks for filling out join form 👀 Here's what was received.";
+  greeting.innerText =
+    "Thanks for filling out join form 👀 Here's what was received.";
   renderIntroPage.appendChild(greeting);
 
   const container = createElement({ type: 'div', classList: ['container'] });
@@ -267,15 +271,15 @@ async function showSavedDetails() {
         foundFrom: userData.foundFrom,
       };
       generateSavedDetailsForm(userSavedData);
-    }else if(usersRequest.status === 404){
+    } else if (usersRequest.status === 404) {
       generateNoDataFoundPage();
-      setTimeout(()=>{
+      setTimeout(() => {
         alert('SuperUser You Write Wrong Url');
         location.href = 'https://www.realdevsquad.com/intro.html';
       }, 1500);
     }
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 }
 
@@ -295,8 +299,8 @@ async function showSavedDetails() {
       mainContainer.classList.remove('hidden');
       showSavedDetails();
     } else {
-      notFound.classList.add('hidden')
-      generatenotAuthorizedPage()
+      notFound.classList.add('hidden');
+      generatenotAuthorizedPage();
       mainContainer.classList.add('hidden');
     }
   } catch (err) {

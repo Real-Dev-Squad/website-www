@@ -12,7 +12,7 @@
   margin-bottom: 1rem;
 }
 
-.not-authorized{
+.not-authorized {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,12 +21,12 @@
   margin: 3rem 0;
 }
 
-.not-authorized-text-h1{
+.not-authorized-text-h1 {
   font-size: 1.75rem;
-  text-align: center; 
+  text-align: center;
 }
 
-.not-found{
+.not-found {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,9 +35,9 @@
   margin: 3rem 0;
 }
 
-.not-found-text-h1{
+.not-found-text-h1 {
   font-size: 1.75rem;
-  text-align: center; 
+  text-align: center;
 }
 
 .hidden {
@@ -50,11 +50,10 @@
     width: 22rem;
     line-height: 32px;
   }
-  .not-authorized-img{
+  .not-authorized-img {
     width: 60%;
   }
-  .not-found-img{
+  .not-found-img {
     width: 60%;
   }
-  
 }

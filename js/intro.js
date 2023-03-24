@@ -1,7 +1,8 @@
 import { BASE_URL } from './constants.js';
 
+let notAuthorized = document.querySelector('.not-authorized-page');
+const notFound = document.querySelector('.not-found-page');
 let mainContainer = document.querySelector('.intro-main');
-let notAccess = document.querySelector('.not-access');
 
 async function makeApiCall(
   url,
@@ -32,7 +33,6 @@ function createElement({ type, classList = [], id }) {
   return element;
 }
 
-//taking userId from browser current url
 function getUserId() {
   const currentUrl = window.location.href;
   if (currentUrl.split('?').length == 1) {
@@ -40,6 +40,40 @@ function getUserId() {
   } else {
     return currentUrl.split('?')[1];
   }
+}
+
+function generatenotAuthorizedPage() {
+  const notAuthorizedDiv = createElement({ type: 'div', classList: ['not-authorized'] });
+  const notAuthorizedImg = createElement({
+    type: 'img',
+    classList: ['not-authorized-img'],
+  });
+  notAuthorizedImg.src = 'img/intro-page/page-not-authorized.png';
+  notAuthorizedImg.setAttribute('alt', 'not authorized page');
+  const notAuthorizedText = createElement({
+    type: 'h1',
+    classList: ['not-authorized-text-h1'],
+  });
+  notAuthorizedText.innerText = 'You are not authorized to view this page'
+  notAuthorizedDiv.append(notAuthorizedImg, notAuthorizedText);
+  notAuthorized.append(notAuthorizedDiv);
+}
+
+function generateNoDataFoundPage() {
+  const notFoundDiv = createElement({ type: 'div', classList: ['not-found'] });
+  const notFoundImg = createElement({
+    type: 'img',
+    classList: ['not-found-img'],
+  });
+  notFoundImg.src = '/img/intro-page/page-not-found.png';
+  notFoundImg.setAttribute('alt', 'page not found');
+  const notFoundText = createElement({
+    type: 'h1',
+    classList: ['not-found-text-h1'],
+  });
+  notFoundText.innerText = "The page you're looking for cannot be found";
+  notFoundDiv.append(notFoundImg, notFoundText);
+  notFound.appendChild(notFoundDiv);
 }
 
 //generate form and render information
@@ -50,8 +84,7 @@ function generateSavedDetailsForm(users) {
     id: 'render-page',
   });
   const greeting = createElement({ type: 'h1', classList: ['greeting'] });
-  greeting.innerText =
-    "Thanks for filling out join form 👀 Here's what was received.";
+  greeting.innerText ="Thanks for filling out join form 👀 Here's what was received.";
   renderIntroPage.appendChild(greeting);
 
   const container = createElement({ type: 'div', classList: ['container'] });
@@ -212,30 +245,37 @@ async function showSavedDetails() {
   try {
     const userId = getUserId();
     if (userId == 'wrong url') {
-      alert('SuperUser You Write Wrong Url');
-      location.href = 'https://www.realdevsquad.com';
+      generateNoDataFoundPage();
+      throw err;
     }
     const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
-    const usersDataList = await usersRequest.json();
-    const userData = usersDataList.data[0];
-    let userSavedData = {
-      firstName: userData.biodata.firstName,
-      lastName: userData.biodata.lastName,
-      city: userData.location.city,
-      state: userData.location.state,
-      country: userData.location.country,
-      introduction: userData.intro.introduction,
-      skills: userData.professional.skills,
-      institution: userData.professional.institution,
-      funFact: userData.intro.funFact,
-      forFun: userData.intro.forFun,
-      whyRds: userData.intro.whyRds,
-      foundFrom: userData.foundFrom,
-    };
-    generateSavedDetailsForm(userSavedData);
+    if (usersRequest.status === 200) {
+      const usersDataList = await usersRequest.json();
+      const userData = usersDataList.data[0];
+      let userSavedData = {
+        firstName: userData.biodata.firstName,
+        lastName: userData.biodata.lastName,
+        city: userData.location.city,
+        state: userData.location.state,
+        country: userData.location.country,
+        introduction: userData.intro.introduction,
+        skills: userData.professional.skills,
+        institution: userData.professional.institution,
+        funFact: userData.intro.funFact,
+        forFun: userData.intro.forFun,
+        whyRds: userData.intro.whyRds,
+        foundFrom: userData.foundFrom,
+      };
+      generateSavedDetailsForm(userSavedData);
+    }else if(usersRequest.status === 404){
+      generateNoDataFoundPage();
+      setTimeout(()=>{
+        alert('SuperUser You Write Wrong Url');
+        location.href = 'https://www.realdevsquad.com/intro.html';
+      }, 1500);
+    }
   } catch (err) {
-    alert('SuperUser You Write Wrong UserID');
-    location.href = 'https://www.realdevsquad.com';
+    console.log(err)
   }
 }
 
@@ -251,11 +291,12 @@ async function showSavedDetails() {
 
     const selfDetails = await res.json();
     if (selfDetails.roles.super_user) {
-      notAccess.classList.add('hidden');
+      notAuthorized.classList.add('hidden');
       mainContainer.classList.remove('hidden');
       showSavedDetails();
     } else {
-      notAccess.innerText = 'You are not authorized to view this page';
+      notFound.classList.add('hidden')
+      generatenotAuthorizedPage()
       mainContainer.classList.add('hidden');
     }
   } catch (err) {

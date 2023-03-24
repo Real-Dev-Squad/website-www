@@ -3,16 +3,41 @@
 .input-label-dark {
   margin-left: 0.5rem;
 }
+
 .input-big {
   height: 10.25rem;
 }
 
-.not-access {
-  text-align: center;
-}
-
 #renderHeardAbout {
   margin-bottom: 1rem;
+}
+
+.not-authorized{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 75vh;
+  margin: 3rem 0;
+}
+
+.not-authorized-text-h1{
+  font-size: 1.75rem;
+  text-align: center; 
+}
+
+.not-found{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 75vh;
+  margin: 3rem 0;
+}
+
+.not-found-text-h1{
+  font-size: 1.75rem;
+  text-align: center; 
 }
 
 .hidden {
@@ -25,4 +50,11 @@
     width: 22rem;
     line-height: 32px;
   }
+  .not-authorized-img{
+    width: 60%;
+  }
+  .not-found-img{
+    width: 60%;
+  }
+  
 }

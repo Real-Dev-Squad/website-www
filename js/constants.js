@@ -262,5 +262,5 @@ export const SELF_URL = `${BASE_URL}/users/self`;
 export const GITHUB_OAUTH =
   'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
 export const SIGNUP_URL =
-  'https://my.realdevsquad.com/signup?state=get-started';
+  'https://my.realdevsquad.com/new-signup';
 export const HOME_URL = 'https://realdevsquad.com';

@@ -1,8 +1,9 @@
 import { BASE_URL } from './constants.js';
 
-let notAuthorized = document.querySelector('.not-authorized-page');
+const notAuthorized = document.querySelector('.not-authorized-page');
 const notFound = document.querySelector('.not-found-page');
-let mainContainer = document.querySelector('.intro-main');
+const mainContainer = document.querySelector('.intro-main');
+const loading = document.getElementById('loading');
 
 async function makeApiCall(
   url,
@@ -240,7 +241,7 @@ function generateSavedDetailsForm(users) {
   renderHeardAbout.innerText = users.foundFrom;
   container.appendChild(heardAbout);
   container.appendChild(renderHeardAbout);
-
+  loading.classList.add('hidden');
   document.querySelector('.intro-main').appendChild(renderIntroPage);
 }
 
@@ -249,6 +250,7 @@ async function showSavedDetails() {
   try {
     const userId = getUserId();
     if (userId == 'wrong url') {
+      loading.classList.add('hidden');
       generateNoDataFoundPage();
       throw err;
     }
@@ -273,6 +275,7 @@ async function showSavedDetails() {
       generateSavedDetailsForm(userSavedData);
     } else if (usersRequest.status === 404) {
       generateNoDataFoundPage();
+      loading.classList.add('hidden');
       setTimeout(() => {
         alert('SuperUser You Write Wrong Url');
         location.href = 'https://www.realdevsquad.com/intro.html';
@@ -294,14 +297,22 @@ async function showSavedDetails() {
     });
 
     const selfDetails = await res.json();
+    const userId = getUserId();
     if (selfDetails.roles.super_user) {
-      notAuthorized.classList.add('hidden');
-      mainContainer.classList.remove('hidden');
-      showSavedDetails();
-    } else {
-      notFound.classList.add('hidden');
-      generatenotAuthorizedPage();
-      mainContainer.classList.add('hidden');
+        notAuthorized.classList.add('hidden');
+        mainContainer.classList.remove('hidden');
+        showSavedDetails();
+      }
+    else {
+      if (userId == 'wrong url') {
+        loading.classList.add('hidden');
+        generateNoDataFoundPage();
+      } else {
+        notFound.classList.add('hidden');
+        loading.classList.add('hidden');
+        generatenotAuthorizedPage();
+        mainContainer.classList.add('hidden');
+      }
     }
   } catch (err) {
     alert('something went wrong');

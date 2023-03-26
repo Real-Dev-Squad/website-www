@@ -299,11 +299,10 @@ async function showSavedDetails() {
     const selfDetails = await res.json();
     const userId = getUserId();
     if (selfDetails.roles.super_user) {
-        notAuthorized.classList.add('hidden');
-        mainContainer.classList.remove('hidden');
-        showSavedDetails();
-      }
-    else {
+      notAuthorized.classList.add('hidden');
+      mainContainer.classList.remove('hidden');
+      showSavedDetails();
+    } else {
       if (userId == 'wrong url') {
         loading.classList.add('hidden');
         generateNoDataFoundPage();

@@ -41,6 +41,11 @@ const sizeDef = {
   foundFrom: 1,
 };
 
+//specifying range of number fields : min to max.
+const range = {
+  numberOfHours: [1, 100],
+};
+
 let url;
 
 const inputFields = document.querySelectorAll('input');
@@ -53,7 +58,9 @@ textAreas.forEach(inputEventAdder);
 function inputEventAdder(field) {
   field.addEventListener('input', function () {
     window.localStorage.setItem(field.id, field.value);
-    dataValidator(field, sizeDef[field.id]);
+    if (field.type === 'number')
+      numberDataValidator(field, range[field.id][0], range[field.id][1]);
+    else dataValidator(field, sizeDef[field.id]);
     toggleNextButton();
   });
 }
@@ -182,32 +189,33 @@ function whyRdsPageValidator() {
   );
 }
 
-function dataValidator(element, size) {
-  if (element.id !== 'numberOfHours') {
-    let counter = document.getElementById(element.id + 'Counter');
-    let words_left = size - element.value.trim().split(' ').length;
-    counter.innerText = `At least, ${words_left} more word(s) required`;
-    if (words_left <= 0) {
-      counter.innerText = '';
-    }
-    if (element.value.trim().split(' ').length >= size && element.value != '') {
-      element.classList.remove('incorrect-data');
-    } else {
-      element.classList.add('incorrect-data');
-    }
+function numberDataValidator(element, min, max) {
+  let invalidElement = document.getElementById('numberOfHours');
+  if (
+    parseInt(invalidElement.value) < min ||
+    parseInt(invalidElement.value) > max
+  ) {
+    document.getElementById(
+      'numberOfHoursCounter',
+    ).innerText = `Invalid Value- must be between ${min} to ${max}`;
+    invalidElement.classList.add('incorrect-data');
   } else {
-    let invalidElement = document.getElementById('numberOfHours');
-    if (
-      parseInt(invalidElement.value) < 1 ||
-      parseInt(invalidElement.value) > 100
-    ) {
-      document.getElementById('numberOfHoursCounter').innerHTML =
-        'Invalid Value- must be between 1 to 100';
-      invalidElement.classList.add('incorrect-data');
-    } else {
-      document.getElementById('numberOfHoursCounter').innerHTML = '';
-      invalidElement.classList.remove('incorrect-data');
-    }
+    document.getElementById('numberOfHoursCounter').innerText = '';
+    invalidElement.classList.remove('incorrect-data');
+  }
+}
+
+function dataValidator(element, size) {
+  let counter = document.getElementById(element.id + 'Counter');
+  let words_left = size - element.value.trim().split(' ').length;
+  counter.innerText = `At least, ${words_left} more word(s) required`;
+  if (words_left <= 0) {
+    counter.innerText = '';
+  }
+  if (element.value.trim().split(' ').length >= size && element.value != '') {
+    element.classList.remove('incorrect-data');
+  } else {
+    element.classList.add('incorrect-data');
   }
 }
 
@@ -253,18 +261,18 @@ function autoFillTheFields() {
 
 function previewFiller() {
   previewFName.innerText = window.localStorage.getItem('firstName');
-  previewLName.innerHTML = window.localStorage.getItem('lastName');
-  previewCity.innerHTML = window.localStorage.getItem('city');
-  previewState.innerHTML = window.localStorage.getItem('state');
-  previewCountry.innerHTML = window.localStorage.getItem('country');
-  previewIntro.innerHTML = window.localStorage.getItem('introduction');
-  previewSkills.innerHTML = window.localStorage.getItem('skills');
-  previewInstitution.innerHTML = window.localStorage.getItem('college');
-  previewForFun.innerHTML = window.localStorage.getItem('forFun');
-  previewFunFact.innerHTML = window.localStorage.getItem('funFact');
-  previewWhyRds.innerHTML = window.localStorage.getItem('whyRds');
-  previewHeardAbout.innerHTML = window.localStorage.getItem('foundFrom');
-  previewNumberOfHours.innerHTML = window.localStorage.getItem('numberOfHours');
+  previewLName.innerText = window.localStorage.getItem('lastName');
+  previewCity.innerText = window.localStorage.getItem('city');
+  previewState.innerText = window.localStorage.getItem('state');
+  previewCountry.innerText = window.localStorage.getItem('country');
+  previewIntro.innerText = window.localStorage.getItem('introduction');
+  previewSkills.innerText = window.localStorage.getItem('skills');
+  previewInstitution.innerText = window.localStorage.getItem('college');
+  previewForFun.innerText = window.localStorage.getItem('forFun');
+  previewFunFact.innerText = window.localStorage.getItem('funFact');
+  previewWhyRds.innerText = window.localStorage.getItem('whyRds');
+  previewHeardAbout.innerText = window.localStorage.getItem('foundFrom');
+  previewNumberOfHours.innerText = window.localStorage.getItem('numberOfHours');
 }
 
 function getJoinData() {

@@ -256,7 +256,7 @@ export const MAP_COORDINATES = {
   LNG: 78.476681027237,
   LAT: 22.1991660760527,
 };
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://api.realdevsquad.com';
 export const JOIN_POST_URL = `${BASE_URL}/users/self/intro`;
 export const SELF_URL = `${BASE_URL}/users/self`;
 export const GITHUB_OAUTH =

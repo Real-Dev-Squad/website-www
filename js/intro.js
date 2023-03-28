@@ -3,7 +3,7 @@ import { BASE_URL } from './constants.js';
 const notAuthorized = document.querySelector('.not-authorized-page');
 const notFound = document.querySelector('.not-found-page');
 const mainContainer = document.querySelector('.intro-main');
-const loading = document.getElementById('loading');
+const loading = document.querySelector('.loading');
 
 async function makeApiCall(
   url,
@@ -21,7 +21,11 @@ async function makeApiCall(
       credentials,
       ...options,
     });
-    return response;
+    const res = {
+      data: await response.json(),
+      status: response.status,
+    };
+    return res;
   } catch (err) {
     throw err;
   }
@@ -56,7 +60,7 @@ function generatenotAuthorizedPage() {
   notAuthorizedImg.setAttribute('alt', 'not authorized page');
   const notAuthorizedText = createElement({
     type: 'h1',
-    classList: ['not-authorized-text-h1'],
+    classList: ['not-authorized-text'],
   });
   notAuthorizedText.innerText = 'You are not authorized to view this page';
   notAuthorizedDiv.append(notAuthorizedImg, notAuthorizedText);
@@ -73,7 +77,7 @@ function generateNoDataFoundPage() {
   notFoundImg.setAttribute('alt', 'page not found');
   const notFoundText = createElement({
     type: 'h1',
-    classList: ['not-found-text-h1'],
+    classList: ['not-found-text'],
   });
   notFoundText.innerText = "The page you're looking for cannot be found";
   notFoundDiv.append(notFoundImg, notFoundText);
@@ -256,8 +260,7 @@ async function showSavedDetails() {
     }
     const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
     if (usersRequest.status === 200) {
-      const usersDataList = await usersRequest.json();
-      const userData = usersDataList.data[0];
+      const userData = usersRequest.data.data[0];
       let userSavedData = {
         firstName: userData.biodata.firstName,
         lastName: userData.biodata.lastName,

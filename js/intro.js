@@ -4,6 +4,7 @@ const notAuthorized = document.querySelector('.not-authorized-page');
 const notFound = document.querySelector('.not-found-page');
 const mainContainer = document.querySelector('.intro-main');
 const loading = document.querySelector('.loading');
+const toastBox = document.querySelector('.toast-box');
 
 async function makeApiCall(
   url,
@@ -36,6 +37,18 @@ function createElement({ type, classList = [], id }) {
   element.classList.add(...classList);
   element.id = id;
   return element;
+}
+
+function showToast(err) {
+  const toast = createElement({
+    type: 'div',
+    classList: ['toast'],
+  });
+  toast.innerHTML = err;
+  toastBox.append(toast);
+  setTimeout(() => {
+    toast.remove();
+  }, 6000);
 }
 
 function getUserId() {
@@ -317,7 +330,14 @@ async function showSavedDetails() {
       }
     }
   } catch (err) {
-    alert('something went wrong');
-    location.href = 'https://realdevsquad.com';
+    window.addEventListener(
+      'click',
+      showToast(
+        '<i class="fa-solid fa-circle-exclamation"></i> something went wrong',
+      ),
+    );
+    setTimeout(function () {
+      window.location.href = 'https://realdevsquad.com';
+    }, 5000);
   }
 })();

@@ -206,16 +206,31 @@ function numberDataValidator(element, min, max) {
 }
 
 function dataValidator(element, size) {
-  let counter = document.getElementById(element.id + 'Counter');
-  let words_left = size - element.value.trim().split(' ').length;
-  counter.innerText = `At least, ${words_left} more word(s) required`;
-  if (words_left <= 0) {
-    counter.innerText = '';
-  }
-  if (element.value.trim().split(' ').length >= size && element.value != '') {
-    element.classList.remove('incorrect-data');
+  if (element.id !== 'numberOfHours') {
+    let counter = document.getElementById(element.id + 'Counter');
+    let words_left = size - element.value.trim().split(' ').length;
+    counter.innerText = `At least, ${words_left} more word(s) required`;
+    if (words_left <= 0) {
+      counter.innerText = '';
+    }
+    if (element.value.trim().split(' ').length >= size && element.value != '') {
+      element.classList.remove('incorrect-data');
+    } else {
+      element.classList.add('incorrect-data');
+    }
   } else {
-    element.classList.add('incorrect-data');
+    let invalidElement = document.getElementById('numberOfHours');
+    if (
+      parseInt(invalidElement.value) < 1 ||
+      parseInt(invalidElement.value) > 100
+    ) {
+      document.getElementById('numberOfHoursCounter').innerHTML =
+        'Invalid Value- must be between 1 to 100';
+      invalidElement.classList.add('incorrect-data');
+    } else {
+      document.getElementById('numberOfHoursCounter').innerHTML = '';
+      invalidElement.classList.remove('incorrect-data');
+    }
   }
 }
 

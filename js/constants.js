@@ -261,6 +261,5 @@ export const JOIN_POST_URL = `${BASE_URL}/users/self/intro`;
 export const SELF_URL = `${BASE_URL}/users/self`;
 export const GITHUB_OAUTH =
   'https://github.com/login/oauth/authorize?client_id=8b97fd58a86f1d06b0e2';
-export const SIGNUP_URL =
-  'https://my.realdevsquad.com/new-signup';
+export const SIGNUP_URL = 'https://my.realdevsquad.com/new-signup';
 export const HOME_URL = 'https://realdevsquad.com';

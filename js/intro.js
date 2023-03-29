@@ -5,6 +5,8 @@ const notFound = document.querySelector('.not-found-page');
 const mainContainer = document.querySelector('.intro-main');
 const loading = document.querySelector('.loading');
 const toastBox = document.querySelector('.toast-box');
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
 async function makeApiCall(
   url,
@@ -49,15 +51,6 @@ function showToast(err) {
   setTimeout(() => {
     toast.remove();
   }, 6000);
-}
-
-function getUserId() {
-  const currentUrl = window.location.href;
-  if (currentUrl.split('?').length == 1) {
-    return 'wrong url';
-  } else {
-    return currentUrl.split('?')[1];
-  }
 }
 
 function generatenotAuthorizedPage() {
@@ -265,12 +258,7 @@ function generateSavedDetailsForm(users) {
 //making userSavedData object from API
 async function showSavedDetails() {
   try {
-    const userId = getUserId();
-    if (userId == 'wrong url') {
-      loading.classList.add('hidden');
-      generateNoDataFoundPage();
-      throw err;
-    }
+    const userId = urlParams.get('id');
     const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
     if (usersRequest.status === 200) {
       const userData = usersRequest.data.data[0];
@@ -293,7 +281,7 @@ async function showSavedDetails() {
       generateNoDataFoundPage();
       loading.classList.add('hidden');
       setTimeout(() => {
-        alert('SuperUser You Write Wrong Url');
+        alert('SuperUser You Write Wrong userId');
         location.href = 'https://www.realdevsquad.com/intro.html';
       }, 1500);
     }
@@ -313,13 +301,17 @@ async function showSavedDetails() {
     });
 
     const selfDetails = await res.json();
-    const userId = getUserId();
     if (selfDetails.roles.super_user) {
       notAuthorized.classList.add('hidden');
       mainContainer.classList.remove('hidden');
-      showSavedDetails();
+      if (!urlParams.has('id')) {
+        loading.classList.add('hidden');
+        generateNoDataFoundPage();
+      } else {
+        showSavedDetails();
+      }
     } else {
-      if (userId == 'wrong url') {
+      if (!urlParams.has('id')) {
         loading.classList.add('hidden');
         generateNoDataFoundPage();
       } else {

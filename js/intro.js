@@ -1,4 +1,4 @@
-import { BASE_URL } from './constants.js';
+import { BASE_URL, HOME_URL } from './constants.js';
 
 const notAuthorized = document.querySelector('.not-authorized-page');
 const notFound = document.querySelector('.not-found-page');
@@ -329,7 +329,7 @@ async function showSavedDetails() {
       ),
     );
     setTimeout(function () {
-      window.location.href = 'https://realdevsquad.com';
+      window.location.href = HOME_URL;
     }, 5000);
   }
 })();

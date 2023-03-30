@@ -1,4 +1,4 @@
-export async function makeApiCall(
+async function makeApiCall(
   url,
   method = 'get',
   body = null,
@@ -14,9 +14,12 @@ export async function makeApiCall(
       credentials,
       ...options,
     });
+    const status = response.status;
+    const { data } = await response.json();
+
     const res = {
-      data: await response.json(),
-      status: response.status,
+      data,
+      status,
     };
     return res;
   } catch (err) {
@@ -24,9 +27,41 @@ export async function makeApiCall(
   }
 }
 
-export function createElement({ type, classList = [], id }) {
+function createElement({ type, classList = [], id }) {
   const element = document.createElement(type);
   element.classList.add(...classList);
-  element.id = id;
+  if (!id) {
+    element.id = isEmpty(id);
+  } else {
+    element.id = id;
+  }
   return element;
+}
+
+/**
+ * @param value:
+ * @returns boolean which returns
+ * - `true` if value is empty or falsy
+ * - `false`  if value is not empty or truthy
+ */
+function isEmpty(valueToCheck) {
+  console.log(valueToCheck);
+  switch (typeof valueToCheck) {
+    case 'undefined':
+      return true;
+    case 'string':
+      return valueToCheck.trim().length === 0 || valueToCheck.length === 0;
+    case 'object':
+      if (valueToCheck === null) {
+        return true;
+      } else if (Array.isArray(valueToCheck)) {
+        return valueToCheck.length === 0;
+      } else {
+        return Object.keys(valueToCheck).length === 0;
+      }
+    case 'number':
+      return Number.isNaN(valueToCheck);
+    default:
+      return false;
+  }
 }

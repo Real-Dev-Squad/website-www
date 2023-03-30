@@ -1,5 +1,4 @@
 import { BASE_URL, HOME_URL } from './constants.js';
-import { createElement, makeApiCall } from './utils.js';
 
 const notAuthorized = document.querySelector('.not-authorized-page');
 const notFound = document.querySelector('.not-found-page');
@@ -9,16 +8,23 @@ const toastBox = document.querySelector('.toast-box');
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
-function showToast(err) {
+function showToast(err, delay) {
   const toast = createElement({
     type: 'div',
     classList: ['toast'],
   });
-  toast.innerHTML = err;
+  const img = createElement({
+    type: 'img',
+    classList: ['icon'],
+  });
+  img.src = 'img/intro-page/exclamation-circle.svg';
+  img.setAttribute('alt', 'exclamation-icon');
+  toast.textContent = err;
+  toast.prepend(img);
   toastBox.append(toast);
   setTimeout(() => {
     toast.remove();
-  }, 6000);
+  }, delay);
 }
 
 function generatenotAuthorizedPage() {
@@ -56,6 +62,11 @@ function generateNoDataFoundPage() {
   notFoundText.innerText = "The page you're looking for cannot be found";
   notFoundDiv.append(notFoundImg, notFoundText);
   notFound.appendChild(notFoundDiv);
+}
+
+function queryParamsNotValid() {
+  loading.classList.add('hidden');
+  generateNoDataFoundPage();
 }
 
 function generateSavedDetailsForm(users) {
@@ -222,12 +233,12 @@ function generateSavedDetailsForm(users) {
 }
 
 //making userSavedData object from API
-async function showSavedDetails() {
+async function showSavedDetails(delay) {
   try {
     const userId = urlParams.get('id');
     const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
     if (usersRequest.status === 200) {
-      const userData = usersRequest.data.data[0];
+      const userData = usersRequest.data[0];
       let userSavedData = {
         firstName: userData.biodata.firstName,
         lastName: userData.biodata.lastName,
@@ -249,7 +260,7 @@ async function showSavedDetails() {
       setTimeout(() => {
         alert('SuperUser You Write Wrong userId');
         location.href = 'https://www.realdevsquad.com/intro.html';
-      }, 1500);
+      }, delay);
     }
   } catch (err) {
     console.log(err);
@@ -271,15 +282,13 @@ async function showSavedDetails() {
       notAuthorized.classList.add('hidden');
       mainContainer.classList.remove('hidden');
       if (!urlParams.has('id')) {
-        loading.classList.add('hidden');
-        generateNoDataFoundPage();
+        queryParamsNotValid();
       } else {
-        showSavedDetails();
+        showSavedDetails(1500);
       }
     } else {
       if (!urlParams.has('id')) {
-        loading.classList.add('hidden');
-        generateNoDataFoundPage();
+        queryParamsNotValid();
       } else {
         notFound.classList.add('hidden');
         loading.classList.add('hidden');
@@ -288,12 +297,7 @@ async function showSavedDetails() {
       }
     }
   } catch (err) {
-    window.addEventListener(
-      'click',
-      showToast(
-        '<i class="fa-solid fa-circle-exclamation"></i> something went wrong',
-      ),
-    );
+    window.addEventListener('click', showToast('something went wrong', 6000));
     setTimeout(function () {
       window.location.href = HOME_URL;
     }, 5000);

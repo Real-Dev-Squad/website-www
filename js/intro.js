@@ -65,8 +65,7 @@ function generateSavedDetailsForm(users) {
     id: 'render-page',
   });
   const greeting = createElement({ type: 'h1', classList: ['greeting'] });
-  greeting.innerText =
-    "Thanks for filling out join form 👀 Here's what was received.";
+  greeting.innerText = `Let's Check ${users.firstName} Information📜`;
   renderIntroPage.appendChild(greeting);
 
   const container = createElement({ type: 'div', classList: ['container'] });

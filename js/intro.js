@@ -1,4 +1,5 @@
 import { BASE_URL, HOME_URL } from './constants.js';
+import { createElement, makeApiCall } from './utils.js';
 
 const notAuthorized = document.querySelector('.not-authorized-page');
 const notFound = document.querySelector('.not-found-page');
@@ -7,39 +8,6 @@ const loading = document.querySelector('.loading');
 const toastBox = document.querySelector('.toast-box');
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-
-async function makeApiCall(
-  url,
-  method = 'get',
-  body = null,
-  credentials = 'include',
-  headers = { 'content-type': 'application/json' },
-  options = null,
-) {
-  try {
-    const response = await fetch(url, {
-      method,
-      body,
-      headers,
-      credentials,
-      ...options,
-    });
-    const res = {
-      data: await response.json(),
-      status: response.status,
-    };
-    return res;
-  } catch (err) {
-    throw err;
-  }
-}
-
-function createElement({ type, classList = [], id }) {
-  const element = document.createElement(type);
-  element.classList.add(...classList);
-  element.id = id;
-  return element;
-}
 
 function showToast(err) {
   const toast = createElement({
@@ -90,7 +58,6 @@ function generateNoDataFoundPage() {
   notFound.appendChild(notFoundDiv);
 }
 
-//generate form and render information
 function generateSavedDetailsForm(users) {
   const renderIntroPage = createElement({
     type: 'section',

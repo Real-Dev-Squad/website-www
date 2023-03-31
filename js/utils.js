@@ -45,7 +45,6 @@ function createElement({ type, classList = [], id }) {
  * - `false`  if value is not empty or truthy
  */
 function isEmpty(valueToCheck) {
-  console.log(valueToCheck);
   switch (typeof valueToCheck) {
     case 'undefined':
       return true;

@@ -16,17 +16,14 @@ const map = new mapboxgl.Map({
 
 const getUsersData = async () => {
   try {
-    const userDetailsResponse = await fetch(
-      'https://api.realdevsquad.com/users',
-      {
-        method: 'GET',
-        cache: 'default',
-        headers: {
-          'content-type': 'application/json',
-        },
-        credentials: 'include',
+    const userDetailsResponse = await fetch('http://localhost:3000/users', {
+      method: 'GET',
+      cache: 'default',
+      headers: {
+        'content-type': 'application/json',
       },
-    );
+      credentials: 'include',
+    });
     const { users } = await userDetailsResponse.json();
     if (users) {
       let userHaveLocationAndImageDetails = users.filter(

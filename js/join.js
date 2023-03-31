@@ -184,17 +184,14 @@ function whyRdsPageValidator() {
     foundFrom.value != '' &&
     whyRds.value.trim() != '' &&
     numberOfHours.value != '' &&
-    parseInt(numberOfHours.value) > 1 &&
-    parseInt(numberOfHours.value) <= 100
+    +numberOfHours.value > range['numberOfHours'][0] &&
+    +numberOfHours.value <= range['numberOfHours'][1]
   );
 }
 
 function numberDataValidator(element, min, max) {
   let invalidElement = document.getElementById('numberOfHours');
-  if (
-    parseInt(invalidElement.value) < min ||
-    parseInt(invalidElement.value) > max
-  ) {
+  if (+invalidElement.value < min || +invalidElement.value > max) {
     document.getElementById(
       'numberOfHoursCounter',
     ).innerText = `Invalid Value- must be between ${min} to ${max}`;
@@ -293,7 +290,9 @@ function getJoinData() {
   ];
   let data = {};
   selectedData.forEach((selection) => {
-    data[selection] = window.localStorage.getItem(selection);
+    if (selection.includes('number')) {
+      data[selection] = +window.localStorage.getItem(selection);
+    } else data[selection] = window.localStorage.getItem(selection);
   });
 
   return data;

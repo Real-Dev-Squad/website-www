@@ -233,7 +233,7 @@ function generateSavedDetailsForm(users) {
 }
 
 //making userSavedData object from API
-async function showSavedDetails(delay) {
+async function showSavedDetails() {
   try {
     const userId = urlParams.get('id');
     const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
@@ -260,7 +260,7 @@ async function showSavedDetails(delay) {
       setTimeout(() => {
         alert('SuperUser You Write Wrong userId');
         location.href = 'https://www.realdevsquad.com/intro.html';
-      }, delay);
+      }, 1500);
     }
   } catch (err) {
     console.log(err);
@@ -284,7 +284,7 @@ async function showSavedDetails(delay) {
       if (!urlParams.has('id')) {
         queryParamsNotValid();
       } else {
-        showSavedDetails(1500);
+        showSavedDetails();
       }
     } else {
       if (!urlParams.has('id')) {

@@ -14,9 +14,8 @@ async function makeApiCall(
       credentials,
       ...options,
     });
+    const data = await response.json();
     const status = response.status;
-    const { data } = await response.json();
-
     const res = {
       data,
       status,

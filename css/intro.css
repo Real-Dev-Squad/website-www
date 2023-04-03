@@ -82,7 +82,6 @@
 
 @media screen and (max-width: 500px) {
   .user-input {
-    font-size: 1rem;
     width: 22rem;
   }
 

@@ -29,11 +29,7 @@ async function makeApiCall(
 function createElement({ type, classList = [], id }) {
   const element = document.createElement(type);
   element.classList.add(...classList);
-  if (!id) {
-    element.id = isEmpty(id);
-  } else {
-    element.id = id;
-  }
+  element.id = id ?? isEmpty(id);
   return element;
 }
 
@@ -41,25 +37,9 @@ function createElement({ type, classList = [], id }) {
  * @param value:
  * @returns boolean which returns
  * - `true` if value is empty or falsy
- * - `false`  if value is not empty or truthy
  */
 function isEmpty(valueToCheck) {
-  switch (typeof valueToCheck) {
-    case 'undefined':
-      return true;
-    case 'string':
-      return valueToCheck.trim().length === 0 || valueToCheck.length === 0;
-    case 'object':
-      if (valueToCheck === null) {
-        return true;
-      } else if (Array.isArray(valueToCheck)) {
-        return valueToCheck.length === 0;
-      } else {
-        return Object.keys(valueToCheck).length === 0;
-      }
-    case 'number':
-      return Number.isNaN(valueToCheck);
-    default:
-      return false;
+  if (typeof valueToCheck === 'undefined') {
+    return true;
   }
 }

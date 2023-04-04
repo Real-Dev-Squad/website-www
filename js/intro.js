@@ -36,7 +36,7 @@ function generatenotAuthorizedPage() {
     type: 'img',
     classList: ['not-authorized-img'],
   });
-  notAuthorizedImg.src = 'img/intro-page/page-not-authorized.png';
+  notAuthorizedImg.src = 'img/intro-page/page-not-authorized.svg';
   notAuthorizedImg.setAttribute('alt', 'not-authorized');
   const notAuthorizedText = createElement({
     type: 'h1',
@@ -53,7 +53,7 @@ function generateNoDataFoundPage() {
     type: 'img',
     classList: ['not-found-img'],
   });
-  notFoundImg.src = '/img/intro-page/page-not-found.png';
+  notFoundImg.src = '/img/intro-page/page-not-found.svg';
   notFoundImg.setAttribute('alt', 'page not found');
   const notFoundText = createElement({
     type: 'h1',
@@ -65,11 +65,7 @@ function generateNoDataFoundPage() {
 }
 
 function generateSavedDetailsForm(users) {
-  const renderIntroPage = createElement({
-    type: 'section',
-    classList: ['render-page'],
-    id: 'render-page',
-  });
+  const renderIntroPage = createElement({ type: 'section', classList: ['render-page'], id: 'render-page', });
   const greeting = createElement({ type: 'h1', classList: ['greeting'] });
   greeting.innerText = `Let's Check ${users.firstName} Information📜`;
   renderIntroPage.appendChild(greeting);
@@ -77,170 +73,86 @@ function generateSavedDetailsForm(users) {
   const container = createElement({ type: 'div', classList: ['container'] });
   renderIntroPage.appendChild(container);
 
-  const firstNameLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const firstNameLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const firstNameValue = createElement({ type: 'p', classList: ['user-input', 'input-regular'], id: 'renderFName' });
   firstNameLabel.innerText = 'First Name';
-  const firstNameValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderFName',
-  });
   firstNameValue.innerText = users.firstName;
   container.appendChild(firstNameLabel);
   container.appendChild(firstNameValue);
 
-  const lastNameLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const lastNameLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const lastNameValue = createElement({ type: 'p', classList: ['user-input', 'input-regular'], id: 'renderLName' });
   lastNameLabel.innerText = 'Last Name';
-  const lastNameValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderLName',
-  });
   lastNameValue.innerHTML = users.lastName;
   container.appendChild(lastNameLabel);
   container.appendChild(lastNameValue);
 
-  const cityLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const cityLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const cityValue = createElement({ type: 'p', classList: ['user-input', 'input-regular'], id: 'renderCity' });
   cityLabel.innerText = 'City';
-  const cityValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderCity',
-  });
   cityValue.innerHTML = users.city;
   container.appendChild(cityLabel);
   container.appendChild(cityValue);
 
-  const stateLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const stateLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const stateValue = createElement({ type: 'p', classList: ['user-input', 'input-regular'], id: 'renderState' });
   stateLabel.innerText = 'State';
-  const stateValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderState',
-  });
   stateValue.innerHTML = users.state;
   container.appendChild(stateLabel);
   container.appendChild(stateValue);
 
-  const countryLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const countryLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const countryValue = createElement({ type: 'p', classList: ['user-input', 'input-regular'], id: 'renderCountry' });
   countryLabel.innerText = 'Country';
-  const countryValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderCountry',
-  });
   countryValue.innerHTML = users.country;
   container.appendChild(countryLabel);
   container.appendChild(countryValue);
 
-  const introductionLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const introductionLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const introValue = createElement({ type: 'p', classList: ['user-input', 'input-big'], id: 'renderIntro' });
   introductionLabel.innerText = 'Introduction';
-  const introValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-big'],
-    id: 'renderIntro',
-  });
   introValue.innerHTML = users.introduction;
   container.appendChild(introductionLabel);
   container.appendChild(introValue);
 
-  const skillsLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const skillsLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const skillsValue = createElement({ type: 'p', classList: ['user-input', 'input-regular'], id: 'renderSkills' });
   skillsLabel.innerText = 'Skills';
-  const skillsValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderSkills',
-  });
   skillsValue.innerHTML = users.skills;
   container.appendChild(skillsLabel);
   container.appendChild(skillsValue);
 
-  const institutionLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const institutionLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const institutionValue = createElement({ type: 'p', classList: ['user-input', 'input-regular'], id: 'renderSkills' });
   institutionLabel.innerText = 'Institution';
-  const institutionValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderSkills',
-  });
   institutionValue.innerHTML = users.institution;
   container.appendChild(institutionLabel);
   container.appendChild(institutionValue);
 
-  const forFunLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const forFunLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const forFunValue = createElement({ type: 'p', classList: ['user-input', 'input-big'], id: 'renderForFun' });
   forFunLabel.innerText = 'What you do for fun';
-  const forFunValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-big'],
-    id: 'renderForFun',
-  });
   forFunValue.innerHTML = users.forFun;
   container.appendChild(forFunLabel);
   container.appendChild(forFunValue);
 
-  const funFactLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const funFactLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const funFactValue = createElement({ type: 'p', classList: ['user-input', 'input-big'], id: 'renderFunFact' });
   funFactLabel.innerText = 'A fun fact about you';
-  const funFactValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-big'],
-    id: 'renderFunFact',
-  });
   funFactValue.innerHTML = users.funFact;
   container.appendChild(funFactLabel);
   container.appendChild(funFactValue);
 
-  const whyRdsLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const whyRdsLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const whyRdsValue = createElement({ type: 'p', classList: ['user-input', 'input-big'], id: 'renderWhyRds' });
   whyRdsLabel.innerText = 'Why do you want to join Real Dev Squad?';
-  const whyRdsValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-big'],
-    id: 'renderWhyRds',
-  });
   whyRdsValue.innerHTML = users.whyRds;
   container.appendChild(whyRdsLabel);
   container.appendChild(whyRdsValue);
 
-  const heardAboutLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
+  const heardAboutLabel = createElement({ type: 'p', classList: ['input-label-dark'] });
+  const heardAboutValue = createElement({ type: 'p', classList: ['user-input', 'input-regular'], id: 'renderHeardAbout' });
   heardAboutLabel.innerText = 'How did you hear about us';
-  const heardAboutValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderHeardAbout',
-  });
   heardAboutValue.innerText = users.foundFrom;
   container.appendChild(heardAboutLabel);
   container.appendChild(heardAboutValue);
@@ -282,6 +194,7 @@ async function showSavedDetails() {
       }, 5000);
     }
   } catch (err) {
+    console.log('ss')
     console.log(err);
   }
 }

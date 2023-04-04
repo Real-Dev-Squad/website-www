@@ -42,7 +42,7 @@ function createElement({ type, classList = [], id }) {
 function isEmpty(valueToCheck) {
   if (typeof valueToCheck === 'undefined') {
     return true;
-  }else{
+  } else {
     return false;
   }
 }

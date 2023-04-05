@@ -22,27 +22,13 @@ async function makeApiCall(
     };
     return res;
   } catch (err) {
-    throw err;
+    console.error(err);
   }
 }
 
 function createElement({ type, classList = [], id }) {
   const element = document.createElement(type);
   element.classList.add(...classList);
-  element.id = id ?? isEmpty(id);
+  element.id = id ?? true;
   return element;
-}
-
-/**
- * @param value:
- * @returns boolean which returns
- * - `true` if value is empty or falsy
- * - `false` if value is not empty or truthy
- */
-function isEmpty(valueToCheck) {
-  if (typeof valueToCheck === 'undefined') {
-    return true;
-  } else {
-    return false;
-  }
 }

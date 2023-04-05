@@ -22,7 +22,7 @@ async function makeApiCall(
     };
     return res;
   } catch (err) {
-    console.error(err);
+    throw err;
   }
 }
 

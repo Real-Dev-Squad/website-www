@@ -282,7 +282,7 @@ async function showSavedDetails() {
       }, 5000);
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }
 
@@ -306,6 +306,7 @@ async function showSavedDetails() {
       mainContainer.classList.add('hidden');
     }
   } catch (err) {
+    console.error(err);
     window.addEventListener('click', showToast('something went wrong', 6000));
     setTimeout(function () {
       window.location.href = HOME_URL;

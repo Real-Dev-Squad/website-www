@@ -10,7 +10,5 @@ module('Acceptance | live', function (hooks) {
 
     assert.strictEqual(currentURL(), '/live');
     assert.dom('.btn-share').hasText('Screenshare');
-    assert.dom('.btn-option').exists();
-    assert.dom('.btn-moderator').hasText('Moderator view');
   });
 });

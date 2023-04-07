@@ -1,42 +1,8 @@
 <section class='live__header'>
-  <div class='live__header--left'>
-    <Reusables::Button
-      @variant='share'
-      @text='Screenshare'
-      @type='button'
-      @onClick={{this.clickHandler}}
-    />
-    <Reusables::Button
-      @variant='option'
-      @text='Survey'
-      @type='button'
-      @onClick={{this.clickHandler}}
-    />
-    <Reusables::Button
-      @variant='option'
-      @text='Questions'
-      @type='button'
-      @onClick={{this.clickHandler}}
-    />
-    <Reusables::Button
-      @variant='option'
-      @text='Previous events'
-      @type='button'
-      @onClick={{this.clickHandler}}
-    />
-    <Reusables::Button
-      @variant='option'
-      @text='Real Dev Squad'
-      @type='button'
-      @onClick={{this.clickHandler}}
-    />
-  </div>
-  <div class='live__header--right'>
-    <Reusables::Button
-      @variant='moderator'
-      @text='Moderator view'
-      @type='button'
-      @onClick={{this.clickHandler}}
-    />
-  </div>
+  <Reusables::Button
+    @variant='share'
+    @text='Screenshare'
+    @type='button'
+    @onClick={{this.toggleShare}}
+  />
 </section>

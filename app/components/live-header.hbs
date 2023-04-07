@@ -1,7 +1,7 @@
 <section class='live__header'>
   <Reusables::Button
     @variant='share'
-    @text='Screenshare'
+    @text={{if this.isSharing 'Stop sharing' 'Screenshare'}}
     @type='button'
     @onClick={{this.toggleShare}}
   />

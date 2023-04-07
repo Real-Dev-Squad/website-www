@@ -1,8 +1,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class LiveHeaderComponent extends Component {
-  @action clickHandler() {
-    console.log('Dummy click handler');
+  @tracked isSharing = false;
+
+  @action toggleShare() {
+    this.isSharing = !this.isSharing;
   }
 }

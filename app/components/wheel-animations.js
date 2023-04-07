@@ -32,5 +32,3 @@ function randomY(n) {
 function randomNumberWithinRange(min, max) {
   return Math.random() * (max - min) + min;
 }
-
-export { randomNumberWithinRange, randomX, randomY };

@@ -15,7 +15,6 @@ export default class MembersDataContainerComponent extends Component {
         next: 'QgFqr4RXYUEN8TB3LuVu', // Random id to be removed before merging
       })
       .catch((err) => console.error(err));
-    console.log({ data });
     this.members = data;
   }
 }

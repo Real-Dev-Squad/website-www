@@ -19,9 +19,17 @@ module.exports = function (environment) {
     },
   };
 
-  ENV.BASE_API_URL = 'https://api.realdevsquad.com';
+  if (environment === 'production') {
+    ENV.BASE_API_URL = 'https://api.realdevsquad.com';
+  }
+
+  if (environment === 'staging') {
+    ENV.BASE_API_URL = 'https://staging-api.realdevsquad.com';
+  }
 
   if (environment === 'development') {
+    ENV.BASE_API_URL = 'http://localhost:3000';
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

@@ -9,9 +9,11 @@ import { JOIN_URL } from '../constants/apis';
 export default class StepperComponent extends Component {
   @service login;
   @service toast;
+  @service router;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
-  @tracked currentStep = +localStorage.getItem('currentStep') ?? 0;
+  @tracked currentStep =
+    +localStorage.getItem('currentStep') ?? +this.args.step ?? 0;
   TITLE_MESSAGES = TITLE_MESSAGES;
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
@@ -21,10 +23,20 @@ export default class StepperComponent extends Component {
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
 
+  constructor() {
+    super(...arguments);
+    window.onpopstate = () => {
+      this.currentStep = Number(
+        +new URLSearchParams(window.location.search).get('step')
+      );
+    };
+  }
+
   @action incrementStep() {
     if (this.currentStep < 5) {
       this.currentStep += 1;
       localStorage.setItem('currentStep', this.currentStep);
+      this.router.transitionTo(`/join?step=${this.currentStep}`);
     }
   }
 
@@ -32,6 +44,7 @@ export default class StepperComponent extends Component {
     if (this.currentStep > 0) {
       this.currentStep -= 1;
       localStorage.setItem('currentStep', this.currentStep);
+      this.router.transitionTo(`/join?step=${this.currentStep}`);
     }
   }
 

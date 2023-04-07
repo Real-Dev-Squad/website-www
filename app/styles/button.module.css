@@ -34,15 +34,3 @@
   background: var(--color-cultured);
   text-decoration: underline;
 }
-
-.btn-option {
-  background: none;
-  border: none;
-  color: var(--color-persian-indigo);
-}
-
-.btn-moderator {
-  border: none;
-  background-color: var(--color-light-silver);
-  color: var(--color-persian-indigo);
-}

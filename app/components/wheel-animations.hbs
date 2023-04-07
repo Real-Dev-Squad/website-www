@@ -4,9 +4,9 @@
       {{#each @users as |m index|}}
         <a
           href='https://members.realdevsquad.com/{{m.username}}'
-          referrerpolicy='same-origin'
           target='_blank'
           class='member__link'
+          rel='noopener noreferrer'
         >
           <img
             style='--x: {{(this.randomX index)}}; --y:{{(this.randomY

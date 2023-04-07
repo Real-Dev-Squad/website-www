@@ -117,7 +117,7 @@ function fetchSavedDetails() {
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
-      url = `${BASE_URL}/users/${res.id}/intro`;
+      url = `https://www.realdevsquad.com/intro.html?id=${res.id}`;
       personalLink.innerText = url;
     })
     .catch((err) => {

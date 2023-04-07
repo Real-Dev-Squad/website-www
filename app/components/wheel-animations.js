@@ -1,29 +1,30 @@
 import Component from '@glimmer/component';
 
-export default class WheelAnimationsComponent extends Component {
-  // TODO: fix random generating values for x, y and size for proper animation
-  randomNumber = () => {
-    const x = 10;
-    const y = 10;
+const width = document.body.clientWidth;
+const noOfMembers = 5;
+const theta = 360 / noOfMembers;
 
-    const randomNumber = (Math.random() * (y + x) - x) * 20;
-    return randomNumber;
+export default class WheelAnimationsComponent extends Component {
+  randomX = (n) => {
+    const deg = n * theta * (Math.PI / 180);
+    return (width / 5) * Math.cos(deg);
+  };
+
+  randomY = (n) => {
+    const deg = n * theta * (Math.PI / 180);
+    return 180 * Math.sin(deg);
   };
 
   randomSize = () => {
-    const x = 0.7;
-    const y = 1.3;
-
-    const randomNumber = Math.random() * (y + x) - x;
-    return randomNumber;
+    return randomNumberWithinRange(0.5, 1.2);
   };
 
   //   TODO:  MAKE this into util
   resizeImageUrl = (publicId, x, y) => {
-    if (publicId) {
-      return `https://res.cloudinary.com/realdevsquad/image/upload/w_${x},h_${y}/${publicId}`;
-    }
-    // SET DEFAULT dummy image
-    return 'DEFAULT';
+    return `https://res.cloudinary.com/realdevsquad/image/upload/w_${x},h_${y}/${publicId}`;
   };
+}
+
+function randomNumberWithinRange(min, max) {
+  return Math.random() * (max - min) + min;
 }

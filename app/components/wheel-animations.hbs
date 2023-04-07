@@ -1,7 +1,7 @@
 <section class='animation__container'>
   {{#if @users}}
     <div>
-      {{#each @users as |m|}}
+      {{#each @users as |m index|}}
         <a
           href='https://members.realdevsquad.com/{{m.username}}'
           referrerpolicy='same-origin'
@@ -9,7 +9,8 @@
           class='member__link'
         >
           <img
-            style='--x: {{(this.randomNumber)}}; --y:{{(this.randomNumber
+            style='--x: {{(this.randomX index)}}; --y:{{(this.randomY
+              index
             )}}; --size:{{(this.randomSize)}};'
             class='circle member__img'
             src='{{(this.resizeImageUrl m.picture.publicId 150 150)}}'

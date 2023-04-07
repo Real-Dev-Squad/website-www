@@ -57,16 +57,23 @@
   animation: burst_out 2.5s cubic-bezier(0.37, -0.28, 0.55, 1.26) forwards;
 }
 
+@media only screen and (max-width: 595px) {
+  .circle {
+    height: 100px;
+    width: 100px;
+  }
+}
+
 @keyframes burst_out {
   0% {
-    transform: translateX(0%) translateY(0%) rotate(0deg) scale(var(--size));
+    transform: translateX(0%) translateY(0%) scale(var(--size));
     filter: blur(5px);
   }
-  70% {
+  60% {
     filter: blur(0);
   }
   100% {
     transform: translateX(calc(var(--x) * 1px)) translateY(calc(var(--y) * 1px))
-      rotate(360deg) scale(var(--size));
+      scale(var(--size));
   }
 }

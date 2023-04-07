@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>Real Dev Squad | Intro</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/join.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/intro.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/js/analytics.js"></script>
+  </head>
+  <body>
+    <div class="dropdown hide">
+      <ul class="dropdown-list">
+        <li class="dropdown-item">
+          <a class="dropdown-link" href="https://my.realdevsquad.com/">
+            My Profile
+          </a>
+        </li>
+        <hr class="line" />
+        <li class="dropdown-item dropdown-link" id="signout-option">
+          Sign out
+        </li>
+      </ul>
+    </div>
+    <nav>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="nav-login">
+        <a
+          class="btn-login"
+          href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+        >
+          <button class="btn-login-text">
+            Sign In
+            <img
+              src="img/github.svg"
+              alt="GitHub Icon"
+              height="15px"
+              width="15px"
+            />
+          </button>
+        </a>
+
+        <div class="user-greet">
+          <div class="user-greet-msg">Hello, User!</div>
+          <img class="user-profile-pic" />
+        </div>
+      </div>
+
+      <ul class="nav-menu">
+        <li class="nav-logo-li">
+          <a href="https://realdevsquad.com/">
+            <img
+              src="img/Real-Dev-Squad@1x.svg"
+              alt="home nav logo"
+              height="50px"
+              width="50px"
+            />
+          </a>
+        </li>
+        <li class="home-tab"><a href="http://realdevsquad.com/">Home</a></li>
+        <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
+        <li><a href="./events.html">Events</a></li>
+        <li><a href="https://members.realdevsquad.com/">Members</a></li>
+        <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li>
+        <li><a href="https://status.realdevsquad.com/">Status</a></li>
+        <li class="nav-login-li">
+          <a
+            class="btn-login"
+            href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+          >
+            <button class="btn-login-text">
+              Sign In With GitHub
+              <img
+                src="img/github.svg"
+                alt="GitHub Icon"
+                height="15px"
+                width="15px"
+              />
+            </button>
+          </a>
+          <div class="user-greet">
+            <div class="user-greet-msg">Hello, User!</div>
+            <img class="user-profile-pic" />
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <h1 class="loading">Loading...</h1>
+    <div class="not-authorized-page"></div>
+    <div class="not-found-page"></div>
+    <main class="intro-main"></main>
+    <div class="toast-box"></div>
+    <footer>
+      <p class="info-repo">
+        The contents of this website are deployed from this
+        <a
+          href="https://github.com/Real-Dev-Squad/website"
+          target="_blank"
+          rel="noopener noreferrer"
+          >open sourced repo</a
+        >
+      </p>
+    </footer>
+    <script src="js/navbar.js"></script>
+    <script src="/js/utils.js"></script>
+    <script type="module" src="/js/intro.js"></script>
+    <script type="module" src="js/fetchUserData.js" defer></script>
+  </body>
+</html>

@@ -1,8 +1,9 @@
-<section class='live__header'>
+<section data-test-live='header' class='live__header'>
   <Reusables::Button
     @variant='share'
     @text={{if this.isSharing 'Stop sharing' 'Screenshare'}}
     @type='button'
+    @test='share'
     @onClick={{this.toggleShare}}
   />
 </section>

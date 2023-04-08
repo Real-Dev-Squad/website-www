@@ -9,18 +9,18 @@ module('Integration | Component | live-header', function (hooks) {
   test('it renders the live header', async function (assert) {
     await render(hbs`<LiveHeader />`);
 
-    assert.dom('.live__header').exists();
-    assert.dom('.live__header .btn.btn-share').exists();
+    assert.dom('[data-test-live="header"]').exists();
+    assert.dom('[data-test-button="share"]').exists();
   });
 
   test('it should change the text when click', async function (assert) {
     await render(hbs`<LiveHeader />`);
 
-    assert.dom('.live__header .btn.btn-share').exists();
-    assert.dom('.live__header .btn.btn-share').hasText('Screenshare');
+    assert.dom('[data-test-button="share"]').exists();
+    assert.dom('[data-test-button="share"]').hasText('Screenshare');
 
-    await click('.live__header .btn.btn-share');
+    await click('[data-test-button="share"]');
 
-    assert.dom('.live__header .btn.btn-share').hasText('Stop sharing');
+    assert.dom('[data-test-button="share"]').hasText('Stop sharing');
   });
 });

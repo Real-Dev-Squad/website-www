@@ -71,7 +71,7 @@ function generateSavedDetailsForm(users) {
     id: 'render-page',
   });
   const greeting = createElement({ type: 'h1', classList: ['greeting'] });
-  greeting.innerText = `Let's Check ${users.firstName} Information📜`;
+  greeting.innerText = `Let's check ${users.firstName}'s information📜`;
   renderIntroPage.appendChild(greeting);
 
   const container = createElement({ type: 'div', classList: ['container'] });

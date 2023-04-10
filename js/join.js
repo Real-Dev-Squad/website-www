@@ -1,7 +1,7 @@
 import {
   countryList,
   JOIN_POST_URL,
-  BASE_URL,
+  HOME_URL,
   GITHUB_OAUTH,
   SELF_URL,
 } from './constants.js';
@@ -117,7 +117,7 @@ function fetchSavedDetails() {
     .then((res) => {
       window.localStorage.setItem('firstName', res.first_name);
       window.localStorage.setItem('lastName', res.last_name);
-      url = `${BASE_URL}/users/${res.id}/intro`;
+      url = `${HOME_URL}/intro.html?id=${res.id}`;
       personalLink.innerText = url;
     })
     .catch((err) => {

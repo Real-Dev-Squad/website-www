@@ -86,6 +86,10 @@
 }
 
 @media screen and (max-width: 500px) {
+  .input-label-dark {
+    font-size: 0.9rem;
+  }
+
   .user-input {
     width: 22rem;
   }

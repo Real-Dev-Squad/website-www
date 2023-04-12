@@ -231,6 +231,21 @@ function generateSavedDetailsForm(users) {
   container.appendChild(whyRdsLabel);
   container.appendChild(whyRdsValue);
 
+  const numberOfHoursLabel = createElement({
+    type: 'p',
+    classList: ['input-label-dark'],
+  });
+  const numberOfHoursValue = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'rendernumberOfHours',
+  });
+  numberOfHoursLabel.innerText =
+    'How many hours per week, are you willing to contribute?';
+  numberOfHoursValue.innerText = users.numberOfHours;
+  container.appendChild(numberOfHoursLabel);
+  container.appendChild(numberOfHoursValue);
+
   const heardAboutLabel = createElement({
     type: 'p',
     classList: ['input-label-dark'],
@@ -267,6 +282,7 @@ async function showSavedDetails() {
         funFact: userData.intro.funFact,
         forFun: userData.intro.forFun,
         whyRds: userData.intro.whyRds,
+        numberOfHours: userData.intro.numberOfHours,
         foundFrom: userData.foundFrom,
       };
       generateSavedDetailsForm(userSavedData);

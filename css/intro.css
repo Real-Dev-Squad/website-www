@@ -6,8 +6,7 @@
   margin-left: 0.5rem;
 }
 
-.input-big {
-  height: 25rem;
+.user-input {
   line-height: 1.5rem;
 }
 
@@ -87,10 +86,6 @@
 }
 
 @media screen and (max-width: 500px) {
-  .input-big {
-    height: 40rem;
-  }
-
   .user-input {
     width: 22rem;
   }

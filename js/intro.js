@@ -125,7 +125,7 @@ function generateSavedDetailsForm(users) {
   });
   const introValue = createElement({
     type: 'p',
-    classList: ['user-input', 'input-big'],
+    classList: ['user-input'],
     id: 'renderIntro',
   });
   introductionLabel.innerText = 'Introduction';
@@ -167,7 +167,7 @@ function generateSavedDetailsForm(users) {
   });
   const forFunValue = createElement({
     type: 'p',
-    classList: ['user-input', 'input-big'],
+    classList: ['user-input'],
     id: 'renderForFun',
   });
   forFunLabel.innerText = 'What you do for fun';
@@ -181,7 +181,7 @@ function generateSavedDetailsForm(users) {
   });
   const funFactValue = createElement({
     type: 'p',
-    classList: ['user-input', 'input-big'],
+    classList: ['user-input'],
     id: 'renderFunFact',
   });
   funFactLabel.innerText = 'A fun fact about you';
@@ -195,7 +195,7 @@ function generateSavedDetailsForm(users) {
   });
   const whyRdsValue = createElement({
     type: 'p',
-    classList: ['user-input', 'input-big'],
+    classList: ['user-input'],
     id: 'renderWhyRds',
   });
   whyRdsLabel.innerText = 'Why do you want to join Real Dev Squad?';

@@ -77,61 +77,33 @@ function generateSavedDetailsForm(users) {
   const container = createElement({ type: 'div', classList: ['container'] });
   renderIntroPage.appendChild(container);
 
-  const firstNameLabel = createElement({
+  const nameLabel = createElement({
     type: 'p',
     classList: ['input-label-dark'],
   });
-  const firstNameValue = createElement({
+  const nameValue = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
     id: 'renderFName',
   });
-  firstNameLabel.innerText = 'First Name';
-  firstNameValue.innerText = users.firstName;
-  container.appendChild(firstNameLabel);
-  container.appendChild(firstNameValue);
+  nameLabel.innerText = 'Name';
+  nameValue.innerText = `${users.firstName} ${users.lastName}`;
+  container.appendChild(nameLabel);
+  container.appendChild(nameValue);
 
-  const lastNameLabel = createElement({
+  const cityAndStateLabel = createElement({
     type: 'p',
     classList: ['input-label-dark'],
   });
-  const lastNameValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderLName',
-  });
-  lastNameLabel.innerText = 'Last Name';
-  lastNameValue.innerHTML = users.lastName;
-  container.appendChild(lastNameLabel);
-  container.appendChild(lastNameValue);
-
-  const cityLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
-  const cityValue = createElement({
+  const cityAndStateValue = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
     id: 'renderCity',
   });
-  cityLabel.innerText = 'City';
-  cityValue.innerHTML = users.city;
-  container.appendChild(cityLabel);
-  container.appendChild(cityValue);
-
-  const stateLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
-  const stateValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderState',
-  });
-  stateLabel.innerText = 'State';
-  stateValue.innerHTML = users.state;
-  container.appendChild(stateLabel);
-  container.appendChild(stateValue);
+  cityAndStateLabel.innerText = 'City & State';
+  cityAndStateValue.innerHTML = `${users.city}, ${users.state}`;
+  container.appendChild(cityAndStateLabel);
+  container.appendChild(cityAndStateValue);
 
   const countryLabel = createElement({
     type: 'p',
@@ -241,7 +213,7 @@ function generateSavedDetailsForm(users) {
     id: 'rendernumberOfHours',
   });
   numberOfHoursLabel.innerText =
-    'How many hours per week, are you willing to contribute?';
+    'How many hours per week, would you contribute?';
   numberOfHoursValue.innerText = users.numberOfHours;
   container.appendChild(numberOfHoursLabel);
   container.appendChild(numberOfHoursValue);

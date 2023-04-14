@@ -7,8 +7,8 @@
 }
 
 .input-big {
-  height: 26rem;
-  line-height: 1.75rem;
+  height: 25rem;
+  line-height: 1.5rem;
 }
 
 .loading {
@@ -88,7 +88,7 @@
 
 @media screen and (max-width: 500px) {
   .input-big {
-    height: 42rem;
+    height: 40rem;
   }
 
   .user-input {

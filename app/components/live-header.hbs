@@ -1,5 +1,13 @@
-<Tabs class='live__header' {{on 'click' this.tabHandler}}>
+<Tabs
+  data-test-live='header'
+  class='live__header'
+  {{on 'click' this.tabHandler}}
+>
   {{#each this.TABS as |tab|}}
-    <Tab @label={{tab.label}} @variant={{if tab.active 'active' ''}} />
+    <Tab
+      @test={{tab.label}}
+      @label={{tab.label}}
+      @variant={{if tab.active 'active' ''}}
+    />
   {{/each}}
 </Tabs>

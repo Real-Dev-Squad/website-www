@@ -10,17 +10,16 @@ module('Integration | Component | live-header', function (hooks) {
     await render(hbs`<LiveHeader />`);
 
     assert.dom('[data-test-live="header"]').exists();
-    assert.dom('[data-test-button="share"]').exists();
   });
 
-  test('it should change the text when click', async function (assert) {
+  test('it should change the tab when click on non active tab', async function (assert) {
     await render(hbs`<LiveHeader />`);
 
-    assert.dom('[data-test-button="share"]').exists();
-    assert.dom('[data-test-button="share"]').hasText('Screenshare');
+    assert.dom('[data-test-tab="Previous Events"]').exists();
+    assert.dom('[data-test-tab="Previous Events"]').hasNoClass('active');
 
-    await click('[data-test-button="share"]');
+    await click('[data-test-tab="Previous Events"]');
 
-    assert.dom('[data-test-button="share"]').hasText('Stop sharing');
+    assert.dom('[data-test-tab="Previous Events"]').hasClass('active');
   });
 });

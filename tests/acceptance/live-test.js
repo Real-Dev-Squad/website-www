@@ -9,6 +9,6 @@ module('Acceptance | live', function (hooks) {
     await visit('/live');
 
     assert.strictEqual(currentURL(), '/live');
-    assert.dom('[data-test-button="share"]').hasText('Screenshare');
+    assert.dom('[data-test-live="header"]').exists();
   });
 });

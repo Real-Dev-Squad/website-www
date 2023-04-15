@@ -1,9 +1,5 @@
-<section data-test-live='header' class='live__header'>
-  <Reusables::Button
-    @variant='share'
-    @text={{if this.isSharing 'Stop sharing' 'Screenshare'}}
-    @type='button'
-    @test='share'
-    @onClick={{this.toggleShare}}
-  />
-</section>
+<Tabs class='live__header' {{on 'click' this.tabHandler}}>
+  {{#each this.TABS as |tab|}}
+    <Tab @label={{tab.label}} @variant={{if tab.active 'active' ''}} />
+  {{/each}}
+</Tabs>

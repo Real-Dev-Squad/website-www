@@ -12,6 +12,7 @@
 @import 'page-not-found.module.css';
 @import 'join-section.module.css';
 @import 'live-header.module.css';
+@import 'tab.module.css';
 
 * {
   margin: 0px;

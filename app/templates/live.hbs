@@ -1,6 +1,25 @@
+{{page-title 'Live'}}
 <LiveHeader
   @tabs={{this.TABS}}
   @activeTab={{this.activeTab}}
   @tabHandler={{this.tabHandler}}
 />
-<p>{{this.activeTab}} Component</p>
+<div id='live' data-test-live>
+  {{#if (eq this.activeTab 'Screenshare')}}
+    <div class='live__video-container' data-test-video-container>
+      {{#if this.isLoading}}
+        <Reusables::Skeleton />
+      {{else}}
+        <video
+          data-test-video
+          class='live__video'
+          controls
+          src='/assets/birds_footage.mp4'
+          type='video/mp4'
+        ></video>
+      {{/if}}
+    </div>
+  {{else}}
+    <p>{{this.activeTab}} Component</p>
+  {{/if}}
+</div>

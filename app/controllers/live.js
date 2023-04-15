@@ -9,6 +9,14 @@ export default class LiveController extends Controller {
     { id: 3, label: 'Real Dev Squad', active: false },
   ];
   @tracked activeTab = 'Screenshare';
+  @tracked isLoading = true;
+
+  constructor() {
+    super(...arguments);
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 4000);
+  }
 
   @action tabHandler(tabId) {
     this.activeTab = this.TABS.find((tab) => tab.id === tabId).label;

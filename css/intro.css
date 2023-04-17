@@ -6,8 +6,8 @@
   margin-left: 0.5rem;
 }
 
-.input-big {
-  height: 10.25rem;
+.user-input {
+  line-height: 1.5rem;
 }
 
 .loading {

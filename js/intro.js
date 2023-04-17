@@ -77,61 +77,33 @@ function generateSavedDetailsForm(users) {
   const container = createElement({ type: 'div', classList: ['container'] });
   renderIntroPage.appendChild(container);
 
-  const firstNameLabel = createElement({
+  const nameLabel = createElement({
     type: 'p',
     classList: ['input-label-dark'],
   });
-  const firstNameValue = createElement({
+  const nameValue = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
     id: 'renderFName',
   });
-  firstNameLabel.innerText = 'First Name';
-  firstNameValue.innerText = users.firstName;
-  container.appendChild(firstNameLabel);
-  container.appendChild(firstNameValue);
+  nameLabel.innerText = 'Name';
+  nameValue.innerText = `${users.firstName} ${users.lastName}`;
+  container.appendChild(nameLabel);
+  container.appendChild(nameValue);
 
-  const lastNameLabel = createElement({
+  const cityAndStateLabel = createElement({
     type: 'p',
     classList: ['input-label-dark'],
   });
-  const lastNameValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderLName',
-  });
-  lastNameLabel.innerText = 'Last Name';
-  lastNameValue.innerHTML = users.lastName;
-  container.appendChild(lastNameLabel);
-  container.appendChild(lastNameValue);
-
-  const cityLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
-  const cityValue = createElement({
+  const cityAndStateValue = createElement({
     type: 'p',
     classList: ['user-input', 'input-regular'],
     id: 'renderCity',
   });
-  cityLabel.innerText = 'City';
-  cityValue.innerHTML = users.city;
-  container.appendChild(cityLabel);
-  container.appendChild(cityValue);
-
-  const stateLabel = createElement({
-    type: 'p',
-    classList: ['input-label-dark'],
-  });
-  const stateValue = createElement({
-    type: 'p',
-    classList: ['user-input', 'input-regular'],
-    id: 'renderState',
-  });
-  stateLabel.innerText = 'State';
-  stateValue.innerHTML = users.state;
-  container.appendChild(stateLabel);
-  container.appendChild(stateValue);
+  cityAndStateLabel.innerText = 'City & State';
+  cityAndStateValue.innerHTML = `${users.city}, ${users.state}`;
+  container.appendChild(cityAndStateLabel);
+  container.appendChild(cityAndStateValue);
 
   const countryLabel = createElement({
     type: 'p',
@@ -153,7 +125,7 @@ function generateSavedDetailsForm(users) {
   });
   const introValue = createElement({
     type: 'p',
-    classList: ['user-input', 'input-big'],
+    classList: ['user-input'],
     id: 'renderIntro',
   });
   introductionLabel.innerText = 'Introduction';
@@ -195,7 +167,7 @@ function generateSavedDetailsForm(users) {
   });
   const forFunValue = createElement({
     type: 'p',
-    classList: ['user-input', 'input-big'],
+    classList: ['user-input'],
     id: 'renderForFun',
   });
   forFunLabel.innerText = 'What you do for fun';
@@ -209,7 +181,7 @@ function generateSavedDetailsForm(users) {
   });
   const funFactValue = createElement({
     type: 'p',
-    classList: ['user-input', 'input-big'],
+    classList: ['user-input'],
     id: 'renderFunFact',
   });
   funFactLabel.innerText = 'A fun fact about you';
@@ -223,13 +195,28 @@ function generateSavedDetailsForm(users) {
   });
   const whyRdsValue = createElement({
     type: 'p',
-    classList: ['user-input', 'input-big'],
+    classList: ['user-input'],
     id: 'renderWhyRds',
   });
   whyRdsLabel.innerText = 'Why do you want to join Real Dev Squad?';
   whyRdsValue.innerHTML = users.whyRds;
   container.appendChild(whyRdsLabel);
   container.appendChild(whyRdsValue);
+
+  const numberOfHoursLabel = createElement({
+    type: 'p',
+    classList: ['input-label-dark'],
+  });
+  const numberOfHoursValue = createElement({
+    type: 'p',
+    classList: ['user-input', 'input-regular'],
+    id: 'rendernumberOfHours',
+  });
+  numberOfHoursLabel.innerText =
+    'How many hours per week, would you contribute?';
+  numberOfHoursValue.innerText = users.numberOfHours;
+  container.appendChild(numberOfHoursLabel);
+  container.appendChild(numberOfHoursValue);
 
   const heardAboutLabel = createElement({
     type: 'p',
@@ -267,6 +254,7 @@ async function showSavedDetails() {
         funFact: userData.intro.funFact,
         forFun: userData.intro.forFun,
         whyRds: userData.intro.whyRds,
+        numberOfHours: userData.intro.numberOfHours,
         foundFrom: userData.foundFrom,
       };
       generateSavedDetailsForm(userSavedData);

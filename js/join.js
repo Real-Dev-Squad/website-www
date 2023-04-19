@@ -184,7 +184,7 @@ function whyRdsPageValidator() {
     foundFrom.value != '' &&
     whyRds.value.trim() != '' &&
     numberOfHours.value != '' &&
-    +numberOfHours.value > range['numberOfHours'][0] &&
+    +numberOfHours.value >= range['numberOfHours'][0] &&
     +numberOfHours.value <= range['numberOfHours'][1]
   );
 }

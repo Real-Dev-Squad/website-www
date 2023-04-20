@@ -2,7 +2,7 @@
   border-radius: 9px;
   width: 11rem;
   height: 3rem;
-  color: var(--color-persian-indigo);
+  color: var(--color-navyblue);
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
@@ -13,7 +13,7 @@
 }
 
 .tab.active {
-  color: var(--color-crimson-red);
+  color: var(--color-pink);
   background: var(--color-cultured);
   text-decoration: underline;
 }

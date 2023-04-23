@@ -1,5 +1,7 @@
 .tab {
   border-radius: 9px;
+  border: none;
+  background: transparent;
   width: 11rem;
   height: 3rem;
   color: var(--color-navyblue);
@@ -16,4 +18,13 @@
   color: var(--color-pink);
   background: var(--color-cultured);
   text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .tab {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 50px;
+    border-radius: 0px;
+  }
 }

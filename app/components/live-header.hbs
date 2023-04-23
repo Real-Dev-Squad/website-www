@@ -1,13 +1,28 @@
-<Tabs
-  data-test-live='header'
-  class='live__header'
-  {{on 'click' this.tabHandler}}
->
-  {{#each this.TABS as |tab|}}
-    <Tab
-      @test={{tab.label}}
-      @label={{tab.label}}
-      @variant={{if tab.active 'active' ''}}
-    />
-  {{/each}}
+<Tabs data-test-tabs class='tabs'>
+  <section class='tabs_info'>
+    <button
+      data-test-toggle-button
+      type='button'
+      class='tabs_toggle'
+      {{on 'click' this.toggleTabs}}
+    >
+      <FaIcon
+        @icon={{if this.isTabOpen 'chevron-down' 'chevron-right'}}
+        @size='2x'
+      />
+    </button>
+    {{this.activeTab}}
+  </section>
+  <section
+    class='tabs_list {{if this.isTabOpen "active" ""}}'
+  >
+    {{#each this.TABS as |tab|}}
+      <Tab
+        @test={{tab.label}}
+        @label={{tab.label}}
+        @variant={{if tab.active 'active' ''}}
+        @onClick={{this.tabHandler}}
+      />
+    {{/each}}
+  </section>
 </Tabs>

@@ -9,6 +9,6 @@ module('Acceptance | live', function (hooks) {
     await visit('/live');
 
     assert.strictEqual(currentURL(), '/live');
-    assert.dom('[data-test-live="header"]').exists();
+    assert.dom('[data-test-tabs]').exists();
   });
 });

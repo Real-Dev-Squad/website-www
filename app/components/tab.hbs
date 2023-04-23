@@ -1,3 +1,6 @@
-<div data-test-tab={{@test}} class='tab {{@variant}}'>
+<button
+  data-test-tab={{@test}}
+  class='tab {{@variant}}' type="button" {{on 'click' @onClick}}
+>
   {{@label}}
-</div>
+</button>

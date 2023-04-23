@@ -8,13 +8,20 @@ export default class LiveHeaderComponent extends Component {
     { label: 'Previous Events', active: false },
     { label: 'Real Dev Squad', active: false },
   ];
+  @tracked activeTab = 'Screenshare';
+  @tracked isTabOpen = false;
 
   @action tabHandler(e) {
-    const activeTab = e.target.textContent.trim();
+    const seletctedTab = e.target.textContent.trim();
+    this.activeTab = seletctedTab;
     this.TABS = this.TABS.map((tab) =>
-      tab.label === activeTab
+      tab.label === seletctedTab
         ? { ...tab, active: true }
         : { ...tab, active: false }
     );
+  }
+
+  @action toggleTabs() {
+    this.isTabOpen = !this.isTabOpen;
   }
 }

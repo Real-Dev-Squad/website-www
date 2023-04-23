@@ -9,7 +9,7 @@ module('Integration | Component | live-header', function (hooks) {
   test('it renders the live header', async function (assert) {
     await render(hbs`<LiveHeader />`);
 
-    assert.dom('[data-test-live="header"]').exists();
+    assert.dom('[data-test-tabs]').exists();
   });
 
   test('it should change the tab when click on non active tab', async function (assert) {

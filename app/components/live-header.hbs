@@ -11,17 +11,17 @@
         @size='2x'
       />
     </button>
-    {{this.activeTab}}
+    {{@activeTab}}
   </section>
   <section
     class='tabs_list {{if this.isTabOpen "active" ""}}'
   >
-    {{#each this.TABS as |tab|}}
+    {{#each @tabs as |tab|}}
       <Tab
         @test={{tab.label}}
         @label={{tab.label}}
         @variant={{if tab.active 'active' ''}}
-        @onClick={{this.tabHandler}}
+        @onClick={{@tabHandler}}
       />
     {{/each}}
   </section>

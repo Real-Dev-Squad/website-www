@@ -13,7 +13,24 @@ module('Integration | Component | live-header', function (hooks) {
   });
 
   test('it should change the tab when click on non active tab', async function (assert) {
-    await render(hbs`<LiveHeader />`);
+    this.set('tabs', [
+      { label: 'Screenshare', active: true },
+      { label: 'Previous Events', active: false },
+      { label: 'Real Dev Squad', active: false },
+    ]);
+    this.set('tabHandler', (e) => {
+      const seletctedTab = e.target.textContent.trim();
+      const newTabs = this.tabs.map((tab) =>
+        tab.label === seletctedTab
+          ? { ...tab, active: true }
+          : { ...tab, active: false }
+      );
+      this.set('tabs', newTabs);
+    });
+
+    await render(
+      hbs`<LiveHeader @tabs={{this.tabs}} @tabHandler={{this.tabHandler}} />`
+    );
 
     assert.dom('[data-test-tab="Previous Events"]').exists();
     assert.dom('[data-test-tab="Previous Events"]').hasNoClass('active');

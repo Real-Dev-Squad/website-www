@@ -14,16 +14,13 @@ module('Integration | Component | live-header', function (hooks) {
 
   test('it should change the tab when click on non active tab', async function (assert) {
     this.set('tabs', [
-      { label: 'Screenshare', active: true },
-      { label: 'Previous Events', active: false },
-      { label: 'Real Dev Squad', active: false },
+      { id: 1, label: 'Screenshare', active: true },
+      { id: 2, label: 'Previous Events', active: false },
+      { id: 3, label: 'Real Dev Squad', active: false },
     ]);
-    this.set('tabHandler', (e) => {
-      const seletctedTab = e.target.textContent.trim();
+    this.set('tabHandler', (tabId) => {
       const newTabs = this.tabs.map((tab) =>
-        tab.label === seletctedTab
-          ? { ...tab, active: true }
-          : { ...tab, active: false }
+        tab.id === tabId ? { ...tab, active: true } : { ...tab, active: false }
       );
       this.set('tabs', newTabs);
     });

@@ -18,6 +18,7 @@
   >
     {{#each @tabs as |tab|}}
       <Tab
+        @tabId={{tab.id}}
         @test={{tab.label}}
         @label={{tab.label}}
         @variant={{if tab.active 'active' ''}}

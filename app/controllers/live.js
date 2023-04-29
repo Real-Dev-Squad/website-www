@@ -1,8 +1,8 @@
-import Component from '@glimmer/component';
+import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class LiveComponent extends Component {
+export default class LiveController extends Controller {
   @tracked TABS = [
     { label: 'Screenshare', active: true },
     { label: 'Previous Events', active: false },

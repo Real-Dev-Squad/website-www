@@ -18,22 +18,30 @@ module('Integration | Component | live-header', function (hooks) {
       { id: 2, label: 'Previous Events', active: false },
       { id: 3, label: 'Real Dev Squad', active: false },
     ]);
+    this.set('activeTab', 'Screenshare');
     this.set('tabHandler', (tabId) => {
+      const selectedTab = this.tabs.find((tab) => tab.id === tabId).label;
       const newTabs = this.tabs.map((tab) =>
         tab.id === tabId ? { ...tab, active: true } : { ...tab, active: false }
       );
       this.set('tabs', newTabs);
+      this.set('activeTab', selectedTab);
     });
 
-    await render(
-      hbs`<LiveHeader @tabs={{this.tabs}} @tabHandler={{this.tabHandler}} />`
-    );
+    await render(hbs`
+    <LiveHeader 
+      @tabs={{this.tabs}} 
+      @activeTab={{this.activeTab}} 
+      @tabHandler={{this.tabHandler}} 
+    />`);
 
     assert.dom('[data-test-tab="Previous Events"]').exists();
     assert.dom('[data-test-tab="Previous Events"]').hasNoClass('active');
+    assert.strictEqual(this.activeTab, 'Screenshare');
 
     await click('[data-test-tab="Previous Events"]');
 
     assert.dom('[data-test-tab="Previous Events"]').hasClass('active');
+    assert.strictEqual(this.activeTab, 'Previous Events');
   });
 });

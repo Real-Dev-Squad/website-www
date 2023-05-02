@@ -14,6 +14,7 @@
 @import 'live-header.module.css';
 @import 'tab.module.css';
 @import 'live.module.css';
+@import 'video-screen.module.css';
 @import 'skeleton.module.css';
 
 * {

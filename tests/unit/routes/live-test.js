@@ -11,7 +11,6 @@ module('Unit | Route | live', function (hooks) {
   });
 
   test('visiting /live', async function (assert) {
-    this.set('isLoading', true);
     await visit('/live');
     assert.expect(2);
 

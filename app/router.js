@@ -11,5 +11,4 @@ Router.map(function () {
   this.route('join');
   this.route('live');
   this.route('page-not-found', { path: '/*' });
-  this.route('live');
 });

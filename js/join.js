@@ -6,6 +6,26 @@ import {
   SELF_URL,
 } from './constants.js';
 
+const reloadFunc = () => {
+  let flowState = +window.localStorage.getItem('flowState');
+  flowState += 1;
+  const currentPage = document.getElementById('page' + flowState);
+  const inputElements = currentPage.getElementsByTagName('input');
+  const textElements = currentPage.getElementsByTagName('textarea');
+  for (let i = 0; i < inputElements.length; i++) {
+    if (inputElements[i].type === 'number') {
+      numberDataValidator(
+        inputElements[i],
+        range[inputElements[i].id][0],
+        range[inputElements[i].id][1],
+      );
+    } else dataValidator(inputElements[i], sizeDef[inputElements[i].id]);
+  }
+  for (let i = 0; i < textElements.length; i++) {
+    dataValidator(textElements[i], sizeDef[textElements[i].id]);
+  }
+};
+
 window.localStorage.setItem('hasVisitedJoin', true);
 fetchSavedDetails();
 
@@ -190,14 +210,15 @@ function whyRdsPageValidator() {
 }
 
 function numberDataValidator(element, min, max) {
-  let invalidElement = document.getElementById('numberOfHours');
+  const id = element.id;
+  let invalidElement = document.getElementById(id);
   if (+invalidElement.value < min || +invalidElement.value > max) {
     document.getElementById(
-      'numberOfHoursCounter',
+      id + 'Counter',
     ).innerText = `Invalid Value- must be between ${min} to ${max}`;
     invalidElement.classList.add('incorrect-data');
   } else {
-    document.getElementById('numberOfHoursCounter').innerText = '';
+    document.getElementById(id + 'Counter').innerText = '';
     invalidElement.classList.remove('incorrect-data');
   }
 }
@@ -358,6 +379,8 @@ nextButtons.forEach((nextButton) => {
     selectPage();
   });
 });
+
+window.onload = setTimeout(reloadFunc, 100);
 
 submit.addEventListener('click', async () => {
   const method = 'PUT';

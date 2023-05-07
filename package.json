@@ -31,6 +31,7 @@
     "@ember/jquery": "^2.0.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.8.1",
+    "@embroider/macros": "^1.10.0",
     "@fortawesome/ember-fontawesome": "^0.4.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@glimmer/component": "^1.1.2",

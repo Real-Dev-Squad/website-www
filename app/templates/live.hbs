@@ -1,10 +1,11 @@
 {{page-title 'Live'}}
-<LiveHeader
-  @tabs={{this.TABS}}
-  @activeTab={{this.activeTab}}
-  @tabHandler={{this.tabHandler}}
-/>
+
 <div id='live' data-test-live>
+  <LiveHeader
+    @tabs={{this.TABS}}
+    @activeTab={{this.activeTab}}
+    @tabHandler={{this.tabHandler}}
+  />
   {{#if (eq this.activeTab 'Screenshare')}}
     <div class='live__video-container' data-test-video-container>
       {{#if this.isLoading}}

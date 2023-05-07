@@ -23,6 +23,7 @@
 
 @media (max-width: 1024px) {
   .tabs {
+    width: 100%;
     flex-direction: column;
   }
 

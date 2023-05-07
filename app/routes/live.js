@@ -2,11 +2,11 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
 export default class LiveRoute extends Route {
-	@service router;
+  @service router;
 
-	beforeModel(transition) {
-		if (transition?.to?.queryParams?.dev !== 'true') {
-			this.router.transitionTo('/page-not-found');
-		}
-	}
+  beforeModel(transition) {
+    if (transition?.to?.queryParams?.dev !== 'true') {
+      this.router.transitionTo('/page-not-found');
+    }
+  }
 }

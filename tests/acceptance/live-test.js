@@ -14,7 +14,7 @@ module('Acceptance | live', function (hooks) {
     assert.dom('[data-test-video]').doesNotExist();
 
     await waitFor('[data-test-video]', { timeout: 4000 });
-    
+
     assert.dom('[data-test-video]').exists();
     assert.dom('[data-test-skeleton]').doesNotExist();
   });

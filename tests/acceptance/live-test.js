@@ -11,4 +11,13 @@ module('Acceptance | live', function (hooks) {
     assert.strictEqual(currentURL(), '/live');
     assert.dom('[data-test-tabs]').exists();
   });
+
+  test('join component should be visible', async function (assert) {
+    await visit('/live');
+    this.set('activeTab', 'Screenshare');
+
+    assert.dom('[data-test-card]').exists();
+    assert.dom('[data-test-card-title]').exists();
+    assert.dom('[data-test-card-title]').hasText('Join the Event');
+  });
 });

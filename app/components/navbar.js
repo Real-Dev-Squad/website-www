@@ -2,8 +2,10 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { APPS, AUTH } from '../constants/urls';
+import { inject as service } from '@ember/service';
 
 export default class NavbarComponent extends Component {
+  @service router;
   @tracked isNavOpen = false;
   @tracked isMenuOpen = false;
   @tracked authURL = this.generateAuthURL();
@@ -28,5 +30,12 @@ export default class NavbarComponent extends Component {
 
   @action outsideClickMenu() {
     this.isMenuOpen = false;
+  }
+
+  get isDev() {
+    if (this.router.currentRoute) {
+      return this.router.currentRoute.queryParams.dev;
+    }
+    return false;
   }
 }

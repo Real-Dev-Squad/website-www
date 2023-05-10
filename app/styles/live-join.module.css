@@ -1,0 +1,8 @@
+.card.live__join {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.card.live__join .card__title {
+  color: var(--color-pink);
+}

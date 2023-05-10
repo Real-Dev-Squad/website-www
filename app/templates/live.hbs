@@ -3,4 +3,8 @@
   @activeTab={{this.activeTab}}
   @tabHandler={{this.tabHandler}}
 />
-<p>{{this.activeTab}} Component</p>
+{{#if (eq this.activeTab 'Screenshare')}}
+  <LiveJoin />
+{{else}}
+  <p>{{this.activeTab}} Component</p>
+{{/if}}

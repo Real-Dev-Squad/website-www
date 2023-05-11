@@ -11,7 +11,7 @@ module('Unit | Route | live', function (hooks) {
   });
 
   test('visiting /live', async function (assert) {
-    await visit('/live');
+    await visit('/live?dev=true');
     assert.expect(2);
 
     assert.dom('[data-test-live]').exists();

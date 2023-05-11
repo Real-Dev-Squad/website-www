@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class LiveController extends Controller {
+  queryParams = ['dev'];
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
     { id: 2, label: 'Previous Events', active: false },

@@ -23,7 +23,7 @@ module('Acceptance | live', function (hooks) {
   });
 
   test('join component should be visible', async function (assert) {
-    await visit('/live');
+    await visit('/live?dev=true');
     this.set('activeTab', 'Screenshare');
 
     assert.dom('[data-test-card]').exists();

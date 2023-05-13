@@ -11,6 +11,7 @@ export default class LiveJoinComponent extends Component {
 
   @action clickHandler(e) {
     e.preventDefault();
+    //TODO: Add funtionality to join live session
     if (this.name) {
       console.log('Join as', this.name);
       this.name = '';

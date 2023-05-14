@@ -4,7 +4,7 @@ import { visit } from '@ember/test-helpers';
 
 module('Unit | Route | live', function (hooks) {
   setupTest(hooks);
-
+// TODO - remove tests for dev mode when it goes to prod
   test('it exists', function (assert) {
     let route = this.owner.lookup('route:live');
     assert.ok(route);

@@ -4,7 +4,7 @@ import { setupApplicationTest } from 'website-www/tests/helpers';
 
 module('Acceptance | live', function (hooks) {
   setupApplicationTest(hooks);
-// TODO - remove test for dev part when it goes to production
+  // TODO - remove test for dev part when it goes to production
   test('skeleton and video conditionally exists!', async function (assert) {
     assert.expect(8);
     await visit('/live');

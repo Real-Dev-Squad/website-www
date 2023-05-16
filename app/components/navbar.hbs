@@ -55,6 +55,7 @@
       >Status</a></li>
     {{#if this.isDev}}
       <li>
+        {{!-- TODO - remove query for dev when it goes to production --}}
         <LinkTo
           @route={{this.LIVE_URL}}
           @query={{hash dev='true'}}

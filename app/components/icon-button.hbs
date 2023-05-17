@@ -1,0 +1,8 @@
+<button
+  class='icon-button {{@class}}'
+  type='button'
+  {{on 'click' (fn @onClick @id)}}
+  data-test-icon-button={{@id}}
+>
+  <img class='icon-button' src={{@src}} alt='icon button' />
+</button>

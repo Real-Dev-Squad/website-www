@@ -6,4 +6,13 @@
     padding: 1rem;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+}
+
+.live-panel__btn{
+    width: 7rem;
+    color: var(--color-white);
+    border: none;
+    height: 3.25rem;
+    font-size: 1.56rem;
 }

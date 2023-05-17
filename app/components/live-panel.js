@@ -9,4 +9,9 @@ export default class LivePanelComponent extends Component {
     // TODO: remove console.log
     console.log(buttonId);
   }
+
+  @action startLiveHandler() {
+    // TODO: remove console.log
+    console.log('Starting....');
+  }
 }

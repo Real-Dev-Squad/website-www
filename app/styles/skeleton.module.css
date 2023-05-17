@@ -1,0 +1,17 @@
+.skeleton {
+    width: 100%;
+    background-color: var(--color-offwhite);
+    height: 100%;
+    animation: pulse 2s infinite reverse;
+    border-radius: 0.5rem;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: var(--color-offwhite);
+    }
+
+    50% {
+        background-color: var(--color-lightgrey);
+    }
+}

@@ -1,26 +1,50 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | icon-button', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('icon button renders', async function (assert) {
+    assert.expect(8);
 
-    await render(hbs`<IconButton />`);
+    this.set('id', 'testid');
+    this.set('src', '/assets/icons/screen-share-icon.png');
+    this.set('class', 'test-class');
+    this.set('buttonClickHandler', () => {
+      assert.ok(true, 'Icon button has been clicked!');
+    });
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <IconButton>
-        template block text
-      </IconButton>
-    `);
+      <Reusables::IconButton
+        @id={{this.id}}
+        @src={{this.src}}
+        @class={{this.class}}
+        @onClick={{this.buttonClickHandler}}
+    />`);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(`[data-test-icon-button=${this.id}]`).exists();
+    assert.dom(`[data-test-icon-button=${this.id}]`).hasClass(this.class);
+
+    assert.dom(`[data-test-iconbtn-img=${this.id}]`).exists();
+    assert.dom(`[data-test-iconbtn-img=${this.id}]`).hasAttribute('src');
+    assert.dom(`[data-test-iconbtn-img=${this.id}]`).hasAttribute('alt');
+    assert.strictEqual(
+      document
+        .querySelector(`[data-test-iconbtn-img=${this.id}]`)
+        .getAttribute('src'),
+      this.src,
+      'source is same!'
+    );
+    assert.strictEqual(
+      document
+        .querySelector(`[data-test-iconbtn-img=${this.id}]`)
+        .getAttribute('alt'),
+      this.id,
+      'alt attribute is same!'
+    );
+
+    await click(`[data-test-icon-button=${this.id}]`);
   });
 });

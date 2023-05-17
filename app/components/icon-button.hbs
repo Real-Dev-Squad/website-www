@@ -4,5 +4,5 @@
   {{on 'click' (fn @onClick @id)}}
   data-test-icon-button={{@id}}
 >
-  <img class='icon-button' src={{@src}} alt='icon button' />
+  <img data-test-iconbtn-img={{@id}} src={{@src}} alt={{@id}} />
 </button>

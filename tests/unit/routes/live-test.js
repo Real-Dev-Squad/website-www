@@ -12,9 +12,10 @@ module('Unit | Route | live', function (hooks) {
 
   test('visiting /live', async function (assert) {
     await visit('/live?dev=true');
-    assert.expect(2);
+    assert.expect(3);
 
-    assert.dom('[data-test-live]').exists();
-    assert.dom('[data-test-video-container]').exists();
+    assert.dom('[data-test-card]').exists();
+    assert.dom('[data-test-input-field]').exists();
+    assert.dom('[data-test-button="live-join"]').exists();
   });
 });

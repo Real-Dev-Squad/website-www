@@ -11,12 +11,28 @@ export default class LiveController extends Controller {
   ];
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = true;
+  @tracked name = '';
+  @tracked isJoin = false;
 
   constructor() {
     super(...arguments);
     setTimeout(() => {
       this.isLoading = false;
     }, 4000);
+  }
+
+  @action inputHandler(e) {
+    this.name = e.target.value;
+  }
+
+  @action clickHandler(e) {
+    e.preventDefault();
+    //TODO: Add funtionality to join live session
+    if (this.name) {
+      this.isJoin = true;
+      console.log('Join as', this.name);
+      this.name = '';
+    }
   }
 
   @action tabHandler(tabId) {

@@ -1,20 +1,20 @@
 <section data-test-card class='card live__join'>
   <h3 data-test-card-title class='card__title'>Join the Event</h3>
-  <form onsubmit={{this.clickHandler}}>
+  <form onsubmit={{@clickHandler}}>
     <Reusables::InputBox
       @field='Name'
       @name='name'
       @type='text'
       @required={{true}}
-      @value={{this.name}}
-      @onInput={{this.inputHandler}}
+      @value={{@name}}
+      @onInput={{@inputHandler}}
     />
     <Reusables::Button
       @test='live-join'
       @type='button'
       @variant='dark'
       @text='Join'
-      @onClick={{this.clickHandler}}
+      @onClick={{@clickHandler}}
     />
   </form>
 </section>

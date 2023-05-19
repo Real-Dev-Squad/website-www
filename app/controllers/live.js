@@ -12,7 +12,7 @@ export default class LiveController extends Controller {
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = true;
   @tracked name = '';
-  @tracked isJoin = false;
+  @tracked isJoined = false;
 
   constructor() {
     super(...arguments);
@@ -29,8 +29,7 @@ export default class LiveController extends Controller {
     e.preventDefault();
     //TODO: Add funtionality to join live session
     if (this.name) {
-      this.isJoin = true;
-      console.log('Join as', this.name);
+      this.isJoined = true;
       this.name = '';
     }
   }

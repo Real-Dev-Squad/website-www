@@ -5,4 +5,5 @@
 
 .card.live__join .card__title {
   color: var(--color-pink);
+  margin: 0;
 }

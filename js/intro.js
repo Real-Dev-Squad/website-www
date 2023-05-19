@@ -295,9 +295,11 @@ async function showSavedDetails() {
     }
   } catch (err) {
     console.error(err);
-    window.addEventListener('click', showToast('something went wrong', 6000));
+    loading.classList.add('hidden');
+    generatenotAuthorizedPage();
     setTimeout(function () {
+      alert('You are not logged in! Redirecting you to login.');
       window.location.href = HOME_URL;
-    }, 5000);
+    }, 1000);
   }
 })();

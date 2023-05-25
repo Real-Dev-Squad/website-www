@@ -7,3 +7,9 @@
   color: var(--color-pink);
   margin: 0;
 }
+
+@media screen and (max-width: 425px) {
+  .user-input {
+    width: 15rem;
+  }
+}

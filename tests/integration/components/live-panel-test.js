@@ -7,20 +7,18 @@ module('Integration | Component | live-panel', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(16);
+    assert.expect(8);
 
     const PANEL_BUTTON = [
       {
         id: 'screen-share',
-        srcImg: '/assets/icons/screen-share-icon.png',
+        icon: 'material-symbols:screen-share',
         className: 'icon-button--md',
-        alt: 'screen share button',
       },
       {
         id: 'participants',
-        srcImg: '/assets/icons/people-icon.png',
+        icon: 'material-symbols:group',
         className: 'icon-button--md',
-        alt: 'participant button',
       },
     ];
 
@@ -35,23 +33,7 @@ module('Integration | Component | live-panel', function (hooks) {
       assert
         .dom(`[data-test-icon-button=${button.id}]`)
         .hasClass('icon-button--md');
-      assert.dom(`[data-test-iconbtn-img=${button.id}]`).exists();
-      assert.dom(`[data-test-iconbtn-img=${button.id}]`).hasAttribute('src');
-      assert.dom(`[data-test-iconbtn-img=${button.id}]`).hasAttribute('alt');
-      assert.strictEqual(
-        document
-          .querySelector(`[data-test-iconbtn-img=${button.id}]`)
-          .getAttribute('src'),
-        button.srcImg,
-        'source is same!'
-      );
-      assert.strictEqual(
-        document
-          .querySelector(`[data-test-iconbtn-img=${button.id}]`)
-          .getAttribute('alt'),
-        button.id,
-        'alt attribute is same!'
-      );
+      assert.dom(`[data-test-icon=${button.id}]`).exists();
     });
   });
 });

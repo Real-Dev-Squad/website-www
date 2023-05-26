@@ -1,14 +1,12 @@
 export const PANEL_BUTTON = [
   {
     id: 'screen-share',
-    srcImg: '/assets/icons/screen-share-icon.png',
+    icon: 'material-symbols:screen-share',
     className: 'icon-button--md',
-    alt: 'screen share button',
   },
   {
     id: 'participants',
-    srcImg: '/assets/icons/people-icon.png',
+    icon: 'material-symbols:group',
     className: 'icon-button--md',
-    alt: 'participant button',
   },
 ];

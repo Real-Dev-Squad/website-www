@@ -7,14 +7,20 @@
 
 .icon-button--md {
     border-radius: 50%;
-    padding: 0.51rem;
-    height: 2.81rem;
-    width: 2.81rem;
+    padding: 1em;
+    height: 2em;
+    width: 2em;
     margin-right: 1rem;
 }
 
-.icon-button--md img {
-    line-height: 0.2rem;
-    height: 100%;
-    width: 100%;
+.icon-button--md .iconify.iconify--material-symbols{
+    font-size: 2em;
 }
+
+@media (max-width: 425px) {
+    .icon-button--md {
+        margin-right: 0.7em;
+        padding: 0.7em;
+    }
+}
+  

@@ -2,10 +2,9 @@
   {{#each this.BUTTON_MAPPING as |button|}}
     <Reusables::IconButton
       @id={{button.id}}
-      @src={{button.srcImg}}
       @class={{button.className}}
-      @alt={{button.alt}}
       @onClick={{this.buttonClickHandler}}
+      @icon={{button.icon}}
     />
   {{/each}}
      <Reusables::Button

@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { validator } from '../../utils/validator';
+import { debounce } from '@ember/runloop';
 
 export default class StepTwoComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepTwoData')) ?? {
@@ -32,15 +33,18 @@ export default class StepTwoComponent extends Component {
 
   @action inputHandler(e) {
     this.setIsPreValid(false);
-    this.data = { ...this.data, [e.target.name]: e.target.value };
-    localStorage.setItem('stepTwoData', JSON.stringify(this.data));
-    const validated =
-      validator(this.data.introduction, 1) &&
-      validator(this.data.skills, 1) &&
-      validator(this.data.college, 1) &&
-      validator(this.data.forFun, 100) &&
-      validator(this.data.funFact, 100);
-    this.setIsValid(validated);
-    localStorage.setItem('isValid', validated);
+    const setValToLocalStorage = () => {
+      this.data = { ...this.data, [e.target.name]: e.target.value };
+      localStorage.setItem('stepTwoData', JSON.stringify(this.data));
+      const validated =
+        validator(this.data.introduction, 1) &&
+        validator(this.data.skills, 1) &&
+        validator(this.data.college, 1) &&
+        validator(this.data.forFun, 100) &&
+        validator(this.data.funFact, 100);
+      this.setIsValid(validated);
+      localStorage.setItem('isValid', validated);
+    };
+    debounce(this.data, setValToLocalStorage, 1000);
   }
 }

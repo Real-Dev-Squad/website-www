@@ -41,6 +41,6 @@ export default class StepOneComponent extends Component {
       this.setIsValid(validated);
       localStorage.setItem('isValid', validated);
     };
-    debounce(this.data, setValToLocalStorage, 500);
+    debounce(this.data, setValToLocalStorage, 1000);
   }
 }

@@ -23,6 +23,7 @@
     "test:ember": "ember test"
   },
   "dependencies": {
+    "@100mslive/hms-video-store": "^0.10.6",
     "dotenv": "^16.0.2",
     "fastboot-app-server": "^3.3.2"
   },

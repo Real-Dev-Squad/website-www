@@ -1,9 +1,13 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
+import { getOwner } from '@ember/application';
 
 export default class LiveController extends Controller {
-  queryParams = ['dev'];
+  queryParams = ['dev', 'role'];
+  ROLES = { guest: 'guest', host: 'host' };
+  @service login;
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
     { id: 2, label: 'Previous Events', active: false },
@@ -13,6 +17,10 @@ export default class LiveController extends Controller {
   @tracked isLoading = true;
   @tracked name = '';
   @tracked isJoined = false;
+  @tracked role = null;
+  get liveService() {
+    return getOwner(this).lookup('service:live');
+  }
 
   constructor() {
     super(...arguments);
@@ -27,8 +35,10 @@ export default class LiveController extends Controller {
 
   @action clickHandler(e) {
     e.preventDefault();
-    //TODO: Add funtionality to join live session
-    if (this.name) {
+    const isGuest = this.role === this.ROLES.guest;
+    const isHost = this.role === this.ROLES.host;
+    if (this.name && (isGuest || isHost)) {
+      this.liveService.joinSession(this.name, this.role);
       this.isJoined = true;
       this.name = '';
     }
@@ -39,5 +49,10 @@ export default class LiveController extends Controller {
     this.TABS = this.TABS.map((tab) =>
       tab.id === tabId ? { ...tab, active: true } : { ...tab, active: false }
     );
+  }
+
+  @action leaveSession() {
+    this.liveService.leaveSession();
+    this.isJoined = false;
   }
 }

@@ -16,6 +16,12 @@
         {{else}}
           {{! TODO - Remove this dummy src and it's video }}
           <VideoScreen @src='/assets/birds_footage.mp4' />
+          {{! TODO - Remove this dummy buuton and replace with proper pannel }}
+          <Reusables::Button
+            @variant='dark'
+            @text='Leave Room'
+            @onClick={{this.leaveSession}}
+          />
         {{/if}}
       </div>
     {{else}}

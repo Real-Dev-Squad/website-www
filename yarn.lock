@@ -8738,13 +8738,6 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-iconify-icon@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.7.tgz#d7e1f5d45a88486abcc977583da62e6e9e635572"
-  integrity sha512-MxaO3Jhf3f5ymPWGHR9x74f90TNKcq1D+B2iGucGhVtqAgbC9EtM06kKiTGH2CKELNnexckwhrA3/+OpT4HKFw==
-  dependencies:
-    "@iconify/types" "^2.0.0"
-
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"

@@ -5,22 +5,30 @@
     display: inline-block;
 }
 
-.icon-button--md {
-    border-radius: 50%;
-    padding: 1em;
-    height: 2em;
-    width: 2em;
-    margin-right: 1rem;
+.icon-button--pink-bg {
+    background-color: var(--color-pink);
+    color: var(--color-white)
 }
 
-.icon-button--md .iconify.iconify--material-symbols{
-    font-size: 2em;
+.icon-button--md {
+    border-radius: 50%;
+    height: 54px;
+    width: 54px;
+    margin-right: 2rem;
+    position: relative;
+}
+
+.icon-button--md .iconify.iconify--material-symbols {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
 }
 
 @media (max-width: 425px) {
     .icon-button--md {
-        margin-right: 0.7em;
-        padding: 0.7em;
+        margin-right: 1rem;
     }
 }
-  

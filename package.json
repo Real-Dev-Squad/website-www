@@ -24,9 +24,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.2",
-    "fastboot-app-server": "^3.3.2",
-    "iconify-icon": "^1.0.7",
-    "node-fetch": "2"
+    "fastboot-app-server": "^3.3.2"
   },
   "devDependencies": {
     "@ember/jquery": "^2.0.0",

@@ -9,22 +9,9 @@
     align-items: center;
 }
 
-.live-panel__btn{
-    width: 7rem;
-    color: var(--color-white);
-    border: none;
-    height: 3.25rem;
-    font-size: 1.56rem;
-}
-
 @media (max-width: 425px) {
-    .live-panel{
+    .live-panel {
         justify-content: space-around;
-    }
-    
-    .live-panel__btn{
-        font-size: 1rem;
-        padding: 1rem;
+        padding: 10px;
     }
 }
-  

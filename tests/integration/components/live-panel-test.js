@@ -7,7 +7,7 @@ module('Integration | Component | live-panel', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(8);
+    assert.expect(10);
 
     const PANEL_BUTTON = [
       {
@@ -20,13 +20,16 @@ module('Integration | Component | live-panel', function (hooks) {
         icon: 'material-symbols:group',
         className: 'icon-button--md',
       },
+      {
+        id: 'start',
+        icon: 'material-symbols:arrow-forward-ios-rounded',
+        className: 'icon-button--md icon-button--pink-bg',
+      },
     ];
 
     await render(hbs`<LivePanel />`);
 
     assert.dom('[data-test-live-panel]').exists();
-
-    assert.dom('[data-test-button=start-live]').exists();
 
     PANEL_BUTTON.forEach((button) => {
       assert.dom(`[data-test-icon-button=${button.id}]`).exists();

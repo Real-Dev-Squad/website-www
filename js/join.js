@@ -182,18 +182,65 @@ function arePersonalDetailsValid() {
     country.value.trim() != ''
   );
 }
-
+console.log(introduction.value);
 function introPageValidator() {
+  let countIntroduction = 0;
+  let textAreaIntroduction = Array.from(
+    document.querySelector('#introduction').value,
+  );
+  for (let i = 0; i < textAreaIntroduction.length; i++) {
+    let char = textAreaIntroduction[i];
+    if (/[a-zA-Z]/.test(char)) {
+      countIntroduction++;
+    }
+  }
+
+  let textAreaSkills = Array.from(document.querySelector('#skills').value);
+  let countSkills = 0;
+  for (let i = 0; i < textAreaSkills.length; i++) {
+    let char = textAreaSkills[i];
+    if (/[a-zA-Z]/.test(char)) {
+      countSkills++;
+    }
+  }
+
+  let textAreaCollege = Array.from(document.querySelector('#college').value);
+  let countCollege = 0;
+  for (let i = 0; i < textAreaCollege.length; i++) {
+    let char = textAreaCollege[i];
+    if (/[a-zA-Z]/.test(char)) {
+      countCollege++;
+    }
+  }
+
+  let textAreaForFun = Array.from(document.querySelector('#forFun').value);
+  let countForFun = 0;
+  for (let i = 0; i < textAreaForFun.length; i++) {
+    let char = textAreaForFun[i];
+    if (/[a-zA-Z]/.test(char)) {
+      countForFun++;
+    }
+  }
+
+  let textAreafunFact = Array.from(document.querySelector('#funFact').value);
+  let countfunFact = 0;
+  for (let i = 0; i < textAreafunFact.length; i++) {
+    let char = textAreafunFact[i];
+    if (/[a-zA-Z]/.test(char)) {
+      countfunFact++;
+    }
+  }
+
   return (
-    introduction.value.trim().split(' ').length >= sizeDef.introduction &&
+    countIntroduction >= sizeDef.introduction &&
     introduction.value.trim() != '' &&
-    skills.value.trim().split(' ').length >= sizeDef.skills &&
+    countSkills >= sizeDef.skills &&
     skills.value.trim() != '' &&
-    college.value.trim().split(' ').length >= sizeDef.college &&
+    countCollege >= sizeDef.college &&
     college.value.trim() != '' &&
-    forFun.value.trim().split(' ').length >= sizeDef.forFun &&
+    countForFun >= sizeDef.forFun &&
     forFun.value.trim() != '' &&
-    funFact.value.trim().split(' ').length >= sizeDef.funFact &&
+    countfunFact >= sizeDef.funFact &&
     funFact.value.trim() != ''
   );
 }
@@ -403,23 +450,27 @@ copyBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(`Real Dev Squad Verification Link: ${url}`);
 });
 
-document.querySelector('#introduction').addEventListener('mouseleave', (event) => {
-  let count = 0;
-  let textArea = Array.from(document.querySelector('#introduction').value);
-  for (let i = 0; i < textArea.length; i++) {
-    let char = textArea[i];
-    if (/[a-zA-Z]/.test(char)) {
-      count++;
+document
+  .querySelector('#introduction')
+  .addEventListener('mouseleave', (event) => {
+    let count = 0;
+    let textArea = Array.from(document.querySelector('#introduction').value);
+    for (let i = 0; i < textArea.length; i++) {
+      let char = textArea[i];
+      if (/[a-zA-Z]/.test(char)) {
+        count++;
+      }
     }
-  }
 
-  if (count < 100) {
-    dataValidator(document.querySelector('#introduction'), 100 - count);
-  } else if (count >= 100) {
-    document.querySelector('#introductionCounter').innerText = '';
-    document.querySelector('#introduction').classList.remove('incorrect-data');
-  }
-});
+    if (count < 100) {
+      dataValidator(document.querySelector('#introduction'), 100 - count);
+    } else if (count >= 100) {
+      document.querySelector('#introductionCounter').innerText = '';
+      document
+        .querySelector('#introduction')
+        .classList.remove('incorrect-data');
+    }
+  });
 document.querySelector('#skills').addEventListener('mouseleave', (event) => {
   let textArea = Array.from(document.querySelector('#skills').value);
   let count = 0;

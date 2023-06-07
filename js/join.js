@@ -227,7 +227,6 @@ function dataValidator(element, size) {
   let counter = document.getElementById(element.id + 'Counter');
   if (size != 0) counter.innerText = `At least, ${size} more word(s) required`;
   if (size != 0) element.classList.add('incorrect-data');
- 
 }
 
 // Togglers Fillers

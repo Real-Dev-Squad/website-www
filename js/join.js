@@ -225,19 +225,9 @@ function numberDataValidator(element, min, max) {
 
 function dataValidator(element, size) {
   let counter = document.getElementById(element.id + 'Counter');
-  // console.log(counter);
-  // let words_left = ;
-  // console.log('debug', size);
-  // console.log(element.length);
   if (size != 0) counter.innerText = `At least, ${size} more word(s) required`;
-  // if (size <= 0 && element.value!='') {
-  //   counter.innerText = ' ';
-  // }
-  // if (size && element.value != '') {
-  // element.classList.remove('incorrect-data');
-  // } else {
   if (size != 0) element.classList.add('incorrect-data');
-  // }
+ 
 }
 
 // Togglers Fillers
@@ -417,7 +407,6 @@ copyBtn.addEventListener('click', () => {
 document.querySelector('#introduction').addEventListener('mouse', (event) => {
   let count = 0;
   let textArea = Array.from(document.querySelector('#introduction').value);
-  // console.log(textArea.length);
   for (let i = 0; i < textArea.length; i++) {
     let char = textArea[i];
     if (/[a-zA-Z]/.test(char)) {
@@ -435,7 +424,6 @@ document.querySelector('#introduction').addEventListener('mouse', (event) => {
 document.querySelector('#skills').addEventListener('mouseleave', (event) => {
   let textArea = Array.from(document.querySelector('#skills').value);
   let count = 0;
-  // console.log(textArea);
   for (let i = 0; i < textArea.length; i++) {
     let char = textArea[i];
     if (/[a-zA-Z]/.test(char)) {
@@ -453,7 +441,6 @@ document.querySelector('#skills').addEventListener('mouseleave', (event) => {
 document.querySelector('#college').addEventListener('mouseleave', (event) => {
   let textArea = Array.from(document.querySelector('#college').value);
   let count = 0;
-  // console.log(textArea);
   for (let i = 0; i < textArea.length; i++) {
     let char = textArea[i];
     if (/[a-zA-Z]/.test(char)) {
@@ -471,7 +458,6 @@ document.querySelector('#college').addEventListener('mouseleave', (event) => {
 document.querySelector('#forFun').addEventListener('mouseleave', (event) => {
   let textArea = Array.from(document.querySelector('#forFun').value);
   let count = 0;
-  // console.log(textArea);
   for (let i = 0; i < textArea.length; i++) {
     let char = textArea[i];
     if (/[a-zA-Z]/.test(char)) {
@@ -490,7 +476,6 @@ document.querySelector('#forFun').addEventListener('mouseleave', (event) => {
 document.querySelector('#funFact').addEventListener('mouseleave', (event) => {
   let textArea = Array.from(document.querySelector('#funFact').value);
   let count = 0;
-  // console.log(textArea);
   for (let i = 0; i < textArea.length; i++) {
     let char = textArea[i];
     if (/[a-zA-Z]/.test(char)) {

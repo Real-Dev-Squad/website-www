@@ -403,7 +403,7 @@ copyBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(`Real Dev Squad Verification Link: ${url}`);
 });
 
-document.querySelector('#introduction').addEventListener('mouse', (event) => {
+document.querySelector('#introduction').addEventListener('mouseleave', (event) => {
   let count = 0;
   let textArea = Array.from(document.querySelector('#introduction').value);
   for (let i = 0; i < textArea.length; i++) {

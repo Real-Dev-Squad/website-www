@@ -3,6 +3,8 @@ import { heardFrom } from '../../constants/social-data';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { validator } from '../../utils/validator';
+import { debounce } from '@ember/runloop';
+import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 
 export default class StepThreeComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepThreeData')) ?? {
@@ -27,11 +29,14 @@ export default class StepThreeComponent extends Component {
 
   @action inputHandler(e) {
     this.setIsPreValid(false);
-    this.data = { ...this.data, [e.target.name]: e.target.value };
-    localStorage.setItem('stepThreeData', JSON.stringify(this.data));
-    const validated =
-      validator(this.data.whyRds, 100) && validator(this.data.foundFrom, 1);
-    this.setIsValid(validated);
-    localStorage.setItem('isValid', validated);
+    const setValToLocalStorage = () => {
+      this.data = { ...this.data, [e.target.name]: e.target.value };
+      localStorage.setItem('stepThreeData', JSON.stringify(this.data));
+      const validated =
+        validator(this.data.whyRds, 100) && validator(this.data.foundFrom, 1);
+      this.setIsValid(validated);
+      localStorage.setItem('isValid', validated);
+    };
+    debounce(this.data, setValToLocalStorage, JOIN_DEBOUNCE_TIME);
   }
 }

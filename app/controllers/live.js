@@ -3,10 +3,11 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
+import { globalRef } from 'ember-ref-bucket';
+import { ROLES } from '../constants/live';
 
 export default class LiveController extends Controller {
   queryParams = ['dev', 'role'];
-  ROLES = { guest: 'guest', host: 'host' };
   @service login;
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
@@ -18,6 +19,7 @@ export default class LiveController extends Controller {
   @tracked name = '';
   @tracked isJoined = false;
   @tracked role = null;
+  @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
   }
@@ -35,8 +37,8 @@ export default class LiveController extends Controller {
 
   @action clickHandler(e) {
     e.preventDefault();
-    const isGuest = this.role === this.ROLES.guest;
-    const isHost = this.role === this.ROLES.host;
+    const isGuest = this.role === ROLES.guest;
+    const isHost = this.role === ROLES.host;
     if (this.name && (isGuest || isHost)) {
       this.liveService.joinSession(this.name, this.role);
       this.isJoined = true;
@@ -54,5 +56,9 @@ export default class LiveController extends Controller {
   @action leaveSession() {
     this.liveService.leaveSession();
     this.isJoined = false;
+  }
+
+  @action screenShare() {
+    this.liveService.shareScreen();
   }
 }

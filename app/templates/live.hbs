@@ -16,6 +16,24 @@
         {{else}}
           {{! TODO - Remove this dummy src and it's video }}
           <VideoScreen @src='/assets/birds_footage.mp4' />
+          {{! TODO - Remove this dummy button and replace with proper pannel }}
+          <Reusables::Button
+            @variant='dark'
+            @text='Leave Room'
+            @onClick={{this.leaveSession}}
+          />
+          {{! TODO - Remove this dummy button and replace with proper pannel }}
+          {{#if (eq this.role 'host')}}
+            <Reusables::Button
+              @variant='dark'
+              @text={{if
+                this.liveService.isScreenShareOn
+                'Stop Share'
+                'Screen Share'
+              }}
+              @onClick={{this.screenShare}}
+            />
+          {{/if}}
         {{/if}}
       </div>
       <div class='live__panel-container'>

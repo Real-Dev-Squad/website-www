@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { validator } from '../../utils/validator';
 import { debounce } from '@ember/runloop';
+import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 
 export default class StepThreeComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepThreeData')) ?? {
@@ -27,7 +28,6 @@ export default class StepThreeComponent extends Component {
   }
 
   @action inputHandler(e) {
-    console.log('I am ruuning');
     this.setIsPreValid(false);
     const setValToLocalStorage = () => {
       this.data = { ...this.data, [e.target.name]: e.target.value };
@@ -37,6 +37,6 @@ export default class StepThreeComponent extends Component {
       this.setIsValid(validated);
       localStorage.setItem('isValid', validated);
     };
-    debounce(this.data, setValToLocalStorage, 1000);
+    debounce(this.data, setValToLocalStorage, JOIN_DEBOUNCE_TIME);
   }
 }

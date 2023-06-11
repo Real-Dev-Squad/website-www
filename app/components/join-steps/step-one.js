@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 import { countryList } from '../../constants/country-list';
 import { validator } from '../../utils/validator';
 import { debounce } from '@ember/runloop';
+import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 
 export default class StepOneComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepOneData')) ?? {
@@ -41,6 +42,6 @@ export default class StepOneComponent extends Component {
       this.setIsValid(validated);
       localStorage.setItem('isValid', validated);
     };
-    debounce(this.data, setValToLocalStorage, 1000);
+    debounce(this.data, setValToLocalStorage, JOIN_DEBOUNCE_TIME);
   }
 }

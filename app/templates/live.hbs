@@ -18,6 +18,9 @@
           <VideoScreen @src='/assets/birds_footage.mp4' />
         {{/if}}
       </div>
+      <div class='live__panel-container'>
+        <LivePanel />
+      </div>
     {{else}}
       <LiveJoin
         @name={{this.name}}
@@ -29,4 +32,5 @@
     {{! TODO - add the respective component here }}
     <p>{{this.activeTab}} Component</p>
   {{/if}}
+
 </div>

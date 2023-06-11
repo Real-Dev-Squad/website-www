@@ -1,0 +1,34 @@
+.icon-button {
+    all: unset;
+    background-color: var(--color-lightgrey);
+    cursor: pointer;
+    display: inline-block;
+}
+
+.icon-button--pink-bg {
+    background-color: var(--color-pink);
+    color: var(--color-white)
+}
+
+.icon-button--md {
+    border-radius: 50%;
+    height: 54px;
+    width: 54px;
+    margin-right: 2rem;
+    position: relative;
+}
+
+.icon-button--md .iconify.iconify--material-symbols {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+}
+
+@media (max-width: 425px) {
+    .icon-button--md {
+        margin-right: 1rem;
+    }
+}

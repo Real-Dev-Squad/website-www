@@ -153,7 +153,7 @@ function fetchSavedDetails() {
       alert(
         'We are facing an internal server error! Please try again after some time',
       );
-      location.href = 'https://realdevsquad.com';
+      location.href = 'http://localhost:5500';
     });
 }
 

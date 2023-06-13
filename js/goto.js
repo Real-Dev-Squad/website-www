@@ -1,4 +1,4 @@
-import { SIGNUP_URL, HOME_URL } from './constants.js';
+import { SIGNUP_URL, HOME_URL, TARGET_URL } from './constants.js';
 
 const hasVisitedJoin = localStorage.getItem('hasVisitedJoin');
 
@@ -12,7 +12,9 @@ function redirectionHandler(data) {
   } else if (hasVisitedJoin == 'true' || hasVisitedJoin == null) {
     redirectUserToPage(`${HOME_URL}/join`);
   } else {
-    redirectUserToPage(HOME_URL);
+    // Instead of redirecting to home_URLredirect to last location
+    // redirectUserToPage(HOME_URL);
+    redirectUserToPage(TARGET_URL);
   }
 }
 

@@ -1,4 +1,4 @@
-import { BASE_URL, HOME_URL } from './constants.js';
+import { BASE_URL, HOME_URL, GITHUB_OAUTH } from './constants.js';
 
 const notAuthorized = document.querySelector('.not-authorized-page');
 const notFound = document.querySelector('.not-found-page');
@@ -7,6 +7,8 @@ const loading = document.querySelector('.loading');
 const toastBox = document.querySelector('.toast-box');
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
+// Set the location to localstorage
+window.localStorage.setItem('targetURL', location.href);
 
 function showToast(err, delay) {
   const toast = createElement({
@@ -277,6 +279,11 @@ async function showSavedDetails() {
 (async function setAuth() {
   try {
     const res = await makeApiCall(`${BASE_URL}/users/self`);
+    // If not logged in redirect to the login
+    if (res.status === 401) {
+      alert('You are not logged in! Redirecting you to login.');
+      location.href = GITHUB_OAUTH;
+    }
     const selfDetails = await res.data;
     if (selfDetails.roles.super_user) {
       notAuthorized.classList.add('hidden');
@@ -297,9 +304,5 @@ async function showSavedDetails() {
     console.error(err);
     loading.classList.add('hidden');
     generatenotAuthorizedPage();
-    setTimeout(function () {
-      alert('You are not logged in! Redirecting you to login.');
-      window.location.href = HOME_URL;
-    }, 1000);
   }
 })();

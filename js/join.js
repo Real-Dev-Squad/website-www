@@ -190,7 +190,7 @@ function introPageValidator() {
   );
   for (let i = 0; i < textAreaIntroduction.length; i++) {
     let char = textAreaIntroduction[i];
-    if (/[a-zA-Z]/.test(char)) {
+    if (/S+/.test(char)) {
       countIntroduction++;
     }
   }
@@ -199,7 +199,7 @@ function introPageValidator() {
   let countSkills = 0;
   for (let i = 0; i < textAreaSkills.length; i++) {
     let char = textAreaSkills[i];
-    if (/[a-zA-Z]/.test(char)) {
+    if (/S+/.test(char)) {
       countSkills++;
     }
   }
@@ -208,7 +208,7 @@ function introPageValidator() {
   let countCollege = 0;
   for (let i = 0; i < textAreaCollege.length; i++) {
     let char = textAreaCollege[i];
-    if (/[a-zA-Z]/.test(char)) {
+    if (/S+/.test(char)) {
       countCollege++;
     }
   }
@@ -217,7 +217,7 @@ function introPageValidator() {
   let countForFun = 0;
   for (let i = 0; i < textAreaForFun.length; i++) {
     let char = textAreaForFun[i];
-    if (/[a-zA-Z]/.test(char)) {
+    if (/S+/.test(char)) {
       countForFun++;
     }
   }
@@ -226,7 +226,7 @@ function introPageValidator() {
   let countfunFact = 0;
   for (let i = 0; i < textAreafunFact.length; i++) {
     let char = textAreafunFact[i];
-    if (/[a-zA-Z]/.test(char)) {
+    if (/S+/.test(char)) {
       countfunFact++;
     }
   }
@@ -454,14 +454,21 @@ document
   .querySelector('#introduction')
   .addEventListener('mouseleave', (event) => {
     let count = 0;
-    let textArea = Array.from(document.querySelector('#introduction').value);
-    for (let i = 0; i < textArea.length; i++) {
-      let char = textArea[i];
-      if (/[a-zA-Z]/.test(char)) {
-        count++;
-      }
-    }
+    let textArea = document.querySelector('#introduction').value;
+    let m;
+    const regex = /\w+/g;
 
+    while ((m = regex.exec(textArea)) !== null) {
+      // This is necessary to avoid infinite loops with zero-width matches
+      if (m.index === regex.lastIndex) {
+        regex.lastIndex++;
+      }
+
+      // The result can be accessed through the `m`-variable.
+      m.forEach((match, groupIndex) => {
+        count++;
+      });
+    }
     if (count < 100) {
       dataValidator(document.querySelector('#introduction'), 100 - count);
     } else if (count >= 100) {
@@ -472,13 +479,21 @@ document
     }
   });
 document.querySelector('#skills').addEventListener('mouseleave', (event) => {
-  let textArea = Array.from(document.querySelector('#skills').value);
+  let textArea = document.querySelector('#skills').value;
   let count = 0;
-  for (let i = 0; i < textArea.length; i++) {
-    let char = textArea[i];
-    if (/[a-zA-Z]/.test(char)) {
-      count++;
+  let m;
+  const regex = /\w+/g;
+
+  while ((m = regex.exec(textArea)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++;
     }
+
+    // The result can be accessed through the `m`-variable.
+    m.forEach((match, groupIndex) => {
+      count++;
+    });
   }
 
   if (count < 5) {
@@ -489,13 +504,21 @@ document.querySelector('#skills').addEventListener('mouseleave', (event) => {
   }
 });
 document.querySelector('#college').addEventListener('mouseleave', (event) => {
-  let textArea = Array.from(document.querySelector('#college').value);
+  let textArea = document.querySelector('#college').value;
   let count = 0;
-  for (let i = 0; i < textArea.length; i++) {
-    let char = textArea[i];
-    if (/[a-zA-Z]/.test(char)) {
-      count++;
+  let m;
+  const regex = /\w+/g;
+
+  while ((m = regex.exec(textArea)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++;
     }
+
+    // The result can be accessed through the `m`-variable.
+    m.forEach((match, groupIndex) => {
+      count++;
+    });
   }
 
   if (count < 1) {
@@ -506,13 +529,21 @@ document.querySelector('#college').addEventListener('mouseleave', (event) => {
   }
 });
 document.querySelector('#forFun').addEventListener('mouseleave', (event) => {
-  let textArea = Array.from(document.querySelector('#forFun').value);
+  let textArea = document.querySelector('#forFun').value;
   let count = 0;
-  for (let i = 0; i < textArea.length; i++) {
-    let char = textArea[i];
-    if (/[a-zA-Z]/.test(char)) {
-      count++;
+  let m;
+  const regex = /\w+/g;
+
+  while ((m = regex.exec(textArea)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++;
     }
+
+    // The result can be accessed through the `m`-variable.
+    m.forEach((match, groupIndex) => {
+      count++;
+    });
   }
 
   if (count < 100) {
@@ -524,13 +555,21 @@ document.querySelector('#forFun').addEventListener('mouseleave', (event) => {
 });
 
 document.querySelector('#funFact').addEventListener('mouseleave', (event) => {
-  let textArea = Array.from(document.querySelector('#funFact').value);
+  let textArea = document.querySelector('#funFact').value;
   let count = 0;
-  for (let i = 0; i < textArea.length; i++) {
-    let char = textArea[i];
-    if (/[a-zA-Z]/.test(char)) {
-      count++;
+  let m;
+  const regex = /\w+/g;
+
+  while ((m = regex.exec(textArea)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++;
     }
+
+    // The result can be accessed through the `m`-variable.
+    m.forEach((match, groupIndex) => {
+      count++;
+    });
   }
 
   if (count < 100) {

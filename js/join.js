@@ -185,50 +185,85 @@ function arePersonalDetailsValid() {
 console.log(introduction.value);
 function introPageValidator() {
   let countIntroduction = 0;
-  let textAreaIntroduction = Array.from(
-    document.querySelector('#introduction').value,
-  );
-  for (let i = 0; i < textAreaIntroduction.length; i++) {
-    let char = textAreaIntroduction[i];
-    if (/S+/.test(char)) {
+  let textAreaIntroduction = document.querySelector('#introduction').value;
+
+  let m;
+  const regex = /\w+/g;
+
+  while ((m = regex.exec(textAreaIntroduction)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++;
+    }
+
+    // The result can be accessed through the `m`-variable.
+    m.forEach((match, groupIndex) => {
       countIntroduction++;
-    }
+    });
   }
 
-  let textAreaSkills = Array.from(document.querySelector('#skills').value);
+  let textAreaSkills = document.querySelector('#skills').value;
   let countSkills = 0;
-  for (let i = 0; i < textAreaSkills.length; i++) {
-    let char = textAreaSkills[i];
-    if (/S+/.test(char)) {
+  let m2;
+
+  while ((m2 = regex.exec(textAreaSkills)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m2.index === regex.lastIndex) {
+      regex.lastIndex++;
+    }
+
+    // The result can be accessed through the `m`-variable.
+    m2.forEach((match, groupIndex) => {
       countSkills++;
-    }
+    });
   }
 
-  let textAreaCollege = Array.from(document.querySelector('#college').value);
+  let textAreaCollege = document.querySelector('#college').value;
   let countCollege = 0;
-  for (let i = 0; i < textAreaCollege.length; i++) {
-    let char = textAreaCollege[i];
-    if (/S+/.test(char)) {
+  let m3;
+  while ((m3 = regex.exec(textAreaCollege)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m3.index === regex.lastIndex) {
+      regex.lastIndex++;
+    }
+
+    // The result can be accessed through the `m`-variable.
+    m3.forEach((match, groupIndex) => {
       countCollege++;
-    }
+    });
   }
 
-  let textAreaForFun = Array.from(document.querySelector('#forFun').value);
+  let textAreaForFun = document.querySelector('#forFun').value;
   let countForFun = 0;
-  for (let i = 0; i < textAreaForFun.length; i++) {
-    let char = textAreaForFun[i];
-    if (/S+/.test(char)) {
-      countForFun++;
+  let m4;
+
+  while ((m4 = regex.exec(textAreaForFun)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (m4.index === regex.lastIndex) {
+      regex.lastIndex++;
     }
+
+    // The result can be accessed through the `m`-variable.
+    m4.forEach((match, groupIndex) => {
+      countForFun++;
+    });
   }
 
-  let textAreafunFact = Array.from(document.querySelector('#funFact').value);
+  let textAreafunFact = document.querySelector('#funFact').value;
   let countfunFact = 0;
-  for (let i = 0; i < textAreafunFact.length; i++) {
-    let char = textAreafunFact[i];
-    if (/S+/.test(char)) {
-      countfunFact++;
+
+  let mFun;
+
+  while ((mFun = regex.exec(textAreafunFact)) !== null) {
+    // This is necessary to avoid infinite loops with zero-width matches
+    if (mFun.index === regex.lastIndex) {
+      regex.lastIndex++;
     }
+
+    // The result can be accessed through the `m`-variable.
+    mFun.forEach((match, groupIndex) => {
+      countfunFact++;
+    });
   }
 
   return (

@@ -473,27 +473,27 @@ copyBtn.addEventListener('click', () => {
 });
 
 introduction.addEventListener('mouseleave', (event) => {
-    let count = 0;
-    let textArea = document.querySelector('#introduction').value;
-    let m;
-    const regex = /\w+/g;
+  let count = 0;
+  let textArea = document.querySelector('#introduction').value;
+  let m;
+  const regex = /\w+/g;
 
-    while ((m = regex.exec(textArea)) !== null) {
-      if (m.index === regex.lastIndex) {
-        regex.lastIndex++;
-      }
+  while ((m = regex.exec(textArea)) !== null) {
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++;
+    }
 
-      m.forEach((match, groupIndex) => {
-        count++;
-      });
-    }
-    if (count < 100) {
-      dataValidator(document.querySelector('#introduction'), 100 - count);
-    } else if (count >= 100) {
-      document.querySelector('#introductionCounter').innerText = '';
-      document.querySelector('#introduction').classList.remove('incorrect-data');
-    }
-  });
+    m.forEach((match, groupIndex) => {
+      count++;
+    });
+  }
+  if (count < 100) {
+    dataValidator(document.querySelector('#introduction'), 100 - count);
+  } else if (count >= 100) {
+    document.querySelector('#introductionCounter').innerText = '';
+    document.querySelector('#introduction').classList.remove('incorrect-data');
+  }
+});
 skills.addEventListener('mouseleave', (event) => {
   let textArea = document.querySelector('#skills').value;
   let count = 0;

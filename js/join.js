@@ -191,12 +191,10 @@ function introPageValidator() {
   const regex = /\w+/g;
 
   while ((m = regex.exec(textAreaIntroduction)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (m.index === regex.lastIndex) {
       regex.lastIndex++;
     }
 
-    // The result can be accessed through the `m`-variable.
     m.forEach((match, groupIndex) => {
       countIntroduction++;
     });
@@ -207,12 +205,10 @@ function introPageValidator() {
   let m2;
 
   while ((m2 = regex.exec(textAreaSkills)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (m2.index === regex.lastIndex) {
       regex.lastIndex++;
     }
 
-    // The result can be accessed through the `m`-variable.
     m2.forEach((match, groupIndex) => {
       countSkills++;
     });
@@ -222,12 +218,9 @@ function introPageValidator() {
   let countCollege = 0;
   let m3;
   while ((m3 = regex.exec(textAreaCollege)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (m3.index === regex.lastIndex) {
       regex.lastIndex++;
     }
-
-    // The result can be accessed through the `m`-variable.
     m3.forEach((match, groupIndex) => {
       countCollege++;
     });
@@ -238,12 +231,9 @@ function introPageValidator() {
   let m4;
 
   while ((m4 = regex.exec(textAreaForFun)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (m4.index === regex.lastIndex) {
       regex.lastIndex++;
     }
-
-    // The result can be accessed through the `m`-variable.
     m4.forEach((match, groupIndex) => {
       countForFun++;
     });
@@ -255,12 +245,10 @@ function introPageValidator() {
   let mFun;
 
   while ((mFun = regex.exec(textAreafunFact)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (mFun.index === regex.lastIndex) {
       regex.lastIndex++;
     }
 
-    // The result can be accessed through the `m`-variable.
     mFun.forEach((match, groupIndex) => {
       countfunFact++;
     });
@@ -494,12 +482,10 @@ document
     const regex = /\w+/g;
 
     while ((m = regex.exec(textArea)) !== null) {
-      // This is necessary to avoid infinite loops with zero-width matches
       if (m.index === regex.lastIndex) {
         regex.lastIndex++;
       }
 
-      // The result can be accessed through the `m`-variable.
       m.forEach((match, groupIndex) => {
         count++;
       });
@@ -520,12 +506,10 @@ document.querySelector('#skills').addEventListener('mouseleave', (event) => {
   const regex = /\w+/g;
 
   while ((m = regex.exec(textArea)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (m.index === regex.lastIndex) {
       regex.lastIndex++;
     }
 
-    // The result can be accessed through the `m`-variable.
     m.forEach((match, groupIndex) => {
       count++;
     });
@@ -545,12 +529,10 @@ document.querySelector('#college').addEventListener('mouseleave', (event) => {
   const regex = /\w+/g;
 
   while ((m = regex.exec(textArea)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (m.index === regex.lastIndex) {
       regex.lastIndex++;
     }
 
-    // The result can be accessed through the `m`-variable.
     m.forEach((match, groupIndex) => {
       count++;
     });
@@ -570,12 +552,9 @@ document.querySelector('#forFun').addEventListener('mouseleave', (event) => {
   const regex = /\w+/g;
 
   while ((m = regex.exec(textArea)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (m.index === regex.lastIndex) {
       regex.lastIndex++;
     }
-
-    // The result can be accessed through the `m`-variable.
     m.forEach((match, groupIndex) => {
       count++;
     });
@@ -596,12 +575,10 @@ document.querySelector('#funFact').addEventListener('mouseleave', (event) => {
   const regex = /\w+/g;
 
   while ((m = regex.exec(textArea)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
     if (m.index === regex.lastIndex) {
       regex.lastIndex++;
     }
 
-    // The result can be accessed through the `m`-variable.
     m.forEach((match, groupIndex) => {
       count++;
     });

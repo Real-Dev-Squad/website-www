@@ -488,10 +488,10 @@ introduction.addEventListener('mouseleave', (event) => {
     });
   }
   if (count < 100) {
-    dataValidator(document.querySelector('#introduction'), 100 - count);
+    dataValidator(introduction, 100 - count);
   } else if (count >= 100) {
     document.querySelector('#introductionCounter').innerText = '';
-    document.querySelector('#introduction').classList.remove('incorrect-data');
+    introduction.classList.remove('incorrect-data');
   }
 });
 skills.addEventListener('mouseleave', (event) => {
@@ -511,10 +511,10 @@ skills.addEventListener('mouseleave', (event) => {
   }
 
   if (count < 5) {
-    dataValidator(document.querySelector('#skills'), 5 - count);
+    dataValidator(skills, 5 - count);
   } else if (count >= 5) {
     document.querySelector('#skillsCounter').innerText = '';
-    document.querySelector('#skills').classList.remove('incorrect-data');
+    skills.classList.remove('incorrect-data');
   }
 });
 
@@ -535,10 +535,10 @@ college.addEventListener('mouseleave', (event) => {
   }
 
   if (count < 1) {
-    dataValidator(document.querySelector('#college'), 1 - count);
+    dataValidator(college, 1 - count);
   } else if (count >= 1) {
     document.querySelector('#collegeCounter').innerText = '';
-    document.querySelector('#college').classList.remove('incorrect-data');
+    college.classList.remove('incorrect-data');
   }
 });
 forFun.addEventListener('mouseleave', (event) => {
@@ -557,10 +557,10 @@ forFun.addEventListener('mouseleave', (event) => {
   }
 
   if (count < 100) {
-    dataValidator(document.querySelector('#forFun'), 100 - count);
+    dataValidator(forFun, 100 - count);
   } else if (count >= 100) {
     document.querySelector('#forFunCounter').innerText = '';
-    document.querySelector('#forFun').classList.remove('incorrect-data');
+    forFun.classList.remove('incorrect-data');
   }
 });
 
@@ -581,9 +581,9 @@ funFact.addEventListener('mouseleave', (event) => {
   }
 
   if (count < 100) {
-    dataValidator(document.querySelector('#funFact'), 100 - count);
+    dataValidator(funFact, 100 - count);
   } else if (count >= 100) {
     document.querySelector('#funFactCounter').innerText = '';
-    document.querySelector('#funFact').classList.remove('incorrect-data');
+    funFact.classList.remove('incorrect-data');
   }
 });

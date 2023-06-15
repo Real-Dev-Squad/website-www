@@ -182,7 +182,6 @@ function arePersonalDetailsValid() {
     country.value.trim() != ''
   );
 }
-console.log(introduction.value);
 function introPageValidator() {
   let countIntroduction = 0;
   let textAreaIntroduction = document.querySelector('#introduction').value;
@@ -473,9 +472,7 @@ copyBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(`Real Dev Squad Verification Link: ${url}`);
 });
 
-document
-  .querySelector('#introduction')
-  .addEventListener('mouseleave', (event) => {
+introduction.addEventListener('mouseleave', (event) => {
     let count = 0;
     let textArea = document.querySelector('#introduction').value;
     let m;
@@ -494,12 +491,10 @@ document
       dataValidator(document.querySelector('#introduction'), 100 - count);
     } else if (count >= 100) {
       document.querySelector('#introductionCounter').innerText = '';
-      document
-        .querySelector('#introduction')
-        .classList.remove('incorrect-data');
+      document.querySelector('#introduction').classList.remove('incorrect-data');
     }
   });
-document.querySelector('#skills').addEventListener('mouseleave', (event) => {
+skills.addEventListener('mouseleave', (event) => {
   let textArea = document.querySelector('#skills').value;
   let count = 0;
   let m;
@@ -522,7 +517,8 @@ document.querySelector('#skills').addEventListener('mouseleave', (event) => {
     document.querySelector('#skills').classList.remove('incorrect-data');
   }
 });
-document.querySelector('#college').addEventListener('mouseleave', (event) => {
+
+college.addEventListener('mouseleave', (event) => {
   let textArea = document.querySelector('#college').value;
   let count = 0;
   let m;
@@ -545,7 +541,7 @@ document.querySelector('#college').addEventListener('mouseleave', (event) => {
     document.querySelector('#college').classList.remove('incorrect-data');
   }
 });
-document.querySelector('#forFun').addEventListener('mouseleave', (event) => {
+forFun.addEventListener('mouseleave', (event) => {
   let textArea = document.querySelector('#forFun').value;
   let count = 0;
   let m;
@@ -568,7 +564,7 @@ document.querySelector('#forFun').addEventListener('mouseleave', (event) => {
   }
 });
 
-document.querySelector('#funFact').addEventListener('mouseleave', (event) => {
+funFact.addEventListener('mouseleave', (event) => {
   let textArea = document.querySelector('#funFact').value;
   let count = 0;
   let m;

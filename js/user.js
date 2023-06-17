@@ -26,21 +26,30 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
   }
 };
 
-const fetchData = () => {
-  return fetch('https://api.realdevsquad.com/users/self', {
+// Retrieve the stored location from session storage
+const lastLocation = sessionStorage.getItem('lastLocation');
+
+const fetchData = async () => {
+  const res = await fetch('https://api.realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.error) {
-        throw new Error(res.error);
-      }
-      if (res.incompleteUserDetails) {
-        return window.location.replace('https://my.realdevsquad.com/signup');
-      }
-      setUserGreeting(res.username, res.first_name, res.picture?.url); // BAD
-    });
+  });
+  const result = await res.json();
+  if (lastLocation && result) {
+    // Clear the stored location from session storage
+    sessionStorage.removeItem('lastLocation');
+    // Redirect the user to the stored location
+    window.location.href = lastLocation;
+    setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
+  }
+
+  if (result.error) {
+    throw new Error(result.error);
+  }
+  if (result.incompleteUserDetails) {
+    return window.location.replace('https://my.realdevsquad.com/signup');
+  }
+  setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
 };
 
 export { fetchData };

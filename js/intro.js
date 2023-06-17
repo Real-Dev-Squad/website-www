@@ -1,4 +1,4 @@
-import { BASE_URL, HOME_URL } from './constants.js';
+import { BASE_URL, GITHUB_OAUTH, HOME_URL } from './constants.js';
 
 const notAuthorized = document.querySelector('.not-authorized-page');
 const notFound = document.querySelector('.not-found-page');
@@ -299,7 +299,9 @@ async function showSavedDetails() {
     generatenotAuthorizedPage();
     setTimeout(function () {
       alert('You are not logged in! Redirecting you to login.');
-      window.location.href = HOME_URL;
+      window.location.href = GITHUB_OAUTH;
+      // Store the current location before redirecting to the login page
+      sessionStorage.setItem('lastLocation', window.location.href);
     }, 1000);
   }
 })();

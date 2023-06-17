@@ -1,3 +1,5 @@
+import { BASE_URL } from "./constants";
+
 const setUserGreeting = (username, firstName, userProfilePicture) => {
   if (username) {
     const userLoginEl = document.querySelectorAll('.btn-login');
@@ -26,19 +28,15 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
   }
 };
 
-// Retrieve the stored location from session storage
 const lastLocation = sessionStorage.getItem('lastLocation');
-
 const fetchData = async () => {
-  const res = await fetch('https://api.realdevsquad.com/users/self', {
+  const res = await fetch(`${BASE_URL}/self`, {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   });
   const result = await res.json();
   if (lastLocation && result) {
-    // Clear the stored location from session storage
     sessionStorage.removeItem('lastLocation');
-    // Redirect the user to the stored location
     window.location.href = lastLocation;
     setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
   }

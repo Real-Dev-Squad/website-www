@@ -474,7 +474,7 @@ copyBtn.addEventListener('click', () => {
 
 introduction.addEventListener('mouseleave', (event) => {
   let count = 0;
-  let textArea = document.querySelector('#introduction').value;
+  let textArea = introduction.value;
   let m;
   const regex = /\w+/g;
 
@@ -495,7 +495,7 @@ introduction.addEventListener('mouseleave', (event) => {
   }
 });
 skills.addEventListener('mouseleave', (event) => {
-  let textArea = document.querySelector('#skills').value;
+  let textArea = skills.value;
   let count = 0;
   let m;
   const regex = /\w+/g;
@@ -519,7 +519,7 @@ skills.addEventListener('mouseleave', (event) => {
 });
 
 college.addEventListener('mouseleave', (event) => {
-  let textArea = document.querySelector('#college').value;
+  let textArea = college.value;
   let count = 0;
   let m;
   const regex = /\w+/g;
@@ -542,7 +542,7 @@ college.addEventListener('mouseleave', (event) => {
   }
 });
 forFun.addEventListener('mouseleave', (event) => {
-  let textArea = document.querySelector('#forFun').value;
+  let textArea = forFun.value;
   let count = 0;
   let m;
   const regex = /\w+/g;
@@ -565,7 +565,7 @@ forFun.addEventListener('mouseleave', (event) => {
 });
 
 funFact.addEventListener('mouseleave', (event) => {
-  let textArea = document.querySelector('#funFact').value;
+  let textArea = funFact.value;
   let count = 0;
   let m;
   const regex = /\w+/g;

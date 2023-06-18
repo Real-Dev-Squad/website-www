@@ -1,4 +1,4 @@
-import { BASE_URL } from "./constants";
+import { BASE_URL } from './constants';
 
 const setUserGreeting = (username, firstName, userProfilePicture) => {
   if (username) {
@@ -30,24 +30,27 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
 
 const lastLocation = sessionStorage.getItem('lastLocation');
 const fetchData = async () => {
-  const res = await fetch(`${BASE_URL}/self`, {
-    headers: { 'content-type': 'application/json' },
-    credentials: 'include',
-  });
-  const result = await res.json();
-  if (lastLocation && result) {
-    sessionStorage.removeItem('lastLocation');
-    window.location.href = lastLocation;
-    setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
-  }
+  try {
+    const res = await makeApiCall(`${BASE_URL}/users/self`);
+    const result = await res.data;
+    if (result && lastLocation) {
+      sessionStorage.removeItem('lastLocation');
+      // Redirect the user to the stored location
+      window.location.href = lastLocation;
+      setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
+    }
 
-  if (result.error) {
-    throw new Error(result.error);
+    if (result.error) {
+      throw new Error(result.error);
+    }
+
+    if (result.incompleteUserDetails) {
+      return window.location.replace('https://my.realdevsquad.com/signup');
+    }
+    setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
+  } catch (err) {
+    console.log(err);
   }
-  if (result.incompleteUserDetails) {
-    return window.location.replace('https://my.realdevsquad.com/signup');
-  }
-  setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
 };
 
 export { fetchData };

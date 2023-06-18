@@ -17,7 +17,6 @@ export default class LiveController extends Controller {
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = true;
   @tracked name = '';
-  @tracked isJoined = false;
   @tracked role = null;
   @globalRef('videoEl') videoEl;
   get liveService() {
@@ -28,7 +27,7 @@ export default class LiveController extends Controller {
     super(...arguments);
     setTimeout(() => {
       this.isLoading = false;
-    }, 4000);
+    }, 5000);
   }
 
   @action inputHandler(e) {
@@ -41,7 +40,6 @@ export default class LiveController extends Controller {
     const isHost = this.role === ROLES.host;
     if (this.name && (isGuest || isHost)) {
       this.liveService.joinSession(this.name, this.role);
-      this.isJoined = true;
       this.name = '';
     }
   }
@@ -55,7 +53,6 @@ export default class LiveController extends Controller {
 
   @action leaveSession() {
     this.liveService.leaveSession();
-    this.isJoined = false;
   }
 
   @action screenShare() {

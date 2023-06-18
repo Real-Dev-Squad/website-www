@@ -8,7 +8,7 @@
   />
   {{! TODO - add more else if statement instead of only else }}
   {{#if (eq this.activeTab 'Screenshare')}}
-    {{#if this.isJoined}}
+    {{#if this.liveService.isJoined}}
       <div class='live__video-container' data-test-video-container>
         {{! TODO - add skeleton to the whole structure }}
         {{#if this.isLoading}}

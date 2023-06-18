@@ -3,6 +3,7 @@ import {
   HMSReactiveStore,
   selectIsSomeoneScreenSharing,
   selectPeers,
+  selectIsConnectedToRoom,
 } from '@100mslive/hms-video-store';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'website-www/config/environment';
@@ -15,6 +16,7 @@ export default class LiveService extends Service {
   hmsStore;
   hmsActions;
   @tracked isScreenShareOn = false;
+  @tracked isJoined = false;
   @globalRef('videoEl') videoEl;
 
   constructor() {
@@ -28,17 +30,28 @@ export default class LiveService extends Service {
       (peers) => this.renderScreenVideoToPeers(peers, this.hmsActions),
       selectPeers
     );
+    this.hmsStore.subscribe(
+      (isConnected) => this.onConnection(isConnected),
+      selectIsConnectedToRoom
+    );
   }
 
-  async getToken(userName, userType) {
+  onConnection(isConnected) {
+    this.isJoined = isConnected;
+    console.log('Connected: ', isConnected);
+  }
+
+  async joinRoom(roomId, role, userName) {
     try {
-      //TODO: Add funtionality to join live session with BE APIs
-      const response = await fetch(`${this.BASE_ENDPOINT}/api/token`, {
+      const response = await fetch(`${ENV.BASE_API_URL}/events/join`, {
         method: API_METHOD.POST,
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
-          room_id: ENV.ROOM_ID,
-          role: userType === ROLES.guest ? ROLES.guest : ROLES.presenter,
-          user_id: userName,
+          roomId,
+          role,
+          userId: userName,
         }),
       });
       const { token } = await response.json();
@@ -48,9 +61,41 @@ export default class LiveService extends Service {
     }
   }
 
-  async joinSession(userName, userType) {
+  async createRoom(userName) {
     try {
-      const token = await this.getToken(userName, userType);
+      const response = await fetch(`${ENV.BASE_API_URL}/events`, {
+        method: API_METHOD.POST,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          name: 'live-share-rds',
+          description: 'The RDS live',
+          region: 'in',
+          userId: userName,
+        }),
+      });
+      const { room_id } = await response.json();
+      return room_id;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async joinSession(userName, role) {
+    try {
+      const roomId =
+        ROLES.host === role
+          ? await this.createRoom(userName)
+          : '648da101fe28c9c2e9d42ea7';
+      const token = await this.joinRoom(roomId, role, userName);
+      // TODO: Need to refactor this logic
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('resolved');
+        }, 2000);
+      });
       await this.hmsActions.join({
         userName,
         authToken: token,
@@ -81,7 +126,7 @@ export default class LiveService extends Service {
   }
 
   async renderScreenVideoToPeers(peers) {
-    const presenterTrackId = peers?.find((p) => p.roleName === 'presenter')
+    const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {
       await this.hmsActions.attachVideo(presenterTrackId, this.videoEl);

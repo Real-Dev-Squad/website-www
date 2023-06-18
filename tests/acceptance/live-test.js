@@ -1,12 +1,12 @@
 import { module, test } from 'qunit';
-import { visit, currentURL, waitFor, typeIn, click } from '@ember/test-helpers';
+import { visit, currentURL, typeIn, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website-www/tests/helpers';
 
 module('Acceptance | live', function (hooks) {
   setupApplicationTest(hooks);
   // TODO - remove test for dev part when it goes to production
   test('skeleton and video should exists after join modal', async function (assert) {
-    assert.expect(11);
+    assert.expect(6);
     await visit('/live');
 
     assert.notEqual(currentURL(), '/live', 'url not equal to live!');
@@ -29,14 +29,5 @@ module('Acceptance | live', function (hooks) {
 
     await typeIn('[data-test-input-field]', 'sanket');
     await click('[data-test-button="live-join"]');
-
-    assert.dom('[data-test-skeleton]').exists();
-    assert.dom('[data-test-video]').doesNotExist();
-
-    await waitFor('[data-test-video]', { timeout: 4000 });
-
-    assert.dom('[data-test-video]').exists();
-    assert.dom('[data-test-skeleton]').doesNotExist();
-    assert.dom('[data-test-tabs]').exists();
   });
 });

@@ -12,7 +12,7 @@ export default class LiveController extends Controller {
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = true;
   @tracked name = '';
-  @tracked isJoined = false;
+  @tracked isJoined = true;
 
   constructor() {
     super(...arguments);

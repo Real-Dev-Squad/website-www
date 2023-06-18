@@ -1,0 +1,59 @@
+<div class='sidebar {{if this.isSideBarOpen 'open' 'close'}}'>
+  <div class='sidebar__participants'>
+    <h4>Participants</h4>
+    <button class="sidebar__accordian-button" {{on 'click' this.toggleMobileSidebar}} type="button">
+      <img src='assets/icons/down-arrow.png' width="20" height='20' alt="down arrow">
+    </button>
+  </div>
+  <div class='sidebar__body {{if this.isSideBarOpen 'open' 'close'}}'>
+    <div class='body__host'>
+      <span class='host__container'>
+        <img
+          class='host__image'
+          src='https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=876&q=80'
+          alt='host'
+        />
+      </span>
+      <span class='host__name'>Ankush is presenting</span>
+    </div>
+    <div class='body__role-user'>
+      <p class='role-user__type mavens'>Mavens</p>
+      <ul>
+        <li class='user'>
+          <p>Person1</p>
+        </li>
+        <li class='user'>
+          <p>Person2</p>
+        </li>
+        <li class='user'>
+          <p>Person3</p>
+        </li>
+      </ul>
+    </div>
+    <div class='body__role-user'>
+      <p class='role-user__type moderators'>Moderators</p>
+      <ul>
+         <li class='user'>
+          <p>Person1</p>
+        </li>
+        <li class='user'>
+          <p>Person2</p>
+        </li>
+      </ul>
+    </div>
+    <div class='body__role-user'>
+      <p class='role-user__type guestUsers'>Guest Users</p>
+      <ul>
+        <li class='user'>
+          <p>Person1</p>
+        </li>
+        <li class='user'>
+          <p>Person2</p>
+        </li>
+        <li class='user'>
+          <p>Person3</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

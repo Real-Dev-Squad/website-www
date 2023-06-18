@@ -9,14 +9,23 @@
   {{! TODO - add more else if statement instead of only else }}
   {{#if (eq this.activeTab 'Screenshare')}}
     {{#if this.isJoined}}
-      <div class='live__video-container' data-test-video-container>
-        {{! TODO - add skeleton to the whole structure }}
-        {{#if this.isLoading}}
-          <Reusables::Skeleton />
-        {{else}}
-          {{! TODO - Remove this dummy src and it's video }}
-          <VideoScreen @src='/assets/birds_footage.mp4' />
-        {{/if}}
+      <div class='live__container'>
+        <div class='live__video-container' data-test-video-container>
+          {{! TODO - add skeleton to the whole structure }}
+          {{#if this.isLoading}}
+            <Reusables::Skeleton />
+          {{else}}
+            {{! TODO - Remove this dummy src and it's video }}
+            <VideoScreen @src='/assets/birds_footage.mp4' />
+          {{/if}}
+        </div>
+        <div class='container__sidebar'>
+          {{#if this.isLoading}}
+            <Reusables::Skeleton />
+          {{else}}
+            <LiveSidebar />
+          {{/if}}
+        </div>
       </div>
     {{else}}
       <LiveJoin
@@ -25,8 +34,10 @@
         @clickHandler={{this.clickHandler}}
       />
     {{/if}}
+
   {{else}}
     {{! TODO - add the respective component here }}
     <p>{{this.activeTab}} Component</p>
   {{/if}}
+
 </div>

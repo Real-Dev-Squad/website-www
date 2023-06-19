@@ -24,6 +24,11 @@
     width: 28%;
 }
 
+.live__panel-container{
+    width:100%;
+}
+
+
 @media only screen and (max-width: 768px) {
     .live__video-container {
         width: 100%;

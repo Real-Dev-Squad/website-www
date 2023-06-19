@@ -16,9 +16,13 @@ module('Acceptance | live', function (hooks) {
       'url is /page-not-found'
     );
 
-    await visit('/live?dev=true');
+    await visit('/live?dev=true&role=guest');
 
-    assert.strictEqual(currentURL(), '/live?dev=true', 'we are on live page!');
+    assert.strictEqual(
+      currentURL(),
+      '/live?dev=true&role=guest',
+      'we are on live page as a guest'
+    );
     assert.dom('[data-test-card]').exists();
     assert.dom('[data-test-input-field]').exists();
     assert.dom('[data-test-button="live-join"]').exists();

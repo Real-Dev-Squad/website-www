@@ -1,0 +1,10 @@
+<div class='live-panel' data-test-live-panel>
+  {{#each this.BUTTON_MAPPING as |button|}}
+    <Reusables::IconButton
+      @id={{button.id}}
+      @class={{button.className}}
+      @onClick={{this.buttonClickHandler}}
+      @icon={{button.icon}}
+    />
+  {{/each}}
+</div>

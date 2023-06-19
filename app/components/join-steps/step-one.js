@@ -3,6 +3,8 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { countryList } from '../../constants/country-list';
 import { validator } from '../../utils/validator';
+import { debounce } from '@ember/runloop';
+import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 
 export default class StepOneComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepOneData')) ?? {
@@ -30,13 +32,16 @@ export default class StepOneComponent extends Component {
 
   @action inputHandler(e) {
     this.setIsPreValid(false);
-    this.data = { ...this.data, [e.target.name]: e.target.value };
-    localStorage.setItem('stepOneData', JSON.stringify(this.data));
-    const validated =
-      validator(this.data.city, 1) &&
-      validator(this.data.state, 1) &&
-      validator(this.data.country, 1);
-    this.setIsValid(validated);
-    localStorage.setItem('isValid', validated);
+    const setValToLocalStorage = () => {
+      this.data = { ...this.data, [e.target.name]: e.target.value };
+      localStorage.setItem('stepOneData', JSON.stringify(this.data));
+      const validated =
+        validator(this.data.city, 1) &&
+        validator(this.data.state, 1) &&
+        validator(this.data.country, 1);
+      this.setIsValid(validated);
+      localStorage.setItem('isValid', validated);
+    };
+    debounce(this.data, setValToLocalStorage, JOIN_DEBOUNCE_TIME);
   }
 }

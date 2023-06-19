@@ -300,7 +300,7 @@ async function showSavedDetails() {
     setTimeout(function () {
       alert('You are not logged in! Redirecting you to login.');
       window.location.href = GITHUB_OAUTH;
-      sessionStorage.setItem('lastLocation', window.location.href);
+      sessionStorage.setItem('lastLocationUrl', window.location.href);
     }, 1000);
   }
 })();

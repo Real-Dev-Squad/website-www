@@ -28,16 +28,15 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
   }
 };
 
-const lastLocation = sessionStorage.getItem('lastLocation');
+const lastLocation = sessionStorage.getItem('lastLocationUrl');
 const fetchData = async () => {
   try {
     const res = await makeApiCall(`${BASE_URL}/users/self`);
     const result = await res.data;
     if (result && lastLocation) {
-      sessionStorage.removeItem('lastLocation');
+      sessionStorage.removeItem('lastLocationUrl');
       // Redirect the user to the stored location
       window.location.href = lastLocation;
-      setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
     }
 
     if (result.error) {

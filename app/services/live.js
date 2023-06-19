@@ -11,7 +11,6 @@ import { globalRef } from 'ember-ref-bucket';
 import { ROLES, API_METHOD } from '../constants/live';
 
 export default class LiveService extends Service {
-  BASE_ENDPOINT = ENV.BASE_100MS_URL;
   hmsManager;
   hmsStore;
   hmsActions;

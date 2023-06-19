@@ -1,32 +1,34 @@
 .sidebar {
-    padding-top: 1rem;
+    padding: 1rem 0;
     /* width: 300px; */
     background-color: #DADADA;
     height: fit-content;
-    overflow: auto;
+    /* overflow: auto; */
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.sidebar::-webkit-scrollbar {
-    width: 5px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    background: var(--color-darkgrey);
-    border-radius: 10px;
-}
-
-.sidebar__accordian-button{
+.sidebar__accordian-button {
     display: none;
 }
 
 .sidebar__body {
     width: 90%;
     height: 327px;
+    overflow: auto;
+}
+
+.sidebar__body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar__body::-webkit-scrollbar-thumb {
+    background: var(--color-darkgrey);
+    border-radius: 10px;
 }
 
 .sidebar__participants {
@@ -70,8 +72,8 @@
     justify-content: center;
     color: #E30062;
     font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 18px;
     line-height: 23px;
 }
 
@@ -93,6 +95,9 @@
     border-radius: 7px;
 }
 
+.body__role-user:last-child {
+    margin-bottom: 0;
+}
 
 .role-user__type {
     font-style: normal;
@@ -101,7 +106,7 @@
     line-height: 23px;
     display: flex;
     align-items: center;
-    text-decoration-line: underline;
+    text-decoration: underline;
     color: #E30062;
     margin-bottom: 0.6rem;
 }
@@ -127,12 +132,16 @@
     font-weight: 400;
     font-size: 17px;
     line-height: 20px;
-    text-decoration-line: underline;
     color: #000000;
 }
 
 @media only screen and (max-width: 768px) {
-    .sidebar__accordian-button{
+    .sidebar {
+        height: 70px;
+        width: 100%;
+    }
+
+    .sidebar__accordian-button {
         display: block;
     }
 
@@ -142,20 +151,20 @@
         padding-left: 1rem;
     }
 
-    .sidebar {
-        height: 50px;
-        overflow: hidden;
-    }
 
     .sidebar.open {
         height: fit-content;
-        overflow: auto;
+    }
+
+    .sidebar__body {
+        overflow: hidden;
     }
 
     .sidebar__body.open {
         animation: opensidebar 2s;
         transition: height 2s;
         animation-fill-mode: forwards;
+        overflow: auto;
     }
 
     .sidebar__body.close {

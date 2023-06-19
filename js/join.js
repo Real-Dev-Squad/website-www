@@ -184,74 +184,20 @@ function arePersonalDetailsValid() {
 }
 function introPageValidator() {
   let countIntroduction = 0;
-  let textAreaIntroduction = document.querySelector('#introduction').value;
-
-  let m;
-  const regex = /\w+/g;
-
-  while ((m = regex.exec(textAreaIntroduction)) !== null) {
-    if (m.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-
-    m.forEach((match, groupIndex) => {
-      countIntroduction++;
-    });
-  }
-
-  let textAreaSkills = document.querySelector('#skills').value;
+  let textAreaIntroduction = introduction.value;
+  let textAreaSkills = skills.value;
   let countSkills = 0;
-  let m2;
-
-  while ((m2 = regex.exec(textAreaSkills)) !== null) {
-    if (m2.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-
-    m2.forEach((match, groupIndex) => {
-      countSkills++;
-    });
-  }
-
-  let textAreaCollege = document.querySelector('#college').value;
+  let textAreaCollege = college.value;
   let countCollege = 0;
-  let m3;
-  while ((m3 = regex.exec(textAreaCollege)) !== null) {
-    if (m3.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-    m3.forEach((match, groupIndex) => {
-      countCollege++;
-    });
-  }
-
-  let textAreaForFun = document.querySelector('#forFun').value;
+  let textAreaForFun = forFun.value;
   let countForFun = 0;
-  let m4;
-
-  while ((m4 = regex.exec(textAreaForFun)) !== null) {
-    if (m4.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-    m4.forEach((match, groupIndex) => {
-      countForFun++;
-    });
-  }
-
-  let textAreafunFact = document.querySelector('#funFact').value;
+  let textAreafunFact = funFact.value;
   let countfunFact = 0;
-
-  let mFun;
-
-  while ((mFun = regex.exec(textAreafunFact)) !== null) {
-    if (mFun.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-
-    mFun.forEach((match, groupIndex) => {
-      countfunFact++;
-    });
-  }
+  countIntroduction = countWords(textAreaIntroduction);
+  countSkills = countWords(textAreaSkills);
+  countCollege = countWords(textAreaCollege);
+  countForFun = countWords(textAreaForFun);
+  countfunFact = countWords(textAreafunFact);
 
   return (
     countIntroduction >= sizeDef.introduction &&
@@ -294,8 +240,15 @@ function numberDataValidator(element, min, max) {
 
 function dataValidator(element, size) {
   let counter = document.getElementById(element.id + 'Counter');
-  if (size != 0) counter.innerText = `At least, ${size} more word(s) required`;
-  if (size != 0) element.classList.add('incorrect-data');
+  if (
+    (element === introduction && size < 100) ||
+    (element === forFun && size < 100) ||
+    (element === funFact && size < 100) ||
+    (element === skills && size < 5)
+  ) {
+    counter.innerText = `At least, ${size} more word(s) required`;
+    element.classList.add('incorrect-data');
+  }
 }
 
 // Togglers Fillers
@@ -472,12 +425,10 @@ copyBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(`Real Dev Squad Verification Link: ${url}`);
 });
 
-introduction.addEventListener('mouseleave', (event) => {
-  let count = 0;
-  let textArea = introduction.value;
+function countWords(textArea) {
   let m;
   const regex = /\w+/g;
-
+  let count = 0;
   while ((m = regex.exec(textArea)) !== null) {
     if (m.index === regex.lastIndex) {
       regex.lastIndex++;
@@ -487,6 +438,14 @@ introduction.addEventListener('mouseleave', (event) => {
       count++;
     });
   }
+  return count;
+}
+
+introduction.addEventListener('mouseleave', (event) => {
+  let count = 0;
+  let textArea = introduction.value;
+
+  count = countWords(textArea);
   if (count < 100) {
     dataValidator(introduction, 100 - count);
   } else if (count >= 100) {
@@ -494,22 +453,11 @@ introduction.addEventListener('mouseleave', (event) => {
     introduction.classList.remove('incorrect-data');
   }
 });
+
 skills.addEventListener('mouseleave', (event) => {
   let textArea = skills.value;
   let count = 0;
-  let m;
-  const regex = /\w+/g;
-
-  while ((m = regex.exec(textArea)) !== null) {
-    if (m.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-
-    m.forEach((match, groupIndex) => {
-      count++;
-    });
-  }
-
+  count = countWords(textArea);
   if (count < 5) {
     dataValidator(skills, 5 - count);
   } else if (count >= 5) {
@@ -521,18 +469,7 @@ skills.addEventListener('mouseleave', (event) => {
 college.addEventListener('mouseleave', (event) => {
   let textArea = college.value;
   let count = 0;
-  let m;
-  const regex = /\w+/g;
-
-  while ((m = regex.exec(textArea)) !== null) {
-    if (m.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-
-    m.forEach((match, groupIndex) => {
-      count++;
-    });
-  }
+  count = countWords(textArea);
 
   if (count < 1) {
     dataValidator(college, 1 - count);
@@ -541,21 +478,11 @@ college.addEventListener('mouseleave', (event) => {
     college.classList.remove('incorrect-data');
   }
 });
+
 forFun.addEventListener('mouseleave', (event) => {
   let textArea = forFun.value;
   let count = 0;
-  let m;
-  const regex = /\w+/g;
-
-  while ((m = regex.exec(textArea)) !== null) {
-    if (m.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-    m.forEach((match, groupIndex) => {
-      count++;
-    });
-  }
-
+  count = countWords(textArea);
   if (count < 100) {
     dataValidator(forFun, 100 - count);
   } else if (count >= 100) {
@@ -567,19 +494,7 @@ forFun.addEventListener('mouseleave', (event) => {
 funFact.addEventListener('mouseleave', (event) => {
   let textArea = funFact.value;
   let count = 0;
-  let m;
-  const regex = /\w+/g;
-
-  while ((m = regex.exec(textArea)) !== null) {
-    if (m.index === regex.lastIndex) {
-      regex.lastIndex++;
-    }
-
-    m.forEach((match, groupIndex) => {
-      count++;
-    });
-  }
-
+  count = countWords(textArea);
   if (count < 100) {
     dataValidator(funFact, 100 - count);
   } else if (count >= 100) {

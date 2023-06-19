@@ -17,6 +17,7 @@ export default class LiveService extends Service {
   hmsActions;
   @tracked isScreenShareOn = false;
   @tracked isJoined = false;
+  @tracked activeRoomId = '';
   @globalRef('videoEl') videoEl;
 
   constructor() {
@@ -70,7 +71,7 @@ export default class LiveService extends Service {
         },
         credentials: 'include',
         body: JSON.stringify({
-          name: 'live-share-rds',
+          name: `live-rds-${Math.random()}`,
           description: 'The RDS live',
           region: 'in',
           userId: userName,
@@ -83,19 +84,34 @@ export default class LiveService extends Service {
     }
   }
 
-  async joinSession(userName, role) {
+  async endRoom(roomId) {
+    try {
+      const response = await fetch(`${ENV.BASE_API_URL}/events/end`, {
+        method: API_METHOD.PATCH,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          id: roomId,
+          reason: 'Session is over',
+          lock: true,
+        }),
+      });
+      const { message } = await response.json();
+      return message;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async joinSession(userName, role, room) {
     try {
       const roomId =
-        ROLES.host === role
-          ? await this.createRoom(userName)
-          : '648da101fe28c9c2e9d42ea7';
+        ROLES.host === role ? await this.createRoom(userName) : room;
+      console.log({ roomId }); // For now use it to create link for guest
+      this.activeRoomId = roomId;
       const token = await this.joinRoom(roomId, role, userName);
-      // TODO: Need to refactor this logic
-      new Promise((resolve) => {
-        setTimeout(() => {
-          resolve('resolved');
-        }, 2000);
-      });
       await this.hmsActions.join({
         userName,
         authToken: token,
@@ -105,9 +121,13 @@ export default class LiveService extends Service {
     }
   }
 
-  async leaveSession() {
+  async leaveSession(role) {
     try {
-      await this.hmsActions.leave();
+      if (ROLES.host === role) {
+        await this.endRoom(this.activeRoomId);
+      } else {
+        await this.hmsActions.leave();
+      }
     } catch (error) {
       console.error(error);
     }

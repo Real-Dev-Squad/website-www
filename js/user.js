@@ -29,7 +29,7 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
 };
 
 const lastLocation = sessionStorage.getItem('lastLocationUrl');
-const fetchData = async () => {
+const fetchUserSelfData = async () => {
   try {
     const res = await makeApiCall(`${BASE_URL}/users/self`);
     const result = await res.data;
@@ -48,8 +48,8 @@ const fetchData = async () => {
     }
     setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
-export { fetchData };
+export { fetchUserSelfData };

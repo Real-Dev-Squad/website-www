@@ -1,4 +1,4 @@
-import { BASE_URL } from './constants';
+import { BASE_URL, SIGNUP_URL } from './constants';
 
 const setUserGreeting = (username, firstName, userProfilePicture) => {
   if (username) {
@@ -44,7 +44,7 @@ const fetchUserSelfData = async () => {
     }
 
     if (result.incompleteUserDetails) {
-      return window.location.replace('https://my.realdevsquad.com/signup');
+      return window.location.replace(`${SIGNUP_URL}`);
     }
     setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
   } catch (err) {

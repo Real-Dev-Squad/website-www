@@ -38,7 +38,6 @@ export default class LiveService extends Service {
 
   onConnection(isConnected) {
     this.isJoined = isConnected;
-    console.log('Connected: ', isConnected);
   }
 
   async joinRoom(roomId, role, userName) {

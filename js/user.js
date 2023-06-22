@@ -35,7 +35,6 @@ const fetchUserSelfData = async () => {
     const result = await res.data;
     if (result && lastLocation) {
       sessionStorage.removeItem('lastLocationUrl');
-      // Redirect the user to the stored location
       window.location.href = lastLocation;
     }
 

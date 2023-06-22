@@ -1,5 +1,5 @@
 import { updateGitHubLink } from '/js/github.js';
-import { fetchUserSelfData  } from '/js/user.js';
+import { fetchUserSelfData } from '/js/user.js';
 
 window.addEventListener(
   'DOMContentLoaded',

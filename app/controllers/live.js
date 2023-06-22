@@ -28,7 +28,7 @@ export default class LiveController extends Controller {
     super(...arguments);
     setTimeout(() => {
       this.isLoading = false;
-    }, 5000);
+    }, 4000);
   }
 
   @action inputHandler(e) {

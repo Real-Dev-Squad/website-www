@@ -3,6 +3,7 @@ import {
   HMSReactiveStore,
   selectIsSomeoneScreenSharing,
   selectPeers,
+  selectIsConnectedToRoom,
 } from '@100mslive/hms-video-store';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'website-www/config/environment';
@@ -10,11 +11,12 @@ import { globalRef } from 'ember-ref-bucket';
 import { ROLES, API_METHOD } from '../constants/live';
 
 export default class LiveService extends Service {
-  BASE_ENDPOINT = ENV.BASE_100MS_URL;
   hmsManager;
   hmsStore;
   hmsActions;
   @tracked isScreenShareOn = false;
+  @tracked isJoined = false;
+  @tracked activeRoomId = '';
   @globalRef('videoEl') videoEl;
 
   constructor() {
@@ -28,17 +30,27 @@ export default class LiveService extends Service {
       (peers) => this.renderScreenVideoToPeers(peers, this.hmsActions),
       selectPeers
     );
+    this.hmsStore.subscribe(
+      (isConnected) => this.onConnection(isConnected),
+      selectIsConnectedToRoom
+    );
   }
 
-  async getToken(userName, userType) {
+  onConnection(isConnected) {
+    this.isJoined = isConnected;
+  }
+
+  async joinRoom(roomId, role, userName) {
     try {
-      //TODO: Add funtionality to join live session with BE APIs
-      const response = await fetch(`${this.BASE_ENDPOINT}/api/token`, {
+      const response = await fetch(`${ENV.BASE_API_URL}/events/join`, {
         method: API_METHOD.POST,
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
-          room_id: ENV.ROOM_ID,
-          role: userType === ROLES.guest ? ROLES.guest : ROLES.presenter,
-          user_id: userName,
+          roomId,
+          role,
+          userId: userName,
         }),
       });
       const { token } = await response.json();
@@ -48,9 +60,56 @@ export default class LiveService extends Service {
     }
   }
 
-  async joinSession(userName, userType) {
+  async createRoom(userName) {
     try {
-      const token = await this.getToken(userName, userType);
+      const response = await fetch(`${ENV.BASE_API_URL}/events`, {
+        method: API_METHOD.POST,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          name: `live-rds-${Math.random()}`,
+          description: 'The RDS live',
+          region: 'in',
+          userId: userName,
+        }),
+      });
+      const { room_id } = await response.json();
+      return room_id;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async endRoom(roomId) {
+    try {
+      const response = await fetch(`${ENV.BASE_API_URL}/events/end`, {
+        method: API_METHOD.PATCH,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          id: roomId,
+          reason: 'Session is over',
+          lock: true,
+        }),
+      });
+      const { message } = await response.json();
+      return message;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async joinSession(userName, role, room) {
+    try {
+      const roomId =
+        ROLES.host === role ? await this.createRoom(userName) : room;
+      console.log({ roomId }); // For now use it to create link for guest
+      this.activeRoomId = roomId;
+      const token = await this.joinRoom(roomId, role, userName);
       await this.hmsActions.join({
         userName,
         authToken: token,
@@ -60,9 +119,13 @@ export default class LiveService extends Service {
     }
   }
 
-  async leaveSession() {
+  async leaveSession(role) {
     try {
-      await this.hmsActions.leave();
+      if (ROLES.host === role) {
+        await this.endRoom(this.activeRoomId);
+      } else {
+        await this.hmsActions.leave();
+      }
     } catch (error) {
       console.error(error);
     }
@@ -81,7 +144,7 @@ export default class LiveService extends Service {
   }
 
   async renderScreenVideoToPeers(peers) {
-    const presenterTrackId = peers?.find((p) => p.roleName === 'presenter')
+    const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {
       await this.hmsActions.attachVideo(presenterTrackId, this.videoEl);

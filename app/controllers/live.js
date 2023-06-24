@@ -7,7 +7,7 @@ import { globalRef } from 'ember-ref-bucket';
 import { ROLES } from '../constants/live';
 
 export default class LiveController extends Controller {
-  queryParams = ['dev', 'role'];
+  queryParams = ['dev', 'role', 'room'];
   @service login;
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
@@ -17,8 +17,8 @@ export default class LiveController extends Controller {
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = true;
   @tracked name = '';
-  @tracked isJoined = false;
   @tracked role = null;
+  @tracked room = null;
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -40,8 +40,7 @@ export default class LiveController extends Controller {
     const isGuest = this.role === ROLES.guest;
     const isHost = this.role === ROLES.host;
     if (this.name && (isGuest || isHost)) {
-      this.liveService.joinSession(this.name, this.role);
-      this.isJoined = true;
+      this.liveService.joinSession(this.name, this.role, this.room);
       this.name = '';
     }
   }
@@ -54,8 +53,7 @@ export default class LiveController extends Controller {
   }
 
   @action leaveSession() {
-    this.liveService.leaveSession();
-    this.isJoined = false;
+    this.liveService.leaveSession(this.role);
   }
 
   @action screenShare() {

@@ -31,6 +31,11 @@
             {{#if (eq this.role 'host')}}
               <Reusables::Button
                 @variant='dark'
+                @text={{if this.isCopied 'Copied ✅' 'Invite link'}}
+                @onClick={{this.copyInviteLink}}
+              />
+              <Reusables::Button
+                @variant='dark'
                 @text={{if
                   this.liveService.isScreenShareOn
                   'Stop Share'

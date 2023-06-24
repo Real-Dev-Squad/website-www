@@ -19,6 +19,7 @@ export default class LiveController extends Controller {
   @tracked name = '';
   @tracked role = null;
   @tracked room = null;
+  @tracked isCopied = false;
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -58,5 +59,20 @@ export default class LiveController extends Controller {
 
   @action screenShare() {
     this.liveService.shareScreen();
+  }
+
+  @action async copyInviteLink() {
+    try {
+      await navigator.clipboard.writeText(
+        `${window.location.origin}/live?dev=true&role=guest&room=${this.liveService.activeRoomId}`
+      );
+      this.isCopied = true;
+      setTimeout(() => {
+        this.isCopied = false;
+      }, 2000);
+    } catch (error) {
+      this.isCopied = false;
+      console.error(error);
+    }
   }
 }

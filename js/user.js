@@ -45,7 +45,7 @@ const fetchUserSelfData = async () => {
     if (result.incompleteUserDetails) {
       return window.location.replace(`${SIGNUP_URL}`);
     }
-    setUserGreeting(result.username, result.first_name, result.picture?.url); // BAD
+    setUserGreeting(result.username, result.first_name, result.picture?.url);
   } catch (err) {
     console.error(err);
   }

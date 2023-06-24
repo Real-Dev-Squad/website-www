@@ -11,6 +11,7 @@ module('Integration | Component | live-sidebar', function (hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(hbs`<LiveSidebar />`);
+
     assert.ok(true);
   });
 });

@@ -29,9 +29,6 @@ module.exports = function (environment) {
 
   if (environment === 'development') {
     ENV.BASE_API_URL = 'http://localhost:3000';
-    ENV.BASE_100MS_URL =
-      'https://prod-in2.100ms.live/hmsapi/sanketdhabardelive.app.100ms.live';
-    ENV.ROOM_ID = '6399de60b806bb263907e17d';
 
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -43,9 +40,6 @@ module.exports = function (environment) {
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
-    ENV.BASE_100MS_URL =
-      'https://prod-in2.100ms.live/hmsapi/sanketdhabardelive.app.100ms.live';
-    ENV.ROOM_ID = '6399de60b806bb263907e17d';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;

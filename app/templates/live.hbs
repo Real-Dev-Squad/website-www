@@ -9,35 +9,51 @@
   {{! TODO - add more else if statement instead of only else }}
   {{#if (eq this.activeTab 'Screenshare')}}
     {{#if this.liveService.isJoined}}
-      <div class='live__video-container' data-test-video-container>
-        {{! TODO - add skeleton to the whole structure }}
-        {{#if this.isLoading}}
-          <Reusables::Skeleton />
-        {{else}}
-          {{! TODO - Remove this dummy src and it's video }}
-          <VideoScreen @src='/assets/birds_footage.mp4' />
-          {{! TODO - Remove this dummy button and replace with proper pannel }}
-          <Reusables::Button
-            @variant='dark'
-            @text='Leave Room'
-            @onClick={{this.leaveSession}}
-          />
-          {{! TODO - Remove this dummy button and replace with proper pannel }}
-          {{#if (eq this.role 'host')}}
+      <div class='live__container'>
+        <div class='live__video-container' data-test-video-container>
+          {{! TODO - add skeleton to the whole structure }}
+          {{#if this.isLoading}}
+            <Reusables::Skeleton />
+          {{else}}
+            {{! TODO - Remove this dummy src and it's video }}
+            <VideoScreen @src='/assets/birds_footage.mp4' />
+            {{! TODO - Remove this dummy button and replace with proper pannel }}
             <Reusables::Button
               @variant='dark'
-              @text={{if
-                this.liveService.isScreenShareOn
-                'Stop Share'
-                'Screen Share'
-              }}
-              @onClick={{this.screenShare}}
+              @text='Leave Room'
+              @onClick={{this.leaveSession}}
+            />
+            {{! TODO - Remove this dummy button and replace with proper pannel }}
+            {{#if (eq this.role 'host')}}
+              <Reusables::Button
+                @variant='dark'
+                @text={{if
+                  this.liveService.isScreenShareOn
+                  'Stop Share'
+                  'Screen Share'
+                }}
+                @onClick={{this.screenShare}}
+              />
+            {{/if}}
+          {{/if}}
+        </div>
+        <div class='container__sidebar'>
+          {{#if this.isLoading}}
+            <Reusables::Skeleton />
+          {{else}}
+            <LiveSidebar
+              @peers={{this.liveService.peers}}
+              @hostProfilePicture={{this.login.userData.picture.url}}
             />
           {{/if}}
-        {{/if}}
+        </div>
       </div>
-      <div class='live__panel-container'>
-        <LivePanel />
+       <div class='live__panel-container'>
+         {{#if this.isLoading}}
+            <Reusables::Skeleton />
+         {{else}}
+           <LivePanel />
+         {{/if}}
       </div>
     {{else}}
       <LiveJoin

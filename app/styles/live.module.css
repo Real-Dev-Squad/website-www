@@ -8,11 +8,46 @@
     padding: 1rem;
 }
 
-.live__video-container {
+.live__container {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    aspect-ratio: 16/9;
+}
+
+.live__video-container {
+    width: 70%;
+    height: 45vh;
+}
+
+.container__sidebar {
+    display: flex;
+    width: 28%;
 }
 
 .live__panel-container{
     width:100%;
+    height: 100px;
+    margin-top: 1rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .live__video-container {
+        width: 100%;
+    }
+    
+    .container__sidebar {
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .live__container {
+        height: initial;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
 }

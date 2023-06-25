@@ -1,5 +1,5 @@
 <div class='live-panel' data-test-live-panel>
-  {{#if (eq @role 'host')}}
+  {{#if (eq @role this.ROLES.host)}}
     <Reusables::IconButton
       @id='screen-share'
       @class='icon-button--md'

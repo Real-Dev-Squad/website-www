@@ -47,7 +47,12 @@
           {{/if}}
         </div>
         <div class='live__panel-container'>
-          <LivePanel />
+          <LivePanel
+            @isScreenShareOn={{this.liveService.isScreenShareOn}}
+            @isCopied={{this.isCopied}}
+            @role={{this.role}}
+            @buttonClickHandler={{this.buttonClickHandler}}
+          />
         </div>
       {{else}}
         <LiveJoin

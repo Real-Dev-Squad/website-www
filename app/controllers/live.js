@@ -75,4 +75,20 @@ export default class LiveController extends Controller {
       console.error(error);
     }
   }
+
+  @action buttonClickHandler(buttonId) {
+    switch (buttonId) {
+      case 'screen-share':
+        this.screenShare();
+        break;
+      case 'copy-link':
+        this.copyInviteLink();
+        break;
+      case 'leave-room':
+        this.leaveSession();
+        break;
+      default:
+        console.error('Illegal state');
+    }
+  }
 }

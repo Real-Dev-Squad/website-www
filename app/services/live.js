@@ -112,7 +112,6 @@ export default class LiveService extends Service {
       this.isLoading = true;
       const roomId =
         ROLES.host === role ? await this.createRoom(userName) : room;
-      console.log({ roomId }); // For now use it to create link for guest
       this.activeRoomId = roomId;
       const token = await this.joinRoom(roomId, role, userName);
       this.isLoading = false;

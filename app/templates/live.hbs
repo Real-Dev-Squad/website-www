@@ -9,7 +9,7 @@
   {{! TODO - add more else if statement instead of only else }}
   {{#if (eq this.activeTab 'Screenshare')}}
     {{#if this.liveService.isLoading}}
-      <div data-test-loading class='live__loading'>
+      <div data-test-loading>
         <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
       </div>
     {{else}}

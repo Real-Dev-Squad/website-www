@@ -15,10 +15,10 @@ export default class LiveService extends Service {
   hmsStore;
   hmsActions;
   @tracked isScreenShareOn = false;
-  @tracked isJoined = false;
+  @tracked isJoined = true;
   @tracked activeRoomId = '';
   @globalRef('videoEl') videoEl;
-
+  @tracked peers;
   constructor() {
     super(...arguments);
     // Initialize HMS store
@@ -28,6 +28,10 @@ export default class LiveService extends Service {
     this.hmsActions = this.hmsManager.getActions();
     this.hmsStore.subscribe(
       (peers) => this.renderScreenVideoToPeers(peers, this.hmsActions),
+      selectPeers
+    );
+    this.hmsStore.subscribe(
+      (peers) => this.updatePeers(peers, this.hmsActions),
       selectPeers
     );
     this.hmsStore.subscribe(
@@ -144,6 +148,7 @@ export default class LiveService extends Service {
   }
 
   async renderScreenVideoToPeers(peers) {
+    this.peers = peers;
     const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {

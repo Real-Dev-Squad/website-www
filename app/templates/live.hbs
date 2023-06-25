@@ -41,12 +41,16 @@
           {{#if this.isLoading}}
             <Reusables::Skeleton />
           {{else}}
-            <LiveSidebar />
+            <LiveSidebar
+              @peers={{this.liveService.peers}}
+              @hostProfilePicture={{this.login.userData.picture.url}}
+            />
           {{/if}}
         </div>
-        <div class='live__panel-container'>
-          <LivePanel />
-        </div>
+
+      </div>
+      <div class='live__panel-container'>
+        <LivePanel />
       </div>
     {{else}}
       <LiveJoin

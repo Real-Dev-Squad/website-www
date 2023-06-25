@@ -1,7 +1,8 @@
-<div class='sidebar {{if this.isSideBarOpen "open" "close"}}'>
-  <div class='sidebar__participants'>
+<div data-test-sidebar class='sidebar {{if this.isSideBarOpen "open" "close"}}'>
+  <div data-test-sidebar-participants class='sidebar__participants'>
     <h4>Participants</h4>
     <button
+      data-test-sidebar-button
       class='sidebar__accordian-button'
       {{on 'click' this.toggleMobileSidebar}}
       type='button'
@@ -14,12 +15,12 @@
       />
     </button>
   </div>
-  <div class='sidebar__body {{if this.isSideBarOpen "open" "close"}}'>
-    <div class='body__host'>
-      <span class='host__container'>
-        <img class='host__image' src={{@hostProfilePicture}} alt='host' />
+  <div data-test-sidebar-body class='sidebar__body {{if this.isSideBarOpen "open" "close"}}'>
+    <div data-test-sidebar-body-host class='body__host'>
+      <span data-test-sidebar-host-container class='host__container'>
+        <img data-test-sidebar-host-image class='host__image' src={{@hostProfilePicture}} alt='host' />
       </span>
-      <span class='host__name'>
+      <span data-test-sidebar-host-name class='host__name'>
         {{#each @peers as |peer|}}
           {{#if (eq peer.roleName this.ROLES.host)}}
             {{peer.name}}
@@ -27,12 +28,12 @@
         {{/each}}
         is presenting</span>
     </div>
-    <div class='body__role-user'>
-      <p class='role-user__type guestUsers'>Guest Users</p>
+    <div data-test-sidebar-body-role class='body__role-user'>
+      <p data-test-sidebar-body-role-guest class='role-user__type guestUsers'>Guest Users</p>
       <ul>
         {{#each @peers as |peer|}}
           {{#if (eq peer.roleName this.ROLES.guest)}}
-            <li class='user'>
+            <li data-test-sidebar-user={{peer.name}} class='user'>
               <p>{{peer.name}}</p>
             </li>
           {{/if}}

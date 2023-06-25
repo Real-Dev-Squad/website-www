@@ -31,10 +31,6 @@ export default class LiveService extends Service {
       selectPeers
     );
     this.hmsStore.subscribe(
-      (peers) => this.updatePeers(peers, this.hmsActions),
-      selectPeers
-    );
-    this.hmsStore.subscribe(
       (isConnected) => this.onConnection(isConnected),
       selectIsConnectedToRoom
     );

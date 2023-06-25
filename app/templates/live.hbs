@@ -47,10 +47,13 @@
             />
           {{/if}}
         </div>
-
       </div>
-      <div class='live__panel-container'>
-        <LivePanel />
+       <div class='live__panel-container'>
+         {{#if this.isLoading}}
+            <Reusables::Skeleton />
+         {{else}}
+           <LivePanel />
+         {{/if}}
       </div>
     {{else}}
       <LiveJoin

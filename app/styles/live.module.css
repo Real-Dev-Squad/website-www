@@ -12,11 +12,11 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 50vh;
 }
 
 .live__video-container {
     width: 70%;
+    height: 45vh;
 }
 
 .container__sidebar {
@@ -26,6 +26,8 @@
 
 .live__panel-container{
     width:100%;
+    height: 100px;
+    margin-top: 1rem;
 }
 
 
@@ -36,6 +38,7 @@
     
     .container__sidebar {
         width: 100%;
+        margin-top: 1rem;
         display: flex;
         justify-content: center;
     }

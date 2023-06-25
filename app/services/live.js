@@ -15,10 +15,11 @@ export default class LiveService extends Service {
   hmsStore;
   hmsActions;
   @tracked isScreenShareOn = false;
-  @tracked isJoined = true;
+  @tracked isJoined = false;
   @tracked activeRoomId = '';
   @globalRef('videoEl') videoEl;
   @tracked peers;
+
   constructor() {
     super(...arguments);
     // Initialize HMS store

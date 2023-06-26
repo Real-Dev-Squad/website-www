@@ -20,6 +20,7 @@ export default class LiveService extends Service {
   @tracked isLoading = false;
   @globalRef('videoEl') videoEl;
   @tracked peers;
+  @tracked isScreenShareOn;
 
   constructor() {
     super(...arguments);
@@ -158,6 +159,7 @@ export default class LiveService extends Service {
     const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {
+      this.isScreenShareOn = true;
       await this.hmsActions.attachVideo(presenterTrackId, this.videoEl);
     } else {
       await this.hmsActions.detachVideo(presenterTrackId, this.videoEl);

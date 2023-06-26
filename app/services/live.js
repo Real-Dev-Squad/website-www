@@ -19,6 +19,7 @@ export default class LiveService extends Service {
   @tracked activeRoomId = '';
   @tracked isLoading = false;
   @globalRef('videoEl') videoEl;
+  @tracked peers;
 
   constructor() {
     super(...arguments);
@@ -153,6 +154,7 @@ export default class LiveService extends Service {
   }
 
   async renderScreenVideoToPeers(peers) {
+    this.peers = peers;
     const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {

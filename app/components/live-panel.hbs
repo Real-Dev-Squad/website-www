@@ -1,10 +1,29 @@
 <div class='live-panel' data-test-live-panel>
-  {{#each this.BUTTON_MAPPING as |button|}}
+  {{#if (eq @role this.ROLES.host)}}
     <Reusables::IconButton
-      @id={{button.id}}
-      @class={{button.className}}
-      @onClick={{this.buttonClickHandler}}
-      @icon={{button.icon}}
+      @id='screen-share'
+      @class='icon-button--md'
+      @title={{if @isScreenShareOn 'Stop Share' 'Screen Share'}}
+      @onClick={{@buttonClickHandler}}
+      @icon={{if
+        @isScreenShareOn
+        'material-symbols:stop-screen-share'
+        'material-symbols:screen-share'
+      }}
     />
-  {{/each}}
+    <Reusables::IconButton
+      @id='copy-link'
+      @class='icon-button--md'
+      @title='Invite link'
+      @onClick={{@buttonClickHandler}}
+      @icon={{if @isCopied 'material-symbols:done' 'material-symbols:copy-all'}}
+    />
+  {{/if}}
+  <Reusables::IconButton
+    @id='leave-room'
+    @class='icon-button--md icon-button--pink-bg'
+    @title='Leave Room'
+    @onClick={{@buttonClickHandler}}
+    @icon='material-symbols:call-end'
+  />
 </div>

@@ -17,8 +17,10 @@ export default class LiveService extends Service {
   @tracked isScreenShareOn = false;
   @tracked isJoined = false;
   @tracked activeRoomId = '';
+  @tracked isLoading = false;
   @globalRef('videoEl') videoEl;
   @tracked peers;
+  @tracked isScreenShareOn;
 
   constructor() {
     super(...arguments);
@@ -39,6 +41,9 @@ export default class LiveService extends Service {
 
   onConnection(isConnected) {
     this.isJoined = isConnected;
+    if (isConnected) {
+      this.isLoading = false;
+    }
   }
 
   async joinRoom(roomId, role, userName) {
@@ -106,16 +111,18 @@ export default class LiveService extends Service {
 
   async joinSession(userName, role, room) {
     try {
+      this.isLoading = true;
       const roomId =
         ROLES.host === role ? await this.createRoom(userName) : room;
-      console.log({ roomId }); // For now use it to create link for guest
       this.activeRoomId = roomId;
       const token = await this.joinRoom(roomId, role, userName);
+      this.isLoading = false;
       await this.hmsActions.join({
         userName,
         authToken: token,
       });
     } catch (error) {
+      this.isLoading = false;
       console.error(error);
     }
   }
@@ -123,11 +130,14 @@ export default class LiveService extends Service {
   async leaveSession(role) {
     try {
       if (ROLES.host === role) {
+        this.isLoading = true;
         await this.endRoom(this.activeRoomId);
+        this.isLoading = false;
       } else {
         await this.hmsActions.leave();
       }
     } catch (error) {
+      this.isLoading = false;
       console.error(error);
     }
   }
@@ -149,6 +159,7 @@ export default class LiveService extends Service {
     const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {
+      this.isScreenShareOn = true;
       await this.hmsActions.attachVideo(presenterTrackId, this.videoEl);
     } else {
       await this.hmsActions.detachVideo(presenterTrackId, this.videoEl);

@@ -15,10 +15,22 @@
       />
     </button>
   </div>
-  <div data-test-sidebar-body class='sidebar__body {{if this.isSideBarOpen "open" "close"}}'>
+  <div
+    data-test-sidebar-body
+    class='sidebar__body {{if this.isSideBarOpen "open" "close"}}'
+  >
     <div data-test-sidebar-body-host class='body__host'>
       <span data-test-sidebar-host-container class='host__container'>
-        <img data-test-sidebar-host-image class='host__image' src={{if @hostProfilePicture @hostProfilePicture 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' }} alt='host' />
+        <img
+          data-test-sidebar-host-image
+          class='host__image'
+          src={{if
+            @hostProfilePicture
+            @hostProfilePicture
+            '/assets/images/profile.png'
+          }}
+          alt='host'
+        />
       </span>
       <span data-test-sidebar-host-name class='host__name'>
         {{#each @peers as |peer|}}
@@ -29,7 +41,10 @@
         is presenting</span>
     </div>
     <div data-test-sidebar-body-role class='body__role-user'>
-      <p data-test-sidebar-body-role-guest class='role-user__type guestUsers'>Guest Users</p>
+      <p
+        data-test-sidebar-body-role-guest
+        class='role-user__type guestUsers'
+      >Guest Users</p>
       <ul>
         {{#each @peers as |peer|}}
           {{#if (eq peer.roleName this.ROLES.guest)}}

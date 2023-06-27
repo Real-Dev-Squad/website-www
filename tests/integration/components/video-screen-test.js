@@ -17,7 +17,7 @@ module('Integration | Component | video-screen', function (hooks) {
   test('checking props value', async function (assert) {
     assert.expect(1);
 
-    this.set('src', '/assets/birds_footage.mp4');
+    this.set('src', '/assets/starting-soon.mp4');
 
     await render(hbs`
       <VideoScreen @src={{this.src}}/>

@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { globalRef } from 'ember-ref-bucket';
-import { ROLES } from '../constants/live';
+import { ROLES, BUTTONS_TYPE } from '../constants/live';
 
 export default class LiveController extends Controller {
   queryParams = ['dev', 'role', 'room'];
@@ -78,13 +78,13 @@ export default class LiveController extends Controller {
 
   @action buttonClickHandler(buttonId) {
     switch (buttonId) {
-      case 'screen-share':
+      case BUTTONS_TYPE.SCREEN_SHARE:
         this.screenShare();
         break;
-      case 'copy-link':
+      case BUTTONS_TYPE.COPY_LINK:
         this.copyInviteLink();
         break;
-      case 'leave-room':
+      case BUTTONS_TYPE.LEAVE_ROOM:
         this.leaveSession();
         break;
       default:

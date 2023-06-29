@@ -502,6 +502,3 @@ funFact.addEventListener('mouseleave', (event) => {
     funFact.classList.remove('incorrect-data');
   }
 });
-
-module.exports = countWords;
-module.exports = dataValidator;

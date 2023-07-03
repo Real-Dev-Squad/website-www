@@ -410,3 +410,6 @@ submit.addEventListener('click', async () => {
 copyBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(`Real Dev Squad Verification Link: ${url}`);
 });
+
+
+module.exports = {countWords};

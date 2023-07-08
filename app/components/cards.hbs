@@ -25,7 +25,7 @@
             height='220px'
             width='280px'
           />
-          <p data-test-card-content={{card.id}}>{{card.content}}</p>
+          <p data-test-card-content={{card.id}}>{{{card.content}}}</p>
           <p data-test-card-btn={{card.id}} class='card__read-more'>Read More</p>
         </a>
       {{/each}}
@@ -57,7 +57,7 @@
                 alt='Description'
               />
               <p data-test-card-modal-content class='modal__description'>
-                {{card.fullContent}}
+                {{{card.fullContent}}}
               </p>
             </div>
           </div>

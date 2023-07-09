@@ -3,7 +3,6 @@ export const APPS = {
   WELCOME: 'https://welcome.realdevsquad.com/',
   EVENTS: 'https://realdevsquad.com/events.html/',
   MEMBERS: 'https://members.realdevsquad.com/',
-  CRYPTO: 'https://crypto.realdevsquad.com/',
   STATUS: 'https://status.realdevsquad.com/',
   PROFILE: 'https://my.realdevsquad.com/',
   LIVE: 'live',

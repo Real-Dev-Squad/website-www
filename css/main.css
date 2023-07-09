@@ -31,7 +31,7 @@
 html,
 body {
   background-color: var(--color-bg);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nunito', 'Roboto', sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -105,11 +105,12 @@ body {
   font-weight: 700;
 }
 
-.logo-img {
-  width: 200px;
-  height: 200px;
+.logo-img,
+.hero-img {
+  width: 300px;
+  height: 300px;
   display: block;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 .social-media-links {
@@ -542,10 +543,11 @@ footer {
 
 @media (min-width: 420px) {
   .welcome-title {
-    font-size: 2.75rem;
+    font-size: 4rem;
   }
 
-  .logo-img {
+  .logo-img,
+  .hero-img {
     width: 400px;
     height: 400px;
   }

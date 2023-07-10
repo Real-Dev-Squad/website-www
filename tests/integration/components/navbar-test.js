@@ -8,7 +8,7 @@ module('Integration | Component | navbar', function (hooks) {
   setupRenderingTest(hooks);
 
   test('navbar elements renders', async function (assert) {
-    assert.expect(18);
+    assert.expect(16);
 
     this.setProperties({
       isLoggedIn: false,
@@ -38,8 +38,6 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-events]').hasAttribute('href', APPS.EVENTS);
     assert.dom('[data-test-members]').hasText('Members');
     assert.dom('[data-test-members]').hasAttribute('href', APPS.MEMBERS);
-    assert.dom('[data-test-crypto]').hasText('Crypto');
-    assert.dom('[data-test-crypto]').hasAttribute('href', APPS.CRYPTO);
     assert.dom('[data-test-status]').hasText('Status');
     assert.dom('[data-test-status]').hasAttribute('href', APPS.STATUS);
 

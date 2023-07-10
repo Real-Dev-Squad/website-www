@@ -18,10 +18,6 @@ export const APPS_PROPERTIES = [
     name: 'Members',
   },
   {
-    url: APPS.CRYPTO,
-    name: 'Crypto',
-  },
-  {
     url: APPS.STATUS,
     name: 'Status',
   },

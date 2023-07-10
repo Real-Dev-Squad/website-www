@@ -10,7 +10,7 @@ module('Integration | Component | footer', function (hooks) {
   setupRenderingTest(hooks);
 
   test('footer renders', async function (assert) {
-    assert.expect(30);
+    assert.expect(29);
 
     await render(hbs`<Footer />`);
 

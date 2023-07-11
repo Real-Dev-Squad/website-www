@@ -44,3 +44,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run check
+
+  Setup-jest-run-command:
+    runss-on: Vs-Code Terminal
+    steps:
+      - run: npm install --save-dev jest
+      - run: jest --init
+      - run: npm install -D jest-environment-jsdom
+      - run: npm run test

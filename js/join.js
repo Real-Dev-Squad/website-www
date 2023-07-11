@@ -503,4 +503,82 @@ funFact.addEventListener('mouseleave', (event) => {
   }
 });
 
+function countWords(textArea) {
+  let m;
+  const regex = /\w+/g;
+  let count = 0;
+  while ((m = regex.exec(textArea)) !== null) {
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex++;
+    }
+
+    m.forEach((match, groupIndex) => {
+      count++;
+    });
+  }
+  return count;
+}
+
+introduction.addEventListener('mouseleave', (event) => {
+  let count = 0;
+  let textArea = introduction.value;
+
+  count = countWords(textArea);
+  if (count < 100) {
+    dataValidator(introduction, 100 - count);
+  } else if (count >= 100) {
+    document.querySelector('#introductionCounter').innerText = '';
+    introduction.classList.remove('incorrect-data');
+  }
+});
+
+skills.addEventListener('mouseleave', (event) => {
+  let textArea = skills.value;
+  let count = 0;
+  count = countWords(textArea);
+  if (count < 5) {
+    dataValidator(skills, 5 - count);
+  } else if (count >= 5) {
+    document.querySelector('#skillsCounter').innerText = '';
+    skills.classList.remove('incorrect-data');
+  }
+});
+
+college.addEventListener('mouseleave', (event) => {
+  let textArea = college.value;
+  let count = 0;
+  count = countWords(textArea);
+
+  if (count < 1) {
+    dataValidator(college, 1 - count);
+  } else if (count >= 1) {
+    document.querySelector('#collegeCounter').innerText = '';
+    college.classList.remove('incorrect-data');
+  }
+});
+
+forFun.addEventListener('mouseleave', (event) => {
+  let textArea = forFun.value;
+  let count = 0;
+  count = countWords(textArea);
+  if (count < 100) {
+    dataValidator(forFun, 100 - count);
+  } else if (count >= 100) {
+    document.querySelector('#forFunCounter').innerText = '';
+    forFun.classList.remove('incorrect-data');
+  }
+});
+
+funFact.addEventListener('mouseleave', (event) => {
+  let textArea = funFact.value;
+  let count = 0;
+  count = countWords(textArea);
+  if (count < 100) {
+    dataValidator(funFact, 100 - count);
+  } else if (count >= 100) {
+    document.querySelector('#funFactCounter').innerText = '';
+    funFact.classList.remove('incorrect-data');
+  }
+});
+
 module.exports = {countWords, dataValidator};

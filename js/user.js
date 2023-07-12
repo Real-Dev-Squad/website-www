@@ -1,4 +1,4 @@
-import { BASE_URL, SIGNUP_URL } from './constants';
+import { BASE_URL, SIGNUP_URL } from './constants.js';
 
 const setUserGreeting = (username, firstName, userProfilePicture) => {
   if (username) {

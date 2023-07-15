@@ -7,7 +7,7 @@ module('Integration | Component | step-four', function (hooks) {
   setupRenderingTest(hooks);
 
   test('step four renders', async function (assert) {
-    assert.expect(25);
+    assert.expect(27);
 
     await render(hbs`<JoinSteps::StepFour />`);
 
@@ -69,6 +69,11 @@ module('Integration | Component | step-four', function (hooks) {
       },
       {
         id: 'twelve',
+        label: 'How many hours per week, are you willing to contribute?',
+        data: '',
+      },
+      {
+        id: 'thirteen',
         label: 'How did you hear about us?',
         data: '',
       },

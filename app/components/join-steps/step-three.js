@@ -42,7 +42,7 @@ export default class StepThreeComponent extends Component {
         validator(this.data.whyRds, 100) &&
         validator(this.data.foundFrom, 1) &&
         (e.target.name === 'numberOfHours'
-          ? inputValue > 1 && inputValue < 100
+          ? inputValue >= 1 && inputValue <= 100
           : true);
       this.setIsValid(validated);
       localStorage.setItem('isValid', validated);

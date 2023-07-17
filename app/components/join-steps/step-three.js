@@ -23,8 +23,13 @@ export default class StepThreeComponent extends Component {
     this.setIsValid = this.args.setIsValid;
     this.setIsPreValid = this.args.setIsPreValid;
 
+    let Hours = parseInt(this.data.numberOfHours);
+
     const validated =
-      validator(this.data.whyRds, 100) && validator(this.data.foundFrom, 1);
+      validator(this.data.whyRds, 100) &&
+      validator(this.data.foundFrom, 1) &&
+      Hours >= 1 &&
+      Hours <= 100;
     localStorage.setItem('isValid', validated);
     this.setIsPreValid(validated);
   }

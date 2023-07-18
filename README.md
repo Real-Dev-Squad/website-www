@@ -11,6 +11,10 @@ Code deployed on: https://realdevsquad.netlify.app/, then served to our domain
 
 #### Staging Site -> https://staging-realdevsquad.netlify.app/
 
+#### Live Stream -> [URL-1]( https://word-cloud-poc.netlify.app/live.html?role=guest)
+
+#### Live Stream -> [URL-2](https://s533k4.csb.app/)
+
 ## Running the project
 
 Run `npm install` after opening the repository in your editor. This will install all the necessary packages for the project which are mentioned in the `pacakage.json` file of the project.

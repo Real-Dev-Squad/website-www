@@ -40,3 +40,23 @@ https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
 - For example, events page css goes inside `events.css`.
 - Also, in future if we add new components, we will keep component specific css like `navbar.css`, `footer.css`, `header.css` etc.
 - For mobile responsive css, we can have a folder with multiple css files catering to different css pertaining to different resolutions.
+
+## Project related docs
+
+- [PRD](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
+
+- [Live screen share ticket](https://github.com/Real-Dev-Squad/website-www/issues/343)
+
+- [Delay in livestream ticket](https://github.com/Real-Dev-Squad/website-www/issues/361)
+
+- [Word Cloud Survey ticket](https://github.com/Real-Dev-Squad/website-www/issues/359)
+
+- [Figma design (basic wireframe](https://www.figma.com/file/O8QLwPzTuH3RIWoYdxitln/Live-Page?node-id=0%3A1&t=vKJPfNkUiuCXPoIl-0)
+
+- [Figma design (detailed design)](https://www.figma.com/file/2VtPGJH61Qp0iarkKW6KTO/Live-Site-Detailed-Designs?node-id=0-1)
+
+- [Live stream POC link (with delay)](https://word-cloud-poc.netlify.app/live.html?role=guest)
+
+- [Live stream POC link (with delay)](https://s533k4.csb.app/)
+
+- [Word cloud survey POC link](https://word-cloud-poc.onrender.com/?role=presenter)

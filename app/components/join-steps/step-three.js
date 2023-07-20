@@ -10,6 +10,7 @@ export default class StepThreeComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepThreeData')) ?? {
     whyRds: '',
     foundFrom: '',
+    numberOfHours: '',
   };
   isValid;
   setIsValid;
@@ -21,8 +22,14 @@ export default class StepThreeComponent extends Component {
     this.isValid = this.args.isValid;
     this.setIsValid = this.args.setIsValid;
     this.setIsPreValid = this.args.setIsPreValid;
+
+    let Hours = parseInt(this.data.numberOfHours);
+
     const validated =
-      validator(this.data.whyRds, 100) && validator(this.data.foundFrom, 1);
+      validator(this.data.whyRds, 100) &&
+      validator(this.data.foundFrom, 1) &&
+      Hours >= 1 &&
+      Hours <= 100;
     localStorage.setItem('isValid', validated);
     this.setIsPreValid(validated);
   }
@@ -30,10 +37,18 @@ export default class StepThreeComponent extends Component {
   @action inputHandler(e) {
     this.setIsPreValid(false);
     const setValToLocalStorage = () => {
-      this.data = { ...this.data, [e.target.name]: e.target.value };
+      let inputValue = e.target.value;
+      if (e.target.name === 'numberOfHours') {
+        inputValue = parseInt(inputValue);
+      }
+      this.data = { ...this.data, [e.target.name]: inputValue };
       localStorage.setItem('stepThreeData', JSON.stringify(this.data));
       const validated =
-        validator(this.data.whyRds, 100) && validator(this.data.foundFrom, 1);
+        validator(this.data.whyRds, 100) &&
+        validator(this.data.foundFrom, 1) &&
+        (e.target.name === 'numberOfHours'
+          ? inputValue >= 1 && inputValue <= 100
+          : true);
       this.setIsValid(validated);
       localStorage.setItem('isValid', validated);
     };

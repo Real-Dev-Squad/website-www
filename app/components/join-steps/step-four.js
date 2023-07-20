@@ -75,6 +75,12 @@ export default class StepFourComponent extends Component {
     },
     {
       id: 'twelve',
+      key: 'numberOfHours',
+      label: 'How many hours per week, are you willing to contribute?',
+      data: '',
+    },
+    {
+      id: 'thirteen',
       key: 'foundFrom',
       label: 'How did you hear about us?',
       data: '',

@@ -7,7 +7,8 @@ import { globalRef } from 'ember-ref-bucket';
 import { ROLES, BUTTONS_TYPE } from '../constants/live';
 
 export default class LiveController extends Controller {
-  queryParams = ['dev', 'role', 'room'];
+  queryParams = ['dev', 'room'];
+  ROLES = ROLES;
   @service login;
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
@@ -17,7 +18,7 @@ export default class LiveController extends Controller {
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = true;
   @tracked name = '';
-  @tracked role = null;
+  @tracked role = '';
   @tracked room = null;
   @tracked isCopied = false;
   @globalRef('videoEl') videoEl;
@@ -90,5 +91,9 @@ export default class LiveController extends Controller {
       default:
         console.error('Illegal state');
     }
+  }
+
+  @action selectRoleHandler(selectedRole) {
+    console.log({ selectedRole });
   }
 }

@@ -48,11 +48,18 @@
           {{/if}}
         </div>
       {{else}}
-        <LiveJoin
-          @name={{this.name}}
-          @inputHandler={{this.inputHandler}}
-          @clickHandler={{this.clickHandler}}
-        />
+        {{#if (eq this.role '')}}
+          <LiveRoles
+            @roles={{this.ROLES}}
+            @clickHandler={{this.selectRoleHandler}}
+          />
+        {{else}}
+          <LiveJoin
+            @name={{this.name}}
+            @inputHandler={{this.inputHandler}}
+            @clickHandler={{this.clickHandler}}
+          />
+        {{/if}}
       {{/if}}
     {{/if}}
   {{else}}

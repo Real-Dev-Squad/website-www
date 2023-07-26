@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 
 export default class NavbarComponent extends Component {
   @service router;
+  @service fastboot;
   @tracked isNavOpen = false;
   @tracked isMenuOpen = false;
   @tracked authURL = this.generateAuthURL();
@@ -16,7 +17,7 @@ export default class NavbarComponent extends Component {
   MEMBERS_URL = APPS.MEMBERS;
   STATUS_URL = APPS.STATUS;
   PROFILE_URL = APPS.PROFILE;
-  AUTH_URL = AUTH.SIGN_IN;
+  AUTH_URL = this.generateAuthURL();
   LIVE_URL = APPS.LIVE;
 
   @action toggleNavbar() {
@@ -29,6 +30,16 @@ export default class NavbarComponent extends Component {
 
   @action outsideClickMenu() {
     this.isMenuOpen = false;
+  }
+
+  generateAuthURL() {
+    const currentURL = this.fastboot.isFastBoot
+      ? this.fastboot.request.protocol +
+        '//' +
+        this.fastboot.request.host +
+        this.fastboot.request.path
+      : window.location.href;
+    return `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
   }
 
   get isDev() {

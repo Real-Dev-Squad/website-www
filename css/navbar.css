@@ -76,7 +76,9 @@ nav li a:hover {
 .btn-login-text img {
   padding-left: 0.3rem;
 }
-
+.hidden {
+  display: none;
+}
 .user-greet {
   display: none;
   color: var(--color-nav-text);

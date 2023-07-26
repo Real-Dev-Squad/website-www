@@ -27,7 +27,12 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
     });
   }
 };
-
+const showSignInButton = () => {
+  const loginButtons = document.querySelectorAll('.btn-login-text');
+  loginButtons.forEach((element) => {
+    element.classList.remove('hidden');
+  });
+};
 const lastLocation = sessionStorage.getItem('lastLocationUrl');
 const fetchUserSelfData = async () => {
   try {
@@ -39,6 +44,7 @@ const fetchUserSelfData = async () => {
     }
 
     if (result.error) {
+      showSignInButton();
       throw new Error(result.error);
     }
 
@@ -47,6 +53,7 @@ const fetchUserSelfData = async () => {
     }
     setUserGreeting(result.username, result.first_name, result.picture?.url);
   } catch (err) {
+    showSignInButton();
     console.error(err);
   }
 };

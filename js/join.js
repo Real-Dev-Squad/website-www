@@ -47,8 +47,6 @@ const disclaimerCheckbox = document.getElementById('disclaimer-checkbox');
 const disclaimerFeatureFlag = document.querySelector('.disclaimer_feat-flag');
 
 window.addEventListener('load', (event) => {
-  console.log(urlParams, queryString);
-  console.log(startBtn, buttonContainer);
   if (queryString.includes('dev=true')) {
     buttonContainer.classList.add('button-container_disclaimer');
     disclaimerFeatureFlag.classList.remove('hidden');
@@ -368,7 +366,6 @@ country.addEventListener('input', () => {
 
 disclaimerCheckbox.addEventListener('click', (e) => {
   const { checked } = e.target;
-  console.log(checked);
   if (checked === true) {
     startBtn.classList.remove('button-disabled');
     startBtn.classList.add('button-filled');

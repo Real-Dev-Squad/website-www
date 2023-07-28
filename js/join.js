@@ -42,20 +42,19 @@ const flowState = {
 };
 
 const startBtn = document.getElementById('start');
-const buttonContainer = document.querySelector('.button-container')
-const disclaimerCheckbox = document.getElementById('disclaimer-checkbox')
-const disclaimerFeatureFlag = document.querySelector(".disclaimer_feat-flag")
+const buttonContainer = document.querySelector('.button-container');
+const disclaimerCheckbox = document.getElementById('disclaimer-checkbox');
+const disclaimerFeatureFlag = document.querySelector('.disclaimer_feat-flag');
 
-
-window.addEventListener("load", (event) => {
-  console.log(urlParams, queryString)
-  console.log(startBtn, buttonContainer)
-  if (queryString.includes("dev=true")) {
-    buttonContainer.classList.add('button-container_disclaimer')
-    disclaimerFeatureFlag.classList.remove("hidden")
-    startBtn.classList.remove('button-filled')
-    startBtn.classList.add('button-disabled')
-    startBtn.disabled = true
+window.addEventListener('load', (event) => {
+  console.log(urlParams, queryString);
+  console.log(startBtn, buttonContainer);
+  if (queryString.includes('dev=true')) {
+    buttonContainer.classList.add('button-container_disclaimer');
+    disclaimerFeatureFlag.classList.remove('hidden');
+    startBtn.classList.remove('button-filled');
+    startBtn.classList.add('button-disabled');
+    startBtn.disabled = true;
   }
 });
 
@@ -368,18 +367,18 @@ country.addEventListener('input', () => {
 //Button Enablers
 
 disclaimerCheckbox.addEventListener('click', (e) => {
-  const { checked } = e.target
-  console.log(checked)
+  const { checked } = e.target;
+  console.log(checked);
   if (checked === true) {
-    startBtn.classList.remove('button-disabled')
-    startBtn.classList.add('button-filled')
-    startBtn.disabled = false
+    startBtn.classList.remove('button-disabled');
+    startBtn.classList.add('button-filled');
+    startBtn.disabled = false;
   } else if (checked === false) {
-    startBtn.classList.remove('button-filled')
-    startBtn.classList.add('button-disabled')
-    startBtn.disabled = true
+    startBtn.classList.remove('button-filled');
+    startBtn.classList.add('button-disabled');
+    startBtn.disabled = true;
   }
-})
+});
 
 startBtn.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.personalDetailsPage);

@@ -101,3 +101,96 @@ modalTriggers.forEach((trigger) => {
     });
   });
 });
+
+function popup(data) {
+  if (
+    data.incompleteUserDetails === false &&
+    data.roles.developer === undefined &&
+    data.roles.designer === undefined &&
+    data.roles.maven === undefined &&
+    data.roles.productmanager === undefined
+  ) {
+    const popupContainer = document.querySelector('.roles-container');
+    const submitButton = document.querySelector('.role-button button');
+    const checkboxes = document.querySelectorAll('.checkbox-input');
+    const spinner = submitButton.querySelector('.spinner');
+    const roles = {};
+
+    const registerUserRoles = async (roles) => {
+      spinner.style.display = 'inline-block';
+      submitButton.style.backgroundColor = '#ccc';
+      const updateRoles = {
+        roles: {
+          ...data.roles,
+          ...roles,
+        },
+      };
+      const res = await fetch('https://api.realdevsquad.com/users/self', {
+        method: 'PATCH',
+        body: JSON.stringify(updateRoles),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+      return res;
+    };
+
+    function showPopup() {
+      popupContainer.style.display = 'flex';
+    }
+
+    async function hidePopup() {
+      const response = await registerUserRoles(roles);
+      if (response.status === 204) {
+        spinner.style.display = 'none';
+        submitButton.style.backgroundColor = '#008000';
+        submitButton.disabled = false;
+        popupContainer.style.display = 'none';
+      } else {
+        //have to add toast here
+        //will work on next pr
+      }
+    }
+
+    function updateRoles(event) {
+      const checkbox = event.target;
+      const name = checkbox.name;
+
+      if (checkbox.checked) {
+        roles[name] = true;
+      } else {
+        delete roles[name];
+      }
+      const anyCheckboxChecked = Object.keys(roles).length > 0;
+      submitButton.disabled = !anyCheckboxChecked;
+    }
+
+    window.addEventListener('load', function () {
+      showPopup();
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateRoles);
+      });
+    });
+
+    submitButton.addEventListener('click', hidePopup);
+  } else {
+    const popupContainer = document.querySelector('.roles-container');
+    popupContainer.style.display = 'none';
+  }
+}
+
+function userData() {
+  fetch('https://api.realdevsquad.com/users/self', {
+    headers: { 'content-type': 'application/json' },
+    credentials: 'include',
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      popup(data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+userData();

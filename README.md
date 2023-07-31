@@ -41,7 +41,7 @@ https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
 - Also, in future if we add new components, we will keep component specific css like `navbar.css`, `footer.css`, `header.css` etc.
 - For mobile responsive css, we can have a folder with multiple css files catering to different css pertaining to different resolutions.
 
-## Project related docs
+## Live-Site Feature Guides
 
 - [PRD](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
 

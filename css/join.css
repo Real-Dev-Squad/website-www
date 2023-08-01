@@ -12,6 +12,44 @@
   margin: 1.5rem 0;
 }
 
+.disclaimer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.disclaimer-container > * {
+  text-align: left;
+}
+
+.disclaimer-heading {
+  text-align: center;
+  margin: 4rem 0 2rem 0;
+}
+
+.disclaimer-container .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0 0 3rem;
+  font-weight: 600;
+}
+
+#disclaimer-checkbox {
+  height: 1.25rem;
+  width: 1.25rem;
+  cursor: pointer;
+}
+
+.disclaimer-wrapper .button-container {
+  height: 25vh;
+}
+
 .container {
   width: max-content;
   margin: 0 auto;
@@ -104,6 +142,10 @@ select {
 .button-container {
   display: grid;
   height: 70vh;
+}
+
+.button-container_disclaimer {
+  height: 25vh;
 }
 
 .twin-button-container {

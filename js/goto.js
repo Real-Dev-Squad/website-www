@@ -9,7 +9,10 @@ function redirectUserToPage(page) {
 function redirectionHandler(data) {
   if (data.incompleteUserDetails) {
     redirectUserToPage(SIGNUP_URL);
-  } else if (hasVisitedJoin == 'true' || hasVisitedJoin == null) {
+  } else if (
+    data.roles.developer == true &&
+    (hasVisitedJoin == 'true' || hasVisitedJoin == null)
+  ) {
     redirectUserToPage(`${HOME_URL}/join`);
   } else {
     redirectUserToPage(HOME_URL);

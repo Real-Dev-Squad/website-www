@@ -27,7 +27,18 @@ const setUserGreeting = (username, firstName, userProfilePicture) => {
     });
   }
 };
-
+const showSignInButton = () => {
+  const loginButtons = document.querySelectorAll('.btn-login-text');
+  loginButtons.forEach((element) => {
+    element.classList.remove('hidden');
+  });
+};
+const hideSkeleton = () => {
+  const skeletonHolder = document.querySelectorAll('.skeleton-holder');
+  skeletonHolder.forEach((element) => {
+    element.style.display = 'none';
+  });
+};
 const lastLocation = sessionStorage.getItem('lastLocationUrl');
 const fetchUserSelfData = async () => {
   try {
@@ -39,6 +50,8 @@ const fetchUserSelfData = async () => {
     }
 
     if (result.error) {
+      hideSkeleton();
+      showSignInButton();
       throw new Error(result.error);
     }
 
@@ -47,6 +60,8 @@ const fetchUserSelfData = async () => {
     }
     setUserGreeting(result.username, result.first_name, result.picture?.url);
   } catch (err) {
+    hideSkeleton();
+    showSignInButton();
     console.error(err);
   }
 };

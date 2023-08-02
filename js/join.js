@@ -6,6 +6,9 @@ import {
   SELF_URL,
 } from './constants.js';
 
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
 const reloadFunc = () => {
   let flowState = +window.localStorage.getItem('flowState');
   flowState += 1;
@@ -39,6 +42,19 @@ const flowState = {
 };
 
 const startBtn = document.getElementById('start');
+const buttonContainer = document.querySelector('.button-container');
+const disclaimerCheckbox = document.getElementById('disclaimer-checkbox');
+const disclaimerFeatureFlag = document.querySelector('.disclaimer_feat-flag');
+
+window.addEventListener('load', (event) => {
+  if (queryString.includes('dev=true')) {
+    buttonContainer.classList.add('button-container_disclaimer');
+    disclaimerFeatureFlag.classList.remove('hidden');
+    startBtn.classList.remove('button-filled');
+    startBtn.classList.add('button-disabled');
+    startBtn.disabled = true;
+  }
+});
 
 // Getting all pages
 const page1 = document.getElementById('page1');
@@ -345,7 +361,21 @@ country.addEventListener('input', () => {
   window.localStorage.setItem('country', country.value);
   toggleNextButton();
 });
+
 //Button Enablers
+
+disclaimerCheckbox.addEventListener('click', (e) => {
+  const { checked } = e.target;
+  if (checked === true) {
+    startBtn.classList.remove('button-disabled');
+    startBtn.classList.add('button-filled');
+    startBtn.disabled = false;
+  } else if (checked === false) {
+    startBtn.classList.remove('button-filled');
+    startBtn.classList.add('button-disabled');
+    startBtn.disabled = true;
+  }
+});
 
 startBtn.addEventListener('click', () => {
   window.localStorage.setItem('flowState', flowState.personalDetailsPage);

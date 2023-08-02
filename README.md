@@ -43,24 +43,14 @@ https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
 
 ## Live-Site Feature Guides
 
-### [Feature Description](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
+- ### [Feature Overview](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
 
-The goal of the Live-site feature is to enable users to share their screens during these sessions, enhancing the ability to collaborate and showcase their skills to potential employers and other developers. The aim is to create a feature that allows for seamless screen sharing and allows users who join the session late to quickly catch up on what has been discussed with the help of additional features like meeting notes, chat, word cloud, and more. This will make it easier for participants to stay engaged and informed, as well as attract new users who are browsing or curious about RDS.
+The goal of the Live-site feature is to enable users to share their screens during virtual sessions, enhancing the ability to collaborate and showcase their skills to potential employers and other developers. The aim is to create a feature that allows for seamless screen sharing and allows users who join the session late to quickly catch up on what has been discussed with the help of additional features like meeting notes, chat, word cloud, and more. This will make it easier for participants to stay engaged and informed, as well as attract new users who are browsing or curious about RDS.
 
-- [PRD](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
+- [Feature Description](https://github.com/Real-Dev-Squad/website-www/issues/343)
 
-- [Live screen share ticket](https://github.com/Real-Dev-Squad/website-www/issues/343)
+- [Feature Design (basic wireframe)](https://www.figma.com/file/O8QLwPzTuH3RIWoYdxitln/Live-Page?node-id=0%3A1&t=vKJPfNkUiuCXPoIl-0)
 
-- [Delay in livestream ticket](https://github.com/Real-Dev-Squad/website-www/issues/361)
+- [Feature Design (detailed design)](https://www.figma.com/file/2VtPGJH61Qp0iarkKW6KTO/Live-Site-Detailed-Designs?node-id=0-1)
 
-- [Word Cloud Survey ticket](https://github.com/Real-Dev-Squad/website-www/issues/359)
-
-- [Figma design (basic wireframe](https://www.figma.com/file/O8QLwPzTuH3RIWoYdxitln/Live-Page?node-id=0%3A1&t=vKJPfNkUiuCXPoIl-0)
-
-- [Figma design (detailed design)](https://www.figma.com/file/2VtPGJH61Qp0iarkKW6KTO/Live-Site-Detailed-Designs?node-id=0-1)
-
-- [Live stream POC link (with delay)](https://word-cloud-poc.netlify.app/live.html?role=guest)
-
-- [Live stream POC link (with delay)](https://s533k4.csb.app/)
-
-- [Word cloud survey POC link](https://word-cloud-poc.onrender.com/?role=presenter)
+- Live-site delay while streaming [](https://github.com/Real-Dev-Squad/website-www/issues/361)

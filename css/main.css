@@ -11,6 +11,11 @@
   --color-events: #e30162;
   --color-button: #87d870;
   --color-button-hover: #6dc66d;
+  --role-button-bg: #008000;
+  --role-button-text: #ffffff;
+  --loader-gray-color: #f3f3f3;
+  --loader-blue-color: #1d1283;
+  --role-button-disabled: #ccc;
 }
 
 .dark-theme {
@@ -553,13 +558,12 @@ footer {
 }
 
 .role-details {
-  background-color: #fff;
+  background-color: var(--color-bg);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   padding: 2rem;
   max-width: 50%;
   margin: auto;
-  /* background-color: #f0f2f5;  */
 }
 
 .role-heading {
@@ -583,7 +587,7 @@ footer {
 }
 
 .checkbox-label .checkbox-input {
-  margin-right: 10px;
+  margin-right: 0.4rem;
 }
 
 .role-button {
@@ -594,8 +598,8 @@ footer {
   padding: 0.75rem 2rem;
   border-radius: 10px;
   outline: none;
-  background-color: #008000;
-  color: #ffffff;
+  background-color: var(--role-button-bg);
+  color: var(--role-button-text);
   text-decoration: none;
   cursor: pointer;
   width: 75%;
@@ -613,14 +617,14 @@ footer {
   display: none;
   width: 20px;
   height: 20px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #1d1283;
+  border: 3px solid var(--loader-gray-color);
+  border-top: 3px solid var(--loader-blue-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 .role-button button:disabled {
-  background-color: #ccc;
+  background-color: var(--role-button-disabled); 
   cursor: not-allowed;
 }
 

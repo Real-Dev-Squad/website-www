@@ -53,4 +53,6 @@ The goal of the Live-site feature is to enable users to share their screens duri
 
 - [Feature Design (detailed design)](https://www.figma.com/file/2VtPGJH61Qp0iarkKW6KTO/Live-Site-Detailed-Designs?node-id=0-1)
 
-- Live-site delay while streaming [](https://github.com/Real-Dev-Squad/website-www/issues/361)
+- [Live-site delay while streaming](https://github.com/Real-Dev-Squad/website-www/issues/361)
+
+- [Live survey while virtual session](https://github.com/Real-Dev-Squad/website-www/issues/359)

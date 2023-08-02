@@ -7,14 +7,18 @@ function redirectUserToPage(page) {
 }
 
 function redirectionHandler(data) {
+  const isDeveloper = data.roles.developer;
+  const isDesigner = data.roles.designer;
+  const isMaven = data.roles.maven;
+  const isProductManager = data.roles.productmanager;
   if (data.incompleteUserDetails) {
     redirectUserToPage(SIGNUP_URL);
   } else if (
     data.incompleteUserDetails === false &&
-    data.roles.developer === undefined &&
-    data.roles.designer === undefined &&
-    data.roles.maven === undefined &&
-    data.roles.productmanager === undefined
+    !isDeveloper &&
+    !isDesigner &&
+    !isMaven &&
+    !isProductManager
   ) {
     redirectUserToPage(HOME_URL);
   } else if (hasVisitedJoin == 'true' || hasVisitedJoin == null) {

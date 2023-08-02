@@ -1,3 +1,5 @@
+import { SELF_URL } from './constants.js';
+
 const selectRandom = (memberImgArr, n) => {
   const result = new Set();
   const len = memberImgArr.length;
@@ -103,18 +105,45 @@ modalTriggers.forEach((trigger) => {
 });
 
 function popup(data) {
+  const isDeveloper = data.roles.developer;
+  const isDesigner = data.roles.designer;
+  const isMaven = data.roles.maven;
+  const isProductManager = data.roles.productmanager;
   if (
     data.incompleteUserDetails === false &&
-    data.roles.developer === undefined &&
-    data.roles.designer === undefined &&
-    data.roles.maven === undefined &&
-    data.roles.productmanager === undefined
+    !isDeveloper &&
+    !isDesigner &&
+    !isMaven &&
+    !isProductManager
   ) {
     const popupContainer = document.querySelector('.roles-container');
     const submitButton = document.querySelector('.role-button button');
-    const checkboxes = document.querySelectorAll('.checkbox-input');
+    const checkboxesContainer = document.querySelector('.role-details-field');
     const spinner = submitButton.querySelector('.spinner');
     const roles = {};
+
+    const labels = [
+      { name: 'Developer', inputName: 'developer' },
+      { name: 'Designer', inputName: 'designer' },
+      { name: 'Maven', inputName: 'maven' },
+      { name: 'Product Manager', inputName: 'productmanager' },
+    ];
+
+    function createCheckbox(labelInfo) {
+      const label = document.createElement('label');
+      label.className = 'checkbox-label';
+
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.name = labelInfo.inputName;
+      input.className = 'checkbox-input';
+
+      const labelText = document.createTextNode(labelInfo.name);
+
+      label.appendChild(input);
+      label.appendChild(labelText);
+      return label;
+    }
 
     const registerUserRoles = async (roles) => {
       spinner.style.display = 'inline-block';
@@ -125,7 +154,7 @@ function popup(data) {
           ...roles,
         },
       };
-      const res = await fetch('https://api.realdevsquad.com/users/self', {
+      const res = await fetch(`${SELF_URL}`, {
         method: 'PATCH',
         body: JSON.stringify(updateRoles),
         headers: {
@@ -138,6 +167,7 @@ function popup(data) {
 
     function showPopup() {
       popupContainer.style.display = 'flex';
+      submitButton.disabled = true;
     }
 
     async function hidePopup() {
@@ -147,9 +177,11 @@ function popup(data) {
         submitButton.style.backgroundColor = '#008000';
         submitButton.disabled = false;
         popupContainer.style.display = 'none';
+      } else if (response.status === 401) {
+        alert('You are not logged in! Redirecting you to login.');
+        location.href = GITHUB_OAUTH;
       } else {
-        //have to add toast here
-        //will work on next pr
+        alert('Something went wrong please contact admin');
       }
     }
 
@@ -166,8 +198,14 @@ function popup(data) {
       submitButton.disabled = !anyCheckboxChecked;
     }
 
+    labels.forEach((labelInfo) => {
+      const checkbox = createCheckbox(labelInfo);
+      checkboxesContainer.appendChild(checkbox);
+    });
+
     window.addEventListener('load', function () {
       showPopup();
+      const checkboxes = document.querySelectorAll('.checkbox-input');
       checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', updateRoles);
       });
@@ -181,7 +219,7 @@ function popup(data) {
 }
 
 function userData() {
-  fetch('https://api.realdevsquad.com/users/self', {
+  fetch(`${SELF_URL}`, {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })

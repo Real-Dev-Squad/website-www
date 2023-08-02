@@ -43,6 +43,9 @@ https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
 
 ## Live-Site Feature Guides
 
+###  [Feature Description](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
+The goal of the Live-site feature is to enable users to share their screens during these sessions, enhancing the ability to collaborate and showcase their skills to potential employers and other developers. The aim is to create a feature that allows for seamless screen sharing and allows users who join the session late to quickly catch up on what has been discussed with the help of additional features like meeting notes, chat, word cloud, and more. This will make it easier for participants to stay engaged and informed, as well as attract new users who are browsing or curious about RDS.
+
 - [PRD](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
 
 - [Live screen share ticket](https://github.com/Real-Dev-Squad/website-www/issues/343)

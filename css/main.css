@@ -624,7 +624,7 @@ footer {
 }
 
 .role-button button:disabled {
-  background-color: var(--role-button-disabled); 
+  background-color: var(--role-button-disabled);
   cursor: not-allowed;
 }
 

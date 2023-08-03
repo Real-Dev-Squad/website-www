@@ -64,7 +64,7 @@ function generateNoDataFoundPage() {
   notFound.appendChild(notFoundDiv);
 }
 
-function generateSavedDetailsForm(users) {
+function generateSavedDetailsForm(users, dateDiff = NaN) {
   const renderIntroPage = createElement({
     type: 'section',
     classList: ['render-page'],
@@ -76,6 +76,20 @@ function generateSavedDetailsForm(users) {
 
   const container = createElement({ type: 'div', classList: ['container'] });
   renderIntroPage.appendChild(container);
+
+  const githubStatusValue = createElement({
+    type: 'h4',
+    classList: [
+      `${dateDiff.years > 0 ? 'github-created-text' : 'github-created-alert'}`,
+    ],
+    id: 'ghInfo',
+  });
+  if (dateDiff.years || dateDiff.months) {
+    githubStatusValue.innerText = `User GitHub account created  ${
+      dateDiff.years > 0 ? 'more then a year' : `${dateDiff.months} months`
+    } ago`;
+  }
+  container.appendChild(githubStatusValue);
 
   const nameLabel = createElement({
     type: 'p',
@@ -240,6 +254,15 @@ async function showSavedDetails() {
   try {
     const userId = urlParams.get('id');
     const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
+    const userInformation = await makeApiCall(
+      `${BASE_URL}/users/userId/${userId}`,
+    );
+
+    const dateDiff = getDateDifferenceInYearsAndMonths(
+      userInformation?.data.user.github_created_at,
+      new Date(),
+    );
+
     if (usersRequest.status === 200) {
       const userData = usersRequest.data.data[0];
       let userSavedData = {
@@ -257,7 +280,7 @@ async function showSavedDetails() {
         numberOfHours: userData.intro.numberOfHours,
         foundFrom: userData.foundFrom,
       };
-      generateSavedDetailsForm(userSavedData);
+      generateSavedDetailsForm(userSavedData, dateDiff);
     } else if (usersRequest.status === 404) {
       generateNoDataFoundPage();
       loading.classList.add('hidden');

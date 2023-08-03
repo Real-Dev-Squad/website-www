@@ -32,3 +32,26 @@ function createElement({ type, classList = [], id }) {
   element.id = id ?? true;
   return element;
 }
+
+function getDateDifferenceInYearsAndMonths(startDate, endDate) {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  if (start > end) {
+    throw new Error('Start date cannot be after the end date.');
+  }
+
+  const yearDiff = end.getFullYear() - start.getFullYear();
+  const monthDiff = end.getMonth() - start.getMonth();
+
+  let totalMonths = yearDiff * 12 + monthDiff;
+
+  if (end.getDate() < start.getDate()) {
+    totalMonths -= 1;
+  }
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  return { years, months };
+}

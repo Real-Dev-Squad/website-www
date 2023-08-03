@@ -86,7 +86,9 @@ function generateSavedDetailsForm(users, dateDiff = NaN) {
   });
   if (dateDiff.years || dateDiff.months) {
     githubStatusValue.innerText = `User GitHub account created  ${
-      dateDiff.years > 0 ? 'more then a year' : `${dateDiff.months} months`
+      dateDiff.years > 0
+        ? `${dateDiff.years} year`
+        : `${dateDiff.months} months`
     } ago`;
   }
   container.appendChild(githubStatusValue);

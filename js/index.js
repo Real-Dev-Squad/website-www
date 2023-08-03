@@ -116,10 +116,41 @@ function popup(data) {
     !isMaven &&
     !isProductManager
   ) {
-    const popupContainer = document.querySelector('.roles-container');
-    const submitButton = document.querySelector('.role-button button');
-    const checkboxesContainer = document.querySelector('.role-details-field');
-    const spinner = submitButton.querySelector('.spinner');
+    const popupContainer = document.createElement('div');
+    popupContainer.className = 'roles-container';
+
+    const roleDetails = document.createElement('div');
+    roleDetails.className = 'role-details';
+
+    const roleHeading = document.createElement('h2');
+    roleHeading.className = 'role-heading';
+    roleHeading.textContent = 'Select your role';
+
+    const roleDetailsField = document.createElement('div');
+    roleDetailsField.className = 'role-details-field';
+
+    const roleButton = document.createElement('div');
+    roleButton.className = 'role-button';
+
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'Submit';
+
+    const spinner = document.createElement('span');
+    spinner.className = 'spinner';
+    submitButton.appendChild(spinner);
+
+    roleButton.appendChild(submitButton);
+
+    roleDetails.appendChild(roleHeading);
+    roleDetails.appendChild(roleDetailsField);
+    roleDetails.appendChild(roleButton);
+
+    popupContainer.appendChild(roleDetails);
+    popupContainer.style.display = 'none';
+    const mainElement = document.querySelector('main');
+    const firstChild = mainElement.firstChild;
+    mainElement.insertBefore(popupContainer, firstChild);
+
     const roles = {};
 
     const labels = [
@@ -145,6 +176,11 @@ function popup(data) {
       return label;
     }
 
+    labels.forEach((labelInfo) => {
+      const checkbox = createCheckbox(labelInfo);
+      roleDetailsField.appendChild(checkbox);
+    });
+
     const registerUserRoles = async (roles) => {
       spinner.style.display = 'inline-block';
       submitButton.style.backgroundColor = '#ccc';
@@ -164,11 +200,6 @@ function popup(data) {
       });
       return res;
     };
-
-    function showPopup() {
-      popupContainer.style.display = 'flex';
-      submitButton.disabled = true;
-    }
 
     async function hidePopup() {
       const response = await registerUserRoles(roles);
@@ -198,13 +229,9 @@ function popup(data) {
       submitButton.disabled = !anyCheckboxChecked;
     }
 
-    labels.forEach((labelInfo) => {
-      const checkbox = createCheckbox(labelInfo);
-      checkboxesContainer.appendChild(checkbox);
-    });
-
     window.addEventListener('load', function () {
-      showPopup();
+      popupContainer.style.display = 'flex';
+      submitButton.disabled = true;
       const checkboxes = document.querySelectorAll('.checkbox-input');
       checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', updateRoles);
@@ -231,4 +258,10 @@ function userData() {
       console.error(err);
     });
 }
-userData();
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+if (urlParams.get('dev') === 'true') {
+  userData();
+}

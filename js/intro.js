@@ -87,7 +87,7 @@ function generateSavedDetailsForm(users, dateDiff = NaN) {
   if (dateDiff.years || dateDiff.months) {
     githubStatusValue.innerText = `User GitHub account created  ${
       dateDiff.years > 0
-        ? `${dateDiff.years} year`
+        ? `${dateDiff.years} years`
         : `${dateDiff.months} months`
     } ago`;
   }

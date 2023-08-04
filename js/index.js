@@ -1,3 +1,5 @@
+import { SELF_URL } from './constants.js';
+
 const selectRandom = (memberImgArr, n) => {
   const result = new Set();
   const len = memberImgArr.length;
@@ -101,3 +103,165 @@ modalTriggers.forEach((trigger) => {
     });
   });
 });
+
+function popup(data) {
+  const isDeveloper = data.roles.developer;
+  const isDesigner = data.roles.designer;
+  const isMaven = data.roles.maven;
+  const isProductManager = data.roles.productmanager;
+  if (
+    data.incompleteUserDetails === false &&
+    !isDeveloper &&
+    !isDesigner &&
+    !isMaven &&
+    !isProductManager
+  ) {
+    const popupContainer = document.createElement('div');
+    popupContainer.className = 'roles-container';
+
+    const roleDetails = document.createElement('div');
+    roleDetails.className = 'role-details';
+
+    const roleHeading = document.createElement('h2');
+    roleHeading.className = 'role-heading';
+    roleHeading.textContent = 'Select your role';
+
+    const roleDetailsField = document.createElement('div');
+    roleDetailsField.className = 'role-details-field';
+
+    const roleButton = document.createElement('div');
+    roleButton.className = 'role-button';
+
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'Submit';
+
+    const spinner = document.createElement('span');
+    spinner.className = 'spinner';
+    submitButton.appendChild(spinner);
+
+    roleButton.appendChild(submitButton);
+
+    roleDetails.appendChild(roleHeading);
+    roleDetails.appendChild(roleDetailsField);
+    roleDetails.appendChild(roleButton);
+
+    popupContainer.appendChild(roleDetails);
+    popupContainer.style.display = 'none';
+    const mainElement = document.querySelector('main');
+    const firstChild = mainElement.firstChild;
+    mainElement.insertBefore(popupContainer, firstChild);
+
+    const roles = {};
+
+    const labels = [
+      { name: 'Developer', inputName: 'developer' },
+      { name: 'Designer', inputName: 'designer' },
+      { name: 'Maven', inputName: 'maven' },
+      { name: 'Product Manager', inputName: 'productmanager' },
+    ];
+
+    function createCheckbox(labelInfo) {
+      const label = document.createElement('label');
+      label.className = 'checkbox-label';
+
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.name = labelInfo.inputName;
+      input.className = 'checkbox-input';
+
+      const labelText = document.createTextNode(labelInfo.name);
+
+      label.appendChild(input);
+      label.appendChild(labelText);
+      return label;
+    }
+
+    labels.forEach((labelInfo) => {
+      const checkbox = createCheckbox(labelInfo);
+      roleDetailsField.appendChild(checkbox);
+    });
+
+    const registerUserRoles = async (roles) => {
+      spinner.style.display = 'inline-block';
+      submitButton.style.backgroundColor = '#ccc';
+      const updateRoles = {
+        roles: {
+          ...data.roles,
+          ...roles,
+        },
+      };
+      const res = await fetch(`${SELF_URL}`, {
+        method: 'PATCH',
+        body: JSON.stringify(updateRoles),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+      return res;
+    };
+
+    async function hidePopup() {
+      const response = await registerUserRoles(roles);
+      if (response.status === 204) {
+        spinner.style.display = 'none';
+        submitButton.style.backgroundColor = '#008000';
+        submitButton.disabled = false;
+        popupContainer.style.display = 'none';
+      } else if (response.status === 401) {
+        alert('You are not logged in! Redirecting you to login.');
+        location.href = GITHUB_OAUTH;
+      } else {
+        alert('Something went wrong please contact admin');
+      }
+    }
+
+    function updateRoles(event) {
+      const checkbox = event.target;
+      const name = checkbox.name;
+
+      if (checkbox.checked) {
+        roles[name] = true;
+      } else {
+        delete roles[name];
+      }
+      const anyCheckboxChecked = Object.keys(roles).length > 0;
+      submitButton.disabled = !anyCheckboxChecked;
+    }
+
+    window.addEventListener('load', function () {
+      popupContainer.style.display = 'flex';
+      submitButton.disabled = true;
+      const checkboxes = document.querySelectorAll('.checkbox-input');
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateRoles);
+      });
+    });
+
+    submitButton.addEventListener('click', hidePopup);
+  } else {
+    const popupContainer = document.querySelector('.roles-container');
+    popupContainer.style.display = 'none';
+  }
+}
+
+function userData() {
+  fetch(`${SELF_URL}`, {
+    headers: { 'content-type': 'application/json' },
+    credentials: 'include',
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      popup(data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+if (urlParams.get('dev') === 'true') {
+  userData();
+}

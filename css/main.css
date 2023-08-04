@@ -11,6 +11,11 @@
   --color-events: #e30162;
   --color-button: #87d870;
   --color-button-hover: #6dc66d;
+  --role-button-bg: #008000;
+  --role-button-text: #ffffff;
+  --loader-gray-color: #f3f3f3;
+  --loader-blue-color: #1d1283;
+  --role-button-disabled: #ccc;
 }
 
 .dark-theme {
@@ -539,6 +544,98 @@ footer {
   }
 }
 
+.roles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.role-details {
+  background-color: var(--color-bg);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  max-width: 50%;
+  margin: auto;
+}
+
+.role-heading {
+  font-size: 2rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.role-details-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 4rem;
+}
+
+.checkbox-label {
+  display: flex;
+  width: 12rem;
+  margin: 0 auto;
+  font-size: 1.3rem;
+}
+
+.checkbox-label .checkbox-input {
+  margin-right: 0.4rem;
+}
+
+.role-button {
+  position: relative;
+}
+
+.role-button button {
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  outline: none;
+  background-color: var(--role-button-bg);
+  color: var(--role-button-text);
+  text-decoration: none;
+  cursor: pointer;
+  width: 75%;
+  display: block;
+  margin: auto;
+  font-size: 2rem;
+  border: none;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--loader-gray-color);
+  border-top: 3px solid var(--loader-blue-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.role-button button:disabled {
+  background-color: var(--role-button-disabled);
+  cursor: not-allowed;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 /* Media Queries */
 
 @media (min-width: 420px) {
@@ -584,6 +681,10 @@ footer {
 
   .card {
     padding: 20px 10px;
+  }
+  .role-details {
+    max-width: 100%;
+    border-radius: 0;
   }
 }
 

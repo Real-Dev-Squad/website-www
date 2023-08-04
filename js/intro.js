@@ -261,7 +261,7 @@ async function showSavedDetails() {
     );
 
     const dateDiff = getDateDifferenceInYearsAndMonths(
-      userInformation?.data.user.github_created_at,
+      userInformation?.data.user?.github_created_at,
       new Date(),
     );
 

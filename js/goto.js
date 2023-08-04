@@ -14,7 +14,7 @@ function redirectionHandler(data) {
     redirectUserToPage(SIGNUP_URL);
   } else if (urlParams.get('dev') === 'true') {
     if (
-      data.roles.developer == true &&
+      data.roles.developer &&
       (hasVisitedJoin == 'true' || hasVisitedJoin == null)
     ) {
       redirectUserToPage(`${HOME_URL}/join.html`);

@@ -23,7 +23,19 @@
     <script src="/js/analytics.js"></script>
   </head>
   <body>
-    <div class="dropdown hide" id="dropdown"></div>
+    <div class="dropdown hide">
+      <ul class="dropdown-list">
+        <li class="dropdown-item">
+          <a class="dropdown-link" href="https://my.realdevsquad.com/">
+            My Profile
+          </a>
+        </li>
+        <hr class="line" />
+        <li class="dropdown-item dropdown-link" id="signout-option">
+          Sign out
+        </li>
+      </ul>
+    </div>
     <nav>
       <div class="hamburger">
         <span class="bar"></span>
@@ -107,9 +119,8 @@
         >
       </p>
     </footer>
-    <script src="/js/utils.js"></script>
-    <script src="js/dropdown.js"></script>
     <script src="js/navbar.js"></script>
+    <script src="/js/utils.js"></script>
     <script type="module" src="/js/intro.js"></script>
     <script type="module" src="js/fetchUserData.js" defer></script>
   </body>

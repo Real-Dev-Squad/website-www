@@ -64,7 +64,17 @@
   </head>
 
   <body>
-    <div class="dropdown hide" id="dropdown"></div>
+    <div class="dropdown hide">
+      <ul class="dropdown-list">
+        <li class="dropdown-item dropdown-link" id="myprofile-option">
+          My Profile
+        </li>
+        <hr class="line" />
+        <li class="dropdown-item dropdown-link" id="signout-option">
+          Sign out
+        </li>
+      </ul>
+    </div>
     <nav>
       <div class="hamburger">
         <span class="bar"></span>
@@ -278,12 +288,9 @@
         </a>
       </p>
     </footer>
-    <script src="/js/utils.js"></script>
-    <script src="js/dropdown.js"></script>
     <script type="module" src="js/user.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/darkmode.js"></script>
-
     <script type="module" src="js/fetchUserData.js" defer></script>
   </body>
 </html>

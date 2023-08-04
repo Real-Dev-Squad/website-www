@@ -3,7 +3,7 @@
 :root {
   --color-nav: #1d1283;
   --color-nav-text: #ffffff;
-  --color-black: #0d6efd;
+  --color-blue: #0d6efd;
   --dropdown-hover: #d7d6d6;
   --skeleton-bg: #483bc0;
   --skeleton-shine-color: #edeef1;
@@ -190,7 +190,7 @@ nav li a:hover {
   display: block;
   cursor: pointer;
   line-height: 19.575px;
-  color: var(--color-black);
+  color: var(--color-blue);
 }
 
 .line {
@@ -206,7 +206,7 @@ nav li a:hover {
 .dropdown-item {
   font-weight: 700;
   background-color: var(--color-white);
-  color: var(--color-black);
+  color: var(--color-blue);
   border: none;
   padding: 15px 30px;
   font-size: 0.87rem;

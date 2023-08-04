@@ -15,14 +15,14 @@ function redirectionHandler(data) {
   } else if (urlParams.get('dev') === 'true') {
     if (
       data.roles.developer &&
-      (hasVisitedJoin == 'true' || hasVisitedJoin == null)
+      (hasVisitedJoin === 'true' || hasVisitedJoin === null)
     ) {
       redirectUserToPage(`${HOME_URL}/join.html`);
     } else {
       redirectUserToPage(HOME_URL);
     }
   } else {
-    if (hasVisitedJoin == 'true' || hasVisitedJoin == null) {
+    if (hasVisitedJoin === 'true' || hasVisitedJoin === null) {
       redirectUserToPage(`${HOME_URL}/join.html`);
     } else {
       redirectUserToPage(HOME_URL);

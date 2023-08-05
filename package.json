@@ -19,7 +19,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "dev": "npm-run-all --aggregate-output --continue-on-error --parallel dev:*",
-    "dev:ember": "ember server",
+    "dev:ember": "ember server -p 4200",
     "dev:reverse-ssl": "local-ssl-proxy --source 443 --target 4200",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",

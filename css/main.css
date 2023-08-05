@@ -246,6 +246,7 @@ body {
 
 .card {
   border: 2px solid var(--color-grey);
+  transition: transform 250ms linear;
 }
 
 .card:hover {

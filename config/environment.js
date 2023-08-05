@@ -17,6 +17,9 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    fastboot: {
+      hostWhitelist: [/^localhost:\d+$/, 'dev.realdevsquad.com'],
+    },
   };
 
   if (environment === 'production') {
@@ -29,6 +32,7 @@ module.exports = function (environment) {
       STATUS: 'https://status.realdevsquad.com/',
       PROFILE: 'https://my.realdevsquad.com/',
     };
+    ENV.fastboot.hostWhitelist = ['realdevsquad.com'];
   }
 
   if (environment === 'staging') {
@@ -41,6 +45,7 @@ module.exports = function (environment) {
       STATUS: 'https://staging-status.realdevsquad.com/',
       PROFILE: 'https://staging-my.realdevsquad.com/',
     };
+    ENV.fastboot.hostWhitelist = ['beta.realdevsquad.com'];
   }
 
   if (environment === 'development') {

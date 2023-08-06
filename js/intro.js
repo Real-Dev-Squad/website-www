@@ -77,21 +77,28 @@ function generateSavedDetailsForm(users, dateDiff = NaN) {
   const container = createElement({ type: 'div', classList: ['container'] });
   renderIntroPage.appendChild(container);
 
-  const githubStatusValue = createElement({
+  const githubCreatedValue = createElement({
     type: 'h4',
     classList: [
       `${dateDiff.years > 0 ? 'github-created-text' : 'github-created-alert'}`,
     ],
-    id: 'ghInfo',
   });
-  if (dateDiff.years || dateDiff.months) {
-    githubStatusValue.innerText = `User GitHub account created  ${
-      dateDiff.years > 0
-        ? `${dateDiff.years} years`
-        : `${dateDiff.months} months`
-    } ago`;
+
+  if (dateDiff.years > 0) {
+    githubCreatedValue.innerText = `User GitHub account created ${dateDiff.years} years ago`;
+  } else if (dateDiff.years === 0 && dateDiff.months > 0) {
+    githubCreatedValue.innerText = `User GitHub account created ${dateDiff.months} months ago`;
+  } else if (
+    dateDiff.years === 0 &&
+    dateDiff.months === 0 &&
+    dateDiff.days >= 0
+  ) {
+    githubCreatedValue.innerText = `User GitHub account created ${
+      dateDiff.days > 0 ? dateDiff.days : '1'
+    } days ago`;
   }
-  container.appendChild(githubStatusValue);
+
+  container.appendChild(githubCreatedValue);
 
   const nameLabel = createElement({
     type: 'p',
@@ -260,10 +267,11 @@ async function showSavedDetails() {
       `${BASE_URL}/users/userId/${userId}`,
     );
 
-    const dateDiff = getDateDifferenceInYearsAndMonths(
+    const dateDiff = dateDifference(
       userInformation?.data.user?.github_created_at,
-      new Date(),
+      new Date().getTime(),
     );
+    console.log(dateDiff);
 
     if (usersRequest.status === 200) {
       const userData = usersRequest.data.data[0];

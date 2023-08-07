@@ -164,8 +164,8 @@
     <main>
       <div class="container">
         <div class="profile">
-          <img src="./img/Real-Dev-Squad@1x.png" alt="user Profile" />
-          <h2 class="fullname">Shubham Raj</h2>
+          <img class="profilePic" src="" alt="user Profile" />
+          <h2 class="fullname"></h2>
         </div>
         <div class="user-details">
           <ul>
@@ -178,27 +178,34 @@
             <li>
               <p>Realdevsquad Id :</p>
               <span>
-                <p class="rds-id"></p>
+                <p class="id"></p>
               </span>
             </li>
             <li>
-              <p>Discord Joined At :</p>
+              <p>Incomplete User Details :</p>
               <span>
-                <p class="discord-join-date"></p>
+                <p class="incompleteUserDetails"></p>
+              </span>
+            </li>
+            <li>
+              <p>Discord Joined At:</p>
+              <span>
+                <p
+                  style="overflow: hidden; text-overflow: ellipsis"
+                  class="discordJoinedAt"
+                ></p>
               </span>
             </li>
             <li>
               <p>Github Name :</p>
               <span>
-                <p class="github-name"></p>
+                <p class="github_display_name"></p>
               </span>
             </li>
-            <li>
+            <div class="roles-container">
               <p>Roles :</p>
-              <span>
-                <p class="roles"></p>
-              </span>
-            </li>
+              <div class="all-roles"></div>
+            </div>
           </ul>
         </div>
       </div>
@@ -208,31 +215,55 @@
             <li>
               <p>Twitter Id :</p>
               <span>
-                <p class="username">shubham</p>
+                <p class="twitter_id">shubham</p>
               </span>
             </li>
             <li>
               <p>Github Id :</p>
               <span>
-                <p class="rds-id"></p>
+                <p class="github_id"></p>
               </span>
             </li>
             <li>
               <p>Linkedin Id :</p>
               <span>
-                <p class="discord-join-date"></p>
+                <p class="linkedin_id"></p>
               </span>
             </li>
             <li>
               <p>Discord Id :</p>
               <span>
-                <p class="github-name"></p>
+                <p class="discordId"></p>
               </span>
             </li>
           </ul>
         </div>
-        <div class="feature"></div>
+        <div class="feature">
+          <h3>Features</h3>
+          <ul>
+            <li>Feature 1</li>
+            <li>Feature 2</li>
+            <li>Feature 3</li>
+          </ul>
+          <div class="superuser">
+            <div class="su-group">
+              <h3>Super User</h3>
+              <div class="indicator"></div>
+            </div>
+            <p>
+              You're a super user, remember with great power comes great
+              responsibilities!
+            </p>
+          </div>
+          <div class="privileges">
+            <h4>Apply privileges :</h4>
+            <div class="toggle-button">
+              <div class="toggle"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
+    <script src="./js/debug.js"></script>
   </body>
 </html>

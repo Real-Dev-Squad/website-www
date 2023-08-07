@@ -1,5 +1,14 @@
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 main {
   width: 100vw;
+  padding: 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -10,7 +19,6 @@ main {
 
 .container {
   width: 600px;
-  height: 100%;
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -22,10 +30,14 @@ main {
 .feature {
   box-sizing: border-box;
   width: 100%;
-  min-height: 400px;
+  min-height: 500px;
+  max-height: fit-content;
   border-radius: 9px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: center;
   box-shadow: 7px 13px 7px rgba(0, 0, 0, 0.25);
 }
 
@@ -34,16 +46,23 @@ main {
 /***********************/
 
 .profile {
+  border: 1px solid var(--color-what-is-title-bg);
+
   background-color: var(--color-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
-.profile img,
+.profilePic,
 h2 {
   /* margin: 20px; */
   align-self: center;
 }
-.profile img {
-  width: 250px;
-  height: 250px;
+.pprofilePic {
+  border-radius: 20px;
+  width: 50px;
+  height: 50px;
 }
 .profile h2 {
   font-size: 32px;
@@ -54,14 +73,22 @@ h2 {
 /***********************/
 
 .user-details {
+  border: 1px solid var(--color-what-is-title-bg);
+  box-sizing: border-box;
   background-color: var(--color-bg);
-  padding: 30px;
-  border: 0.5px solid blue;
   color: var(--color-what-is-title-bg);
+  justify-content: space-between;
+}
+
+.user-details ul {
+  width: 100%;
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
 }
 
 .user-details p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
@@ -74,7 +101,19 @@ h2 {
   list-style: none;
   display: flex;
   align-items: center;
-  margin-block: -10px;
+}
+
+.roles-container {
+  display: flex;
+  flex-direction: row;
+  max-height: fit-content;
+  min-height: 150px;
+  padding: 5px 0px;
+}
+
+.all-roles {
+  width: max-content;
+  padding: 0px 20px;
 }
 
 /***********************/
@@ -82,10 +121,92 @@ h2 {
 /***********************/
 
 .feature {
+  box-sizing: border-box;
   background-color: var(--color-what-is-title-bg);
   padding: 30px;
   border: 0.5px solid var(--color-bg);
+  color: White;
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  display: flex;
+  justify-content: start;
 }
+
+.feature h3 {
+  margin: 0px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.feature ul {
+  min-height: 210px;
+  max-height: fit-content;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.su-group {
+  height: 40px;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 5px;
+}
+
+.indicator {
+  border-radius: 50%;
+  background-color: rgb(0, 255, 8);
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 7px;
+}
+
+.feature h3 {
+  font-size: 2rem;
+}
+/***********************/
+/*      TOGGLE         */
+/***********************/
+
+.privileges {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+}
+.toggle-button {
+  background-color: rgb(255, 0, 43);
+  height: 40px;
+  width: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 200px;
+  margin: 0px;
+}
+.toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.applied {
+  transform: translateX(42px);
+  transition: 0.3s;
+}
+/* .toggle:active {
+  right: -42px;
+} */
 
 /***********************/
 /*   SOCIAL DETAILS    */
@@ -96,17 +217,23 @@ h2 {
   padding: 30px;
   border: 1px solid var(--color-what-is-title-bg);
   color: var(--color-what-is-title-bg);
+  justify-content: space-around;
 }
 
+.social-details ul {
+  display: flex;
+  gap: 80px;
+  flex-direction: column;
+  width: 100%;
+}
 .social-details li {
   list-style: none;
   display: flex;
   align-items: center;
-  margin-block: -5px;
 }
 
 .social-details p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
@@ -145,5 +272,23 @@ h2 {
 @media (max-width: 505px) {
   .container {
     width: 400px;
+  }
+
+  .user-details,
+  .social-details {
+    min-height: 300px;
+  }
+  .user-details span p {
+    font-size: 0.87rem;
+  }
+
+  .user-details p {
+    font-size: 0.9rem;
+  }
+  .social-details p {
+    font-size: 0.9rem;
+  }
+  .social-details span p {
+    font-size: 0.87rem;
   }
 }

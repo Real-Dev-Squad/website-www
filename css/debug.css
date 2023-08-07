@@ -1,0 +1,149 @@
+main {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 600px;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.profile,
+.user-details,
+.social-details,
+.feature {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 400px;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 7px 13px 7px rgba(0, 0, 0, 0.25);
+}
+
+/***********************/
+/*IMAGE AND NAME SECTION*/
+/***********************/
+
+.profile {
+  background-color: var(--color-bg);
+}
+.profile img,
+h2 {
+  /* margin: 20px; */
+  align-self: center;
+}
+.profile img {
+  width: 250px;
+  height: 250px;
+}
+.profile h2 {
+  font-size: 32px;
+}
+
+/***********************/
+/*    USER DETAIL      */
+/***********************/
+
+.user-details {
+  background-color: var(--color-bg);
+  padding: 30px;
+  border: 0.5px solid blue;
+  color: var(--color-what-is-title-bg);
+}
+
+.user-details p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-details span p {
+  font-size: 1.3rem;
+  font-weight: normal;
+  padding-inline: 10px;
+}
+.user-details li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-block: -10px;
+}
+
+/***********************/
+/*    FEATURE DETAIL   */
+/***********************/
+
+.feature {
+  background-color: var(--color-what-is-title-bg);
+  padding: 30px;
+  border: 0.5px solid var(--color-bg);
+}
+
+/***********************/
+/*   SOCIAL DETAILS    */
+/***********************/
+
+.social-details {
+  background-color: var(--color-bg);
+  padding: 30px;
+  border: 1px solid var(--color-what-is-title-bg);
+  color: var(--color-what-is-title-bg);
+}
+
+.social-details li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-block: -5px;
+}
+
+.social-details p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.social-details span p {
+  font-size: 1.3em;
+  font-weight: normal;
+}
+.social-details li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-block: -5px;
+}
+
+/***********************/
+/*     MEDIA QUERY     */
+/***********************/
+
+@media (max-width: 1300px) {
+  main {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 600px;
+  }
+}
+@media (max-width: 650px) {
+  .container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 505px) {
+  .container {
+    width: 400px;
+  }
+}

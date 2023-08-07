@@ -271,7 +271,6 @@ async function showSavedDetails() {
       userInformation?.data.user?.github_created_at,
       new Date().getTime(),
     );
-    console.log(dateDiff);
 
     if (usersRequest.status === 200) {
       const userData = usersRequest.data.data[0];

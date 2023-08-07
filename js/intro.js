@@ -64,7 +64,7 @@ function generateNoDataFoundPage() {
   notFound.appendChild(notFoundDiv);
 }
 
-function generateSavedDetailsForm(users, dateDiff = NaN) {
+function generateSavedDetailsForm(users) {
   const renderIntroPage = createElement({
     type: 'section',
     classList: ['render-page'],
@@ -80,21 +80,21 @@ function generateSavedDetailsForm(users, dateDiff = NaN) {
   const githubCreatedValue = createElement({
     type: 'h4',
     classList: [
-      `${dateDiff.years > 0 ? 'github-created-text' : 'github-created-alert'}`,
+      `${users.dateDiff.years > 0 ? 'github-created-text' : 'github-created-alert'}`,
     ],
   });
 
-  if (dateDiff.years > 0) {
-    githubCreatedValue.innerText = `User GitHub account created ${dateDiff.years} years ago`;
-  } else if (dateDiff.years === 0 && dateDiff.months > 0) {
-    githubCreatedValue.innerText = `User GitHub account created ${dateDiff.months} months ago`;
+  if (users.dateDiff.years > 0) {
+    githubCreatedValue.innerText = `User GitHub account created ${users.dateDiff.years} years ago`;
+  } else if (users.dateDiff.years === 0 && users.dateDiff.months > 0) {
+    githubCreatedValue.innerText = `User GitHub account created ${users.dateDiff.months} months ago`;
   } else if (
-    dateDiff.years === 0 &&
-    dateDiff.months === 0 &&
-    dateDiff.days >= 0
+    users.dateDiff.years === 0 &&
+    users.dateDiff.months === 0 &&
+    users.dateDiff.days >= 0
   ) {
     githubCreatedValue.innerText = `User GitHub account created ${
-      dateDiff.days > 0 ? dateDiff.days : '1'
+      users.dateDiff.days > 0 ? users.dateDiff.days : '1'
     } days ago`;
   }
 
@@ -288,8 +288,9 @@ async function showSavedDetails() {
         whyRds: userData.intro.whyRds,
         numberOfHours: userData.intro.numberOfHours,
         foundFrom: userData.foundFrom,
+        dateDiff: dateDiff,
       };
-      generateSavedDetailsForm(userSavedData, dateDiff);
+      generateSavedDetailsForm(userSavedData);
     } else if (usersRequest.status === 404) {
       generateNoDataFoundPage();
       loading.classList.add('hidden');

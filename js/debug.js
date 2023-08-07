@@ -33,7 +33,7 @@ let feilds = [
 ];
 
 const fetchUserDetails = async () => {
-  const res = await fetch(url);
+  const res = await fetch(dummyData);
   const result = await res.json();
   console.log(result);
   feilds.forEach((feild) => {

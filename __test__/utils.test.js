@@ -1,6 +1,6 @@
 const utils = require('../js/utils');
 
-describe('Utils functiona test case', () => {
+describe('Utils function test case', () => {
   describe('Difference between two dates', function () {
     test('should handle negative differences correctly', () => {
       const startDate = 1691260200000; // 6 August 2023

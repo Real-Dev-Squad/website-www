@@ -15,6 +15,7 @@ main {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .container {
@@ -22,6 +23,24 @@ main {
   display: flex;
   gap: 20px;
   flex-direction: column;
+}
+
+/***********************/
+/*      POP UP          */
+/***********************/
+.pop-up {
+  background-color: var(--color-vivid-green);
+  width: 350px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: white;
+  margin: 15px;
+  border-radius: 10px;
 }
 
 .profile,
@@ -191,6 +210,7 @@ h2 {
   align-items: center;
   border-radius: 200px;
   margin: 0px;
+  cursor: pointer;
 }
 .toggle {
   width: 36px;

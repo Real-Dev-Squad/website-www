@@ -80,7 +80,11 @@ function generateSavedDetailsForm(users) {
   const githubCreatedValue = createElement({
     type: 'h4',
     classList: [
-      `${users.dateDiff.years > 0 ? 'github-created-text' : 'github-created-alert'}`,
+      `${
+        users.dateDiff.years > 0
+          ? 'github-created-text'
+          : 'github-created-alert'
+      }`,
     ],
   });
 
@@ -271,6 +275,8 @@ async function showSavedDetails() {
       userInformation?.data.user?.github_created_at,
       new Date().getTime(),
     );
+
+    console.log(usersRequest.data.data[0]);
 
     if (usersRequest.status === 200) {
       const userData = usersRequest.data.data[0];

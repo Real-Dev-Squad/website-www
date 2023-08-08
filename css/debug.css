@@ -198,6 +198,7 @@ h2 {
   border-radius: 50%;
   background-color: white;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .applied {

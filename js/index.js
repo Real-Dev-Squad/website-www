@@ -39,7 +39,7 @@ const getMemberURL = (rdsId) => `https://members.realdevsquad.com/${rdsId}`;
 
 const getMemberImgs = () => {
   const memberImgArray = [];
-  fetch('https://api.realdevsquad.com/members', {
+  fetch('http://localhost:3000/members', {
     cache: 'default',
     headers: {
       'content-type': 'application/json',

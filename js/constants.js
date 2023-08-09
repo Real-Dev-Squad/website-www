@@ -256,10 +256,10 @@ export const MAP_COORDINATES = {
   LNG: 78.476681027237,
   LAT: 22.1991660760527,
 };
-export const BASE_URL = 'https://api.realdevsquad.com';
+export const BASE_URL = 'http://localhost:3000';
 export const JOIN_POST_URL = `${BASE_URL}/users/self/intro`;
 export const SELF_URL = `${BASE_URL}/users/self`;
 export const GITHUB_OAUTH =
-  'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
+  'https://github.com/login/oauth/authorize?client_id=32ff736d736ad01087cf';
 export const SIGNUP_URL = 'https://my.realdevsquad.com/new-signup';
 export const HOME_URL = 'https://realdevsquad.com';

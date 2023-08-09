@@ -77,6 +77,33 @@ function generateSavedDetailsForm(users) {
   const container = createElement({ type: 'div', classList: ['container'] });
   renderIntroPage.appendChild(container);
 
+  const githubCreatedValue = createElement({
+    type: 'h4',
+    classList: [
+      `${
+        users.dateDiff.years > 0
+          ? 'github-created-text'
+          : 'github-created-alert'
+      }`,
+    ],
+  });
+
+  if (users.dateDiff.years > 0) {
+    githubCreatedValue.innerText = `User GitHub account created ${users.dateDiff.years} years ago`;
+  } else if (users.dateDiff.years === 0 && users.dateDiff.months > 0) {
+    githubCreatedValue.innerText = `User GitHub account created ${users.dateDiff.months} months ago`;
+  } else if (
+    users.dateDiff.years === 0 &&
+    users.dateDiff.months === 0 &&
+    users.dateDiff.days >= 0
+  ) {
+    githubCreatedValue.innerText = `User GitHub account created ${
+      users.dateDiff.days > 0 ? users.dateDiff.days : '1'
+    } days ago`;
+  }
+
+  container.appendChild(githubCreatedValue);
+
   const nameLabel = createElement({
     type: 'p',
     classList: ['input-label-dark'],
@@ -240,6 +267,14 @@ async function showSavedDetails() {
   try {
     const userId = urlParams.get('id');
     const usersRequest = await makeApiCall(`${BASE_URL}/users/${userId}/intro`);
+    const userInformation = await makeApiCall(
+      `${BASE_URL}/users/userId/${userId}`,
+    );
+
+    const dateDiff = dateDifference(
+      userInformation?.data.user?.github_created_at,
+      new Date().getTime(),
+    );
     if (usersRequest.status === 200) {
       const userData = usersRequest.data.data[0];
       let userSavedData = {
@@ -256,6 +291,7 @@ async function showSavedDetails() {
         whyRds: userData.intro.whyRds,
         numberOfHours: userData.intro.numberOfHours,
         foundFrom: userData.foundFrom,
+        dateDiff: dateDiff,
       };
       generateSavedDetailsForm(userSavedData);
     } else if (usersRequest.status === 404) {

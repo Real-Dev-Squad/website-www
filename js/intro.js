@@ -276,8 +276,6 @@ async function showSavedDetails() {
       new Date().getTime(),
     );
 
-    console.log(usersRequest.data.data[0]);
-
     if (usersRequest.status === 200) {
       const userData = usersRequest.data.data[0];
       let userSavedData = {

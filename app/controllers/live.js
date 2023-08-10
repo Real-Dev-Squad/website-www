@@ -19,8 +19,8 @@ export default class LiveController extends Controller {
   @tracked role = null;
   @tracked room = null;
   @tracked isCopied = false;
-  @tracked isKickoutModalOpen = false;
-  @tracked peerToRemove;
+  @tracked isKickoutModalOpen = true;
+  @tracked peerToRemove = '';
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -71,13 +71,13 @@ export default class LiveController extends Controller {
   }
 
   @action removePeer() {
-    this.liveService.removePeer(this.peerToRemove);
+    this.liveService.removePeer(this.peerToRemove?.id);
     this.isKickoutModalOpen = false;
   }
 
-  @action openKickoutModal(peerId) {
+  @action openKickoutModal(peer) {
     this.isKickoutModalOpen = true;
-    this.peerToRemove = peerId;
+    this.peerToRemove = peer;
   }
 
   @action closeKickoutModal() {

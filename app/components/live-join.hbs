@@ -8,14 +8,34 @@
       @placeHolder='Enter your name'
       @required={{true}}
       @value={{@name}}
-      @onInput={{@inputHandler}}
+      @onInput={{@nameHandler}}
     />
-    <Reusables::Button
-      @test='live-join'
-      @type='button'
-      @variant='dark'
-      @text='Join'
-      @onClick={{@clickHandler}}
-    />
+    {{#if (eq @role 'maven')}}
+      <Reusables::InputBox
+        @field='Room Code'
+        @name='roomCode'
+        @type='text'
+        @placeHolder='Enter room code'
+        @required={{true}}
+        @value={{@roomCode}}
+        @onInput={{@roomCodeHandler}}
+      />
+    {{/if}}
+    <div>
+      <Reusables::Button
+        @test='live-join'
+        @type='button'
+        @variant='light'
+        @text='Back'
+        @onClick={{@backHandler}}
+      />
+      <Reusables::Button
+        @test='live-join'
+        @type='button'
+        @variant='dark'
+        @text={{if (eq @role 'host') 'Create Event' 'Join'}}
+        @onClick={{@clickHandler}}
+      />
+    </div>
   </form>
 </section>

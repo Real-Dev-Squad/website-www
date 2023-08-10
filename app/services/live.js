@@ -109,11 +109,36 @@ export default class LiveService extends Service {
     }
   }
 
-  async joinSession(userName, role, room) {
+  async getActiveRooms() {
+    try {
+      const response = await fetch(`${ENV.BASE_API_URL}/events?enabled=true`, {
+        method: API_METHOD.GET,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const { data } = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async joinSession(userName, role) {
     try {
       this.isLoading = true;
-      const roomId =
-        ROLES.host === role ? await this.createRoom(userName) : room;
+      const activeRooms = await this.getActiveRooms();
+      let roomId;
+      if (!activeRooms && ROLES.host === role) {
+        roomId = await this.createRoom(userName);
+      } else if (activeRooms.length > 0) {
+        roomId = activeRooms[0].room_id;
+      } else {
+        console.log('No active room');
+        return;
+      }
+      // const roomId =
+      //   ROLES.host === role ? await this.createRoom(userName) : room;
       this.activeRoomId = roomId;
       const token = await this.joinRoom(roomId, role, userName);
       this.isLoading = false;

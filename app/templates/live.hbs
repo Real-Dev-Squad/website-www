@@ -55,9 +55,13 @@
           />
         {{else}}
           <LiveJoin
+            @role={{this.role}}
             @name={{this.name}}
-            @inputHandler={{this.inputHandler}}
+            @roomCode={{this.roomCode}}
+            @nameHandler={{this.nameHandler}}
+            @roomCodeHandler={{this.roomCodeHandler}}
             @clickHandler={{this.clickHandler}}
+            @backHandler={{this.backHandler}}
           />
         {{/if}}
       {{/if}}

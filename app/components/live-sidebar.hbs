@@ -47,7 +47,7 @@
       >Guest Users</p>
       <ul>
         {{#each @peers as |peer|}}
-          {{#if (eq peer.roleName this.ROLES.guest)}}
+          {{#if (not-eq peer.roleName this.ROLES.host)}}
             <li data-test-sidebar-user={{peer.name}} class='user'>
               <p>{{peer.name}}</p>
             </li>

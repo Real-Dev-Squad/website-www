@@ -7,7 +7,7 @@ import { globalRef } from 'ember-ref-bucket';
 import { ROLES, BUTTONS_TYPE } from '../constants/live';
 
 export default class LiveController extends Controller {
-  queryParams = ['dev', 'room'];
+  queryParams = ['dev', 'roomCode'];
   ROLES = ROLES;
   @service login;
   @tracked TABS = [
@@ -19,8 +19,10 @@ export default class LiveController extends Controller {
   @tracked isLoading = true;
   @tracked name = '';
   @tracked role = '';
-  @tracked room = null;
+  @tracked roomCode = '';
   @tracked isCopied = false;
+  @tracked canShareScreen =
+    this.role === ROLES.host || this.role === ROLES.maven;
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -28,23 +30,38 @@ export default class LiveController extends Controller {
 
   constructor() {
     super(...arguments);
+    console.log('screen share', this.canShareScreen);
     setTimeout(() => {
       this.isLoading = false;
     }, 4000);
   }
 
-  @action inputHandler(e) {
+  @action nameHandler(e) {
     this.name = e.target.value;
+  }
+
+  @action roomCodeHandler(e) {
+    this.roomCode = e.target.value;
   }
 
   @action clickHandler(e) {
     e.preventDefault();
-    const isGuest = this.role === ROLES.guest;
-    const isHost = this.role === ROLES.host;
-    if (this.name && (isGuest || isHost)) {
-      this.liveService.joinSession(this.name, this.role, this.room);
+    const isValidRole = Object.keys(ROLES).includes(this.role);
+    const canJoin =
+      this.role === this.ROLES.maven
+        ? this.name && this.roomCode && isValidRole
+        : this.name && isValidRole;
+
+    if (canJoin) {
+      this.liveService.joinSession(this.name, this.role);
       this.name = '';
     }
+  }
+
+  @action backHandler() {
+    this.role = '';
+    this.name = '';
+    this.roomCode = '';
   }
 
   @action tabHandler(tabId) {
@@ -95,5 +112,6 @@ export default class LiveController extends Controller {
 
   @action selectRoleHandler(selectedRole) {
     console.log({ selectedRole });
+    this.role = selectedRole;
   }
 }

@@ -14,9 +14,21 @@
     <Reusables::IconButton
       @id='copy-link'
       @class='icon-button--md'
-      @title='Invite link'
+      @title='Room code for maven'
       @onClick={{@buttonClickHandler}}
       @icon={{if @isCopied 'material-symbols:done' 'material-symbols:copy-all'}}
+    />
+  {{else if (eq @role this.ROLES.maven)}}
+    <Reusables::IconButton
+      @id='screen-share'
+      @class='icon-button--md'
+      @title={{if @isScreenShareOn 'Stop Share' 'Screen Share'}}
+      @onClick={{@buttonClickHandler}}
+      @icon={{if
+        @isScreenShareOn
+        'material-symbols:stop-screen-share'
+        'material-symbols:screen-share'
+      }}
     />
   {{/if}}
   <Reusables::IconButton

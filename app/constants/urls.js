@@ -1,12 +1,12 @@
 import ENV from 'website-www/config/environment';
 
 export const APPS = {
-  HOME: ENV.APPS.HOME,
-  WELCOME: ENV.APPS.WELCOME,
-  EVENTS: ENV.APPS.EVENTS,
-  MEMBERS: ENV.APPS.MEMBERS,
-  STATUS: ENV.APPS.STATUS,
-  PROFILE: ENV.APPS.PROFILE,
+  HOME: ENV.APPS?.HOME,
+  WELCOME: ENV.APPS?.WELCOME,
+  EVENTS: ENV.APPS?.EVENTS,
+  MEMBERS: ENV.APPS?.MEMBERS,
+  STATUS: ENV.APPS?.STATUS,
+  PROFILE: ENV.APPS?.PROFILE,
   LIVE: 'live',
 };
 
@@ -18,7 +18,7 @@ export const ABOUT = {
 
 export const AUTH = {
   SIGN_IN: `${ENV.BASE_API_URL}/auth/github/login`,
-  SIGN_UP: `${ENV.APPS.PROFILE}/new-signup`,
+  SIGN_UP: `${ENV.APPS?.PROFILE}/new-signup`,
 };
 
 export const SOCIALS = {

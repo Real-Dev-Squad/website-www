@@ -2,27 +2,27 @@ import { APPS, ABOUT } from './urls';
 
 export const APPS_PROPERTIES = [
   {
-    url: APPS.HOME,
+    url: APPS?.HOME,
     name: 'Home',
   },
   {
-    url: APPS.WELCOME,
+    url: APPS?.WELCOME,
     name: 'Welcome',
   },
   {
-    url: APPS.EVENTS,
+    url: APPS?.EVENTS,
     name: 'Events',
   },
   {
-    url: APPS.MEMBERS,
+    url: APPS?.MEMBERS,
     name: 'Members',
   },
   {
-    url: APPS.STATUS,
+    url: APPS?.STATUS,
     name: 'Status',
   },
   {
-    url: APPS.PROFILE,
+    url: APPS?.PROFILE,
     name: 'My Profile',
   },
 ];

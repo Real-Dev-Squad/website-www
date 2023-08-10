@@ -46,10 +46,26 @@
         class='role-user__type guestUsers'
       >Guest Users</p>
       <ul>
+
         {{#each @peers as |peer|}}
           {{#if (eq peer.roleName this.ROLES.guest)}}
-            <li data-test-sidebar-user={{peer.name}} class='user'>
+            <li data-test-sidebar-user={{peer.id}} class='user'>
               <p>{{peer.name}}</p>
+              {{#if (eq this.liveService.localPeer.roleName this.ROLES.host)}}
+                <button
+                  type='button'
+                  class='user__btn'
+                  {{on 'click' (fn @openKickoutModal peer.id)}}
+                >
+                  <IconifyIcon
+                    data-test-icon='remove'
+                    @icon='material-symbols:person-remove'
+                    width='36'
+                    height='36'
+                    color='red'
+                  />
+                </button>
+              {{/if}}
             </li>
           {{/if}}
         {{/each}}

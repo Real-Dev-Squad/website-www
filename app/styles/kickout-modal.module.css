@@ -1,0 +1,19 @@
+.kickout-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 179px;
+  width: 470px;
+  box-shadow: 0px 0px 10px grey;
+  background-color: var(--color-white);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.kickout-modal h4 {
+  font-size: 24px;
+}

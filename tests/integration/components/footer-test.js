@@ -20,17 +20,17 @@ module('Integration | Component | footer', function (hooks) {
     assert.dom('[data-test-newsletter-title]').hasText('Newsletter');
     assert.dom('[data-test-underline]').exists({ count: 4 });
 
-    APPS_PROPERTIES.forEach((link) => {
+    APPS_PROPERTIES?.forEach((link) => {
       assert
         .dom(`[data-test-sites-link="${link.name}"]`)
         .hasAttribute('href', link.url);
     });
 
-    ABOUT_PROPERTIES.forEach((link) => {
+    ABOUT_PROPERTIES?.forEach((link) => {
       assert.dom(`[data-test-about-link="${link.name}"]`).hasText(link.name);
     });
 
-    SOCIAL_LINK_PROPERTIES.forEach((link) => {
+    SOCIAL_LINK_PROPERTIES?.forEach((link) => {
       assert
         .dom(`[data-test-social-link=${link.title}]`)
         .hasAttribute('href', link.url);
@@ -46,7 +46,7 @@ module('Integration | Component | footer', function (hooks) {
       );
     assert
       .dom('[data-footer-repo-link]')
-      .hasAttribute('href', ABOUT.REPOSITORY);
+      .hasAttribute('href', ABOUT?.REPOSITORY);
 
     assert
       .dom('[data-test-newsletter-input]')

@@ -1,24 +1,58 @@
 import ENV from 'website-www/config/environment';
 
-export const APPS = {
-  HOME: ENV.APPS?.HOME,
-  WELCOME: ENV.APPS?.WELCOME,
-  EVENTS: ENV.APPS?.EVENTS,
-  MEMBERS: ENV.APPS?.MEMBERS,
-  STATUS: ENV.APPS?.STATUS,
-  PROFILE: ENV.APPS?.PROFILE,
-  LIVE: 'live',
+const SCHEMA = 'https://';
+const DOMAIN = 'realdevsquad.com';
+
+const APP_URLS = {
+  production: {
+    HOME: `${SCHEMA}beta.${DOMAIN}`,
+    WELCOME: `${SCHEMA}welcome.${DOMAIN}`,
+    EVENTS: `${SCHEMA}${DOMAIN}/events`,
+    MEMBERS: `${SCHEMA}members.${DOMAIN}`,
+    STATUS: `${SCHEMA}status.${DOMAIN}`,
+    PROFILE: `${SCHEMA}my.${DOMAIN}`,
+    API_BACKEND: `${SCHEMA}api.${DOMAIN}`,
+  },
+  staging: {
+    HOME: `${SCHEMA}beta.${DOMAIN}`,
+    WELCOME: `${SCHEMA}staging-welcome.${DOMAIN}`,
+    EVENTS: `${SCHEMA}staging-www.${DOMAIN}/events`,
+    MEMBERS: `${SCHEMA}staging-members.${DOMAIN}`,
+    STATUS: `${SCHEMA}staging-status.${DOMAIN}`,
+    PROFILE: `${SCHEMA}staging-my.${DOMAIN}`,
+    API_BACKEND: `${SCHEMA}staging-api.${DOMAIN}`,
+  },
+  development: {
+    HOME: `${SCHEMA}beta.${DOMAIN}`,
+    WELCOME: `${SCHEMA}staging-welcome.${DOMAIN}`,
+    EVENTS: `${SCHEMA}staging-www.${DOMAIN}/events`,
+    MEMBERS: `${SCHEMA}staging-members.${DOMAIN}`,
+    STATUS: `${SCHEMA}staging-status.${DOMAIN}`,
+    PROFILE: `${SCHEMA}staging-my.${DOMAIN}`,
+    API_BACKEND: `${SCHEMA}staging-api.${DOMAIN}`,
+  },
+  test: {
+    HOME: `${SCHEMA}${DOMAIN}`,
+    WELCOME: `${SCHEMA}welcome.${DOMAIN}`,
+    EVENTS: `${SCHEMA}${DOMAIN}/events`,
+    MEMBERS: `${SCHEMA}members.${DOMAIN}`,
+    STATUS: `${SCHEMA}status.${DOMAIN}`,
+    PROFILE: `${SCHEMA}my.${DOMAIN}`,
+    API_BACKEND: `${SCHEMA}staging-api.${DOMAIN}`,
+  },
 };
 
+export const APPS = { ...APP_URLS[ENV.environment], LIVE: 'live' };
+
 export const ABOUT = {
-  FAQ: 'https://welcome.realdevsquad.com/faq.html',
+  FAQ: `${APPS.WELCOME}/faq.html`,
   REPOSITORY: 'https://github.com/Real-Dev-Squad/website-www',
   VIDEO: 'https://www.youtube.com/embed/8UPjK1wLnTk?controls=0',
 };
 
 export const AUTH = {
-  SIGN_IN: `${ENV.BASE_API_URL}/auth/github/login`,
-  SIGN_UP: `${ENV.APPS?.PROFILE}/new-signup`,
+  SIGN_IN: `${APPS.API_BACKEND}/auth/github/login`,
+  SIGN_UP: `${APPS.PROFILE}/new-signup`,
 };
 
 export const SOCIALS = {

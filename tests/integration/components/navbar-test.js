@@ -7,7 +7,7 @@ import { APPS } from '../../constants/urls';
 module('Integration | Component | navbar', function (hooks) {
   setupRenderingTest(hooks);
 
-  test.skip('navbar elements renders', async function (assert) {
+  test('navbar elements renders', async function (assert) {
     assert.expect(15);
 
     this.setProperties({
@@ -20,8 +20,8 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar 
-        @isLoggedIn={{this.isLoggedIn}} 
+      <Navbar
+        @isLoggedIn={{this.isLoggedIn}}
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
       />
@@ -58,8 +58,8 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar 
-        @isLoggedIn={{this.isLoggedIn}} 
+      <Navbar
+        @isLoggedIn={{this.isLoggedIn}}
         @signOut={{this.signOut}}
       />
     `);
@@ -112,7 +112,7 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-icon]').exists();
   });
 
-  test.skip('toggle dropdown menu', async function (assert) {
+  test('toggle dropdown menu', async function (assert) {
     assert.expect(6);
 
     this.setProperties({
@@ -126,7 +126,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar 
+      <Navbar
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -156,7 +156,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar 
+      <Navbar
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
       />

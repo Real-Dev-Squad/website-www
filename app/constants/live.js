@@ -17,3 +17,11 @@ export const PATCH_API_CONFIGS = {
   },
   credentials: 'include',
 };
+
+export const POST_API_CONFIGS = {
+  method: API_METHOD.POST,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  credentials: 'include',
+};

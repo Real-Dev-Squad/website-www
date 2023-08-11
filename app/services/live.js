@@ -10,7 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import ENV from 'website-www/config/environment';
 import { globalRef } from 'ember-ref-bucket';
 import { inject as service } from '@ember/service';
-import { ROLES, API_METHOD, PATCH_API_CONFIGS } from '../constants/live';
+import { ROLES, API_METHOD, PATCH_API_CONFIGS, POST_API_CONFIGS } from '../constants/live';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 export default class LiveService extends Service {
   @service toast;
@@ -129,9 +129,9 @@ export default class LiveService extends Service {
       const peer = this.hmsStore.getState(selectLocalPeer);
       this.localPeer = peer;
       const addPeerResponse = await fetch(
-        `${ENV.BASE_API_URL}/events/${roomId}/peer`,
+        `${ENV.BASE_API_URL}/events/${roomId}/peers`,
         {
-          ...PATCH_API_CONFIGS,
+          ...POST_API_CONFIGS,
           body: JSON.stringify({
             peerId: peer?.id,
             name: peer?.name,

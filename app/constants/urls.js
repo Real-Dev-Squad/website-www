@@ -1,10 +1,12 @@
+import ENV from 'website-www/config/environment';
+
 export const APPS = {
-  HOME: 'https://realdevsquad.com/',
-  WELCOME: 'https://welcome.realdevsquad.com/',
-  EVENTS: 'https://realdevsquad.com/events/',
-  MEMBERS: 'https://members.realdevsquad.com/',
-  STATUS: 'https://status.realdevsquad.com/',
-  PROFILE: 'https://my.realdevsquad.com/',
+  HOME: ENV.APPS?.HOME,
+  WELCOME: ENV.APPS?.WELCOME,
+  EVENTS: ENV.APPS?.EVENTS,
+  MEMBERS: ENV.APPS?.MEMBERS,
+  STATUS: ENV.APPS?.STATUS,
+  PROFILE: ENV.APPS?.PROFILE,
   LIVE: 'live',
 };
 
@@ -15,9 +17,8 @@ export const ABOUT = {
 };
 
 export const AUTH = {
-  SIGN_IN:
-    'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97',
-  SIGN_UP: 'https://my.realdevsquad.com/signup',
+  SIGN_IN: `${ENV.BASE_API_URL}/auth/github/login`,
+  SIGN_UP: `${ENV.APPS?.PROFILE}/new-signup`,
 };
 
 export const SOCIALS = {

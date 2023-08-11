@@ -123,6 +123,9 @@
   background: var(--color-green-white);
   border-radius: 6px;
   margin-bottom: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user p {
@@ -131,6 +134,11 @@
   font-size: 17px;
   line-height: 20px;
   color: var(--color-black);
+}
+
+.user__btn {
+  all: unset;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {

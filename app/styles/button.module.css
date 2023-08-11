@@ -28,6 +28,10 @@
   opacity: 60%;
 }
 
-.btn-pink{
+.btn-pink {
   background-color: var(--color-pink);
+}
+
+.btn--sm {
+  width: 8rem;
 }

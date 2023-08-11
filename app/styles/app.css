@@ -20,6 +20,8 @@
 @import 'icon-button.module.css';
 @import 'live-join.module.css';
 @import 'live-sidebar.module.css';
+@import 'kickout-modal.module.css';
+@import 'base-modal.module.css';
 
 * {
   margin: 0px;

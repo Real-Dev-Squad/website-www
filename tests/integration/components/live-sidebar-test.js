@@ -11,10 +11,12 @@ module('Integration | Component | live-sidebar', function (hooks) {
     this.setProperties({
       peers: [
         {
+          id: 1,
           name: 'Ankush',
           roleName: 'host',
         },
         {
+          id: 2,
           name: 'Satyam',
           roleName: 'guest',
         },
@@ -49,14 +51,14 @@ module('Integration | Component | live-sidebar', function (hooks) {
 
     assert.dom('[data-test-sidebar-body-role]').exists();
 
-    assert.dom('[data-test-sidebar-user]').exists();
+    assert.dom('[data-test-sidebar-body-role-guest]').exists();
+    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Guest Users');
+
+    assert.dom('[data-test-sidebar-user="2"]').exists();
     assert.strictEqual(
-      document.querySelector(`[data-test-sidebar-user=Satyam]`).innerText,
+      document.querySelector(`[data-test-sidebar-user="2"]`).innerText,
       this.peers[1].name,
       'guest name is same!'
     );
-
-    assert.dom('[data-test-sidebar-body-role-guest]').exists();
-    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Guest Users');
   });
 });

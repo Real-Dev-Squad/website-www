@@ -1,0 +1,18 @@
+<div data-test-kickout-modal class='kickout-modal'>
+  <h4 data-test-kickout-heading>Do you want to remove {{@peerToRemove}}?</h4>
+  <div data-test-kickout-buttons class='kickout-modal__buttons'>
+    <Reusables::Button
+      @text='Cancel'
+      @variant='dark btn--sm'
+      @test='kickout-button-cancel'
+      @onClick={{this.closeModal}}
+    />
+    <Reusables::Button
+      @text='Remove'
+      @variant='pink btn-dark btn--sm'
+      @test='kickout-button-remove'
+      @type='button'
+      @onClick={{this.removePeer}}
+    />
+  </div>
+</div>

@@ -6,6 +6,19 @@
     @activeTab={{this.activeTab}}
     @tabHandler={{this.tabHandler}}
   />
+
+  <BaseModal
+    @closeModal={{this.closeKickoutModal}}
+    @openModal={{this.openKickoutModal}}
+    @isOpen={{this.isKickoutModalOpen}}
+    as |modal|
+  >
+    <KickoutModal
+      @closeModal={{modal.closeModal}}
+      @removePeer={{this.removePeer}}
+      @peerToRemove={{this.peerToRemove.name}}
+    />
+  </BaseModal>
   {{! TODO - add more else if statement instead of only else }}
   {{#if (eq this.activeTab 'Screenshare')}}
     {{#if this.liveService.isLoading}}
@@ -29,6 +42,7 @@
               <Reusables::Skeleton />
             {{else}}
               <LiveSidebar
+                @openKickoutModal={{this.openKickoutModal}}
                 @peers={{this.liveService.peers}}
                 @hostProfilePicture={{this.login.userData.picture.url}}
               />

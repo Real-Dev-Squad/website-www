@@ -5,7 +5,6 @@ import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { globalRef } from 'ember-ref-bucket';
 import { ROLES, BUTTONS_TYPE } from '../constants/live';
-
 export default class LiveController extends Controller {
   queryParams = ['dev', 'role', 'room'];
   @service login;
@@ -15,21 +14,16 @@ export default class LiveController extends Controller {
     { id: 3, label: 'Real Dev Squad', active: false },
   ];
   @tracked activeTab = 'Screenshare';
-  @tracked isLoading = true;
+  @tracked isLoading = false;
   @tracked name = '';
   @tracked role = null;
   @tracked room = null;
   @tracked isCopied = false;
+  @tracked isKickoutModalOpen = false;
+  @tracked peerToRemove = '';
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
-  }
-
-  constructor() {
-    super(...arguments);
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 4000);
   }
 
   @action inputHandler(e) {
@@ -74,6 +68,21 @@ export default class LiveController extends Controller {
       this.isCopied = false;
       console.error(error);
     }
+  }
+
+  @action removePeer() {
+    this.liveService.removePeer(this.peerToRemove?.id);
+    this.isKickoutModalOpen = false;
+  }
+
+  @action openKickoutModal(peer) {
+    this.isKickoutModalOpen = true;
+    this.peerToRemove = peer;
+  }
+
+  @action closeKickoutModal() {
+    this.isKickoutModalOpen = false;
+    this.peerToRemove = '';
   }
 
   @action buttonClickHandler(buttonId) {

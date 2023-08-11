@@ -4,13 +4,16 @@ import {
   selectIsSomeoneScreenSharing,
   selectPeers,
   selectIsConnectedToRoom,
+  selectLocalPeer,
 } from '@100mslive/hms-video-store';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'website-www/config/environment';
 import { globalRef } from 'ember-ref-bucket';
-import { ROLES, API_METHOD } from '../constants/live';
-
+import { inject as service } from '@ember/service';
+import { ROLES, API_METHOD, PATCH_API_CONFIGS } from '../constants/live';
+import { TOAST_OPTIONS } from '../constants/toast-options';
 export default class LiveService extends Service {
+  @service toast;
   hmsManager;
   hmsStore;
   hmsActions;
@@ -18,6 +21,7 @@ export default class LiveService extends Service {
   @tracked isJoined = false;
   @tracked activeRoomId = '';
   @tracked isLoading = false;
+  @tracked localPeer;
   @globalRef('videoEl') videoEl;
   @tracked peers;
   @tracked isScreenShareOn;
@@ -29,6 +33,7 @@ export default class LiveService extends Service {
     this.hmsManager.triggerOnSubscribe();
     this.hmsStore = this.hmsManager.getStore();
     this.hmsActions = this.hmsManager.getActions();
+    this.hmsNotifications = this.hmsManager.notifications;
     this.hmsStore.subscribe(
       (peers) => this.renderScreenVideoToPeers(peers, this.hmsActions),
       selectPeers
@@ -121,9 +126,32 @@ export default class LiveService extends Service {
         userName,
         authToken: token,
       });
+      const peer = this.hmsStore.getState(selectLocalPeer);
+      this.localPeer = peer;
+      const addPeerResponse = await fetch(
+        `${ENV.BASE_API_URL}/events/${roomId}/peer`,
+        {
+          ...PATCH_API_CONFIGS,
+          body: JSON.stringify({
+            peerId: peer?.id,
+            name: peer?.name,
+            role: peer?.roleName,
+            joinedAt: peer?.joinedAt,
+          }),
+        }
+      );
+      const { data: addedPeerData } = await addPeerResponse.json();
+      if (addPeerResponse?.status === 200 && addedPeerData) {
+        this.toast.success(
+          'Successfully joined the event!',
+          'Success!',
+          TOAST_OPTIONS
+        );
+      }
     } catch (error) {
       this.isLoading = false;
       console.error(error);
+      this.toast.error('Something went wrong!', 'Error!', TOAST_OPTIONS);
     }
   }
 
@@ -163,6 +191,35 @@ export default class LiveService extends Service {
       await this.hmsActions.attachVideo(presenterTrackId, this.videoEl);
     } else {
       await this.hmsActions.detachVideo(presenterTrackId, this.videoEl);
+    }
+  }
+
+  async removePeer(peerId) {
+    const roomId = this.hmsStore?.getState()?.room?.id;
+
+    const reason = 'For doing something wrong!';
+    try {
+      const response = await fetch(
+        `${ENV.BASE_API_URL}/events/${roomId}/peers/kickout`,
+        {
+          ...PATCH_API_CONFIGS,
+          body: JSON.stringify({
+            peerId: peerId,
+            reason: reason,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      if (response.status === 200 && data) {
+        this.toast.success(data?.message, 'Success!', TOAST_OPTIONS);
+        return;
+      }
+
+      throw new Error(response);
+    } catch (err) {
+      console.error('The error is: ', err);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     }
   }
 }

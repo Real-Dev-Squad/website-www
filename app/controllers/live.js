@@ -19,7 +19,7 @@ export default class LiveController extends Controller {
   @tracked role = null;
   @tracked room = null;
   @tracked isCopied = false;
-  @tracked isKickoutModalOpen = true;
+  @tracked isKickoutModalOpen = false;
   @tracked peerToRemove = '';
   @globalRef('videoEl') videoEl;
   get liveService() {

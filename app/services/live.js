@@ -213,7 +213,10 @@ export default class LiveService extends Service {
       const data = await response.json();
       if (response.status === 200 && data) {
         this.toast.success(data?.message, 'Success!', TOAST_OPTIONS);
+        return;
       }
+
+      throw new Error(response);
     } catch (err) {
       console.error('The error is: ', err);
       this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);

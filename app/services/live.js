@@ -7,7 +7,7 @@ import {
   selectLocalPeer,
 } from '@100mslive/hms-video-store';
 import { tracked } from '@glimmer/tracking';
-import ENV from 'website-www/config/environment';
+import { APPS } from 'website-www/constants/urls';
 import { globalRef } from 'ember-ref-bucket';
 import { inject as service } from '@ember/service';
 import { ROLES, API_METHOD, PATCH_API_CONFIGS } from '../constants/live';
@@ -53,7 +53,7 @@ export default class LiveService extends Service {
 
   async joinRoom(roomId, role, userName) {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events/join`, {
+      const response = await fetch(`${APPS.API_BACKEND}/events/join`, {
         method: API_METHOD.POST,
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export default class LiveService extends Service {
 
   async createRoom(userName) {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events`, {
+      const response = await fetch(`${APPS.API_BACKEND}/events`, {
         method: API_METHOD.POST,
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ export default class LiveService extends Service {
 
   async endRoom(roomId) {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events/end`, {
+      const response = await fetch(`${APPS.API_BACKEND}/events/end`, {
         method: API_METHOD.PATCH,
         headers: {
           'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ export default class LiveService extends Service {
       const peer = this.hmsStore.getState(selectLocalPeer);
       this.localPeer = peer;
       const addPeerResponse = await fetch(
-        `${ENV.BASE_API_URL}/events/${roomId}/peer`,
+        `${APPS.API_BACKEND}/events/${roomId}/peer`,
         {
           ...PATCH_API_CONFIGS,
           body: JSON.stringify({
@@ -200,7 +200,7 @@ export default class LiveService extends Service {
     const reason = 'For doing something wrong!';
     try {
       const response = await fetch(
-        `${ENV.BASE_API_URL}/events/${roomId}/peers/kickout`,
+        `${APPS.API_BACKEND}/events/${roomId}/peers/kickout`,
         {
           ...PATCH_API_CONFIGS,
           body: JSON.stringify({

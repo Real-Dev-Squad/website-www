@@ -1,8 +1,7 @@
-import ENV from 'website-www/config/environment';
+import { APPS } from 'website-www/constants/urls';
 
-export const BASE_API_URL = ENV.BASE_API_URL;
-export const JOIN_URL = `${BASE_API_URL}/users/self/intro`;
+export const JOIN_URL = `${APPS.API_BACKEND}/users/self/intro`;
 
 export const USER_JOINED_LINK = (userId) => {
-  return `https://api.realdevsquad.com/users/${userId}/intro`;
+  return `${APPS.API_BACKEND}/users/${userId}/intro`;
 };

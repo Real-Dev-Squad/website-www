@@ -1,10 +1,10 @@
 export const APPS = {
-  HOME: 'https://realdevsquad.com/',
-  WELCOME: 'https://welcome.realdevsquad.com/',
-  EVENTS: 'https://realdevsquad.com/events/',
-  MEMBERS: 'https://members.realdevsquad.com/',
-  STATUS: 'https://status.realdevsquad.com/',
-  PROFILE: 'https://my.realdevsquad.com/',
+  HOME: 'https://realdevsquad.com',
+  WELCOME: 'https://welcome.realdevsquad.com',
+  EVENTS: 'https://realdevsquad.com/events',
+  MEMBERS: 'https://members.realdevsquad.com',
+  STATUS: 'https://status.realdevsquad.com',
+  PROFILE: 'https://my.realdevsquad.com',
 };
 
 export const ABOUT = {

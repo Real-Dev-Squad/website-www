@@ -43,16 +43,22 @@ https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
 
 ## Live-Site Feature Guides
 
-- [Feature Overview](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
+- [Feature Overview (PRD)](https://precodes.notion.site/Requirement-document-for-live-screen-share-feature-e8c0c1eea04947beb44ddb60e609aaec)
 
 The goal of the Live-site feature is to enable users to share their screens during virtual sessions, enhancing the ability to collaborate and showcase their skills to potential employers and other developers. The aim is to create a feature that allows for seamless screen sharing and allows users who join the session late to quickly catch up on what has been discussed with the help of additional features like meeting notes, chat, word cloud, and more. This will make it easier for participants to stay engaged and informed, as well as attract new users who are browsing or curious about RDS.
 
-- [Feature Description](https://github.com/Real-Dev-Squad/website-www/issues/343)
+- [Feature Description (Live screen share Ticket)](https://github.com/Real-Dev-Squad/website-www/issues/343)
 
 - [Feature Design (basic wireframe)](https://www.figma.com/file/O8QLwPzTuH3RIWoYdxitln/Live-Page?node-id=0%3A1&t=vKJPfNkUiuCXPoIl-0)
 
 - [Feature Design (detailed design)](https://www.figma.com/file/2VtPGJH61Qp0iarkKW6KTO/Live-Site-Detailed-Designs?node-id=0-1)
 
-- [Live-site delay while streaming](https://github.com/Real-Dev-Squad/website-www/issues/361)
+- [Delay in livestream ticket](https://github.com/Real-Dev-Squad/website-www/issues/361)
 
-- [Live survey while virtual session](https://github.com/Real-Dev-Squad/website-www/issues/359)
+- [Live stream POC link (with delay)](https://github.com/Real-Dev-Squad/website-www/issues/361)
+
+- [Live stream POC link (without delay)](https://word-cloud-poc.netlify.app/live.html?role=guest)
+
+- [Word Cloud Survey ticket](https://github.com/Real-Dev-Squad/website-www/issues/359)
+
+- [Word cloud survey POC link](https://github.com/Real-Dev-Squad/website-www/issues/359)

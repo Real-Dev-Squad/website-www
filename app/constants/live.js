@@ -27,3 +27,10 @@ export const POST_API_CONFIGS = {
   },
   credentials: 'include',
 };
+
+export const GET_API_CONFIGS = {
+  method: API_METHOD.GET,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};

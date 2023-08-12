@@ -6,7 +6,7 @@ import { getOwner } from '@ember/application';
 import { globalRef } from 'ember-ref-bucket';
 import { ROLES, BUTTONS_TYPE } from '../constants/live';
 export default class LiveController extends Controller {
-  queryParams = ['dev', 'roomCode'];
+  queryParams = ['dev'];
   ROLES = ROLES;
   @service login;
   @tracked TABS = [
@@ -54,8 +54,9 @@ export default class LiveController extends Controller {
         : this.name && isValidRole;
 
     if (canJoin) {
-      this.liveService.joinSession(this.name, this.role);
+      this.liveService.joinSession(this.name, this.role, this.roomCode);
       this.name = '';
+      this.roomCode = '';
     }
   }
 
@@ -83,9 +84,14 @@ export default class LiveController extends Controller {
   @action async copyInviteLink() {
     try {
       await navigator.clipboard.writeText(
-        `${window.location.origin}/live?dev=true&role=guest&room=${this.liveService.activeRoomId}`
+        `${this.liveService.roomCodeForMaven}`
       );
       this.isCopied = true;
+      this.liveService.toast.success(
+        'Copied room code for maven',
+        'Success!',
+        this.liveService.TOAST_OPTIONS
+      );
       setTimeout(() => {
         this.isCopied = false;
       }, 2000);

@@ -10,7 +10,12 @@ import { tracked } from '@glimmer/tracking';
 import ENV from 'website-www/config/environment';
 import { globalRef } from 'ember-ref-bucket';
 import { inject as service } from '@ember/service';
-import { ROLES, API_METHOD, PATCH_API_CONFIGS, POST_API_CONFIGS } from '../constants/live';
+import {
+  ROLES,
+  PATCH_API_CONFIGS,
+  POST_API_CONFIGS,
+  GET_API_CONFIGS,
+} from '../constants/live';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 export default class LiveService extends Service {
   @service toast;
@@ -25,6 +30,7 @@ export default class LiveService extends Service {
   @globalRef('videoEl') videoEl;
   @tracked peers;
   @tracked isScreenShareOn;
+  @tracked roomCodeForMaven = '';
 
   constructor() {
     super(...arguments);
@@ -54,10 +60,7 @@ export default class LiveService extends Service {
   async joinRoom(roomId, role, userName) {
     try {
       const response = await fetch(`${ENV.BASE_API_URL}/events/join`, {
-        method: API_METHOD.POST,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        ...POST_API_CONFIGS,
         body: JSON.stringify({
           roomId,
           role,
@@ -68,17 +71,14 @@ export default class LiveService extends Service {
       return token;
     } catch (error) {
       console.error(error);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     }
   }
 
   async createRoom(userName) {
     try {
       const response = await fetch(`${ENV.BASE_API_URL}/events`, {
-        method: API_METHOD.POST,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
+        ...POST_API_CONFIGS,
         body: JSON.stringify({
           name: `live-rds-${Math.random()}`,
           description: 'The RDS live',
@@ -90,17 +90,14 @@ export default class LiveService extends Service {
       return room_id;
     } catch (error) {
       console.error(error);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     }
   }
 
   async endRoom(roomId) {
     try {
       const response = await fetch(`${ENV.BASE_API_URL}/events/end`, {
-        method: API_METHOD.PATCH,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
+        ...PATCH_API_CONFIGS,
         body: JSON.stringify({
           id: roomId,
           reason: 'Session is over',
@@ -111,49 +108,58 @@ export default class LiveService extends Service {
       return message;
     } catch (error) {
       console.error(error);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     }
   }
 
   async getActiveRooms() {
     try {
       const response = await fetch(`${ENV.BASE_API_URL}/events?enabled=true`, {
-        method: API_METHOD.GET,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        ...GET_API_CONFIGS,
       });
       const { data } = await response.json();
       return data;
     } catch (error) {
       console.error(error);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     }
   }
 
-  async joinSession(userName, role) {
+  async getRoomCodes(roomId) {
     try {
-      this.isLoading = true;
-      const activeRooms = await this.getActiveRooms();
-      let roomId;
-      if (!activeRooms && ROLES.host === role) {
-        roomId = await this.createRoom(userName);
-      } else if (activeRooms.length > 0) {
-        roomId = activeRooms[0].room_id;
-      } else {
-        console.log('No active room');
-        return;
-      }
-      // const roomId =
-      //   ROLES.host === role ? await this.createRoom(userName) : room;
-      this.activeRoomId = roomId;
-      const token = await this.joinRoom(roomId, role, userName);
-      this.isLoading = false;
-      await this.hmsActions.join({
-        userName,
-        authToken: token,
+      const response = await fetch(
+        `${ENV.BASE_API_URL}/events/roomCodes?room_id=${roomId}`,
+        {
+          ...GET_API_CONFIGS,
+        }
+      );
+      const { data } = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+    }
+  }
+
+  async createRoomCodes(roomId) {
+    try {
+      const response = await fetch(`${ENV.BASE_API_URL}/events/roomCodes`, {
+        ...POST_API_CONFIGS,
+        body: JSON.stringify({
+          room_id: roomId,
+        }),
       });
-      const peer = this.hmsStore.getState(selectLocalPeer);
-      this.localPeer = peer;
-      const addPeerResponse = await fetch(
+      const { data } = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+    }
+  }
+
+  async addPeer(roomId, peer) {
+    try {
+      const response = await fetch(
         `${ENV.BASE_API_URL}/events/${roomId}/peers`,
         {
           ...POST_API_CONFIGS,
@@ -165,8 +171,59 @@ export default class LiveService extends Service {
           }),
         }
       );
-      const { data: addedPeerData } = await addPeerResponse.json();
-      if (addPeerResponse?.status === 200 && addedPeerData) {
+      console.log(response);
+      const { data } = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+    }
+  }
+
+  async joinSession(userName, role, roomCode) {
+    try {
+      this.isLoading = true;
+      const activeRooms = await this.getActiveRooms();
+      let roomId;
+      if (!activeRooms && ROLES.host === role) {
+        roomId = await this.createRoom(userName);
+        const roomCodes = await this.createRoomCodes(roomId);
+        this.roomCodeForMaven = roomCodes?.find(
+          (code) => code.role === ROLES.maven
+        ).code;
+      } else if (activeRooms?.length > 0) {
+        roomId = activeRooms[0].room_id;
+        if (role === ROLES.maven) {
+          const roomCodes = await this.getRoomCodes(roomId);
+          const mavenCode = roomCodes?.find(
+            (code) => code.role === ROLES.maven
+          ).code;
+          const isValidCode = mavenCode === roomCode;
+          if (!isValidCode) {
+            this.toast.warning(
+              'Incorrect room code',
+              'Warning!',
+              TOAST_OPTIONS
+            );
+            this.isLoading = false;
+            return;
+          }
+        }
+      } else {
+        console.log('No active room');
+        return;
+      }
+      this.activeRoomId = roomId;
+      const token = await this.joinRoom(roomId, role, userName);
+      await this.hmsActions.join({
+        userName,
+        authToken: token,
+      });
+      this.isLoading = false;
+      const peer = this.hmsStore.getState(selectLocalPeer);
+      this.localPeer = peer;
+      const addedPeerData = await this.addPeer(roomId, peer);
+      if (addedPeerData) {
         this.toast.success(
           'Successfully joined the event!',
           'Success!',

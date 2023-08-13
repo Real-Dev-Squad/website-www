@@ -36,7 +36,7 @@
 
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.realdevsquad.com/" />
+    <meta property="og:url" content="http://localhost:3001/" />
     <meta property="og:title" content="Real Dev Squad" />
     <meta
       property="og:description"
@@ -120,7 +120,7 @@
       </div>
       <ul class="nav-menu">
         <li class="nav-logo-li">
-          <a href="https://www.realdevsquad.com/">
+          <a href="http://localhost:3001/">
             <img
               src="img/Real-Dev-Squad@1x.png"
               alt="home nav logo"
@@ -163,11 +163,13 @@
     </nav>
     <main>
       <div class="pop-up">
-        <p>you're superuser priviledges are applied</p>
+        <p></p>
       </div>
       <div class="container">
         <div class="profile">
-          <img class="profilePic" src="" alt="user Profile" />
+          <div class="profilePic">
+            <img class="img-holder" alt="user Profile" />
+          </div>
           <h2 class="fullname"></h2>
         </div>
         <div class="user-details">
@@ -175,7 +177,7 @@
             <li>
               <p>Username :</p>
               <span>
-                <p class="username">shubham-raj</p>
+                <p class="username"></p>
               </span>
             </li>
             <li>
@@ -196,13 +198,21 @@
                 <p
                   style="overflow: hidden; text-overflow: ellipsis"
                   class="discordJoinedAt"
-                ></p>
+                >
+                  N/A
+                </p>
               </span>
             </li>
             <li>
               <p>Github Name :</p>
               <span>
-                <p class="github_display_name"></p>
+                <p class="github_display_name">N/A</p>
+              </span>
+            </li>
+            <li>
+              <p>Website :</p>
+              <span>
+                <p class="website">N/A</p>
               </span>
             </li>
             <div class="roles-container">
@@ -218,45 +228,40 @@
             <li>
               <p>Twitter Id :</p>
               <span>
-                <p class="twitter_id">shubham</p>
+                <p class="twitter_id">N/A</p>
               </span>
             </li>
             <li>
               <p>Github Id :</p>
               <span>
-                <p class="github_id"></p>
+                <p class="github_id">N/A</p>
               </span>
             </li>
             <li>
               <p>Linkedin Id :</p>
               <span>
-                <p class="linkedin_id"></p>
+                <p class="linkedin_id">N/A</p>
               </span>
             </li>
             <li>
               <p>Discord Id :</p>
               <span>
-                <p class="discordId"></p>
+                <p class="discordId">N/A</p>
               </span>
             </li>
           </ul>
         </div>
         <div class="feature">
-          <h3>Features</h3>
+          <h3>Features Flags</h3>
           <ul>
-            <li>Feature 1</li>
-            <li>Feature 2</li>
-            <li>Feature 3</li>
+            <li><p>dev</p></li>
           </ul>
           <div class="superuser">
             <div class="su-group">
               <h3>Super User</h3>
               <div class="indicator"></div>
             </div>
-            <p>
-              You're a super user, remember with great power comes great
-              responsibilities!
-            </p>
+            <p class="suMsg"></p>
           </div>
           <div class="privileges">
             <h4>Apply privileges :</h4>
@@ -267,6 +272,19 @@
         </div>
       </div>
     </main>
-    <script src="./js/debug.js"></script>
+    <footer>
+      <p class="info-repo">
+        The contents of this website are deployed from this
+        <a
+          href="https://github.com/Real-Dev-Squad/website"
+          target="_blank"
+          rel="noopener noreferrer"
+          >open sourced repo</a
+        >
+      </p>
+    </footer>
+    <script src="js/utils.js"></script>
+    <script type="module" src="js/fetchUserData.js" defer></script>
+    <script type="module" src="./js/debug.js"></script>
   </body>
 </html>

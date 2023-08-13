@@ -93,13 +93,13 @@ function handleToggle(e) {
     currToggleState = !currToggleState;
     toggle.classList.toggle('applied');
     toggleButton.style.backgroundColor = 'rgb(0, 255, 8)';
-    showPopUp('Your Priviledges are applied', 'applied');
+    showPopUp('Your privilege are applied', 'applied');
     setPrivileges(true);
   } else {
     currToggleState = !currToggleState;
     toggleButton.style.backgroundColor = 'rgb(255, 0, 43)';
     toggle.classList.toggle('applied');
-    showPopUp('Your Priviledges are revoked');
+    showPopUp('Your privilege are revoked');
     setPrivileges(false);
   }
 }

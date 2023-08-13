@@ -1,44 +1,44 @@
 import ENV from 'website-www/config/environment';
 
-const SCHEMA = 'https://';
+const SCHEME = 'https://';
 const DOMAIN = 'realdevsquad.com';
 
 const APP_URLS = {
   production: {
-    HOME: `${SCHEMA}beta.${DOMAIN}`,
-    WELCOME: `${SCHEMA}welcome.${DOMAIN}`,
-    EVENTS: `${SCHEMA}${DOMAIN}/events`,
-    MEMBERS: `${SCHEMA}members.${DOMAIN}`,
-    STATUS: `${SCHEMA}status.${DOMAIN}`,
-    PROFILE: `${SCHEMA}my.${DOMAIN}`,
-    API_BACKEND: `${SCHEMA}api.${DOMAIN}`,
+    HOME: `${SCHEME}beta.${DOMAIN}`,
+    WELCOME: `${SCHEME}welcome.${DOMAIN}`,
+    EVENTS: `${SCHEME}${DOMAIN}/events`,
+    MEMBERS: `${SCHEME}members.${DOMAIN}`,
+    STATUS: `${SCHEME}status.${DOMAIN}`,
+    PROFILE: `${SCHEME}my.${DOMAIN}`,
+    API_BACKEND: `${SCHEME}api.${DOMAIN}`,
   },
   staging: {
-    HOME: `${SCHEMA}beta.${DOMAIN}`,
-    WELCOME: `${SCHEMA}staging-welcome.${DOMAIN}`,
-    EVENTS: `${SCHEMA}staging-www.${DOMAIN}/events`,
-    MEMBERS: `${SCHEMA}staging-members.${DOMAIN}`,
-    STATUS: `${SCHEMA}staging-status.${DOMAIN}`,
-    PROFILE: `${SCHEMA}staging-my.${DOMAIN}`,
-    API_BACKEND: `${SCHEMA}staging-api.${DOMAIN}`,
+    HOME: `${SCHEME}beta.${DOMAIN}`,
+    WELCOME: `${SCHEME}staging-welcome.${DOMAIN}`,
+    EVENTS: `${SCHEME}staging-www.${DOMAIN}/events`,
+    MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
+    STATUS: `${SCHEME}staging-status.${DOMAIN}`,
+    PROFILE: `${SCHEME}staging-my.${DOMAIN}`,
+    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
   development: {
-    HOME: `${SCHEMA}beta.${DOMAIN}`,
-    WELCOME: `${SCHEMA}staging-welcome.${DOMAIN}`,
-    EVENTS: `${SCHEMA}staging-www.${DOMAIN}/events`,
-    MEMBERS: `${SCHEMA}staging-members.${DOMAIN}`,
-    STATUS: `${SCHEMA}staging-status.${DOMAIN}`,
-    PROFILE: `${SCHEMA}staging-my.${DOMAIN}`,
-    API_BACKEND: `${SCHEMA}staging-api.${DOMAIN}`,
+    HOME: `${SCHEME}beta.${DOMAIN}`,
+    WELCOME: `${SCHEME}staging-welcome.${DOMAIN}`,
+    EVENTS: `${SCHEME}staging-www.${DOMAIN}/events`,
+    MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
+    STATUS: `${SCHEME}staging-status.${DOMAIN}`,
+    PROFILE: `${SCHEME}staging-my.${DOMAIN}`,
+    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
   test: {
-    HOME: `${SCHEMA}${DOMAIN}`,
-    WELCOME: `${SCHEMA}welcome.${DOMAIN}`,
-    EVENTS: `${SCHEMA}${DOMAIN}/events`,
-    MEMBERS: `${SCHEMA}members.${DOMAIN}`,
-    STATUS: `${SCHEMA}status.${DOMAIN}`,
-    PROFILE: `${SCHEMA}my.${DOMAIN}`,
-    API_BACKEND: `${SCHEMA}staging-api.${DOMAIN}`,
+    HOME: `${SCHEME}${DOMAIN}`,
+    WELCOME: `${SCHEME}welcome.${DOMAIN}`,
+    EVENTS: `${SCHEME}${DOMAIN}/events`,
+    MEMBERS: `${SCHEME}members.${DOMAIN}`,
+    STATUS: `${SCHEME}status.${DOMAIN}`,
+    PROFILE: `${SCHEME}my.${DOMAIN}`,
+    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
 };
 

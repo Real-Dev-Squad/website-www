@@ -2,7 +2,7 @@
 
 <section class="intro__container">
   {{#if this.login.isLoading}}
-    <div data-test-loading class='nav__loading'>
+    <div data-test-loading class='intro__loading'>
       <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
     </div>
   {{else}}
@@ -12,10 +12,7 @@
         @isLoading={{this.login.isLoading}}
         @isSuperUser={{this.login.userData.roles.super_user}} />
     {{else}}
-      <div data-test-section class="page-not-found">
-        <img data-test-img class="page-not-found__img" src="/assets/images/errors/401.svg" alt="Not Authorized">
-        <h1 data-test-text class="page-not-found__text">You are not authorized to view this page</h1>
-      </div>
+      <Unauthorized />
     {{/if}}
   {{/if}}
 </section>

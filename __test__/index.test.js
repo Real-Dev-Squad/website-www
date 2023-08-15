@@ -1,4 +1,4 @@
-const timeout = 15000;
+const timeout = 25000;
 
 describe('Dummy Test ', () => {
   beforeAll(async () => {

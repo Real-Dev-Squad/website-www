@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-main {
+.main-container {
   width: 100vw;
   padding: 20px;
   min-height: 100vh;
@@ -31,7 +31,6 @@ main {
 /*      POP UP          */
 /***********************/
 .pop-up {
-  background-color: rgba(32, 124, 35, 0.603);
   width: 300px;
   height: 70px;
   display: flex;
@@ -243,7 +242,7 @@ h2 {
   align-items: center;
 }
 .toggle-button {
-  background-color: rgb(255, 0, 43);
+  background-color: var(--color-firebrick);
   height: 40px;
   width: 80px;
   display: flex;

@@ -20,7 +20,7 @@ let msg = document.querySelector('.suMsg');
 let popUp = document.querySelector('.pop-up');
 let website = document.querySelector('.website');
 
-let feilds = [
+let fields = [
   profilePic,
   username,
   fullname,
@@ -37,37 +37,41 @@ let feilds = [
   website,
 ];
 
-//This function updates all the data feilds based on the the response we got from the api call,
-//such that feild exits of
+//This function updates all the data fields based on the the response we got from the api call,
+//such that field exits of
 const handleViewUserDetails = async (result) => {
-  feilds.forEach((feild) => {
-    switch (feild.className) {
+  fields.forEach((field) => {
+    switch (field.className) {
       case 'fullname':
-        feild.innerText = (result.first_name + result.last_name).toUpperCase();
+        field.innerText =
+          result.first_name[0].toUpperCase() +
+          result.first_name.slice(1) +
+          result.last_name[0].toUpperCase() +
+          result.last_name.slice(1);
         break;
       case 'img-holder':
-        feild.src = result.picture.url;
+        field.src = result.picture.url;
         break;
       case 'all-roles':
         for (let role in result.roles) {
           let content = `<p class="roles"><b>${role} :</b> <span>${result.roles[role]}</span></p>`;
-          feild.innerHTML = feild.innerHTML + content;
+          field.innerHTML = field.innerHTML + content;
         }
         break;
       case 'indicator':
         if (result.roles.super_user) {
-          feild.style.backgroundColor = ' rgb(0, 255, 8)';
+          field.style.backgroundColor = 'var(--color-vivid-green)';
           msg.innerText =
             "You're a super user, remember with great power comes great responsibilities!";
         } else {
           toggle.classList.add('disabled');
           toggleButton.classList.add('disabled');
-          feild.style.backgroundColor = 'rgb(255, 0, 43)';
+          field.style.backgroundColor = 'var(--color-firebrick)';
           msg.innerText = "You're not a super user!";
         }
         break;
       default:
-        feild.innerText = result[feild.className];
+        field.innerText = result[field.className];
         break;
     }
   });
@@ -79,12 +83,27 @@ const setPrivileges = (mode) => {
 
 // This fetch data form **/users/self**
 const fetchUserDetails = async () => {
-  const res = await fetch(`${SELF_URL}`, { credentials: 'include' });
+  let url = `${SELF_URL}`;
+  const res = await fetch('http://localhost:3000/users/self', {
+    credentials: 'include',
+  });
   const result = await res.json();
   return result;
 };
 
 fetchUserDetails().then((result) => handleViewUserDetails(result));
+
+//mode can either be 'applied' or 'revoked'
+function showPopUp(message, mode) {
+  popUp.style.backgroundColor =
+    mode === 'applied' ? 'var(--color-lime-green)' : 'var(--color-firebrick)';
+  popUp.children[0].innerText = message;
+  popUp.classList.add('show-popup-animattion');
+  setTimeout(() => {
+    popUp.style.backgroundColor = 'none';
+    popUp.classList.remove('show-popup-animattion');
+  }, 800);
+}
 
 //TOGGLE
 let currToggleState = false;
@@ -92,30 +111,16 @@ function handleToggle(e) {
   if (!currToggleState) {
     currToggleState = !currToggleState;
     toggle.classList.toggle('applied');
-    toggleButton.style.backgroundColor = 'rgb(0, 255, 8)';
+    toggleButton.style.backgroundColor = 'var(--color-vivid-green)';
     showPopUp('Your privilege are applied', 'applied');
     setPrivileges(true);
   } else {
     currToggleState = !currToggleState;
-    toggleButton.style.backgroundColor = 'rgb(255, 0, 43)';
+    toggleButton.style.backgroundColor = 'var(--color-firebrick)';
     toggle.classList.toggle('applied');
     showPopUp('Your privilege are revoked');
     setPrivileges(false);
   }
-}
-
-//mode can either be 'applied' or 'revoked'
-function showPopUp(message, mode) {
-  popUp.style.backgroundColor =
-    mode === 'applied'
-      ? 'rgba(32, 124, 35, 0.703)'
-      : 'rgba(250, 59, 59, 0.923)';
-  popUp.children[0].innerText = message;
-  popUp.classList.add('show-popup-animattion');
-  setTimeout(() => {
-    popUp.style.backgroundColor = 'none';
-    popUp.classList.remove('show-popup-animattion');
-  }, 800);
 }
 
 //eventhandleer is on the button and not the toggler due to eventPropogation

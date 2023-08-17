@@ -20,7 +20,7 @@
 }
 
 .container {
-  width: 600px;
+  width: 40rem;
   height: inherit;
   display: flex;
   gap: 20px;
@@ -31,7 +31,7 @@
 /*      POP UP          */
 /***********************/
 .pop-up {
-  width: 300px;
+  width: 20rem;
   height: 70px;
   display: flex;
   font-size: 0.8rem;
@@ -39,8 +39,8 @@
   justify-content: center;
   position: fixed;
   bottom: 87%;
-  right: -300px;
-  color: white;
+  right: -20rem;
+  color: var(--color-white);
   border-radius: 3px;
 }
 
@@ -52,7 +52,7 @@
 .pop-up::after {
   content: 'x';
   display: block;
-  color: rgb(255, 255, 255);
+  color: var(--color-white);
   font-size: 1rem;
   position: absolute;
   bottom: 60%;
@@ -86,7 +86,7 @@
 /***********************/
 
 .profile {
-  border: 1px solid var(--color-what-is-title-bg);
+  border: 1px solid var(--color-dark-blue);
   background-color: var(--color-bg);
   display: flex;
   justify-content: center;
@@ -96,7 +96,6 @@
 
 .profilePic,
 h2 {
-  /* margin: 20px; */
   align-self: center;
 }
 .profilePic {
@@ -117,12 +116,13 @@ h2 {
 /***********************/
 
 .user-details {
-  border: 1px solid var(--color-what-is-title-bg);
+  border: 1px solid var(--color-dark-blue);
   box-sizing: border-box;
   max-height: 100%;
   background-color: var(--color-bg);
-  color: var(--color-what-is-title-bg);
+  color: var(--color-dark-blue);
   justify-content: space-between;
+  min-height: 580px;
 }
 
 .user-details ul {
@@ -171,12 +171,12 @@ h2 {
 
 .feature {
   box-sizing: border-box;
-  background-color: var(--color-what-is-title-bg);
+  background-color: var(--color-dark-blue);
   padding: 30px;
   min-height: 580px;
   max-height: 100%;
-  border: 0.5px solid var(--color-bg);
-  color: White;
+  border: 0.5px solid var(--color-white);
+  color: var(--color-white);
   display: flex;
   align-items: start;
   gap: 20px;
@@ -205,7 +205,7 @@ h2 {
 .feature li p {
   font-size: 1.2rem;
   font-weight: bold;
-  color: whitesmoke;
+  color: var(--color-white);
 }
 
 .su-group {
@@ -256,7 +256,7 @@ h2 {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: white;
+  background-color: var(--color-white);
   transition: 0.3s ease-out;
   cursor: pointer;
 }

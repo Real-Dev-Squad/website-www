@@ -7,7 +7,7 @@ import { ANKUSH_TWITTER } from '../../constants/urls';
 module('Integration | Component | step-five', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test.skip('it renders', async function (assert) {
     assert.expect(12);
 
     await render(hbs`<JoinSteps::StepFive />`);

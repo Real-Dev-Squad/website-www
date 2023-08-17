@@ -10,7 +10,12 @@ import { tracked } from '@glimmer/tracking';
 import ENV from 'website-www/config/environment';
 import { globalRef } from 'ember-ref-bucket';
 import { inject as service } from '@ember/service';
-import { ROLES, API_METHOD, PATCH_API_CONFIGS, POST_API_CONFIGS } from '../constants/live';
+import {
+  ROLES,
+  API_METHOD,
+  PATCH_API_CONFIGS,
+  POST_API_CONFIGS,
+} from '../constants/live';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 export default class LiveService extends Service {
   @service toast;

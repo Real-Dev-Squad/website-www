@@ -27,7 +27,7 @@
       </h3>  
     {{/if}}
   {{/if}}
-<form onsubmit={{this.nextStep}}>
+<form class="stepper__form" onsubmit={{this.nextStep}}>
   {{! Content }}
   {{#if (eq this.currentStep 1)}}
     <JoinSteps::StepOne @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}} />

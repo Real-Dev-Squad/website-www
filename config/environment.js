@@ -51,7 +51,7 @@ module.exports = function (environment) {
   if (environment === 'development') {
     ENV.BASE_API_URL = 'http://localhost:3000';
     ENV.APPS = {
-      HOME: 'https://beta.realdevsquad.com/',
+      HOME: 'http://localhost:4200/',
       WELCOME: 'https://staging-welcome.realdevsquad.com/',
       EVENTS: 'https://staging-www.realdevsquad.com/events/',
       MEMBERS: 'https://staging-members.realdevsquad.com/',

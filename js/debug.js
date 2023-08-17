@@ -83,8 +83,7 @@ const setPrivileges = (mode) => {
 
 // This fetch data form **/users/self**
 const fetchUserDetails = async () => {
-  let url = `${SELF_URL}`;
-  const res = await fetch('http://localhost:3000/users/self', {
+  const res = await fetch(`${SELF_URL}`, {
     credentials: 'include',
   });
   const result = await res.json();
@@ -108,19 +107,23 @@ function showPopUp(message, mode) {
 //TOGGLE
 let currToggleState = false;
 function handleToggle(e) {
-  if (!currToggleState) {
-    currToggleState = !currToggleState;
-    toggle.classList.toggle('applied');
-    toggleButton.style.backgroundColor = 'var(--color-vivid-green)';
-    showPopUp('Your privilege are applied', 'applied');
-    setPrivileges(true);
-  } else {
-    currToggleState = !currToggleState;
-    toggleButton.style.backgroundColor = 'var(--color-firebrick)';
-    toggle.classList.toggle('applied');
-    showPopUp('Your privilege are revoked');
-    setPrivileges(false);
-  }
+  fetchUserDetails().then((result) => {
+    if ('super_user' in result.roles) {
+      if (!currToggleState) {
+        currToggleState = !currToggleState;
+        toggle.classList.toggle('applied');
+        toggleButton.style.backgroundColor = 'var(--color-vivid-green)';
+        showPopUp('Your privilege are applied', 'applied');
+        setPrivileges(true);
+      } else {
+        currToggleState = !currToggleState;
+        toggleButton.style.backgroundColor = 'var(--color-firebrick)';
+        toggle.classList.toggle('applied');
+        showPopUp('Your privilege are revoked');
+        setPrivileges(false);
+      }
+    }
+  });
 }
 
 //eventhandleer is on the button and not the toggler due to eventPropogation

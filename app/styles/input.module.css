@@ -1,10 +1,15 @@
+.input-box,
+.textarea-box {
+  margin: 1rem 0;
+}
+
 .user-input {
   font-weight: 300;
   font-size: 1rem;
   width: 34.5rem;
   line-height: 32px;
   border-radius: 10px;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
   padding: 0 0.5rem;
   background-color: var(--color-white);
   border: 3px solid var(--color-navyblue);

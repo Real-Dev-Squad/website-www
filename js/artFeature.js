@@ -39,7 +39,7 @@ submitArtForm.addEventListener('submit', (e) => {
   };
 
   if (artTitle && htmlCode) {
-    fetch('https://api-realdevsquad.com/arts/user/add', {
+    fetch('https://api.realdevsquad.com/arts/user/add', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       credentials: 'include',

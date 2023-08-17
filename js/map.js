@@ -17,7 +17,7 @@ const map = new mapboxgl.Map({
 const getUsersData = async () => {
   try {
     const userDetailsResponse = await fetch(
-      'https://api-realdevsquad.com/users',
+      'https://api.realdevsquad.com/users',
       {
         method: 'GET',
         cache: 'default',

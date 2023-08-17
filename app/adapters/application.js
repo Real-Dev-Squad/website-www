@@ -1,7 +1,7 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-import ENV from 'website-www/config/environment';
+import { APPS } from 'website-www/constants/urls';
 export default class ApplicationAdapter extends JSONAPIAdapter {
-  host = ENV.BASE_API_URL;
+  host = APPS.API_BACKEND;
 
   ajaxOptions() {
     const options = super.ajaxOptions(...arguments);

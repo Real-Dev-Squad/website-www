@@ -9,7 +9,7 @@ import { ABOUT } from '../../constants/urls';
 module('Integration | Component | footer', function (hooks) {
   setupRenderingTest(hooks);
 
-  test.skip('footer renders', async function (assert) {
+  test('footer renders', async function (assert) {
     assert.expect(29);
 
     await render(hbs`<Footer />`);

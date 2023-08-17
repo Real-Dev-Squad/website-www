@@ -192,7 +192,6 @@ body {
   width: 200px;
   height: 50px;
   font: normal 700 1.5rem 'Roboto';
-  /* background: var(--color-button); */
   border-radius: 10px;
   border: none;
   line-height: 34px;
@@ -202,16 +201,22 @@ body {
   align-items: center;
   margin-top: 20px;
   background: var(--color-button-disable);
-  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .btn-join-disable {
-  color: red;
+  color: var(--color-red);
 }
 
 .btn-join:hover {
-  background: var(--color-button-hover);
-  cursor: pointer;
+  background: var(--color-button-disable);
+  cursor: not-allowed;
+}
+
+.btn-join > a {
+  cursor: not-allowed;
+  color: var(--color-text);
 }
 
 .section-features {

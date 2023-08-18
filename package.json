@@ -18,6 +18,9 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
+    "dev": "npm-run-all --aggregate-output --continue-on-error --parallel dev:*",
+    "dev:ember": "ember server -p 4200",
+    "dev:reverse-ssl": "local-ssl-proxy --source 443 --target 4200",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
@@ -75,6 +78,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-qunit": "^7.3.1",
     "loader.js": "^4.7.0",
+    "local-ssl-proxy": "^2.0.5",
     "npm-run-all": "^4.1.5",
     "pre-commit": "^1.2.2",
     "prettier": "^2.7.1",

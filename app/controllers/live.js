@@ -20,10 +20,10 @@ export default class LiveController extends Controller {
   @tracked role = '';
   @tracked roomCode = '';
   @tracked isCopied = false;
-  @tracked canShareScreen =
-    this.role === ROLES.host || this.role === ROLES.maven;
   @tracked isKickoutModalOpen = false;
+  @tracked isRoomCodeModalOpen = false;
   @tracked peerToRemove = '';
+  @tracked newRoomCode = '';
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -31,18 +31,26 @@ export default class LiveController extends Controller {
 
   constructor() {
     super(...arguments);
-    console.log('screen share', this.canShareScreen);
     setTimeout(() => {
       this.isLoading = false;
     }, 4000);
   }
 
-  @action nameHandler(e) {
-    this.name = e.target.value;
-  }
-
-  @action roomCodeHandler(e) {
-    this.roomCode = e.target.value;
+  @action inputHandler(type, event) {
+    const updatedValue = event.target.value;
+    switch (type) {
+      case 'name':
+        this.name = updatedValue;
+        break;
+      case 'roomCode':
+        this.roomCode = updatedValue;
+        break;
+      case 'newRoomCode':
+        this.newRoomCode = updatedValue;
+        break;
+      default:
+        console.error('No matching type');
+    }
   }
 
   @action clickHandler(e) {
@@ -81,26 +89,6 @@ export default class LiveController extends Controller {
     this.liveService.shareScreen();
   }
 
-  @action async copyInviteLink() {
-    try {
-      await navigator.clipboard.writeText(
-        `${this.liveService.roomCodeForMaven}`
-      );
-      this.isCopied = true;
-      this.liveService.toast.success(
-        'Copied room code for maven',
-        'Success!',
-        this.liveService.TOAST_OPTIONS
-      );
-      setTimeout(() => {
-        this.isCopied = false;
-      }, 2000);
-    } catch (error) {
-      this.isCopied = false;
-      console.error(error);
-    }
-  }
-
   @action removePeer() {
     this.liveService.removePeer(this.peerToRemove?.id);
     this.isKickoutModalOpen = false;
@@ -116,24 +104,32 @@ export default class LiveController extends Controller {
     this.peerToRemove = '';
   }
 
+  @action toggleRoomCodeModal() {
+    this.isRoomCodeModalOpen = !this.isRoomCodeModalOpen;
+  }
+
   @action buttonClickHandler(buttonId) {
     switch (buttonId) {
       case BUTTONS_TYPE.SCREEN_SHARE:
         this.screenShare();
         break;
-      case BUTTONS_TYPE.COPY_LINK:
-        this.copyInviteLink();
-        break;
       case BUTTONS_TYPE.LEAVE_ROOM:
         this.leaveSession();
         break;
       default:
-        console.error('Illegal state');
+        console.error('No matching type');
     }
   }
 
   @action selectRoleHandler(selectedRole) {
-    console.log({ selectedRole });
     this.role = selectedRole;
+  }
+
+  @action createRoomCodeHandler(value, event) {
+    event.preventDefault();
+    if (value) {
+      this.liveService.roomCodesHandler(value);
+      this.newRoomCode = '';
+    }
   }
 }

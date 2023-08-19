@@ -1,0 +1,51 @@
+<div data-test-room-code-modal class='room-code-modal'>
+  <div class='room-code-modal__header'>
+    <h4 data-test-room-code-heading>Here's your room codes</h4>
+    <Reusables::IconButton
+      @id='close-modal'
+      @class='icon-button--md room-code-modal--close'
+      @title='Close modal'
+      @onClick={{this.closeModal}}
+      @icon='material-symbols:close'
+    />
+  </div>
+  <ul class='room-code-modal__codes'>
+    {{#if (gt @roomCodes.length 0)}}
+      {{#each @roomCodes as |roomCode|}}
+        <li><RoomCode @code={{roomCode.code}} @toast={{@toast}} /></li>
+      {{/each}}
+    {{else}}
+      <p class='room-code-modal__message'>No codes</p>
+    {{/if}}
+
+  </ul>
+  {{#if this.isOptionOpen}}
+    <div data-test-room-code-options class='room-code-modal__options'>
+      <form onsubmit={{fn @createRoomCode @newCode}}>
+        <input
+          type='password'
+          name='room-code'
+          id='room-code'
+          class='user-input input-regular'
+          placeholder='create code'
+          required={{true}}
+          value={{@newCode}}
+          {{on 'input' @onInput}}
+        />
+        <Reusables::Button
+          @text='Create'
+          @variant='dark btn--sm'
+          @test='room-code-create-btn'
+          @onClick={{fn @createRoomCode @newCode}}
+        />
+      </form>
+    </div>
+  {{else}}
+    <Reusables::Button
+      @text='Create new code'
+      @variant='dark btn--md'
+      @test='create-new-code'
+      @onClick={{this.toggleOptions}}
+    />
+  {{/if}}
+</div>

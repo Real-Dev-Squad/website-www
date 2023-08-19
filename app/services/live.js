@@ -30,7 +30,7 @@ export default class LiveService extends Service {
   @globalRef('videoEl') videoEl;
   @tracked peers;
   @tracked isScreenShareOn;
-  @tracked roomCodeForMaven = '';
+  @tracked roomCodesForMaven = [];
 
   constructor() {
     super(...arguments);
@@ -128,7 +128,7 @@ export default class LiveService extends Service {
   async getRoomCodes(roomId) {
     try {
       const response = await fetch(
-        `${ENV.BASE_API_URL}/events/roomCodes?room_id=${roomId}`,
+        `${ENV.BASE_API_URL}/events/room/codes?room_id=${roomId}`,
         {
           ...GET_API_CONFIGS,
         }
@@ -141,12 +141,13 @@ export default class LiveService extends Service {
     }
   }
 
-  async createRoomCodes(roomId) {
+  async createRoomCodes(roomId, code) {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events/roomCodes`, {
+      const response = await fetch(`${ENV.BASE_API_URL}/events/room/codes`, {
         ...POST_API_CONFIGS,
         body: JSON.stringify({
           room_id: roomId,
+          code,
         }),
       });
       const { data } = await response.json();
@@ -180,6 +181,34 @@ export default class LiveService extends Service {
     }
   }
 
+  async removePeer(peerId) {
+    const roomId = this.hmsStore?.getState()?.room?.id;
+    const reason = 'For doing something wrong!';
+    try {
+      const response = await fetch(
+        `${ENV.BASE_API_URL}/events/${roomId}/peers/kickout`,
+        {
+          ...PATCH_API_CONFIGS,
+          body: JSON.stringify({
+            peerId: peerId,
+            reason: reason,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      if (response.status === 200 && data) {
+        this.toast.success(data?.message, 'Success!', TOAST_OPTIONS);
+        return;
+      }
+
+      throw new Error(response);
+    } catch (err) {
+      console.error('The error is: ', err);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+    }
+  }
+
   async joinSession(userName, role, roomCode) {
     try {
       this.isLoading = true;
@@ -187,18 +216,15 @@ export default class LiveService extends Service {
       let roomId;
       if (!activeRooms && ROLES.host === role) {
         roomId = await this.createRoom(userName);
-        const roomCodes = await this.createRoomCodes(roomId);
-        this.roomCodeForMaven = roomCodes?.find(
-          (code) => code.role === ROLES.maven
-        ).code;
+        const roomCodes = await this.getRoomCodes(roomId);
+        this.roomCodesForMaven = roomCodes;
       } else if (activeRooms?.length > 0) {
         roomId = activeRooms[0].room_id;
         if (role === ROLES.maven) {
           const roomCodes = await this.getRoomCodes(roomId);
-          const mavenCode = roomCodes?.find(
-            (code) => code.role === ROLES.maven
-          ).code;
-          const isValidCode = mavenCode === roomCode;
+          const isValidCode = roomCodes?.some(
+            (_roomCode) => _roomCode.code === roomCode
+          );
           if (!isValidCode) {
             this.toast.warning(
               'Incorrect room code',
@@ -276,32 +302,15 @@ export default class LiveService extends Service {
     }
   }
 
-  async removePeer(peerId) {
-    const roomId = this.hmsStore?.getState()?.room?.id;
-
-    const reason = 'For doing something wrong!';
+  async roomCodesHandler(value) {
     try {
-      const response = await fetch(
-        `${ENV.BASE_API_URL}/events/${roomId}/peers/kickout`,
-        {
-          ...PATCH_API_CONFIGS,
-          body: JSON.stringify({
-            peerId: peerId,
-            reason: reason,
-          }),
-        }
-      );
-
-      const data = await response.json();
-      if (response.status === 200 && data) {
-        this.toast.success(data?.message, 'Success!', TOAST_OPTIONS);
-        return;
+      const newRoomCodes = await this.createRoomCodes(this.activeRoomId, value);
+      if (newRoomCodes) {
+        this.toast.success('New room code created!', 'Success!', TOAST_OPTIONS);
+        this.roomCodesForMaven = newRoomCodes;
       }
-
-      throw new Error(response);
-    } catch (err) {
-      console.error('The error is: ', err);
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+    } catch (error) {
+      console.error(error);
     }
   }
 }

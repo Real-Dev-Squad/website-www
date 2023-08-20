@@ -11,6 +11,7 @@
   --color-events: #e30162;
   --color-button: #87d870;
   --color-button-hover: #6dc66d;
+  --color-button-disable: #a59f9f;
 }
 
 .dark-theme {
@@ -191,7 +192,6 @@ body {
   width: 200px;
   height: 50px;
   font: normal 700 1.5rem 'Roboto';
-  background: var(--color-button);
   border-radius: 10px;
   border: none;
   line-height: 34px;
@@ -200,11 +200,27 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  background: var(--color-button-disable);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.wrapper {
+  cursor: not-allowed;
+}
+
+.btn-join-disable {
+  color: var(--color-red);
 }
 
 .btn-join:hover {
-  background: var(--color-button-hover);
-  cursor: pointer;
+  background: var(--color-button-disable);
+  cursor: not-allowed;
+}
+
+.btn-join > a {
+  cursor: not-allowed;
+  color: var(--color-text);
 }
 
 .section-features {

@@ -49,11 +49,8 @@ export default class StepThreeComponent extends Component {
         STEP_THREE_LIMITS.hour.numberOfHours.min &&
       parseInt(this.data.numberOfHours) <=
         STEP_THREE_LIMITS.hour.numberOfHours.max;
-
     return (
-      isWhyRdsValid.isValid &&
-      isFoundFromValid.isValid &&
-      isNumberOfHoursValid.isValid
+      isWhyRdsValid.isValid && isFoundFromValid.isValid && isNumberOfHoursValid
     );
   }
 
@@ -98,7 +95,6 @@ export default class StepThreeComponent extends Component {
       }
 
       const isAllValid = this.isDataValid();
-
       this.setIsValid(isAllValid);
       localStorage.setItem('isValid', isAllValid);
     };

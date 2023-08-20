@@ -38,6 +38,11 @@
   transition-duration: 250ms;
 }
 
+
+.error__message {
+  color: var(--text-red);
+}
+
 @media (max-width: 1250px) {
   .join__title-highlighted {
     font-size: 3.5rem;

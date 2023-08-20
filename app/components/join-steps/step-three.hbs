@@ -1,34 +1,43 @@
-  <h3 class='details' data-test-required-heading>
-    Fields marked with
-    <span class='required'>*</span>
-    are mandatory
-  </h3>
+<h3 class='details' data-test-required-heading>
+  Fields marked with
+  <span class='required'>*</span>
+  are mandatory
+</h3>
 
-  <Reusables::TextAreaBox
-    @field='Why you want to join Real Dev Squad?'
-    @name='whyRds'
-    @placeHolder='Tell us fun facts about you that makes you unique in not less than 100 words'
-    @required={{true}}
-    @value={{this.data.whyRds}}
-    @onInput={{this.inputHandler}}
-  />
+<Reusables::TextAreaBox
+  @field='Why you want to join Real Dev Squad?'
+  @name='whyRds'
+  @placeHolder='Tell us fun facts about you that makes you unique in not less than 100 words'
+  @required={{true}}
+  @value={{this.data.whyRds}}
+  @onInput={{this.inputHandler}}
+/>
+{{#if this.errorMessage.whyRds}}
+  <div class='error__message'>{{this.errorMessage.whyRds}}</div>
+{{/if}}
 
-  <Reusables::InputBox 
-    @field='How many hours per week, are you willing to contribute?' 
-    @name='numberOfHours' 
-    @placeHolder='Enter value between 1-100.' 
-    @type='number' 
-    @required={{true}}
-    @value={{this.data.numberOfHours}} 
-    @onInput={{this.inputHandler}}
-  />
+<Reusables::InputBox 
+  @field='How many hours per week, are you willing to contribute?' 
+  @name='numberOfHours' 
+  @placeHolder='Enter value between 1-100.' 
+  @type='number' 
+  @required={{true}}
+  @value={{this.data.numberOfHours}} 
+  @onInput={{this.inputHandler}}
+/>
+{{#if this.errorMessage.numberOfHours}}
+  <div class='error__message'>{{this.errorMessage.numberOfHours}}</div>
+{{/if}}
 
-  <Reusables::Dropdown
-    @field='How did you hear about us?'
-    @name='foundFrom'
-    @placeHolder='Choose from below options'
-    @required={{true}}
-    @value={{this.data.foundFrom}}
-    @options={{this.heardFrom}}
-    @onChange={{this.inputHandler}}
-  />
+<Reusables::Dropdown
+  @field='How did you hear about us?'
+  @name='foundFrom'
+  @placeHolder='Choose from below options'
+  @required={{true}}
+  @value={{this.data.foundFrom}}
+  @options={{this.heardFrom}}
+  @onChange={{this.inputHandler}}
+/>
+{{#if this.errorMessage.foundFrom}}
+  <div class='error__message'>{{this.errorMessage.foundFrom}}</div>
+{{/if}}

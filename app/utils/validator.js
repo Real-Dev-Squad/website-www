@@ -1,22 +1,15 @@
 export const validator = (value, words) => {
   const sanitizedVal = value.trim();
-  const splittedVal = sanitizedVal.split(' ');
+  const splittedVal = sanitizedVal.split(' ').filter((word) => word !== '');
 
-  let isValid;
-  let remainingWords = 0;
+  // Check if the word count matches the exact limit
+  const isValid = splittedVal.length < words;
 
-  if (splittedVal[0] === '') {
-    isValid = false;
-  } else {
-    isValid = sanitizedVal.length >= 1 && splittedVal.length >= words;
-  }
-
-  if (!isValid) {
-    remainingWords = words - splittedVal.length;
-  }
+  // Calculate remainingWords irrespective of the isValid value
+  const remainingWords = words - splittedVal.length;
 
   return {
-    isValid: isValid,
+    isValid: !isValid,
     remainingWords: remainingWords,
   };
 };

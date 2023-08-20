@@ -7,6 +7,7 @@ module('Integration | Component | room-code', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
+    assert.expect(4);
     await render(hbs`<RoomCode/>`);
 
     assert.dom('[data-test-room-code]').exists();
@@ -16,6 +17,7 @@ module('Integration | Component | room-code', function (hooks) {
   });
 
   test('it should toggle value when click on visibility icon', async function (assert) {
+    assert.expect(3);
     this.set('code', 'test-code');
 
     await render(hbs`<RoomCode @code={{this.code}}/>`);

@@ -1,6 +1,6 @@
 <div data-test-room-code-modal class='room-code-modal'>
   <div class='room-code-modal__header'>
-    <h4 data-test-room-code-heading>Here's your room codes</h4>
+    <h4 data-test-room-code-modal-heading>Here's your room codes</h4>
     <Reusables::IconButton
       @id='close-modal'
       @class='icon-button--md room-code-modal--close'
@@ -15,7 +15,8 @@
         <li><RoomCode @code={{roomCode.code}} @toast={{@toast}} /></li>
       {{/each}}
     {{else}}
-      <p class='room-code-modal__message'>No codes</p>
+      <p data-test-room-code-modal-message class='room-code-modal__message'>No
+        codes</p>
     {{/if}}
 
   </ul>
@@ -23,6 +24,7 @@
     <div data-test-room-code-options class='room-code-modal__options'>
       <form onsubmit={{fn @createRoomCode @newCode}}>
         <input
+          data-test-room-code-modal-input
           type='password'
           name='room-code'
           id='room-code'
@@ -35,7 +37,7 @@
         <Reusables::Button
           @text='Create'
           @variant='dark btn--sm'
-          @test='room-code-create-btn'
+          @test='create-new-code'
           @onClick={{fn @createRoomCode @newCode}}
         />
       </form>
@@ -44,7 +46,7 @@
     <Reusables::Button
       @text='Create new code'
       @variant='dark btn--md'
-      @test='create-new-code'
+      @test='create-code'
       @onClick={{this.toggleOptions}}
     />
   {{/if}}

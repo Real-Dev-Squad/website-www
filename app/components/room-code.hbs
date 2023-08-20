@@ -1,12 +1,12 @@
-<div class='room-code'>
-  <span class='room-code__text'>{{if
+<div data-test-room-code class='room-code'>
+  <span data-test-room-code-text class='room-code__text'>{{if
       this.isVisible
       @code
       this.HIDE_PATTERN
     }}</span>
   <div class='room-code__options'>
     <Reusables::IconButton
-      @id='show-link'
+      @id='show-code'
       @class='icon-button--md'
       @title={{if this.isVisible 'hide' 'show'}}
       @onClick={{this.visibilityHandler}}
@@ -17,7 +17,7 @@
       }}
     />
     <Reusables::IconButton
-      @id='copy-link'
+      @id='copy-code'
       @class='icon-button--md'
       @title='copy'
       @onClick={{(fn this.copyHandler @code)}}

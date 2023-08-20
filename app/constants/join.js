@@ -1,4 +1,9 @@
 export const JOIN_DEBOUNCE_TIME = 1000;
+export const STEP_ONE_LIMITS = {
+  city: 1,
+  state: 1,
+  country: 1,
+};
 export const STEP_TWO_LIMITS = {
   introduction: 100,
   skills: 5,

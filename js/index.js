@@ -21,10 +21,6 @@ for (let i = 0; i < numOfMembers; i++) {
   memberLinks.appendChild(memberTags);
   memberSection.appendChild(memberLinks);
 }
-const joinButtonDisable = document.getElementById('button-disable');
-joinButtonDisable.addEventListener('click', (event) => {
-  event.preventDefault();
-});
 
 const displayMemberImgs = (memberImgArr) => {
   const images = selectRandom(memberImgArr, numOfMembers);

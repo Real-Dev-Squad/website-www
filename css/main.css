@@ -202,6 +202,10 @@ body {
   margin-top: 20px;
   background: var(--color-button-disable);
   opacity: 0.6;
+  pointer-events: none;
+}
+
+.wrapper {
   cursor: not-allowed;
 }
 

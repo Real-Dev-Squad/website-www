@@ -14,7 +14,7 @@ module('Unit | Route | live', function (hooks) {
     await visit('/live?dev=true');
     assert.expect(2);
 
-    assert.dom('[data-test-card]').exists();
-    assert.dom('[data-test-card-title]').exists();
+    assert.dom('[data-test-live-roles-card]').exists();
+    assert.dom('[data-test-live-roles-card-title]').exists();
   });
 });

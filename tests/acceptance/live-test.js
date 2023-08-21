@@ -19,7 +19,7 @@ module('Acceptance | live', function (hooks) {
     await visit('/live?dev=true');
 
     assert.strictEqual(currentURL(), '/live?dev=true', 'we are on live page');
-    assert.dom('[data-test-card]').exists();
-    assert.dom('[data-test-card-title]').exists();
+    assert.dom('[data-test-live-roles-card]').exists();
+    assert.dom('[data-test-live-roles-card-title]').exists();
   });
 });

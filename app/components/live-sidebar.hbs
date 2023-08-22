@@ -40,36 +40,23 @@
         {{/each}}
         is presenting</span>
     </div>
-    <div data-test-sidebar-body-role class='body__role-user'>
-      <p
-        data-test-sidebar-body-role-guest
-        class='role-user__type guestUsers'
-      >Guest Users</p>
-      <ul>
-
-        {{#each @peers as |peer|}}
-          {{#if (eq peer.roleName this.ROLES.guest)}}
-            <li data-test-sidebar-user={{peer.id}} class='user'>
-              <p>{{peer.name}}</p>
-              {{#if (eq this.liveService.localPeer.roleName this.ROLES.host)}}
-                <button
-                  type='button'
-                  class='user__btn'
-                  {{on 'click' (fn @openKickoutModal peer)}}
-                >
-                  <IconifyIcon
-                    data-test-icon='remove'
-                    @icon='material-symbols:person-remove'
-                    width='36'
-                    height='36'
-                    color='red'
-                  />
-                </button>
-              {{/if}}
-            </li>
-          {{/if}}
-        {{/each}}
-      </ul>
-    </div>
+    <LiveParticipants
+      @user='Mavens'
+      @role='maven'
+      @peers={{@peers}}
+      @openKickoutModal={{@openKickoutModal}}
+    />
+    <LiveParticipants
+      @user='Moderators'
+      @role='moderator'
+      @peers={{@peers}}
+      @openKickoutModal={{@openKickoutModal}}
+    />
+    <LiveParticipants
+      @user='Guests'
+      @role='guest'
+      @peers={{@peers}}
+      @openKickoutModal={{@openKickoutModal}}
+    />
   </div>
 </div>

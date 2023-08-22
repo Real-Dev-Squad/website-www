@@ -1,0 +1,65 @@
+<div data-test-sidebar-body-role class='body__role-user'>
+  <p
+    data-test-sidebar-body-role-guest
+    class='role-user__type guestUsers'
+  >{{@user}}</p>
+  <ul>
+    {{log 'partciapnats peers' @peers}}
+    {{#each @peers as |peer|}}
+      {{#if (not-eq peer.roleName @role)}}
+          <li data-test-sidebar-user={{'peer.id'}} class='user'>
+            <p>No {{@user}} in the stream</p>
+          </li>git
+      {{else}}
+          {{#if (eq peer.roleName @role)}}
+                    <li data-test-sidebar-user={{peer.id}} class='user'>
+                      <p>{{peer.name}}</p>
+                      {{#if (eq this.liveService.localPeer.roleName this.ROLES.host)}}
+                          <button
+                            type='button'
+                            class='user__btn'
+                            {{on 'click' (fn @openKickoutModal peer)}}
+                          >
+                            <IconifyIcon
+                              data-test-icon='remove'
+                              @icon='material-symbols:person-remove'
+                              width='36'
+                              height='36'
+                              color='red'
+                            />
+                          </button>
+                      {{/if}}
+                    </li>
+            {{/if}}
+        {{/if}}
+    {{/each}}
+    {{!-- {{#if (eq @peers.length this.peersLength)}}
+      <li data-test-sidebar-user={{'peer.id'}} class='user'>
+        <p>No {{@user}} in the stream</p>
+      </li> --}}
+    {{!-- {{else}}
+      {{#each @peers as |peer|}}
+        {{#if (eq peer.roleName @role)}}
+          <li data-test-sidebar-user={{peer.id}} class='user'>
+            <p>{{peer.name}}</p>
+            {{#if (eq this.liveService.localPeer.roleName this.ROLES.host)}}
+              <button
+                type='button'
+                class='user__btn'
+                {{on 'click' (fn @openKickoutModal peer)}}
+              >
+                <IconifyIcon
+                  data-test-icon='remove'
+                  @icon='material-symbols:person-remove'
+                  width='36'
+                  height='36'
+                  color='red'
+                />
+              </button>
+            {{/if}}
+          </li>
+        {{/if}}
+      {{/each}}
+    {{/if}} --}}
+  </ul>
+</div>

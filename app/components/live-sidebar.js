@@ -7,6 +7,9 @@ import { getOwner } from '@ember/application';
 export default class LiveHeaderComponent extends Component {
   @tracked isSideBarOpen = false;
   ROLES = ROLES;
+  constructor(...args) {
+    super(...args);
+  }
   get liveService() {
     return getOwner(this).lookup('service:live');
   }

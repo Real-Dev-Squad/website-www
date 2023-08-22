@@ -24,6 +24,7 @@
 @import 'kickout-modal.module.css';
 @import 'base-modal.module.css';
 @import 'room-code-modal.module.css';
+@import 'intro.module.css';
 
 * {
   margin: 0px;

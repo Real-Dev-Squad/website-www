@@ -7,7 +7,7 @@ import {
   selectLocalPeer,
 } from '@100mslive/hms-video-store';
 import { tracked } from '@glimmer/tracking';
-import ENV from 'website-www/config/environment';
+import { APPS } from 'website-www/constants/urls';
 import { globalRef } from 'ember-ref-bucket';
 import { inject as service } from '@ember/service';
 import {
@@ -59,7 +59,7 @@ export default class LiveService extends Service {
 
   async joinRoom(roomId, role, userName) {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events/join`, {
+      const response = await fetch(`${APPS.API_BACKEND}/events/join`, {
         ...POST_API_CONFIGS,
         body: JSON.stringify({
           roomId,
@@ -77,8 +77,9 @@ export default class LiveService extends Service {
 
   async createRoom(userName) {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events`, {
+      const response = await fetch(`${APPS.API_BACKEND}/events`, {
         ...POST_API_CONFIGS,
+        credentials: 'include',
         body: JSON.stringify({
           name: `live-rds-${Math.random()}`,
           description: 'The RDS live',
@@ -96,7 +97,7 @@ export default class LiveService extends Service {
 
   async endRoom(roomId) {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events/end`, {
+      const response = await fetch(`${APPS.API_BACKEND}/events/end`, {
         ...PATCH_API_CONFIGS,
         body: JSON.stringify({
           id: roomId,
@@ -114,7 +115,7 @@ export default class LiveService extends Service {
 
   async getActiveRooms() {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events?enabled=true`, {
+      const response = await fetch(`${APPS.API_BACKEND}/events?enabled=true`, {
         ...GET_API_CONFIGS,
       });
       const { data } = await response.json();
@@ -128,7 +129,7 @@ export default class LiveService extends Service {
   async getRoomCodes(roomId) {
     try {
       const response = await fetch(
-        `${ENV.BASE_API_URL}/events/room/codes?room_id=${roomId}`,
+        `${APPS.API_BACKEND}/events/room/codes?room_id=${roomId}`,
         {
           ...GET_API_CONFIGS,
         }
@@ -143,7 +144,7 @@ export default class LiveService extends Service {
 
   async createRoomCodes(roomId, code) {
     try {
-      const response = await fetch(`${ENV.BASE_API_URL}/events/room/codes`, {
+      const response = await fetch(`${APPS.API_BACKEND}/events/room/codes`, {
         ...POST_API_CONFIGS,
         body: JSON.stringify({
           room_id: roomId,
@@ -161,7 +162,7 @@ export default class LiveService extends Service {
   async addPeer(roomId, peer) {
     try {
       const response = await fetch(
-        `${ENV.BASE_API_URL}/events/${roomId}/peers`,
+        `${APPS.API_BACKEND}/events/${roomId}/peers`,
         {
           ...POST_API_CONFIGS,
           body: JSON.stringify({
@@ -172,7 +173,6 @@ export default class LiveService extends Service {
           }),
         }
       );
-      console.log(response);
       const { data } = await response.json();
       return data;
     } catch (error) {
@@ -186,7 +186,7 @@ export default class LiveService extends Service {
     const reason = 'For doing something wrong!';
     try {
       const response = await fetch(
-        `${ENV.BASE_API_URL}/events/${roomId}/peers/kickout`,
+        `${APPS.API_BACKEND}/events/${roomId}/peers/kickout`,
         {
           ...PATCH_API_CONFIGS,
           body: JSON.stringify({

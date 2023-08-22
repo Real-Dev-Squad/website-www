@@ -4,7 +4,6 @@
 
 .join__title-highlighted {
   color: var(--color-pink);
-  margin-top: -1rem;
   font-weight: 800;
 }
 
@@ -37,6 +36,11 @@
 .join__link:hover {
   background-color: var(--color-pink);
   transition-duration: 250ms;
+}
+
+
+.error__message {
+  color: var(--text-red);
 }
 
 @media (max-width: 1250px) {

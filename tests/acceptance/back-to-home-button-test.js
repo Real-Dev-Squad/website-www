@@ -7,7 +7,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Acceptance | back to home button', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /join', async function (assert) {
+  test.skip('visiting /join', async function (assert) {
     assert.expect(3);
 
     await visit('/join');

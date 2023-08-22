@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import { countryList } from '../../constants/country-list';
 import { validator } from '../../utils/validator';
 import { debounce } from '@ember/runloop';
-import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
+import { STEP_ONE_LIMITS, JOIN_DEBOUNCE_TIME } from '../../constants/join';
 
 export default class StepOneComponent extends Component {
   @tracked data = JSON.parse(localStorage.getItem('stepOneData')) ?? {
@@ -22,12 +22,18 @@ export default class StepOneComponent extends Component {
     this.isValid = this.args.isValid;
     this.setIsValid = this.args.setIsValid;
     this.setIsPreValid = this.args.setIsPreValid;
-    const validated =
-      validator(this.data.city, 1) &&
-      validator(this.data.state, 1) &&
-      validator(this.data.country, 1);
+    const validated = this.isDataValid();
     localStorage.setItem('isValid', validated);
     this.setIsPreValid(validated);
+  }
+  isDataValid() {
+    for (let field in this.data) {
+      const { isValid } = validator(this.data[field], STEP_ONE_LIMITS[field]);
+      if (!isValid) {
+        return false;
+      }
+    }
+    return true;
   }
 
   @action inputHandler(e) {
@@ -35,10 +41,7 @@ export default class StepOneComponent extends Component {
     const setValToLocalStorage = () => {
       this.data = { ...this.data, [e.target.name]: e.target.value };
       localStorage.setItem('stepOneData', JSON.stringify(this.data));
-      const validated =
-        validator(this.data.city, 1) &&
-        validator(this.data.state, 1) &&
-        validator(this.data.country, 1);
+      const validated = this.isDataValid();
       this.setIsValid(validated);
       localStorage.setItem('isValid', validated);
     };

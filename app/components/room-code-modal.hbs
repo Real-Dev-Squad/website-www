@@ -10,15 +10,20 @@
     />
   </div>
   <ul class='room-code-modal__codes'>
-    {{#if (gt @roomCodes.length 0)}}
-      {{#each @roomCodes as |roomCode|}}
-        <li><RoomCode @code={{roomCode.code}} @toast={{@toast}} /></li>
-      {{/each}}
+    {{#if @isLoading}}
+      <div data-test-loading class='room-code-modal__message'>
+        <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
+      </div>
     {{else}}
-      <p data-test-room-code-modal-message class='room-code-modal__message'>No
-        codes</p>
+      {{#if (gt @roomCodes.length 0)}}
+        {{#each @roomCodes as |roomCode|}}
+          <li><RoomCode @code={{roomCode.code}} @toast={{@toast}} /></li>
+        {{/each}}
+      {{else}}
+        <p data-test-room-code-modal-message class='room-code-modal__message'>No
+          codes</p>
+      {{/if}}
     {{/if}}
-
   </ul>
   {{#if this.isOptionOpen}}
     <div data-test-room-code-options class='room-code-modal__options'>

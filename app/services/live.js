@@ -31,6 +31,7 @@ export default class LiveService extends Service {
   @tracked peers;
   @tracked isScreenShareOn;
   @tracked roomCodesForMaven = [];
+  @tracked roomCodeLoading = false;
 
   constructor() {
     super(...arguments);
@@ -129,7 +130,7 @@ export default class LiveService extends Service {
   async getRoomCodes(roomId) {
     try {
       const response = await fetch(
-        `${APPS.API_BACKEND}/events/room/codes?room_id=${roomId}`,
+        `${APPS.API_BACKEND}/events/${roomId}/codes`,
         {
           ...GET_API_CONFIGS,
         }
@@ -144,13 +145,16 @@ export default class LiveService extends Service {
 
   async createRoomCodes(roomId, code) {
     try {
-      const response = await fetch(`${APPS.API_BACKEND}/events/room/codes`, {
-        ...POST_API_CONFIGS,
-        body: JSON.stringify({
-          room_id: roomId,
-          code,
-        }),
-      });
+      const response = await fetch(
+        `${APPS.API_BACKEND}/events/${roomId}/codes`,
+        {
+          ...POST_API_CONFIGS,
+          body: JSON.stringify({
+            eventCode: code,
+            role: 'maven',
+          }),
+        }
+      );
       const { data } = await response.json();
       return data;
     } catch (error) {
@@ -304,13 +308,16 @@ export default class LiveService extends Service {
 
   async roomCodesHandler(value) {
     try {
+      this.roomCodeLoading = true;
       const newRoomCodes = await this.createRoomCodes(this.activeRoomId, value);
       if (newRoomCodes) {
+        this.roomCodeLoading = false;
         this.toast.success('New room code created!', 'Success!', TOAST_OPTIONS);
         this.roomCodesForMaven = newRoomCodes;
       }
     } catch (error) {
       console.error(error);
+      this.roomCodeLoading = false;
     }
   }
 }

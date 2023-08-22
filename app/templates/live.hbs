@@ -32,6 +32,7 @@
       @onInput={{fn this.inputHandler 'newRoomCode'}}
       @createRoomCode={{this.createRoomCodeHandler}}
       @toast={{this.liveService.toast}}
+      @isLoading={{this.liveService.roomCodeLoading}}
     />
   </BaseModal>
   {{! TODO - add more else if statement instead of only else }}

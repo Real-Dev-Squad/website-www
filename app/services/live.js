@@ -240,7 +240,8 @@ export default class LiveService extends Service {
           }
         }
       } else {
-        console.log('No active room');
+        this.toast.info('No active event', 'Info!', TOAST_OPTIONS);
+        this.isLoading = false;
         return;
       }
       this.activeRoomId = roomId;

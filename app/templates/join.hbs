@@ -1,2 +1,6 @@
 {{page-title 'Join'}}
-<Stepper />
+{{#if this.dev}}
+  <Stepper @dev={{this.dev}} />
+{{else}}
+  <Stepper />
+{{/if}}

@@ -1,3 +1,11 @@
+.land{
+  margin: 50px auto;
+  height: 570px;
+  width: 530px;
+  border-radius: 24px;
+  border: 1px solid;
+}
+
 .join {
   text-align: center;
 }

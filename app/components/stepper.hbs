@@ -27,66 +27,79 @@
       </h3>  
     {{/if}}
   {{/if}}
-<form class="stepper__form" onsubmit={{this.nextStep}}>
-  {{! Content }}
-  {{#if (eq this.currentStep 1)}}
-    <JoinSteps::StepOne @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}} />
-  {{else if (eq this.currentStep 2)}}
-    <JoinSteps::StepTwo @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}}/>
-  {{else if (eq this.currentStep 3)}}
-    <JoinSteps::StepThree @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}}/>
-  {{else if (eq this.currentStep 4)}}
-    <JoinSteps::StepFour login={{this.login}} />
-  {{else if (eq this.currentStep 5)}}
-    <JoinSteps::StepFive />
-  {{/if}}
+  {{#if (and (eq this.currentStep 0) (not this.login.isLoggedIn))}}
+    <div class="not-logged-card">
+      <p>You are not logged in. Please log in to continue.</p>
+         <Reusables::Button
+          @text='login'
+          @variant='dark'
+          @onClick={{this.logingithub}}
+          @test='start'
+          @type='button'
+        />
+    </div>
+  {{else}}
+    <form class="stepper__form" onsubmit={{this.nextStep}}>
+      {{! Content }}
+      {{#if (eq this.currentStep 1)}}
+        <JoinSteps::StepOne @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}} />
+      {{else if (eq this.currentStep 2)}}
+        <JoinSteps::StepTwo @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}}/>
+      {{else if (eq this.currentStep 3)}}
+        <JoinSteps::StepThree @setIsPreValid={{this.setIsPreValid}} @isValid={{this.isValid}} @setIsValid={{this.setIsValid}}/>
+      {{else if (eq this.currentStep 4)}}
+        <JoinSteps::StepFour login={{this.login}} />
+      {{else if (eq this.currentStep 5)}}
+        <JoinSteps::StepFive />
+      {{/if}}
 
-  {{! Buttons }}
-  {{#if (eq this.currentStep 0)}}
-    <Reusables::Button
-      @text='Start'
-      @variant='dark'
-      @onClick={{this.startHandler}}
-      @test='start'
-      @type='button'
-    />
-  {{else if (eq this.currentStep 4)}}
-    <div class='stepper__buttons'>
-      <Reusables::Button
-        @text='Previous'
-        @variant='light'
-        @onClick={{this.decrementStep}}
-        @test='prev'
-        @type='button'
-      />
-      <Reusables::Button
-        @text='Submit'
-        @variant='dark'
-        @onClick={{this.joinHandler}}
-        @test='submit'
-        @type='button'
-      />
-    </div>
-  {{else if (not-eq this.currentStep 5)}}
-    <div class='stepper__buttons'>
-      <Reusables::Button
-        data-test-prev-btn
-        @text='Previous'
-        @variant='light'
-        @onClick={{this.decrementStep}}
-        @test='prev'
-        @type='button'
-      />
-      <Reusables::Button
-        data-test-next-btn
-        @text={{if (eq this.currentStep 3) 'Preview' 'Next'}}
-        @variant='dark'
-        @disabled={{if (or this.preValid this.isValid) false true}}
-        @onClick={{this.nextStep}}
-        @test='next'
-        @type='submit'
-      />
-    </div>
+      {{! Buttons }}
+      {{#if (eq this.currentStep 0)}}
+        <Reusables::Button
+          @text='Start'
+          @variant='dark'
+          @onClick={{this.startHandler}}
+          @test='start'
+          @type='button'
+        />
+      {{else if (eq this.currentStep 4)}}
+        <div class='stepper__buttons'>
+          <Reusables::Button
+            @text='Previous'
+            @variant='light'
+            @onClick={{this.decrementStep}}
+            @test='prev'
+            @type='button'
+          />
+          <Reusables::Button
+            @text='Submit'
+            @variant='dark'
+            @onClick={{this.joinHandler}}
+            @test='submit'
+            @type='button'
+          />
+        </div>
+      {{else if (not-eq this.currentStep 5)}}
+        <div class='stepper__buttons'>
+          <Reusables::Button
+            data-test-prev-btn
+            @text='Previous'
+            @variant='light'
+            @onClick={{this.decrementStep}}
+            @test='prev'
+            @type='button'
+          />
+          <Reusables::Button
+            data-test-next-btn
+            @text={{if (eq this.currentStep 3) 'Preview' 'Next'}}
+            @variant='dark'
+            @disabled={{if (or this.preValid this.isValid) false true}}
+            @onClick={{this.nextStep}}
+            @test='next'
+            @type='submit'
+          />
+        </div>
+      {{/if}}
+    </form>
   {{/if}}
-</form>
 </section>

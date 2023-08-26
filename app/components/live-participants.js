@@ -1,12 +1,11 @@
 import Component from '@glimmer/component';
 import { ROLES } from '../constants/live';
 import { getOwner } from '@ember/application';
-import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
 export default class LiveParticipantsComponent extends Component {
-  @tracked is
+  @service live;
   ROLES = ROLES;
-  peersLength = 1;
 
   get liveService() {
     return getOwner(this).lookup('service:live');

@@ -44,18 +44,21 @@
       @user='Mavens'
       @role='maven'
       @peers={{@peers}}
+      @minimumParticipants={{this.liveService.isAnyMavenPresent}}
       @openKickoutModal={{@openKickoutModal}}
     />
     <LiveParticipants
       @user='Moderators'
       @role='moderator'
       @peers={{@peers}}
+      @minimumParticipants={{this.liveService.isAnyModeratorPresent}}
       @openKickoutModal={{@openKickoutModal}}
     />
     <LiveParticipants
       @user='Guests'
       @role='guest'
       @peers={{@peers}}
+      @minimumParticipants={{this.liveService.isAnyGuestPresent}}
       @openKickoutModal={{@openKickoutModal}}
     />
   </div>

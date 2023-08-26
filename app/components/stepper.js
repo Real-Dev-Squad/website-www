@@ -58,26 +58,6 @@ export default class StepperComponent extends Component {
       localStorage.setItem('last_name', this.login.userData.last_name);
       this.incrementStep();
     }
-    // else {
-    //   // window.alert('You are not logged in.');
-    // this.toast.error('You are not logged in', 'User Exist!', TOAST_OPTIONS);
-    // const currentURL = this.fastboot.isFastBoot
-    //   ? this.fastboot.request.protocol +
-    //     '//' +
-    //     this.fastboot.request.host +
-    //     this.fastboot.request.path
-    //   : window.location.href;
-    // console.log(AUTH.SIGN_IN, 'signin');
-    // window.location.href = `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
-    // }
-    // const user = await this.store.findRecord('user', 'self');
-    // console.log('user data', user);
-    // if (user) {
-    //   console.log('user', user.roles.archived);
-    //   if (user.roles.archived) {
-    //     window.alert('Archived user');
-    //   }
-    // }
   }
 
   @action nextStep(e) {

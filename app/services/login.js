@@ -7,6 +7,7 @@ export default class LoginService extends Service {
   @service store;
   @tracked isLoggedIn;
   @tracked userData;
+  @service router;
   @tracked isLoading = true;
 
   constructor() {

@@ -1,0 +1,86 @@
+.room-code-modal {
+  height: auto;
+}
+
+.room-code-modal ul {
+  width: 100%;
+  max-height: 15rem;
+  overflow-y: scroll;
+}
+
+.room-code-modal h4 {
+  color: var(--color-pink);
+  font-size: 1.2rem;
+}
+
+.room-code-modal--close {
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  font-size: 2rem;
+  background: transparent;
+  margin: 0;
+}
+
+.room-code-modal__message {
+  text-align: center;
+}
+
+.room-code-modal__header {
+  position: relative;
+  text-align: center;
+  margin: 1rem;
+  width: 100%;
+}
+
+.room-code-modal__codes {
+  list-style: none;
+}
+
+.room-code-modal__options > form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.room-code__options .icon-button {
+  background-color: transparent;
+  margin: 0;
+}
+
+.room-code-modal__options .user-input {
+  width: 100%;
+}
+
+
+.room-code {
+  background-color: var(--color-green-white);
+  width: 90%;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.room-code__text {
+  width: 12rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+@media only screen and (max-width: 425px) {
+  .room-code-modal__options > form {
+    flex-wrap: wrap;
+  }
+
+  .room-code {
+    padding-top: 1rem;
+  }
+}

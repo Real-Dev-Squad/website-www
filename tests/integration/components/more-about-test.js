@@ -7,7 +7,7 @@ import { APPS, ABOUT } from '../../constants/urls';
 module('Integration | Component | more-about', function (hooks) {
   setupRenderingTest(hooks);
 
-  test.skip('more about component renders', async function (assert) {
+  test('more about component renders', async function (assert) {
     assert.expect(8);
 
     await render(hbs`<MoreAbout />`);

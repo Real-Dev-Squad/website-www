@@ -8,7 +8,7 @@
       @placeHolder='Enter your name'
       @required={{true}}
       @value={{@name}}
-      @onInput={{@nameHandler}}
+      @onInput={{fn @inputHandler 'name'}}
     />
     {{#if (eq @role 'maven')}}
       <Reusables::InputBox
@@ -18,7 +18,7 @@
         @placeHolder='Enter room code'
         @required={{true}}
         @value={{@roomCode}}
-        @onInput={{@roomCodeHandler}}
+        @onInput={{fn @inputHandler 'roomCode'}}
       />
     {{/if}}
     <div>

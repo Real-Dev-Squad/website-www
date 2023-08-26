@@ -23,42 +23,14 @@ module.exports = function (environment) {
   };
 
   if (environment === 'production') {
-    ENV.BASE_API_URL = 'https://api.realdevsquad.com';
-    ENV.APPS = {
-      HOME: 'https://beta.realdevsquad.com/',
-      WELCOME: 'https://welcome.realdevsquad.com/',
-      EVENTS: 'https://realdevsquad.com/events/',
-      MEMBERS: 'https://members.realdevsquad.com/',
-      STATUS: 'https://status.realdevsquad.com/',
-      PROFILE: 'https://my.realdevsquad.com/',
-    };
     ENV.fastboot.hostWhitelist = ['realdevsquad.com'];
   }
 
   if (environment === 'staging') {
-    ENV.BASE_API_URL = 'https://staging-api.realdevsquad.com';
-    ENV.APPS = {
-      HOME: 'https://beta.realdevsquad.com/',
-      WELCOME: 'https://staging-welcome.realdevsquad.com/',
-      EVENTS: 'https://staging-www.realdevsquad.com/events/',
-      MEMBERS: 'https://staging-members.realdevsquad.com/',
-      STATUS: 'https://staging-status.realdevsquad.com/',
-      PROFILE: 'https://staging-my.realdevsquad.com/',
-    };
     ENV.fastboot.hostWhitelist = ['beta.realdevsquad.com'];
   }
 
   if (environment === 'development') {
-    ENV.BASE_API_URL = 'http://localhost:3000';
-    ENV.APPS = {
-      HOME: 'https://beta.realdevsquad.com/',
-      WELCOME: 'https://staging-welcome.realdevsquad.com/',
-      EVENTS: 'https://staging-www.realdevsquad.com/events/',
-      MEMBERS: 'https://staging-members.realdevsquad.com/',
-      STATUS: 'https://staging-status.realdevsquad.com/',
-      PROFILE: 'https://staging-my.realdevsquad.com/',
-    };
-
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

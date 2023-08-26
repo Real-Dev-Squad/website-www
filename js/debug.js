@@ -45,7 +45,8 @@ const handleViewUserDetails = async (result) => {
       case 'fullname':
         field.innerText =
           result.first_name[0].toUpperCase() +
-          result.first_name.slice(1) + ' ' +
+          result.first_name.slice(1) +
+          ' ' +
           result.last_name[0].toUpperCase() +
           result.last_name.slice(1);
         break;
@@ -71,10 +72,9 @@ const handleViewUserDetails = async (result) => {
         }
         break;
       default:
-        if(result[field.className] == undefined){
-               field.innerText = `N/A`
-        }else{
-
+        if (result[field.className] == undefined) {
+          field.innerText = `N/A`;
+        } else {
           field.innerText = result[field.className];
         }
 
@@ -89,7 +89,7 @@ const setPrivileges = (mode) => {
 
 // This fetch data form **/users/self**
 const fetchUserDetails = async () => {
-  const res = await fetch(`${'http://localhost:3000/users/self'}`, {
+  const res = await fetch(`${SELF_URL}`, {
     credentials: 'include',
   });
   const result = await res.json();

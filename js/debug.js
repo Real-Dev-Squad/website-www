@@ -106,7 +106,7 @@ const setPrivileges = (mode) => {
 
 // This fetch data form **/users/self**
 const fetchUserDetails = async () => {
-  const res = await fetch(`${'http://localhost:3000/users/self'}`, {
+  const res = await fetch(`${SELF_URL}`, {
     credentials: 'include',
   });
   const result = await res.json();

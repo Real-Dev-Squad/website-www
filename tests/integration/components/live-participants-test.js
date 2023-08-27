@@ -31,6 +31,7 @@ module('Integration | Component | live-participants', function (hooks) {
       .dom('[data-test-sidebar-body-role] .user')
       .hasText('No Mavens in the stream');
   });
+
   test('renders No Moderators In the stream Text', async function (assert) {
     this.setProperties({
       peers: hostPeer,
@@ -51,6 +52,7 @@ module('Integration | Component | live-participants', function (hooks) {
       .dom('[data-test-sidebar-body-role] .user')
       .hasText('No Moderators in the stream');
   });
+
   test('renders No Guests In the stream Text', async function (assert) {
     this.setProperties({
       peers: hostPeer,
@@ -71,6 +73,7 @@ module('Integration | Component | live-participants', function (hooks) {
       .dom('[data-test-sidebar-body-role] .user')
       .hasText('No Guests in the stream');
   });
+
   test('renders Mavens Lists who joined Stream', async function (assert) {
     this.setProperties({
       peers: mavenPeerData,
@@ -89,6 +92,7 @@ module('Integration | Component | live-participants', function (hooks) {
     />`);
     assert.dom('[data-test-sidebar-user="2"]').hasText('Maven1');
   });
+
   test('renders Moderators Lists who joined Stream', async function (assert) {
     this.setProperties({
       peers: moderatorData,
@@ -107,6 +111,7 @@ module('Integration | Component | live-participants', function (hooks) {
     />`);
     assert.dom('[data-test-sidebar-user="3"]').hasText('Mod3');
   });
+
   test('renders Guests Lists who joined Stream', async function (assert) {
     this.setProperties({
       peers: guestData,

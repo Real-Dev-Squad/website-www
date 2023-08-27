@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>Debug | Real Dev Squad</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/animate.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/debug.css" />
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Real Dev Squad" />
+    <meta
+      name="description"
+      content="Community of developers who collaborate to build Real software."
+    />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://localhost:3001/" />
+    <meta property="og:title" content="Real Dev Squad" />
+    <meta
+      property="og:description"
+      content="Community of developers who collaborate to build Real software."
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/Real-Dev-Squad/website-www/develop/img/Real-Dev-Squad-preview.png"
+    />
+
+    <!-- Twitter Meta Tag-->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@RealDevSquad" />
+    <meta property="twitter:title" content="Real Dev Squad" />
+    <meta
+      property="twitter:description"
+      content="Community of developers who collaborate to build Real software."
+    />
+    <meta
+      property="twitter:image"
+      content="https://raw.githubusercontent.com/Real-Dev-Squad/website-www/develop/img/Real-Dev-Squad-preview.png"
+    />
+
+    <script src="/js/analytics.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YRG12HRZKB"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-YRG12HRZKB');
+    </script>
+  </head>
+  <body>
+    <div class="dropdown hide">
+      <ul class="dropdown-list">
+        <li class="dropdown-item dropdown-link" id="myprofile-option">
+          My Profile
+        </li>
+        <hr class="line" />
+        <li class="dropdown-item dropdown-link" id="signout-option">
+          Sign out
+        </li>
+      </ul>
+    </div>
+    <nav>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="nav-login">
+        <a
+          class="btn-login"
+          href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+        >
+          <button class="btn-login-text">
+            Sign In
+            <img src="img/github.png" alt="GitHub Icon" />
+          </button>
+        </a>
+        <div class="user-greet">
+          <a href="https://my.realdevsquad.com/">
+            <div class="user-greet-msg">Hello, User!</div>
+            <img class="user-profile-pic" />
+          </a>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-logo-li">
+          <a href="https://realdevsquad.com/">
+            <img src="img/Real-Dev-Squad@1x.png" alt="home nav logo" />
+          </a>
+        </li>
+        <li class="home-tab">
+          <a href="http://www.realdevsquad.com/">Home</a>
+        </li>
+        <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
+        <li><a href="">Events</a></li>
+        <li><a href="https://members.realdevsquad.com/">Members</a></li>
+        <!-- <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li> -->
+        <li><a href="https://status.realdevsquad.com/">Status</a></li>
+        <li><a class="active-tab" href="./debug.html">Debug</a></li>
+
+        <li class="nav-login-li">
+          <a
+            class="btn-login"
+            href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+          >
+            <button class="btn-login-text">
+              Sign In With GitHub
+              <img src="img/github.png" alt="GitHub Icon" />
+            </button>
+          </a>
+          <div class="user-greet">
+            <div class="user-greet-msg">Hello, User!</div>
+            <img class="user-profile-pic" />
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <main class="main-container">
+      <div class="pop-up">
+        <p></p>
+      </div>
+      <div class="container">
+        <div class="profile">
+          <div class="profilePic">
+            <img class="img-holder" alt="user Profile" />
+          </div>
+          <h2 class="fullname"></h2>
+        </div>
+        <div class="user-details">
+          <ul>
+            <li>
+              <p>Username :&nbsp</p>
+              <span>
+                <p class="username"></p>
+              </span>
+            </li>
+            <li>
+              <p>Realdevsquad Id :&nbsp</p>
+              <span>
+                <p class="id"></p>
+              </span>
+            </li>
+            <li>
+              <p>Incomplete User Details : &nbsp</p>
+              <span>
+                <p class="incompleteUserDetails"></p>
+              </span>
+            </li>
+            <li>
+              <p>Discord Joined At:&nbsp</p>
+              <span>
+                <p class="discordJoinedAt">N/A</p>
+              </span>
+            </li>
+            <li>
+              <p>Github Name :&nbsp</p>
+              <span>
+                <p class="github_display_name">N/A</p>
+              </span>
+            </li>
+            <li>
+              <p>Website :&nbsp</p>
+              <span>
+                <p class="website">N/A</p>
+              </span>
+            </li>
+            <div class="roles-container">
+              <p>Roles :&nbsp</p>
+              <div class="all-roles"></div>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <div class="social-details">
+          <ul>
+            <li>
+              <p>Twitter Id :&nbsp</p>
+              <span>
+                <p class="twitter_id">N/A</p>
+              </span>
+            </li>
+            <li>
+              <p>Github Id :&nbsp</p>
+              <span>
+                <p class="github_id">N/A</p>
+              </span>
+            </li>
+            <li>
+              <p>Linkedin Id :&nbsp</p>
+              <span>
+                <p class="linkedin_id">N/A</p>
+              </span>
+            </li>
+            <li>
+              <p>Discord Id :&nbsp</p>
+              <span>
+                <p class="discordId">N/A</p>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature">
+          <h3>Features Flags</h3>
+          <ul>
+            <li><p>dev</p></li>
+          </ul>
+          <div class="superuser">
+            <div class="su-group">
+              <h3>Super User</h3>
+              <div class="indicator"></div>
+            </div>
+            <p class="suMsg"></p>
+          </div>
+          <div class="privileges">
+            <h4>Apply privileges :</h4>
+            <div class="toggle-button">
+              <div class="toggle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="info-repo">
+        The contents of this website are deployed from this
+        <a
+          href="https://github.com/Real-Dev-Squad/website"
+          target="_blank"
+          rel="noopener noreferrer"
+          >open sourced repo</a
+        >
+      </p>
+    </footer>
+    <script src="js/utils.js"></script>
+    <script type="module" src="js/fetchUserData.js" defer></script>
+    <script type="module" src="./js/debug.js"></script>
+  </body>
+</html>

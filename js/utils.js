@@ -46,3 +46,37 @@ function joinDate(date) {
 
   return `${joinDate}/${joinMonth}/${joinYear} ${hour}:${min}:${sec}:${milSec} ${timezone}`;
 }
+
+function dateDifference(startDate, endDate) {
+  let start = new Date(startDate);
+  let end = new Date(endDate);
+
+  if (start > end) {
+    [start, end] = [end, start];
+  }
+
+  let yearDiff = end.getFullYear() - start.getFullYear();
+  let monthDiff = end.getMonth() - start.getMonth();
+  let dayDiff = end.getDate() - start.getDate();
+
+  if (dayDiff < 0) {
+    monthDiff--;
+    const lastMonth = new Date(end.getFullYear(), end.getMonth(), 0);
+    dayDiff = lastMonth.getDate() + dayDiff;
+  }
+
+  if (monthDiff < 0) {
+    yearDiff--;
+    monthDiff = 12 + monthDiff;
+  }
+
+  return {
+    years: yearDiff,
+    months: monthDiff,
+    days: dayDiff,
+  };
+}
+
+module.exports = {
+  dateDifference,
+};

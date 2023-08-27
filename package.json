@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "check": "prettier --check .",
-    "fix": "prettier --write ."
+    "fix": "prettier --write .",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.6.1",
+    "jest-puppeteer": "^9.0.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "puppeteer": "^20.9.0"
   },
   "pre-commit": [
     "check"

@@ -8,6 +8,17 @@
 
 .user-input {
   line-height: 1.5rem;
+  align-items: center;
+}
+
+.github-created-alert {
+  color: var(--color-red);
+  text-align: center;
+}
+
+.github-created-text {
+  color: var(--color-darkest-grey);
+  text-align: center;
 }
 
 .loading {

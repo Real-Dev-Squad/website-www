@@ -300,16 +300,9 @@ export default class LiveService extends Service {
 
   async renderScreenVideoToPeers(peers) {
     this.peers = peers;
-    const rolesToFind = [ROLES.maven, ROLES.moderator, ROLES.guest];
-    const foundPeers = {};
-
-    for (const roleName of rolesToFind) {
-      foundPeers[roleName] = peers.find((peer) => peer.roleName === roleName);
-    }
-
-    const maven = foundPeers[ROLES.maven];
-    const moderator = foundPeers[ROLES.moderator];
-    const guest = foundPeers[ROLES.guest];
+    const maven = peers.find((peer) => peer.roleName === ROLES.maven);
+    const moderator = peers.find((peer) => peer.roleName === ROLES.moderator);
+    const guest = peers.find((peer) => peer.roleName === ROLES.guest);
     this.mavenRole = maven?.roleName;
     this.moderatorRole = moderator?.roleName;
     this.guestRole = guest?.roleName;

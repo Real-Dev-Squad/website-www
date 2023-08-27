@@ -71,6 +71,9 @@ const handleViewUserDetails = async (result) => {
           msg.innerText = "You're not a super user!";
         }
         break;
+      case 'discordJoinedAt':
+        field.innerText = joinDate(new Date(result[field.className]));
+        break;
       default:
         if (result[field.className] == undefined) {
           field.innerText = `N/A`;

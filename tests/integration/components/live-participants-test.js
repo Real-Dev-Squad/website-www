@@ -2,18 +2,18 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import {
+  hostPeer,
+  mavenPeerData,
+  moderatorData,
+  guestData,
+} from '../../constants/participants-data';
 
 module('Integration | Component | live-participants', function (hooks) {
   setupRenderingTest(hooks);
   test('renders No Maven In the stream Text', async function (assert) {
     this.setProperties({
-      peers: [
-        {
-          id: 1,
-          name: 'Ankush',
-          roleName: 'host',
-        },
-      ],
+      peers: hostPeer,
       profilePic: 'profilepicurl',
       isKickoutModalOpen: true,
     });
@@ -33,13 +33,7 @@ module('Integration | Component | live-participants', function (hooks) {
   });
   test('renders No Moderators In the stream Text', async function (assert) {
     this.setProperties({
-      peers: [
-        {
-          id: 1,
-          name: 'Ankush',
-          roleName: 'host',
-        },
-      ],
+      peers: hostPeer,
       profilePic: 'profilepicurl',
       isKickoutModalOpen: true,
     });
@@ -59,13 +53,7 @@ module('Integration | Component | live-participants', function (hooks) {
   });
   test('renders No Guests In the stream Text', async function (assert) {
     this.setProperties({
-      peers: [
-        {
-          id: 1,
-          name: 'Ankush',
-          roleName: 'host',
-        },
-      ],
+      peers: hostPeer,
       profilePic: 'profilepicurl',
       isKickoutModalOpen: true,
     });
@@ -85,23 +73,7 @@ module('Integration | Component | live-participants', function (hooks) {
   });
   test('renders Mavens Lists who joined Stream', async function (assert) {
     this.setProperties({
-      peers: [
-        {
-          id: 1,
-          name: 'Ankush',
-          roleName: 'host',
-        },
-        {
-          id: 2,
-          name: 'Maven1',
-          roleName: 'maven',
-        },
-        {
-          id: 3,
-          name: 'Maven2',
-          roleName: 'maven',
-        },
-      ],
+      peers: mavenPeerData,
       profilePic: 'profilepicurl',
       isKickoutModalOpen: true,
     });
@@ -119,23 +91,7 @@ module('Integration | Component | live-participants', function (hooks) {
   });
   test('renders Moderators Lists who joined Stream', async function (assert) {
     this.setProperties({
-      peers: [
-        {
-          id: 1,
-          name: 'Ankush',
-          roleName: 'host',
-        },
-        {
-          id: 2,
-          name: 'Mod1',
-          roleName: 'moderator',
-        },
-        {
-          id: 3,
-          name: 'Mod3',
-          roleName: 'moderator',
-        },
-      ],
+      peers: moderatorData,
       profilePic: 'profilepicurl',
       isKickoutModalOpen: true,
     });
@@ -153,23 +109,7 @@ module('Integration | Component | live-participants', function (hooks) {
   });
   test('renders Guests Lists who joined Stream', async function (assert) {
     this.setProperties({
-      peers: [
-        {
-          id: 1,
-          name: 'Ankush',
-          roleName: 'host',
-        },
-        {
-          id: 2,
-          name: 'Guest1',
-          roleName: 'guest',
-        },
-        {
-          id: 3,
-          name: 'Guest2',
-          roleName: 'guest',
-        },
-      ],
+      peers: guestData,
       profilePic: 'profilepicurl',
       isKickoutModalOpen: true,
     });

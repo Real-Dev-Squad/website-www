@@ -30,9 +30,9 @@ export default class LiveService extends Service {
   @globalRef('videoEl') videoEl;
   @tracked peers;
   @tracked isScreenShareOn;
-  @tracked isAnyMavenPresent = '';
-  @tracked isAnyModeratorPresent = '';
-  @tracked isAnyGuestPresent = '';
+  @tracked mavenRole = '';
+  @tracked moderatorRole = '';
+  @tracked guestRole = '';
   @tracked roomCodesForMaven = [];
   @tracked roomCodeLoading = false;
 
@@ -303,9 +303,9 @@ export default class LiveService extends Service {
     const maven = peers.find((peer) => peer.roleName === ROLES.maven);
     const moderator = peers.find((peer) => peer.roleName === ROLES.moderator);
     const guest = peers.find((peer) => peer.roleName === ROLES.guest);
-    this.isAnyMavenPresent = maven?.roleName;
-    this.isAnyModeratorPresent = moderator?.roleName;
-    this.isAnyGuestPresent = guest?.roleName;
+    this.mavenRole = maven?.roleName;
+    this.moderatorRole = moderator?.roleName;
+    this.guestRole = guest?.roleName;
 
     const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];

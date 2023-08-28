@@ -6,21 +6,12 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | stepper-signup', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('stepper-signup page render', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
-
+    assert.expect(1);
     await render(hbs`<StepperSignup />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <StepperSignup>
-        template block text
-      </StepperSignup>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom('h1').hasText('Hello world');
   });
 });

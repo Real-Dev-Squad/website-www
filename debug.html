@@ -79,17 +79,10 @@
     </script>
   </head>
   <body>
-    <div class="dropdown hide">
-      <ul class="dropdown-list">
-        <li class="dropdown-item dropdown-link" id="myprofile-option">
-          My Profile
-        </li>
-        <hr class="line" />
-        <li class="dropdown-item dropdown-link" id="signout-option">
-          Sign out
-        </li>
-      </ul>
-    </div>
+    <div class="dropdown hide" id="dropdown"></div>
+    <button id="scroll-to-top-btn">
+      <img src="./img/arrow_up.svg" alt="scroll to top button" />
+    </button>
     <nav>
       <div class="hamburger">
         <span class="bar"></span>
@@ -101,7 +94,11 @@
           class="btn-login"
           href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
         >
-          <button class="btn-login-text">
+          <div class="skeleton-holder">
+            <div class="skeleton-rectangle" id="skeleton-rectangle"></div>
+            <div class="skeleton-circle" id="skeleton-circle"></div>
+          </div>
+          <button class="btn-login-text hidden">
             Sign In
             <img
               src="img/github.png"
@@ -111,13 +108,13 @@
             />
           </button>
         </a>
+
         <div class="user-greet">
-          <a href="https://my.realdevsquad.com/">
-            <div class="user-greet-msg">Hello, User!</div>
-            <img class="user-profile-pic" />
-          </a>
+          <div class="user-greet-msg">Hello, User!</div>
+          <img class="user-profile-pic" />
         </div>
       </div>
+
       <ul class="nav-menu">
         <li class="nav-logo-li">
           <a href="https://realdevsquad.com/">
@@ -129,24 +126,33 @@
             />
           </a>
         </li>
-        <li class="home-tab">
-          <a href="http://www.realdevsquad.com/">Home</a>
-        </li>
+        <li class="home-tab"><a href="http://realdevsquad.com/">Home</a></li>
         <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
-        <li><a href="">Events</a></li>
+        <li><a href="./events.html">Events</a></li>
         <li><a href="https://members.realdevsquad.com/">Members</a></li>
         <!-- <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li> -->
         <li><a href="https://status.realdevsquad.com/">Status</a></li>
-        <li><a class="active-tab" href="./debug.html">Debug</a></li>
-
+        <li>
+          <a class="active-tab" href="https://realdevsquad.com/debug">Debug</a>
+        </li>
         <li class="nav-login-li">
           <a
             class="btn-login"
             href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
           >
-            <button class="btn-login-text">
+            <div class="skeleton-holder">
+              <div class="skeleton-rectangle" id="skeleton-rectangle"></div>
+              <div class="skeleton-circle" id="skeleton-circle"></div>
+            </div>
+
+            <button class="btn-login-text hidden">
               Sign In With GitHub
-              <img src="img/github.png" alt="GitHub Icon" />
+              <img
+                src="img/github.png"
+                alt="GitHub Icon"
+                height="15px"
+                width="15px"
+              />
             </button>
           </a>
           <div class="user-greet">

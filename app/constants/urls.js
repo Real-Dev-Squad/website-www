@@ -11,7 +11,7 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
     STATUS: `${SCHEME}status.${DOMAIN}`,
     PROFILE: `${SCHEME}my.${DOMAIN}`,
-    API_BACKEND: `http://localhost:3000`,
+    API_BACKEND: `${SCHEME}api.${DOMAIN}`,
   },
   staging: {
     HOME: `${SCHEME}beta.${DOMAIN}`,
@@ -20,7 +20,7 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
     PROFILE: `${SCHEME}staging-my.${DOMAIN}`,
-    API_BACKEND: `http://localhost:3000`,
+    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
   development: {
     HOME: `${SCHEME}beta.${DOMAIN}`,
@@ -29,8 +29,7 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
     PROFILE: `${SCHEME}staging-my.${DOMAIN}`,
-    // API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
-    API_BACKEND: `http://localhost:3000`,
+    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
   test: {
     HOME: `${SCHEME}${DOMAIN}`,
@@ -39,8 +38,7 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
     STATUS: `${SCHEME}status.${DOMAIN}`,
     PROFILE: `${SCHEME}my.${DOMAIN}`,
-    // API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
-    API_BACKEND: `http://localhost:3000`,
+    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
 };
 

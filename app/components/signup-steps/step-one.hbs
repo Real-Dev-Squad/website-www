@@ -1,0 +1,20 @@
+<Reusables::InputBox
+  @field='First Name'
+  @name='firstname'
+  @placeHolder='Write your first name'
+  @type='text'
+  @required={{true}}
+  @value={{this.data.firstname}}
+  @onInput={{this.inputHandler}}
+  @disabled={{false}}
+/>
+<Reusables::InputBox
+  @field='Last Name'
+  @name='lastname'
+  @placeHolder='Write your last name'
+  @type='text'
+  @required={{true}}
+  @value={{this.data.lastname}}
+  @onInput={{this.inputHandler}}
+  @disabled={{false}}
+/>

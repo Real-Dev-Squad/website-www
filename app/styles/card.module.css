@@ -1,0 +1,12 @@
+.card__reusable{
+    min-height: 60vh;
+    max-width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid grey;
+    margin: 80px auto;
+    background-color: #D6D6D6;
+    border-radius: 10px;
+}

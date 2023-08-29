@@ -1,2 +1,14 @@
 {{page-title 'Join'}}
-<Stepper />
+{{#if this.login.isLoading}}
+<div data-test-loading class='intro__loading'>
+    <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
+</div>
+{{else}}
+{{#if this.login.userData.roles.archived}}
+<Card>
+<h1>Archived User</h1>
+</Card>
+{{else}}
+ <Stepper />
+{{/if}}
+{{/if}}

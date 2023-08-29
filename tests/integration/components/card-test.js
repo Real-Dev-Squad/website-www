@@ -13,9 +13,9 @@ module('Integration | Component | card', function (hooks) {
     assert.dom(this.element).hasText('');
     await render(hbs`
       <Card>
-        template block text
+        Archived User
       </Card>
     `);
-    assert.dom('.card__reusable').hasText('template block text');
+    assert.dom('.card__reusable').hasText('Archived User');
   });
 });

@@ -1,4 +1,4 @@
-import { SIGNUP_URL, HOME_URL } from './constants.js';
+import { SIGNUP_URL, HOME_URL, WELCOME_URL } from './constants.js';
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

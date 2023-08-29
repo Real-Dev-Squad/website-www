@@ -1,4 +1,4 @@
-import { BASE_URL, SIGNUP_URL } from './constants.js';
+import { SELF_URL, SIGNUP_URL } from './constants.js';
 
 const setUserGreeting = (username, firstName, userProfilePicture) => {
   if (username) {
@@ -42,7 +42,7 @@ const hideSkeleton = () => {
 const lastLocation = sessionStorage.getItem('lastLocationUrl');
 const fetchUserSelfData = async () => {
   try {
-    const res = await makeApiCall(`${BASE_URL}/users/self`);
+    const res = await makeApiCall(`${'http://localhost:3000/users/self'}`);
     const result = await res.data;
     if (result && lastLocation) {
       sessionStorage.removeItem('lastLocationUrl');

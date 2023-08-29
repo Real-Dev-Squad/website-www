@@ -88,6 +88,13 @@
   padding-left: 20px;
 }
 
+.not-loggedin__message{
+  color: var(--color-pink);
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+
 @media screen and (max-width: 625px) {
   .stepper__greeting {
     font-size: 1.5rem;

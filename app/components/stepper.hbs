@@ -28,8 +28,7 @@
     {{/if}}
   {{/if}}
   {{#if (and (eq this.currentStep 0) (not this.login.isLoggedIn))}}
-    <div class="not-logged-card">
-      <p>You are not logged in. Please log in to continue.</p>
+      <p class="not-loggedin__message">You are not logged in Please log in to continue...</p>
          <Reusables::Button
           @text='login'
           @variant='dark'
@@ -37,7 +36,6 @@
           @test='start'
           @type='button'
         />
-    </div>
   {{else}}
     <form class="stepper__form" onsubmit={{this.nextStep}}>
       {{! Content }}

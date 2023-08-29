@@ -5,8 +5,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid grey;
+    border: 2px solid var(--color-lightgrey);
     margin: 80px auto;
-    background-color: #D6D6D6;
+    background-color: var(--color-cultured);
     border-radius: 10px;
 }
+@media screen and (max-width: 625px) {
+    .card__reusable{
+        min-height: 50vh;
+        max-width: 90vw;
+        margin: 40px auto;
+    }
+  }

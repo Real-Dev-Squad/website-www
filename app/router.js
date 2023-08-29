@@ -12,5 +12,4 @@ Router.map(function () {
   this.route('live');
   this.route('page-not-found', { path: '/*' });
   this.route('intro');
-  this.route('archived');
 });

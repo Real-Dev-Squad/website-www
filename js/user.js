@@ -42,7 +42,7 @@ const hideSkeleton = () => {
 const lastLocation = sessionStorage.getItem('lastLocationUrl');
 const fetchUserSelfData = async () => {
   try {
-    const res = await makeApiCall(`${'http://localhost:3000/users/self'}`);
+    const res = await makeApiCall(`${SELF_URL}`);
     const result = await res.data;
     if (result && lastLocation) {
       sessionStorage.removeItem('lastLocationUrl');

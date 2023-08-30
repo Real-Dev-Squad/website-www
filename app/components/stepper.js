@@ -5,14 +5,11 @@ import { TITLE_MESSAGES } from '../constants/stepper-data';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import { JOIN_URL } from '../constants/apis';
-import { AUTH } from '../constants/urls';
 
 export default class StepperComponent extends Component {
   @service login;
   @service toast;
   @service router;
-  @service fastboot;
-  @service store;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
@@ -65,19 +62,6 @@ export default class StepperComponent extends Component {
     this.incrementStep();
     localStorage.setItem('isValid', false);
     this.isValid = false;
-  }
-
-  @action logingithub() {
-    if (!this.login.isLoggedIn) {
-      const currentURL = this.fastboot.isFastBoot
-        ? this.fastboot.request.protocol +
-          '//' +
-          this.fastboot.request.host +
-          this.fastboot.request.path
-        : window.location.href;
-      console.log(AUTH.SIGN_IN, 'signin');
-      window.location.href = `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
-    }
   }
 
   @action async joinHandler() {

@@ -74,22 +74,4 @@ module('Integration | Component | stepper', function (hooks) {
 
     assert.dom('[data-test-button=next]').hasAttribute('disabled', true);
   });
-  test.skip('it renders not-logged-in message when currentStep is 0 and user is not logged in', async function (assert) {
-    assert.expect(3);
-
-    this.set('isValid', false);
-    this.set('preValid', false);
-    this.set('login.isLoggedIn', false);
-    this.set('count', 0);
-    await render(hbs`<Stepper @login={{this.login}} />`);
-
-    // assert
-    //   .dom('.not-loggedin__message')
-    //   .hasText('You are not logged in. Please log in to continue...');
-
-    assert.dom('[data-test-button=start]').hasText('login');
-
-    await click('[data-test-button=start]');
-    assert.dom('[data-test-step-detail]').doesNotExist();
-  });
 });

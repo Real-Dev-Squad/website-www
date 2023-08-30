@@ -80,9 +80,10 @@ function generateSavedDetailsForm(users) {
   const githubCreatedValue = createElement({
     type: 'h4',
     classList: [
-      `${users.dateDiff.creationValue.years > 0
-        ? 'github-created-text'
-        : 'github-created-alert'
+      `${
+        users.dateDiff.creationValue.years > 0
+          ? 'github-created-text'
+          : 'github-created-alert'
       }`,
     ],
   });

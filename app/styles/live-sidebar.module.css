@@ -75,6 +75,10 @@
   box-sizing: border-box;
 }
 
+.sidebar__participantsHide {
+  display: none;
+}
+
 .sidebar__participants--mobile {
   display: none;
   width: 100%;
@@ -87,7 +91,6 @@
   font-weight: 800;
   font-size: 22px;
 }
-
 
 .body__host {
   width: 100%;
@@ -196,7 +199,6 @@
     padding-left: 1rem;
   }
 
-
   .sidebar.open {
     height: fit-content;
   }
@@ -228,7 +230,6 @@
     }
   }
 
-
   @keyframes closesidebar {
     0% {
       height: 300px;
@@ -238,5 +239,4 @@
       height: 0px;
     }
   }
-
 }

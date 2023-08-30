@@ -70,11 +70,11 @@ const getPluralString = (count, word) => {
 function getRelativeDateString(dateDiffObj) {
   const { years, months, days } = dateDiffObj;
   if (years > 0) {
-    return `${years} ${getPluralString(years, 'year')} ago`
+    return `${years} ${getPluralString(years, 'year')} ago`;
   } else if (months > 0) {
-    return `${months} ${getPluralString(months, 'month')} ago`
+    return `${months} ${getPluralString(months, 'month')} ago`;
   } else if (days >= 1) {
-    return `${days} ${getPluralString(days, 'day')} ago`
+    return `${days} ${getPluralString(days, 'day')} ago`;
   }
   return 'within a day';
 }

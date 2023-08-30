@@ -6,10 +6,10 @@ import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 export default class SignupStepsStepOneComponent extends Component {
   @action inputHandler(e) {
     const { onChange } = this.args;
-    const setValToLocalStorage = () => {
+    const passVal = () => {
       onChange(e.target.name, e.target.value);
     };
 
-    debounce(setValToLocalStorage, JOIN_DEBOUNCE_TIME);
+    debounce(passVal, JOIN_DEBOUNCE_TIME);
   }
 }

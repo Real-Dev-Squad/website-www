@@ -44,7 +44,11 @@
     {{else}}
       {{#if this.liveService.isJoined}}
         <div class='live__container'>
-          <div class='live__video-container' data-test-video-container>
+          <div
+            class='live__video-container
+              {{if this.isExpanded "" "live__video-containerShow"}}'
+            data-test-video-container
+          >
             {{! TODO - add skeleton to the whole structure }}
             {{#if this.isLoading}}
               <Reusables::Skeleton />
@@ -53,7 +57,15 @@
               <VideoScreen @src='/assets/starting-soon.mp4' />
             {{/if}}
           </div>
-          <div class='container__sidebar'>
+          <div
+            class='container__sidebar
+              {{if
+                this.isExpanded
+                "container__sidebarHide"
+                "container__sidebarShow"
+              }}
+              '
+          >
             {{#if this.isLoading}}
               <Reusables::Skeleton />
             {{else}}
@@ -61,6 +73,8 @@
                 @openKickoutModal={{this.openKickoutModal}}
                 @peers={{this.liveService.peers}}
                 @hostProfilePicture={{this.login.userData.picture.url}}
+                @sidebarPanel={{this.sidebarPanel}}
+                @isExpanded={{this.isExpanded}}
               />
             {{/if}}
           </div>

@@ -16,12 +16,23 @@
 }
 
 .live__video-container {
-	width: 70%;
+  width: 100%;
+}
+.live__video-containerShow {
+  width: 70%;
 }
 
 .container__sidebar {
-	display: flex;
-	width: 28%;
+  display: flex;
+  width: 0%;
+}
+
+.container__sidebarShow {
+  width: 28%;
+}
+
+.container__sidebarHide {
+  width: 0%;
 }
 
 .live__panel-container {

@@ -24,6 +24,7 @@ export default class LiveController extends Controller {
   @tracked isRoomCodeModalOpen = false;
   @tracked peerToRemove = '';
   @tracked newRoomCode = '';
+  @tracked isExpanded = false;
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -34,6 +35,10 @@ export default class LiveController extends Controller {
     setTimeout(() => {
       this.isLoading = false;
     }, 4000);
+  }
+
+  @action sidebarPanel() {
+    this.isExpanded = !this.isExpanded;
   }
 
   @action inputHandler(type, event) {

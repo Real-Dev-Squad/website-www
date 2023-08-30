@@ -1,6 +1,6 @@
 .sidebar {
   padding: 1rem 0;
-  width: 100%;
+  width: 0%;
   background-color: var(--color-sidebar);
   height: 100%;
   z-index: 2;
@@ -9,6 +9,14 @@
   align-items: center;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+.sidebarOpens {
+  width: 90%;
+}
+
+.sidebarCloses {
+  width: 0%;
 }
 
 .sidebar__accordian-button {
@@ -29,6 +37,24 @@
 .sidebar__body::-webkit-scrollbar-thumb {
   background: var(--color-darkgrey);
   border-radius: 10px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  top: 0rem;
+  margin: 0px 0px 0.6rem 12.3rem;
+  display: block;
+  border-radius: 5px;
+}
+
+.participantsHeadingHide {
+  display: none;
 }
 
 .sidebar__participants {
@@ -141,10 +167,23 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width: 1235px) {
+  .openbtn {
+    margin: 0px 0px 0.6rem 0rem;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .sidebar {
     height: 70px;
     width: 100%;
+  }
+  .openbtn {
+    display: none;
+  }
+
+  .participantsHeadingHide {
+    display: block;
   }
 
   .sidebar__accordian-button {

@@ -13,4 +13,8 @@ export default class LiveHeaderComponent extends Component {
   @action toggleMobileSidebar() {
     this.isSideBarOpen = !this.isSideBarOpen;
   }
+
+  @action sidebarPanel() {
+    this.args.sidebarPanel();
+  }
 }

@@ -80,18 +80,14 @@ function generateSavedDetailsForm(users) {
   const githubCreatedValue = createElement({
     type: 'h4',
     classList: [
-      `${
-        users.dateDiff.creationValue.years > 0
-          ? 'github-created-text'
-          : 'github-created-alert'
+      `${users.dateDiff.creationValue.years > 0
+        ? 'github-created-text'
+        : 'github-created-alert'
       }`,
     ],
   });
 
-  const showAgoWord = users.dateDiff.creationValue.days >= 1;
-  githubCreatedValue.innerText = `User GitHub account created ${
-    users.dateDiff.textValue
-  }${showAgoWord ? ' ago' : ''}`;
+  githubCreatedValue.innerText = `User GitHub account created ${users.dateDiff.textValue}`;
   container.appendChild(githubCreatedValue);
 
   const nameLabel = createElement({

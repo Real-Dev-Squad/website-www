@@ -39,17 +39,22 @@ describe('Utils function test case', () => {
     it('returns correct string for years', () => {
       const dateDiffObj = { years: 2, months: 0, days: 0 };
       const result = getRelativeDateString(dateDiffObj);
-      expect(result).toBe('2 years');
+      expect(result).toBe('2 years ago');
     });
     it('returns correct string for months', () => {
       const dateDiffObj = { years: 0, months: 3, days: 0 };
       const result = getRelativeDateString(dateDiffObj);
-      expect(result).toBe('3 months');
+      expect(result).toBe('3 months ago');
     });
     it('returns correct string for days', () => {
       const dateDiffObj = { years: 0, months: 0, days: 5 };
       const result = getRelativeDateString(dateDiffObj);
-      expect(result).toBe('5 days');
+      expect(result).toBe('5 days ago');
+    });
+    it('returns correct string for 1 day', () => {
+      const dateDiffObj = { years: 0, months: 0, days: 1 };
+      const result = getRelativeDateString(dateDiffObj);
+      expect(result).toBe('1 day ago');
     });
     it('returns "within a day" for less than a day', () => {
       const dateDiffObj = { years: 0, months: 0, days: 0.5 };

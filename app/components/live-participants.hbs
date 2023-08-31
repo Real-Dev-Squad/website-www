@@ -15,7 +15,12 @@
         {{#if (eq peer.roleName @role)}}
           <li data-test-sidebar-user={{peer.id}} class='user'>
             <p>{{peer.name}}</p>
-            {{#if (eq this.liveService.localPeer.roleName this.ROLES.host)}}
+            {{#if
+              (or
+                (eq this.liveService.localPeer.roleName this.ROLES.host)
+                (eq this.liveService.localPeer.roleName this.ROLES.moderator)
+              )
+            }}
               <button
                 type='button'
                 class='user__btn'

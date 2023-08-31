@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, typeIn, settled } from '@ember/test-helpers';
+import { render, typeIn, fillIn } from '@ember/test-helpers';
+import { set } from '@ember/object';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | signup-steps/step-one', function (hooks) {
@@ -47,9 +48,32 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       .dom('[data-test-input-field]')
       .hasProperty('placeholder', 'Write your first name');
     assert.dom('[data-test-input-field]').hasProperty('value', '');
-    await settled();
     await typeIn('[data-test-input-field]', 'shubham');
     assert.strictEqual(this.name, 'firstname');
     assert.strictEqual(this.value, 'shubham');
+  });
+
+  test('it updates firstname in signupDetails when handleInputChange is triggered', async function (assert) {
+    assert.expect(1);
+    this.set('signupDetails', {
+      firstname: '',
+    });
+
+    this.set('handleInputChange', (key, value) => {
+      set(this.signupDetails, key, value);
+      console.log(this.signupDetails);
+    });
+
+    await render(hbs`
+    <SignupSteps::StepOne @onChange={{this.handleInputChange}} />
+  `);
+
+    await fillIn('input', 'shubham');
+
+    assert.strictEqual(
+      this.signupDetails.firstname,
+      'shubham',
+      'signupDetails.firstname was updated'
+    );
   });
 });

@@ -61,7 +61,6 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
     this.set('handleInputChange', (key, value) => {
       set(this.signupDetails, key, value);
-      console.log(this.signupDetails);
     });
 
     await render(hbs`

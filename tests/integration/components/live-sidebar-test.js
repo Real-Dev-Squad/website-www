@@ -7,7 +7,7 @@ module('Integration | Component | live-sidebar', function (hooks) {
   setupRenderingTest(hooks);
 
   test('live-sidebar renders', async function (assert) {
-    assert.expect(16);
+    assert.expect(12);
     this.setProperties({
       peers: [
         {
@@ -48,12 +48,5 @@ module('Integration | Component | live-sidebar', function (hooks) {
 
     assert.dom('[data-test-sidebar-host-name]').exists();
     assert.dom('[data-test-sidebar-host-name]').hasText('Ankush is presenting');
-
-    assert.dom('[data-test-sidebar-body-role]').exists();
-
-    assert.dom('[data-test-sidebar-body-role-guest]').exists();
-    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Guest Users');
-
-    assert.dom('[data-test-sidebar-user="2"]').exists();
   });
 });

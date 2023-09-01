@@ -1,4 +1,4 @@
-.card__reusable{
+.onboarding-card{
     min-height: 60vh;
     max-width: 40vw;
     display: flex;
@@ -11,7 +11,7 @@
     border-radius: 10px;
 }
 @media screen and (max-width: 625px) {
-    .card__reusable{
+    .onboarding-card{
         min-height: 50vh;
         max-width: 90vw;
         margin: 40px auto;

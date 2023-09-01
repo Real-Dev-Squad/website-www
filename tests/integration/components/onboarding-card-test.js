@@ -7,15 +7,15 @@ module('Integration | Component | card', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Card />`);
-    assert.dom('.card__reusable').exists();
-    assert.dom('.card__reusable').hasText('');
+    await render(hbs`<OnboardingCard />`);
+    assert.dom('[data-test-onboarding-card-modal]').exists();
+    assert.dom('[data-test-onboarding-card-modal]').hasText('');
     assert.dom(this.element).hasText('');
     await render(hbs`
-      <Card>
+      <OnboardingCard>
         Archived User
-      </Card>
+      </OnboardingCard>
     `);
-    assert.dom('.card__reusable').hasText('Archived User');
+    assert.dom('[data-test-onboarding-card-modal]').hasText('Archived User');
   });
 });

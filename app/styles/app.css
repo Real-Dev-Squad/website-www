@@ -23,7 +23,7 @@
 @import 'kickout-modal.module.css';
 @import 'base-modal.module.css';
 @import 'intro.module.css';
-@import 'card.module.css';
+@import 'onboarding-card.module.css';
 
 * {
   margin: 0px;

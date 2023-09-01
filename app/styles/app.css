@@ -25,6 +25,7 @@
 @import 'base-modal.module.css';
 @import 'room-code-modal.module.css';
 @import 'intro.module.css';
+@import 'onboarding-card.module.css';
 
 * {
   margin: 0px;

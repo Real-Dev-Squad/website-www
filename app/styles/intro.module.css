@@ -43,6 +43,10 @@
   text-align: justify;
 }
 
+.archived__heading{
+font-size: 1.4rem;
+}
+
 @media screen and (max-width: 625px) {
   .intro__container {
     margin: 2rem 0;

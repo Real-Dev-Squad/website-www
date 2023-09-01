@@ -15,6 +15,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     this.set('type', 'text');
     this.set('required', true);
     this.set('value', '');
+    this.set('disabled', false);
     this.set('onInput', (e) => {
       // Update the input value when the input changes
       this.value = e.target.value;

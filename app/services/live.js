@@ -31,6 +31,9 @@ export default class LiveService extends Service {
   @globalRef('videoEl') videoEl;
   @tracked peers;
   @tracked isScreenShareOn;
+  @tracked mavenRole = '';
+  @tracked moderatorRole = '';
+  @tracked guestRole = '';
   @tracked roomCodesForMaven = [];
   @tracked roomCodeLoading = false;
   @tracked userData = this.login?.userData;
@@ -360,6 +363,13 @@ export default class LiveService extends Service {
 
   async renderScreenVideoToPeers(peers) {
     this.peers = peers;
+    const maven = peers.find((peer) => peer.roleName === ROLES.maven);
+    const moderator = peers.find((peer) => peer.roleName === ROLES.moderator);
+    const guest = peers.find((peer) => peer.roleName === ROLES.guest);
+    this.mavenRole = maven?.roleName;
+    this.moderatorRole = moderator?.roleName;
+    this.guestRole = guest?.roleName;
+
     const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {

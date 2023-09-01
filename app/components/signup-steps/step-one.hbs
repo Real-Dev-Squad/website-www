@@ -6,6 +6,7 @@
   @required={{true}}
   @value={{this.data.firstname}}
   @onInput={{this.inputHandler}}
+  @disabled={{false}}
 />
 <Reusables::InputBox
   @field='Last Name'
@@ -15,4 +16,24 @@
   @required={{true}}
   @value={{this.data.lastname}}
   @onInput={{this.inputHandler}}
+  @disabled={{false}}
+/>
+
+<Reusables::InputBox
+  @field='Username'
+  @name='username'
+  @placeHolder='e.g. shubham-sigdar'
+  @type='text'
+  @required={{true}}
+  @value={{this.username}}
+  @onInput={{this.inputHandler}}
+  @disabled={{true}}
+/>
+
+<Reusables::Button
+  @text='Generate Username'
+  @variant='dark'
+  @onClick={{this.getUsername}}
+  @test='submit'
+  @type='button'
 />

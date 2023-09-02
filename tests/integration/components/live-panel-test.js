@@ -9,10 +9,11 @@ module('Integration | Component | live-panel', function (hooks) {
   test('it renders', async function (assert) {
     assert.expect(10);
     this.set('buttonClickHandler', () => {});
+    this.set('toggleRoomCodeModal', () => {});
     this.set('role', 'guest');
 
     await render(
-      hbs`<LivePanel @buttonClickHandler={{this.buttonClickHandler}} @role={{this.role}}/>`
+      hbs`<LivePanel @buttonClickHandler={{this.buttonClickHandler}} @role={{this.role}} @openRoomCodeModal={{this.toggleRoomCodeModal}}/>`
     );
 
     assert.dom('[data-test-live-panel]').exists();

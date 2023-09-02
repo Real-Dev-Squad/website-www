@@ -1,6 +1,13 @@
 .join {
   text-align: center;
 }
+.join__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 75vh;
+}
 
 .join__title-highlighted {
   color: var(--color-pink);

@@ -1,6 +1,8 @@
 export const ROLES = {
-  guest: 'guest',
   host: 'host',
+  maven: 'maven',
+  moderator: 'moderator',
+  guest: 'guest',
 };
 export const BUTTONS_TYPE = {
   SCREEN_SHARE: 'screen-share',
@@ -24,4 +26,11 @@ export const POST_API_CONFIGS = {
     'Content-Type': 'application/json',
   },
   credentials: 'include',
+};
+
+export const GET_API_CONFIGS = {
+  method: API_METHOD.GET,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 };

@@ -14,9 +14,9 @@
     <Reusables::IconButton
       @id='copy-link'
       @class='icon-button--md'
-      @title='Invite link'
-      @onClick={{@buttonClickHandler}}
-      @icon={{if @isCopied 'material-symbols:done' 'material-symbols:copy-all'}}
+      @title='Room code for maven'
+      @onClick={{@openRoomCodeModal}}
+      @icon='material-symbols:code'
     />
   {{/if}}
   <Reusables::IconButton

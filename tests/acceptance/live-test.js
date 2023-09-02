@@ -1,12 +1,12 @@
 import { module, test } from 'qunit';
-import { visit, currentURL, typeIn } from '@ember/test-helpers';
+import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website-www/tests/helpers';
 
 module('Acceptance | live', function (hooks) {
   setupApplicationTest(hooks);
   // TODO - remove test for dev part when it goes to production
   test('skeleton and video should exists after join modal', async function (assert) {
-    assert.expect(6);
+    assert.expect(5);
     await visit('/live');
 
     assert.notEqual(currentURL(), '/live', 'url not equal to live!');
@@ -16,17 +16,11 @@ module('Acceptance | live', function (hooks) {
       'url is /page-not-found'
     );
 
-    await visit('/live?dev=true&role=guest');
+    await visit('/live?dev=true');
 
-    assert.strictEqual(
-      currentURL(),
-      '/live?dev=true&role=guest',
-      'we are on live page as a guest'
-    );
-    assert.dom('[data-test-card]').exists();
-    assert.dom('[data-test-input-field]').exists();
-    assert.dom('[data-test-button="live-join"]').exists();
-    await typeIn('[data-test-input-field]', 'sanket');
+    assert.strictEqual(currentURL(), '/live?dev=true', 'we are on live page');
+    assert.dom('[data-test-live-roles-card]').exists();
+    assert.dom('[data-test-live-roles-card-title]').exists();
     // await click('[data-test-button="live-join"]');
     // TODO: Fix and improve this
     /*

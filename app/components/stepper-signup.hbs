@@ -1,5 +1,7 @@
-{{#if (eq this.currentStep 0)}}
-  <h1>Hello world</h1>
-{{else if (eq this.currentStep 1)}}
-  <SignupSteps::StepOne @onChange={{this.handleInputChange}} />
-{{/if}}
+<OnboardingCard>
+  {{#if (eq this.currentStep 0)}}
+    <h1>Hello world</h1>
+  {{else if (eq this.currentStep 1)}}
+    <SignupSteps::StepOne @onChange={{this.handleInputChange}} />
+  {{/if}}
+</OnboardingCard>

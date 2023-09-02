@@ -5,7 +5,7 @@
     {{if @isExpanded "sidebarCloses" "sidebarOpens"}}'
 >
   <button
-    class='openbtn'
+    class='openbtn {{if @isExpanded "closeBtn"}}'
     type='button'
     {{on 'click' this.sidebarPanel}}
   >&#9776;</button>

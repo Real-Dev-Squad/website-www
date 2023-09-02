@@ -42,7 +42,7 @@
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: #111;
+  background-color: var(--color-pink);
   color: white;
   border: none;
   width: 2rem;
@@ -51,6 +51,10 @@
   margin: 0px 0px 0.6rem 12.3rem;
   display: block;
   border-radius: 5px;
+}
+
+.closeBtn {
+  margin-left: 8.3rem;
 }
 
 .participantsHeadingHide {

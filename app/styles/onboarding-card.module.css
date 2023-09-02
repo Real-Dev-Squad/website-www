@@ -1,0 +1,19 @@
+.onboarding-card{
+    min-height: 60vh;
+    min-width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color-lightgrey);
+    background-color: var(--color-cultured);
+    border-radius: 10px;
+    margin-top: 80px;
+}
+@media screen and (max-width: 625px) {
+    .onboarding-card{
+        min-height: 50vh;
+        max-width: 90vw;
+        margin: 40px auto;
+    }
+  }

@@ -8,9 +8,8 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
   setupRenderingTest(hooks);
 
   test('RealSevSquad logo render on signupDetails page', async function (assert) {
-    assert.expect(3);
+    assert.expect(2);
     await render(hbs`<SignupSteps::StepOne/>`);
-    assert.dom('[data-test-rds-logo]').exists();
     assert
       .dom('[data-test-rds-logo]')
       .hasAttribute('src', 'assets/icons/rds-logo.jpg')

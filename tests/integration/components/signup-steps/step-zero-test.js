@@ -6,21 +6,25 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | signup-steps/step-zero', function (hooks) {
   setupRenderingTest(hooks);
 
-  test.skip('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('it renders all logos on login page', async function (assert) {
+    assert.expect(10);
     await render(hbs`<SignupSteps::StepZero />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <SignupSteps::StepZero>
-        template block text
-      </SignupSteps::StepZero>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom('[data-test-logos-container]').exists();
+    assert.dom('[data-test-github-logo]').exists();
+    assert.dom('[data-test-link-logo]').exists();
+    assert.dom('[data-test-rds-logo]').exists();
+    assert
+      .dom('[data-test-github-logo-img]')
+      .hasAttribute('src', 'assets/icons/github-logo.png')
+      .hasAttribute('alt', 'GitHub-Logo');
+    assert
+      .dom('[data-test-link-logo-img]')
+      .hasAttribute('src', 'assets/icons/link.png')
+      .hasAttribute('alt', 'Link-Logo');
+    assert
+      .dom('[data-test-rds-logo-img]')
+      .hasAttribute('src', 'assets/icons/rds-logo.jpg')
+      .hasAttribute('alt', 'RDS-Logo');
   });
 });

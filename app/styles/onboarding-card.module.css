@@ -12,7 +12,7 @@
     box-shadow: 0px 4px 10px -2px rgba(16, 24, 40, 0.06), 0px 6px 15px -2px rgba(16, 24, 40, 0.10);
 }
 
-.onboarding-card-rds-logo-img{
+.signup-details__rds-logo{
     display: block;
     position: absolute;
     transform: translateX(-50%);
@@ -29,11 +29,11 @@
     left: 50%;
     top: 3%;
 }
-.github-logo{
+.logo--github{
     padding: 7px;
 }
 
-.link-logo{
+.logo--link{
     position: absolute;
     top: 35%;
     left: 44%;
@@ -41,14 +41,14 @@
     height: 30%;
 }
 
-.logos{
-    width: 50px;
-    height: 50px;
-}
-
-.rds-logo{
+.logo--rds{
     margin-left: 6%;
     padding: 7px;
+}
+
+.logo__img--link{
+    width: 50px;
+    height: 50px;
 }
 
 .signup-page-heading{
@@ -73,22 +73,22 @@
         padding: 56px 16px;
         margin-top: -5rem;
     }
-    .onboarding-card-rds-logo-img{
+    .signup-details__rds-logo{
         width: 80px;
         height: 80px;
     }
 
-    .g-logo{
+    .logo__img--github{
         height: 75px;
         width: 80px;
     }
 
-    .logo{
+    .logo__img--rds{
         width: 80px;
         height: 80px;
     }
 
-    .logos {
+    .logo__img--link{
         width: 45px;
         height: 40px;
     }

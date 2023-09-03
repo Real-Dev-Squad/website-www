@@ -1,25 +1,33 @@
 <OnboardingCard>
   {{#if (eq this.currentStep 0)}}
     <div class='logos-container'>
-      <div class='github-logo'>
+      <div class='logo logo--github'>
         <img
           src='assets/icons/github-logo.png'
           alt='GitHub-Logo'
-          class='g-logo'
+          class='logo__img--github'
         />
       </div>
-      <div class='link-logo'>
-        <img src='assets/icons/link.png' alt='s' class='logos' />
+      <div class='logo logo--link'>
+        <img
+          src='assets/icons/link.png'
+          alt='Link-Logo'
+          class='logo__img--link'
+        />
       </div>
-      <div class='rds-logo'>
-        <img src='assets/icons/rds-logo.jpg' alt='RDS-Logo' class='logo' />
+      <div class='logo logo--rds'>
+        <img
+          src='assets/icons/rds-logo.jpg'
+          alt='RDS-Logo'
+          class='logo__img--rds'
+        />
       </div>
     </div>
   {{else if (eq this.currentStep 1)}}
     <img
       src='assets/icons/rds-logo.jpg'
       alt='rds-logo'
-      class='onboarding-card-rds-logo-img'
+      class='signup-details__rds-logo'
     />
     <h3 class='signup-page-heading'>Sign up to your account</h3>
     <SignupSteps::StepOne @onChange={{this.handleInputChange}} />

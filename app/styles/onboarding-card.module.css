@@ -51,6 +51,15 @@
     margin-left: 6%;
     padding: 7px;
 }
+
+.signup-page-heading{
+    color: var(--neutral-neutral-700, #272626);
+    text-align: center;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; 
+}
 @media (max-width: 800px) {
     .onboarding-card{
         min-width: 60vh;

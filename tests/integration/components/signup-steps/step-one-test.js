@@ -7,7 +7,25 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | signup-steps/step-one', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('render firstname input field', async function (assert) {
+  test('RealSevSquad logo render on signupDetails page', async function (assert) {
+    assert.expect(3);
+    await render(hbs`<SignupSteps::StepOne/>`);
+    assert.dom('[data-test-rds-logo]').exists();
+    assert
+      .dom('[data-test-rds-logo]')
+      .hasAttribute('src', 'assets/icons/rds-logo.jpg')
+      .hasAttribute('alt', 'RDS-Logo');
+  });
+
+  test('heading render on signupDetails page', async function (assert) {
+    assert.expect(1);
+    await render(hbs`<SignupSteps::StepOne/>`);
+    assert
+      .dom('[data-test-required-heading]')
+      .hasText('Sign up to your account');
+  });
+
+  test('render firstname input field on signupDetails page', async function (assert) {
     assert.expect(13);
     this.set('name', 'firstname');
     this.set('field', 'First Name');

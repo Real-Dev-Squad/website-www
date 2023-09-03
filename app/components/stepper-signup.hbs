@@ -1,7 +1,26 @@
 <OnboardingCard>
   {{#if (eq this.currentStep 0)}}
-    <h1>Hello world</h1>
+    <div class='logos-container'>
+      <div class='github-logo'>
+        <img
+          src='assets/icons/github-logo.png'
+          alt='GitHub-Logo'
+          class='logo'
+        />
+      </div>
+      <div class='link-logo'>
+        <img src='assets/icons/link.png' alt='s' class='logos' />
+      </div>
+      <div class='rds-logo'>
+        <img src='assets/icons/rds-logo.jpg' alt='RDS-Logo' class='logo' />
+      </div>
+    </div>
   {{else if (eq this.currentStep 1)}}
+    <img
+      src='assets/icons/rds-logo.jpg'
+      alt='rds-logo'
+      class='onboarding-card-rds-logo-img'
+    />
     <SignupSteps::StepOne @onChange={{this.handleInputChange}} />
   {{/if}}
 </OnboardingCard>

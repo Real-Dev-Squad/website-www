@@ -6,15 +6,15 @@
 .user-input {
   font-weight: 300;
   font-size: 1rem;
-  width: 34.5rem;
+  width: 25rem;
   line-height: 32px;
-  border-radius: 10px;
   margin-top: 0.5rem;
   padding: 0 0.5rem;
-  background-color: var(--color-white);
-  border: 3px solid var(--color-navyblue);
   outline: none;
   transition: all 0.1s;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-neutral-500, #ABABAB);
+  background: var(--White, #FFF);
 }
 
 .user-input:focus {

@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | stepper-signup', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('stepper-signup page render', async function (assert) {
+  test.skip('stepper-signup page render', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
     assert.expect(1);

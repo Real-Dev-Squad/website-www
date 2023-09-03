@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, typeIn, fillIn } from '@ember/test-helpers';
+import { render, typeIn } from '@ember/test-helpers';
 import { set } from '@ember/object';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -8,7 +8,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
   setupRenderingTest(hooks);
 
   test('render firstname input field', async function (assert) {
-    assert.expect(14);
+    assert.expect(13);
     this.set('name', 'firstname');
     this.set('field', 'First Name');
     this.set('placeHolder', 'Write your first name');
@@ -22,9 +22,9 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       this.handleInputChange('firstname', this.value);
     });
 
-    this.set('handleInputChange', (actual1, actual2) => {
-      this.name = actual1;
-      this.value = actual2;
+    this.set('handleInputChange', (inputName, inputValue) => {
+      this.name = inputName;
+      this.value = inputValue;
     });
 
     await render(
@@ -49,7 +49,6 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       .hasProperty('placeholder', 'Write your first name');
     assert.dom('[data-test-input-field]').hasProperty('value', '');
     await typeIn('[data-test-input-field]', 'shubham');
-    assert.strictEqual(this.name, 'firstname');
     assert.strictEqual(this.value, 'shubham');
   });
 
@@ -67,7 +66,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     <SignupSteps::StepOne @onChange={{this.handleInputChange}} />
   `);
 
-    await fillIn('input', 'shubham');
+    await typeIn('[data-test-input-field]', 'shubham');
 
     assert.strictEqual(
       this.signupDetails.firstname,

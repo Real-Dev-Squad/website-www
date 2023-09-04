@@ -10,8 +10,11 @@
         <h3 class='archived__heading'>Archived User</h3>
       </OnboardingCard>
     {{else}}
-      {{! <Stepper /> }}
-      <StepperSignup />
+      {{#if this.isDevMode}}
+        <StepperSignup />
+      {{else}}
+        <Stepper />
+      {{/if}}
     {{/if}}
   {{/if}}
 </section>

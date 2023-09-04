@@ -16,15 +16,15 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
     assert.dom('[data-test-rds-logo]').exists();
     assert
       .dom('[data-test-github-logo-img]')
-      .hasAttribute('src', 'assets/icons/github-logo.png')
+      .hasAttribute('src', 'assets/icons/onboarding-card-github-logo.png')
       .hasAttribute('alt', 'GitHub-Logo');
     assert
       .dom('[data-test-link-logo-img]')
-      .hasAttribute('src', 'assets/icons/link.png')
+      .hasAttribute('src', 'assets/icons/link-logo.png')
       .hasAttribute('alt', 'Link-Logo');
     assert
       .dom('[data-test-rds-logo-img]')
-      .hasAttribute('src', 'assets/icons/rds-logo.jpg')
+      .hasAttribute('src', 'assets/icons/onboarding-card-rds-logo.png')
       .hasAttribute('alt', 'RDS-Logo');
   });
 });

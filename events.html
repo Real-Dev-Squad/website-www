@@ -1,209 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Upcoming Events" />
+    <meta
+      property="og:description"
+      content="Events on important concepts a Web Developer should know about."
+    />
+    <meta
+      property="og:image"
+      content="https://www.realdevsquad.com/img/events/Sagar_Poster.png"
+    />
+    <meta
+      property="og:url"
+      content="https://www.realdevsquad.com/events.html"
+    />
 
-  <meta property="og:title" content="Upcoming Events" />
-  <meta property="og:description" content="Events on important concepts a Web Developer should know about." />
-  <meta property="og:image" content="https://www.realdevsquad.com/img/events/Sagar_Poster.png" />
-  <meta property="og:url" content="https://www.realdevsquad.com/events.html" />
+    <meta property="og:title" content="Upcoming Events" />
+    <meta
+      property="og:description"
+      content="Events on important concepts a Web Developer should know about."
+    />
+    <meta
+      property="og:image"
+      content="https://www.realdevsquad.com/img/events/Vishwanath_Eventloop.png"
+    />
+    <meta
+      property="og:url"
+      content="https://www.realdevsquad.com/events.html"
+    />
 
-  <meta property="og:title" content="Upcoming Events" />
-  <meta property="og:description" content="Events on important concepts a Web Developer should know about." />
-  <meta property="og:image" content="https://www.realdevsquad.com/img/events/Vishwanath_Eventloop.png" />
-  <meta property="og:url" content="https://www.realdevsquad.com/events.html" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>
+      Web Mini-Conference | Important concepts a Web Developer should know
+    </title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/events.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-  <title>
-    Web Mini-Conference | Important concepts a Web Developer should know
-  </title>
-  <link rel="stylesheet" href="./css/main.css" />
-  <link rel="stylesheet" href="./css/events.css" />
-  <link rel="stylesheet" href="./css/navbar.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,400&display=swap"
-    rel="stylesheet" />
+    <script src="/js/analytics.js"></script>
 
-  <script src="/js/analytics.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YRG12HRZKB"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YRG12HRZKB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+      gtag('config', 'G-YRG12HRZKB');
+    </script>
+  </head>
 
-    gtag('config', 'G-YRG12HRZKB');
-  </script>
-</head>
-
-<body>
-  <div class="dropdown hide" id="dropdown"></div>
-  <nav>
-    <div class="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <div class="nav-login">
-      <a class="btn-login" href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97">
-        <button class="btn-login-text">
-          Sign In
-          <img src="img/github.png" alt="GitHub Icon" height="15px" width="15px" />
-        </button>
-      </a>
-      <div class="user-greet">
-        <a href="https://my.realdevsquad.com/">
-          <div class="user-greet-msg">Hello, User!</div>
-          <img class="user-profile-pic" />
-        </a>
+  <body>
+    <div class="dropdown hide" id="dropdown"></div>
+    <nav>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
-    </div>
-    <ul class="nav-menu">
-      <li class="nav-logo-li">
-        <a href="https://www.realdevsquad.com/">
-          <img src="img/Real-Dev-Squad@1x.png" alt="home nav logo" height="50px" width="50px" />
-        </a>
-      </li>
-      <li class="home-tab">
-        <a href="http://www.realdevsquad.com/">Home</a>
-      </li>
-      <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
-      <li><a class="active-tab" href="">Events</a></li>
-      <li><a href="https://members.realdevsquad.com/">Members</a></li>
-      <!-- <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li> -->
-      <li><a href="https://status.realdevsquad.com/">Status</a></li>
-
-      <li class="nav-login-li">
-        <a class="btn-login" href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97">
+      <div class="nav-login">
+        <a
+          class="btn-login"
+          href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+        >
           <button class="btn-login-text">
-            Sign In With GitHub
-            <img src="img/github.png" alt="GitHub Icon" height="15px" width="15px" />
+            Sign In
+            <img
+              src="img/github.png"
+              alt="GitHub Icon"
+              height="15px"
+              width="15px"
+            />
           </button>
         </a>
         <div class="user-greet">
-          <div class="user-greet-msg">Hello, User!</div>
-          <img class="user-profile-pic" />
-        </div>
-      </li>
-    </ul>
-  </nav>
-
-  <main class="wrapper">
-    <a href="https://www.realdevsquad.com/" rel="noopener noreferrer">
-      <img class="logo-img" src="img/Real-Dev-Squad@1x.png" alt="Real Dev Squad logo" />
-    </a>
-    <section class="event-details">
-      <h2 class="event-upcoming">Past Events</h2>
-    </section>
-
-    <div class="session-wrapper">
-      <div class="session-info">
-        <h1 class="event-title">APIs made Easier</h1>
-        <h3 class="event-date-time">
-          Building backend services can be challenging, but at Real Dev Squad,
-          our members tackle interesting problems regularly.
-        </h3>
-        <h3 class="event-date-time">Sunday, April 25th 2021, 12:00pm IST</h3>
-        <h2 class="speaker-name">
-          Swaraj Rajpure
-          <span class="speaker-social-info linkedin-info">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/swarajrajpure/">
-              <img class="social-media-logo" src="img/linkedin512.png" alt="LinkedIn logo" />
-            </a>
-          </span>
-        </h2>
-        <h3 class="speaker-info">App Owner | My Site</h3>
-        <ul class="highlights">
-          <li>NoSQL</li>
-          <li>Google Firestore</li>
-          <li>Setup</li>
-          <li>CRUD basics</li>
-        </ul>
-        <h2 class="speaker-name">
-          Ankur Narkhede
-          <span class="speaker-social-info linkedin-info">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ankurnarkhede/">
-              <img class="social-media-logo" src="img/linkedin512.png" alt="LinkedIn logo" />
-            </a>
-          </span>
-        </h2>
-        <h3 class="speaker-info">App Owner | Backend</h3>
-        <ul class="highlights">
-          <li>Using Postman</li>
-          <li>API Testing</li>
-          <li>Monitoring</li>
-          <li>Documentation</li>
-          <li>Mocking</li>
-        </ul>
-
-        <div class="cta-button__container">
-          <a type="button " class="cta-button" href="https://www.airmeet.com/e/d158eec0-a336-11eb-9591-73ebfdac98bb"
-            target="_blank">
-            <span> Register & grab your seat! </span>
+          <a href="https://my.realdevsquad.com/">
+            <div class="user-greet-msg">Hello, User!</div>
+            <img class="user-profile-pic" />
           </a>
         </div>
       </div>
-    </div>
-
-    <div class="session-wrapper">
-      <div class="session-info">
-        <h1 class="event-title">Perfecting Event Loops</h1>
-        <h3 class="event-date-time">
-          Event Loop is an important core concept for web developers and
-          interview questions
-        </h3>
-        <h3 class="event-date-time">August 9th 2021, 4pm IST</h3>
-        <h2 class="speaker-name">
-          Vishwanath Arondekar
-          <span class="speaker-social-info linkedin-info">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/vishwanath-arondekar/">
-              <img class="social-media-logo" src="img/linkedin512.png" alt="LinkedIn logo" />
-            </a>
-          </span>
-        </h2>
-        <h3 class="speaker-info">SDE-III, Dream11 (EX-Disney+Hotstar)</h3>
-        <ul class="highlights">
-          <li>What the hell is event loop?</li>
-          <li>JS is single threaded?</li>
-          <li>Stack, heap, queue?</li>
-          <li>setTimeout and Promises</li>
-          <li>Gotchas with event loop</li>
-        </ul>
-        <div class="cta-button__container">
-          <a type="button " class="cta-button" href="https://airmeet.com/e/b8921040-d5f7-11ea-b1be-e5df193dc3b9"
-            target="_blank">
-            <span> Register & grab your seat! </span>
+      <ul class="nav-menu">
+        <li class="nav-logo-li">
+          <a href="https://www.realdevsquad.com/">
+            <img
+              src="img/Real-Dev-Squad@1x.png"
+              alt="home nav logo"
+              height="50px"
+              width="50px"
+            />
           </a>
-        </div>
-      </div>
-    </div>
-  </main>
+        </li>
+        <li class="home-tab">
+          <a href="http://www.realdevsquad.com/">Home</a>
+        </li>
+        <li><a href="https://welcome.realdevsquad.com/">Welcome</a></li>
+        <li><a class="active-tab" href="">Events</a></li>
+        <li><a href="https://members.realdevsquad.com/">Members</a></li>
+        <!-- <li><a href="https://crypto.realdevsquad.com/">Crypto</a></li> -->
+        <li><a href="https://status.realdevsquad.com/">Status</a></li>
 
-  <footer>
-    <h3 class="info-note">
-      To know how this page is getting developed, join our Discord Channel.
-      Contact one of the existing members
-    </h3>
-    <p class="info-repo">
-      The contents of this website are deployed from this
-      <a href="https://github.com/Real-Dev-Squad/website" target="_blank" rel="noopener noreferrer">
-        open sourced repo
+        <li class="nav-login-li">
+          <a
+            class="btn-login"
+            href="https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97"
+          >
+            <button class="btn-login-text">
+              Sign In With GitHub
+              <img
+                src="img/github.png"
+                alt="GitHub Icon"
+                height="15px"
+                width="15px"
+              />
+            </button>
+          </a>
+          <div class="user-greet">
+            <div class="user-greet-msg">Hello, User!</div>
+            <img class="user-profile-pic" />
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="wrapper">
+      <a href="https://www.realdevsquad.com/" rel="noopener noreferrer">
+        <img
+          class="logo-img"
+          src="img/Real-Dev-Squad@1x.png"
+          alt="Real Dev Squad logo"
+        />
       </a>
-    </p>
-  </footer>
-  <script src="/js/utils.js"></script>
-  <script src="js/dropdown.js"></script>
-  <script type="module" src="js/user.js"></script>
-  <script src="js/navbar.js"></script>
-  <script src="js/darkmode.js"></script>
+      <section class="event-details">
+        <h2 class="event-upcoming">Past Events</h2>
+      </section>
 
-  <script type="module" src="js/fetchUserData.js" defer></script>
-</body>
+      <div class="session-wrapper">
+        <div class="session-info">
+          <h1 class="event-title">APIs made Easier</h1>
+          <h3 class="event-date-time">
+            Building backend services can be challenging, but at Real Dev Squad,
+            our members tackle interesting problems regularly.
+          </h3>
+          <h3 class="event-date-time">Sunday, April 25th 2021, 12:00pm IST</h3>
+          <h2 class="speaker-name">
+            Swaraj Rajpure
+            <span class="speaker-social-info linkedin-info">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/swarajrajpure/"
+              >
+                <img
+                  class="social-media-logo"
+                  src="img/linkedin512.png"
+                  alt="LinkedIn logo"
+                />
+              </a>
+            </span>
+          </h2>
+          <h3 class="speaker-info">App Owner | My Site</h3>
+          <ul class="highlights">
+            <li>NoSQL</li>
+            <li>Google Firestore</li>
+            <li>Setup</li>
+            <li>CRUD basics</li>
+          </ul>
+          <h2 class="speaker-name">
+            Ankur Narkhede
+            <span class="speaker-social-info linkedin-info">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/ankurnarkhede/"
+              >
+                <img
+                  class="social-media-logo"
+                  src="img/linkedin512.png"
+                  alt="LinkedIn logo"
+                />
+              </a>
+            </span>
+          </h2>
+          <h3 class="speaker-info">App Owner | Backend</h3>
+          <ul class="highlights">
+            <li>Using Postman</li>
+            <li>API Testing</li>
+            <li>Monitoring</li>
+            <li>Documentation</li>
+            <li>Mocking</li>
+          </ul>
 
+          <div class="cta-button__container">
+            <a
+              type="button "
+              class="cta-button"
+              href="https://www.airmeet.com/e/d158eec0-a336-11eb-9591-73ebfdac98bb"
+              target="_blank"
+            >
+              <span> Register & grab your seat! </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="session-wrapper">
+        <div class="session-info">
+          <h1 class="event-title">Perfecting Event Loops</h1>
+          <h3 class="event-date-time">
+            Event Loop is an important core concept for web developers and
+            interview questions
+          </h3>
+          <h3 class="event-date-time">August 9th 2021, 4pm IST</h3>
+          <h2 class="speaker-name">
+            Vishwanath Arondekar
+            <span class="speaker-social-info linkedin-info">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/vishwanath-arondekar/"
+              >
+                <img
+                  class="social-media-logo"
+                  src="img/linkedin512.png"
+                  alt="LinkedIn logo"
+                />
+              </a>
+            </span>
+          </h2>
+          <h3 class="speaker-info">SDE-III, Dream11 (EX-Disney+Hotstar)</h3>
+          <ul class="highlights">
+            <li>What the hell is event loop?</li>
+            <li>JS is single threaded?</li>
+            <li>Stack, heap, queue?</li>
+            <li>setTimeout and Promises</li>
+            <li>Gotchas with event loop</li>
+          </ul>
+          <div class="cta-button__container">
+            <a
+              type="button "
+              class="cta-button"
+              href="https://airmeet.com/e/b8921040-d5f7-11ea-b1be-e5df193dc3b9"
+              target="_blank"
+            >
+              <span> Register & grab your seat! </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <h3 class="info-note">
+        To know how this page is getting developed, join our Discord Channel.
+        Contact one of the existing members
+      </h3>
+      <p class="info-repo">
+        The contents of this website are deployed from this
+        <a
+          href="https://github.com/Real-Dev-Squad/website"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          open sourced repo
+        </a>
+      </p>
+    </footer>
+    <script src="/js/utils.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script type="module" src="js/user.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/darkmode.js"></script>
+
+    <script type="module" src="js/fetchUserData.js" defer></script>
+  </body>
 </html>

@@ -12,7 +12,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     await render(hbs`<SignupSteps::StepOne/>`);
     assert
       .dom('[data-test-rds-logo]')
-      .hasAttribute('src', 'assets/icons/rds-logo.jpg')
+      .hasAttribute('src', 'assets/icons/onboarding-card-rds-logo.png')
       .hasAttribute('alt', 'RDS-Logo');
   });
 

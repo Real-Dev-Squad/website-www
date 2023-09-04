@@ -28,7 +28,7 @@
 
 .label {
   color: var(--neutral-neutral-800, #1F1F1F);
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 550;
   line-height: 20px;

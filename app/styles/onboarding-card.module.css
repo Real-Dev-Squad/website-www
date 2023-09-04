@@ -29,11 +29,11 @@
     left: 50%;
     top: 3%;
 }
-.logo--github{
+.logos-container__github{
     padding: 0.5rem;
 }
 
-.logo--link{
+.logos-container__link{
     position: absolute;
     top: 35%;
     left: 42%;
@@ -41,7 +41,7 @@
     height: 30%;
 }
 
-.logo--rds{
+.logos-container__rds{
     margin-left: 1rem;
     padding: 0.5rem;
 }

@@ -8,7 +8,7 @@
     background-color: #FFF;
     border-radius: 24px;
     position: relative;
-    padding: 0px 16px;
+    padding: 0 1rem;
     box-shadow: 0px 4px 10px -2px rgba(16, 24, 40, 0.06), 0px 6px 15px -2px rgba(16, 24, 40, 0.10);
 }
 
@@ -21,7 +21,7 @@
 }
 
 .logos-container{
-    padding: 25px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -30,31 +30,31 @@
     top: 3%;
 }
 .logo--github{
-    padding: 7px;
+    padding: 0.5rem;
 }
 
 .logo--link{
     position: absolute;
     top: 35%;
-    left: 44%;
+    left: 42%;
     width: 20%;
     height: 30%;
 }
 
 .logo--rds{
-    margin-left: 6%;
-    padding: 7px;
+    margin-left: 1rem;
+    padding: 0.5rem;
 }
 
 .logo__img--link{
-    width: 50px;
-    height: 50px;
+    width: 3.2rem;
+    height: 3.2rem;
 }
 
 .signup-page-heading{
     color: var(--neutral-neutral-700, #272626);
     text-align: center;
-    font-size: 22px;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: 700;
     line-height: 24px; 
@@ -70,26 +70,26 @@
     .onboarding-card{
         min-height: 30vh;
         min-width: 75vw;
-        padding: 56px 16px;
+        padding: 3.5rem 1rem;
         margin-top: -5rem;
     }
     .signup-details__rds-logo{
-        width: 80px;
-        height: 80px;
+        width: 5rem;
+        height: 5rem;
     }
 
     .logo__img--github{
-        height: 75px;
-        width: 80px;
+        height: 5rem;
+        width: 5rem;
     }
 
     .logo__img--rds{
-        width: 80px;
-        height: 80px;
+        width: 5rem;
+        height: 5rem;
     }
 
     .logo__img--link{
-        width: 45px;
-        height: 40px;
+        width: 2.8rem;
+        height: 2.5rem;
     }
   }

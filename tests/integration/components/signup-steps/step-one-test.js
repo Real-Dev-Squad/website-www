@@ -33,9 +33,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     this.set('required', true);
     this.set('value', '');
     this.set('onInput', (e) => {
-      // Update the input value when the input changes
       this.value = e.target.value;
-      // Call handleInputChange with the current value
       this.handleInputChange('firstname', this.value);
     });
 

@@ -42,8 +42,8 @@
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: var(--color-pink);
-  color: white;
+  background-color: var(--color-sidebar);
+  color: var(--color-pink);
   border: none;
   width: 2rem;
   height: 2rem;

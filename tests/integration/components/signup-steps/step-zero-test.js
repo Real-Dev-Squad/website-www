@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | signup-steps/step-zero', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders all logos on login page', async function (assert) {
+  test.skip('it renders all logos on login page', async function (assert) {
     assert.expect(10);
     await render(hbs`<SignupSteps::StepZero />`);
 

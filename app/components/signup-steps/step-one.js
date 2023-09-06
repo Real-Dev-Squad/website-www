@@ -19,10 +19,10 @@ export default class SignupStepsStepOneComponent extends Component {
 
   @action async getUsername() {
     try {
-      const lowerCaseFirstname = this.data.firstname.toLowerCase();
-      const lowerCaseLastname = this.data.lastname.toLowerCase();
+      const firstname = this.data.firstname.toLowerCase();
+      const lastname = this.data.lastname.toLowerCase();
       const response = await fetch(
-        `http://localhost:3000/users/username?firstname=${lowerCaseFirstname}&lastname=${lowerCaseLastname}&dev=true`,
+        `http://localhost:3000/users/username?firstname=${firstname}&lastname=${lastname}&dev=true`,
         {
           method: 'GET',
           headers: {

@@ -19,6 +19,22 @@
       @peerToRemove={{this.peerToRemove.name}}
     />
   </BaseModal>
+  <BaseModal
+    @closeModal={{this.toggleRoomCodeModal}}
+    @openModal={{this.toggleRoomCodeModal}}
+    @isOpen={{this.isRoomCodeModalOpen}}
+    as |modal|
+  >
+    <RoomCodeModal
+      @roomCodes={{this.liveService.roomCodesForMaven}}
+      @closeModal={{modal.closeModal}}
+      @newCode={{this.newRoomCode}}
+      @onInput={{fn this.inputHandler 'newRoomCode'}}
+      @createRoomCode={{this.createRoomCodeHandler}}
+      @toast={{this.liveService.toast}}
+      @isLoading={{this.liveService.roomCodeLoading}}
+    />
+  </BaseModal>
   {{! TODO - add more else if statement instead of only else }}
   {{#if (eq this.activeTab 'Screenshare')}}
     {{#if this.liveService.isLoading}}
@@ -58,15 +74,26 @@
               @isCopied={{this.isCopied}}
               @role={{this.role}}
               @buttonClickHandler={{this.buttonClickHandler}}
+              @openRoomCodeModal={{this.toggleRoomCodeModal}}
             />
           {{/if}}
         </div>
       {{else}}
-        <LiveJoin
-          @name={{this.name}}
-          @inputHandler={{this.inputHandler}}
-          @clickHandler={{this.clickHandler}}
-        />
+        {{#if (eq this.role '')}}
+          <LiveRoles
+            @roles={{this.ROLES}}
+            @clickHandler={{this.selectRoleHandler}}
+          />
+        {{else}}
+          <LiveJoin
+            @role={{this.role}}
+            @name={{this.name}}
+            @roomCode={{this.roomCode}}
+            @inputHandler={{this.inputHandler}}
+            @clickHandler={{this.clickHandler}}
+            @backHandler={{this.backHandler}}
+          />
+        {{/if}}
       {{/if}}
     {{/if}}
   {{else}}

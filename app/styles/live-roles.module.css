@@ -1,0 +1,18 @@
+.card__subtitle {
+  margin: 1rem auto;
+}
+
+.live__roles {
+  display: flex;
+  flex-direction: column;
+}
+
+.live__roles > .btn {
+  width: 20rem;
+}
+
+@media screen and (max-width: 425px) {
+  .live__roles > .btn {
+    width: 11rem;
+  }
+}

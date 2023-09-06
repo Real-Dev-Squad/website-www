@@ -1,2 +1,20 @@
 {{page-title 'Join'}}
-<StepperSignup />
+<section class='join__container'>
+  {{#if this.login.isLoading}}
+    <div data-test-loading class='intro__loading'>
+      <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
+    </div>
+  {{else}}
+    {{#if this.login.userData.roles.archived}}
+      <OnboardingCard>
+        <h3 class='archived__heading'>Archived User</h3>
+      </OnboardingCard>
+    {{else}}
+      {{#if this.isDevMode}}
+        <StepperSignup />
+      {{else}}
+        <Stepper />
+      {{/if}}
+    {{/if}}
+  {{/if}}
+</section>

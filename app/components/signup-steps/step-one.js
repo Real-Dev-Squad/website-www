@@ -33,6 +33,7 @@ export default class SignupStepsStepOneComponent extends Component {
       );
       const data = await response.json();
       this.username = data.username;
+      this.args.setUsername(this.username);
     } catch (err) {
       console.log('Error: ', err);
     }

@@ -14,9 +14,15 @@ export default class StepperSignupComponent extends Component {
   @tracked signupDetails = {
     firstname: '',
     lastname: '',
+    username: '',
   };
 
   @action handleInputChange(key, value) {
     set(this.signupDetails, key, value);
+  }
+
+  @action setUsername(generateUsername) {
+    this.signupDetails.username = generateUsername;
+    console.log(this.signupDetails);
   }
 }

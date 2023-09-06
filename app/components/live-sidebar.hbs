@@ -4,18 +4,20 @@
     {{if this.isSideBarOpen "open" "close"}}
     {{if @isExpanded "sidebarCloses" "sidebarOpens"}}'
 >
-  <button
+  <IconifyIcon
+    @icon='ci:hamburger-lg'
     class='openbtn {{if @isExpanded "closeBtn"}}'
     type='button'
-    {{on 'click' this.sidebarPanel}}
-  >&#9776;</button>
+    {{on 'click' @sidebarDisplayToggle}}
+  />
 
   <div
     data-test-sidebar-participants
-    class='sidebar__participants {{if @isExpanded "sidebar__participantsHide"}}'
+    class='sidebar__participants
+      {{if @isExpanded "sidebar__participants--hide"}}'
   >
     <h4
-      class='{{if @isExpanded "participantsHeadingHide" ""}}'
+      class='{{if @isExpanded "participants__heading--hide" ""}}'
     >Participants</h4>
     <button
       data-test-sidebar-button

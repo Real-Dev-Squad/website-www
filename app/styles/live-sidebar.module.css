@@ -40,7 +40,7 @@
 }
 
 .openbtn {
-  font-size: 20px;
+  font-size: 1.2rem;
   cursor: pointer;
   background-color: var(--color-sidebar);
   color: var(--color-pink);
@@ -57,7 +57,7 @@
   margin-left: 8.3rem;
 }
 
-.participantsHeadingHide {
+.participants__heading--hide {
   display: none;
 }
 
@@ -79,7 +79,7 @@
   box-sizing: border-box;
 }
 
-.sidebar__participantsHide {
+.sidebar__participants--hide {
   display: none;
 }
 

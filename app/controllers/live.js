@@ -37,7 +37,7 @@ export default class LiveController extends Controller {
     }, 4000);
   }
 
-  @action sidebarPanel() {
+  @action sidebarDisplayToggle() {
     this.isExpanded = !this.isExpanded;
   }
 

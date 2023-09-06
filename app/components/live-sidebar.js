@@ -12,10 +12,6 @@ export default class LiveHeaderComponent extends Component {
     this.isSideBarOpen = !this.isSideBarOpen;
   }
 
-  @action sidebarPanel() {
-    this.args.sidebarPanel();
-  }
-
   get liveService() {
     return getOwner(this).lookup('service:live');
   }

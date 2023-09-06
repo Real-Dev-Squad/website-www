@@ -1,59 +1,35 @@
-.onboarding-card{
+.onboarding-card {
     min-height: 55vh;
-    min-width: 40vw;
+    max-width: 40vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #FFF;
+    background-color: var(--color-white);
     border-radius: 24px;
     position: relative;
     margin-top: 4rem;
     padding: 0 1rem;
-    box-shadow: 0px 4px 10px -2px rgba(16, 24, 40, 0.06), 0px 6px 15px -2px rgba(16, 24, 40, 0.10);
+    box-shadow: 0px 4px 10px -2px var(--color-blackshadow), 0px 6px 15px -2px var(--color-blackshadow2);
 }
 
-.signup-details__rds-logo{
+.signup-details__rds-logo {
     display: block;
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
-    top: -10%;
+    top: -15%;
 }
 
-.logos-container{
-    padding: 1.5rem;
+.logos-container__rds {
     display: flex;
-    flex-direction: row;
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    top: 3%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 2rem;
 }
 
-.logos-container__github{
-    padding: 0.5rem;
-}
-
-.logos-container__link{
-    position: absolute;
-    top: 35%;
-    left: 42%;
-    width: 20%;
-    height: 30%;
-}
-
-.logos-container__rds{
-    margin-left: 1rem;
-    padding: 0.5rem;
-}
-
-.logo__img--link{
-    width: 3.2rem;
-    height: 3.2rem;
-}
-
-.signup-page-heading{
+.signup-page-heading {
     color: var(--neutral-neutral-700, #272626);
     text-align: center;
     font-size: 1.4rem;
@@ -64,18 +40,20 @@
 }
 
 @media (max-width: 800px) {
-    .onboarding-card{
+    .onboarding-card {
         min-width: 60vh;
     }
 }
 
 
 @media (max-width: 625px) {
-    .onboarding-card{
+    .onboarding-card {
+        min-height: 30vh;
         min-width: 75vw;
         padding: 3.5rem 1rem;
     }
-    .signup-details__rds-logo{
+
+    .signup-details__rds-logo {
         width: 5rem;
         height: 5rem;
         top: -7%;
@@ -85,17 +63,17 @@
         padding-top: 0;
     }
 
-    .logo__img--github{
+    .logo__img--github {
         height: 5rem;
         width: 5rem;
     }
 
-    .logo__img--rds{
+    .logo__img--rds {
         width: 5rem;
         height: 5rem;
     }
 
-    .logo__img--link{
+    .logo__img--link {
         width: 2.8rem;
         height: 2.5rem;
     }

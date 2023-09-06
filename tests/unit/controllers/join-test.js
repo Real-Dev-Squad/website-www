@@ -11,6 +11,6 @@ module('Unit | Controller | join', function (hooks) {
 
   test('it has queryParams', function (assert) {
     let controller = this.owner.lookup('controller:join');
-    assert.deepEqual(controller.queryParams, ['step']);
+    assert.deepEqual(controller.queryParams, ['step', 'dev']);
   });
 });

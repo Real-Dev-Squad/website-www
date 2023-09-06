@@ -1,10 +1,9 @@
 <OnboardingCard>
+  <form>
   {{#if (eq this.currentStep 0)}}
-    <SignupSteps::StepZero />
+    <SignupSteps::StepZero @currentStep={{this.currentStep}} @letsGoHandler={{this.letsGoHandler}}/>
   {{else if (eq this.currentStep 1)}}
-    <SignupSteps::StepOne
-      @onChange={{this.handleInputChange}}
-      @setUsername={{this.setUsername}}
-    />
+    <SignupSteps::StepOne @onChange={{this.handleInputChange}} @setUsername={{this.setUsername}} @currentStep={{this.currentStep}}/>
   {{/if}}
+</form>
 </OnboardingCard>

@@ -24,13 +24,10 @@ export default class SignupStepsStepZeroComponent extends Component {
 
   @action letsGoHandler() {
     if (this.login.isLoggedIn && !this.login.isLoading) {
-      // Get the current query parameters
       const queryParams = this.router.currentRoute.queryParams;
-      // Include dev=true and set step to 1
       queryParams.dev = true;
       queryParams.step = 1;
 
-      // Use Ember router to transition to the next step with both query parameters
       this.router.transitionTo('join', {
         queryParams,
       });

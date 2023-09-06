@@ -77,7 +77,7 @@ module('Integration | Component | live-participants', function (hooks) {
 
   test('renders host name In the stream ', async function (assert) {
     this.setProperties({
-      peers: mavenPeerData,
+      peers: hostPeer,
       profilePic: 'profilepicurl',
       isKickoutModalOpen: true,
     });

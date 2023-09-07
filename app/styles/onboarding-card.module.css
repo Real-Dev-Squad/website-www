@@ -47,7 +47,7 @@
 
 
 @media (max-width: 625px) {
-    .onboarding-card {
+    .onboarding-card{
         min-height: 30vh;
         min-width: 75vw;
         padding: 3.5rem 1rem;

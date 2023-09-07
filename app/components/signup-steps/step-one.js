@@ -5,13 +5,19 @@ import { debounce } from '@ember/runloop';
 import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 
 export default class SignupStepsStepOneComponent extends Component {
-  @tracked data = {};
+  @tracked data = { firstname: '', lastname: '' };
+  @tracked isValid = true;
   @tracked username = '';
   @action inputHandler(e) {
     const { onChange } = this.args;
     const passVal = () => {
       this.data = { ...this.data, [e.target.name]: e.target.value };
       onChange(e.target.name, e.target.value);
+      if (this.data.firstname.trim() > '' && this.data.lastname.trim() > '') {
+        this.isValid = false;
+      } else {
+        this.isValid = true;
+      }
     };
 
     debounce(this.data, passVal, JOIN_DEBOUNCE_TIME);

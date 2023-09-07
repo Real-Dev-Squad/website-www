@@ -1,18 +1,18 @@
 .select {
   font-weight: 300;
   font-size: 1rem;
-  width: 35.875rem;
+  width: 31rem;
   height: 3.125rem;
   display: flex;
   justify-content: space-between;
   line-height: 32px;
-  border-radius: 9px;
   margin-top: 0.2rem;
   padding: 0 0.5rem;
-  background-color: var(--color-white);
-  border: 3px solid var(--color-navyblue);
   outline: none;
   transition: all 0.1s;
+  border-radius: 8px;
+  border: 1px solid var( --color-shade-grey);
+  background: var(--color-white);
 }
 
 .select:focus {

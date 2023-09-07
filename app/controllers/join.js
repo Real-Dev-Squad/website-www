@@ -4,5 +4,11 @@ import { inject as service } from '@ember/service';
 export default class JoinController extends Controller {
   @service router;
   @service login;
+  @service featureFlag;
+
   queryParams = ['step'];
+
+  get isDevMode() {
+    return this.featureFlag.isDevMode;
+  }
 }

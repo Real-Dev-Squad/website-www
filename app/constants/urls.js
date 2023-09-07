@@ -1,7 +1,9 @@
 import ENV from 'website-www/config/environment';
 
 const SCHEME = 'https://';
+const DEVELOPMENT_SCHEME = 'http://';
 const DOMAIN = 'realdevsquad.com';
+const DEVELOPMENT_DOMAIN = 'localhost:3000';
 
 const APP_URLS = {
   production: {
@@ -29,7 +31,7 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
     PROFILE: `${SCHEME}staging-my.${DOMAIN}`,
-    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
+    API_BACKEND: `${DEVELOPMENT_SCHEME}${DEVELOPMENT_DOMAIN}`,
   },
   test: {
     HOME: `${SCHEME}${DOMAIN}`,

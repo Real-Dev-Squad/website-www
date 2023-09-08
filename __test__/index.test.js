@@ -4,7 +4,7 @@ const timeout = 25000;
 describe('Dummy Test ', () => {
   beforeAll(async () => {
     browser = await puppeteer.launch({
-      headless: "new"
+      headless: 'new',
     });
     page = await browser.newPage();
     await page.goto('https://www.realdevsquad.com/', {

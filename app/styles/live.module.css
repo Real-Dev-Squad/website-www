@@ -17,6 +17,7 @@
 
 .live__video-container {
   width: 100%;
+  position: relative;
 }
 .live__video-container--show {
   width: 70%;

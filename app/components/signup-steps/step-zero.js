@@ -2,12 +2,19 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { AUTH } from '../../constants/urls';
+import { tracked } from '@glimmer/tracking';
 
 export default class SignupStepsStepZeroComponent extends Component {
   @service login;
   @service router;
   @service fastboot;
   @service store;
+  @service controller;
+  @tracked currentStep = 0;
+  constructor() {
+    super(...arguments);
+    localStorage.setItem('currentStep', 0);
+  }
 
   @action logingithub() {
     if (!this.login.isLoggedIn) {
@@ -19,18 +26,6 @@ export default class SignupStepsStepZeroComponent extends Component {
         : window.location.href;
       console.log(AUTH.SIGN_IN, 'signin');
       window.location.href = `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
-    }
-  }
-
-  @action letsGoHandler() {
-    if (this.login.isLoggedIn && !this.login.isLoading) {
-      const queryParams = this.router.currentRoute.queryParams;
-      queryParams.dev = true;
-      queryParams.step = 1;
-
-      this.router.transitionTo('join', {
-        queryParams,
-      });
     }
   }
 }

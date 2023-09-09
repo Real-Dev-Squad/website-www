@@ -16,7 +16,7 @@ export default class SignupStepsStepZeroComponent extends Component {
     localStorage.setItem('currentStep', 0);
   }
 
-  @action logingithub() {
+  @action loginwithgithub() {
     if (!this.login.isLoggedIn) {
       const currentURL = this.fastboot.isFastBoot
         ? this.fastboot.request.protocol +

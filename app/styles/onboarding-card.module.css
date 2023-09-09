@@ -21,17 +21,6 @@
     top: -15%;
 }
 
-/* .logos-container{
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    top: 3%;
-} */
-
-
 .logos-container__rds {
     display: flex;
     flex-direction: column;

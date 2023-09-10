@@ -35,3 +35,9 @@
 .btn--sm {
   width: 8rem;
 }
+
+.btn-generateUsername {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+}

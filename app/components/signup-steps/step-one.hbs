@@ -34,18 +34,12 @@
   @name='username'
   @placeHolder='e.g. shubham-sigdar'
   @type='text'
-  @classname='input-disable'
+  @classDisableInput='input-disable'
   @required={{true}}
   @value={{this.username}}
+  @isValid={{this.isValid}}
+  @hasButtonInsideInput={{true}}
   @onInput={{this.inputHandler}}
+  @onClickGetUsername={{this.getUsername}}
   @disabled={{true}}
-/>
-
-<Reusables::Button
-  @text='Generate Username'
-  @variant='dark'
-  @onClick={{this.getUsername}}
-  @disabled={{this.isValid}}
-  @test='submit'
-  @type='button'
 />

@@ -11,6 +11,9 @@ describe('Dummy Test ', () => {
       waitUntil: 'domcontentloaded',
     });
   });
+  afterAll(async () => {
+    await browser.close();
+  });
   test(
     'Page title',
     async () => {

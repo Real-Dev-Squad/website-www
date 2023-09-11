@@ -16,6 +16,7 @@
   @required={{true}}
   @value={{this.data.firstname}}
   @onInput={{this.inputHandler}}
+  @hasButtonInsideInput={{false}}
   @disabled={{false}}
 />
 <Reusables::InputBox
@@ -26,6 +27,7 @@
   @required={{true}}
   @value={{this.data.lastname}}
   @onInput={{this.inputHandler}}
+  @hasButtonInsideInput={{false}}
   @disabled={{false}}
 />
 
@@ -34,12 +36,12 @@
   @name='username'
   @placeHolder='e.g. shubham-sigdar'
   @type='text'
-  @classDisableInput='input-disable'
   @required={{true}}
   @value={{this.username}}
   @isValid={{this.isValid}}
   @hasButtonInsideInput={{true}}
-  @onInput={{this.inputHandler}}
+  @classDisableInput='input-disable'
   @onClickGetUsername={{this.getUsername}}
+  @onInput={{this.inputHandler}}
   @disabled={{true}}
 />

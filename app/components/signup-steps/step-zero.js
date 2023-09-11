@@ -24,7 +24,6 @@ export default class SignupStepsStepZeroComponent extends Component {
           this.fastboot.request.host +
           this.fastboot.request.path
         : window.location.href;
-      console.log(AUTH.SIGN_IN, 'signin');
       window.location.href = `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
     }
   }

@@ -12,7 +12,7 @@
     @text="Let's Go"
     @variant='dark'
     @onClick={{@letsGoHandler}}
-    @test='start'
+    @test='lets-go'
     @type='button'
   />
   {{else if  (not this.login.isLoggedIn)}}
@@ -21,7 +21,7 @@
     @text='login'
     @variant='dark'
     @onClick={{this.loginwithgithub}}
-    @test='start'
+    @test='login'
     @type='button'
   />
 {{/if}}

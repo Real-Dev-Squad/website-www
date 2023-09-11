@@ -140,4 +140,25 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       .dom('[data-test-button=generateUsername]')
       .hasProperty('disabled', true);
   });
+
+  test('generateUsername button is enabled when firstname and lastname input fields are not empty', async function (assert) {
+    assert.expect(1);
+    this.set('onInput', (e) => {
+      this.value = e.target.value;
+      this.handleInputChange('firstname', this.value);
+      this.handleInputChange('lastname', this.value);
+    });
+    this.set('handleInputChange', (inputName, inputValue) => {
+      this.name = inputName;
+      this.value = inputValue;
+    });
+    await render(
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}}/>`
+    );
+    await typeIn('[data-test-input-field=firstname]', 'shubham');
+    await typeIn('[data-test-input-field=lastname]', 'sigdar');
+    assert
+      .dom('[data-test-button=generateUsername]')
+      .hasProperty('disabled', false);
+  });
 });

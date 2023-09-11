@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { debounce } from '@ember/runloop';
 import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
-
+import { APPS } from '../../constants/urls';
 export default class SignupStepsStepOneComponent extends Component {
   @tracked data = { firstname: '', lastname: '' };
   @tracked isValid = true;
@@ -28,7 +28,7 @@ export default class SignupStepsStepOneComponent extends Component {
       const firstname = this.data.firstname.toLowerCase();
       const lastname = this.data.lastname.toLowerCase();
       const response = await fetch(
-        `http://localhost:3000/users/username?firstname=${firstname}&lastname=${lastname}&dev=true`,
+        `${APPS.API_BACKEND}/users/username?firstname=${firstname}&lastname=${lastname}&dev=true`,
         {
           method: 'GET',
           headers: {

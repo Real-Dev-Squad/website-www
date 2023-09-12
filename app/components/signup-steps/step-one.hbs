@@ -16,6 +16,7 @@
   @required={{true}}
   @value={{this.data.firstname}}
   @onInput={{this.inputHandler}}
+  @onKeyup={{this.avoidNumbersAndSpaces}}
   @hasButtonInsideInput={{false}}
   @disabled={{false}}
 />
@@ -27,6 +28,7 @@
   @required={{true}}
   @value={{this.data.lastname}}
   @onInput={{this.inputHandler}}
+  @onKeyup={{this.avoidNumbersAndSpaces}}
   @hasButtonInsideInput={{false}}
   @disabled={{false}}
 />
@@ -42,5 +44,6 @@
   @classDisableInput='input-disable'
   @onClickGetUsername={{this.getUsername}}
   @onInput={{this.inputHandler}}
+  @onKeyup={{this.avoidNumbersAndSpaces}}
   @disabled={{true}}
 />

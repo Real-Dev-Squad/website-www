@@ -11,8 +11,11 @@ export default class SignupStepsStepOneComponent extends Component {
   @action inputHandler(e) {
     const { onChange } = this.args;
     const passVal = () => {
-      this.data = { ...this.data, [e.target.name]: e.target.value };
-      onChange(e.target.name, e.target.value);
+      this.data = {
+        ...this.data,
+        [e.target.name]: e.target.value.toLowerCase(),
+      };
+      onChange(e.target.name, e.target.value.toLowerCase());
       if (this.data.firstname.trim() > '' && this.data.lastname.trim() > '') {
         this.isValid = false;
       } else {
@@ -32,8 +35,8 @@ export default class SignupStepsStepOneComponent extends Component {
 
   @action async getUsername() {
     try {
-      const firstname = this.data.firstname.toLowerCase();
-      const lastname = this.data.lastname.toLowerCase();
+      const firstname = this.data.firstname;
+      const lastname = this.data.lastname;
       const response = await fetch(
         `${APPS.API_BACKEND}/users/username?firstname=${firstname}&lastname=${lastname}&dev=true`,
         {

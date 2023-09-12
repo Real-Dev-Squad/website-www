@@ -24,11 +24,11 @@
 .input-disable {
   opacity: 1.5;
   pointer-events: none;
-  color: #777;
-  background-color: #f2f2f2;
+  color: var(--color-black);
+  background-color: var(--color-light-gray);
   box-shadow: none;
   cursor: not-allowed;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-gray);
 }
 
 .user-input:focus {

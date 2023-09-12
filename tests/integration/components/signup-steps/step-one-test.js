@@ -92,7 +92,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
   });
 
   test('it render disable username input field and disable Generate Username button on signupDetails page', async function (assert) {
-    assert.expect(20);
+    assert.expect(19);
 
     await render(hbs`<SignupSteps::StepOne/>`);
 

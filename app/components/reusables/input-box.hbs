@@ -17,7 +17,7 @@
     required={{@required}}
     value={{@value}}
     {{on 'input' @onInput}}
-    {{on 'keyup' @onKeyup}}
+    {{on 'keydown' @onKeydown}}
   />
   {{#if @hasButtonInsideInput}}
     <Reusables::Button

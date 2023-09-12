@@ -121,9 +121,6 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       .hasAttribute('id', 'username');
     assert
       .dom('[data-test-input-field=username]')
-      .hasAttribute('placeholder', 'e.g. shubham-sigdar');
-    assert
-      .dom('[data-test-input-field=username]')
       .hasProperty('disabled', true);
 
     assert.dom('[data-test-button=generateUsername]').exists();

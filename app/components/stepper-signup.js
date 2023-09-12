@@ -23,6 +23,5 @@ export default class StepperSignupComponent extends Component {
 
   @action setUsername(generateUsername) {
     this.signupDetails.username = generateUsername;
-    console.log(this.signupDetails);
   }
 }

@@ -37,7 +37,7 @@ export default class StepperSignupComponent extends Component {
       this.router.transitionTo('join', { queryParams });
     }
   }
-  
+
   @action letsGoHandler() {
     if (this.login.isLoggedIn && !this.login.isLoading) {
       this.incrementStep();

@@ -11,10 +11,6 @@ export default class SignupStepsStepZeroComponent extends Component {
   @service store;
   @service controller;
   @tracked currentStep = 0;
-  constructor() {
-    super(...arguments);
-    localStorage.setItem('currentStep', 0);
-  }
 
   @action loginwithgithub() {
     if (!this.login.isLoggedIn) {

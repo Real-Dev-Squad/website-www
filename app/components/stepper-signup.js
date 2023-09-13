@@ -28,8 +28,7 @@ export default class StepperSignupComponent extends Component {
   @action incrementStep() {
     if (this.currentStep < 5) {
       this.currentStep += 1;
-      const queryParams = { dev: true, step: 1 };
-      localStorage.setItem('currentStep', this.currentStep);
+      const queryParams = { dev: true, step: this.currentStep };
       this.router.transitionTo('join', { queryParams });
     }
   }

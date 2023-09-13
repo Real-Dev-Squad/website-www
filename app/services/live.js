@@ -232,7 +232,6 @@ export default class LiveService extends Service {
           }),
         }
       );
-      console.log(this.isUserRemoved);
       const data = await response.json();
       if (response.status === 200 && data) {
         this.toast.success(data?.message, 'Success!', TOAST_OPTIONS);
@@ -245,7 +244,6 @@ export default class LiveService extends Service {
       this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     } finally {
       this.isUserRemoved = false;
-      console.log(this.isUserRemoved);
     }
   }
 

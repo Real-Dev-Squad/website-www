@@ -15,12 +15,12 @@
     @test='lets-go'
     @type='button'
   />
-  {{else if  (not this.login.isLoggedIn)}}
+  {{else}}
   <p class="signup-page-heading" data-test-signup-heading>You are not logged in. Please log in to continue...</p>
   <Reusables::Button
     @text='login'
     @variant='dark'
-    @onClick={{this.loginwithgithub}}
+    @onClick={{this.loginWithGithub}}
     @test='login'
     @type='button'
   />

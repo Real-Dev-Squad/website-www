@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 class LoginStub extends Service {
   @tracked isLoggedIn = false;
 
-  loginwithgithub() {
+  loginWithGithub() {
     this.isLoggedIn = true;
   }
 }
@@ -23,7 +23,7 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
   test('it renders correctly when the user is logged in', async function (assert) {
     assert.expect(4);
     this.loginService = this.owner.lookup('service:login');
-    this.loginService.loginwithgithub();
+    this.loginService.loginWithGithub();
 
     this.set('letsGoHandler', () => {});
 

@@ -12,7 +12,7 @@ export default class SignupStepsStepZeroComponent extends Component {
   @service controller;
   @tracked currentStep = 0;
 
-  @action loginwithgithub() {
+  @action loginWithGithub() {
     if (!this.login.isLoggedIn) {
       const currentURL = this.fastboot.isFastBoot
         ? this.fastboot.request.protocol +

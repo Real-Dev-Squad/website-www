@@ -19,10 +19,15 @@ export default class StepperSignupComponent extends Component {
   @tracked signupDetails = {
     firstname: '',
     lastname: '',
+    username: '',
   };
 
   @action handleInputChange(key, value) {
     set(this.signupDetails, key, value);
+  }
+
+  @action setUsername(generateUsername) {
+    this.signupDetails.username = generateUsername;
   }
 
   @action incrementStep() {
@@ -32,6 +37,7 @@ export default class StepperSignupComponent extends Component {
       this.router.transitionTo('join', { queryParams });
     }
   }
+
   @action letsGoHandler() {
     if (this.login.isLoggedIn && !this.login.isLoading) {
       this.incrementStep();

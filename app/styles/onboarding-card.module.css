@@ -1,6 +1,6 @@
 .onboarding-card {
     min-height: 55vh;
-    max-width: 40vw;
+    min-width: 40vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,8 +8,8 @@
     background-color: var(--color-white);
     border-radius: 24px;
     position: relative;
+    margin-top: 4rem;
     padding: 0 1rem;
-    margin-top: 40px;
     box-shadow: 0px 4px 10px -2px var(--color-blackshadow), 0px 6px 15px -2px var(--color-blackshadow2);
 }
 
@@ -35,20 +35,8 @@
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px;
-}
-
-.logo__github-rds {
-    height: 5rem;
-    position: absolute;
-    top: -2.5rem
-}
-
-.p2-description{
-    font-size: 1rem;
-    font-weight: 100;
-    text-align: center;
-    line-height: 24px;
+    line-height: 24px; 
+    padding-top: 5rem;
 }
 
 @media (max-width: 800px) {
@@ -59,7 +47,7 @@
 
 
 @media (max-width: 625px) {
-    .onboarding-card {
+    .onboarding-card{
         min-height: 30vh;
         min-width: 75vw;
         padding: 3.5rem 1rem;
@@ -68,6 +56,11 @@
     .signup-details__rds-logo {
         width: 5rem;
         height: 5rem;
+        top: -7%;
+    }
+
+    .signup-page-heading{
+        padding-top: 0;
     }
 
     .logo__img--github {

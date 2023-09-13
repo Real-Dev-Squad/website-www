@@ -21,19 +21,33 @@
                 (eq this.liveService.localPeer.roleName this.ROLES.moderator)
               )
             }}
-              <button
-                type='button'
-                class='user__btn'
-                {{on 'click' (fn @openKickoutModal peer)}}
-              >
-                <IconifyIcon
-                  data-test-icon='remove'
-                  @icon='material-symbols:person-remove'
-                  width='36'
-                  height='36'
-                  color='red'
-                />
-              </button>
+              {{#if this.liveService.isUserRemoved}}
+                <div class='loading-container'>
+                  <p>Loading</p>
+                  <div class='loading'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+              {{else}}
+                <button
+                  type='button'
+                  class='user__btn'
+                  {{on 'click' (fn @openKickoutModal peer)}}
+                >
+                  <IconifyIcon
+                    data-test-icon='remove'
+                    @icon='material-symbols:person-remove'
+                    width='36'
+                    height='36'
+                    color='red'
+                  />
+                </button>
+
+              {{/if}}
+
             {{/if}}
           </li>
         {{/if}}

@@ -175,6 +175,20 @@
   }
 }
 
+@media only screen and (max-width: 922px) {
+  .loading-container {
+    flex-direction: column;
+  }
+  .loading-container p {
+    font-size: 12px;
+  }
+
+  .loading span {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .sidebar {
     height: 70px;

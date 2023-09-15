@@ -89,7 +89,14 @@
   padding-left: 20px;
 }
 
-@media screen and (max-width: 625px) {
+@media (max-width: 975px) {
+  .user-input {
+    width: 25rem;
+  }
+}
+
+
+@media screen and (max-width: 520px) {
   .stepper__greeting {
     font-size: 1.5rem;
   }
@@ -101,6 +108,6 @@
   }
 
   .user-input {
-    width: 20rem;
+    width: 95%;
   }
 }

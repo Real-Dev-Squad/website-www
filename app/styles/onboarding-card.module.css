@@ -14,7 +14,9 @@
 .logo__github-rds {
     height: 5rem;
     position: absolute;
-    top: -2.5rem
+    top: 0;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
 }
 
 .p2-description{
@@ -93,7 +95,6 @@
     .btn-generateUsername{
         width: 5rem;
         font-size: 12px;
-        right: -4px;
     }
 }
 

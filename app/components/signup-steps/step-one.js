@@ -6,7 +6,7 @@ import { ROLE } from '../../constants/stepper-signup-data';
 import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 import { APPS } from '../../constants/urls';
 export default class SignupStepsStepOneComponent extends Component {
-  @tracked data = { firstname: '', lastname: '' };
+  @tracked data = { firstname: '', lastname: '', role: '' };
   @tracked isValid = true;
   @tracked username = '';
   role = ROLE;
@@ -15,7 +15,7 @@ export default class SignupStepsStepOneComponent extends Component {
     const passVal = () => {
       this.data = {
         ...this.data,
-        [e.target.name]: e.target.value.toLowerCase(),
+        [e.target.name]: e.target.value,
       };
       onChange(e.target.name, e.target.value.toLowerCase());
       if (this.data.firstname.trim() > '' && this.data.lastname.trim() > '') {
@@ -37,8 +37,8 @@ export default class SignupStepsStepOneComponent extends Component {
 
   @action async getUsername() {
     try {
-      const firstname = this.data.firstname;
-      const lastname = this.data.lastname;
+      const firstname = this.data.firstname.toLowerCase();
+      const lastname = this.data.lastname.toLowerCase();
       const response = await fetch(
         `${APPS.API_BACKEND}/users/username?firstname=${firstname}&lastname=${lastname}&dev=true`,
         {

@@ -1,6 +1,7 @@
 .footer {
   background-color: var(--color-navyblue);
   padding: 50px 30px 20px;
+  margin-top: 80px;
 }
 
 .footer__container {

@@ -2,12 +2,14 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { debounce } from '@ember/runloop';
+import { ROLE } from '../../constants/stepper-signup-data';
 import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 import { APPS } from '../../constants/urls';
 export default class SignupStepsStepOneComponent extends Component {
   @tracked data = { firstname: '', lastname: '' };
   @tracked isValid = true;
   @tracked username = '';
+  role = ROLE;
   @action inputHandler(e) {
     const { onChange } = this.args;
     const passVal = () => {

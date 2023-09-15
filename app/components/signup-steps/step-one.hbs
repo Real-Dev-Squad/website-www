@@ -47,3 +47,13 @@
   @onKeydown={{this.avoidNumbersAndSpaces}}
   @disabled={{true}}
 />
+
+<Reusables::Dropdown
+  @field='Select your role'
+  @name='role'
+  @placeHolder='Choose your role'
+  @required={{true}}
+  @value={{this.data.country}}
+  @options={{this.role}}
+  @onChange={{this.inputHandler}}
+/>

@@ -55,7 +55,6 @@
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;
-        padding: 2rem;
     }
     
 }
@@ -101,6 +100,5 @@
 @media (max-width: 480px) {
     .onboarding-card{
         max-width: 90%;
-        padding: 3.5rem 1rem;
     }
 }

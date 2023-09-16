@@ -28,6 +28,10 @@ export default class SignupStepsStepOneComponent extends Component {
     debounce(this.data, passVal, JOIN_DEBOUNCE_TIME);
   }
 
+  @action signup() {
+    console.log('');
+  }
+
   @action avoidNumbersAndSpaces(event) {
     var keyCode = event.keyCode || event.which;
     if (keyCode === 32 || (keyCode >= 48 && keyCode <= 57)) {

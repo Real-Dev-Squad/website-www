@@ -140,15 +140,9 @@
   cursor: pointer;
 }
 
-.loading-container {
-  display: flex;
-  flex-direction: row;
-}
-
 .loading span {
-  width: 8px;
-  height: 8px;
-  margin: 0 5px;
+  width: 0.7rem;
+  height: 0.7rem;
   background-color: #ffd957;
   border-radius: 50%;
   display: inline-block;
@@ -176,16 +170,9 @@
 }
 
 @media only screen and (max-width: 922px) {
-  .loading-container {
-    flex-direction: column;
-  }
-  .loading-container p {
-    font-size: 12px;
-  }
-
   .loading span {
-    width: 6px;
-    height: 6px;
+    width: 0.5rem;
+    height: 0.5rem;
   }
 }
 

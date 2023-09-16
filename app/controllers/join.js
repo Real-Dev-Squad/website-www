@@ -6,7 +6,7 @@ export default class JoinController extends Controller {
   @service login;
   @service featureFlag;
 
-  queryParams = ['step'];
+  queryParams = ['step', 'dev'];
 
   get isDevMode() {
     return this.featureFlag.isDevMode;

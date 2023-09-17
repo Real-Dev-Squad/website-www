@@ -62,7 +62,6 @@
   font-size: 22px;
 }
 
-
 .body__host {
   width: 100%;
   height: 65px;
@@ -157,7 +156,6 @@
     padding-left: 1rem;
   }
 
-
   .sidebar.open {
     height: fit-content;
   }
@@ -200,4 +198,11 @@
     }
   }
 
+}
+
+/* utility classes */
+
+.self {
+  border: 3px solid var(--color-pink);
+  background: var(--color-pink-low-opacity);
 }

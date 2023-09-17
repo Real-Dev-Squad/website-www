@@ -47,3 +47,21 @@
   @onKeydown={{this.avoidNumbersAndSpaces}}
   @disabled={{true}}
 />
+
+<Reusables::Dropdown
+  @field='Select your role'
+  @name='role'
+  @placeHolder='Choose Your Role'
+  @required={{true}}
+  @value={{this.data.role}}
+  @options={{this.role}}
+  @onChange={{this.inputHandler}}
+/>
+
+<Reusables::Button
+  @text='Sign Up'
+  @variant='dark'
+  @onClick={{this.signup}}
+  @test='signup'
+  @type='button'
+/>

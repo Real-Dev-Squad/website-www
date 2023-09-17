@@ -93,6 +93,9 @@
   .user-input {
     width: 22rem;
   }
+  .select {
+    width: 23rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -109,6 +112,9 @@
 
 @media (max-width: 480px) {
   .user-input {
+    width: 95%;
+  }
+  .select{
     width: 95%;
   }
 }

@@ -2,10 +2,13 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { debounce } from '@ember/runloop';
+import { inject as service } from '@ember/service';
 import { ROLE } from '../../constants/stepper-signup-data';
 import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 import { APPS } from '../../constants/urls';
+import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
 export default class SignupStepsStepOneComponent extends Component {
+  @service toast;
   @tracked data = { firstname: '', lastname: '', role: '' };
   @tracked username = '';
   @tracked isValid = true;
@@ -85,8 +88,16 @@ export default class SignupStepsStepOneComponent extends Component {
         }
       );
       const data = await response.json();
-      this.username = data.username;
-      this.args.setUsername(this.username);
+      if (response.status === 200) {
+        this.username = data.username;
+        this.args.setUsername(this.username);
+      } else if (response.status === 401) {
+        this.toast.error(
+          'You are not logged in. Please login to continue.',
+          '',
+          toastNotificationTimeoutOptions
+        );
+      }
     } catch (err) {
       console.log('Error: ', err);
     }

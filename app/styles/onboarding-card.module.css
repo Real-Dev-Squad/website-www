@@ -9,7 +9,7 @@
     position: relative;
     padding: 2rem;
     box-shadow: 0px 4px 10px -2px var(--color-blackshadow), 0px 6px 15px -2px var(--color-blackshadow2);
-    margin-top: 4rem;
+    margin-top:5rem;
 }
 .logo__github-rds {
     height: 5rem;

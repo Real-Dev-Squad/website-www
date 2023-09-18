@@ -7,6 +7,7 @@
 	margin: 1rem auto;
 	padding: 1rem;
 	min-height: 80vh;
+	position: relative;
 }
 
 .live__container {
@@ -30,7 +31,6 @@
 	margin-top: 1rem;
 }
 
-
 @media only screen and (max-width: 768px) {
 	.live__video-container {
 		width: 100%;
@@ -49,5 +49,4 @@
 		align-items: center;
 		justify-content: space-between;
 	}
-
 }

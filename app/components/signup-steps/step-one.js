@@ -8,6 +8,7 @@ import { APPS } from '../../constants/urls';
 export default class SignupStepsStepOneComponent extends Component {
   @tracked data = { firstname: '', lastname: '', role: '' };
   @tracked username = '';
+  @tracked isValid = true;
   role = ROLE;
   @tracked errorMessage = {
     firstname: '',
@@ -42,6 +43,16 @@ export default class SignupStepsStepOneComponent extends Component {
             ? `No spaces, numbers, or special characters allowed.`
             : '',
         };
+      }
+      if (
+        this.data.firstname.trim() > '' &&
+        this.data.lastname.trim() > '' &&
+        this.errorMessage.firstname === '' &&
+        this.errorMessage.lastname === ''
+      ) {
+        this.isValid = false;
+      } else {
+        this.isValid = true;
       }
     };
 

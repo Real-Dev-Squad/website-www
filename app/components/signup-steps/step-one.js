@@ -39,7 +39,7 @@ export default class SignupStepsStepOneComponent extends Component {
         this.errorMessage = {
           ...this.errorMessage,
           [field]: isValid
-            ? `No spaces, numbers, or special characters allowed,and max 20 characters.`
+            ? `No spaces, numbers, or special characters allowed.`
             : '',
         };
       }

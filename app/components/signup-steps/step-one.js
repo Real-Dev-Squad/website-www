@@ -7,9 +7,24 @@ import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 import { APPS } from '../../constants/urls';
 export default class SignupStepsStepOneComponent extends Component {
   @tracked data = { firstname: '', lastname: '', role: '' };
-  @tracked isValid = true;
   @tracked username = '';
   role = ROLE;
+  @tracked errorMessage = {
+    firstname: '',
+    lastname: '',
+  };
+
+  nameValidator(name) {
+    const pattern =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (pattern.test(name)) {
+      return { isValid: false };
+    } else {
+      return { isValid: true };
+    }
+  }
+
   @action inputHandler(e) {
     const { onChange } = this.args;
     const passVal = () => {
@@ -18,10 +33,15 @@ export default class SignupStepsStepOneComponent extends Component {
         [e.target.name]: e.target.value,
       };
       onChange(e.target.name, e.target.value.toLowerCase());
-      if (this.data.firstname.trim() > '' && this.data.lastname.trim() > '') {
-        this.isValid = false;
-      } else {
-        this.isValid = true;
+      const field = e.target.name;
+      if (field === 'firstname' || field === 'lastname') {
+        const { isValid } = this.nameValidator(e.target.value);
+        this.errorMessage = {
+          ...this.errorMessage,
+          [field]: isValid
+            ? `No spaces, numbers, or special characters allowed,and max 20 characters.`
+            : '',
+        };
       }
     };
 

@@ -4,6 +4,20 @@
     <SignupSteps::StepZero @currentStep={{this.currentStep}} @letsGoHandler={{this.letsGoHandler}}/>
   {{else if (eq this.currentStep 1)}}
     <SignupSteps::StepOne @onChange={{this.handleInputChange}} @setUsername={{this.setUsername}} @currentStep={{this.currentStep}}/>
+     {{else if (eq this.currentStep 2)}}
+     <div class="card__getting-started">
+      <h3 class="">Congratulations</h3>
+      <p class="p2-description">Let's get your journey started with
+Real Dev Squad
+</p>
+  <Reusables::Button
+    @text="Let's Get Started"
+    @variant='dark'
+    @onClick={{this.letsGoHandler}}
+    @test='lets-go'
+    @type='button'
+  />
+     </div>
   {{/if}}
 </form>
 </OnboardingCard>

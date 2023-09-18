@@ -20,10 +20,16 @@ export default class StepperSignupComponent extends Component {
     firstname: '',
     lastname: '',
     username: '',
+    role: {},
   };
 
   @action handleInputChange(key, value) {
-    set(this.signupDetails, key, value);
+    if (key === 'role') {
+      this.signupDetails.role = {};
+      set(this.signupDetails.role, value, true);
+    } else {
+      set(this.signupDetails, key, value);
+    }
   }
 
   @action setUsername(generateUsername) {

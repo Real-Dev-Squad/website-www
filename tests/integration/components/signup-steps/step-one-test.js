@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, typeIn } from '@ember/test-helpers';
+import { render, typeIn, select, click } from '@ember/test-helpers';
 import { set } from '@ember/object';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -157,5 +157,49 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert
       .dom('[data-test-button=generateUsername]')
       .hasProperty('disabled', false);
+  });
+
+  test('render select your role dropdown on signup details page and update signupdetails.role object ', async function (assert) {
+    assert.expect(13);
+    this.set('signupDetails', {
+      role: {},
+    });
+
+    this.set('handleInputChange', (selectRoleName, selectOptionValue) => {
+      this.name = selectRoleName;
+      this.value = selectOptionValue;
+      if (selectRoleName === 'role') {
+        this.signupDetails.role = {};
+        set(this.signupDetails.role, this.value, true);
+      }
+    });
+
+    await render(
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} />`
+    );
+
+    assert.dom('[data-test-dropdown]').hasClass('dropdown');
+
+    assert.dom('[data-test-required]').hasClass('required');
+
+    assert.dom('[data-test-dropdown-field]').hasClass('dropdown__field');
+    assert.dom('[data-test-dropdown-field]').hasAttribute('required');
+    assert.dom('[data-test-dropdown-field]').hasAttribute('name', 'role');
+    assert.dom('[data-test-dropdown-field]').hasAttribute('id', 'role');
+
+    assert.dom('[data-test-dropdown-option]').exists({ count: 4 });
+
+    assert.dom('[data-test-dropdown-default]').hasText('Choose Your Role');
+    assert.dom('[data-test-dropdown-default]').hasAttribute('disabled');
+    assert.dom('[data-test-dropdown-default]').hasAttribute('selected');
+
+    select('[data-test-dropdown-field]', 'Developer');
+    await click('[data-test-dropdown-option="Developer"]');
+    assert.dom('[data-test-dropdown-field]').hasValue('Developer');
+    assert.strictEqual(this.value, 'developer', 'changed correctly');
+    assert.true(
+      this.signupDetails.role.developer,
+      'signupDetails.role is updated'
+    );
   });
 });

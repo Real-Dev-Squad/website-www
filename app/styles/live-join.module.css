@@ -3,6 +3,12 @@
   margin: 1rem auto;
 }
 
+.card__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card.live__join .card__title {
   color: var(--color-pink);
   margin: 0;

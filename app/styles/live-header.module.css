@@ -1,5 +1,8 @@
 .tabs {
   display: flex;
+  position: absolute;
+  top: 0rem;
+  margin-bottom: 1rem;
 }
 
 .tabs_info {

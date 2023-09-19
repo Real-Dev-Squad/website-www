@@ -16,10 +16,14 @@
   @required={{true}}
   @value={{this.data.firstname}}
   @onInput={{this.inputHandler}}
-  @onKeydown={{this.avoidNumbersAndSpaces}}
   @hasButtonInsideInput={{false}}
   @disabled={{false}}
 />
+
+{{#if this.errorMessage.firstname}}
+  <div class='error__message'>{{this.errorMessage.firstname}}</div>
+{{/if}}
+
 <Reusables::OnboardingInput
   @field='Last Name'
   @name='lastname'
@@ -28,10 +32,13 @@
   @required={{true}}
   @value={{this.data.lastname}}
   @onInput={{this.inputHandler}}
-  @onKeydown={{this.avoidNumbersAndSpaces}}
   @hasButtonInsideInput={{false}}
   @disabled={{false}}
 />
+
+{{#if this.errorMessage.lastname}}
+  <div class='error__message'>{{this.errorMessage.lastname}}</div>
+{{/if}}
 
 <Reusables::OnboardingInput
   @field='Username'
@@ -44,7 +51,6 @@
   @classDisableInput='input-disable'
   @onClickGetUsername={{this.getUsername}}
   @onInput={{this.inputHandler}}
-  @onKeydown={{this.avoidNumbersAndSpaces}}
   @disabled={{true}}
 />
 

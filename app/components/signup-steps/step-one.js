@@ -19,8 +19,7 @@ export default class SignupStepsStepOneComponent extends Component {
   };
 
   nameValidator(name) {
-    const pattern =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const pattern = /^[a-zA-Z]{1,20}$/;
 
     if (pattern.test(name)) {
       return { isValid: false };

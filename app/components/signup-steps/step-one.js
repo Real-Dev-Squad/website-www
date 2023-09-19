@@ -92,13 +92,13 @@ export default class SignupStepsStepOneComponent extends Component {
         this.args.setUsername(this.username);
       } else if (response.status === 401) {
         this.toast.error(
-          'You are not logged in. Please login to continue.',
+          'Please login to continue.',
           '',
           toastNotificationTimeoutOptions
         );
       }
     } catch (err) {
-      console.log('Error: ', err);
+      console.log('Error: ', 'Something went wrong');
     }
   }
 }

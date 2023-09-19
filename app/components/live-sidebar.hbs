@@ -41,6 +41,13 @@
         is presenting</span>
     </div>
     <LiveParticipants
+      @user='Host'
+      @role='host'
+      @peers={{@peers}}
+      @minimumParticipants={{this.liveService.hostRole}}
+      @openKickoutModal={{@openKickoutModal}}
+    />
+    <LiveParticipants
       @user='Mavens'
       @role='maven'
       @peers={{@peers}}

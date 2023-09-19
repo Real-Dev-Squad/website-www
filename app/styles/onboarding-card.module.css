@@ -31,7 +31,8 @@
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
-    top: -15%;
+    top: 0;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .logos-container__rds {

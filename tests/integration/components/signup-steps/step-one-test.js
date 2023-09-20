@@ -138,7 +138,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       .hasProperty('disabled', true);
   });
 
-  test('generateUsername button is enabled when firstname and lastname input fields are not empty', async function (assert) {
+  test('generateUsername button is enabled when firstname and lastname input fields are not empty and valid input', async function (assert) {
     assert.expect(1);
     this.set('onInput', (e) => {
       this.value = e.target.value;
@@ -201,5 +201,22 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       this.signupDetails.role.developer,
       'signupDetails.role is updated'
     );
+  });
+
+  test('It display error message and disable the button for invalid input', async function (assert) {
+    assert.expect(2);
+    this.set('handleInputChange', (inputName, inputValue) => {
+      this.name = inputName;
+      this.value = inputValue;
+    });
+    await render(
+      hbs`<SignupSteps::StepOne  @onChange={{this.handleInputChange}}/ />`
+    );
+    await typeIn('[data-test-input-field=firstname]', 'shubham_1');
+    await typeIn('[data-test-input-field=lastname]', 'sigdar@');
+    assert.dom('.error__message').exists();
+    assert
+      .dom('[data-test-button=generateUsername]')
+      .hasProperty('disabled', true);
   });
 });

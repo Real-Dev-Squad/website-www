@@ -43,7 +43,7 @@
     gap: 2rem;
 }
 
-.signup-page-heading {
+.heading__h3 {
     color: var(--neutral-neutral-700, #272626);
     text-align: center;
     font-size: 1.4rem;
@@ -52,7 +52,12 @@
     line-height: 24px; 
     padding-top: 3rem;
 }
-
+.card__getting-started{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;
@@ -73,7 +78,7 @@
         top: -7%;
     }
 
-    .signup-page-heading{
+    .heading__h3{
         padding-top: 0;
     }
 

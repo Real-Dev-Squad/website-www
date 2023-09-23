@@ -17,13 +17,13 @@ function redirectionHandler(data) {
       data.roles.developer &&
       (hasVisitedJoin === 'true' || hasVisitedJoin === null)
     ) {
-      redirectUserToPage(`${HOME_URL}/join.html`);
+      redirectUserToPage(`${WELCOME_URL}/`);
     } else {
       redirectUserToPage(HOME_URL);
     }
   } else {
     if (hasVisitedJoin === 'true' || hasVisitedJoin === null) {
-      redirectUserToPage(`${HOME_URL}/join.html`);
+      redirectUserToPage(`${WELCOME_URL}/`);
     } else {
       redirectUserToPage(HOME_URL);
     }

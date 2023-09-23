@@ -1,0 +1,57 @@
+@import 'navbar.module.css';
+@import 'header.module.css';
+@import 'description.module.css';
+@import 'cards.module.css';
+@import 'more-about.module.css';
+@import 'scroll-to-top.module.css';
+@import 'footer.module.css';
+@import 'button.module.css';
+@import 'input.module.css';
+@import 'dropdown.module.css';
+@import 'stepper.module.css';
+@import 'page-not-found.module.css';
+@import 'join-section.module.css';
+@import 'live-header.module.css';
+@import 'tab.module.css';
+@import 'live.module.css';
+@import 'video-screen.module.css';
+@import 'skeleton.module.css';
+@import 'live-panel.module.css';
+@import 'icon-button.module.css';
+@import 'live-join.module.css';
+@import 'live-sidebar.module.css';
+@import 'live-roles.module.css';
+@import 'kickout-modal.module.css';
+@import 'base-modal.module.css';
+@import 'room-code-modal.module.css';
+@import 'intro.module.css';
+@import 'onboarding-card.module.css';
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'raleway', sans-serif;
+  background-color: var(--color-white);
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+input,
+select,
+button {
+  font-family: 'raleway', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}

@@ -1,0 +1,17 @@
+.base-modal {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.452);
+}
+
+.base-modal--show {
+  display: block;
+}
+
+.base-modal--hide {
+  display: none;
+}

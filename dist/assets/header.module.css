@@ -1,0 +1,167 @@
+.header {
+  background-color: var(--color-navyblue);
+  padding-bottom: 100px;
+}
+
+.header__logo,
+.social__seperators-round {
+  display: none;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__text-social {
+  font-size: 2.5rem;
+  width: 45%;
+  color: var(--color-white);
+}
+
+.text__welcome {
+  color: var(--color-pink);
+}
+
+.text__to {
+  font-weight: 400;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.social > a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.social__icon {
+  padding: 5px;
+}
+
+.social__seperators-vertical {
+  margin: 0px 15px;
+  border-left: 5px solid var(--color-white);
+  border-radius: 5px;
+  height: 20px;
+}
+
+.container__image {
+  width: 35%;
+}
+
+@media (max-width: 1250px) {
+  .text__subtitle {
+    font-size: 3rem;
+  }
+
+  .text__title {
+    font-size: 3.5rem;
+  }
+
+  .social > a {
+    font-size: 1rem;
+  }
+
+  .social__seperators-vertical {
+    margin: 0px 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .text__subtitle {
+    font-size: 3.5rem;
+  }
+
+  .text__title {
+    font-size: 4rem;
+  }
+
+  .header__logo {
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin: 0px auto;
+    padding: 30px;
+  }
+
+  .header__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social {
+    justify-content: center;
+  }
+
+  .container__text-social {
+    width: 80%;
+  }
+
+  .container__image {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container__image {
+    width: 60%;
+  }
+}
+
+@media (max-width: 625px) {
+  .text__subtitle {
+    font-size: 2.5rem;
+  }
+
+  .text__title {
+    font-size: 3rem;
+  }
+
+  .social > a {
+    font-size: 0.9rem;
+  }
+
+  .social__seperators-vertical {
+    display: none;
+  }
+
+  .social__seperators-round {
+    color: var(--color-pink);
+    display: block;
+    font-weight: 900;
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    padding-bottom: 50px;
+  }
+
+  .text__subtitle {
+    font-size: 2rem;
+  }
+
+  .text__title {
+    font-size: 2.5rem;
+  }
+
+  .social {
+    display: inline-flex;
+  }
+
+  .social > a {
+    font-size: 0;
+    margin: 5px 10px;
+  }
+}

@@ -64,10 +64,12 @@
   @onChange={{this.inputHandler}}
 />
 
-<Reusables::Button
-  @text='Sign Up'
-  @variant='dark'
-  @onClick={{this.signup}}
-  @test='signup'
-  @type='button'
-/>
+<div class='step-one__button'>
+  <Reusables::Button
+    @text={{if (eq this.data.role 'Developer') 'Signup' 'Next'}}
+    @variant='dark'
+    @onClick={{this.handleButtonClick}}
+    @test={{if (eq this.data.role 'Developer') 'signup' 'next'}}
+    @type='button'
+  />
+</div>

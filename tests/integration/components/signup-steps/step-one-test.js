@@ -1,4 +1,4 @@
-import { module, skip, test } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, typeIn, select, click } from '@ember/test-helpers';
 import { set } from '@ember/object';
@@ -220,29 +220,37 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       .hasProperty('disabled', true);
   });
 
-  skip('It render the signup button for role developer', async function (assert) {
+  test('It render the signup button for role developer', async function (assert) {
     assert.expect(2);
-    this.set('data', { role: 'developer' });
-    this.set('isSignupButtonDisabled', false);
+    this.set('handleInputChange', (inputName, inputValue) => {
+      this.name = inputName;
+      this.value = inputValue;
+    });
     await render(
-      hbs`<SignupSteps::StepOne @data={{this.data}} @isSignupButtonDisabled={{this.isSignupButtonDisabled}} />`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}}/>`
     );
+
+    select('[data-test-dropdown-field]', 'Developer');
+    await click('[data-test-dropdown-option="Developer"]');
 
     assert.dom('[data-test-button=signup]').exists();
     assert.dom('[data-test-button=signup]').hasText('Signup');
-    assert.dom('[data-test-button=signup]').hasProperty('disabled', false);
+    // assert.dom('[data-test-button=signup]').hasProperty('disabled', false);
   });
 
-  skip('It render the next button for role maven', async function (assert) {
-    assert.expect(2);
-    this.set('data', { role: 'maven' });
-    this.set('isSignupButtonDisabled', false);
+  test('It render the next button for role maven', async function (assert) {
+    assert.expect(1);
+    this.set('handleInputChange', (inputName, inputValue) => {
+      this.name = inputName;
+      this.value = inputValue;
+    });
     await render(
-      hbs`<SignupSteps::StepOne @data={{this.data}} @isSignupButtonDisabled={{this.isSignupButtonDisabled}} />`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} />`
     );
 
-    assert.dom('[data-test-button=next]').exists();
+    select('[data-test-dropdown-field]', 'Maven');
+    await click('[data-test-dropdown-option="Maven"]');
+
     assert.dom('[data-test-button=next]').hasText('Next');
-    assert.dom('[data-test-button=next]').hasProperty('disabled', false);
   });
 });

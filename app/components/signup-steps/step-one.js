@@ -61,8 +61,8 @@ export default class SignupStepsStepOneComponent extends Component {
     debounce(this.data, passVal, JOIN_DEBOUNCE_TIME);
   }
 
-  @action signup() {
-    console.log('');
+  @action handleButtonClick() {
+    console.log('Hello world');
   }
 
   @action avoidNumbersAndSpaces(event) {

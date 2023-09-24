@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, typeIn, select, click } from '@ember/test-helpers';
 import { set } from '@ember/object';
@@ -220,7 +220,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       .hasProperty('disabled', true);
   });
 
-  test.skip('It render the signup button for role developer', async function (assert) {
+  skip('It render the signup button for role developer', async function (assert) {
     assert.expect(2);
     this.set('data', { role: 'developer' });
     this.set('isSignupButtonDisabled', false);
@@ -233,7 +233,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert.dom('[data-test-button=signup]').hasProperty('disabled', false);
   });
 
-  test.skip('It render the next button for role maven', async function (assert) {
+  skip('It render the next button for role maven', async function (assert) {
     assert.expect(2);
     this.set('data', { role: 'maven' });
     this.set('isSignupButtonDisabled', false);

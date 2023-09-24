@@ -210,7 +210,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       this.value = inputValue;
     });
     await render(
-      hbs`<SignupSteps::StepOne  @onChange={{this.handleInputChange}}/ />`
+      hbs`<SignupSteps::StepOne  @onChange={{this.handleInputChange}} />`
     );
     await typeIn('[data-test-input-field=firstname]', 'shubham_1');
     await typeIn('[data-test-input-field=lastname]', 'sigdar@');
@@ -218,5 +218,31 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert
       .dom('[data-test-button=generateUsername]')
       .hasProperty('disabled', true);
+  });
+
+  test.skip('It render the signup button for role developer', async function (assert) {
+    assert.expect(2);
+    this.set('data', { role: 'developer' });
+    this.set('isSignupButtonDisabled', false);
+    await render(
+      hbs`<SignupSteps::StepOne @data={{this.data}} @isSignupButtonDisabled={{this.isSignupButtonDisabled}}>`
+    );
+
+    assert.dom('[data-test-button=signup]').exists();
+    assert.dom('[data-test-button=signup]').hasText('Signup');
+    assert.dom('[data-test-button=signup]').hasProperty('disabled', false);
+  });
+
+  test.skip('It render the next button for role maven', async function (assert) {
+    assert.expect(2);
+    this.set('data', { role: 'maven' });
+    this.set('isSignupButtonDisabled', false);
+    await render(
+      hbs`<SignupSteps::StepOne @data={{this.data}} @isSignupButtonDisabled={{this.isSignupButtonDisabled}}>`
+    );
+
+    assert.dom('[data-test-button=next]').exists();
+    assert.dom('[data-test-button=next]').hasText('Next');
+    assert.dom('[data-test-button=next]').hasProperty('disabled', false);
   });
 });

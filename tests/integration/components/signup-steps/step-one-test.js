@@ -225,7 +225,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     this.set('data', { role: 'developer' });
     this.set('isSignupButtonDisabled', false);
     await render(
-      hbs`<SignupSteps::StepOne @data={{this.data}} @isSignupButtonDisabled={{this.isSignupButtonDisabled}}>`
+      hbs`<SignupSteps::StepOne @data={{this.data}} @isSignupButtonDisabled={{this.isSignupButtonDisabled}} />`
     );
 
     assert.dom('[data-test-button=signup]').exists();
@@ -238,7 +238,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     this.set('data', { role: 'maven' });
     this.set('isSignupButtonDisabled', false);
     await render(
-      hbs`<SignupSteps::StepOne @data={{this.data}} @isSignupButtonDisabled={{this.isSignupButtonDisabled}}>`
+      hbs`<SignupSteps::StepOne @data={{this.data}} @isSignupButtonDisabled={{this.isSignupButtonDisabled}} />`
     );
 
     assert.dom('[data-test-button=next]').exists();

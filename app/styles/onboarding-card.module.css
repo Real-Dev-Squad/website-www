@@ -58,6 +58,13 @@
     align-items: center;
     gap: 2rem;
 }
+
+
+.step-one__button{
+    margin: 0.5rem;
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;
@@ -75,7 +82,6 @@
     .signup-details__rds-logo {
         width: 5rem;
         height: 5rem;
-        top: -7%;
     }
 
     .heading__h3{

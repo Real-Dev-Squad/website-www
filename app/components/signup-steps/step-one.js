@@ -9,8 +9,7 @@ import { APPS } from '../../constants/urls';
 import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
 export default class SignupStepsStepOneComponent extends Component {
   @service toast;
-  @tracked data = { firstname: '', lastname: '', role: '' };
-  @tracked username = '';
+  @tracked data = { firstname: '', lastname: '', username: '', role: '' };
   @tracked isValid = true;
   role = ROLE;
   @tracked errorMessage = {
@@ -88,8 +87,11 @@ export default class SignupStepsStepOneComponent extends Component {
       );
       const data = await response.json();
       if (response.status === 200) {
-        this.username = data.username;
-        this.args.setUsername(this.username);
+        this.data = {
+          ...this.data,
+          username: data.username,
+        };
+        this.args.setUsername(this.data.username);
       } else if (response.status === 401) {
         this.toast.error(
           'Please login to continue.',

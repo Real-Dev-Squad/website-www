@@ -70,6 +70,7 @@
     @variant='dark'
     @onClick={{this.handleButtonClick}}
     @test={{if (eq this.data.role 'Developer') 'signup' 'next'}}
+    @disabled={{if this.isSignupButtonDisabled true false}}
     @type='button'
   />
 </div>

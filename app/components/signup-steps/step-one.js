@@ -10,6 +10,7 @@ import { toastNotificationTimeoutOptions } from '../../constants/toast-notificat
 export default class SignupStepsStepOneComponent extends Component {
   @service toast;
   @tracked data = { firstname: '', lastname: '', username: '', role: '' };
+  @tracked isSignupButtonDisabled = true;
   @tracked isValid = true;
   role = ROLE;
   @tracked errorMessage = {
@@ -27,6 +28,15 @@ export default class SignupStepsStepOneComponent extends Component {
     }
   }
 
+  isSignupDetailsFilled() {
+    return (
+      !!this.data.firstname &&
+      !!this.data.lastname &&
+      !!this.data.username &&
+      !!this.data.role
+    );
+  }
+
   @action inputHandler(e) {
     const { onChange } = this.args;
     const passVal = () => {
@@ -34,6 +44,11 @@ export default class SignupStepsStepOneComponent extends Component {
         ...this.data,
         [e.target.name]: e.target.value,
       };
+      if (this.isSignupDetailsFilled()) {
+        this.isSignupButtonDisabled = false;
+      } else {
+        this.isSignupButtonDisabled = true;
+      }
       onChange(e.target.name, e.target.value.toLowerCase());
       const field = e.target.name;
       if (field === 'firstname' || field === 'lastname') {

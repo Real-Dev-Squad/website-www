@@ -235,11 +235,10 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
     assert.dom('[data-test-button=signup]').exists();
     assert.dom('[data-test-button=signup]').hasText('Signup');
-    // assert.dom('[data-test-button=signup]').hasProperty('disabled', false);
   });
 
   test('It render the next button for role maven', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
     this.set('handleInputChange', (inputName, inputValue) => {
       this.name = inputName;
       this.value = inputValue;
@@ -251,6 +250,29 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     select('[data-test-dropdown-field]', 'Maven');
     await click('[data-test-dropdown-option="Maven"]');
 
+    assert.dom('[data-test-button=next]').exists();
     assert.dom('[data-test-button=next]').hasText('Next');
+  });
+
+  test('role based button should be enabled when all required fields are filled', async function (assert) {
+    assert.expect(1);
+
+    this.set('handleInputChange', (inputName, inputValue) => {
+      this.name = inputName;
+      this.value = inputValue;
+    });
+    await render(
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} />`
+    );
+
+    await typeIn('[data-test-input-field=firstname]', 'shubham');
+    await typeIn('[data-test-input-field=lastname]', 'sigdar');
+    await click('[data-test-button=generateUsername]');
+    // await fillIn('[data-test-input-field=username]', 'shubham-sigdar');
+
+    select('[data-test-dropdown-field]', 'Maven');
+    await click('[data-test-dropdown-option="Maven"]');
+
+    assert.dom('[data-test-button=next]').hasProperty('disabled', false);
   });
 });

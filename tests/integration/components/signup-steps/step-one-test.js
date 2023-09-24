@@ -268,7 +268,6 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     await typeIn('[data-test-input-field=firstname]', 'shubham');
     await typeIn('[data-test-input-field=lastname]', 'sigdar');
     await click('[data-test-button=generateUsername]');
-    // await fillIn('[data-test-input-field=username]', 'shubham-sigdar');
 
     select('[data-test-dropdown-field]', 'Maven');
     await click('[data-test-dropdown-option="Maven"]');

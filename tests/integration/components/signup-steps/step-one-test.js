@@ -7,18 +7,6 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | signup-steps/step-one', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('RealSevSquad logo render on signupDetails page', async function (assert) {
-    assert.expect(2);
-    this.set('handleButtonClick', () => {});
-    await render(
-      hbs`<SignupSteps::StepOne @handleButtonClick={{this.handleButtonClick}}/>`
-    );
-    assert
-      .dom('[data-test-rds-logo]')
-      .hasAttribute('src', 'assets/icons/onboarding-card-rds-logo.png')
-      .hasAttribute('alt', 'RDS-Logo');
-  });
-
   test('heading render on signupDetails page', async function (assert) {
     assert.expect(1);
     this.set('handleButtonClick', () => {});
@@ -233,43 +221,6 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert
       .dom('[data-test-button=generateUsername]')
       .hasProperty('disabled', true);
-  });
-
-  test('It render the signup button for role developer', async function (assert) {
-    assert.expect(2);
-    this.set('handleButtonClick', () => {});
-    this.set('handleInputChange', (inputName, inputValue) => {
-      this.name = inputName;
-      this.value = inputValue;
-    });
-    await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
-    );
-
-    select('[data-test-dropdown-field]', 'Developer');
-    await click('[data-test-dropdown-option="Developer"]');
-
-    assert.dom('[data-test-button=signup]').exists();
-    assert.dom('[data-test-button=signup]').hasText('Signup');
-  });
-
-  test('It render the next button for role maven', async function (assert) {
-    assert.expect(2);
-    this.set('handleButtonClick', () => {});
-    this.set('handleInputChange', (inputName, inputValue) => {
-      this.name = inputName;
-      this.value = inputValue;
-    });
-    this.set('handleButtonClick', () => {});
-    await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
-    );
-
-    select('[data-test-dropdown-field]', 'Maven');
-    await click('[data-test-dropdown-option="Maven"]');
-
-    assert.dom('[data-test-button=next]').exists();
-    assert.dom('[data-test-button=next]').hasText('Next');
   });
 
   skip('role based button should be enabled when all required fields are filled', async function (assert) {

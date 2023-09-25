@@ -65,6 +65,10 @@
     text-align: center;
 }
 
+.checkbox-label{
+    font-size: 1.3rem;
+}
+
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;

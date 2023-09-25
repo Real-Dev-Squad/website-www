@@ -58,12 +58,26 @@
   @onChange={{this.inputHandler}}
 />
 
+{{#if (eq this.data.role 'Maven')}}
+  <label data-test-label='maven-role' for='maven-role' class='checkbox-label'>
+    <input
+      type='checkbox'
+      name='maven-role'
+      class='checkbox-input'
+      id='maven-role'
+      checked={{false}}
+      {{on 'change' this.inputHandler}}
+    />
+    Are you sure about mentoring people in RealDevSquad?
+  </label>
+{{/if}}
+
 <div class='step-one__button'>
   <Reusables::Button
-    @text={{if (eq this.data.role 'Developer') 'Signup' 'Next'}}
+    @text='Signup'
     @variant='dark'
     @onClick={{@handleButtonClick}}
-    @test={{if (eq this.data.role 'Developer') 'signup' 'next'}}
+    @test='signup'
     @disabled={{if this.isSignupButtonDisabled true false}}
     @type='button'
   />

@@ -51,10 +51,6 @@ export default class StepperSignupComponent extends Component {
   }
 
   @action handleButtonClick() {
-    if ('Developer' in this.signupDetails.role) {
-      this.signup();
-    } else {
-      this.incrementStep();
-    }
+    this.signup();
   }
 }

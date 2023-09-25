@@ -12,6 +12,7 @@ export default class SignupStepsStepOneComponent extends Component {
   @tracked data = { firstname: '', lastname: '', username: '', role: '' };
   @tracked isSignupButtonDisabled = true;
   @tracked isValid = true;
+  @tracked mavenRoleConfirm = false;
   role = ROLE;
   @tracked errorMessage = {
     firstname: '',
@@ -30,12 +31,22 @@ export default class SignupStepsStepOneComponent extends Component {
   }
 
   isSignupDetailsFilled() {
-    return (
-      !!this.data.firstname &&
-      !!this.data.lastname &&
-      !!this.data.username &&
-      !!this.data.role
-    );
+    if (this.data.role === 'Maven') {
+      return (
+        !!this.data.firstname &&
+        !!this.data.lastname &&
+        !!this.data.username &&
+        !!this.data.role &&
+        this.mavenRoleConfirm
+      );
+    } else {
+      return (
+        !!this.data.firstname &&
+        !!this.data.lastname &&
+        !!this.data.username &&
+        !!this.data.role
+      );
+    }
   }
 
   @action inputHandler(e) {
@@ -45,6 +56,7 @@ export default class SignupStepsStepOneComponent extends Component {
         ...this.data,
         [e.target.name]: e.target.value,
       };
+      this.mavenRoleConfirm = e.target.checked;
       if (this.isSignupDetailsFilled()) {
         this.isSignupButtonDisabled = false;
       } else {
@@ -74,13 +86,6 @@ export default class SignupStepsStepOneComponent extends Component {
     };
 
     debounce(this.data, passVal, JOIN_DEBOUNCE_TIME);
-  }
-
-  @action avoidNumbersAndSpaces(event) {
-    var keyCode = event.keyCode || event.which;
-    if (keyCode === 32 || (keyCode >= 48 && keyCode <= 57)) {
-      event.preventDefault();
-    }
   }
 
   @action async getUsername() {

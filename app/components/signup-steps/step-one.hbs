@@ -1,9 +1,3 @@
-<img
-  src='assets/icons/onboarding-card-rds-logo.png'
-  alt='RDS-Logo'
-  class='signup-details__rds-logo'
-  data-test-rds-logo
-/>
 <h3 data-test-required-heading class='heading__h3'>
   Sign up to your account
 </h3>
@@ -45,7 +39,7 @@
   @name='username'
   @type='text'
   @required={{true}}
-  @value={{this.data.username}}
+  @value={{this.username}}
   @isValid={{this.isValid}}
   @hasButtonInsideInput={{true}}
   @classDisableInput='input-disable'
@@ -64,13 +58,10 @@
   @onChange={{this.inputHandler}}
 />
 
-<div class='step-one__button'>
-  <Reusables::Button
-    @text={{if (eq this.data.role 'Developer') 'Signup' 'Next'}}
-    @variant='dark'
-    @onClick={{@handleButtonClick}}
-    @test={{if (eq this.data.role 'Developer') 'signup' 'next'}}
-    @disabled={{if this.isSignupButtonDisabled true false}}
-    @type='button'
-  />
-</div>
+<Reusables::Button
+  @text='Sign Up'
+  @variant='dark'
+  @onClick={{this.signup}}
+  @test='signup'
+  @type='button'
+/>

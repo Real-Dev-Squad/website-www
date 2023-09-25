@@ -9,7 +9,10 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
   test('RealSevSquad logo render on signupDetails page', async function (assert) {
     assert.expect(2);
-    await render(hbs`<SignupSteps::StepOne/>`);
+    this.set('handleButtonClick', () => {});
+    await render(
+      hbs`<SignupSteps::StepOne @handleButtonClick={{this.handleButtonClick}}/>`
+    );
     assert
       .dom('[data-test-rds-logo]')
       .hasAttribute('src', 'assets/icons/onboarding-card-rds-logo.png')
@@ -18,7 +21,10 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
   test('heading render on signupDetails page', async function (assert) {
     assert.expect(1);
-    await render(hbs`<SignupSteps::StepOne/>`);
+    this.set('handleButtonClick', () => {});
+    await render(
+      hbs`<SignupSteps::StepOne @handleButtonClick={{this.handleButtonClick}}/>`
+    );
     assert
       .dom('[data-test-required-heading]')
       .hasText('Sign up to your account');
@@ -38,13 +44,15 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       this.handleInputChange('firstname', this.value);
     });
 
+    this.set('handleButtonClick', () => {});
+
     this.set('handleInputChange', (inputName, inputValue) => {
       this.name = inputName;
       this.value = inputValue;
     });
 
     await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}}/>`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
     );
 
     assert.dom('[data-test-input]').hasClass('input-box');
@@ -78,8 +86,9 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       set(this.signupDetails, key, value);
     });
 
+    this.set('handleButtonClick', () => {});
     await render(hbs`
-    <SignupSteps::StepOne @onChange={{this.handleInputChange}} />
+    <SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>
   `);
 
     await typeIn('[data-test-input-field]', 'shubham');
@@ -94,7 +103,10 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
   test('it render disable username input field and disable Generate Username button on signupDetails page', async function (assert) {
     assert.expect(19);
 
-    await render(hbs`<SignupSteps::StepOne/>`);
+    this.set('handleButtonClick', () => {});
+    await render(
+      hbs`<SignupSteps::StepOne @handleButtonClick={{this.handleButtonClick}}/>`
+    );
 
     assert
       .dom('[data-test-input-field=username]')
@@ -149,8 +161,9 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       this.name = inputName;
       this.value = inputValue;
     });
+    this.set('handleButtonClick', () => {});
     await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}}/>`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
     );
     await typeIn('[data-test-input-field=firstname]', 'shubham');
     await typeIn('[data-test-input-field=lastname]', 'sigdar');
@@ -161,6 +174,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
   test('render select your role dropdown on signup details page and update signupdetails.role object ', async function (assert) {
     assert.expect(13);
+    this.set('handleButtonClick', () => {});
     this.set('signupDetails', {
       role: {},
     });
@@ -175,7 +189,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     });
 
     await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} />`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
     );
 
     assert.dom('[data-test-dropdown]').hasClass('dropdown');
@@ -205,12 +219,13 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
   test('It display error message and disable the button for invalid input', async function (assert) {
     assert.expect(2);
+    this.set('handleButtonClick', () => {});
     this.set('handleInputChange', (inputName, inputValue) => {
       this.name = inputName;
       this.value = inputValue;
     });
     await render(
-      hbs`<SignupSteps::StepOne  @onChange={{this.handleInputChange}} />`
+      hbs`<SignupSteps::StepOne  @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
     );
     await typeIn('[data-test-input-field=firstname]', 'shubham_1');
     await typeIn('[data-test-input-field=lastname]', 'sigdar@');
@@ -222,12 +237,13 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
   test('It render the signup button for role developer', async function (assert) {
     assert.expect(2);
+    this.set('handleButtonClick', () => {});
     this.set('handleInputChange', (inputName, inputValue) => {
       this.name = inputName;
       this.value = inputValue;
     });
     await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}}/>`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
     );
 
     select('[data-test-dropdown-field]', 'Developer');
@@ -239,12 +255,14 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
   test('It render the next button for role maven', async function (assert) {
     assert.expect(2);
+    this.set('handleButtonClick', () => {});
     this.set('handleInputChange', (inputName, inputValue) => {
       this.name = inputName;
       this.value = inputValue;
     });
+    this.set('handleButtonClick', () => {});
     await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} />`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
     );
 
     select('[data-test-dropdown-field]', 'Maven');
@@ -257,12 +275,13 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
   skip('role based button should be enabled when all required fields are filled', async function (assert) {
     assert.expect(1);
 
+    this.set('handleButtonClick', () => {});
     this.set('handleInputChange', (inputName, inputValue) => {
       this.name = inputName;
       this.value = inputValue;
     });
     await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} />`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
     );
 
     await typeIn('[data-test-input-field=firstname]', 'shubham');

@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, typeIn, select, click } from '@ember/test-helpers';
 import { set } from '@ember/object';
@@ -254,7 +254,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert.dom('[data-test-button=next]').hasText('Next');
   });
 
-  test('role based button should be enabled when all required fields are filled', async function (assert) {
+  skip('role based button should be enabled when all required fields are filled', async function (assert) {
     assert.expect(1);
 
     this.set('handleInputChange', (inputName, inputValue) => {

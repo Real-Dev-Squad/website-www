@@ -17,6 +17,7 @@ export default class SignupStepsStepOneComponent extends Component {
     firstname: '',
     lastname: '',
   };
+  @tracked currentStep = 1;
 
   nameValidator(name) {
     const pattern = /^[a-zA-Z]{1,20}$/;
@@ -73,10 +74,6 @@ export default class SignupStepsStepOneComponent extends Component {
     };
 
     debounce(this.data, passVal, JOIN_DEBOUNCE_TIME);
-  }
-
-  @action handleButtonClick() {
-    console.log('Hello world');
   }
 
   @action avoidNumbersAndSpaces(event) {

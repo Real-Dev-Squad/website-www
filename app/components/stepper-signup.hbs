@@ -1,12 +1,19 @@
 <OnboardingCard>
   <form>
     {{#if (eq this.currentStep 0)}}
-    <SignupSteps::StepZero @currentStep={{this.currentStep}} @letsGoHandler={{this.letsGoHandler}} />
+      <SignupSteps::StepZero
+        @currentStep={{this.currentStep}}
+        @letsGoHandler={{this.letsGoHandler}}
+      />
     {{else if (eq this.currentStep 1)}}
-    <SignupSteps::StepOne @onChange={{this.handleInputChange}} @setUsername={{this.setUsername}}
-      @currentStep={{this.currentStep}} />
+      <SignupSteps::StepOne
+        @onChange={{this.handleInputChange}}
+        @setUsername={{this.setUsername}}
+        @currentStep={{this.currentStep}}
+        @handleButtonClick={{this.handleButtonClick}}
+      />
     {{else if (eq this.currentStep 2)}}
-    <SignupSteps::stepTwo @letsGoHandler={{this.letsGoHandler}}/>
+      <SignupSteps::stepTwo @letsGoHandler={{this.letsGoHandler}} />
     {{/if}}
   </form>
 </OnboardingCard>

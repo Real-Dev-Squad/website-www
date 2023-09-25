@@ -6,12 +6,6 @@
         @letsGoHandler={{this.letsGoHandler}}
       />
     {{else}}
-      <img
-        src='assets/icons/onboarding-card-rds-logo.png'
-        alt='RDS-Logo'
-        class='signup-details__rds-logo'
-        data-test-rds-logo
-      />
       {{#if (eq this.currentStep 1)}}
         <SignupSteps::StepOne
           @onChange={{this.handleInputChange}}

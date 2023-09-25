@@ -1,3 +1,9 @@
+<img
+  src='assets/icons/onboarding-card-rds-logo.png'
+  alt='RDS-Logo'
+  class='signup-details__rds-logo'
+  data-test-rds-logo
+/>
 <h3 data-test-required-heading class='heading__h3'>
   Sign up to your account
 </h3>
@@ -39,7 +45,7 @@
   @name='username'
   @type='text'
   @required={{true}}
-  @value={{this.data.username}}
+  @value={{this.username}}
   @isValid={{this.isValid}}
   @hasButtonInsideInput={{true}}
   @classDisableInput='input-disable'
@@ -58,27 +64,10 @@
   @onChange={{this.inputHandler}}
 />
 
-{{#if (eq this.data.role 'Maven')}}
-  <label data-test-label='maven-role' for='maven-role' class='checkbox-label'>
-    <input
-      type='checkbox'
-      name='maven-role'
-      class='checkbox-input'
-      id='maven-role'
-      checked={{false}}
-      {{on 'change' this.inputHandler}}
-    />
-    Are you sure about mentoring people in RealDevSquad?
-  </label>
-{{/if}}
-
-<div class='step-one__button'>
-  <Reusables::Button
-    @text='Signup'
-    @variant='dark'
-    @onClick={{@handleButtonClick}}
-    @test='signup'
-    @disabled={{if this.isSignupButtonDisabled true false}}
-    @type='button'
-  />
-</div>
+<Reusables::Button
+  @text='Sign Up'
+  @variant='dark'
+  @onClick={{this.signup}}
+  @test='signup'
+  @type='button'
+/>

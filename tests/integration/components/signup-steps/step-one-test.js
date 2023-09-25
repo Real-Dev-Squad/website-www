@@ -7,6 +7,15 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | signup-steps/step-one', function (hooks) {
   setupRenderingTest(hooks);
 
+  test('RealSevSquad logo render on signupDetails page', async function (assert) {
+    assert.expect(2);
+    await render(hbs`<SignupSteps::StepOne/>`);
+    assert
+      .dom('[data-test-rds-logo]')
+      .hasAttribute('src', 'assets/icons/onboarding-card-rds-logo.png')
+      .hasAttribute('alt', 'RDS-Logo');
+  });
+
   test('heading render on signupDetails page', async function (assert) {
     assert.expect(1);
     this.set('handleButtonClick', () => {});

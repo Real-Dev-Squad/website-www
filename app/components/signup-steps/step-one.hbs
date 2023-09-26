@@ -65,9 +65,10 @@
 />
 
 {{#if (eq this.data.role 'Maven')}}
-  <div class='role-confirmation__field'>
+  <div data-test-checkbox class='role-confirmation__field'>
     <label data-test-label='maven-role' for='maven-role' class='checkbox-label'>
       <input
+        data-test-checkbox-field
         type='checkbox'
         name='maven-role'
         class='checkbox-input'

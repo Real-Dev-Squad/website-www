@@ -9,7 +9,10 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
   test('RealSevSquad logo render on signupDetails page', async function (assert) {
     assert.expect(2);
-    await render(hbs`<SignupSteps::StepOne/>`);
+    this.set('handleButtonClick', () => {});
+    await render(
+      hbs`<SignupSteps::StepOne @handleButtonClick={{this.handleButtonClick}}/>`
+    );
     assert
       .dom('[data-test-rds-logo]')
       .hasAttribute('src', 'assets/icons/onboarding-card-rds-logo.png')
@@ -232,6 +235,32 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
       .hasProperty('disabled', true);
   });
 
+  test('it renders label and input checkbox when Maven role is chosen', async function (assert) {
+    assert.expect(8);
+    this.set('handleButtonClick', () => {});
+    this.set('handleInputChange', () => {});
+    await render(
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}} @handleButtonClick={{this.handleButtonClick}}/>`
+    );
+
+    select('[data-test-dropdown-field]', 'Maven');
+    await click('[data-test-dropdown-option="Maven"]');
+
+    assert.dom('[data-test-checkbox]').hasClass('role-confirmation__field');
+    assert.dom('[data-test-label=maven-role]').hasClass('checkbox-label');
+    assert
+      .dom('[data-test-label=maven-role]')
+      .hasText('Are you sure about mentoring people in RealDevSquad?');
+
+    assert
+      .dom('[data-test-label=maven-role]')
+      .hasAttribute('for', 'maven-role');
+    assert.dom('[data-test-checkbox-field]').hasClass('checkbox-input');
+    assert.dom('[data-test-checkbox-field]').hasProperty('type', 'checkbox');
+    assert.dom('[data-test-checkbox-field]').hasAttribute('id', 'maven-role');
+    assert.dom('[data-test-checkbox-field]').hasProperty('checked', false);
+  });
+
   skip('role based button should be enabled when all required fields are filled', async function (assert) {
     assert.expect(1);
 
@@ -251,6 +280,6 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     select('[data-test-dropdown-field]', 'Maven');
     await click('[data-test-dropdown-option="Maven"]');
 
-    assert.dom('[data-test-button=next]').hasProperty('disabled', false);
+    assert.dom('[data-test-button=signup]').hasProperty('disabled', false);
   });
 });

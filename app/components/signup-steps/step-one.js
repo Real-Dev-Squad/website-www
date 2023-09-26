@@ -50,7 +50,6 @@ export default class SignupStepsStepOneComponent extends Component {
   }
 
   @action inputHandler(e) {
-    const { onChange } = this.args;
     const passVal = () => {
       this.data = {
         ...this.data,
@@ -62,7 +61,6 @@ export default class SignupStepsStepOneComponent extends Component {
       } else {
         this.isSignupButtonDisabled = true;
       }
-      onChange(e.target.name, e.target.value.toLowerCase());
       const field = e.target.name;
       if (field === 'firstname' || field === 'lastname') {
         const { isValid } = this.nameValidator(e.target.value);
@@ -108,7 +106,6 @@ export default class SignupStepsStepOneComponent extends Component {
           ...this.data,
           username: data.username,
         };
-        this.args.setUsername(this.data.username);
       } else if (response.status === 401) {
         this.toast.error(
           'Please login to continue.',
@@ -119,5 +116,9 @@ export default class SignupStepsStepOneComponent extends Component {
     } catch (err) {
       console.log('Error: ', 'Something went wrong');
     }
+  }
+
+  @action handleButtonClick() {
+    this.signup();
   }
 }

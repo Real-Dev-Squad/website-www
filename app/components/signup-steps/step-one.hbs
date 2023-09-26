@@ -65,17 +65,19 @@
 />
 
 {{#if (eq this.data.role 'Maven')}}
-  <label data-test-label='maven-role' for='maven-role' class='checkbox-label'>
-    <input
-      type='checkbox'
-      name='maven-role'
-      class='checkbox-input'
-      id='maven-role'
-      checked={{false}}
-      {{on 'change' this.inputHandler}}
-    />
-    Are you sure about mentoring people in RealDevSquad?
-  </label>
+  <div class='role-confirmation__field'>
+    <label data-test-label='maven-role' for='maven-role' class='checkbox-label'>
+      <input
+        type='checkbox'
+        name='maven-role'
+        class='checkbox-input'
+        id='maven-role'
+        checked={{false}}
+        {{on 'change' this.inputHandler}}
+      />
+      Are you sure about mentoring people in RealDevSquad?
+    </label>
+  </div>
 {{/if}}
 
 <div class='step-one__button'>

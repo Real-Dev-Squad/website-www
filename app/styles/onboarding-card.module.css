@@ -65,15 +65,27 @@
     text-align: center;
 }
 
+.role-confirmation__field{
+    display: flex;
+    justify-content: center;
+}
+
 .checkbox-label{
-    font-size: 1.3rem;
+    padding-top: 1rem;
+    font-size: 1.1rem;
 }
 
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;
     }
-    
+    .btn-generateUsername{
+        width: 5rem;
+        font-size: 12px;
+    }
+    .checkbox-label{
+        font-size: 0.8rem;
+    }
 }
 
 
@@ -107,14 +119,13 @@
         height: 2.5rem;
     }
 
-    .btn-generateUsername{
-        width: 5rem;
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 480px) {
     .onboarding-card{
         max-width: 90%;
+    }
+    .checkbox-label{
+        font-size: 1rem;
     }
 }

@@ -58,11 +58,34 @@
     align-items: center;
     gap: 2rem;
 }
+
+
+.step-one__button{
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.role-confirmation__field{
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-label{
+    padding-top: 1rem;
+    font-size: 1.1rem;
+}
+
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;
     }
-    
+    .btn-generateUsername{
+        width: 5rem;
+        font-size: 12px;
+    }
+    .checkbox-label{
+        font-size: 0.8rem;
+    }
 }
 
 
@@ -75,7 +98,6 @@
     .signup-details__rds-logo {
         width: 5rem;
         height: 5rem;
-        top: -7%;
     }
 
     .heading__h3{
@@ -97,14 +119,13 @@
         height: 2.5rem;
     }
 
-    .btn-generateUsername{
-        width: 5rem;
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 480px) {
     .onboarding-card{
         max-width: 90%;
+    }
+    .checkbox-label{
+        font-size: 1rem;
     }
 }

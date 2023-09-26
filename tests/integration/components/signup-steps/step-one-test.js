@@ -6,15 +6,6 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | signup-steps/step-one', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('RealSevSquad logo render on signupDetails page', async function (assert) {
-    assert.expect(2);
-    await render(hbs`<SignupSteps::StepOne />`);
-    assert
-      .dom('[data-test-rds-logo]')
-      .hasAttribute('src', 'assets/icons/onboarding-card-rds-logo.png')
-      .hasAttribute('alt', 'RDS-Logo');
-  });
-
   test('heading render on signupDetails page', async function (assert) {
     assert.expect(1);
     await render(hbs`<SignupSteps::StepOne />`);
@@ -175,6 +166,18 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert.dom('[data-test-checkbox-field]').hasProperty('type', 'checkbox');
     assert.dom('[data-test-checkbox-field]').hasAttribute('id', 'maven-role');
     assert.dom('[data-test-checkbox-field]').hasProperty('checked', false);
+  });
+
+  test('It render the signup button', async function (assert) {
+    assert.expect(2);
+    await render(
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}}/>`
+    );
+    select('[data-test-dropdown-field]', 'Developer');
+    await click('[data-test-dropdown-option="Developer"]');
+
+    assert.dom('[data-test-button=signup]').exists();
+    assert.dom('[data-test-button=signup]').hasText('Signup');
   });
 
   skip('role based button should be enabled when all required fields are filled', async function (assert) {

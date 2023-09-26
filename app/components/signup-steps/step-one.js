@@ -119,6 +119,12 @@ export default class SignupStepsStepOneComponent extends Component {
   }
 
   @action handleButtonClick() {
+    this.isSignupButtonDisabled = true;
     this.signup();
+    localStorage.setItem('role', this.data.role);
+  }
+
+  @action async signup() {
+    this.args.incrementStep();
   }
 }

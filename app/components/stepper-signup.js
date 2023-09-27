@@ -57,7 +57,6 @@ export default class StepperSignupComponent extends Component {
   }
 
   @action letsGoHandler() {
-    console.log('this');
     if (this.login.isLoggedIn && !this.login.isLoading) {
       this.incrementStep();
     }

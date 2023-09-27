@@ -9,14 +9,16 @@ import { APPS } from '../../constants/urls';
 import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
 export default class SignupStepsStepOneComponent extends Component {
   @service toast;
-  @tracked data = { firstname: '', lastname: '', role: '' };
-  @tracked username = '';
+  @tracked data = { firstname: '', lastname: '', username: '', role: '' };
+  @tracked isSignupButtonDisabled = true;
   @tracked isValid = true;
+  @tracked mavenRoleConfirm = false;
   role = ROLE;
   @tracked errorMessage = {
     firstname: '',
     lastname: '',
   };
+  @tracked currentStep = 1;
 
   nameValidator(name) {
     const pattern = /^[a-zA-Z]{1,20}$/;
@@ -28,14 +30,37 @@ export default class SignupStepsStepOneComponent extends Component {
     }
   }
 
+  isSignupDetailsFilled() {
+    if (this.data.role === 'Maven') {
+      return (
+        !!this.data.firstname &&
+        !!this.data.lastname &&
+        !!this.data.username &&
+        !!this.data.role &&
+        this.mavenRoleConfirm
+      );
+    } else {
+      return (
+        !!this.data.firstname &&
+        !!this.data.lastname &&
+        !!this.data.username &&
+        !!this.data.role
+      );
+    }
+  }
+
   @action inputHandler(e) {
-    const { onChange } = this.args;
     const passVal = () => {
       this.data = {
         ...this.data,
         [e.target.name]: e.target.value,
       };
-      onChange(e.target.name, e.target.value.toLowerCase());
+      this.mavenRoleConfirm = e.target.checked;
+      if (this.isSignupDetailsFilled()) {
+        this.isSignupButtonDisabled = false;
+      } else {
+        this.isSignupButtonDisabled = true;
+      }
       const field = e.target.name;
       if (field === 'firstname' || field === 'lastname') {
         const { isValid } = this.nameValidator(e.target.value);
@@ -61,17 +86,6 @@ export default class SignupStepsStepOneComponent extends Component {
     debounce(this.data, passVal, JOIN_DEBOUNCE_TIME);
   }
 
-  @action signup() {
-    console.log('');
-  }
-
-  @action avoidNumbersAndSpaces(event) {
-    var keyCode = event.keyCode || event.which;
-    if (keyCode === 32 || (keyCode >= 48 && keyCode <= 57)) {
-      event.preventDefault();
-    }
-  }
-
   @action async getUsername() {
     try {
       const firstname = this.data.firstname.toLowerCase();
@@ -88,8 +102,10 @@ export default class SignupStepsStepOneComponent extends Component {
       );
       const data = await response.json();
       if (response.status === 200) {
-        this.username = data.username;
-        this.args.setUsername(this.username);
+        this.data = {
+          ...this.data,
+          username: data.username,
+        };
       } else if (response.status === 401) {
         this.toast.error(
           'Please login to continue.',
@@ -100,5 +116,15 @@ export default class SignupStepsStepOneComponent extends Component {
     } catch (err) {
       console.log('Error: ', 'Something went wrong');
     }
+  }
+
+  @action handleButtonClick() {
+    this.isSignupButtonDisabled = true;
+    this.signup();
+    localStorage.setItem('role', this.data.role);
+  }
+
+  @action async signup() {
+    this.args.incrementStep();
   }
 }

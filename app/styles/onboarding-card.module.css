@@ -7,7 +7,7 @@
     background-color: var(--color-white);
     border-radius: 24px;
     position: relative;
-    padding: 2rem;
+    padding: 4rem 2rem 2rem 2rem; 
     box-shadow: 0px 4px 10px -2px var(--color-blackshadow), 0px 6px 15px -2px var(--color-blackshadow2);
     margin-top:5rem;
 }
@@ -29,7 +29,6 @@
 .signup-details__rds-logo {
     display: block;
     position: absolute;
-    transform: translateX(-50%);
     left: 50%;
     top: 0;
     transform: translateX(-50%) translateY(-50%);

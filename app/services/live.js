@@ -38,6 +38,7 @@ export default class LiveService extends Service {
   @tracked roomCodesForMaven = [];
   @tracked roomCodeLoading = false;
   @tracked userData = this.login?.userData;
+  @tracked isUserRemoved = false;
 
   constructor() {
     super(...arguments);
@@ -221,6 +222,7 @@ export default class LiveService extends Service {
     const roomId = this.hmsStore?.getState()?.room?.id;
     const reason = 'For doing something wrong!';
     try {
+      this.isUserRemoved = true;
       const response = await fetch(
         `${APPS.API_BACKEND}/events/${roomId}/peers/kickout`,
         {
@@ -231,7 +233,6 @@ export default class LiveService extends Service {
           }),
         }
       );
-
       const data = await response.json();
       if (response.status === 200 && data) {
         this.toast.success(data?.message, 'Success!', TOAST_OPTIONS);
@@ -242,6 +243,8 @@ export default class LiveService extends Service {
     } catch (err) {
       console.error('The error is: ', err);
       this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+    } finally {
+      this.isUserRemoved = false;
     }
   }
 

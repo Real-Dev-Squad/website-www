@@ -33,16 +33,16 @@
         />
       </span>
       <span data-test-sidebar-host-name class='host__name'>
-        {{#unless this.liveService.isScreenShareOn}}
-          No one is presenting
-        {{else}}
+        {{#if this.liveService.isScreenShareOn}}
           {{#each @peers as |peer|}}
             {{#if (eq peer.roleName this.ROLES.host)}}
               {{peer.name}}
               is presenting
             {{/if}}
           {{/each}}
-        {{/unless}}
+        {{else}}
+          No one is presenting
+        {{/if}}
       </span>
     </div>
     <LiveParticipants

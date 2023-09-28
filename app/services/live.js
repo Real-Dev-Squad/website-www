@@ -5,6 +5,7 @@ import {
   selectPeers,
   selectIsConnectedToRoom,
   selectLocalPeer,
+  HMSNotificationTypes,
 } from '@100mslive/hms-video-store';
 import { tracked } from '@glimmer/tracking';
 import { APPS } from 'website-www/constants/urls';
@@ -23,6 +24,7 @@ export default class LiveService extends Service {
   hmsManager;
   hmsStore;
   hmsActions;
+  hmsNotifications;
   @tracked isScreenShareOn = false;
   @tracked isJoined = false;
   @tracked activeRoomId = '';
@@ -56,6 +58,16 @@ export default class LiveService extends Service {
       (isConnected) => this.onConnection(isConnected),
       selectIsConnectedToRoom
     );
+
+    this.hmsNotifications.onNotification((notification) => {
+      if (notification.type === HMSNotificationTypes.ROOM_ENDED) {
+        this.toast.info(
+          `${notification.data.reason}`,
+          'Notify!',
+          TOAST_OPTIONS
+        );
+      }
+    });
   }
 
   onConnection(isConnected) {
@@ -220,7 +232,7 @@ export default class LiveService extends Service {
 
   async removePeer(peerId) {
     const roomId = this.hmsStore?.getState()?.room?.id;
-    const reason = 'For doing something wrong!';
+    const reason = 'You have been kicked out for inappropriate behavior!';
     try {
       this.isUserRemoved = true;
       const response = await fetch(

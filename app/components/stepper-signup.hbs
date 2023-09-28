@@ -14,7 +14,7 @@
         @incrementStep={{this.incrementStep}} 
       />
     {{else if (eq this.currentStep 2)}}
-      <SignupSteps::stepTwo 
+      <SignupSteps::StepTwo 
         @startHandler={{this.startHandler}} 
       />
     {{else if (eq this.currentStep 3)}}
@@ -40,6 +40,13 @@
       />
     {{else if (eq this.currentStep 6)}}
       <JoinSteps::StepFour 
+        @startHandler={{this.startHandler}} 
+        @setIsPreValid={{this.setIsPreValid}}
+        @isValid={{this.isValid}} 
+        @setIsValid={{this.setIsValid}} 
+      />
+      {{else if (eq this.currentStep 6)}}
+      <IdentitySteps::StepOne 
         @startHandler={{this.startHandler}} 
         @setIsPreValid={{this.setIsPreValid}}
         @isValid={{this.isValid}} 

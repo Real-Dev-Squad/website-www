@@ -231,3 +231,10 @@
     }
   }
 }
+
+/* utility classes */
+
+.self {
+  border: 3px solid var(--color-pink);
+  background: var(--color-pink-low-opacity);
+}

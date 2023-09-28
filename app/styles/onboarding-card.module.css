@@ -1,6 +1,5 @@
 .onboarding-card {
-    min-height: 55vh;
-    min-width: 40vw;
+    max-width: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,9 +7,23 @@
     background-color: var(--color-white);
     border-radius: 24px;
     position: relative;
-    margin-top: 4rem;
-    padding: 0 1rem;
+    padding: 2rem;
     box-shadow: 0px 4px 10px -2px var(--color-blackshadow), 0px 6px 15px -2px var(--color-blackshadow2);
+    margin-top:5rem;
+}
+.logo__github-rds {
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+}
+
+.p2-description{
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: center;
+    line-height: 24px;
 }
 
 .signup-details__rds-logo {
@@ -18,7 +31,8 @@
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
-    top: -15%;
+    top: 0;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .logos-container__rds {
@@ -29,37 +43,64 @@
     gap: 2rem;
 }
 
-.signup-page-heading {
+.heading__h3 {
     color: var(--neutral-neutral-700, #272626);
     text-align: center;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 700;
     line-height: 24px; 
-    padding-top: 5rem;
+    padding-top: 3rem;
+}
+.card__getting-started{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
-@media (max-width: 800px) {
+
+.step-one__button{
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.role-confirmation__field{
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-label{
+    padding-top: 1rem;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
     .onboarding-card {
-        min-width: 60vh;
+        width: 80%;
+    }
+    .btn-generateUsername{
+        width: 5rem;
+        font-size: 12px;
+    }
+    .checkbox-label{
+        font-size: 0.8rem;
     }
 }
 
 
-@media (max-width: 625px) {
+@media (max-width: 768px) {
     .onboarding-card{
-        min-height: 30vh;
-        min-width: 75vw;
+        max-width: 80%;
         padding: 3.5rem 1rem;
     }
 
     .signup-details__rds-logo {
         width: 5rem;
         height: 5rem;
-        top: -7%;
     }
 
-    .signup-page-heading{
+    .heading__h3{
         padding-top: 0;
     }
 
@@ -76,5 +117,15 @@
     .logo__img--link {
         width: 2.8rem;
         height: 2.5rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .onboarding-card{
+        max-width: 90%;
+    }
+    .checkbox-label{
+        font-size: 1rem;
     }
 }

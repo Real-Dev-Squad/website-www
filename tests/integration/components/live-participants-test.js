@@ -11,6 +11,7 @@ import {
 
 module('Integration | Component | live-participants', function (hooks) {
   setupRenderingTest(hooks);
+
   test('renders No Maven In the stream Text', async function (assert) {
     this.setProperties({
       peers: hostPeer,
@@ -72,6 +73,25 @@ module('Integration | Component | live-participants', function (hooks) {
     assert
       .dom('[data-test-sidebar-body-role] .user')
       .hasText('No Guests in the stream');
+  });
+
+  test('renders host name In the stream ', async function (assert) {
+    this.setProperties({
+      peers: hostPeer,
+      profilePic: 'profilepicurl',
+      isKickoutModalOpen: true,
+    });
+    this.set('openKickoutModal', () => {
+      this.isKickoutModalOpen = true;
+    });
+    await render(hbs`<LiveParticipants
+      @user='Hosts'
+      @role='host'
+      @peers={{this.peers}}
+      @minimumParticipants="host"
+      @openKickoutModal={{this.openKickoutModal}}
+    />`);
+    assert.dom('[data-test-sidebar-user="1"]').hasText('Ankush');
   });
 
   test('renders Mavens Lists who joined Stream', async function (assert) {

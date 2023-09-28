@@ -38,7 +38,7 @@
   {{! TODO - add more else if statement instead of only else }}
   {{#if (eq this.activeTab 'Screenshare')}}
     {{#if this.liveService.isLoading}}
-      <div data-test-loading>
+      <div data-test-loading class='live__loader-container'>
         <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
       </div>
     {{else}}
@@ -98,7 +98,7 @@
     {{/if}}
   {{else}}
     {{! TODO - add the respective component here }}
-    <p>Coming Soon!</p>
+    <p class='live__section'>Coming Soon!</p>
   {{/if}}
 
 </div>

@@ -34,7 +34,7 @@
 .sidebar__participants {
   width: 90%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background: var(--color-white);
   text-align: center;
@@ -186,6 +186,7 @@
 
   .sidebar__participants {
     background: var(--color-sidebar-participants);
+    justify-content: space-between;
     text-align: initial;
     padding-left: 1rem;
   }

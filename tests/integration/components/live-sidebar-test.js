@@ -47,6 +47,6 @@ module('Integration | Component | live-sidebar', function (hooks) {
     );
 
     assert.dom('[data-test-sidebar-host-name]').exists();
-    assert.dom('[data-test-sidebar-host-name]').hasText('Ankush is presenting');
+    assert.dom('[data-test-sidebar-host-name]').hasText('No one is presenting');
   });
 });

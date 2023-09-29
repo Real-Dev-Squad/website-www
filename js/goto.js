@@ -1,4 +1,4 @@
-import { SIGNUP_URL, HOME_URL } from './constants.js';
+import { SIGNUP_URL, HOME_URL, WELCOME_URL } from './constants.js';
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -17,13 +17,13 @@ function redirectionHandler(data) {
       data.roles.developer &&
       (hasVisitedJoin === 'true' || hasVisitedJoin === null)
     ) {
-      redirectUserToPage(`${HOME_URL}/join.html`);
+      redirectUserToPage(`${WELCOME_URL}/`);
     } else {
       redirectUserToPage(HOME_URL);
     }
   } else {
     if (hasVisitedJoin === 'true' || hasVisitedJoin === null) {
-      redirectUserToPage(`${HOME_URL}/join.html`);
+      redirectUserToPage(`${WELCOME_URL}/`);
     } else {
       redirectUserToPage(HOME_URL);
     }

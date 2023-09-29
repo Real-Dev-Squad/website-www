@@ -69,7 +69,7 @@ export default class LiveController extends Controller {
 
     const activeEventsdata = await this.liveService.getActiveEvents();
     const activeEvent = this.isActiveEventFound && activeEventsdata?.[0];
-    console.log('active events are ', activeEventsdata);
+
     if (this.isActiveEventFound) {
       const roomId = activeEvent?.room_id;
       this.liveService.joinSession(roomId, this.name, this.role, this.roomCode);

@@ -1,12 +1,12 @@
-<section data-test-card class='card live__join'>
-  <h3 data-test-card-title class='card__title'>
+<section data-test-live-join class='card live__join'>
+  <h3 data-test-live-join-title class='card__title'>
     {{#if (eq @buttonText 'Join')}}
       Join the Event
     {{else}}
       Create a Event
     {{/if}}
   </h3>
-  <form onsubmit={{@clickHandler}} class='card__form'>
+  <form data-test-live-join-form onsubmit={{@clickHandler}} class='card__form'>
     <Reusables::InputBox
       @field='Name'
       @name='name'
@@ -29,14 +29,14 @@
     {{/if}}
     <div>
       <Reusables::Button
-        @test='live-join'
+        @test='live-join-back-button'
         @type='button'
         @variant='light'
         @text='Back'
         @onClick={{@backHandler}}
       />
       <Reusables::Button
-        @test='live-join'
+        @test='live-join-submit-button'
         @type='button'
         @variant='dark'
         @text={{@buttonText}}

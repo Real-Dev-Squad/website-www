@@ -8,12 +8,12 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
 
   test('it renders the "Congratulations" message', async function (assert) {
     assert.expect(1);
-    this.set('letsGoHandler', async () => {
+    this.set('startHandler', async () => {
       await click('[data-test-button=lets-go]');
     });
 
     await render(
-      hbs`<SignupSteps::StepTwo @letsGoHandler={{this.letsGoHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
     );
     assert
       .dom('[data-test-getting-started-heading]')
@@ -25,11 +25,11 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
 
     window.localStorage.setItem('role', 'Developer');
 
-    this.set('letsGoHandler', async () => {
+    this.set('startHandler', async () => {
       await click('[data-test-button=lets-go]');
     });
     await render(
-      hbs`<SignupSteps::StepTwo @letsGoHandler={{this.letsGoHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
     );
 
     assert
@@ -44,11 +44,11 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
 
     window.localStorage.setItem('role', 'Maven');
 
-    this.set('letsGoHandler', async () => {
+    this.set('startHandler', async () => {
       await click('[data-test-button=Join-Discord]');
     });
     await render(
-      hbs`<SignupSteps::StepTwo @letsGoHandler={{this.letsGoHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
     );
 
     assert
@@ -58,15 +58,15 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
     window.localStorage.clear();
   });
 
-  test('clicking "Let\'s Get Started" button triggers letsGoHandler', async function (assert) {
+  test('clicking "Let\'s Get Started" button triggers startHandler', async function (assert) {
     assert.expect(1);
     window.localStorage.setItem('role', 'Developer');
-    this.set('letsGoHandler', () => {
-      assert.ok(true, 'letsGoHandler was called');
+    this.set('startHandler', () => {
+      assert.ok(true, 'startHandler was called');
     });
 
     await render(
-      hbs`<SignupSteps::StepTwo @letsGoHandler={{this.letsGoHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
     );
 
     await click('[data-test-button=lets-go]');
@@ -76,11 +76,11 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
   test('it renders the description text for user who choose Developer role', async function (assert) {
     assert.expect(1);
     window.localStorage.setItem('role', 'Developer');
-    this.set('letsGoHandler', async () => {
+    this.set('startHandler', async () => {
       await click('[data-test-button=lets-go]');
     });
     await render(
-      hbs`<SignupSteps::StepTwo @letsGoHandler={{this.letsGoHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
     );
     assert
       .dom('[data-test-getting-started-paragraph]')
@@ -91,11 +91,11 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
   test('it renders the description text for user who choose Maven role', async function (assert) {
     assert.expect(1);
     window.localStorage.setItem('role', 'Maven');
-    this.set('letsGoHandler', async () => {
+    this.set('startHandler', async () => {
       await click('[data-test-button=Join-Discord]');
     });
     await render(
-      hbs`<SignupSteps::StepTwo @letsGoHandler={{this.letsGoHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
     );
     assert
       .dom('[data-test-getting-started-paragraph]')

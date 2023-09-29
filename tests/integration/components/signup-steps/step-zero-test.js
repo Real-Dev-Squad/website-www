@@ -25,10 +25,10 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
     this.loginService = this.owner.lookup('service:login');
     this.loginService.loginWithGithub();
 
-    this.set('letsGoHandler', () => {});
+    this.set('startHandler', () => {});
 
     await render(
-      hbs`<SignupSteps::StepZero @letsGoHandler={{this.letsGoHandler}} />`
+      hbs`<SignupSteps::StepZero @startHandler={{this.startHandler}} />`
     );
     assert
       .dom('[data-test-signup-heading]')
@@ -44,10 +44,10 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
 
   test('it renders correctly when the user is not logged in', async function (assert) {
     assert.expect(3);
-    this.set('letsGoHandler', () => {});
+    this.set('startHandler', () => {});
 
     await render(
-      hbs`<SignupSteps::StepZero @letsGoHandler={{this.letsGoHandler}} />`
+      hbs`<SignupSteps::StepZero @startHandler={{this.startHandler}} />`
     );
 
     assert.dom('[data-test-rds-logo]').exists();

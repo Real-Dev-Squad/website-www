@@ -1,5 +1,11 @@
 <section data-test-card class='card live__join'>
-  <h3 data-test-card-title class='card__title'>Join the Event</h3>
+  <h3 data-test-card-title class='card__title'>
+    {{#if (eq @buttonText 'Join')}}
+      Join the Event
+    {{else}}
+      Create a Event
+    {{/if}}
+  </h3>
   <form onsubmit={{@clickHandler}} class='card__form'>
     <Reusables::InputBox
       @field='Name'
@@ -33,7 +39,7 @@
         @test='live-join'
         @type='button'
         @variant='dark'
-        @text={{if (eq @role 'host') 'Create Event' 'Join'}}
+        @text={{@buttonText}}
         @onClick={{@clickHandler}}
       />
     </div>

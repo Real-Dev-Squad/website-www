@@ -89,6 +89,12 @@
   width: 40px;
 }
 
+.host__name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .body__role-user {
   background: var(--color-white);
   margin-bottom: 1rem;

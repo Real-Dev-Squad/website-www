@@ -24,6 +24,7 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	margin-top: 3.75rem;
 }
 
 .live__video-container {
@@ -42,7 +43,7 @@
 	margin-top: 1rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1025px) {
 	.live__video-container {
 		width: 100%;
 	}
@@ -60,4 +61,9 @@
 		align-items: center;
 		justify-content: space-between;
 	}
+}
+
+/* utils */
+.bg-black {
+	background-color: black;
 }

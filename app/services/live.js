@@ -32,7 +32,6 @@ export default class LiveService extends Service {
   @tracked localPeer;
   @globalRef('videoEl') videoEl;
   @tracked peers;
-  @tracked isScreenShareOn;
   @tracked hostRole = '';
   @tracked mavenRole = '';
   @tracked moderatorRole = '';

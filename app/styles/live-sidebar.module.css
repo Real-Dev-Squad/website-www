@@ -89,6 +89,12 @@
   width: 40px;
 }
 
+.host__name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .body__role-user {
   background: var(--color-white);
   margin-bottom: 1rem;
@@ -133,6 +139,11 @@
   font-size: 17px;
   line-height: 20px;
   color: var(--color-black);
+  overflow-x: auto;
+  width: 80%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .user__btn {
@@ -174,10 +185,11 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1025px) {
   .sidebar {
-    height: 70px;
+    padding: 0;
     width: 100%;
+    padding-top: 1rem;
   }
 
   .sidebar__accordian-button {

@@ -43,7 +43,7 @@
 	margin-top: 1rem;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1025px) {
 	.live__video-container {
 		width: 100%;
 	}

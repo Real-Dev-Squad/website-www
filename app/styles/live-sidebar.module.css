@@ -133,6 +133,11 @@
   font-size: 17px;
   line-height: 20px;
   color: var(--color-black);
+  overflow-x: auto;
+  width: 80%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .user__btn {

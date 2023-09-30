@@ -74,6 +74,17 @@
     font-size: 1.1rem;
 }
 
+.chaincode-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 25rem;
+}
+
+.chaincode-page__description{
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;

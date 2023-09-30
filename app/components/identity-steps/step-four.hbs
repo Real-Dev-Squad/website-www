@@ -6,4 +6,32 @@
     A private key that you need to use in your profile service URL and deploy
     for source that you're the source of the URL
   </p>
+  {{#if this.isChaincodeClicked}}
+    <div class='chaincode-container'>
+      <div class='chaincode-container__value'>
+        {{#if this.hideChaincode}}
+          ****
+        {{else}}
+          {{this.Chaincode}}
+        {{/if}}
+      </div>
+      <div class='chaincode-container__action'>
+        <button type='button' {{on 'click' this.toggleEye}}>
+          <FaIcon
+            @icon={{if this.hideChaincode 'eye' 'eye-slash'}}
+            @size='0.5px'
+          />
+        </button>
+        <FaIcon @icon='copy' @size='0.5x' />
+      </div>
+    </div>
+  {{else}}
+    <Reusables::Button
+      @text={{this.Chaincode}}
+      @variant='dark'
+      @onClick={{this.handleGenerateChaincode}}
+      @test='chaincode'
+      @type='button'
+    />
+  {{/if}}
 </div>

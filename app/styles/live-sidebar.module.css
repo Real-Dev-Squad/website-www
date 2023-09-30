@@ -179,7 +179,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
   .sidebar {
     height: 70px;
     width: 100%;

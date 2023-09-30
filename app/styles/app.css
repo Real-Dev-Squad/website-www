@@ -56,3 +56,7 @@ button {
 ::-webkit-scrollbar {
   width: 0;
 }
+
+#toast-container>div {
+  opacity: 1;
+}

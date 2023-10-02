@@ -7,16 +7,23 @@
     for source that you're the source of the URL
   </p>
   {{#if this.isChaincodeClicked}}
-    <div class='chaincode-container'>
-      <div class='chaincode-container__value'>
+    <div data-test='chaincode-container' class='chaincode-container'>
+      <div
+        data-test='chaincode-container__value'
+        class='chaincode-container__value'
+      >
         {{#if this.hideChaincode}}
           **************
         {{else}}
           {{this.Chaincode}}
         {{/if}}
       </div>
-      <div class='chaincode-container__action'>
+      <div
+        data-test='chaincode-container__action'
+        class='chaincode-container__action'
+      >
         <button
+          data-test-button='eye-icon'
           class='chaicode-button-icon'
           type='button'
           {{on 'click' this.toggleEye}}
@@ -27,6 +34,7 @@
           />
         </button>
         <button
+          data-test-button='copy-icon'
           class='chaicode-button-icon'
           type='button'
           {{on 'click' this.handleCopy}}

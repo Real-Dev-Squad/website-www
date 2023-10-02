@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | input-box', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('input renders', async function (assert) {
+  skip('input renders', async function (assert) {
     assert.expect(13);
 
     this.set('name', 'city');

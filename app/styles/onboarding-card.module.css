@@ -87,7 +87,24 @@
 }
 
 .chaincode-container{
-    
+    display: flex;
+    padding: 1.2rem 18rem 1.2rem 0;
+    position: relative;
+    border: 1px solid;
+    border-radius: 0.5rem;
+}
+
+.chaincode-container__value{
+    position: absolute;
+    font-weight: bold;
+    top: 0.6rem;
+    left: 1rem;
+    letter-spacing: 0.2rem;
+}
+.chaincode-container__action{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
 }
 
 @media (max-width: 1024px) {

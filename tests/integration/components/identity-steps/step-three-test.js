@@ -6,9 +6,9 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | identity-steps/step-three', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
+  test('stepThree renders', async function (assert) {
     this.set('startHandler', async () => {
-      await click('[data-test-button=lets-go]');
+      await click('[data-test-button=identity-next-button]');
     });
 
     await render(

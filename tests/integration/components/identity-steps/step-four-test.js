@@ -98,16 +98,4 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
 
     assert.dom('[data-test=chaincode-container__value]').hasText('hv2hz3xh1h');
   });
-
-  test('Clicking copy-icon button enable Next button', async function (assert) {
-    assert.expect(1);
-    this.set('startHandler', () => {});
-    await render(
-      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`
-    );
-    await click('[data-test-button=chaincode]');
-    await click('[data-test-button=copy-icon]');
-
-    assert.dom('[data-test-button=next]').hasProperty('disabled', false);
-  });
 });

@@ -1,4 +1,4 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, typeIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | input-box', function (hooks) {
   setupRenderingTest(hooks);
 
-  skip('input renders', async function (assert) {
+  test('input renders', async function (assert) {
     assert.expect(13);
 
     this.set('name', 'city');

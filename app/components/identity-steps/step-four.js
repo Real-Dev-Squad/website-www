@@ -22,8 +22,8 @@ export default class IdentityStepsStepFourComponent extends Component {
     this.hideChaincode = !this.hideChaincode;
   }
 
-  @action async handleCopy() {
-    await navigator.clipboard.writeText(this.Chaincode);
+  @action handleCopy() {
+    navigator.clipboard.writeText(this.Chaincode);
     this.isCopyClicked = true;
     this.isChaincodePageButtonDisabled = false;
     if (this.isCopyClicked === true) {

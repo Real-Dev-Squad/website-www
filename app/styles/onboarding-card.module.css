@@ -107,6 +107,13 @@
     right: 0.5rem;
 }
 
+.chaicode-button-icon{
+    background: none;
+    border: none;
+    padding: 0 0.4rem;
+    cursor: pointer;
+}
+
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;

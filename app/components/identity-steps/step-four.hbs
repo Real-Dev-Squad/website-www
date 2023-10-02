@@ -16,13 +16,23 @@
         {{/if}}
       </div>
       <div class='chaincode-container__action'>
-        <button type='button' {{on 'click' this.toggleEye}}>
+        <button
+          class='chaicode-button-icon'
+          type='button'
+          {{on 'click' this.toggleEye}}
+        >
           <FaIcon
             @icon={{if this.hideChaincode 'eye' 'eye-slash'}}
             @size='0.5px'
           />
         </button>
-        <FaIcon @icon='copy' @size='0.5x' />
+        <button
+          class='chaicode-button-icon'
+          type='button'
+          {{on 'click' this.handleCopy}}
+        >
+          <FaIcon @icon='copy' @size='0.5x' />
+        </button>
       </div>
     </div>
   {{else}}
@@ -34,4 +44,14 @@
       @type='button'
     />
   {{/if}}
+  <div class='chaincode-page__button'>
+    <Reusables::Button
+      @text='Next'
+      @variant='dark'
+      @onClick={{@startHandler}}
+      @test='next'
+      @disabled={{if this.isChaincodePageButtonDisabled true false}}
+      @type='button'
+    />
+  </div>
 </div>

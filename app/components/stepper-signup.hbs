@@ -1,49 +1,52 @@
 <OnboardingCard>
   <form>
     {{#if (not (eq this.currentStep 0))}}
-      <img src='assets/icons/onboarding-card-rds-logo.png' alt='RDS-Logo' class='signup-details__rds-logo' data-test-rds-logo />
+      <img
+        src='assets/icons/onboarding-card-rds-logo.png'
+        alt='RDS-Logo'
+        class='signup-details__rds-logo'
+        data-test-rds-logo
+      />
     {{/if}}
     {{#if (eq this.currentStep 0)}}
-      <SignupSteps::StepZero 
-        @currentStep={{this.currentStep}} 
-        @startHandler={{this.startHandler}} 
+      <SignupSteps::StepZero
+        @currentStep={{this.currentStep}}
+        @startHandler={{this.startHandler}}
       />
     {{else if (eq this.currentStep 1)}}
-      <SignupSteps::StepOne 
-        @currentStep={{this.currentStep}} 
-        @incrementStep={{this.incrementStep}} 
+      <SignupSteps::StepOne
+        @currentStep={{this.currentStep}}
+        @incrementStep={{this.incrementStep}}
       />
     {{else if (eq this.currentStep 2)}}
-      <SignupSteps::StepTwo 
-        @startHandler={{this.startHandler}} 
-      />
+      <SignupSteps::StepTwo @startHandler={{this.startHandler}} />
     {{else if (eq this.currentStep 3)}}
-      <JoinSteps::StepOne 
-        @startHandler={{this.startHandler}} 
+      <JoinSteps::StepOne
+        @startHandler={{this.startHandler}}
         @setIsPreValid={{this.setIsPreValid}}
-        @isValid={{this.isValid}} 
-        @setIsValid={{this.setIsValid}} 
+        @isValid={{this.isValid}}
+        @setIsValid={{this.setIsValid}}
       />
     {{else if (eq this.currentStep 4)}}
-      <JoinSteps::StepTwo 
-        @startHandler={{this.startHandler}} 
+      <JoinSteps::StepTwo
+        @startHandler={{this.startHandler}}
         @setIsPreValid={{this.setIsPreValid}}
-        @isValid={{this.isValid}} 
-        @setIsValid={{this.setIsValid}} 
+        @isValid={{this.isValid}}
+        @setIsValid={{this.setIsValid}}
       />
     {{else if (eq this.currentStep 5)}}
-      <JoinSteps::StepThree 
-        @startHandler={{this.startHandler}} 
+      <JoinSteps::StepThree
+        @startHandler={{this.startHandler}}
         @setIsPreValid={{this.setIsPreValid}}
-        @isValid={{this.isValid}} 
-        @setIsValid={{this.setIsValid}} 
+        @isValid={{this.isValid}}
+        @setIsValid={{this.setIsValid}}
       />
     {{else if (eq this.currentStep 6)}}
-      <JoinSteps::StepFour 
-        @startHandler={{this.startHandler}} 
+      <JoinSteps::StepFour
+        @startHandler={{this.startHandler}}
         @setIsPreValid={{this.setIsPreValid}}
-        @isValid={{this.isValid}} 
-        @setIsValid={{this.setIsValid}} 
+        @isValid={{this.isValid}}
+        @setIsValid={{this.setIsValid}}
       />
       {{else if (eq this.currentStep 7)}}
         <IdentitySteps::StepOne 
@@ -66,6 +69,8 @@
         @isValid={{this.isValid}} 
         @setIsValid={{this.setIsValid}} 
         />
+    {{else if (eq this.currentStep 10)}}
+      <IdentitySteps::StepFour />
     {{/if}}
   </form>
 

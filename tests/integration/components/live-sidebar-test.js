@@ -25,7 +25,6 @@ module('Integration | Component | live-sidebar', function (hooks) {
     });
     await render(hbs`<LiveSidebar 
     @peers={{this.peers}}
-    @hostProfilePicture={{this.profilePic}}
     />`);
 
     assert.dom('[data-test-sidebar]').exists();
@@ -42,7 +41,7 @@ module('Integration | Component | live-sidebar', function (hooks) {
       document
         .querySelector(`[data-test-sidebar-host-image]`)
         .getAttribute('src'),
-      this.profilePic,
+      '/assets/images/profile.png',
       'profile pic is same!'
     );
 

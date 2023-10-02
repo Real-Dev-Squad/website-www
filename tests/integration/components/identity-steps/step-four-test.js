@@ -107,6 +107,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
     );
     await click('[data-test-button=chaincode]');
     await click('[data-test-button=copy-icon]');
+    await navigator.clipboard.writeText(this.Chaincode);
 
     assert.dom('[data-test-button=next]').hasProperty('disabled', false);
   });

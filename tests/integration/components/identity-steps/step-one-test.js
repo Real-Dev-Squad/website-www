@@ -1,15 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, click } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | identity-steps/step-one', function (hooks) {
   setupRenderingTest(hooks);
 
   test('stepOne renders', async function (assert) {
-    this.set('startHandler', async () => {
-      await click('[data-test-button=identity-proceed-button]');
-    });
+    assert.expect(4);
+    this.set('startHandler', () => {});
 
     await render(
       hbs`<IdentitySteps::StepOne @startHandler={{this.startHandler}} />`
@@ -26,6 +25,6 @@ module('Integration | Component | identity-steps/step-one', function (hooks) {
     assert
       .dom('[data-test-getting-started-paragraph-2]')
       .hasText('Please click proceed to know about the task');
-    assert.dom('[data-test-button]').hasText('Proceed');
+    assert.dom('[data-test-button=identity-proceed-button]').hasText('Proceed');
   });
 });

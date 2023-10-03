@@ -28,6 +28,7 @@ module('Integration | Component | live-participants', function (hooks) {
       @minimumParticipants=""
       @openKickoutModal={{this.openKickoutModal}}
     />`);
+    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Mavens (0)');
     assert
       .dom('[data-test-sidebar-body-role] .user')
       .hasText('No Mavens in the stream');
@@ -49,6 +50,7 @@ module('Integration | Component | live-participants', function (hooks) {
       @minimumParticipants=""
       @openKickoutModal={{this.openKickoutModal}}
     />`);
+    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Moderators (0)');
     assert
       .dom('[data-test-sidebar-body-role] .user')
       .hasText('No Moderators in the stream');
@@ -66,10 +68,11 @@ module('Integration | Component | live-participants', function (hooks) {
     await render(hbs`  <LiveParticipants
       @user='Guests'
       @role='guest'
-      @peers={{@peers}}
+      @peers={{this.peers}}
       @minimumParticipants=""
       @openKickoutModal={{this.openKickoutModal}}
     />`);
+    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Guests (0)');
     assert
       .dom('[data-test-sidebar-body-role] .user')
       .hasText('No Guests in the stream');
@@ -91,6 +94,7 @@ module('Integration | Component | live-participants', function (hooks) {
       @minimumParticipants="host"
       @openKickoutModal={{this.openKickoutModal}}
     />`);
+    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Hosts (1)');
     assert.dom('[data-test-sidebar-user="1"]').hasText('Ankush');
   });
 
@@ -110,6 +114,7 @@ module('Integration | Component | live-participants', function (hooks) {
       @minimumParticipants="maven"
       @openKickoutModal={{this.openKickoutModal}}
     />`);
+    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Mavens (2)');
     assert.dom('[data-test-sidebar-user="2"]').hasText('Maven1');
   });
 
@@ -129,6 +134,7 @@ module('Integration | Component | live-participants', function (hooks) {
       @minimumParticipants="moderator"
       @openKickoutModal={{this.openKickoutModal}}
     />`);
+    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Moderator (2)');
     assert.dom('[data-test-sidebar-user="3"]').hasText('Mod3');
   });
 
@@ -148,6 +154,7 @@ module('Integration | Component | live-participants', function (hooks) {
       @minimumParticipants="guest"
       @openKickoutModal={{this.openKickoutModal}}
     />`);
+    assert.dom('[data-test-sidebar-body-role-guest]').hasText('Guest (2)');
     assert.dom('[data-test-sidebar-user="3"]').hasText('Guest2');
   });
 });

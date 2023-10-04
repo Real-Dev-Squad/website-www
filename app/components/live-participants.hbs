@@ -2,7 +2,7 @@
   <p
     data-test-sidebar-body-role-guest
     class='role-user__type guestUsers'
-  >{{@user}}</p>
+  >{{@user}} (<span>{{this.participantsCount}}</span>) </p>
   <ul>
     {{#if (not-eq @minimumParticipants @role)}}
       <li data-test-sidebar-user={{'peer.id'}} class='user'>

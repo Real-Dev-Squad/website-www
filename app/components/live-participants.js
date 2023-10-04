@@ -11,7 +11,7 @@ export default class LiveParticipantsComponent extends Component {
 
   get participantsCount() {
     let { peers, role } = this.args;
-    const result = peers.filter((ele) => ele.roleName === role);
+    const result = peers.filter((peer) => peer.roleName === role);
     return result.length;
   }
 }

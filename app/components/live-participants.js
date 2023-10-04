@@ -10,13 +10,8 @@ export default class LiveParticipantsComponent extends Component {
   }
 
   get participantsCount() {
-    let count = 0;
     let { peers, role } = this.args;
-    for (let i = 0; i < peers.length; i++) {
-      if (peers[i].roleName === role) {
-        count++;
-      }
-    }
-    return count;
+    const result = peers.filter((ele) => ele.roleName === role);
+    return result.length;
   }
 }

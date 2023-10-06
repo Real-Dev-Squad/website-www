@@ -12,6 +12,64 @@ const selectRandom = (memberImgArr, n) => {
 
 const numOfMembers = 5;
 let memberSection = document.getElementById('members');
+
+let regexp = /android|iphone|kindle|ipad/i;
+let details = navigator.userAgent;
+let isMobileDevice = regexp.test(details);
+window.onload = femo();
+
+function femo() {
+  console.log('efd');
+  if (isMobileDevice) {
+    openDialog();
+    document.getElementById('okayBt').addEventListener('click', openApp);
+    document.getElementById('cancleBt').addEventListener('click', closeDialog);
+  } else {
+    closeDialog();
+  }
+}
+function openDialog() {
+  document.querySelectorAll('.appDialog')[0].style.display = 'block';
+  document.querySelectorAll('.mainDiv')[0].style.display = 'none';
+}
+function closeDialog() {
+  document.querySelectorAll('.appDialog')[0].style.display = 'none';
+  document.querySelectorAll('.mainDiv')[0].style.display = 'block';
+}
+function openApp() {
+  var flag = false;
+  var appScheme = 'app://realdevsquad.com';
+  var fallbackURL =
+    'https://play.google.com/store/apps/details?id=com.github.android'; // It will replace with app playstore url
+
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  if (/android/i.test(userAgent)) {
+    var iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = appScheme;
+    document.body.appendChild(iframe);
+
+    window.addEventListener('blur', function () {
+      document.body.removeChild(iframe);
+      // Calculate the time taken to blur (app was opened)
+      var timeTaken = Date.now() - startTime;
+      if (timeTaken <= 1000) {
+        flag = true;
+      }
+    });
+
+    setTimeout(function () {
+      if (!flag) {
+        document.body.removeChild(iframe);
+        window.location.href = fallbackURL;
+      }
+    }, 1000); // Adjust the delay as needed
+  } else {
+    // If the user is not on an Android device, provide a fallback action
+    window.location.href = fallbackURL; // Replace with your fallback URL
+  }
+}
+
 for (let i = 0; i < numOfMembers; i++) {
   const memberLinks = document.createElement('a');
   memberLinks.classList.add('member-link');

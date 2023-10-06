@@ -13,16 +13,13 @@ function redirectionHandler(data) {
   if (data.incompleteUserDetails) {
     redirectUserToPage(SIGNUP_URL);
   } else if (urlParams.get('dev') === 'true') {
-    if (
-      data.roles.developer &&
-      (hasVisitedJoin === 'true' || hasVisitedJoin === null)
-    ) {
+    if (data.roles.developer && data.roles.in_discord === false) {
       redirectUserToPage(`${WELCOME_URL}/`);
     } else {
       redirectUserToPage(HOME_URL);
     }
   } else {
-    if (hasVisitedJoin === 'true' || hasVisitedJoin === null) {
+    if (data.roles.in_discord === false) {
       redirectUserToPage(`${WELCOME_URL}/`);
     } else {
       redirectUserToPage(HOME_URL);
@@ -31,7 +28,7 @@ function redirectionHandler(data) {
 }
 
 function showSignupFormIfIncomplete() {
-  fetch('https://api.realdevsquad.com/users/self', {
+  fetch('https://realdevsquad.com/users/self', {
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
   })

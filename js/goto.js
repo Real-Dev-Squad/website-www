@@ -13,14 +13,17 @@ function redirectionHandler(data) {
   if (data.incompleteUserDetails) {
     redirectUserToPage(SIGNUP_URL);
   } else if (urlParams.get('dev') === 'true') {
-    if (data.roles.developer && data.roles.in_discord === false) {
-      redirectUserToPage(`${WELCOME_URL}/`);
+    if (
+      data.roles.developer &&
+      (hasVisitedJoin === 'true' || hasVisitedJoin === null)
+    ) {
+      redirectUserToPage(`${HOME_URL}/join.html`);
     } else {
       redirectUserToPage(HOME_URL);
     }
   } else {
-    if (data.roles.in_discord === false) {
-      redirectUserToPage(`${WELCOME_URL}/`);
+    if (hasVisitedJoin === 'true' || hasVisitedJoin === null) {
+      redirectUserToPage(`${HOME_URL}/join.html`);
     } else {
       redirectUserToPage(HOME_URL);
     }

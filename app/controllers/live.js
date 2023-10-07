@@ -24,6 +24,7 @@ export default class LiveController extends Controller {
   @tracked isCopied = false;
   @tracked isKickoutModalOpen = false;
   @tracked isRoomCodeModalOpen = false;
+  @tracked isWarningModalOpen = false;
   @tracked peerToRemove = '';
   @tracked newRoomCode = '';
   @tracked isActiveEventFound;
@@ -104,6 +105,7 @@ export default class LiveController extends Controller {
 
   @action leaveSession() {
     this.liveService.leaveSession(this.role);
+    this.isWarningModalOpen = false;
   }
 
   @action screenShare() {
@@ -127,6 +129,10 @@ export default class LiveController extends Controller {
 
   @action toggleRoomCodeModal() {
     this.isRoomCodeModalOpen = !this.isRoomCodeModalOpen;
+  }
+
+  @action toggleWarningModal() {
+    this.isWarningModalOpen = !this.isWarningModalOpen;
   }
 
   @action buttonClickHandler(buttonId) {

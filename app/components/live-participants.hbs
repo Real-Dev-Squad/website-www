@@ -31,19 +31,21 @@
                     <span></span>
                   </div>
                 {{else}}
-                  <button
-                    type='button'
-                    class='user__btn'
-                    {{on 'click' (fn @openKickoutModal peer)}}
-                  >
-                    <IconifyIcon
-                      data-test-icon='remove'
-                      @icon='material-symbols:person-remove'
-                      width='36'
-                      height='36'
-                      color='red'
-                    />
-                  </button>
+                  {{#if (not-eq peer.roleName this.ROLES.host)}}
+                    <button
+                      type='button'
+                      class='user__btn'
+                      {{on 'click' (fn @openKickoutModal peer)}}
+                    >
+                      <IconifyIcon
+                        data-test-icon='remove'
+                        @icon='material-symbols:person-remove'
+                        width='36'
+                        height='36'
+                        color='red'
+                      />
+                    </button>
+                  {{/if}}
                 {{/if}}
 
               {{/if}}

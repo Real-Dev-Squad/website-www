@@ -157,4 +157,23 @@ module('Integration | Component | live-participants', function (hooks) {
     assert.dom('[data-test-sidebar-body-role-guest]').hasText('Guest (2)');
     assert.dom('[data-test-sidebar-user="3"]').hasText('Guest2');
   });
+
+  test('kickout option should not be there for host', async function (assert) {
+    this.setProperties({
+      peers: hostPeer,
+      profilePic: 'profilepicurl',
+      isKickoutModalOpen: false,
+    });
+    this.set('openKickoutModal', () => {});
+
+    await render(hbs`<LiveParticipants
+      @user='Hosts'
+      @role='host'
+      @peers={{this.peers}}
+      @minimumParticipants="host"
+      @openKickoutModal={{this.openKickoutModal}}
+    />`);
+
+    assert.dom('[data-test-icon="remove"]').doesNotExist();
+  });
 });

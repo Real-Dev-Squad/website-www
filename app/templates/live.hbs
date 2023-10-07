@@ -15,8 +15,10 @@
   >
     <KickoutModal
       @closeModal={{modal.closeModal}}
-      @removePeer={{this.removePeer}}
-      @peerToRemove={{this.peerToRemove.name}}
+      @message="Do you want to remove {{this.peerToRemove.name}}?"
+      @closeText="Cancel"
+      @confirmText="Remove"
+      @confirmFun={{this.removePeer}}
     />
   </BaseModal>
   <BaseModal
@@ -33,6 +35,18 @@
       @createRoomCode={{this.createRoomCodeHandler}}
       @toast={{this.liveService.toast}}
       @isLoading={{this.liveService.roomCodeLoading}}
+    />
+  </BaseModal>
+  <BaseModal
+    @closeModal={{this.toggleWarningModal}}
+    @openModal={{this.toggleWarningModal}}
+    @isOpen={{this.isWarningModalOpen}}
+    as |modal|
+  >
+    <KickoutModal
+      @closeModal={{modal.closeModal}}
+      @removePeer={{this.removePeer}}
+      @peerToRemove={{this.peerToRemove.name}}
     />
   </BaseModal>
   {{! TODO - add more else if statement instead of only else }}
@@ -77,6 +91,7 @@
               @role={{this.role}}
               @buttonClickHandler={{this.buttonClickHandler}}
               @openRoomCodeModal={{this.toggleRoomCodeModal}}
+              @openWarningModal={{this.toggleWarningModal}}
             />
           {{/if}}
         </div>

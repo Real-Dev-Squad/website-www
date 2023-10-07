@@ -11,7 +11,7 @@ export default class KickoutModalComponent extends Component {
     this.args.closeModal();
   }
 
-  @action removePeer() {
-    this.args.removePeer();
+  @action confirmFun() {
+    this.args.confirmFun();
   }
 }

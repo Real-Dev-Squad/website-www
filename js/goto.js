@@ -1,4 +1,4 @@
-import { SIGNUP_URL, HOME_URL } from './constants.js';
+import { SIGNUP_URL, HOME_URL, WELCOME_URL } from './constants.js';
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -13,17 +13,14 @@ function redirectionHandler(data) {
   if (data.incompleteUserDetails) {
     redirectUserToPage(SIGNUP_URL);
   } else if (urlParams.get('dev') === 'true') {
-    if (
-      data.roles.developer &&
-      (hasVisitedJoin === 'true' || hasVisitedJoin === null)
-    ) {
-      redirectUserToPage(`${HOME_URL}/join.html`);
+    if (data.roles.developer && data.roles.in_discord === false) {
+      redirectUserToPage(WELCOME_URL);
     } else {
       redirectUserToPage(HOME_URL);
     }
   } else {
-    if (hasVisitedJoin === 'true' || hasVisitedJoin === null) {
-      redirectUserToPage(`${HOME_URL}/join.html`);
+    if (data.roles.in_discord === false) {
+      redirectUserToPage(WELCOME_URL);
     } else {
       redirectUserToPage(HOME_URL);
     }

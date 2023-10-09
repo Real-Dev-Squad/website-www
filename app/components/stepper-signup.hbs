@@ -59,14 +59,14 @@
           <p data-test='description' class='p2-description'>
             {{details.description}}
           </p>
+          {{#if (eq details.step 7)}}
+            <IdentitySteps::StepOne @startHandler={{this.startHandler}} />
+          {{else if (eq details.step 8)}}
+            <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
+          {{else if (eq details.step 9)}}
+            <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
+          {{/if}}
         </div>
-        {{#if (eq details.step 7)}}
-          <IdentitySteps::StepOne @startHandler={{this.startHandler}} />
-        {{else if (eq details.step 8)}}
-          <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
-        {{else if (eq details.step 9)}}
-          <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
-        {{/if}}
       {{/if}}
     {{/each}}
   </form>

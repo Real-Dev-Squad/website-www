@@ -74,16 +74,12 @@
     font-size: 1.1rem;
 }
 
-.chaincode-page{
+.identity-service-setup-container{
     display: flex;
     flex-direction: column;
     gap: 2rem;
     align-items: center;
     max-width: 25rem;
-}
-
-.chaincode-page__description{
-    text-align: center;
 }
 
 .chaincode-container{

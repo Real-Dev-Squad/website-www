@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | identity-steps/step-four', function (hooks) {
+module('Integration | Component | identity-steps/step-three', function (hooks) {
   setupRenderingTest(hooks);
 
   test('render Generation Chaincode button on chaincode page', async function (assert) {

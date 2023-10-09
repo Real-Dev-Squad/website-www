@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { IDENTITY_SERVICE } from '../constants/stepper-signup-data';
 
 const MAX_STEP = 10;
 const MIN_STEP = 0;
@@ -12,6 +13,7 @@ export default class StepperSignupComponent extends Component {
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
     Number(localStorage.getItem('currentStep')) ?? Number(this.args.step) ?? 0;
+  IDENTITY_SERVICE = IDENTITY_SERVICE;
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
   constructor() {

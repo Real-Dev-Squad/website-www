@@ -48,13 +48,27 @@
         @isValid={{this.isValid}}
         @setIsValid={{this.setIsValid}}
       />
-    {{else if (eq this.currentStep 7)}}
-      <IdentitySteps::StepOne @startHandler={{this.startHandler}} />
-    {{else if (eq this.currentStep 8)}}
-      <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
-    {{else if (eq this.currentStep 9)}}
-      <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
     {{/if}}
+    {{#each this.IDENTITY_SERVICE as |details|}}
+      {{#if (eq this.currentStep details.step)}}
+        <div
+          data-test={{details.page}}
+          class='identity-service-setup-container'
+        >
+          <h3 data-test='heading' class='heading__h3'>{{details.heading}}</h3>
+          <p data-test='description' class='p2-description'>
+            {{details.description}}
+          </p>
+        </div>
+        {{#if (eq details.step 7)}}
+          <IdentitySteps::StepOne @startHandler={{this.startHandler}} />
+        {{else if (eq details.step 8)}}
+          <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
+        {{else if (eq details.step 9)}}
+          <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
+        {{/if}}
+      {{/if}}
+    {{/each}}
   </form>
 
   {{#if (and (gte this.currentStep 3) (lte this.currentStep 6))}}

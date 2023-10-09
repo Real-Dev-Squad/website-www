@@ -24,20 +24,16 @@
               )
             }}
               {{#if (not-eq peer.id this.liveService.localPeer.id)}}
-                {{#if this.liveService.isUserRemoved}}
-                  {{log 'inside true'}}
-                  {{log 'object' peer}}
-                  {{log 'peer id' peer.id}}
-                  {{log 'peertoremove' @peerToRemove}}
-                  {{#if (eq peer.id @peerToRemove.id)}}
-                    {{log 'inside peertoremove'}}
-                    {{log peer.id @peerToRemove.id}}
-                    <div class='loading'>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  {{/if}}
+                {{#if
+                  (and
+                    this.liveService.isUserRemoved (eq @peerToRemove.id peer.id)
+                  )
+                }}
+                  <div class='loading'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                 {{else}}
                   <button
                     type='button'

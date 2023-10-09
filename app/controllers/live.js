@@ -117,11 +117,7 @@ export default class LiveController extends Controller {
 
   @action openKickoutModal(peer) {
     this.isKickoutModalOpen = true;
-
-    // console.log('this.peerToRemove in open model', peer);
     this.peerToRemove = peer;
-    // console.log('this.peerToRemove in open model', peer);
-    console.log('this.peerToRemove in open model', peer, this.peerToRemove);
   }
 
   @action closeKickoutModal() {

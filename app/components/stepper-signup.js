@@ -12,6 +12,9 @@ export default class StepperSignupComponent extends Component {
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
     Number(localStorage.getItem('currentStep')) ?? Number(this.args.step) ?? 0;
+  @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
+  @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
+  @tracked stepThreeData = JSON.parse(localStorage.getItem('stepThreeData'));
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
   constructor() {
@@ -42,5 +45,12 @@ export default class StepperSignupComponent extends Component {
     if (this.login.isLoggedIn && !this.login.isLoading) {
       this.incrementStep();
     }
+  }
+
+  @action nextStep(e) {
+    e.preventDefault();
+    this.incrementStep();
+    localStorage.setItem('isValid', false);
+    this.isValid = false;
   }
 }

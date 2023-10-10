@@ -1,0 +1,65 @@
+<div data-test='chaincode' class='chaincode-page'>
+  <h3 data-test='heading' class='chaincode-page__heading heading__h3'>
+    Chaincode Generation
+  </h3>
+  <p data-test='description' class='chaincode-page__description'>
+    A private key that you need to use in your profile service URL and deploy
+    for source that you're the source of the URL
+  </p>
+  {{#if this.isChaincodeClicked}}
+    <div data-test='chaincode-container' class='chaincode-container'>
+      <div
+        data-test='chaincode-container__value'
+        class='chaincode-container__value'
+      >
+        {{#if this.hideChaincode}}
+          **************
+        {{else}}
+          {{this.Chaincode}}
+        {{/if}}
+      </div>
+      <div
+        data-test='chaincode-container__action'
+        class='chaincode-container__action'
+      >
+        <button
+          data-test-button='eye-icon'
+          class='chaicode-button-icon'
+          type='button'
+          {{on 'click' this.toggleEye}}
+        >
+          <FaIcon
+            @icon={{if this.hideChaincode 'eye' 'eye-slash'}}
+            @size='0.5px'
+          />
+        </button>
+        <button
+          data-test-button='copy-icon'
+          class='chaicode-button-icon'
+          type='button'
+          {{on 'click' this.handleCopy}}
+        >
+          <FaIcon @icon='copy' @size='0.5x' />
+        </button>
+      </div>
+    </div>
+  {{else}}
+    <Reusables::Button
+      @text={{this.Chaincode}}
+      @variant='dark'
+      @onClick={{this.handleGenerateChaincode}}
+      @test='chaincode'
+      @type='button'
+    />
+  {{/if}}
+  <div class='chaincode-page__button'>
+    <Reusables::Button
+      @text='Next'
+      @variant='dark'
+      @onClick={{@startHandler}}
+      @test='next'
+      @disabled={{if this.isChaincodePageButtonDisabled true false}}
+      @type='button'
+    />
+  </div>
+</div>

@@ -5,10 +5,12 @@ import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { globalRef } from 'ember-ref-bucket';
 import { ROLES, BUTTONS_TYPE } from '../constants/live';
+import { TOAST_OPTIONS } from '../constants/toast-options';
 export default class LiveController extends Controller {
   queryParams = ['dev'];
   ROLES = ROLES;
   @service login;
+  @service toast;
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
     { id: 2, label: 'Previous Events', active: false },
@@ -24,7 +26,10 @@ export default class LiveController extends Controller {
   @tracked isRoomCodeModalOpen = false;
   @tracked peerToRemove = '';
   @tracked newRoomCode = '';
+  @tracked isActiveEventFound;
+  @tracked buttonText = '';
   @tracked isExpanded = false;
+
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -58,7 +63,7 @@ export default class LiveController extends Controller {
     }
   }
 
-  @action clickHandler(e) {
+  @action async clickHandler(e) {
     e.preventDefault();
     const isValidRole = Object.keys(ROLES).includes(this.role);
     const canJoin =
@@ -66,11 +71,28 @@ export default class LiveController extends Controller {
         ? this.name && this.roomCode && isValidRole
         : this.name && isValidRole;
 
-    if (canJoin) {
-      this.liveService.joinSession(this.name, this.role, this.roomCode);
-      this.name = '';
-      this.roomCode = '';
+    if (!canJoin) return;
+
+    const activeEventsdata = await this.liveService.getActiveEvents();
+    const activeEvent = this.isActiveEventFound && activeEventsdata?.[0];
+
+    if (this.isActiveEventFound) {
+      const roomId = activeEvent?.room_id;
+      this.liveService.joinSession(roomId, this.name, this.role, this.roomCode);
+    } else {
+      if (this.role !== ROLES.host)
+        return this.toast.info(
+          'No active event found!',
+          'Info!',
+          TOAST_OPTIONS
+        );
+
+      const roomId = await this.liveService.createRoom(this.name);
+      this.liveService.joinSession(roomId, this.name, this.role, this.roomCode);
     }
+
+    this.name = '';
+    this.roomCode = '';
   }
 
   @action backHandler() {
@@ -126,8 +148,20 @@ export default class LiveController extends Controller {
     }
   }
 
-  @action selectRoleHandler(selectedRole) {
+  @action async selectRoleHandler(selectedRole) {
     this.role = selectedRole;
+
+    const activeEventData = await this.liveService.getActiveEvents();
+    const isActiveEvent = Boolean(activeEventData?.[0]?.enabled);
+    this.isActiveEventFound = isActiveEvent;
+
+    if (!activeEventData && selectedRole === ROLES.host) {
+      this.buttonText = 'Create Event';
+    } else if (activeEventData) {
+      this.buttonText = 'Join';
+    } else {
+      this.buttonText = 'Join';
+    }
   }
 
   @action createRoomCodeHandler(value, event) {

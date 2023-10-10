@@ -42,22 +42,30 @@
         <img
           data-test-sidebar-host-image
           class='host__image'
-          src={{if
-            @hostProfilePicture
-            @hostProfilePicture
-            '/assets/images/profile.png'
-          }}
+          src='/assets/images/profile.png'
           alt='host'
         />
       </span>
       <span data-test-sidebar-host-name class='host__name'>
-        {{#each @peers as |peer|}}
-          {{#if (eq peer.roleName this.ROLES.host)}}
-            {{peer.name}}
-          {{/if}}
-        {{/each}}
-        is presenting</span>
+        {{#if this.liveService.isScreenShareOn}}
+          {{#each @peers as |peer|}}
+            {{#if (eq peer.roleName this.ROLES.host)}}
+              {{peer.name}}
+              is presenting
+            {{/if}}
+          {{/each}}
+        {{else}}
+          No one is presenting
+        {{/if}}
+      </span>
     </div>
+    <LiveParticipants
+      @user='Host'
+      @role='host'
+      @peers={{@peers}}
+      @minimumParticipants={{this.liveService.hostRole}}
+      @openKickoutModal={{@openKickoutModal}}
+    />
     <LiveParticipants
       @user='Mavens'
       @role='maven'

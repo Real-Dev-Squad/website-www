@@ -8,4 +8,10 @@ export default class LiveParticipantsComponent extends Component {
   get liveService() {
     return getOwner(this).lookup('service:live');
   }
+
+  get participantsCount() {
+    let { peers, role } = this.args;
+    const result = peers.filter((peer) => peer.roleName === role);
+    return result.length;
+  }
 }

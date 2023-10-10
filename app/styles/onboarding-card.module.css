@@ -1,97 +1,170 @@
-.onboarding-card{
-    min-height: 55vh;
-    min-width: 40vw;
+.onboarding-card {
+    max-width: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #FFF;
+    background-color: var(--color-white);
     border-radius: 24px;
     position: relative;
-    padding: 0 1rem;
-    box-shadow: 0px 4px 10px -2px rgba(16, 24, 40, 0.06), 0px 6px 15px -2px rgba(16, 24, 40, 0.10);
+    padding: 4rem 2rem 2rem 2rem; 
+    box-shadow: 0px 4px 10px -2px var(--color-blackshadow), 0px 6px 15px -2px var(--color-blackshadow2);
+    margin-top:5rem;
+}
+.logo__github-rds {
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
 }
 
-.signup-details__rds-logo{
+.p2-description{
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: center;
+    line-height: 24px;
+}
+
+.signup-details__rds-logo {
     display: block;
     position: absolute;
-    transform: translateX(-50%);
     left: 50%;
-    top: -10%;
+    top: 0;
+    transform: translateX(-50%) translateY(-50%);
 }
 
-.logos-container{
-    padding: 1.5rem;
+.logos-container__rds {
     display: flex;
-    flex-direction: row;
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    top: 3%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 2rem;
 }
 
-.logos-container__github{
-    padding: 0.5rem;
-}
-
-.logos-container__link{
-    position: absolute;
-    top: 35%;
-    left: 42%;
-    width: 20%;
-    height: 30%;
-}
-
-.logos-container__rds{
-    margin-left: 1rem;
-    padding: 0.5rem;
-}
-
-.logo__img--link{
-    width: 3.2rem;
-    height: 3.2rem;
-}
-
-.signup-page-heading{
+.heading__h3 {
     color: var(--neutral-neutral-700, #272626);
     text-align: center;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 700;
     line-height: 24px; 
+    padding-top: 1.5rem;
+}
+.card__getting-started{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
-@media (max-width: 800px) {
-    .onboarding-card{
-        min-width: 60vh;
+
+.step-one__button{
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.role-confirmation__field{
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-label{
+    padding-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.chaincode-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    max-width: 25rem;
+}
+
+.chaincode-page__description{
+    text-align: center;
+}
+
+.chaincode-container{
+    display: flex;
+    padding: 1.2rem 18rem 1.2rem 0;
+    position: relative;
+    border: 1px solid;
+    border-radius: 0.5rem;
+}
+
+.chaincode-container__value{
+    position: absolute;
+    font-weight: bold;
+    top: 0.6rem;
+    left: 1rem;
+    letter-spacing: 0.2rem;
+}
+.chaincode-container__action{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.chaicode-button-icon{
+    background: none;
+    border: none;
+    padding: 0 0.4rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .onboarding-card {
+        width: 80%;
+    }
+    .btn-generateUsername{
+        width: 5rem;
+        font-size: 12px;
+    }
+    .checkbox-label{
+        font-size: 0.8rem;
     }
 }
 
 
-@media (max-width: 625px) {
+@media (max-width: 768px) {
     .onboarding-card{
-        min-height: 30vh;
-        min-width: 75vw;
+        max-width: 80%;
         padding: 3.5rem 1rem;
-        margin-top: -5rem;
     }
-    .signup-details__rds-logo{
+
+    .signup-details__rds-logo {
         width: 5rem;
         height: 5rem;
     }
 
-    .logo__img--github{
+    .heading__h3{
+        padding-top: 0;
+    }
+
+    .logo__img--github {
         height: 5rem;
         width: 5rem;
     }
 
-    .logo__img--rds{
+    .logo__img--rds {
         width: 5rem;
         height: 5rem;
     }
 
-    .logo__img--link{
+    .logo__img--link {
         width: 2.8rem;
         height: 2.5rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .onboarding-card{
+        max-width: 90%;
+    }
+    .checkbox-label{
+        font-size: 1rem;
     }
 }

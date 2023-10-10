@@ -67,7 +67,7 @@
 .sidebar__participants {
   width: 90%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background: var(--color-white);
   text-align: center;
@@ -126,6 +126,12 @@
   width: 40px;
 }
 
+.host__name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .body__role-user {
   background: var(--color-white);
   margin-bottom: 1rem;
@@ -170,6 +176,11 @@
   font-size: 17px;
   line-height: 20px;
   color: var(--color-black);
+  overflow-x: auto;
+  width: 80%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .user__btn {
@@ -205,9 +216,106 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .sidebar {
+   .sidebar {
     height: 70px;
     width: 100%;
+  }
+  .openbtn {
+    display: none;
+  }
+
+  .closeBtn {
+    top: 12rem;
+    right: 2rem;
+  }
+
+  .participantsHeadingHide {
+    display: block;
+  }
+
+  .sidebar__accordian-button {
+    display: block;
+  }
+  .sidebar__participants {
+    background: var(--color-sidebar-participants);
+    text-align: initial;
+    padding-left: 1rem;
+  }
+
+  .sidebar.open {
+    height: fit-content;
+  }
+  .sidebar__body {
+    overflow: hidden;
+  }
+  .sidebar__body.open {
+    animation: opensidebar 2s;
+    transition: height 2s;
+    animation-fill-mode: forwards;
+    overflow: auto;
+  }
+  .sidebar__body.close {
+    animation: closesidebar 2s;
+    transition: height 2s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes opensidebar {
+    0% {
+      height: 0px;
+    }
+    100% {
+      height: 300px;
+    }
+  }
+
+  @keyframes closesidebar {
+    0% {
+      height: 300px;
+    }
+    100% {
+      height: 0px;
+    }
+  }
+}
+.loading span {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--color-pink);
+  border-radius: 50%;
+  display: inline-block;
+  animation-name: dots;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.loading span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.loading span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+@keyframes dots {
+  50% {
+    opacity: 0;
+    transform: scale(0.7) translateY(10px);
+  }
+}
+
+@media only screen and (max-width: 922px) {
+  .loading span {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .sidebar {
+    padding: 0;
+    width: 100%;
+    padding-top: 1rem;
   }
   .openbtn {
     display: none;
@@ -228,6 +336,7 @@
 
   .sidebar__participants {
     background: var(--color-sidebar-participants);
+    justify-content: space-between;
     text-align: initial;
     padding-left: 1rem;
   }
@@ -272,4 +381,9 @@
       height: 0px;
     }
   }
+}
+/* utility classes */
+.self {
+  border: 3px solid var(--color-pink);
+  background: var(--color-pink-low-opacity);
 }

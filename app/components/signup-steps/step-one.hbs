@@ -1,14 +1,8 @@
-<img
-  src='assets/icons/onboarding-card-rds-logo.png'
-  alt='RDS-Logo'
-  class='signup-details__rds-logo'
-  data-test-rds-logo
-/>
-<h3 data-test-required-heading class='signup-page-heading'>
+<h3 data-test-required-heading class='heading__h3'>
   Sign up to your account
 </h3>
 
-<Reusables::InputBox
+<Reusables::OnboardingInput
   @field='First Name'
   @name='firstname'
   @placeHolder='Write your first name'
@@ -16,8 +10,15 @@
   @required={{true}}
   @value={{this.data.firstname}}
   @onInput={{this.inputHandler}}
+  @hasButtonInsideInput={{false}}
+  @disabled={{false}}
 />
-<Reusables::InputBox
+
+{{#if this.errorMessage.firstname}}
+  <div class='error__message'>{{this.errorMessage.firstname}}</div>
+{{/if}}
+
+<Reusables::OnboardingInput
   @field='Last Name'
   @name='lastname'
   @placeHolder='Write your last name'
@@ -25,4 +26,62 @@
   @required={{true}}
   @value={{this.data.lastname}}
   @onInput={{this.inputHandler}}
+  @hasButtonInsideInput={{false}}
+  @disabled={{false}}
 />
+
+{{#if this.errorMessage.lastname}}
+  <div class='error__message'>{{this.errorMessage.lastname}}</div>
+{{/if}}
+
+<Reusables::OnboardingInput
+  @field='Username'
+  @name='username'
+  @type='text'
+  @required={{true}}
+  @value={{this.data.username}}
+  @isValid={{this.isValid}}
+  @hasButtonInsideInput={{true}}
+  @classDisableInput='input-disable'
+  @onClickGetUsername={{this.getUsername}}
+  @onInput={{this.inputHandler}}
+  @disabled={{true}}
+/>
+
+<Reusables::Dropdown
+  @field='Select your role'
+  @name='role'
+  @placeHolder='Choose Your Role'
+  @required={{true}}
+  @value={{this.data.role}}
+  @options={{this.role}}
+  @onChange={{this.inputHandler}}
+/>
+
+{{#if (eq this.data.role 'Maven')}}
+  <div data-test-checkbox class='role-confirmation__field'>
+    <label data-test-label='maven-role' for='maven-role' class='checkbox-label'>
+      <input
+        data-test-checkbox-field
+        type='checkbox'
+        name='maven-role'
+        class='checkbox-input'
+        id='maven-role'
+        checked={{false}}
+        {{on 'change' this.inputHandler}}
+      />
+      Are you sure about mentoring people in RealDevSquad?
+    </label>
+  </div>
+{{/if}}
+
+<div class='step-one__button'>
+  <Reusables::Button
+    @text='Signup'
+    @variant='dark'
+    @onClick={{this.handleButtonClick}}
+    @test='signup'
+    @disabled={{if this.isSignupButtonDisabled true false}}
+    @type='button'
+  />
+</div>

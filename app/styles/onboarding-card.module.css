@@ -87,7 +87,7 @@
 }
 
 .chaincode-container{
-    width: 90%;
+    min-width: 90%;
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0rem 0.5rem 0;
@@ -169,5 +169,12 @@
     }
     .checkbox-label{
         font-size: 1rem;
+    }
+    .chaincode-container__value-invisible{
+        letter-spacing: 0.2rem;
+    }
+    
+    .chaincode-container__value-visible{
+        letter-spacing: 0rem;
     }
 }

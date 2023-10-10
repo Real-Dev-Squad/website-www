@@ -14,20 +14,23 @@ const numOfMembers = 5;
 let memberSection = document.getElementById('members');
 
 let regexp = /android|iphone|kindle|ipad/i;
-let details = navigator.userAgent;
-let isMobileDevice = regexp.test(details);
-window.onload = femo();
+isOpenInPhone(regexp);
 
-function femo() {
-  console.log('efd');
+export function isOpenInPhone(type) {
+  let details = navigator.userAgent;
+  let isMobileDevice = type.test(details);
+
   if (isMobileDevice) {
     openDialog();
     document.getElementById('okayBt').addEventListener('click', openApp);
     document.getElementById('cancleBt').addEventListener('click', closeDialog);
+    return true;
   } else {
     closeDialog();
+    return false;
   }
 }
+
 function openDialog() {
   document.querySelectorAll('.appDialog')[0].style.display = 'block';
   document.querySelectorAll('.mainDiv')[0].style.display = 'none';
@@ -36,7 +39,7 @@ function closeDialog() {
   document.querySelectorAll('.appDialog')[0].style.display = 'none';
   document.querySelectorAll('.mainDiv')[0].style.display = 'block';
 }
-function openApp() {
+function openRDSApp() {
   var flag = false;
   var appScheme = 'app://realdevsquad.com';
   var fallbackURL =

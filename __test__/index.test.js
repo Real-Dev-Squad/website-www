@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const timeout = 25000;
+const checkDialog = require('../js/index');
 
 describe('Dummy Test ', () => {
   beforeAll(async () => {
@@ -22,4 +23,17 @@ describe('Dummy Test ', () => {
     },
     timeout,
   );
+});
+
+describe('index function test case', () => {
+  test('should show dialog if open in phone', () => {
+    const regexp = /android|iphone|kindle|ipad/i; // for Mobile phone
+    const result = checkDialog(regexp);
+    expect(result).toBe('true');
+  });
+  test(`don't show dialog if not open in phone`, () => {
+    const regexp = /Windows|macOS|/i; // for PC
+    const result = checkDialog(regexp);
+    expect(result).toBe('false');
+  });
 });

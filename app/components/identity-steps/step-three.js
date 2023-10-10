@@ -3,6 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
+import { APPS } from '../../constants/urls';
 
 export default class IdentityStepsStepFourComponent extends Component {
   @service toast;
@@ -14,8 +15,43 @@ export default class IdentityStepsStepFourComponent extends Component {
 
   @action async handleGenerateChaincode(e) {
     e.preventDefault();
-    this.Chaincode = 'hv2hz3xh1h';
-    this.isChaincodeClicked = true;
+
+    try {
+      const response = await fetch(`${APPS.API_BACKEND}/users/chaincode`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      const { chaincode } = await response.json();
+
+      if (response.ok) {
+        this.Chaincode = chaincode;
+        this.isChaincodeClicked = true;
+        console.log('Generated New Chaincode!!');
+        // this.toast.info(
+        //   'Generated New Chaincode!!',
+        //   '',
+        //   toastNotificationTimeoutOptions
+        // );
+      } else {
+        // this.toast.error(
+        //   'Something went wrong. Please check console errors.',
+        //   '',
+        //   toastNotificationTimeoutOptions
+        // );
+        console.log('Something went wrong. Please check console errors.');
+      }
+    } catch (error) {
+      // this.toast.error(
+      //   'Something went wrong. Please check console errors.',
+      //   '',
+      //   toastNotificationTimeoutOptions
+      // );
+      console.log('Something went wrong. Please check console errors.');
+    }
   }
 
   @action toggleEye() {

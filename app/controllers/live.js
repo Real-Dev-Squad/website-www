@@ -122,6 +122,7 @@ export default class LiveController extends Controller {
 
   @action closeKickoutModal() {
     this.isKickoutModalOpen = false;
+    this.peerToRemove = '';
   }
 
   @action toggleRoomCodeModal() {

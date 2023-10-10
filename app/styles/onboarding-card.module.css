@@ -87,24 +87,27 @@
 }
 
 .chaincode-container{
+    width: 90%;
     display: flex;
-    padding: 1.2rem 18rem 1.2rem 0;
-    position: relative;
+    justify-content: space-between;
+    padding: 0.5rem 0rem 0.5rem 0;
     border: 1px solid;
     border-radius: 0.5rem;
 }
 
-.chaincode-container__value{
-    position: absolute;
+.chaincode-container__value-invisible{
+    letter-spacing: 0.4rem;
+    margin-left: 1rem;
     font-weight: bold;
-    top: 0.6rem;
-    left: 1rem;
+}
+
+.chaincode-container__value-visible{
+    font-weight: bold;
+    margin-left: 1rem;
     letter-spacing: 0.2rem;
 }
 .chaincode-container__action{
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+   display: flex;
 }
 
 .chaicode-button-icon{

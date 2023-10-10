@@ -10,7 +10,11 @@
     <div data-test='chaincode-container' class='chaincode-container'>
       <div
         data-test='chaincode-container__value'
-        class='chaincode-container__value'
+        class={{if
+          this.hideChaincode
+          'chaincode-container__value-invisible'
+          'chaincode-container__value-visible'
+        }}
       >
         {{#if this.hideChaincode}}
           ********************

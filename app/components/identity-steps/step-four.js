@@ -12,9 +12,12 @@ export default class IdentityStepsStepFourComponent extends Component {
   @tracked hideChaincode = true;
   @tracked isCopyClicked = false;
   @tracked isChaincodePageButtonDisabled = true;
+  @tracked isLoading = false;
 
   @action async handleGenerateChaincode(e) {
     e.preventDefault();
+
+    this.isLoading = true;
 
     try {
       const response = await fetch(`${APPS.API_BACKEND}/users/chaincode`, {
@@ -51,6 +54,8 @@ export default class IdentityStepsStepFourComponent extends Component {
       //   toastNotificationTimeoutOptions
       // );
       console.log('Something went wrong. Please check console errors.');
+    } finally {
+      this.isLoading = false;
     }
   }
 

@@ -46,9 +46,10 @@
   {{else}}
     <Reusables::Button
       @text={{this.Chaincode}}
-      @variant='dark'
+      @variant='chaincode'
       @onClick={{this.handleGenerateChaincode}}
       @test='chaincode'
+      @isLoading={{this.isLoading}}
       @type='button'
     />
   {{/if}}

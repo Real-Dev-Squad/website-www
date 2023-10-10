@@ -33,27 +33,24 @@ export default class IdentityStepsStepFourComponent extends Component {
       if (response.ok) {
         this.Chaincode = chaincode;
         this.isChaincodeClicked = true;
-        console.log('Generated New Chaincode!!');
-        // this.toast.info(
-        //   'Generated New Chaincode!!',
-        //   '',
-        //   toastNotificationTimeoutOptions
-        // );
+        this.toast.info(
+          'Generated New Chaincode!!',
+          '',
+          toastNotificationTimeoutOptions
+        );
       } else {
-        // this.toast.error(
-        //   'Something went wrong. Please check console errors.',
-        //   '',
-        //   toastNotificationTimeoutOptions
-        // );
-        console.log('Something went wrong. Please check console errors.');
+        this.toast.error(
+          'Something went wrong. Please check console errors.',
+          '',
+          toastNotificationTimeoutOptions
+        );
       }
     } catch (error) {
-      // this.toast.error(
-      //   'Something went wrong. Please check console errors.',
-      //   '',
-      //   toastNotificationTimeoutOptions
-      // );
-      console.log('Something went wrong. Please check console errors.');
+      this.toast.error(
+        'Something went wrong. Please check console errors.',
+        '',
+        toastNotificationTimeoutOptions
+      );
     } finally {
       this.isLoading = false;
     }

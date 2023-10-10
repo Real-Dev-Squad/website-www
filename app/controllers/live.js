@@ -122,8 +122,6 @@ export default class LiveController extends Controller {
 
   @action closeKickoutModal() {
     this.isKickoutModalOpen = false;
-    console.log('peer to remove close kickout', this.peerToRemove);
-    // this.peerToRemove = '';
   }
 
   @action toggleRoomCodeModal() {

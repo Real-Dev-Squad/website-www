@@ -264,7 +264,6 @@ export default class LiveService extends Service {
       console.error('The error is: ', err);
       this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     } finally {
-      console.log('isUserRemoved', this.isUserRemoved);
       this.isUserRemoved = false;
     }
   }

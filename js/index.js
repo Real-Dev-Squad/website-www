@@ -72,8 +72,17 @@ const getMemberImgs = () => {
       displayMemberImgs(memberImgArr);
     });
 };
+const DisableJoinBtn=()=>{
 
-window.addEventListener('DOMContentLoaded', getMemberImgs);
+  // btn-join-disable
+  let disableBtn=document.querySelector(".btn-join-disable")
+  let joinBtn=document.querySelector(".btn-join")
+  if(!disableBtn){
+    joinBtn.setAttribute("href", "https://realdevsquad.com/join");
+  }
+}
+window.addEventListener('DOMContentLoaded',DisableJoinBtn ,
+getMemberImgs);
 const modalTriggers = document.querySelectorAll('.popup-trigger');
 const modalCloseTrigger = document.querySelector('.popup-modal__close');
 const bodyBlackout = document.querySelector('.body-blackout');

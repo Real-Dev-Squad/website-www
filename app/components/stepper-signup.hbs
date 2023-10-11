@@ -57,7 +57,7 @@
     {{else if (eq this.currentStep 10)}}
       <IdentitySteps::StepFour @startHandler={{this.startHandler}} />
     {{else if (eq this.currentStep 11)}}
-      <IdentitySteps::StepFive />
+      <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
     {{/if}}
   </form>
 

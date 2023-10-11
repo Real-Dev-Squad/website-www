@@ -129,9 +129,6 @@
 
 .profile-service-page__inputContainer{
     display: flex;
-    flex-direction: row;
-    justify-content: start;
-    position: relative;
 }
 
 profile-service-page__inputContainer__input-label{
@@ -178,6 +175,11 @@ profile-service-page__inputContainer__input-label{
     margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
+}
+
+.profile-service-page__button{
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 1024px) {

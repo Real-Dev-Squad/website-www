@@ -18,7 +18,7 @@
       type='text'
       placeholder='Enter your profile service URL'
       value={{this.profileURL}}
-      {{on 'input' this.changeProfileURL}}
+      {{on 'keyup' this.changeProfileURL}}
     />
     <button
       data-test='tooltip'
@@ -45,5 +45,17 @@
         </a>
       </div>
     </div>
+  </div>
+
+  <div class='profile-service-page__button'>
+    <Reusables::Button
+      @text='Next'
+      @variant='dark'
+      @onClick={{this.handleEdit}}
+      @test='next'
+      @disabled={{this.nextButtonDisabled}}
+      @type='button'
+      @isLoading={{this.isLoading}}
+    />
   </div>
 </div>

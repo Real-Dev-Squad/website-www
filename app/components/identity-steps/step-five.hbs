@@ -1,0 +1,45 @@
+<div data-test='profile-service' class='profile-service-page'>
+  <h3 data-test='heading' class='profile-service-page__heading heading__h3'>
+    Deploy Profile Service
+  </h3>
+  <p data-test='description' class='profile-service-page__description'>
+    Set the chaincode on your profile service.<br />
+    Deploy it and enter your profile service URL
+  </p>
+  <div class='profile-service-page__inputContainer'>
+    <label
+      for='profileurl'
+      class='profile-service-page__inputContainer__input-label'
+    ></label>
+    <input
+      id='profileurl'
+      class='profile-service-page__inputContainer__input-url'
+      type='text'
+      placeholder='Enter your profile service URL'
+      value={{this.profileURL}}
+      {{on 'input' this.changeProfileURL}}
+    />
+    <button
+      type='button'
+      class='profile-service-page__inputContainer__tooltip'
+      {{on 'mouseover' this.openTooltipInfo}}
+      {{on 'mouseout' this.closeTooltipInfo}}
+    >
+      <FaIcon @icon='info-circle' @size='1x' />
+    </button>
+    <div
+      class='tooltip-info {{if this.isMouseOnTooltip "active-tooltip-info" ""}}'
+    >
+      <h4 class='tooltip-info__heading'>What is Profile Service URL?</h4>
+      <div class='tooltip-info__container'>
+        <p>Details in the template:</p>
+        <a
+          href='https://github.com/RahulGoyal-tech/profile-service-rds'
+          target='_blank'
+          rel='noopener noreferrer'
+        >https://github.com/RahulGoyal-tech/profile-service-rds
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

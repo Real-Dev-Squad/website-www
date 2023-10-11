@@ -117,6 +117,69 @@
     cursor: pointer;
 }
 
+.profile-service-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.profile-service-page__description{
+    text-align: center;
+}
+
+.profile-service-page__inputContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    position: relative;
+}
+
+profile-service-page__inputContainer__input-label{
+    display: none;
+}
+
+.profile-service-page__inputContainer__input-url{
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--color-shade-grey);
+    background: var(--color-white);
+}
+
+.profile-service-page__inputContainer__tooltip{
+    margin-left: 1rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.tooltip-info{
+    font-size: 0.7rem;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-offwhite);
+    box-shadow: var(--color-blackshadow) 0px 1px 2px 0px, var(--color-blackshadow2) 0px 2px 6px 2px;
+    border-radius: 10px;
+    border-top-left-radius:0;
+    width: 10rem;
+    padding: 15px 15px;
+    position: absolute;
+    left: 20rem;
+    top: 2rem;
+    flex-wrap: wrap;
+    display: none;
+}
+
+.active-tooltip-info{
+    display: flex;
+}
+
+.tooltip-info__container{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
 @media (max-width: 1024px) {
     .onboarding-card {
         width: 80%;
@@ -161,6 +224,16 @@
         height: 2.5rem;
     }
 
+    .tooltip-info{
+        font-size: 0.5rem;
+        top: 2rem;
+        left: 11rem;
+        width: 8rem;
+        padding: 15px 5px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 0px;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -176,5 +249,11 @@
     
     .chaincode-container__value-visible{
         letter-spacing: 0rem;
+    }
+
+    .tooltip-info{
+        top: -5rem;
+        left: 9rem;
+        border-top-left-radius: 10px;
     }
 }

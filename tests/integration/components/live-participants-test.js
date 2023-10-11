@@ -158,6 +158,6 @@ module('Integration | Component | live-participants', function (hooks) {
     />`);
     assert.dom('[data-test-sidebar-body-role-guest]').hasText('Guest (2)');
     assert.dom('[data-test-sidebar-user="3"]').hasText('Guest2');
-    assert.dom('.user').exists('data-test-icon');
+    assert.dom('.user').exists('data-test-kickout-icon');
   });
 });

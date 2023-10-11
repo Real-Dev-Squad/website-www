@@ -69,7 +69,9 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
   test('Display Tooltip Information on Mouse Hover', async function (assert) {
     assert.expect(1);
 
-    await render(hbs`<IdentitySteps::StepFive />`);
+    await render(
+      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`
+    );
 
     await triggerEvent('[data-test=tooltip]', 'mouseover');
 
@@ -79,7 +81,9 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
   test('Not Display Tooltip Information on Mouse Out', async function (assert) {
     assert.expect(1);
 
-    await render(hbs`<IdentitySteps::StepFive />`);
+    await render(
+      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`
+    );
 
     await triggerEvent('[data-test=tooltip]', 'mouseout');
 

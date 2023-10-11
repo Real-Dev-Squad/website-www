@@ -1,12 +1,12 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, triggerEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | identity-steps/step-five', function (hooks) {
   setupRenderingTest(hooks);
 
-  skip('render main container div on profile service page', async function (assert) {
+  test('render main container div on profile service page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
@@ -17,7 +17,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     assert.dom('[data-test=profile-service]').hasClass('profile-service-page');
   });
 
-  skip('render heading on profile service page', async function (assert) {
+  test('render heading on profile service page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
@@ -27,7 +27,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     assert.dom('[data-test=heading]').hasText('Deploy Profile Service');
   });
 
-  skip('render description on profile service page', async function (assert) {
+  test('render description on profile service page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
@@ -43,29 +43,46 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
       );
   });
 
-  skip('render input field on profile service page', async function (assert) {
-    assert.expect(6);
+  test('render input field on profile service page', async function (assert) {
+    assert.expect(5);
     await render(
       hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`
     );
 
     assert
-      .dom('[data-test-input-field=profile-service')
-      .hasAttribute('name', 'profile-service');
+      .dom('[data-test-input-field=profile-service]')
+      .hasClass('profile-service-page__inputContainer__input-url');
     assert
-      .dom('[data-test-input-field=profile-service')
-      .hasClass('input__field');
+      .dom('[data-test-input-field=profile-service]')
+      .hasAttribute('id', 'profile-service-url');
     assert
-      .dom('[data-test-input-field=profile-service')
-      .hasAttribute('id', 'profile-service');
-    assert
-      .dom('[data-test-input-field=profile-service')
+      .dom('[data-test-input-field=profile-service]')
       .hasProperty('type', 'text');
     assert
-      .dom('[data-test-input-field=profile-service')
+      .dom('[data-test-input-field=profile-service]')
       .hasProperty('value', '');
     assert
-      .dom('[data-test-input-field=profile-service')
+      .dom('[data-test-input-field=profile-service]')
       .hasProperty('placeholder', 'Enter your profile service URL');
+  });
+
+  test('Display Tooltip Information on Mouse Hover', async function (assert) {
+    assert.expect(1);
+
+    await render(hbs`<IdentitySteps::StepFive />`);
+
+    await triggerEvent('[data-test=tooltip]', 'mouseover');
+
+    assert.dom('[data-test=tooltip-info]').hasClass('active-tooltip-info');
+  });
+
+  test('Not Display Tooltip Information on Mouse Out', async function (assert) {
+    assert.expect(1);
+
+    await render(hbs`<IdentitySteps::StepFive />`);
+
+    await triggerEvent('[data-test=tooltip]', 'mouseout');
+
+    assert.dom('[data-test=tooltip-info]').hasClass('tooltip-info');
   });
 });

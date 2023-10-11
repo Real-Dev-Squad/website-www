@@ -8,11 +8,12 @@
   </p>
   <div class='profile-service-page__inputContainer'>
     <label
-      for='profileurl'
+      for='profile-service-url'
       class='profile-service-page__inputContainer__input-label'
     ></label>
     <input
-      id='profileurl'
+      data-test-input-field='profile-service'
+      id='profile-service-url'
       class='profile-service-page__inputContainer__input-url'
       type='text'
       placeholder='Enter your profile service URL'
@@ -20,6 +21,7 @@
       {{on 'input' this.changeProfileURL}}
     />
     <button
+      data-test='tooltip'
       type='button'
       class='profile-service-page__inputContainer__tooltip'
       {{on 'mouseover' this.openTooltipInfo}}
@@ -28,6 +30,7 @@
       <FaIcon @icon='info-circle' @size='1x' />
     </button>
     <div
+      data-test='tooltip-info'
       class='tooltip-info {{if this.isMouseOnTooltip "active-tooltip-info" ""}}'
     >
       <h4 class='tooltip-info__heading'>What is Profile Service URL?</h4>
@@ -37,7 +40,8 @@
           href='https://github.com/RahulGoyal-tech/profile-service-rds'
           target='_blank'
           rel='noopener noreferrer'
-        >https://github.com/RahulGoyal-tech/profile-service-rds
+        >
+          https://github.com/RahulGoyal-tech/profile-service-rds
         </a>
       </div>
     </div>

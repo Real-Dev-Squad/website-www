@@ -85,24 +85,27 @@
 }
 
 .chaincode-container{
+    min-width: 90%;
     display: flex;
-    padding: 1.2rem 18rem 1.2rem 0;
-    position: relative;
+    justify-content: space-between;
+    padding: 0.5rem 0 0.5rem 0;
     border: 1px solid;
     border-radius: 0.5rem;
 }
 
-.chaincode-container__value{
-    position: absolute;
+.chaincode-container__value-invisible{
+    letter-spacing: 0.4rem;
+    margin-left: 1rem;
     font-weight: bold;
-    top: 0.6rem;
-    left: 1rem;
+}
+
+.chaincode-container__value-visible{
+    font-weight: bold;
+    margin-left: 1rem;
     letter-spacing: 0.2rem;
 }
 .chaincode-container__action{
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+   display: flex;
 }
 
 .chaicode-button-icon{
@@ -110,6 +113,72 @@
     border: none;
     padding: 0 0.4rem;
     cursor: pointer;
+}
+
+.profile-service-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.profile-service-page__description{
+    text-align: center;
+}
+
+.profile-service-page__inputContainer{
+    display: flex;
+    position: relative;
+}
+
+profile-service-page__inputContainer__input-label{
+    display: none;
+}
+
+.profile-service-page__inputContainer__input-url{
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--color-shade-grey);
+    background: var(--color-white);
+}
+
+.profile-service-page__inputContainer__tooltip{
+    margin-left: 1rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.tooltip-info{
+    font-size: 0.7rem;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-offwhite);
+    box-shadow: var(--color-blackshadow) 0px 1px 2px 0px, var(--color-blackshadow2) 0px 2px 6px 2px;
+    border-radius: 10px;
+    border-top-left-radius:0;
+    width: 10rem;
+    padding: 1rem 1rem;
+    position: absolute;
+    left: 20rem;
+    top: 2rem;
+    flex-wrap: wrap;
+    display: none;
+}
+
+.active-tooltip-info{
+    display: flex;
+}
+
+.tooltip-info__container{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-service-page__button{
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 1024px) {
@@ -153,6 +222,16 @@
         height: 2.5rem;
     }
 
+    .tooltip-info{
+        font-size: 0.5rem;
+        top: 2rem;
+        left: 11rem;
+        width: 8rem;
+        padding: 15px 5px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 0px;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -162,6 +241,20 @@
     .checkbox-label{
         font-size: 1rem;
     }
+    .chaincode-container__value-invisible{
+        letter-spacing: 0.2rem;
+    }
+    
+    .chaincode-container__value-visible{
+        letter-spacing: 0rem;
+    }
+
+    .tooltip-info{
+        top: -5rem;
+        left: 9rem;
+        border-top-left-radius: 10px;
+    }
+
     .heading__h3 {
         line-height: 2rem; 
     }

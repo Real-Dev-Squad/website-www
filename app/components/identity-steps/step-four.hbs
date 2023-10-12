@@ -10,10 +10,14 @@
     <div data-test='chaincode-container' class='chaincode-container'>
       <div
         data-test='chaincode-container__value'
-        class='chaincode-container__value'
+        class={{if
+          this.hideChaincode
+          'chaincode-container__value-invisible'
+          'chaincode-container__value-visible'
+        }}
       >
         {{#if this.hideChaincode}}
-          **************
+          ********************
         {{else}}
           {{this.Chaincode}}
         {{/if}}
@@ -46,9 +50,10 @@
   {{else}}
     <Reusables::Button
       @text={{this.Chaincode}}
-      @variant='dark'
+      @variant='chaincode'
       @onClick={{this.handleGenerateChaincode}}
       @test='chaincode'
+      @isLoading={{this.isLoading}}
       @type='button'
     />
   {{/if}}

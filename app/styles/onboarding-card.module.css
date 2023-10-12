@@ -88,7 +88,7 @@
     min-width: 90%;
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem 0;
     border: 1px solid;
     border-radius: 0.5rem;
 }
@@ -181,6 +181,18 @@ profile-service-page__inputContainer__input-label{
     justify-content: center;
 }
 
+.profile-service-url-linking-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    max-width: 25rem;
+}
+
+.profile-service-url-linking-page__description{
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     .btn-generateUsername{
         width: 5rem;
@@ -254,7 +266,6 @@ profile-service-page__inputContainer__input-label{
         left: 9rem;
         border-top-left-radius: 10px;
     }
-
     .heading__h3 {
         line-height: 2rem; 
     }

@@ -16,13 +16,13 @@ let memberSection = document.getElementById('members');
 let regexp = /android|iphone|kindle|ipad/i;
 isOpenInPhone(regexp);
 
-export function isOpenInPhone(type) {
+function isOpenInPhone(type) {
   let details = navigator.userAgent;
   let isMobileDevice = type.test(details);
 
   if (isMobileDevice) {
     openDialog();
-    document.getElementById('okayBt').addEventListener('click', openApp);
+    document.getElementById('okayBt').addEventListener('click', openRDSApp);
     document.getElementById('cancleBt').addEventListener('click', closeDialog);
     return true;
   } else {
@@ -43,7 +43,7 @@ function openRDSApp() {
   var flag = false;
   var appScheme = 'app://realdevsquad.com';
   var fallbackURL =
-    'https://play.google.com/store/apps/details?id=com.github.android'; // It will replace with app playstore url
+    'https://play.google.com/store/apps/details?id=com.github.android'; // For demo. It will replace with app playstore url
 
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
   if (/android/i.test(userAgent)) {
@@ -66,10 +66,10 @@ function openRDSApp() {
         document.body.removeChild(iframe);
         window.location.href = fallbackURL;
       }
-    }, 1000); // Adjust the delay as needed
+    }, 1000);
   } else {
     // If the user is not on an Android device, provide a fallback action
-    window.location.href = fallbackURL; // Replace with your fallback URL
+    window.location.href = fallbackURL;
   }
 }
 
@@ -162,3 +162,6 @@ modalTriggers.forEach((trigger) => {
     });
   });
 });
+module.exports = {
+  isOpenInPhone,
+};

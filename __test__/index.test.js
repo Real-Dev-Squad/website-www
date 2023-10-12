@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer');
 const timeout = 25000;
-const checkDialog = require('../js/index');
 
 describe('Dummy Test ', () => {
   beforeAll(async () => {
@@ -25,15 +24,31 @@ describe('Dummy Test ', () => {
   );
 });
 
-describe('index function test case', () => {
-  test('should show dialog if open in phone', () => {
-    const regexp = /android|iphone|kindle|ipad/i; // for Mobile phone
-    const result = checkDialog(regexp);
-    expect(result).toBe('true');
+describe('Test index function ', () => {
+  beforeAll(async () => {
+    browser = await puppeteer.launch({
+      headless: 'new',
+    });
+    page = await browser.newPage();
+    await page.goto('https://www.realdevsquad.com/', {
+      waitUntil: 'domcontentloaded',
+    });
   });
-  test(`don't show dialog if not open in phone`, () => {
-    const regexp = /Windows|macOS|/i; // for PC
-    const result = checkDialog(regexp);
-    expect(result).toBe('false');
+
+  afterAll(async () => {
+    await browser.close();
   });
+
+  test(
+    'Dialog close',
+    async () => {
+      let dialogOpened = false;
+      page.on('dialog', async (dialog) => {
+        dialogOpened = true;
+        await dialog.dismiss();
+      });
+      expect(dialogOpened).toBe(false);
+    },
+    timeout,
+  );
 });

@@ -129,6 +129,7 @@
 
 .profile-service-page__inputContainer{
     display: flex;
+    position: relative;
 }
 
 profile-service-page__inputContainer__input-label{

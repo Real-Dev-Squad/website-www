@@ -116,7 +116,7 @@ module('Integration | Component | live-participants', function (hooks) {
     />`);
     assert.dom('[data-test-sidebar-body-role-guest]').hasText('Mavens (2)');
     assert.dom('[data-test-sidebar-user="2"]').hasText('Maven1');
-    assert.dom('.user').exists('data-test-icon');
+    assert.dom('.user').exists('[data-test-icon=remove]');
   });
 
   test('renders Moderators Lists who joined Stream', async function (assert) {
@@ -137,7 +137,7 @@ module('Integration | Component | live-participants', function (hooks) {
     />`);
     assert.dom('[data-test-sidebar-body-role-guest]').hasText('Moderator (2)');
     assert.dom('[data-test-sidebar-user="3"]').hasText('Mod3');
-    assert.dom('.user').exists('data-test-icon');
+    assert.dom('.user').exists('[data-test-icon=remove]');
   });
 
   test('renders Guests Lists who joined Stream', async function (assert) {
@@ -158,6 +158,6 @@ module('Integration | Component | live-participants', function (hooks) {
     />`);
     assert.dom('[data-test-sidebar-body-role-guest]').hasText('Guest (2)');
     assert.dom('[data-test-sidebar-user="3"]').hasText('Guest2');
-    assert.dom('.user').exists('data-test-kickout-icon');
+    assert.dom('.user').exists('[data-test-icon=remove]');
   });
 });

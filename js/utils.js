@@ -63,6 +63,23 @@ function dateDifference(startDate, endDate) {
   };
 }
 
+const getPluralString = (count, word) => {
+  return count > 1 ? `${word}s` : word;
+};
+
+function getRelativeDateString(dateDiffObj) {
+  const { years, months, days } = dateDiffObj;
+  if (years > 0) {
+    return `${years} ${getPluralString(years, 'year')} ago`;
+  } else if (months > 0) {
+    return `${months} ${getPluralString(months, 'month')} ago`;
+  } else if (days >= 1) {
+    return `${days} ${getPluralString(days, 'day')} ago`;
+  }
+  return 'within a day';
+}
+
 module.exports = {
   dateDifference,
+  getRelativeDateString,
 };

@@ -23,3 +23,32 @@ describe('Dummy Test ', () => {
     timeout,
   );
 });
+
+describe('Test index function ', () => {
+  beforeAll(async () => {
+    browser = await puppeteer.launch({
+      headless: 'new',
+    });
+    page = await browser.newPage();
+    await page.goto('https://www.realdevsquad.com/', {
+      waitUntil: 'domcontentloaded',
+    });
+  });
+
+  afterAll(async () => {
+    await browser.close();
+  });
+
+  test(
+    'Dialog close',
+    async () => {
+      let dialogOpened = false;
+      page.on('dialog', async (dialog) => {
+        dialogOpened = true;
+        await dialog.dismiss();
+      });
+      expect(dialogOpened).toBe(false);
+    },
+    timeout,
+  );
+});

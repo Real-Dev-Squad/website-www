@@ -4,37 +4,47 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
 import { APPS } from '../../constants/urls';
+import checkURL from '../../utils/check-url';
 
-export default class IdentityStepsStepFourComponent extends Component {
+export default class IdentityStepsStepFiveComponent extends Component {
   @service toast;
-  @tracked Chaincode = 'Generate Chaincode';
-  @tracked isChaincodeClicked = false;
-  @tracked hideChaincode = true;
-  @tracked isCopyClicked = false;
-  @tracked isChaincodePageButtonDisabled = true;
+  @tracked isMouseOnTooltip = false;
+  @tracked profileURL = '';
+  @tracked nextButtonDisabled = true;
   @tracked isLoading = false;
 
-  @action async handleGenerateChaincode(e) {
+  @action openTooltipInfo() {
+    this.isMouseOnTooltip = true;
+  }
+
+  @action closeTooltipInfo() {
+    this.isMouseOnTooltip = false;
+  }
+
+  @action changeProfileURL(e) {
+    this.profileURL = e.target.value;
+    if (this.profileURL === '' || !checkURL(this.profileURL)) {
+      this.nextButtonDisabled = true;
+    } else {
+      this.nextButtonDisabled = false;
+    }
+  }
+
+  @action async handleEdit(e) {
     e.preventDefault();
-
     this.isLoading = true;
-
     try {
-      const response = await fetch(`${APPS.API_BACKEND}/users/chaincode`, {
-        method: 'GET',
+      const response = await fetch(`${APPS.API_BACKEND}/users/profileURL`, {
+        method: 'PATCH',
+        body: JSON.stringify({ profileURL: this.profileURL }),
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
       });
-
-      const { chaincode } = await response.json();
-
       if (response.ok) {
-        this.Chaincode = chaincode;
-        this.isChaincodeClicked = true;
         this.toast.info(
-          'Generated New Chaincode!!',
+          'Updated profile URL!!',
           '',
           toastNotificationTimeoutOptions
         );
@@ -46,6 +56,7 @@ export default class IdentityStepsStepFourComponent extends Component {
         );
       }
     } catch (error) {
+      console.error(error);
       this.toast.error(
         'Something went wrong. Please check console errors.',
         '',
@@ -53,19 +64,7 @@ export default class IdentityStepsStepFourComponent extends Component {
       );
     } finally {
       this.isLoading = false;
-    }
-  }
-
-  @action toggleEye() {
-    this.hideChaincode = !this.hideChaincode;
-  }
-
-  @action handleCopy() {
-    navigator.clipboard.writeText(this.Chaincode);
-    this.isCopyClicked = true;
-    this.isChaincodePageButtonDisabled = false;
-    if (this.isCopyClicked === true) {
-      this.toast.info('Copied', '', toastNotificationTimeoutOptions);
+      this.args.startHandler();
     }
   }
 }

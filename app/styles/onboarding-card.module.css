@@ -1,5 +1,5 @@
 .onboarding-card {
-    max-width: 45%;
+  width: 35rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +23,7 @@
     font-size: 1rem;
     font-weight: 100;
     text-align: center;
-    line-height: 24px;
+    line-height: 2rem;
 }
 
 .signup-details__rds-logo {
@@ -48,16 +48,14 @@
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px; 
-    padding-top: 1.5rem;
+    line-height: 4rem; 
 }
+
 .card__getting-started{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
 }
-
 
 .step-one__button{
     margin: 0.5rem;
@@ -90,7 +88,7 @@
     min-width: 90%;
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0rem 0.5rem 0;
+    padding: 0.5rem 0 0.5rem 0;
     border: 1px solid;
     border-radius: 0.5rem;
 }
@@ -184,9 +182,6 @@ profile-service-page__inputContainer__input-label{
 }
 
 @media (max-width: 1024px) {
-    .onboarding-card {
-        width: 80%;
-    }
     .btn-generateUsername{
         width: 5rem;
         font-size: 12px;
@@ -199,7 +194,7 @@ profile-service-page__inputContainer__input-label{
 
 @media (max-width: 768px) {
     .onboarding-card{
-        max-width: 80%;
+        width: 30rem;
         padding: 3.5rem 1rem;
     }
 
@@ -241,7 +236,7 @@ profile-service-page__inputContainer__input-label{
 
 @media (max-width: 480px) {
     .onboarding-card{
-        max-width: 90%;
+        width: 90%;
     }
     .checkbox-label{
         font-size: 1rem;
@@ -258,5 +253,9 @@ profile-service-page__inputContainer__input-label{
         top: -5rem;
         left: 9rem;
         border-top-left-radius: 10px;
+    }
+
+    .heading__h3 {
+        line-height: 2rem; 
     }
 }

@@ -1,64 +1,66 @@
 <OnboardingCard>
   <form>
-    {{#if (not (eq this.currentStep 0))}}
-      <img
-        src='assets/icons/onboarding-card-rds-logo.png'
-        alt='RDS-Logo'
-        class='signup-details__rds-logo'
-        data-test-rds-logo
-      />
-    {{/if}}
-    {{#if (eq this.currentStep 0)}}
-      <SignupSteps::StepZero
-        @currentStep={{this.currentStep}}
-        @startHandler={{this.startHandler}}
-      />
-    {{else if (eq this.currentStep 1)}}
-      <SignupSteps::StepOne
-        @currentStep={{this.currentStep}}
-        @incrementStep={{this.incrementStep}}
-      />
-    {{else if (eq this.currentStep 2)}}
-      <SignupSteps::StepTwo @startHandler={{this.startHandler}} />
-    {{else if (eq this.currentStep 3)}}
-      <JoinSteps::StepOne
-        @startHandler={{this.startHandler}}
-        @setIsPreValid={{this.setIsPreValid}}
-        @isValid={{this.isValid}}
-        @setIsValid={{this.setIsValid}}
-      />
-    {{else if (eq this.currentStep 4)}}
-      <JoinSteps::StepTwo
-        @startHandler={{this.startHandler}}
-        @setIsPreValid={{this.setIsPreValid}}
-        @isValid={{this.isValid}}
-        @setIsValid={{this.setIsValid}}
-      />
-    {{else if (eq this.currentStep 5)}}
-      <JoinSteps::StepThree
-        @startHandler={{this.startHandler}}
-        @setIsPreValid={{this.setIsPreValid}}
-        @isValid={{this.isValid}}
-        @setIsValid={{this.setIsValid}}
-      />
-    {{else if (eq this.currentStep 6)}}
-      <JoinSteps::StepFour
-        @startHandler={{this.startHandler}}
-        @setIsPreValid={{this.setIsPreValid}}
-        @isValid={{this.isValid}}
-        @setIsValid={{this.setIsValid}}
-      />
-    {{else if (eq this.currentStep 7)}}
-      <IdentitySteps::StepOne @startHandler={{this.startHandler}} />
-    {{else if (eq this.currentStep 8)}}
-      <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
-    {{else if (eq this.currentStep 9)}}
-      <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
-    {{else if (eq this.currentStep 10)}}
-      <IdentitySteps::StepFour @startHandler={{this.startHandler}} />
-    {{else if (eq this.currentStep 11)}}
-      <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
-    {{/if}}
+    <div class='card__getting-started'>
+      {{#if (not (eq this.currentStep 0))}}
+        <img
+          src='assets/icons/onboarding-card-rds-logo.png'
+          alt='RDS-Logo'
+          class='signup-details__rds-logo'
+          data-test-rds-logo
+        />
+      {{/if}}
+      {{#if (eq this.currentStep 0)}}
+        <SignupSteps::StepZero
+          @currentStep={{this.currentStep}}
+          @startHandler={{this.startHandler}}
+        />
+      {{else if (eq this.currentStep 1)}}
+        <SignupSteps::StepOne
+          @currentStep={{this.currentStep}}
+          @incrementStep={{this.incrementStep}}
+        />
+      {{else if (eq this.currentStep 2)}}
+        <SignupSteps::StepTwo @startHandler={{this.startHandler}} />
+      {{else if (eq this.currentStep 3)}}
+        <JoinSteps::StepOne
+          @startHandler={{this.startHandler}}
+          @setIsPreValid={{this.setIsPreValid}}
+          @isValid={{this.isValid}}
+          @setIsValid={{this.setIsValid}}
+        />
+      {{else if (eq this.currentStep 4)}}
+        <JoinSteps::StepTwo
+          @startHandler={{this.startHandler}}
+          @setIsPreValid={{this.setIsPreValid}}
+          @isValid={{this.isValid}}
+          @setIsValid={{this.setIsValid}}
+        />
+      {{else if (eq this.currentStep 5)}}
+        <JoinSteps::StepThree
+          @startHandler={{this.startHandler}}
+          @setIsPreValid={{this.setIsPreValid}}
+          @isValid={{this.isValid}}
+          @setIsValid={{this.setIsValid}}
+        />
+      {{else if (eq this.currentStep 6)}}
+        <JoinSteps::StepFour
+          @startHandler={{this.startHandler}}
+          @setIsPreValid={{this.setIsPreValid}}
+          @isValid={{this.isValid}}
+          @setIsValid={{this.setIsValid}}
+        />
+      {{else if (eq this.currentStep 7)}}
+        <IdentitySteps::StepOne @startHandler={{this.startHandler}} />
+      {{else if (eq this.currentStep 8)}}
+        <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
+      {{else if (eq this.currentStep 9)}}
+        <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
+      {{else if (eq this.currentStep 10)}}
+        <IdentitySteps::StepFour @startHandler={{this.startHandler}} />
+      {{else if (eq this.currentStep 11)}}
+        <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
+      {{/if}}
+    </div>
   </form>
 
   {{#if (and (gte this.currentStep 3) (lte this.currentStep 6))}}

@@ -5,7 +5,9 @@
 }
 
 .greeting {
-  font: 700 24px 'Roboto', sans-serif;
+  font:
+    700 24px 'Roboto',
+    sans-serif;
   line-height: 28px;
   text-align: center;
   padding: 0;
@@ -135,7 +137,9 @@ select {
   border-radius: 9px;
   width: 11rem;
   height: 3rem;
-  font: 700 16px 'Roboto', sans-serif;
+  font:
+    700 16px 'Roboto',
+    sans-serif;
   margin: auto;
 }
 
@@ -159,7 +163,9 @@ select {
   width: 11rem;
   height: 3rem;
   color: var(--text-white);
-  font: 700 16px 'Roboto', sans-serif;
+  font:
+    700 16px 'Roboto',
+    sans-serif;
   cursor: pointer;
   margin: auto;
 }

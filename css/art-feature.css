@@ -156,7 +156,8 @@ body {
 }
 
 #instruction-button:hover {
-  box-shadow: 0 12px 16px 0 rgba(var(--color-black-rgb), 0.24),
+  box-shadow:
+    0 12px 16px 0 rgba(var(--color-black-rgb), 0.24),
     0 17px 50px 0 rgba(var(--color-black-rgb), 0.19);
 }
 
@@ -175,7 +176,8 @@ body {
   height: 70vh;
   color: var(--color-text);
   background-color: var(--color-bg);
-  box-shadow: 0 12px 16px 0 rgba(var(--color-black-rgb), 0.24),
+  box-shadow:
+    0 12px 16px 0 rgba(var(--color-black-rgb), 0.24),
     0 17px 50px 0 rgba(var(--color-black-rgb), 0.19);
 }
 

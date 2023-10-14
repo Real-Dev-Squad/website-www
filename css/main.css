@@ -512,7 +512,8 @@ footer {
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  box-shadow: 0 10px 10px 0 rgba(var(--color-black-rgb) 0.2),
+  box-shadow:
+    0 10px 10px 0 rgba(var(--color-black-rgb) 0.2),
     0 5px 10px 10px rgba(var(--color-black-rgb), 0.2);
   transition: ease box-shadow 0.3s;
   --x: 0%;

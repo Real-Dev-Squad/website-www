@@ -11,7 +11,7 @@ export default class KickoutModalComponent extends Component {
     this.args.closeModal();
   }
 
-  @action confirmFun() {
-    this.args.confirmFun();
+  @action confirmHandler() {
+    this.args.confirmHandler();
   }
 }

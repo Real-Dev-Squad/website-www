@@ -18,7 +18,7 @@
       @message='Do you want to remove {{this.peerToRemove.name}}?'
       @closeText='Cancel'
       @confirmText='Remove'
-      @confirmFun={{this.removePeer}}
+      @confirmHandler={{this.removePeer}}
     />
   </BaseModal>
   <BaseModal
@@ -48,7 +48,7 @@
       @message='Are you sure to end this event?'
       @closeText='Cancel'
       @confirmText='End'
-      @confirmFun={{(fn this.buttonClickHandler 'leave-room')}}
+      @confirmHandler={{(fn this.buttonClickHandler 'leave-room')}}
     />
   </BaseModal>
   {{! TODO - add more else if statement instead of only else }}

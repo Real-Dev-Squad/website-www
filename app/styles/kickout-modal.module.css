@@ -25,6 +25,7 @@
   .kickout-modal,
   .room-code-modal {
     width: 95%;
+    height: 14rem;
   }
 
   .kickout-modal h4 {

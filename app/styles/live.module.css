@@ -32,6 +32,11 @@
   aspect-ratio: 16/9;
 }
 
+.live__video-container--show {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
 .container__sidebar {
   display: flex;
   width: 0%;

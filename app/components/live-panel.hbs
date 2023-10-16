@@ -1,4 +1,11 @@
 <div class='live-panel' data-test-live-panel>
+  <Reusables::IconButton
+    @id='toggle-panel'
+    @class='icon-button--md icon__sidebar__toggle'
+    @title='toggle sidebar panel'
+    @onClick={{@sidebarDisplayToggle}}
+    @icon='material-symbols:chevron-right'
+  />
   {{#if (eq @role this.ROLES.host)}}
     <Reusables::IconButton
       @id='screen-share'

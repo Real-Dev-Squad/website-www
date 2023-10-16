@@ -46,7 +46,7 @@
         <div class='live__container'>
           <div
             class='live__video-container
-              {{if this.isExpanded "" "live__video-container--show"}}
+              {{if this.isExpanded "live__video-container--show" ""}}
               {{if this.liveService.isScreenShareOn "bg-black" ""}}'
             data-test-video-container
           >
@@ -89,6 +89,7 @@
               @role={{this.role}}
               @buttonClickHandler={{this.buttonClickHandler}}
               @openRoomCodeModal={{this.toggleRoomCodeModal}}
+              @sidebarDisplayToggle={{this.sidebarDisplayToggle}}
             />
           {{/if}}
         </div>

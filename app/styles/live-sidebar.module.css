@@ -39,27 +39,6 @@
   border-radius: 10px;
 }
 
-.openbtn {
-  font-size: 1.2rem;
-  cursor: pointer;
-  background-color: var(--color-sidebar);
-  color: var(--color-pink);
-  border: none;
-  width: 2rem;
-  height: 2rem;
-  top: 0rem;
-  margin: 0px 0px 0.6rem 12.3rem;
-  display: block;
-  border-radius: 5px;
-}
-
-.closeBtn {
-  /* margin-left: 8.3rem; */
-  position: absolute;
-  top: 16rem;
-  right: 17rem;
-}
-
 .participants__heading--hide {
   display: none;
 }
@@ -188,45 +167,10 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1235px) {
-  .openbtn {
-    margin: 0px 0px 0.6rem 12rem;
-  }
-  /* .closeBtn {
-    top: 16rem;
-    right: 31rem;
-  } */
-}
-
-@media only screen and (min-width: 1981px) {
-  .closeBtn {
-    top: 16rem;
-    right: 31rem;
-  }
-}
-
-@media only screen and (max-width: 960px) {
-  .openbtn {
-    margin: 0px 0px 1rem 10rem;
-  }
-  .closeBtn {
-    top: 16rem;
-    right: 31rem;
-  }
-}
-
 @media only screen and (max-width: 768px) {
-   .sidebar {
+  .sidebar {
     height: 70px;
     width: 100%;
-  }
-  .openbtn {
-    display: none;
-  }
-
-  .closeBtn {
-    top: 12rem;
-    right: 2rem;
   }
 
   .participantsHeadingHide {
@@ -316,14 +260,6 @@
     padding: 0;
     width: 100%;
     padding-top: 1rem;
-  }
-  .openbtn {
-    display: none;
-  }
-
-  .closeBtn {
-    top: 12rem;
-    right: 2rem;
   }
 
   .participantsHeadingHide {

@@ -4,12 +4,6 @@
     {{if this.isSideBarOpen "open" "close"}}
     {{if @isExpanded "sidebarCloses" "sidebarOpens"}}'
 >
-  <IconifyIcon
-    @icon='ci:hamburger-lg'
-    class='openbtn {{if @isExpanded "closeBtn"}}'
-    type='button'
-    {{on 'click' @sidebarDisplayToggle}}
-  />
 
   <div
     data-test-sidebar-participants

@@ -25,10 +25,13 @@
   .kickout-modal,
   .room-code-modal {
     width: 95%;
-    height: 14rem;
   }
 
   .kickout-modal h4 {
     font-size: 1.3rem;
+  }
+
+  .kickout-modal__buttons .btn--sm{
+    width: 7rem;
   }
 }

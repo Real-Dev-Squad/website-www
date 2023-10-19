@@ -6,7 +6,6 @@
   padding: 10px 15px;
   box-sizing: border-box;
   overflow: hidden;
-
 }
 
 .logs__heading {
@@ -48,6 +47,7 @@
 
 .log-card__text {
   font-size: 1rem;
+  font-weight: 500;
 }
 
 .log-card__time {

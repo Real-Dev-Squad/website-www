@@ -1,0 +1,26 @@
+<div class='logs' data-test-logs-page-container>
+  <h2 class='logs__heading' data-test-logs-heading>
+    Event logs
+  </h2>
+  <div class='logs__main' data-test-logs-main>
+    {{!TODO added dummy cards as of now, will integrate api for data }}
+    {{#each this.EVENT_LOGS_DATA as |data|}}
+      <div class='log-card' data-test-log-card>
+        <span
+          class='log-card__time log-card__text'
+          data-test-log-card-time='{{data.id}}'
+        >{{data.time}}</span>
+        <span
+          class='log-card__removed-peer log-card__text'
+          data-test-log-card-removed-peer='{{data.id}}'
+        >{{data.removedPeer}}</span>
+        <span class='log-card__text' data-test-log-card='{{data.id}}'>was
+          removed by</span>
+        <span
+          class='log-card__removed-by log-card__text'
+          data-test-log-removed-by='{{data.id}}'
+        >{{data.removedBy}}</span>
+      </div>
+    {{/each}}
+  </div>
+</div>

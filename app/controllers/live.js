@@ -15,6 +15,8 @@ export default class LiveController extends Controller {
     { id: 1, label: 'Screenshare', active: true },
     { id: 2, label: 'Previous Events', active: false },
     { id: 3, label: 'Real Dev Squad', active: false },
+    // TODO: uncomment this line when logs feature is integrated with API
+    { id: 4, label: 'Logs', active: false },
   ];
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = false;

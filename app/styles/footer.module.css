@@ -33,7 +33,11 @@
   width: 70px;
   height: 5px;
   border-radius: 2px;
-  background: linear-gradient(111.3deg, var(--color-darkgrey) 9.6%, var(--color-white) 93.6%);
+  background: linear-gradient(
+    111.3deg,
+    var(--color-darkgrey) 9.6%,
+    var(--color-white) 93.6%
+  );
 }
 
 .left {
@@ -114,7 +118,7 @@
 }
 
 @media (max-width: 720px) {
-  .footer__sites-about{
+  .footer__sites-about {
     width: 50%;
     margin: 10px 0px;
     display: flex;
@@ -141,4 +145,42 @@
   .footer__sites-about {
     margin: 20px 0px;
   }
+}
+
+/* -- styles for footer under dev=true feature flag -- */
+.footer-dev {
+  margin-top: 50px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer__info {
+  max-width: 500px;
+  color: var(--color-black);
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.footer__info__link {
+  color: var(--color-pink);
+  text-decoration: none;
+}
+
+.footer__info__link:hover {
+  color: var(--color-carmine);
+}
+
+.footer__repo-dev {
+  color: var(--color-black);
+  text-align: center;
+  font-size: 16px;
+}
+
+.footer__repo__link {
+  color: var(--color-navyblue);
+  text-decoration: none;
 }

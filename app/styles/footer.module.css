@@ -147,22 +147,23 @@
   }
 }
 
-/* -- styles for footer under dev=true feature flag -- */
+/* -- styles for footer under feature flag -- */
 .footer-dev {
-  margin-top: 50px;
-  padding: 25px 20px;
+  margin-top: 2rem;
+  padding: 1.57rem 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 3.125rem;
 }
 
 .footer__info {
-  max-width: 500px;
+  max-width: 32rem;
   color: var(--color-black);
   text-align: center;
   font-weight: 500;
   font-size: 1.2rem;
+  line-height: 140%;
 }
 
 .footer__info__link {
@@ -177,7 +178,7 @@
 .footer__repo-dev {
   color: var(--color-black);
   text-align: center;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .footer__repo__link {

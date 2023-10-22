@@ -5,7 +5,7 @@ import { SOCIAL_LINK_PROPERTIES } from '../constants/social-data';
 import { inject as service } from '@ember/service';
 
 export default class FooterComponent extends Component {
-  @service router;
+  @service featureFlag;
   REPOSITORY_URL = ABOUT.REPOSITORY;
   APPS_PROPERTIES = APPS_PROPERTIES;
   ABOUT_PROPERTIES = ABOUT_PROPERTIES;
@@ -13,10 +13,7 @@ export default class FooterComponent extends Component {
   MEMBERS_URL = APPS.MEMBERS;
   FAQ_URL = ABOUT.FAQ;
 
-  get isDev() {
-    if (this.router.currentRoute) {
-      return this.router.currentRoute.queryParams.dev;
-    }
-    return false;
+  get isDevMode() {
+    return this.featureFlag.isDevMode;
   }
 }

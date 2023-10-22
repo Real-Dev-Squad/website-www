@@ -1,10 +1,10 @@
-<section data-events-section class='events-section'>
-  <h2 data-events-section-header class='events-section__heading'>You can check
-    out all our events below!!</h2>
+<section data-test-events-section class='events-section'>
+  <h2 data-test-events-section-header class='events-section__heading'>You can
+    check out all our events below!!</h2>
   {{#each-in this.EVENTS_CATEGORIES as |category events|}}
     <div class='events__category'>
       <h3
-        data-events-category={{category}}
+        data-test-events-category={{category}}
         class='events__category-heading'
       >{{category}}:</h3>
       <div class='events__links-container'>
@@ -13,7 +13,7 @@
             <span>|</span>
           {{/if}}
           <a
-            data-events-link={{event.name}}
+            data-test-events-link={{event.name}}
             href={{event.link}}
             class='events__link'
           >{{event.name}}</a>

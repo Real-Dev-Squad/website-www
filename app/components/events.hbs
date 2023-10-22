@@ -1,14 +1,14 @@
 {{#if this.isDev}}
-  <section data-events-section class='events__section'>
-    <h2 data-events-section-header class='events__section__header'>You can check
+  <section data-events-section class='events-section'>
+    <h2 data-events-section-header class='events-section__heading'>You can check
       out all our events below!!</h2>
     {{#each-in this.EVENTS_CATEGORIES as |category events|}}
       <div class='events__category'>
         <h3
           data-events-category={{category}}
-          class='events__category__header'
+          class='events__category-heading'
         >{{category}}:</h3>
-        <div class='events__links__container'>
+        <div class='events__links-container'>
           {{#each events as |event index|}}
             {{#if (not-eq index 0)}}
               <span>|</span>
@@ -16,7 +16,7 @@
             <a
               data-events-link={{event.name}}
               href={{event.link}}
-              class='event__link'
+              class='events__link'
             >{{event.name}}</a>
           {{/each}}
         </div>

@@ -148,7 +148,7 @@
 }
 
 /* -- styles for footer under feature flag -- */
-.footer-dev {
+.footer--dev {
   margin-top: 2rem;
   padding: 1.57rem 1.25rem;
   display: flex;
@@ -175,7 +175,7 @@
   color: var(--color-carmine);
 }
 
-.footer__repo-dev {
+.footer__repo--dev {
   color: var(--color-black);
   text-align: center;
   font-size: 1rem;

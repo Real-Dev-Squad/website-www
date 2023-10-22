@@ -29,5 +29,10 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
         assert.dom(`[data-test-events-link="${event.name}"]`).exists();
       });
     }
+    assert.dom('[data-test-footer-info]').exists();
+    assert.dom('[data-test-footer-info-members-link]').exists();
+    assert.dom('[data-test-footer-info-faq-link]').exists();
+    assert.dom('[data-test-footer-repo-text-dev]').exists();
+    assert.dom('[data-test-footer-repo-link-dev]').exists();
   });
 });

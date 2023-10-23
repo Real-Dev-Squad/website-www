@@ -13,20 +13,20 @@
   color: var(--color-black);
 }
 
-.events__category-heading {
+.events-section__category-heading {
   font-size: 1.1rem;
   text-align: center;
   color: var(--color-black);
 }
 
-.events__links-container {
+.events-section__links-container {
   margin-top: 1.25rem;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
 }
 
-.events__links-container > * {
+.events-section__links-container > * {
   margin: 0 0.625rem;
   padding: 0.5rem;
   text-align: center;
@@ -35,13 +35,13 @@
   text-decoration: none;
 }
 
-.events__link:hover {
+.events-section__link:hover {
   background: var(--color-soft-magenta);
   border-radius: 1.25rem;
 }
 
 @media (max-width: 425px) {
-  .events__links-container > * {
+  .events-section__links-container > * {
     width: 100%;
   }
 }

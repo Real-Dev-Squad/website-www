@@ -59,6 +59,6 @@ button {
   width: 0;
 }
 
-#toast-container > div {
+#toast-container>div {
   opacity: 1;
 }

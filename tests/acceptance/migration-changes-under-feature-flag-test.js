@@ -10,11 +10,11 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
   test('Migrated footer should exists when dev=true', async function (assert) {
     await visit('/');
 
+    assert.strictEqual(currentURL(), '/');
+
     assert.dom('[data-test-events-section]').doesNotExist();
     assert.dom('[data-test-footer-info]').doesNotExist();
     assert.dom('[data-test-sites-title]').exists();
-
-    assert.strictEqual(currentURL(), '/');
 
     await visit('/?dev=true');
 

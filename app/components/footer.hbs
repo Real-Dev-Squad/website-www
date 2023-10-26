@@ -1,81 +1,130 @@
-<footer class='footer'>
-  <div class='footer__container'>
-    <div class='footer__sites-about'>
-      <div class='col'>
-        <h3 data-test-sites-title class='col__title'>Sites</h3>
-        <span data-test-underline class='col__underline'></span>
+{{#if this.isDevMode}}
+  <footer aria-label='footer under dev feature flag' class='footer--dev'>
+    <Events />
+    <h3 data-test-footer-info class='footer__info'>
+      To know how this page is developed, join our Discord channel by contacting
+      one of
+      <a
+        data-test-footer-info-members-link
+        href={{this.MEMBERS_URL}}
+        class='footer__info__link'
+      >our existing members</a>
+      or our
+      <a
+        data-test-footer-info-faq-link
+        href={{this.FAQ_URL}}
+        class='footer__info__link'
+      > FAQ section</a>.
+    </h3>
+    <p data-test-footer-repo-text-dev class='footer__repo--dev'>The contents of
+      the website are deployed from this
+      <a
+        data-test-footer-repo-link-dev
+        href={{this.REPOSITORY_URL}}
+        class='footer__repo__link'
+      >open sourced repo</a>
+    </p>
+  </footer>
+{{else}}
+  <footer class='footer'>
+    <div class='footer__container'>
+      <div class='footer__sites-about'>
+        <div class='col'>
+          <h3 data-test-sites-title class='col__title'>Sites</h3>
+          <span data-test-underline class='col__underline'></span>
+        </div>
+        <ul class='col__list'>
+          {{#each this.APPS_PROPERTIES as |app|}}
+            <li><a
+                data-test-sites-link={{app.name}}
+                href={{app.url}}
+              >{{app.name}}</a></li>
+          {{/each}}
+        </ul>
       </div>
-      <ul class='col__list'>
-        {{#each this.APPS_PROPERTIES as |app|}}
-          <li><a data-test-sites-link={{app.name}} href={{app.url}}>{{app.name}}</a></li>
-        {{/each}}
-      </ul>
-    </div>
-    <div class='footer__sites-about'>
-      <div class='col'>
-        <h3 data-test-about-title class='col__title'>About</h3>
-        <span data-test-underline class='col__underline'></span>
+      <div class='footer__sites-about'>
+        <div class='col'>
+          <h3 data-test-about-title class='col__title'>About</h3>
+          <span data-test-underline class='col__underline'></span>
+        </div>
+        <ul class='col__list'>
+          {{#each this.ABOUT_PROPERTIES as |about|}}
+            <li><a
+                data-test-about-link={{about.name}}
+                href={{about.url}}
+              >{{about.name}}</a></li>
+          {{/each}}
+        </ul>
       </div>
-      <ul class='col__list'>
-        {{#each this.ABOUT_PROPERTIES as |about|}}
-          <li><a data-test-about-link={{about.name}} href={{about.url}}>{{about.name}}</a></li>
-        {{/each}}
-      </ul>
-    </div>
-    <div class='footer__col'>
-      <div class='col left'>
-        <h3 data-test-social-media-title class='col__title'>Social Media</h3>
-        <span data-test-underline class='col__underline'></span>
+      <div class='footer__col'>
+        <div class='col left'>
+          <h3 data-test-social-media-title class='col__title'>Social Media</h3>
+          <span data-test-underline class='col__underline'></span>
+        </div>
+        <div>
+          {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
+            <a
+              data-test-social-link={{social.title}}
+              href={{social.url}}
+              target='_blank'
+              class='social__links'
+              rel='noopener noreferrer'
+            >
+              <img
+                data-test-social-icon={{social.title}}
+                class='social__icons'
+                src={{social.white_icon}}
+                alt={{social.alt}}
+              />
+            </a>
+          {{/each}}
+        </div>
       </div>
-      <div>
-        {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
-          <a
-            data-test-social-link={{social.title}}
-            href={{social.url}}
-            target='_blank'
-            class='social__links'
-            rel='noopener noreferrer'
+      <div class='footer__col'>
+        <div class='col'>
+          <h3 data-test-newsletter-title class='col__title'>Newsletter</h3>
+          <span data-test-underline class='col__underline'></span>
+        </div>
+        <div class='newsletter'>
+          <label for='email'></label>
+          <input
+            data-test-newsletter-input
+            id='email'
+            type='text'
+            class='newsletter__input'
+            placeholder='Enter your email'
+          />
+          <button
+            data-test-newsletter-button
+            type='button'
+            class='newsletter__button'
           >
             <img
-              data-test-social-icon={{social.title}}
-              class='social__icons'
-              src={{social.white_icon}}
-              alt={{social.alt}}
+              data-test-newsletter-button-icon
+              src='assets/icons/right-arrow.png'
+              alt='Right Arrow'
+              height='20px'
+              width='20px'
             />
-          </a>
-        {{/each}}
+          </button>
+        </div>
       </div>
     </div>
-    <div class='footer__col'>
-      <div class='col'>
-        <h3 data-test-newsletter-title class='col__title'>Newsletter</h3>
-        <span data-test-underline class='col__underline'></span>
-      </div>
-      <div class='newsletter'>
-        <label for='email'></label>
-        <input
-          data-test-newsletter-input
-          id='email'
-          type='text'
-          class='newsletter__input'
-          placeholder='Enter your email'
-        />
-        <button data-test-newsletter-button type='button' class='newsletter__button'>
-          <img
-            data-test-newsletter-button-icon
-            src='assets/icons/right-arrow.png'
-            alt='Right Arrow'
-            height='20px'
-            width='20px'
-          />
-        </button>
-      </div>
+    <div class='footer__repo'>
+      <img
+        data-footer-repo-github-img
+        class='repo__img'
+        src='assets/icons/github-white.png'
+        alt='GitHub'
+      />
+      <p data-footer-repo-text class='repo__text'>The contents of the website
+        are deployed from this
+        <a
+          data-footer-repo-link
+          href={{this.REPOSITORY_URL}}
+          class='repo__link'
+        >open sourced repo</a>
+      </p>
     </div>
-  </div>
-  <div class='footer__repo'>
-    <img data-footer-repo-github-img class='repo__img' src='assets/icons/github-white.png' alt='GitHub' />
-    <p data-footer-repo-text class='repo__text'>The contents of the website are deployed from this
-      <a data-footer-repo-link href={{this.REPOSITORY_URL}} class='repo__link'>open sourced repo</a>
-    </p>
-  </div>
-</footer>
+  </footer>
+{{/if}}

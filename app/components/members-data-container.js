@@ -15,7 +15,10 @@ export default class MembersDataContainerComponent extends Component {
       .query('user', {
         role: 'member',
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        return [];
+      });
     let membersData = data.toArray();
     shuffle(membersData);
     this.members = membersData.slice(0, noOfMembers);

@@ -1,34 +1,34 @@
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { htmlSafe } from '@ember/template';
 import { imageUrl } from '../utils/cloudinary-image';
 
-const width = document.body.clientWidth;
-const noOfMembers = 5;
-
 export default class WheelAnimationsComponent extends Component {
+  width = document.body.clientWidth;
+  @tracked noOfMembers = this.args.users.length;
   resizeImageUrl = imageUrl;
 
   memberStyle = (index) => {
     let style = `
-      --size: ${randomNumberWithinRange(0.5, 1.2)};
-      --x: ${randomX(index)};
-      --y: ${randomY(index)};
+      --size: ${this.randomNumberWithinRange(0.5, 1.2)};
+      --x: ${this.randomX(index)};
+      --y: ${this.randomY(index)};
     }
     `;
     return htmlSafe(style);
   };
-}
 
-function randomX(n) {
-  const deg = n * (360 / noOfMembers) * (Math.PI / 180);
-  return (width / 5) * Math.cos(deg);
-}
+  randomX(n) {
+    const deg = n * (360 / this.noOfMembers) * (Math.PI / 180);
+    return (this.width / 5) * Math.cos(deg);
+  }
 
-function randomY(n) {
-  const deg = n * (360 / noOfMembers) * (Math.PI / 180);
-  return 180 * Math.sin(deg);
-}
+  randomY(n) {
+    const deg = n * (360 / this.noOfMembers) * (Math.PI / 180);
+    return 180 * Math.sin(deg);
+  }
 
-function randomNumberWithinRange(min, max) {
-  return Math.random() * (max - min) + min;
+  randomNumberWithinRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 }

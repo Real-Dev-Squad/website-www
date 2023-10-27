@@ -33,8 +33,12 @@
   <Reusables::IconButton
     @id='leave-room'
     @class='icon-button--md icon-button--pink-bg'
-    @title='Leave Room'
-    @onClick={{@buttonClickHandler}}
+    @title={{if (eq @role this.ROLES.host) 'End Room' 'Leave Room'}}
+    @onClick={{if
+      (eq @role this.ROLES.host)
+      @openWarningModal
+      @buttonClickHandler
+    }}
     @icon='material-symbols:call-end'
   />
 </div>

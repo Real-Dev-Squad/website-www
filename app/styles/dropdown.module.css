@@ -5,14 +5,16 @@
   height: 3.125rem;
   display: flex;
   justify-content: space-between;
-  line-height: 32px;
   margin-top: 0.2rem;
   padding: 0 0.5rem;
-  outline: none;
   transition: all 0.1s;
   border-radius: 8px;
   border: 1px solid var( --color-shade-grey);
   background: var(--color-white);
+}
+
+.dropdown{
+  margin: 1rem 0;
 }
 
 .select:focus {

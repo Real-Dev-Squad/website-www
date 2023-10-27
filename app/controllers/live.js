@@ -15,6 +15,8 @@ export default class LiveController extends Controller {
     { id: 1, label: 'Screenshare', active: true },
     { id: 2, label: 'Previous Events', active: false },
     { id: 3, label: 'Real Dev Squad', active: false },
+    // TODO: uncomment this line when logs feature is integrated with API
+    { id: 4, label: 'Logs', active: false },
   ];
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = false;
@@ -24,6 +26,7 @@ export default class LiveController extends Controller {
   @tracked isCopied = false;
   @tracked isKickoutModalOpen = false;
   @tracked isRoomCodeModalOpen = false;
+  @tracked isWarningModalOpen = false;
   @tracked peerToRemove = '';
   @tracked newRoomCode = '';
   @tracked isActiveEventFound;
@@ -110,6 +113,7 @@ export default class LiveController extends Controller {
 
   @action leaveSession() {
     this.liveService.leaveSession(this.role);
+    this.isWarningModalOpen = false;
   }
 
   @action screenShare() {
@@ -133,6 +137,10 @@ export default class LiveController extends Controller {
 
   @action toggleRoomCodeModal() {
     this.isRoomCodeModalOpen = !this.isRoomCodeModalOpen;
+  }
+
+  @action toggleWarningModal() {
+    this.isWarningModalOpen = !this.isWarningModalOpen;
   }
 
   @action buttonClickHandler(buttonId) {

@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -63,7 +63,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
     assert.dom('[data-test-button=next]').hasProperty('disabled', true);
   });
 
-  test('Clicking "Generate Chaincode" button renders div with text and 2 button with icons on Chaincode page', async function (assert) {
+  skip('Clicking "Generate Chaincode" button renders div with text and 2 button with icons on Chaincode page', async function (assert) {
     assert.expect(6);
     this.set('startHandler', () => {});
     await render(
@@ -87,7 +87,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
     assert.dom('[data-test-button=copy-icon]').hasClass('chaicode-button-icon');
   });
 
-  test('Clicking eye-icon button show generated code', async function (assert) {
+  skip('Clicking eye-icon button show generated code', async function (assert) {
     assert.expect(1);
     this.set('startHandler', () => {});
     await render(

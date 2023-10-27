@@ -142,3 +142,42 @@
     margin: 20px 0px;
   }
 }
+
+/* -- styles for footer under feature flag -- */
+.footer--dev {
+  margin-top: 2rem;
+  padding: 1.57rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.125rem;
+}
+
+.footer__info {
+  max-width: 32rem;
+  color: var(--color-black);
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 140%;
+}
+
+.footer__info__link {
+  color: var(--color-pink);
+  text-decoration: none;
+}
+
+.footer__info__link:hover {
+  color: var(--color-carmine);
+}
+
+.footer__repo--dev {
+  color: var(--color-black);
+  text-align: center;
+  font-size: 1rem;
+}
+
+.footer__repo__link {
+  color: var(--color-navyblue);
+  text-decoration: none;
+}

@@ -4,7 +4,11 @@
     @class='icon-button--md icon__sidebar__toggle'
     @title='toggle sidebar panel'
     @onClick={{@sidebarDisplayToggle}}
-    @icon='material-symbols:chevron-right'
+    @icon={{if
+      @isExpanded
+      'material-symbols:fullscreen-exit'
+      'material-symbols:fullscreen'
+    }}
   />
   {{#if (eq @role this.ROLES.host)}}
     <Reusables::IconButton

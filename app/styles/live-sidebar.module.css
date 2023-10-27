@@ -11,11 +11,11 @@
   box-sizing: border-box;
 }
 
-.sidebarOpens {
+.sidebar--opens {
   width: 90%;
 }
 
-.sidebarCloses {
+.sidebar--closes {
   width: 0%;
 }
 

@@ -1,6 +1,21 @@
-<div data-test-sidebar class='sidebar {{if this.isSideBarOpen "open" "close"}}'>
-  <div data-test-sidebar-participants class='sidebar__participants'>
-    <h4>Participants</h4>
+<div
+  data-test-sidebar
+  class='sidebar
+    {{if this.isSideBarOpen "open" "close"}}
+    {{if @isExpanded "sidebar--closes" "sidebar--opens"}}'
+>
+  <div
+    data-test-sidebar-participants
+    class='sidebar__participants
+      {{if
+        @isExpanded
+        "sidebar__participants--hide"
+        "sidebar__participants--open"
+      }}'
+  >
+    <h4
+      class='{{if @isExpanded "participants__heading--hide" ""}}'
+    >Participants</h4>
     <button
       data-test-sidebar-button
       class='sidebar__accordian-button'

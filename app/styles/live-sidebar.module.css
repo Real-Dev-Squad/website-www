@@ -1,6 +1,6 @@
 .sidebar {
   padding: 1rem 0;
-  width: 100%;
+  width: 0%;
   background-color: var(--color-sidebar);
   height: 100%;
   z-index: 2;
@@ -9,6 +9,30 @@
   align-items: center;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+.sidebar--opens {
+  width: 90%;
+}
+
+.sidebar--closes {
+  width: 0%;
+}
+
+.sidebar__participants--hide {
+  display: none;
+}
+
+.sidebar__participants--open {
+  display: flex;
+}
+
+.participants__heading--hide {
+  display: none;
+}
+
+.participantsHeadingHide {
+  display: block;
 }
 
 .sidebar__accordian-button {
@@ -33,7 +57,6 @@
 
 .sidebar__participants {
   width: 90%;
-  display: flex;
   justify-content: center;
   align-items: center;
   background: var(--color-white);

@@ -62,7 +62,8 @@
         <div class='live__container'>
           <div
             class='live__video-container
-              {{if this.liveService.isScreenShareOn "bg-black" ""}}'
+              {{if this.liveService.isScreenShareOn "bg-black" ""}}
+              {{if this.isExpanded "live__video-container--show" ""}}'
             data-test-video-container
           >
             {{! TODO - add skeleton to the whole structure }}
@@ -72,7 +73,14 @@
               <VideoScreen @src='/assets/starting-soon.mp4' />
             {{/if}}
           </div>
-          <div class='container__sidebar'>
+          <div
+            class='container__sidebar
+              {{if
+                this.isExpanded
+                "container__sidebar--hide"
+                "container__sidebar--show"
+              }}'
+          >
             {{#if this.isLoading}}
               <Reusables::Skeleton />
             {{else}}
@@ -80,6 +88,8 @@
                 @openKickoutModal={{this.openKickoutModal}}
                 @peers={{this.liveService.peers}}
                 @peerToRemove={{this.peerToRemove}}
+                @sidebarDisplayToggle={{this.sidebarDisplayToggle}}
+                @isExpanded={{this.isExpanded}}
               />
             {{/if}}
           </div>
@@ -95,6 +105,8 @@
               @buttonClickHandler={{this.buttonClickHandler}}
               @openRoomCodeModal={{this.toggleRoomCodeModal}}
               @openWarningModal={{this.toggleWarningModal}}
+              @sidebarDisplayToggle={{this.sidebarDisplayToggle}}
+              @isExpanded={{this.isExpanded}}
             />
           {{/if}}
         </div>

@@ -10,10 +10,13 @@ module('Integration | Component | live-panel', function (hooks) {
     assert.expect(10);
     this.set('buttonClickHandler', () => {});
     this.set('toggleRoomCodeModal', () => {});
+    this.set('sidebarDisplayToggle', () => {});
     this.set('role', 'guest');
+    this.set('expanded', true);
 
     await render(
-      hbs`<LivePanel @buttonClickHandler={{this.buttonClickHandler}} @role={{this.role}} @openRoomCodeModal={{this.toggleRoomCodeModal}}/>`
+      hbs`<LivePanel @buttonClickHandler={{this.buttonClickHandler}} @role={{this.role}} @openRoomCodeModal={{this.toggleRoomCodeModal}} @sidebarDisplayToggle={{this.sidebarDisplayToggle}}
+              @isExpanded={{this.isExpanded}}/>`
     );
 
     assert.dom('[data-test-live-panel]').exists();
@@ -40,10 +43,12 @@ module('Integration | Component | live-panel', function (hooks) {
     };
     this.set('buttonClickHandler', () => {});
     this.set('toggleRoomCodeModal', () => {});
+    this.set('sidebarDisplayToggle', () => {});
     this.set('toggleWarningModal', () => {
       objToCheckFunctions.isOpenWarningModalWorks = true;
     });
     this.set('role', 'host');
+    this.set('expanded', true);
 
     await render(
       hbs`<LivePanel 
@@ -51,6 +56,8 @@ module('Integration | Component | live-panel', function (hooks) {
       @role={{this.role}} 
       @openRoomCodeModal={{this.toggleRoomCodeModal}}
       @openWarningModal={{this.toggleWarningModal}}
+      @sidebarDisplayToggle={{this.sidebarDisplayToggle}}
+      @isExpanded={{this.isExpanded}}
       />`
     );
 

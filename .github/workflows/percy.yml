@@ -23,6 +23,9 @@ jobs:
       - name: Run echo script
         run: echo Starting the screenshot process
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: Percy Test
         uses: percy/snapshot-action@v0.1.2
         with:
@@ -31,6 +34,7 @@ jobs:
           # flags: # optional, default is
           # Enable verbose logging
           verbose: true
+
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 

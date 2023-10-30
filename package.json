@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@percy/cli": "^1.27.3",
     "jest": "^29.6.1",
     "jest-puppeteer": "^9.0.0",
     "pre-commit": "^1.2.2",

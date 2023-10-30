@@ -35,7 +35,7 @@ jobs:
           # flags: # optional, default is
           # Enable verbose logging
           verbose: true
-
+          build-directory: '../../'
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   Lint-Check:

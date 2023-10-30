@@ -19,5 +19,8 @@
   },
   "pre-commit": [
     "check"
-  ]
+  ],
+  "dependencies": {
+    "percy": "^5.0.0"
+  }
 }

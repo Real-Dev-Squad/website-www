@@ -23,9 +23,6 @@ jobs:
       - name: Run echo script
         run: echo Starting the screenshot process
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Percy Test
         uses: percy/snapshot-action@v0.1.2
         with:
@@ -37,7 +34,6 @@ jobs:
 
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-
   Lint-Check:
     runs-on: ubuntu-latest
     steps:

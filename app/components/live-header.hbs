@@ -13,17 +13,27 @@
     </button>
     {{@activeTab}}
   </section>
-  <section
-    class='tabs_list {{if this.isTabOpen "active" ""}}'
-  >
+  <section class='tabs_list {{if this.isTabOpen "active" ""}}'>
     {{#each @tabs as |tab|}}
-      <Tab
-        @tabId={{tab.id}}
-        @test={{tab.label}}
-        @label={{tab.label}}
-        @variant={{if tab.active 'active' ''}}
-        @onClick={{@tabHandler}}
-      />
+      {{#if (eq tab.label 'Logs')}}
+        {{#if this.live.userData.roles.super_user}}
+          <Tab
+            @tabId={{tab.id}}
+            @test={{tab.label}}
+            @label={{tab.label}}
+            @variant={{if tab.active 'active' ''}}
+            @onClick={{@tabHandler}}
+          />
+        {{/if}}
+      {{else}}
+        <Tab
+          @tabId={{tab.id}}
+          @test={{tab.label}}
+          @label={{tab.label}}
+          @variant={{if tab.active 'active' ''}}
+          @onClick={{@tabHandler}}
+        />
+      {{/if}}
     {{/each}}
   </section>
 </Tabs>

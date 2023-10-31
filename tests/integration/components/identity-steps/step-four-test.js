@@ -9,8 +9,12 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
   test('render main container div on generate chaincode page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
+    this.set('handleGenerateChaincode', () => {});
     await render(
-      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFour  
+            @startHandler={{this.startHandler}} 
+            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
+        />`
     );
 
     assert.dom('[data-test=chaincode]').exists();
@@ -20,8 +24,12 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
   test('render heading on generate chaincode page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
+    this.set('handleGenerateChaincode', () => {});
     await render(
-      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFour  
+            @startHandler={{this.startHandler}} 
+            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
+        />`
     );
     assert.dom('[data-test=heading]').hasClass('chaincode-page__heading');
     assert.dom('[data-test=heading]').hasText('Chaincode Generation');
@@ -30,8 +38,12 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
   test('render description on generate chaincode page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
+    this.set('handleGenerateChaincode', () => {});
     await render(
-      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFour  
+            @startHandler={{this.startHandler}} 
+            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
+        />`
     );
     assert
       .dom('[data-test=description]')
@@ -46,8 +58,16 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
   test('render Generation Chaincode button on chaincode page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
+    this.set('handleGenerateChaincode', () => {});
+    this.set('chaincode', 'Generate Chaincode');
+    this.set('isChaincodeClicked', false);
     await render(
-      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFour  
+            @startHandler={{this.startHandler}} 
+            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
+            @isChaincodeClicked={{this.isChaincodeClicked}}
+            @chaincode={{this.chaincode}}
+        />`
     );
     assert.dom('[data-test-button=chaincode]').hasText('Generate Chaincode');
     assert.dom('[data-test-button=chaincode]').hasProperty('type', 'button');
@@ -56,8 +76,12 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
   test('render disabled Next button on chaincode page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
+    this.set('handleGenerateChaincode', () => {});
     await render(
-      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFour  
+            @startHandler={{this.startHandler}} 
+            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
+        />`
     );
     assert.dom('[data-test-button=next]').hasText('Next');
     assert.dom('[data-test-button=next]').hasProperty('disabled', true);

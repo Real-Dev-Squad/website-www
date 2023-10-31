@@ -56,7 +56,13 @@
       {{else if (eq this.currentStep 9)}}
         <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 10)}}
-        <IdentitySteps::StepFour @startHandler={{this.startHandler}} />
+        <IdentitySteps::StepFour
+          @startHandler={{this.startHandler}}
+          @chaincode={{@chaincode}}
+          @isChaincodeClicked={{@isChaincodeClicked}}
+          @isLoading={{@isLoading}}
+          @handleGenerateChaincode={{@handleGenerateChaincode}}
+        />
       {{else if (eq this.currentStep 11)}}
         <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 12)}}

@@ -11,7 +11,12 @@
       </OnboardingCard>
     {{else}}
       {{#if this.isDevMode}}
-        <StepperSignup />
+        <StepperSignup
+          @chaincode={{this.Chaincode}}
+          @isChaincodeClicked={{this.isChaincodeClicked}}
+          @isLoading={{this.isLoading}}
+          @handleGenerateChaincode={{this.handleGenerateChaincode}}
+        />
       {{else}}
         <Stepper />
       {{/if}}

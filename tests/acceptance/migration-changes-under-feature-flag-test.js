@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website-www/tests/helpers';
 import { EVENTS_CATEGORIES } from '../constants/events-data';
 
@@ -34,5 +34,32 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.dom('[data-test-footer-info-faq-link]').exists();
     assert.dom('[data-test-footer-repo-text-dev]').exists();
     assert.dom('[data-test-footer-repo-link-dev]').exists();
+  });
+  test('Migrated Join section should exist and join button should be disabled when dev=true', async function (assert) {
+    await visit('/');
+
+    assert.strictEqual(currentURL(), '/');
+
+    assert.dom('[data-test-join]').exists();
+    assert.dom('[data-test-join-title]').exists();
+    assert.dom('[data-test-join-title]').hasText('How to Join');
+    assert.dom('[data-test-join-title-highlighted]').exists();
+    assert.dom('[data-test-join-title-highlighted]').hasText('Real Dev Squad');
+    assert.dom('[data-test-para="1"]').exists();
+
+    await visit('/?dev=true');
+
+    assert.strictEqual(currentURL(), '/?dev=true');
+
+    assert.dom('[data-test-join]').exists();
+    assert.dom('[data-test-join-title]').exists();
+    assert.dom('[data-test-join-title]').hasText('How Can you Join?');
+    assert.dom('[data-test-join-title-highlighted]').doesNotExist();
+    assert.dom('[data-test-para="1"]').exists();
+    assert.dom('[data-test-join-link]').exists();
+    assert.dom('[data-test-join-link]').hasText('Join the Squad');
+    await click('[data-test-join-link]');
+
+    assert.strictEqual(currentURL(), '/?dev=true');
   });
 });

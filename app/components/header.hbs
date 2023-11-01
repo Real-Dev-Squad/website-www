@@ -1,3 +1,40 @@
+{{#if this.isDevMode}}
+<section class='header--dev'>
+    <h1 class="welcome-title">Welcome to Real Dev Squad</h1>
+    <img
+      data-test-logo
+      class='hero-img'
+      src='assets\images\hero-community.png'
+      alt='Real Dev Squad'
+    />
+    <div class='header__container'>
+        <div class='social-media-links'>
+        {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
+          <a
+            data-test-social-link={{social.title}}
+            href={{social.url}}
+            rel='noopener noreferrer'
+            target='_blank'
+            class='social-media-link'
+          >
+            <img
+              data-test-social-icon={{social.title}}
+              class='social__icon'
+              src={{social.icon}}
+              alt={{social.title}}
+            />
+          </a>
+          {{#if (not-eq social.title 'Instagram')}}
+            <span
+              data-test-vertical-separators
+              class='social__seperators-vertical--dev'
+            > | </span>
+          {{/if}}
+        {{/each}}
+      </div>    
+    </div>
+</section>
+{{else}}
 <section class='header'>
   <img
     data-test-logo
@@ -52,3 +89,4 @@
     />
   </div>
 </section>
+{{/if}}

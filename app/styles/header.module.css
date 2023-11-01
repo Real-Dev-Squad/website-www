@@ -165,3 +165,76 @@
     margin: 5px 10px;
   }
 }
+
+/* Styles for Header under feature flag  */
+.header--dev {
+  background-color: var(--color-white);
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.welcome-title {
+  color: var(--color-text-secondary);
+  margin-top: 60px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.hero-img{
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.social-media-links{
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.125em;
+  display: flex;
+  place-items: center;
+}
+
+.social-media-link{
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  border: none;
+  padding: 0.3rem;
+  background-color: var(--color-social-media-links-bg);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.social__icon{
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  transition: all .5s ease-in-out;
+}
+
+.social__icon:hover{
+  transform: scale(1.25);
+}
+
+.social__seperators-vertical--dev {
+  margin: 0px 10px;
+  color : var(--color-black);
+
+}
+
+@media (min-width: 420px){
+
+  .welcome-title{
+    font-size: 4rem;
+  }
+
+ .hero-img {
+    width: 400px;
+    height: 400px;
+}
+}

@@ -35,4 +35,18 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.dom('[data-test-footer-repo-text-dev]').exists();
     assert.dom('[data-test-footer-repo-link-dev]').exists();
   });
+
+  test('Migrated main section should exists when dev=true', async function (assert) {
+    await visit('/');
+
+    assert.strictEqual(currentURL(), '/');
+
+    assert.dom('[data-test-hero-img]').doesNotExist();
+
+    await visit('/?dev=true');
+
+    assert.strictEqual(currentURL(), '/?dev=true');
+
+    assert.dom('[data-test-hero-img]').exists();
+  });
 });

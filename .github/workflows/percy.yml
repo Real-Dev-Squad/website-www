@@ -16,28 +16,28 @@ jobs:
   generate-snapshots:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      # Runs a single command using the runners shell
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Run echo script
-        run: echo Starting the screenshot process
+        run: echo "Starting the screenshot process"
 
       - name: Percy Test
-        uses: percy/snapshot-action@v0.1.2
+        uses: percy/snapshot-action@v2 # Updated to a newer version
         with:
-          # build-directory: # optional, default is
-          # CLI flags to pass to `percy snapshot`
-          # flags: # optional, default is
-          # Enable verbose logging
-          verbose: true
-          build-directory: '../../'
+          build_directory: '../../' # Update to the correct build directory
+          flags: '' # You can add any additional CLI flags here
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
   Lint-Check:
     runs-on: ubuntu-latest
     steps:

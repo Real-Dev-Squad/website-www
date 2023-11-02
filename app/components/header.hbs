@@ -1,21 +1,21 @@
 {{#if this.isDevMode}}
-<section aria-label='header under dev feature flag' class='header--dev'>
-    <h1 data-test-welcome-title class="welcome-title">Welcome to Real Dev Squad</h1>
+<section aria-label='main-section under dev feature flag' class='main--dev'>
+    <h1 data-test-main-welcome-title class="main__welcome--title">Welcome to Real Dev Squad</h1>
     <img
-      data-test-hero-img
-      class='hero-img'
+      data-test-main-hero-img
+      class='main__hero--img'
       src='assets\images\hero-community.png'
       alt='Real Dev Squad'
     />
-    <div class='header__container'>
-        <div class='social-media-links'>
+    <div data-test-main-container class='main__container'>
+        <div class='social__links'>
         {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
           <a
             data-test-social-link={{social.title}}
             href={{social.url}}
             rel='noopener noreferrer'
             target='_blank'
-            class='social-media-link'
+            class='social__link'
           >
             <img
               data-test-social-icon={{social.title}}

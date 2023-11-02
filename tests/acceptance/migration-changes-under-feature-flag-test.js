@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website-www/tests/helpers';
 import { EVENTS_CATEGORIES } from '../constants/events-data';
+import { SOCIAL_LINK_PROPERTIES } from '../constants/social-data';
 
 // TODO: Delete/Update tests when migration changes comes out of feature flag
 module('Acceptance | migration changes under feature flag', function (hooks) {
@@ -41,14 +42,31 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
 
     assert.strictEqual(currentURL(), '/');
 
-    assert.dom('[data-test-hero-img]').doesNotExist();
-    assert.dom('[data-test-welcome-title]').doesNotExist();
+    assert.dom('[data-test-main-hero-img]').doesNotExist();
+    assert.dom('[data-test-main-welcome-title]').doesNotExist();
+    assert.dom('[data-test-main-container]').doesNotExist();
+    SOCIAL_LINK_PROPERTIES.forEach((social) => {
+      assert
+        .dom(`[data-test-social-link=${social.title}]`)
+        .hasAttribute('href', `${social.url}`);
+      assert.dom(`[data-test-social-icon=${social.title}]`).exists();
+    });
+
+    assert.dom('[data-test-vertical-separators]').exists({ count: 3 });
 
     await visit('/?dev=true');
 
     assert.strictEqual(currentURL(), '/?dev=true');
 
-    assert.dom('[data-test-hero-img]').exists();
-    assert.dom('[data-test-welcome-title]').exists();
+    assert.dom('[data-test-main-hero-img]').exists();
+    assert.dom('[data-test-main-welcome-title]').exists();
+    assert.dom('[data-test-main-container]').exists();
+    SOCIAL_LINK_PROPERTIES.forEach((social) => {
+      assert
+        .dom(`[data-test-social-link=${social.title}]`)
+        .hasAttribute('href', `${social.url}`);
+      assert.dom(`[data-test-social-icon=${social.title}]`).exists();
+    });
+    assert.dom('[data-test-vertical-separators]').exists({ count: 3 });
   });
 });

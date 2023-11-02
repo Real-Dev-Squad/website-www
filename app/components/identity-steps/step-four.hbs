@@ -6,7 +6,7 @@
     A private key that you need to use in your profile service URL and deploy
     for source that you're the source of the URL
   </p>
-  {{#if this.isChaincodeClicked}}
+  {{#if @isChaincodeClicked}}
     <div data-test='chaincode-container' class='chaincode-container'>
       <div
         data-test='chaincode-container__value'
@@ -19,7 +19,7 @@
         {{#if this.hideChaincode}}
           ********************
         {{else}}
-          {{this.Chaincode}}
+          {{@chaincode}}
         {{/if}}
       </div>
       <div
@@ -49,11 +49,11 @@
     </div>
   {{else}}
     <Reusables::Button
-      @text={{this.Chaincode}}
+      @text={{@chaincode}}
       @variant='chaincode'
-      @onClick={{this.handleGenerateChaincode}}
+      @onClick={{@handleGenerateChaincode}}
       @test='chaincode'
-      @isLoading={{this.isLoading}}
+      @isLoading={{@isLoading}}
       @type='button'
     />
   {{/if}}

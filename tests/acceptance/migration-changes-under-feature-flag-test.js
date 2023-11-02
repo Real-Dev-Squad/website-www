@@ -53,7 +53,7 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
 
     assert.dom('[data-test-join]').exists();
     assert.dom('[data-test-join-title]').exists();
-    assert.dom('[data-test-join-title]').hasText('How Can you Join?');
+    assert.dom('[data-test-join-title]').hasText('How can you Join?');
     assert.dom('[data-test-join-title-highlighted]').doesNotExist();
     assert.dom('[data-test-para="first"]').exists();
     assert.dom('[data-test-join-link]').exists();

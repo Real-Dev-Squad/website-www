@@ -34,7 +34,6 @@ jobs:
         uses: percy/snapshot-action@v0.1.2
         with:
           build_directory: '../../'
-          flags: ''
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 

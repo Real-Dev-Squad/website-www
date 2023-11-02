@@ -42,11 +42,13 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.strictEqual(currentURL(), '/');
 
     assert.dom('[data-test-hero-img]').doesNotExist();
+    assert.dom('[data-test-welcome-title]').doesNotExist();
 
     await visit('/?dev=true');
 
     assert.strictEqual(currentURL(), '/?dev=true');
 
     assert.dom('[data-test-hero-img]').exists();
+    assert.dom('[data-test-welcome-title]').exists();
   });
 });

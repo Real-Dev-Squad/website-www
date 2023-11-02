@@ -31,10 +31,10 @@ jobs:
         run: echo "Starting the screenshot process"
 
       - name: Percy Test
-        uses: percy/snapshot-action@v2 # Updated to a newer version
+        uses: percy/snapshot-action@v0.1.2
         with:
-          build_directory: '../../' # Update to the correct build directory
-          flags: '' # You can add any additional CLI flags here
+          build_directory: '../../'
+          flags: ''
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 

@@ -9,7 +9,7 @@ export default class JoinController extends Controller {
   @service router;
   @service login;
   @service featureFlag;
-  @tracked Chaincode = 'Generate Chaincode';
+  @tracked Chaincode = 'Generate chaincode';
   @tracked isChaincodeClicked = false;
   @tracked isLoading = false;
 
@@ -35,21 +35,20 @@ export default class JoinController extends Controller {
 
       const { chaincode } = await response.json();
 
-      if (response.ok) {
-        this.Chaincode = chaincode;
-        this.isChaincodeClicked = true;
-        this.toast.info(
-          'Generated New Chaincode!!',
-          '',
-          toastNotificationTimeoutOptions
-        );
-      } else {
-        this.toast.error(
+      if (!response.ok)
+        return this.toast.error(
           'Something went wrong. Please check console errors.',
           '',
           toastNotificationTimeoutOptions
         );
-      }
+
+      this.Chaincode = chaincode;
+      this.isChaincodeClicked = true;
+      this.toast.info(
+        'Generated New Chaincode!!',
+        '',
+        toastNotificationTimeoutOptions
+      );
     } catch (error) {
       this.toast.error(
         'Something went wrong. Please check console errors.',

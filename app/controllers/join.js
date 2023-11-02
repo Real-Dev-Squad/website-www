@@ -9,7 +9,7 @@ export default class JoinController extends Controller {
   @service router;
   @service login;
   @service featureFlag;
-  @tracked Chaincode = 'Generate chaincode';
+  @tracked chaincode = 'Generate chaincode';
   @tracked isChaincodeClicked = false;
   @tracked isLoading = false;
 
@@ -42,7 +42,7 @@ export default class JoinController extends Controller {
           toastNotificationTimeoutOptions
         );
 
-      this.Chaincode = chaincode;
+      this.chaincode = chaincode;
       this.isChaincodeClicked = true;
       this.toast.info(
         'Generated New Chaincode!!',

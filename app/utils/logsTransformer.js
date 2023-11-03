@@ -8,6 +8,7 @@ export const removePeerLogsTransformer = (logs) => {
       peerName: log?.body?.peer_name,
       reason: log?.body?.reason,
       timestamp: new Date(log?.timestamp?._seconds * 1000).toUTCString(),
+      timestampInSeconds: log?.timestamp?._seconds,
     };
   });
   return transformedData;

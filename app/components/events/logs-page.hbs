@@ -1,37 +1,6 @@
-<div class='logs' data-test-logs-page-container>
-  <h2 class='logs__heading' data-test-logs-heading>
-    Event logs
-  </h2>
-  <div class='logs__main' data-test-logs-main>
-    {{#if this.isLogsLoading}}
-      <div class='loader' data-test-logs-loader>
-        Loading...
-      </div>
-    {{else}}
-      {{#if this.isNoLogsPresent}}
-        <div class='fallback'>
-          No logs available, for the event!
-        </div>
-      {{else}}
-        {{#each this.eventLogsData as |data|}}
-          <div class='log-card' data-test-log-card>
-            <span
-              class='log-card__time log-card__text'
-              data-test-log-card-time='{{data.id}}'
-            >[{{data.timestamp}}]</span>
-            <span
-              class='log-card__removed-peer log-card__text'
-              data-test-log-card-removed-peer='{{data.id}}'
-            >{{data.peerName}}</span>
-            <span class='log-card__text' data-test-log-card='{{data.id}}'>was
-              removed by</span>
-            <span
-              class='log-card__removed-by log-card__text'
-              data-test-log-removed-by='{{data.id}}'
-            >{{data.removedByUsername}}</span>
-          </div>
-        {{/each}}
-      {{/if}}
-    {{/if}}
-  </div>
-</div>
+<Events::LogsPageMain
+  @isLogsLoading={{this.isLogsLoading}}
+  {{!-- @isInitialLoading={{this.isInitialLoading}} --}}
+  @isNoLogsPresent={{this.isNoLogsPresent}}
+  @eventLogsData={{this.eventLogsData}}
+/>

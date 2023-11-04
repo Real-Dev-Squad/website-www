@@ -1,21 +1,23 @@
 {{#if this.isDevMode}}
   <footer aria-label='footer under dev feature flag' class='footer--dev'>
-    <Events />
-    <h3 data-test-footer-info class='footer__info'>
-      To know how this page is developed, join our Discord channel by contacting
-      one of
-      <a
-        data-test-footer-info-members-link
-        href={{this.MEMBERS_URL}}
-        class='footer__info__link'
-      >our existing members</a>
-      or our
-      <a
-        data-test-footer-info-faq-link
-        href={{this.FAQ_URL}}
-        class='footer__info__link'
-      > FAQ section</a>.
-    </h3>
+    {{#if this.isHome}}
+      <Events />
+      <h3 data-test-footer-info class='footer__info'>
+        To know how this page is developed, join our Discord channel by
+        contacting one of
+        <a
+          data-test-footer-info-members-link
+          href={{this.MEMBERS_URL}}
+          class='footer__info__link'
+        >our existing members</a>
+        or our
+        <a
+          data-test-footer-info-faq-link
+          href={{this.FAQ_URL}}
+          class='footer__info__link'
+        > FAQ section</a>.
+      </h3>
+    {{/if}}
     <p data-test-footer-repo-text-dev class='footer__repo--dev'>The contents of
       the website are deployed from this
       <a

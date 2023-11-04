@@ -1,85 +1,76 @@
+import { registerDestructor } from '@ember/destroyable';
+import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { removePeerLogsTransformer } from '../../utils/logsTransformer';
+import {
+  EVENTS_LOGS_POLL_TIME,
+  EVENTS_LOGS_TYPE,
+  GET_API_CONFIGS,
+} from '../../constants/live';
+import { APPS } from '../../constants/urls';
 
 export default class LogsPageComponent extends Component {
-  // TODO added dummy data as of now, will integrate api for data
-  EVENT_LOGS_DATA = [
-    {
-      id: 1,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 2,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 3,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 4,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 5,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 6,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 7,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 8,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 9,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 10,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 11,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 12,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-    {
-      id: 13,
-      time: '[9:00PM]',
-      removedPeer: 'xyz',
-      removedBy: 'Satyam Bajpai',
-    },
-  ];
+  @service store;
+  @service live;
+  @tracked eventLogsData;
+  @tracked isLogsLoading;
+  @tracked isInitialLoading = true;
+  logsPollingInterval;
+  LOGS_TYPE_EVENTS_REMOVE_PEER = EVENTS_LOGS_TYPE.EVENTS_REMOVE_PEER;
+  @tracked isNoLogsPresent;
+
+  constructor(...args) {
+    super(...args);
+
+    (async () => {
+      await this.getLogs();
+    })();
+
+    this.logsPollingInterval = setInterval(async () => {
+      await this.getLogs();
+    }, EVENTS_LOGS_POLL_TIME);
+
+    registerDestructor(this, () => {
+      clearInterval(this.logsPollingInterval);
+    });
+  }
+
+  async getLogs() {
+    if (this.isInitialLoading) {
+      this.isLogsLoading = true;
+    }
+
+    try {
+      const logsResponse = await fetch(
+        `${APPS.API_BACKEND}/logs/${this.LOGS_TYPE_EVENTS_REMOVE_PEER}`,
+        {
+          ...GET_API_CONFIGS,
+          credentials: 'include',
+        }
+      );
+
+      const logsFromApi = removePeerLogsTransformer(
+        (await logsResponse.json())?.logs
+      );
+
+      // filtering logs of current active event
+      this.eventLogsData = logsFromApi.filter((log) => {
+        return this.live.activeRoomId === log.eventId;
+      });
+
+      if (this.eventLogsData.length === 0) {
+        this.isNoLogsPresent = true;
+      } else {
+        this.isNoLogsPresent = false;
+      }
+    } catch (err) {
+      console.error('Something went wrong ', err);
+    } finally {
+      if (this.isInitialLoading) {
+        this.isLogsLoading = false;
+        this.isInitialLoading = false;
+      }
+    }
+  }
 }

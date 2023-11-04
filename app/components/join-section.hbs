@@ -1,6 +1,6 @@
 {{#if this.isDevMode}}
-<section data-test-join class='join join--dev'>
-  <h3 data-test-join-title class='join__title join__title_dev'>How can you join?</h3>
+<section data-test-join class='join'>
+  <h3 data-test-join-title class='join__title join__title--dev'>How can you join?</h3>
 
   <p data-test-para='first' class='join__para join__para--dev'>Our squad focuses on quality and we
     want to work with people who are willing to be serious about their growth in
@@ -10,7 +10,7 @@
   </p>
 
   <LinkTo data-test-join-link @route='join' class='join__link join__link--dev' @disabled={{true}}>Join the Squad</LinkTo>
-    <p data-test-join-later-text class='join__later__text'>
+    <p data-test-join-later-text class='join__later-text'>
 We're currently not accepting new applications. Please check back in
 2024.</p>
 </section>

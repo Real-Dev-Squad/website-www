@@ -53,11 +53,12 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
 
     assert.dom('[data-test-join]').exists();
     assert.dom('[data-test-join-title]').exists();
-    assert.dom('[data-test-join-title]').hasText('How can you Join?');
+    assert.dom('[data-test-join-title]').hasText('How can you join?');
     assert.dom('[data-test-join-title-highlighted]').doesNotExist();
     assert.dom('[data-test-para="first"]').exists();
     assert.dom('[data-test-join-link]').exists();
     assert.dom('[data-test-join-link]').hasText('Join the Squad');
+    assert.dom('[data-test-join-later-text]').exists();
     await click('[data-test-join-link]');
 
     assert.strictEqual(currentURL(), '/?dev=true');

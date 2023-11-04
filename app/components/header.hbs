@@ -1,47 +1,24 @@
 {{#if this.isDevMode}}
 <section aria-label='main-section under dev feature flag' class='main--dev'>
-    <h1 data-test-main-welcome-title class="main__welcome--title">Welcome to Real Dev Squad</h1>
-    <img
-      data-test-main-hero-img
-      class='main__hero--img'
-      src='assets\images\hero-community.png'
-      alt='Real Dev Squad'
-    />
-    <div data-test-main-container class='main__container'>
-        <div class='social__links'>
-        {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
-          <a
-            data-test-social-link={{social.title}}
-            href={{social.url}}
-            rel='noopener noreferrer'
-            target='_blank'
-            class='social__link'
-          >
-            <img
-              data-test-social-icon={{social.title}}
-              class='social__icon'
-              src={{social.icon}}
-              alt={{social.title}}
-            />
-          </a>
-          {{#if (not-eq social.title 'Instagram')}}
-            <span
-              data-test-vertical-separators
-              class='social__seperators-vertical--dev'
-            > | </span>
-          {{/if}}
-        {{/each}}
-      </div>    
+  <h1 data-test-main-welcome-title class="main__welcome--title">Welcome to Real Dev Squad</h1>
+  <img data-test-main-hero-img class='main__hero--img' src='assets\images\hero-community.png' alt='Real Dev Squad' />
+  <div data-test-main-container class='main__container'>
+    <div class='social'>
+      {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
+      <a data-test-social-link={{social.title}} href={{social.url}} rel='noopener noreferrer' target='_blank'
+        class='social__link'>
+        <img data-test-social-icon={{social.title}} class='social__icon' src={{social.icon}} alt={{social.title}} />
+      </a>
+      {{#if (not-eq social.title 'Instagram')}}
+      <span data-test-vertical-separators class='social__seperators-vertical--dev'> | </span>
+      {{/if}}
+      {{/each}}
     </div>
+  </div>
 </section>
 {{else}}
 <section class='header'>
-  <img
-    data-test-logo
-    class='header__logo'
-    src='assets/images/rds-logo-2x.png'
-    alt='Real Dev Squad'
-  />
+  <img data-test-logo class='header__logo' src='assets/images/rds-logo-2x.png' alt='Real Dev Squad' />
 
   <div class='header__container'>
     <span class='container__text-social'>
@@ -53,40 +30,19 @@
 
       <div class='social'>
         {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
-          <a
-            data-test-social-link={{social.title}}
-            href={{social.url}}
-            rel='noopener noreferrer'
-            target='_blank'
-            class='social__handles'
-          >
-            {{social.title}}
-            <img
-              data-test-social-icon={{social.title}}
-              class='social__icon'
-              src={{social.icon}}
-              alt={{social.title}}
-            />
-          </a>
-          {{#if (not-eq social.title 'Instagram')}}
-            <span
-              data-test-vertical-separators
-              class='social__seperators-vertical'
-            ></span>
-            <span
-              data-test-round-separators
-              class='social__seperators-round'
-            >&bull;</span>
-          {{/if}}
+        <a data-test-social-link={{social.title}} href={{social.url}} rel='noopener noreferrer' target='_blank'
+          class='social__handles'>
+          {{social.title}}
+          <img data-test-social-icon={{social.title}} class='social__icon' src={{social.icon}} alt={{social.title}} />
+        </a>
+        {{#if (not-eq social.title 'Instagram')}}
+        <span data-test-vertical-separators class='social__seperators-vertical'></span>
+        <span data-test-round-separators class='social__seperators-round'>&bull;</span>
+        {{/if}}
         {{/each}}
       </div>
     </span>
-    <img
-      data-test-welcome-img
-      class='container__image'
-      src='assets/images/welcome-image.png'
-      alt='Welcome'
-    />
+    <img data-test-welcome-img class='container__image' src='assets/images/welcome-image.png' alt='Welcome' />
   </div>
 </section>
 {{/if}}

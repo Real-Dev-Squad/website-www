@@ -64,7 +64,7 @@
   background-color: var(--color-button-disabled);
   cursor:not-allowed;
 }
-.join__later__text{
+.join__later-text{
   color: var(--text-red);
   font-size: 1.25rem;
   margin-top: 3rem;

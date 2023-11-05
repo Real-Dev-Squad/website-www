@@ -1,6 +1,7 @@
 .join {
   text-align: center;
 }
+
 .join__container {
   display: flex;
   align-items: center;
@@ -8,18 +9,22 @@
   flex-direction: column;
   min-height: 75vh;
 }
+
 .join__title-highlighted {
   color: var(--color-pink);
   font-weight: 800;
 }
+
 .join__title {
   font-size: 3rem;
 }
+
 .join__title--dev{
   font-size: 2.8rem;
   margin-top: 150px;
   margin-bottom: 75px;
 }
+
 .join__para {
   width: 50%;
   text-align: justify;
@@ -27,6 +32,7 @@
   color: var(--color-darkblack);
   font-size: 1.5rem;
 }
+
 .join__para--dev{
   width: 70%;
   font-weight: 400;
@@ -34,6 +40,7 @@
   display: flex;
   line-height: 175%;
 }
+
 .join__link {
   display: inline-block;
   margin-top: 2rem;
@@ -46,23 +53,28 @@
   border-radius: 1rem;
   padding: 1.25rem 3rem;
 }
+
 .join__link:hover {
   background-color: var(--color-pink);
   transition-duration: 250ms;
 }
+
 .join__link--dev {
   background-color: var(--color-button-disabled);
   cursor:not-allowed;
 }
+
 .join__link--dev:hover{
   background-color: var(--color-button-disabled);
   cursor:not-allowed;
 }
+
 .join__later-text{
   color: var(--text-red);
   font-size: 1.25rem;
   margin-top: 3rem;
 }
+
 .error__message {
   color: var(--text-red);
 }
@@ -82,12 +94,15 @@
   .join__title {
     font-size: 2.5rem;
   }
+
   .join__title-highlighted {
     font-size: 3rem;
   }
+
   .join__para {
     font-size: 1.1rem;
   }
+
   .join__link {
     border-radius: 0.75rem;
     font-size: 1.25rem;
@@ -99,12 +114,15 @@
   .join__title {
     font-size: 2rem;
   }
+
   .join__title-highlighted {
     font-size: 2.25rem;
   }
+
   .join__para {
     font-size: 1rem;
   }
+  
   .join__link {
     border-radius: 0.5rem;
     margin-top: 1rem;

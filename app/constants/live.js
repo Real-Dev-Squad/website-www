@@ -34,3 +34,8 @@ export const GET_API_CONFIGS = {
     'Content-Type': 'application/json',
   },
 };
+
+export const EVENTS_LOGS_POLL_TIME = 40000;
+export const EVENTS_LOGS_TYPE = {
+  EVENTS_REMOVE_PEER: 'EVENTS_REMOVE_PEER',
+};

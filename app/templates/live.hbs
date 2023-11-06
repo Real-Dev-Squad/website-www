@@ -1,11 +1,13 @@
 {{page-title 'Live'}}
 
 <div id='live' data-test-live>
-  <LiveHeader
-    @tabs={{this.TABS}}
-    @activeTab={{this.activeTab}}
-    @tabHandler={{this.tabHandler}}
-  />
+  {{#if this.liveService.isJoined}}
+    <LiveHeader
+      @tabs={{this.TABS}}
+      @activeTab={{this.activeTab}}
+      @tabHandler={{this.tabHandler}}
+    />
+  {{/if}}
 
   <BaseModal
     @closeModal={{this.closeKickoutModal}}
@@ -79,6 +81,7 @@
               <LiveSidebar
                 @openKickoutModal={{this.openKickoutModal}}
                 @peers={{this.liveService.peers}}
+                @peerToRemove={{this.peerToRemove}}
               />
             {{/if}}
           </div>

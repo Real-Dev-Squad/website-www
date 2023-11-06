@@ -24,7 +24,11 @@
               )
             }}
               {{#if (not-eq peer.id this.liveService.localPeer.id)}}
-                {{#if this.liveService.isUserRemoved}}
+                {{#if
+                  (and
+                    this.liveService.isUserRemoved (eq @peerToRemove.id peer.id)
+                  )
+                }}
                   <div class='loading'>
                     <span></span>
                     <span></span>

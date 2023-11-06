@@ -125,6 +125,41 @@ export default class SignupStepsStepOneComponent extends Component {
   }
 
   @action async signup() {
-    this.args.incrementStep();
+    const dataToUpdate = {
+      roles: {
+        maven: this.data.role === 'Maven',
+        designer: this.data.role === 'Designer',
+        productmanager: this.data.role === 'Product Manager',
+      },
+      username: this.data.username,
+      first_name: this.data.firstname,
+      last_name: this.data.lastname,
+    };
+
+    try {
+      const response = await fetch(`${APPS.API_BACKEND}/users/self`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(dataToUpdate),
+      });
+
+      if (response.status === 204) {
+        localStorage.setItem('role', this.data.role);
+        this.args.incrementStep();
+      } else if (response.status === 401) {
+        this.toast.error(
+          'Please login to continue.',
+          '',
+          toastNotificationTimeoutOptions
+        );
+      } else {
+        console.log('Error:', 'Something went wrong');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 }

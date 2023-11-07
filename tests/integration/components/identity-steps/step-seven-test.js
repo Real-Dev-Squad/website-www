@@ -29,4 +29,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
         'Reload to verify and complete the linking between your Profile service and Real Dev Squad service'
       );
   });
+
+  skip('render reload button on verification page when profile Status is pending', async function (assert) {
+    this.set('model', { profileStatus: 'PENDING' });
+    await render(hbs`<IdentitySteps::StepSeven @model={{@model}} />`);
+
+    assert.dom('[data-test-button=reload]').hasText('Reload');
+    assert.dom('[data-test-button=reload]').hasProperty('type', 'button');
+  });
 });

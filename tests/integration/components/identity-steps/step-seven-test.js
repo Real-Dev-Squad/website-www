@@ -1,7 +1,12 @@
 import { module, skip } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import Service from '@ember/service';
+
+class IdentityServiceStub extends Service {
+  reload() {}
+}
 
 module('Integration | Component | identity-steps/step-seven', function (hooks) {
   setupRenderingTest(hooks);
@@ -32,9 +37,20 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
 
   skip('render reload button on verification page when profile Status is pending', async function (assert) {
     this.set('model', { profileStatus: 'PENDING' });
-    await render(hbs`<IdentitySteps::StepSeven @model={{@model}} />`);
+    await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
 
-    assert.dom('[data-test-button=reload]').hasText('Reload');
-    assert.dom('[data-test-button=reload]').hasProperty('type', 'button');
+    assert.dom('[data-test-button=refresh]').hasText('Refresh');
+    assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
+  });
+
+  skip('clicking Refresh button refresh the verification page when profile Status is pending', async function (assert) {
+    this.owner.register('service:identity-service', IdentityServiceStub);
+
+    this.set('model', { profileStatus: 'PENDING' });
+    await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
+
+    await click('[data-test-button=refresh]');
+    assert.dom('[data-test-button=refresh]').hasText('Refresh');
+    assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
   });
 });

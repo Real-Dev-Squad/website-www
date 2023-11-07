@@ -193,6 +193,17 @@ profile-service-page__inputContainer__input-label{
     text-align: center;
 }
 
+.verification-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.verification-page__description{
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     .btn-generateUsername{
         width: 5rem;

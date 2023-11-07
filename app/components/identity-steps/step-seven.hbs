@@ -1,0 +1,20 @@
+<div data-test='verification-page' class='verification-page'>
+  {{#if (eq @model.profileStatus 'PENDING')}}
+    <h3 data-test='heading' class='verification-page__heading heading__h3'>
+      Verification process is Pending!
+    </h3>
+    <p data-test='description' class='verification-page__description'>
+      Reload to verify and complete the linking<br />
+      between your Profile service and Real Dev Squad service
+    </p>
+    <div class='verification-page__button'>
+      <Reusables::Button
+        @text='Refresh'
+        @variant='light'
+        @onClick={{this.handleRefresh}}
+        @test='refresh'
+        @type='button'
+      />
+    </div>
+  {{/if}}
+</div>

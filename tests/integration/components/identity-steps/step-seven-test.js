@@ -1,4 +1,4 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -11,9 +11,9 @@ class IdentityServiceStub extends Service {
 module('Integration | Component | identity-steps/step-seven', function (hooks) {
   setupRenderingTest(hooks);
 
-  skip('renders heading on verification page when profile Status is pending', async function (assert) {
+  test('renders heading on verification page when profile Status is pending', async function (assert) {
     this.set('model', { profileStatus: 'PENDING' });
-    await render(hbs`<IdentitySteps::StepSeven @model={{@model}} />`);
+    await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
 
     assert.dom('[data-test=heading]').hasClass('verification-page__heading');
     assert
@@ -21,9 +21,9 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       .hasText('Verification process is Pending!');
   });
 
-  skip('render description on verification page when profile Status is pending', async function (assert) {
+  test('render description on verification page when profile Status is pending', async function (assert) {
     this.set('model', { profileStatus: 'PENDING' });
-    await render(hbs`<IdentitySteps::StepSeven @model={{@model}} />`);
+    await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
 
     assert
       .dom('[data-test=description]')
@@ -35,7 +35,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       );
   });
 
-  skip('render reload button on verification page when profile Status is pending', async function (assert) {
+  test('render Refresh button on verification page when profile Status is pending', async function (assert) {
     this.set('model', { profileStatus: 'PENDING' });
     await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
 
@@ -43,7 +43,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
   });
 
-  skip('clicking Refresh button refresh the verification page when profile Status is pending', async function (assert) {
+  test('clicking Refresh button refresh the verification page when profile Status is pending', async function (assert) {
     this.owner.register('service:identity-service', IdentityServiceStub);
 
     this.set('model', { profileStatus: 'PENDING' });

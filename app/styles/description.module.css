@@ -105,3 +105,46 @@
     font-size: 1rem;
   }
 }
+
+
+/* Styles for dev=true description section */
+
+.description--dev {
+  background: var(--color-navyblue);
+  color: var(--color-white);
+  padding: 5.93rem 0;
+}
+
+.description__content--dev {
+  font-weight: 400;
+  line-height: 175%;
+  text-align: justify;
+  width: 80%;
+  margin: auto;
+}
+
+.description__content--dev>p {
+  margin: 20px 0;
+}
+
+.description__title--dev {
+  text-align: center;
+  font-weight: 700;
+  line-height: 130%;
+  font-size: 2rem;
+  padding-bottom: 2.81rem;
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .description__title--dev {
+    font-size: 2.8rem;
+    width: 70%;
+  }
+
+  .description__content--dev {
+    font-size: 1.25rem;
+    width: 70%;
+  }
+}

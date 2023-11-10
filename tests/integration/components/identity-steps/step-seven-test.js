@@ -8,11 +8,18 @@ class IdentityServiceStub extends Service {
   reload() {}
 }
 
+class LoginStub extends Service {
+  userData = { profileStatus: 'PENDING' };
+}
+
 module('Integration | Component | identity-steps/step-seven', function (hooks) {
   setupRenderingTest(hooks);
 
+  hooks.beforeEach(function () {
+    this.owner.register('service:login', LoginStub);
+  });
+
   test('renders heading on verification page when profile Status is pending', async function (assert) {
-    this.set('model', { profileStatus: 'PENDING' });
     await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
 
     assert.dom('[data-test=heading]').hasClass('verification-page__heading');
@@ -22,8 +29,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render description on verification page when profile Status is pending', async function (assert) {
-    this.set('model', { profileStatus: 'PENDING' });
-    await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
+    await render(hbs`<IdentitySteps::StepSeven />`);
 
     assert
       .dom('[data-test=description]')
@@ -36,8 +42,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render Refresh button on verification page when profile Status is pending', async function (assert) {
-    this.set('model', { profileStatus: 'PENDING' });
-    await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
+    await render(hbs`<IdentitySteps::StepSeven />`);
 
     assert.dom('[data-test-button=refresh]').hasText('Refresh');
     assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
@@ -45,9 +50,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
 
   test('clicking Refresh button refresh the verification page when profile Status is pending', async function (assert) {
     this.owner.register('service:identity-service', IdentityServiceStub);
-
-    this.set('model', { profileStatus: 'PENDING' });
-    await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
+    await render(hbs`<IdentitySteps::StepSeven />`);
 
     await click('[data-test-button=refresh]');
     assert.dom('[data-test-button=refresh]').hasText('Refresh');

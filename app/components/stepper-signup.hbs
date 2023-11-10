@@ -68,7 +68,10 @@
       {{else if (eq this.currentStep 12)}}
         <IdentitySteps::StepSix @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 13)}}
-        <IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />
+        <IdentitySteps::StepSeven
+          @handleRefresh={{this.handleRefresh}}
+          @currentStep={{this.currentStep}}
+        />
       {{/if}}
     </div>
   </form>

@@ -35,10 +35,10 @@
       />
     {{else if (eq this.login.userData.profileStatus 'BLOCKED')}}
       <Reusables::Button
-        @text='s'
+        @text='Verify Again'
         @variant='dark'
-        @onClick={{@handleRefresh}}
-        @test='refresh'
+        @onClick={{this.goToGenerateChaincodePage}}
+        @test='verify-again'
         @type='button'
       />
     {{/if}}

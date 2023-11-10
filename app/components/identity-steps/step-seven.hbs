@@ -1,5 +1,5 @@
 <div data-test='verification-page' class='verification-page'>
-  {{#if (eq @model.profileStatus 'PENDING')}}
+  {{#if (eq this.login.userData.profileStatus 'PENDING')}}
     <h3 data-test='heading' class='verification-page__heading heading__h3'>
       Verification process is Pending!
     </h3>

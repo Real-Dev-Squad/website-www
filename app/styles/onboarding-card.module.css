@@ -200,6 +200,15 @@ profile-service-page__inputContainer__input-label{
     align-items: center;
 }
 
+.verification-page__heading-Icon{
+    display: flex;
+}
+
+.hourglass-icon{
+    padding: 1.4rem 0 0 0.5rem;
+    color: #926829;
+}
+
 .verification-page__description{
     text-align: center;
 }

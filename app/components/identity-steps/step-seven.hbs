@@ -1,16 +1,19 @@
 <div data-test='verification-page' class='verification-page'>
   {{#if (eq this.login.userData.profileStatus 'PENDING')}}
-    <h3 data-test='heading' class='verification-page__heading heading__h3'>
-      Verification process is Pending!
-    </h3>
+    <div data-test='heading-icon' class='verification-page__heading-Icon'>
+      <h3 data-test='heading' class='verification-page__heading heading__h3'>
+        Pending
+      </h3>
+      <FaIcon @icon='hourglass-half' @size='lg' class='hourglass-icon' />
+    </div>
     <p data-test='description' class='verification-page__description'>
-      Reload to verify and complete the linking<br />
-      between your Profile service and Real Dev Squad service
+      Refresh to Check Verification Status<br />
+      Your Profile Service Linked with Real Dev Squad Service
     </p>
     <div class='verification-page__button'>
       <Reusables::Button
         @text='Refresh'
-        @variant='light'
+        @variant='dark'
         @onClick={{@handleRefresh}}
         @test='refresh'
         @type='button'

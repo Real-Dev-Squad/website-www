@@ -53,4 +53,8 @@ export default class StepperSignupComponent extends Component {
     localStorage.setItem('isValid', false);
     this.isValid = false;
   }
+
+  @action handleRefresh() {
+    window.location.reload();
+  }
 }

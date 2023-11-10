@@ -4,10 +4,6 @@ import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import Service from '@ember/service';
 
-class IdentityServiceStub extends Service {
-  reload() {}
-}
-
 class LoginStub extends Service {
   userData = { profileStatus: 'PENDING' };
 }
@@ -20,7 +16,10 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('renders heading on verification page when profile status is pending', async function (assert) {
-    await render(hbs`<IdentitySteps::StepSeven @model={{this.model}} />`);
+    this.set('handleRefresh', () => {});
+    await render(
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+    );
 
     assert.dom('[data-test=heading]').hasClass('verification-page__heading');
     assert
@@ -29,7 +28,10 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render description on verification page when profile status is pending', async function (assert) {
-    await render(hbs`<IdentitySteps::StepSeven />`);
+    this.set('handleRefresh', () => {});
+    await render(
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+    );
 
     assert
       .dom('[data-test=description]')
@@ -42,15 +44,20 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render Refresh button on verification page when profile status is pending', async function (assert) {
-    await render(hbs`<IdentitySteps::StepSeven />`);
+    this.set('handleRefresh', () => {});
+    await render(
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+    );
 
     assert.dom('[data-test-button=refresh]').hasText('Refresh');
     assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
   });
 
   test('clicking Refresh button refresh the verification page when profile status is pending', async function (assert) {
-    this.owner.register('service:identity-service', IdentityServiceStub);
-    await render(hbs`<IdentitySteps::StepSeven />`);
+    this.set('handleRefresh', () => {});
+    await render(
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+    );
 
     await click('[data-test-button=refresh]');
     assert.dom('[data-test-button=refresh]').hasText('Refresh');

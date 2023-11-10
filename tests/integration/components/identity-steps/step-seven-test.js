@@ -22,9 +22,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
 
     assert.dom('[data-test=heading]').hasClass('verification-page__heading');
-    assert
-      .dom('[data-test=heading]')
-      .hasText('Verification process is Pending!');
+    assert.dom('[data-test=heading]').hasText('Pending');
   });
 
   test('render description on verification page when profile status is pending', async function (assert) {
@@ -39,7 +37,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     assert
       .dom('[data-test=description]')
       .hasText(
-        'Reload to verify and complete the linking between your Profile service and Real Dev Squad service'
+        'Refresh to Check Verification Status Your Profile Service Linked with Real Dev Squad Service'
       );
   });
 

@@ -1,16 +1,31 @@
 <div data-test='verification-page' class='verification-page'>
-  {{#if (eq this.login.userData.profileStatus 'PENDING')}}
-    <div data-test='heading-icon' class='verification-page__heading-Icon'>
-      <h3 data-test='heading' class='verification-page__heading heading__h3'>
-        Pending
-      </h3>
-      <FaIcon @icon='hourglass-half' @size='lg' class='hourglass-icon' />
-    </div>
-    <p data-test='description' class='verification-page__description'>
-      Refresh to Check Verification Status<br />
-      Your Profile Service Linked with Real Dev Squad Service
-    </p>
-    <div class='verification-page__button'>
+  {{#each this.currentProfileStatus as |currentStatus|}}
+    {{#if (eq this.login.userData.profileStatus currentStatus.status)}}
+      <div data-test='heading-icon' class='verification-page__heading-Icon'>
+        <h3 data-test='heading' class='verification-page__heading heading__h3'>
+          {{currentStatus.heading}}
+        </h3>
+        <FaIcon
+          @icon={{currentStatus.icon}}
+          @size='lg'
+          class='{{currentStatus.icon}}-icon'
+        />
+      </div>
+      <p data-test='description' class='verification-page__description'>
+        {{#if (eq currentStatus.status 'PENDING')}}
+          Refresh to Check Verification status
+          <br />
+          Your Profile Service Linked with Real Dev Squad Service
+        {{else if (eq currentStatus.status 'BLOCKED')}}
+          Your previous
+          <b>Chaincode</b>
+          is Blocked.
+        {{/if}}
+      </p>
+    {{/if}}
+  {{/each}}
+  <div class='verification-page__button'>
+    {{#if (eq this.login.userData.profileStatus 'PENDING')}}
       <Reusables::Button
         @text='Refresh'
         @variant='dark'
@@ -18,6 +33,14 @@
         @test='refresh'
         @type='button'
       />
-    </div>
-  {{/if}}
+    {{else if (eq this.login.userData.profileStatus 'BLOCKED')}}
+      <Reusables::Button
+        @text='s'
+        @variant='dark'
+        @onClick={{@handleRefresh}}
+        @test='refresh'
+        @type='button'
+      />
+    {{/if}}
+  </div>
 </div>

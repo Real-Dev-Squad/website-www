@@ -15,7 +15,6 @@ export default class IdentityStepsStepSevenComponent extends Component {
       status: PROFILE_STATUS.BLOCKED,
       heading: 'Blocked',
       icon: 'ban',
-      description1: 'Your previous Chaincode is Blocked.',
     },
   ];
 }

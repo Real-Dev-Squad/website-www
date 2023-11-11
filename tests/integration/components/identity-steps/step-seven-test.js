@@ -63,13 +63,11 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('renders heading on verification page when profile status is blocked', async function (assert) {
-    this.set('handleRefresh', () => {});
     this.set('goToGenerateChaincodePage', () => {});
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
       hbs`<IdentitySteps::StepSeven 
-        @handleRefresh={{this.handleRefresh}} 
         @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
       />`
     );
@@ -79,13 +77,11 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render description on verification page when profile status is blocked', async function (assert) {
-    this.set('handleRefresh', () => {});
     this.set('goToGenerateChaincodePage', () => {});
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
-      hbs`<IdentitySteps::StepSeven 
-        @handleRefresh={{this.handleRefresh}} 
+      hbs`<IdentitySteps::StepSeven  
         @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
       />`
     );
@@ -99,13 +95,11 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render Verify Again button on verification page when profile status is blocked', async function (assert) {
-    this.set('handleRefresh', () => {});
     this.set('goToGenerateChaincodePage', () => {});
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
       hbs`<IdentitySteps::StepSeven 
-        @handleRefresh={{this.handleRefresh}} 
         @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
       />`
     );
@@ -127,4 +121,14 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
 
   //   await click('[data-test-button=verify-again]');
   // });
+
+  test('renders heading on verification page when profile status is verified', async function (assert) {
+    this.set('handleRefresh', () => {});
+    await render(
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+    );
+
+    assert.dom('[data-test=heading]').hasClass('verification-page__heading');
+    assert.dom('[data-test=heading]').hasText('Pending');
+  });
 });

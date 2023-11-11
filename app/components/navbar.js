@@ -43,11 +43,4 @@ export default class NavbarComponent extends Component {
       : window.location.href;
     return `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
   }
-
-  get isDev() {
-    if (this.router.currentRoute) {
-      return this.router.currentRoute.queryParams.dev;
-    }
-    return false;
-  }
 }

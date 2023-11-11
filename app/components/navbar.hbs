@@ -48,7 +48,7 @@
         class='nav__element'
         href={{this.STATUS_URL}}
       >Status</a></li>
-    {{#if this.isDev}}
+    {{#if @dev}}
       <li>
         {{! TODO - remove query for dev when it goes to production }}
         <LinkTo
@@ -109,9 +109,9 @@
     data-test-dropdown
     class='menu {{if this.isMenuOpen "active-menu" ""}}'
   >
-    {{#if this.isDev}}
+    {{#if @dev}}
       <a
-        data-test-profile
+        data-test-home
         href={{this.HOME_URL}}
         class='menu__link'
         rel='noopener noreferrer'
@@ -120,7 +120,7 @@
         Home
       </a>
       <a
-        data-test-profile
+        data-test-status
         href={{this.STATUS_URL}}
         class='menu__link'
         rel='noopener noreferrer'
@@ -138,7 +138,7 @@
         Profile
       </a>
       <a
-        data-test-profile
+        data-test-tasks
         href={{this.TASKS_URL}}
         class='menu__link'
         rel='noopener noreferrer'
@@ -147,7 +147,7 @@
         Tasks
       </a>
       <a
-        data-test-profile
+        data-test-identity
         href={{this.IDENTITY_URL}}
         class='menu__link'
         rel='noopener noreferrer'

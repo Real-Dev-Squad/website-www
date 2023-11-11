@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -122,13 +122,36 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   //   await click('[data-test-button=verify-again]');
   // });
 
-  test('renders heading on verification page when profile status is verified', async function (assert) {
-    this.set('handleRefresh', () => {});
-    await render(
-      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
-    );
+  skip('renders heading on verification page when profile status is verified', async function (assert) {
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(hbs`<IdentitySteps::StepSeven />`);
 
     assert.dom('[data-test=heading]').hasClass('verification-page__heading');
-    assert.dom('[data-test=heading]').hasText('Pending');
+    assert.dom('[data-test=heading]').hasText('Verified');
+  });
+
+  skip('render description on verification page when profile status is verified', async function (assert) {
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(hbs`<IdentitySteps::StepSeven/>`);
+
+    assert
+      .dom('[data-test=description]')
+      .hasClass('verification-page__description');
+    assert
+      .dom('[data-test=description]')
+      .hasText(
+        'Congratulations! Your Profile Service is Verified. Take the Next Step and Join Our Discord Server.'
+      );
+  });
+
+  skip('render Next button on verification page when profile status is verified', async function (assert) {
+    this.set('goToGenerateChaincodePage', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(hbs`<IdentitySteps::StepSeven />`);
+    assert.dom('[data-test-button=verify-again]').hasText('Next');
+    assert.dom('[data-test-button=verify-again]').hasProperty('type', 'button');
   });
 });

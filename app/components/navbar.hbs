@@ -50,7 +50,7 @@
       >Status</a></li>
     {{#if this.isDev}}
       <li>
-        {{!-- TODO - remove query for dev when it goes to production --}}
+        {{! TODO - remove query for dev when it goes to production }}
         <LinkTo
           @route={{this.LIVE_URL}}
           @query={{hash dev='true'}}
@@ -109,9 +109,57 @@
     data-test-dropdown
     class='menu {{if this.isMenuOpen "active-menu" ""}}'
   >
-    <a data-test-profile href={{this.PROFILE_URL}} class='menu__link'>
-      My Profile
-    </a>
+    {{#if this.isDev}}
+      <a
+        data-test-profile
+        href={{this.HOME_URL}}
+        class='menu__link'
+        rel='noopener noreferrer'
+        target='_blank'
+      >
+        Home
+      </a>
+      <a
+        data-test-profile
+        href={{this.STATUS_URL}}
+        class='menu__link'
+        rel='noopener noreferrer'
+        target='_blank'
+      >
+        Status
+      </a>
+      <a
+        data-test-profile
+        href={{this.PROFILE_URL}}
+        class='menu__link'
+        rel='noopener noreferrer'
+        target='_blank'
+      >
+        Profile
+      </a>
+      <a
+        data-test-profile
+        href={{this.TASKS_URL}}
+        class='menu__link'
+        rel='noopener noreferrer'
+        target='_blank'
+      >
+        Tasks
+      </a>
+      <a
+        data-test-profile
+        href={{this.IDENTITY_URL}}
+        class='menu__link'
+        rel='noopener noreferrer'
+        target='_blank'
+      >
+        Identity
+      </a>
+    {{else}}
+      <a data-test-profile href={{this.PROFILE_URL}} class='menu__link'>
+        My Profile
+      </a>
+    {{/if}}
     <hr />
     <div
       id='signout'

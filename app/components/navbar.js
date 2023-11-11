@@ -19,6 +19,8 @@ export default class NavbarComponent extends Component {
   PROFILE_URL = APPS.PROFILE;
   AUTH_URL = this.generateAuthURL();
   LIVE_URL = APPS.LIVE;
+  TASKS_URL = APPS.TASKS;
+  IDENTITY_URL = APPS.IDENTITY;
 
   @action toggleNavbar() {
     this.isNavOpen = !this.isNavOpen;

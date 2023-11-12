@@ -21,8 +21,10 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
 
-    assert.dom('[data-test=heading]').hasClass('verification-page__heading');
-    assert.dom('[data-test=heading]').hasText('Pending');
+    assert
+      .dom('[data-test-verification-heading]')
+      .hasClass('verification-page__heading');
+    assert.dom('[data-test-verification-heading]').hasText('Pending');
   });
 
   test('render description on verification page when profile status is pending', async function (assert) {
@@ -32,13 +34,14 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
 
     assert
-      .dom('[data-test=description]')
+      .dom('[data-test-verification-description]')
       .hasClass('verification-page__description');
     assert
-      .dom('[data-test=description]')
-      .hasText(
-        'Refresh to Check Verification Status Your Profile Service Linked with Real Dev Squad Service'
-      );
+      .dom('[data-test-verification-description1]')
+      .hasText('Refresh to Check Verification Status');
+    assert
+      .dom('[data-test-verification-description2]')
+      .hasText('Your Profile Service Linked with Real Dev Squad Service');
   });
 
   test('render Refresh button on verification page when profile status is pending', async function (assert) {

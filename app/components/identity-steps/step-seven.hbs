@@ -1,12 +1,12 @@
-<div data-test='verification-page' class='verification-page'>
+<div data-test-verification-page class='verification-page'>
   {{#if (eq this.login.userData.profileStatus 'PENDING')}}
-    <div data-test='heading-icon' class='verification-page__heading-Icon'>
-      <h3 data-test='heading' class='verification-page__heading heading__h3'>
+    <div data-test-heading-icon class='verification-page__heading-Icon'>
+      <h3 data-test-heading class='verification-page__heading heading__h3'>
         Pending
       </h3>
       <FaIcon @icon='hourglass-half' @size='lg' class='hourglass-icon' />
     </div>
-    <p data-test='description' class='verification-page__description'>
+    <p data-test-description class='verification-page__description'>
       Refresh to Check Verification Status Your Profile Service Linked with Real
       Dev Squad Service
     </p>

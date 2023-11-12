@@ -173,16 +173,20 @@ module('Integration | Component | navbar', function (hooks) {
 
     await click('[data-test-dropdown-toggle]');
     assert.dom('[data-test-dropdown]').hasClass('menu');
-    assert.dom('[data-test-home]').hasText('Home');
-    assert.dom('[data-test-home]').hasAttribute('href', APPS.HOME);
-    assert.dom('[data-test-status]').hasText('Status');
-    assert.dom('[data-test-status]').hasAttribute('href', APPS.STATUS);
-    assert.dom('[data-test-profile]').hasText('Profile');
-    assert.dom('[data-test-profile]').hasAttribute('href', APPS.PROFILE);
-    assert.dom('[data-test-tasks]').hasText('Tasks');
-    assert.dom('[data-test-tasks]').hasAttribute('href', APPS.TASKS);
-    assert.dom('[data-test-identity]').hasText('Identity');
-    assert.dom('[data-test-identity]').hasAttribute('href', APPS.IDENTITY);
+    assert.dom('[data-test-dropdown-home]').hasText('Home');
+    assert.dom('[data-test-dropdown-home]').hasAttribute('href', APPS.HOME);
+    assert.dom('[data-test-dropdown-status]').hasText('Status');
+    assert.dom('[data-test-dropdown-status]').hasAttribute('href', APPS.STATUS);
+    assert.dom('[data-test-dropdown-profile]').hasText('Profile');
+    assert
+      .dom('[data-test-dropdown-profile]')
+      .hasAttribute('href', APPS.PROFILE);
+    assert.dom('[data-test-dropdown-tasks]').hasText('Tasks');
+    assert.dom('[data-test-dropdown-tasks]').hasAttribute('href', APPS.TASKS);
+    assert.dom('[data-test-dropdown-identity]').hasText('Identity');
+    assert
+      .dom('[data-test-dropdown-identity]')
+      .hasAttribute('href', APPS.IDENTITY);
     assert.dom('[data-test-signout]').hasText('Sign Out');
 
     await click('[data-test-dropdown-toggle]');

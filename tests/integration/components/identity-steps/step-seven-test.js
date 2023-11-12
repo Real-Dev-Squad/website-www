@@ -34,13 +34,13 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
 
     assert
-      .dom('[data-test-verification-description]')
+      .dom('[data-test-verification-description-container]')
       .hasClass('verification-page__description');
     assert
-      .dom('[data-test-verification-description1]')
+      .dom('[data-test-verification-description-1]')
       .hasText('Refresh to Check Verification Status');
     assert
-      .dom('[data-test-verification-description2]')
+      .dom('[data-test-verification-description-2]')
       .hasText('Your Profile Service Linked with Real Dev Squad Service');
   });
 
@@ -92,10 +92,10 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
 
     assert
-      .dom('[data-test-verification-description]')
+      .dom('[data-test-verification-description-container]')
       .hasClass('verification-page__description');
     assert
-      .dom('[data-test-verification-description1]')
+      .dom('[data-test-verification-description-1]')
       .hasText('Your previous Chaincode is Blocked.');
   });
 

@@ -37,10 +37,11 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       .dom('[data-test-verification-description]')
       .hasClass('verification-page__description');
     assert
-      .dom('[data-test-verification-description]')
-      .hasText(
-        'Refresh to Check Verification Status Your Profile Service Linked with Real Dev Squad Service'
-      );
+      .dom('[data-test-verification-description1]')
+      .hasText('Refresh to Check Verification Status');
+    assert
+      .dom('[data-test-verification-description2]')
+      .hasText('Your Profile Service Linked with Real Dev Squad Service');
   });
 
   test('render Refresh button on verification page when profile status is pending', async function (assert) {

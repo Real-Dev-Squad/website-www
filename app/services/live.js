@@ -404,10 +404,11 @@ export default class LiveService extends Service {
     const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {
-      this.isScreenShareOn = true;
       await this.hmsActions.attachVideo(presenterTrackId, this.videoEl);
+      this.isScreenShareOn = true;
     } else {
       await this.hmsActions.detachVideo(presenterTrackId, this.videoEl);
+      this.isScreenShareOn = false;
     }
   }
 

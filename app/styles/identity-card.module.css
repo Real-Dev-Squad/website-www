@@ -20,6 +20,11 @@
     color:  #ae03ba;
 }
 
+.square-check-icon{
+    padding: 1.4rem 0 0 0.5rem;
+    color:   #12f373;
+}
+
 .verification-page__description{
     text-align: center;
 }
@@ -31,5 +36,10 @@
     
     .ban-icon{
         padding: 0.4rem 0 0 0.5rem;
+    }
+
+    .square-check-icon{
+        padding: 0.4rem 0 0 0.5rem;
+        color:   #12f373;
     }
 }

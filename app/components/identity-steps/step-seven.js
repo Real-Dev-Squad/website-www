@@ -17,5 +17,10 @@ export default class IdentityStepsStepSevenComponent extends Component {
       heading: 'Blocked',
       icon: 'ban',
     },
+    {
+      status: PROFILE_STATUS.VERIFIED,
+      heading: 'Successful',
+      icon: 'square-check',
+    },
   ];
 }

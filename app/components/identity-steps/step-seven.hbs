@@ -1,29 +1,45 @@
 <div data-test-verification-page class='verification-page'>
-  {{#if (eq this.login.userData.profileStatus 'PENDING')}}
-    <div
-      data-test-verification-heading-icon
-      class='verification-page__heading-Icon'
-    >
-      <h3
-        data-test-verification-heading
-        class='verification-page__heading heading__h3'
+  {{#each this.currentProfileStatus as |currentStatus|}}
+    {{#if (eq this.login.userData.profileStatus currentStatus.status)}}
+      <div
+        data-test-verification-heading-icon
+        class='verification-page__heading-Icon'
       >
-        Pending
-      </h3>
-      <FaIcon @icon='hourglass-half' @size='lg' class='hourglass-icon' />
-    </div>
-    <div
-      data-test-verification-description
-      class='verification-page__description'
-    >
-      <p data-test-verification-description1>
-        Refresh to Check Verification Status
-      </p>
-      <p data-test-verification-description2>
-        Your Profile Service Linked with Real Dev Squad Service
-      </p>
-    </div>
-    <div class='verification-page__button'>
+        <h3
+          data-test-verification-heading
+          class='verification-page__heading heading__h3'
+        >
+          {{currentStatus.heading}}
+        </h3>
+        <FaIcon
+          @icon={{currentStatus.icon}}
+          @size='lg'
+          class='{{currentStatus.icon}}-icon'
+        />
+      </div>
+      <div
+        data-test-verification-description-container
+        class='verification-page__description'
+      >
+        {{#if (eq currentStatus.status 'PENDING')}}
+          <p data-test-verification-description-1>
+            Refresh to Check Verification Status
+          </p>
+          <p data-test-verification-description-2>
+            Your Profile Service Linked with Real Dev Squad Service
+          </p>
+        {{else if (eq currentStatus.status 'BLOCKED')}}
+          <p data-test-verification-description-1>
+            Your previous
+            <b>Chaincode</b>
+            is Blocked.
+          </p>
+        {{/if}}
+      </div>
+    {{/if}}
+  {{/each}}
+  <div class='verification-page__button'>
+    {{#if (eq this.login.userData.profileStatus 'PENDING')}}
       <Reusables::Button
         @text='Refresh'
         @variant='dark'
@@ -31,6 +47,14 @@
         @test='refresh'
         @type='button'
       />
-    </div>
-  {{/if}}
+    {{else if (eq this.login.userData.profileStatus 'BLOCKED')}}
+      <Reusables::Button
+        @text='Verify Again'
+        @variant='dark'
+        @onClick={{@goToGenerateChaincodePage}}
+        @test='verify-again'
+        @type='button'
+      />
+    {{/if}}
+  </div>
 </div>

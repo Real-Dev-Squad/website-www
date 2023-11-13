@@ -44,13 +44,13 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
 
     assert
-      .dom('[data-test-verification-description]')
+      .dom('[data-test-verification-description-container]')
       .hasClass('verification-page__description');
     assert
-      .dom('[data-test-verification-description1]')
+      .dom('[data-test-verification-description-1]')
       .hasText('Refresh to Check Verification Status');
     assert
-      .dom('[data-test-verification-description2]')
+      .dom('[data-test-verification-description-2]')
       .hasText('Your Profile Service Linked with Real Dev Squad Service');
   });
 
@@ -83,5 +83,79 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     await click('[data-test-button=refresh]');
     assert.dom('[data-test-button=refresh]').hasText('Refresh');
     assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
+  });
+
+  test('renders heading on verification page when profile status is blocked', async function (assert) {
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'BLOCKED');
+    await render(
+      hbs`<IdentitySteps::StepSeven 
+        @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
+      />`
+    );
+
+    assert
+      .dom('[data-test-verification-heading]')
+      .hasClass('verification-page__heading');
+    assert.dom('[data-test-verification-heading]').hasText('Blocked');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
+  });
+
+  test('render description on verification page when profile status is blocked', async function (assert) {
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'BLOCKED');
+    await render(
+      hbs`<IdentitySteps::StepSeven  
+        @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
+      />`
+    );
+
+    assert
+      .dom('[data-test-verification-description-container]')
+      .hasClass('verification-page__description');
+    assert
+      .dom('[data-test-verification-description-1]')
+      .hasText('Your previous Chaincode is Blocked.');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
+  });
+
+  test('render Verify Again button on verification page when profile status is blocked', async function (assert) {
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'BLOCKED');
+    await render(
+      hbs`<IdentitySteps::StepSeven 
+        @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
+      />`
+    );
+    assert.dom('[data-test-button=verify-again]').hasText('Verify Again');
+    assert.dom('[data-test-button=verify-again]').hasProperty('type', 'button');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
   });
 });

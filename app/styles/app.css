@@ -29,6 +29,7 @@
 @import 'onboarding-card.module.css';
 @import 'logs-page-main.module.css';
 @import 'events.module.css';
+@import 'identity-card.module.css';
 
 * {
   margin: 0px;

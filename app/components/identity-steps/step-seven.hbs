@@ -38,7 +38,9 @@
             <b>Chaincode</b>
             is Blocked.
           </p>
-        {{else if (eq this.login.userData.profileStatus 'VERIFIED')}}
+        {{else if (eq
+          this.login.userData.profileStatus this.PROFILE_STATUS.VERIFIED
+        )}}
           <p data-test-verification-description-1>
             <b>Congratulations!</b>
             Your Profile Service is Verified.
@@ -69,7 +71,9 @@
         @test='verify-again'
         @type='button'
       />
-    {{else if (eq this.login.userData.profileStatus 'VERIFIED')}}
+    {{else if (eq
+      this.login.userData.profileStatus this.PROFILE_STATUS.VERIFIED
+    )}}
       <Reusables::Button
         @text='Next'
         @variant='dark'

@@ -86,7 +86,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('renders heading on verification page when profile status is blocked', async function (assert) {
-    this.set('goToGenerateChaincodePage', () => {});
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
@@ -99,10 +104,19 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       .dom('[data-test-verification-heading]')
       .hasClass('verification-page__heading');
     assert.dom('[data-test-verification-heading]').hasText('Blocked');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
   });
 
   test('render description on verification page when profile status is blocked', async function (assert) {
-    this.set('goToGenerateChaincodePage', () => {});
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
@@ -117,10 +131,19 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     assert
       .dom('[data-test-verification-description-1]')
       .hasText('Your previous Chaincode is Blocked.');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
   });
 
   test('render Verify Again button on verification page when profile status is blocked', async function (assert) {
-    this.set('goToGenerateChaincodePage', () => {});
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
@@ -130,5 +153,9 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
     assert.dom('[data-test-button=verify-again]').hasText('Verify Again');
     assert.dom('[data-test-button=verify-again]').hasProperty('type', 'button');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
   });
 });

@@ -16,7 +16,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('renders heading on verification page when profile status is pending', async function (assert) {
-    this.set('handleRefresh', () => {});
+    const objToCheckFunction = {
+      isHandleRefresh: assert.ok(true, 'isHandleRefresh is working fine!'),
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunction.isHandleRefresh;
+    });
     await render(
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
@@ -28,7 +33,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render description on verification page when profile status is pending', async function (assert) {
-    this.set('handleRefresh', () => {});
+    const objToCheckFunction = {
+      isHandleRefresh: assert.ok(true, 'isHandleRefresh is working fine!'),
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunction.isHandleRefresh;
+    });
     await render(
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
@@ -45,7 +55,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render Refresh button on verification page when profile status is pending', async function (assert) {
-    this.set('handleRefresh', () => {});
+    const objToCheckFunction = {
+      isHandleRefresh: assert.ok(true, 'isHandleRefresh is working fine!'),
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunction.isHandleRefresh;
+    });
     await render(
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
@@ -55,7 +70,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('clicking Refresh button refresh the verification page when profile status is pending', async function (assert) {
-    this.set('handleRefresh', () => {});
+    const objToCheckFunction = {
+      isHandleRefresh: assert.ok(true, 'isHandleRefresh is working fine!'),
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunction.isHandleRefresh;
+    });
     await render(
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );

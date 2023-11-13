@@ -146,6 +146,53 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-dropdown]').doesNotHaveClass('active-menu');
   });
 
+  test('toggle dropdown menu under feature flag', async function (assert) {
+    assert.expect(14);
+
+    this.setProperties({
+      firstName: 'John',
+      profilePicture: 'https://avatars.githubusercontent.com/u/12345678?v=4',
+      isLoggedIn: true,
+    });
+
+    this.set('signOut', () => {
+      this.isLoggedIn = false;
+    });
+
+    await render(hbs`
+      <Navbar
+        @firstName={{this.firstName}}
+        @profilePicture={{this.profilePicture}}
+        @isLoggedIn={{this.isLoggedIn}}
+        @signOut={{this.signOut}}
+        @dev={{true}}
+      />
+    `);
+
+    assert.dom('[data-test-dropdown]').doesNotHaveClass('active-menu');
+
+    await click('[data-test-dropdown-toggle]');
+    assert.dom('[data-test-dropdown]').hasClass('menu');
+    assert.dom('[data-test-dropdown-home]').hasText('Home');
+    assert.dom('[data-test-dropdown-home]').hasAttribute('href', APPS.HOME);
+    assert.dom('[data-test-dropdown-status]').hasText('Status');
+    assert.dom('[data-test-dropdown-status]').hasAttribute('href', APPS.STATUS);
+    assert.dom('[data-test-dropdown-profile]').hasText('Profile');
+    assert
+      .dom('[data-test-dropdown-profile]')
+      .hasAttribute('href', APPS.PROFILE);
+    assert.dom('[data-test-dropdown-tasks]').hasText('Tasks');
+    assert.dom('[data-test-dropdown-tasks]').hasAttribute('href', APPS.TASKS);
+    assert.dom('[data-test-dropdown-identity]').hasText('Identity');
+    assert
+      .dom('[data-test-dropdown-identity]')
+      .hasAttribute('href', APPS.IDENTITY);
+    assert.dom('[data-test-signout]').hasText('Sign Out');
+
+    await click('[data-test-dropdown-toggle]');
+    assert.dom('[data-test-dropdown]').doesNotHaveClass('active-menu');
+  });
+
   test('loading state renders', async function (assert) {
     assert.expect(3);
 

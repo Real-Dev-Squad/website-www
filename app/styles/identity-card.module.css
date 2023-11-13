@@ -1,4 +1,3 @@
-
 .verification-page{
     display: flex;
     flex-direction: column;
@@ -12,19 +11,19 @@
 
 .hourglass-half-icon{
     padding: 1.4rem 0 0 0.5rem;
-    color: #926829;
+    color: var(--color-soil);
 }
 
 .ban-icon{
     padding: 1.4rem 0 0 0.5rem;
-    color:  #ae03ba;
+    color:  var(--color-red);
 }
 
 .verification-page__description{
     text-align: center;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 425px) {
     .hourglass-half-icon{
         padding: 0.5rem 0 0 0.5rem;
     }

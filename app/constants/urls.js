@@ -13,6 +13,8 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
     STATUS: `${SCHEME}status.${DOMAIN}`,
     PROFILE: `${SCHEME}my.${DOMAIN}`,
+    TASKS: `${SCHEME}my.${DOMAIN}/tasks`,
+    IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     API_BACKEND: `${SCHEME}api.${DOMAIN}`,
   },
   staging: {
@@ -22,6 +24,8 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
     PROFILE: `${SCHEME}staging-my.${DOMAIN}`,
+    TASKS: `${SCHEME}staging-my.${DOMAIN}/tasks`,
+    IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
   development: {
@@ -31,6 +35,8 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
     PROFILE: `${SCHEME}staging-my.${DOMAIN}`,
+    TASKS: `${SCHEME}staging-my.${DOMAIN}/tasks`,
+    IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     API_BACKEND: `${DEVELOPMENT_SCHEME}${DEVELOPMENT_DOMAIN}`,
   },
   test: {
@@ -40,6 +46,8 @@ const APP_URLS = {
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
     STATUS: `${SCHEME}status.${DOMAIN}`,
     PROFILE: `${SCHEME}my.${DOMAIN}`,
+    TASKS: `${SCHEME}my.${DOMAIN}/tasks`,
+    IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
 };

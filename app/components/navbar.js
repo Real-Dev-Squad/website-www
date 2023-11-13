@@ -19,6 +19,8 @@ export default class NavbarComponent extends Component {
   PROFILE_URL = APPS.PROFILE;
   AUTH_URL = this.generateAuthURL();
   LIVE_URL = APPS.LIVE;
+  TASKS_URL = APPS.TASKS;
+  IDENTITY_URL = APPS.IDENTITY;
 
   @action toggleNavbar() {
     this.isNavOpen = !this.isNavOpen;
@@ -40,12 +42,5 @@ export default class NavbarComponent extends Component {
         this.fastboot.request.path
       : window.location.href;
     return `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
-  }
-
-  get isDev() {
-    if (this.router.currentRoute) {
-      return this.router.currentRoute.queryParams.dev;
-    }
-    return false;
   }
 }

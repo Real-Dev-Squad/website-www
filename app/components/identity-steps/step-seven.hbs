@@ -21,14 +21,14 @@
         data-test-verification-description-container
         class='verification-page__description'
       >
-        {{#if (eq currentStatus.status 'PENDING')}}
+        {{#if (eq this.login.userData.profileStatus 'PENDING')}}
           <p data-test-verification-description-1>
             Refresh to Check Verification Status
           </p>
           <p data-test-verification-description-2>
             Your Profile Service Linked with Real Dev Squad Service
           </p>
-        {{else if (eq currentStatus.status 'BLOCKED')}}
+        {{else if (eq this.login.userData.profileStatus 'BLOCKED')}}
           <p data-test-verification-description-1>
             Your previous
             <b>Chaincode</b>

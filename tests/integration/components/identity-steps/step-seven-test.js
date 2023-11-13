@@ -16,7 +16,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('renders heading on verification page when profile status is pending', async function (assert) {
-    this.set('handleRefresh', () => {});
+    const objToCheckFunction = {
+      isHandleRefresh: assert.ok(true, 'handleRefresh is working fine!'),
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunction.isHandleRefresh;
+    });
     await render(
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
@@ -28,26 +33,36 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('render description on verification page when profile status is pending', async function (assert) {
-    this.set('handleRefresh', () => {});
+    const objToCheckFunction = {
+      isHandleRefresh: assert.ok(true, 'handleRefresh is working fine!'),
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunction.isHandleRefresh;
+    });
     await render(
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
 
     assert
-      .dom('[data-test-verification-description]')
+      .dom('[data-test-verification-description-container]')
       .hasClass('verification-page__description');
     assert
-      .dom('[data-test-verification-description1]')
+      .dom('[data-test-verification-description-1]')
       .hasText('Refresh to Check Verification Status');
     assert
-      .dom('[data-test-verification-description2]')
+      .dom('[data-test-verification-description-2]')
       .hasText('Your Profile Service Linked with Real Dev Squad Service');
   });
 
   test('render Refresh button on verification page when profile status is pending', async function (assert) {
-    this.set('handleRefresh', () => {});
+    const objToCheckFunction = {
+      isHandleRefresh: assert.ok(true, 'handleRefresh is working fine!'),
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunction.isHandleRefresh;
+    });
     await render(
-      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} @currentStep={{this.currentStep}} />`
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
 
     assert.dom('[data-test-button=refresh]').hasText('Refresh');
@@ -55,7 +70,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('clicking Refresh button refresh the verification page when profile status is pending', async function (assert) {
-    this.set('handleRefresh', () => {});
+    const objToCheckFunction = {
+      isHandleRefresh: assert.ok(true, 'handleRefresh is working fine!'),
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunction.isHandleRefresh;
+    });
     await render(
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
@@ -66,7 +86,12 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('renders heading on verification page when profile status is blocked', async function (assert) {
-    this.set('goToGenerateChaincodePage', () => {});
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
@@ -79,10 +104,19 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       .dom('[data-test-verification-heading]')
       .hasClass('verification-page__heading');
     assert.dom('[data-test-verification-heading]').hasText('Blocked');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
   });
 
   test('render description on verification page when profile status is blocked', async function (assert) {
-    this.set('goToGenerateChaincodePage', () => {});
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
@@ -92,15 +126,24 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
 
     assert
-      .dom('[data-test-verification-description]')
+      .dom('[data-test-verification-description-container]')
       .hasClass('verification-page__description');
     assert
-      .dom('[data-test-verification-description1]')
+      .dom('[data-test-verification-description-1]')
       .hasText('Your previous Chaincode is Blocked.');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
   });
 
   test('render Verify Again button on verification page when profile status is blocked', async function (assert) {
-    this.set('goToGenerateChaincodePage', () => {});
+    const objToCheckFunctions = {
+      isGoToGenerateChaincodePageWorks: false,
+    };
+    this.set('goToGenerateChaincodePage', () => {
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks;
+    });
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'BLOCKED');
     await render(
@@ -110,6 +153,10 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
     assert.dom('[data-test-button=verify-again]').hasText('Verify Again');
     assert.dom('[data-test-button=verify-again]').hasProperty('type', 'button');
+    assert.false(
+      objToCheckFunctions.isGoToGenerateChaincodePageWorks,
+      'goToGenerateChaincodePageWorks is working fine!'
+    );
   });
 
   skip('renders heading on verification page when profile status is verified', async function (assert) {

@@ -5,6 +5,8 @@ export const APPS = {
   MEMBERS: 'https://members.realdevsquad.com',
   STATUS: 'https://status.realdevsquad.com',
   PROFILE: 'https://my.realdevsquad.com',
+  TASKS: 'https://my.realdevsquad.com/tasks',
+  IDENTITY: 'https://my.realdevsquad.com/identity',
 };
 
 export const ABOUT = {

@@ -1,0 +1,35 @@
+
+.verification-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.verification-page__heading-Icon{
+    display: flex;
+}
+
+.hourglass-half-icon{
+    padding: 1.4rem 0 0 0.5rem;
+    color: #926829;
+}
+
+.ban-icon{
+    padding: 1.4rem 0 0 0.5rem;
+    color:  #ae03ba;
+}
+
+.verification-page__description{
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hourglass-half-icon{
+        padding: 0.5rem 0 0 0.5rem;
+    }
+    
+    .ban-icon{
+        padding: 0.4rem 0 0 0.5rem;
+    }
+}

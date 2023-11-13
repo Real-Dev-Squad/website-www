@@ -1,4 +1,4 @@
-import { module, skip, test } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -159,36 +159,74 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
   });
 
-  skip('renders heading on verification page when profile status is verified', async function (assert) {
+  test('renders heading on verification page when profile status is verified', async function (assert) {
+    const objToCheckFunctions = {
+      isStartHandlerWorks: false,
+    };
+    this.set('startHandler', () => {
+      objToCheckFunctions.isStartHandlerWorks;
+    });
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'VERIFIED');
-    await render(hbs`<IdentitySteps::StepSeven />`);
-
-    assert.dom('[data-test=heading]').hasClass('verification-page__heading');
-    assert.dom('[data-test=heading]').hasText('Verified');
-  });
-
-  skip('render description on verification page when profile status is verified', async function (assert) {
-    this.loginService = this.owner.lookup('service:login');
-    this.set('loginService.userData.profileStatus', 'VERIFIED');
-    await render(hbs`<IdentitySteps::StepSeven/>`);
+    await render(
+      hbs`<IdentitySteps::StepSeven @startHandler={{this.startHandler}} />`
+    );
 
     assert
-      .dom('[data-test=description]')
+      .dom('[data-test-verification-heading]')
+      .hasClass('verification-page__heading');
+    assert.dom('[data-test-verification-heading]').hasText('Successful');
+    assert.false(
+      objToCheckFunctions.isStartHandlerWorks,
+      'StartHander is working fine'
+    );
+  });
+
+  test('render description on verification page when profile status is verified', async function (assert) {
+    const objToCheckFunctions = {
+      isStartHandlerWorks: false,
+    };
+    this.set('startHandler', () => {
+      objToCheckFunctions.isStartHandlerWorks;
+    });
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(
+      hbs`<IdentitySteps::StepSeven @startHandler={{this.startHandler}} />`
+    );
+
+    assert
+      .dom('[data-test-verification-description-container]')
       .hasClass('verification-page__description');
     assert
-      .dom('[data-test=description]')
-      .hasText(
-        'Congratulations! Your Profile Service is Verified. Take the Next Step and Join Our Discord Server.'
-      );
+      .dom('[data-test-verification-description-1]')
+      .hasText('Congratulations! Your Profile Service is Verified.');
+    assert
+      .dom('[data-test-verification-description-2]')
+      .hasText('Take the Next Step and Join Our Discord Server.');
+    assert.false(
+      objToCheckFunctions.isStartHandlerWorks,
+      'StartHander is working fine'
+    );
   });
 
-  skip('render Next button on verification page when profile status is verified', async function (assert) {
-    this.set('goToGenerateChaincodePage', () => {});
+  test('render Next button on verification page when profile status is verified', async function (assert) {
+    const objToCheckFunctions = {
+      isStartHandlerWorks: false,
+    };
+    this.set('startHandler', () => {
+      objToCheckFunctions.isStartHandlerWorks;
+    });
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'VERIFIED');
-    await render(hbs`<IdentitySteps::StepSeven />`);
-    assert.dom('[data-test-button=verify-again]').hasText('Next');
-    assert.dom('[data-test-button=verify-again]').hasProperty('type', 'button');
+    await render(
+      hbs`<IdentitySteps::StepSeven  @startHandler={{this.startHandler}} />`
+    );
+    assert.dom('[data-test-button=next]').hasText('Next');
+    assert.dom('[data-test-button=next]').hasProperty('type', 'button');
+    assert.false(
+      objToCheckFunctions.isStartHandlerWorks,
+      'StartHander is working fine'
+    );
   });
 });

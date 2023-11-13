@@ -62,7 +62,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       objToCheckFunction.isHandleRefresh;
     });
     await render(
-      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} @currentStep={{this.currentStep}} />`
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );
 
     assert.dom('[data-test-button=refresh]').hasText('Refresh');

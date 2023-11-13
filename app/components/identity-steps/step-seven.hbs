@@ -21,14 +21,18 @@
         data-test-verification-description-container
         class='verification-page__description'
       >
-        {{#if (eq this.login.userData.profileStatus 'PENDING')}}
+        {{#if
+          (eq this.login.userData.profileStatus this.PROFILE_STATUS.PENDING)
+        }}
           <p data-test-verification-description-1>
             Refresh to Check Verification Status
           </p>
           <p data-test-verification-description-2>
             Your Profile Service Linked with Real Dev Squad Service
           </p>
-        {{else if (eq this.login.userData.profileStatus 'BLOCKED')}}
+        {{else if (eq
+          this.login.userData.profileStatus this.PROFILE_STATUS.BLOCKED
+        )}}
           <p data-test-verification-description-1>
             Your previous
             <b>Chaincode</b>
@@ -47,7 +51,7 @@
     {{/if}}
   {{/each}}
   <div class='verification-page__button'>
-    {{#if (eq this.login.userData.profileStatus 'PENDING')}}
+    {{#if (eq this.login.userData.profileStatus this.PROFILE_STATUS.PENDING)}}
       <Reusables::Button
         @text='Refresh'
         @variant='dark'
@@ -55,7 +59,9 @@
         @test='refresh'
         @type='button'
       />
-    {{else if (eq this.login.userData.profileStatus 'BLOCKED')}}
+    {{else if (eq
+      this.login.userData.profileStatus this.PROFILE_STATUS.BLOCKED
+    )}}
       <Reusables::Button
         @text='Verify Again'
         @variant='dark'

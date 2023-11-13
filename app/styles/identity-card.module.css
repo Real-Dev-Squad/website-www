@@ -1,4 +1,3 @@
-
 .verification-page{
     display: flex;
     flex-direction: column;
@@ -20,14 +19,9 @@
     color:  var(--color-red);
 }
 
-.ban-icon{
-    padding: 1.4rem 0 0 0.5rem;
-    color:  #ae03ba;
-}
-
 .square-check-icon{
     padding: 1.4rem 0 0 0.5rem;
-    color:   #12f373;
+    color: var(--color-green);
 }
 
 .verification-page__description{

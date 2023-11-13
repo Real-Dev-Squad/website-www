@@ -17,7 +17,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
 
   test('renders heading on verification page when profile status is pending', async function (assert) {
     const objToCheckFunction = {
-      isHandleRefresh: assert.ok(true, 'isHandleRefresh is working fine!'),
+      isHandleRefresh: assert.ok(true, 'handleRefresh is working fine!'),
     };
     this.set('handleRefresh', () => {
       objToCheckFunction.isHandleRefresh;
@@ -34,7 +34,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
 
   test('render description on verification page when profile status is pending', async function (assert) {
     const objToCheckFunction = {
-      isHandleRefresh: assert.ok(true, 'isHandleRefresh is working fine!'),
+      isHandleRefresh: assert.ok(true, 'handleRefresh is working fine!'),
     };
     this.set('handleRefresh', () => {
       objToCheckFunction.isHandleRefresh;
@@ -56,7 +56,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
 
   test('render Refresh button on verification page when profile status is pending', async function (assert) {
     const objToCheckFunction = {
-      isHandleRefresh: assert.ok(true, 'isHandleRefresh is working fine!'),
+      isHandleRefresh: assert.ok(true, 'handleRefresh is working fine!'),
     };
     this.set('handleRefresh', () => {
       objToCheckFunction.isHandleRefresh;
@@ -71,7 +71,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
 
   test('clicking Refresh button refresh the verification page when profile status is pending', async function (assert) {
     const objToCheckFunction = {
-      isHandleRefresh: assert.ok(true, 'isHandleRefresh is working fine!'),
+      isHandleRefresh: assert.ok(true, 'handleRefresh is working fine!'),
     };
     this.set('handleRefresh', () => {
       objToCheckFunction.isHandleRefresh;

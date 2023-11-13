@@ -61,7 +61,6 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     this.set('handleRefresh', () => {
       objToCheckFunctions.isHandleRefreshWorks = true;
     });
-    this.set('handleRefresh', () => {});
     await render(
       hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
     );

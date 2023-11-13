@@ -68,7 +68,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     await click('[data-test-button=refresh]');
     assert.dom('[data-test-button=refresh]').hasText('Refresh');
     assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
-    assert.false(
+    assert.true(
       objToCheckFunctions.isHandleRefreshWorks,
       'handleRefresh function is working fine!'
     );

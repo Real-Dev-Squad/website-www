@@ -122,12 +122,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   });
 
   test('renders heading on verification page when profile status is verified', async function (assert) {
-    const objToCheckFunctions = {
-      isStartHandlerWorks: false,
-    };
-    this.set('startHandler', () => {
-      objToCheckFunctions.isStartHandlerWorks;
-    });
+    this.set('startHandler', () => {});
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'VERIFIED');
     await render(
@@ -138,19 +133,10 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       .dom('[data-test-verification-heading]')
       .hasClass('verification-page__heading');
     assert.dom('[data-test-verification-heading]').hasText('Successful');
-    assert.false(
-      objToCheckFunctions.isStartHandlerWorks,
-      'StartHander is working fine'
-    );
   });
 
   test('render description on verification page when profile status is verified', async function (assert) {
-    const objToCheckFunctions = {
-      isStartHandlerWorks: false,
-    };
-    this.set('startHandler', () => {
-      objToCheckFunctions.isStartHandlerWorks;
-    });
+    this.set('startHandler', () => {});
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'VERIFIED');
     await render(
@@ -166,19 +152,10 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     assert
       .dom('[data-test-verification-description-2]')
       .hasText('Take the Next Step and Join Our Discord Server.');
-    assert.false(
-      objToCheckFunctions.isStartHandlerWorks,
-      'StartHander is working fine'
-    );
   });
 
   test('render Next button on verification page when profile status is verified', async function (assert) {
-    const objToCheckFunctions = {
-      isStartHandlerWorks: false,
-    };
-    this.set('startHandler', () => {
-      objToCheckFunctions.isStartHandlerWorks;
-    });
+    this.set('startHandler', () => {});
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'VERIFIED');
     await render(
@@ -186,9 +163,5 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     );
     assert.dom('[data-test-button=next]').hasText('Next');
     assert.dom('[data-test-button=next]').hasProperty('type', 'button');
-    assert.false(
-      objToCheckFunctions.isStartHandlerWorks,
-      'StartHander is working fine'
-    );
   });
 });

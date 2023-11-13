@@ -34,7 +34,7 @@
             <b>Chaincode</b>
             is Blocked.
           </p>
-        {{else if (eq currentStatus.status 'VERIFIED')}}
+        {{else if (eq this.login.userData.profileStatus 'VERIFIED')}}
           <p data-test-verification-description-1>
             <b>Congratulations!</b>
             Your Profile Service is Verified.

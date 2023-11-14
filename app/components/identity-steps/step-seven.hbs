@@ -1,5 +1,5 @@
 <div data-test-verification-page class='verification-page'>
-  {{#each this.currentProfileStatus as |currentStatus|}}
+  {{#each this.profileStatuses as |currentStatus|}}
     {{#if (eq this.login.userData.profileStatus currentStatus.status)}}
       <div
         data-test-verification-heading-icon

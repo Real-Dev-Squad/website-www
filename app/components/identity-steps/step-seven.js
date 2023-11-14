@@ -8,7 +8,7 @@ export default class IdentityStepsStepSevenComponent extends Component {
 
   PROFILE_STATUS = PROFILE_STATUS;
 
-  currentProfileStatus = [
+  profileStatuses = [
     {
       status: PROFILE_STATUS.PENDING,
       heading: 'Pending',

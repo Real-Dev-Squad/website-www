@@ -120,4 +120,48 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     assert.dom('[data-test-button=verify-again]').hasText('Verify Again');
     assert.dom('[data-test-button=verify-again]').hasProperty('type', 'button');
   });
+
+  test('renders heading on verification page when profile status is verified', async function (assert) {
+    this.set('startHandler', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(
+      hbs`<IdentitySteps::StepSeven @startHandler={{this.startHandler}} />`
+    );
+
+    assert
+      .dom('[data-test-verification-heading]')
+      .hasClass('verification-page__heading');
+    assert.dom('[data-test-verification-heading]').hasText('Successful');
+  });
+
+  test('render description on verification page when profile status is verified', async function (assert) {
+    this.set('startHandler', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(
+      hbs`<IdentitySteps::StepSeven @startHandler={{this.startHandler}} />`
+    );
+
+    assert
+      .dom('[data-test-verification-description-container]')
+      .hasClass('verification-page__description');
+    assert
+      .dom('[data-test-verification-description-1]')
+      .hasText('Congratulations! Your Profile Service is Verified.');
+    assert
+      .dom('[data-test-verification-description-2]')
+      .hasText('Take the Next Step and Join Our Discord Server.');
+  });
+
+  test('render Next button on verification page when profile status is verified', async function (assert) {
+    this.set('startHandler', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(
+      hbs`<IdentitySteps::StepSeven  @startHandler={{this.startHandler}} />`
+    );
+    assert.dom('[data-test-button=next]').hasText('Next');
+    assert.dom('[data-test-button=next]').hasProperty('type', 'button');
+  });
 });

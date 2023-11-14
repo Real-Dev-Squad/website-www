@@ -38,6 +38,16 @@
             <b>Chaincode</b>
             is Blocked.
           </p>
+        {{else if (eq
+          this.login.userData.profileStatus this.PROFILE_STATUS.VERIFIED
+        )}}
+          <p data-test-verification-description-1>
+            <b>Congratulations!</b>
+            Your Profile Service is Verified.
+          </p>
+          <p data-test-verification-description-2>
+            Take the Next Step and Join Our Discord Server.
+          </p>
         {{/if}}
       </div>
     {{/if}}
@@ -59,6 +69,16 @@
         @variant='dark'
         @onClick={{@goToGenerateChaincodePage}}
         @test='verify-again'
+        @type='button'
+      />
+    {{else if (eq
+      this.login.userData.profileStatus this.PROFILE_STATUS.VERIFIED
+    )}}
+      <Reusables::Button
+        @text='Next'
+        @variant='dark'
+        @onClick={{@startHandler}}
+        @test='next'
         @type='button'
       />
     {{/if}}

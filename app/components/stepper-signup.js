@@ -53,4 +53,14 @@ export default class StepperSignupComponent extends Component {
     localStorage.setItem('isValid', false);
     this.isValid = false;
   }
+
+  @action handleRefresh() {
+    window.location.reload();
+  }
+
+  @action goToGenerateChaincodePage() {
+    this.currentStep -= 3;
+    const queryParams = { dev: true, step: this.currentStep };
+    this.router.transitionTo('join', { queryParams });
+  }
 }

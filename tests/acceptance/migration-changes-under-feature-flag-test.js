@@ -97,4 +97,30 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
 
     assert.strictEqual(currentURL(), '/?dev=true');
   });
+
+  test('Migrated Description section should exist when dev=true', async function (assert) {
+    await visit('/');
+
+    assert.strictEqual(currentURL(), '/', 'current pathname is /');
+
+    assert.dom('[ data-test-description-img]').exists();
+    assert.dom('[data-test-description-title]').exists();
+    assert.dom('[data-test-description-content]').exists();
+
+    await visit('/?dev=true');
+
+    assert.strictEqual(
+      currentURL(),
+      '/?dev=true',
+      'current pathname is /?dev=true'
+    );
+
+    assert.dom('[data-test-description-section]').exists();
+    assert.dom('[data-test-description-section-title]').exists();
+    assert.dom('[data-test-description-section-content]').exists();
+    assert.dom('[data-test-description-section-content="para-first"]').exists();
+    assert
+      .dom('[data-test-description-section-content="para-second"]')
+      .exists();
+  });
 });

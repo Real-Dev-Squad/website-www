@@ -8,25 +8,31 @@ export default class LoginService extends Service {
   @tracked isLoggedIn;
   @tracked userData;
   @tracked isLoading = true;
+  @service fastboot;
 
   constructor() {
     super(...arguments);
     this.checkAuth();
   }
 
-  async checkAuth() {
-    try {
-      const user = await this.store.findRecord('user', 'self');
-      if (user) {
+  checkAuth() {
+    const userPromise = this.store
+      .findRecord('user', 'self')
+      .then((user) => {
         if (user.incompleteUserDetails) window.location.replace(AUTH.SIGN_UP);
         this.isLoggedIn = true;
         this.userData = user;
-      }
-    } catch (error) {
-      this.isLoggedIn = false;
-      console.error(error);
-    } finally {
-      this.isLoading = false;
+      })
+      .catch((error) => {
+        this.isLoggedIn = false;
+        console.error(error);
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+
+    if (this.fastboot.isFastBoot) {
+      this.fastboot.deferRendering(userPromise);
     }
   }
 }

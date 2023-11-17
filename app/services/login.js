@@ -12,11 +12,13 @@ export default class LoginService extends Service {
 
   constructor() {
     super(...arguments);
-    this.checkAuth();
+    if (!this.fastboot.isFastBoot) {
+      this.checkAuth();
+    }
   }
 
   checkAuth() {
-    const userPromise = this.store
+    this.store
       .findRecord('user', 'self')
       .then((user) => {
         if (user.incompleteUserDetails) window.location.replace(AUTH.SIGN_UP);
@@ -30,9 +32,5 @@ export default class LoginService extends Service {
       .finally(() => {
         this.isLoading = false;
       });
-
-    if (this.fastboot.isFastBoot) {
-      this.fastboot.deferRendering(userPromise);
-    }
   }
 }

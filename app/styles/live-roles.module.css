@@ -10,9 +10,13 @@
 .live__roles > .btn {
   width: 20rem;
 }
-
+@media screen and (max-width: 768px) {
+  .live__roles > .btn {
+    width: 16rem;
+  }
+}
 @media screen and (max-width: 425px) {
   .live__roles > .btn {
-    width: 11rem;
+    width: 12rem;
   }
 }

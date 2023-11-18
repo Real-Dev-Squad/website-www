@@ -14,6 +14,12 @@
   margin: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .card.live__join {
+    padding: 30px 20px;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .card.live__join {
     width: 15rem;

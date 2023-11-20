@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 425px) {
   .card.live__join {
-    width: 15rem;
+    width: 80%;
   }
   .live__join .user-input {
     width: 15rem;

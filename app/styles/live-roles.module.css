@@ -16,7 +16,10 @@
   }
 }
 @media screen and (max-width: 425px) {
+  .live__roles {
+    width: 100%;
+  }
   .live__roles > .btn {
-    width: 12rem;
+    width: 100%;
   }
 }

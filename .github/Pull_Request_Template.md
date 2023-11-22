@@ -1,36 +1,40 @@
-## Issue
+Date: `change date here`
 
-#### Example : Closes #<issue_number>
+Developer Name: `developer name here`
 
-## What is the change?
+---
 
-Provide a small description in points of what did you change
+## Issue Ticket Number:-
 
-#### Example :
+- add issue ticket number here e.g `#923`
 
-- Done this
-- Made these changes
+## Description:
 
-## Is Development Tested?
+Add description of the PR here
+
+Is Under Feature Flag
 
 - [ ] Yes
 - [ ] No
 
-## Before / After Change Screenshots
+Database changes
 
-For visual or interaction changes. Please provide a video / screenshot.
+- [ ] Yes
+- [ ] No
 
-#### Example:
+Breaking changes (If your feature is breaking/missing something please mention pending tickets)
 
-Before :
-Image/Video
+- [ ] Yes
+- [ ] No
 
-After :
-Image/Video
+Is Development Tested?
 
-**Note :**
-What to delete and what not to
+- [ ] Yes
+- [ ] No
 
-- Keep the headings and answer the questions.
-- Delete the examples
-- Delete the description below headings `What is the change?` & `Before/After Screenshots`
+Tested in staging?
+
+- [ ] Yes
+- [ ] No
+
+### Add relevant Screenshot below ( e.g test coverage etc. )

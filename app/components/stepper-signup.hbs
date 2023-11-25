@@ -67,6 +67,12 @@
         <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 12)}}
         <IdentitySteps::StepSix @startHandler={{this.startHandler}} />
+      {{else if (eq this.currentStep 13)}}
+        <IdentitySteps::StepSeven
+          @handleRefresh={{this.handleRefresh}}
+          @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}}
+          @startHandler={{this.startHandler}}
+        />
       {{/if}}
     </div>
   </form>

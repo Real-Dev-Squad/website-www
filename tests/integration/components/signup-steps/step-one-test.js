@@ -47,67 +47,6 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert.dom('[data-test-input-field]').hasProperty('value', 'shubham');
   });
 
-  test('it render disable username input field and disable Generate Username button on signupDetails page', async function (assert) {
-    assert.expect(19);
-
-    await render(hbs`<SignupSteps::StepOne />`);
-
-    assert
-      .dom('[data-test-input-field=username]')
-      .hasAttribute('name', 'username');
-    assert.dom('[data-test-input=username]').hasClass('input-box');
-    assert.dom('[data-test-input=username]').hasClass('input-box--btn');
-
-    assert.dom('[data-test-label=username]').hasClass('label');
-    assert.dom('[data-test-label=username]').hasText('Username');
-    assert.dom('[data-test-label=username]').hasAttribute('for', 'username');
-
-    assert.dom('[data-test-required=username]').hasClass('required');
-
-    assert.dom('[data-test-input-field=username]').hasClass('input__field');
-    assert.dom('[data-test-input-field=username]').hasClass('input-disable');
-
-    assert.dom('[data-test-input-field=username]').hasAttribute('required');
-    assert
-      .dom('[data-test-input-field=username]')
-      .hasAttribute('name', 'username');
-    assert.dom('[data-test-input-field=username]').hasProperty('type', 'text');
-    assert
-      .dom('[data-test-input-field=username]')
-      .hasAttribute('id', 'username');
-    assert
-      .dom('[data-test-input-field=username]')
-      .hasProperty('disabled', true);
-
-    assert.dom('[data-test-button=generateUsername]').exists();
-    assert
-      .dom('[data-test-button=generateUsername]')
-      .hasClass('btn-generateUsername');
-    assert
-      .dom('[data-test-button=generateUsername]')
-      .hasProperty('type', 'button');
-    assert
-      .dom('[data-test-button=generateUsername]')
-      .hasText('Generate Username');
-    assert
-      .dom('[data-test-button=generateUsername]')
-      .hasProperty('disabled', true);
-  });
-
-  test('generateUsername button is enabled when firstname and lastname input fields are not empty and valid input', async function (assert) {
-    assert.expect(1);
-    this.set('onInput', (e) => {
-      this.value = e.target.value;
-    });
-
-    await render(hbs`<SignupSteps::StepOne />`);
-    await typeIn('[data-test-input-field=firstname]', 'shubham');
-    await typeIn('[data-test-input-field=lastname]', 'sigdar');
-    assert
-      .dom('[data-test-button=generateUsername]')
-      .hasProperty('disabled', false);
-  });
-
   test('render select your role dropdown on signup details page ', async function (assert) {
     assert.expect(11);
 
@@ -134,15 +73,12 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
   });
 
   test('It display error message and disable the button for invalid input', async function (assert) {
-    assert.expect(2);
+    assert.expect(1);
 
     await render(hbs`<SignupSteps::StepOne  />`);
     await typeIn('[data-test-input-field=firstname]', 'shubham_1');
     await typeIn('[data-test-input-field=lastname]', 'sigdar@');
     assert.dom('.error__message').exists();
-    assert
-      .dom('[data-test-button=generateUsername]')
-      .hasProperty('disabled', true);
   });
 
   test('it renders label and input checkbox when Maven role is chosen', async function (assert) {
@@ -187,7 +123,6 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
 
     await typeIn('[data-test-input-field=firstname]', 'shubham');
     await typeIn('[data-test-input-field=lastname]', 'sigdar');
-    await click('[data-test-button=generateUsername]');
 
     select('[data-test-dropdown-field]', 'Maven');
     await click('[data-test-dropdown-option="Maven"]');

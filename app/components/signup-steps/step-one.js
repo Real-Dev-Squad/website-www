@@ -9,6 +9,7 @@ import { APPS } from '../../constants/urls';
 import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
 export default class SignupStepsStepOneComponent extends Component {
   @service toast;
+  @service onboarding;
   @tracked data = { firstname: '', lastname: '', username: '', role: '' };
   @tracked isSignupButtonDisabled = true;
   @tracked isValid = true;
@@ -35,17 +36,11 @@ export default class SignupStepsStepOneComponent extends Component {
       return (
         !!this.data.firstname &&
         !!this.data.lastname &&
-        !!this.data.username &&
         !!this.data.role &&
         this.mavenRoleConfirm
       );
     } else {
-      return (
-        !!this.data.firstname &&
-        !!this.data.lastname &&
-        !!this.data.username &&
-        !!this.data.role
-      );
+      return !!this.data.firstname && !!this.data.lastname && !!this.data.role;
     }
   }
 
@@ -118,48 +113,23 @@ export default class SignupStepsStepOneComponent extends Component {
     }
   }
 
-  @action handleButtonClick() {
-    this.isSignupButtonDisabled = true;
-    this.signup();
-    localStorage.setItem('role', this.data.role);
-  }
-
   @action async signup() {
+    const { username } = await this.onboarding.generateUsername(
+      this.data.firstname,
+      this.data.lastname
+    );
     const dataToUpdate = {
       roles: {
         maven: this.data.role === 'Maven',
         designer: this.data.role === 'Designer',
         productmanager: this.data.role === 'Product Manager',
       },
-      username: this.data.username,
+      username,
       first_name: this.data.firstname,
       last_name: this.data.lastname,
     };
-
-    try {
-      const response = await fetch(`${APPS.API_BACKEND}/users/self`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(dataToUpdate),
-      });
-
-      if (response.status === 204) {
-        localStorage.setItem('role', this.data.role);
-        this.args.incrementStep();
-      } else if (response.status === 401) {
-        this.toast.error(
-          'Please login to continue.',
-          '',
-          toastNotificationTimeoutOptions
-        );
-      } else {
-        console.log('Error:', 'Something went wrong');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    await this.onboarding.signup(dataToUpdate, this.data.role);
+    this.args.incrementStep();
+    localStorage.setItem('role', this.data.role);
   }
 }

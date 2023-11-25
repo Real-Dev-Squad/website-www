@@ -34,20 +34,6 @@
   <div class='error__message'>{{this.errorMessage.lastname}}</div>
 {{/if}}
 
-<Reusables::OnboardingInput
-  @field='Username'
-  @name='username'
-  @type='text'
-  @required={{true}}
-  @value={{this.data.username}}
-  @isValid={{this.isValid}}
-  @hasButtonInsideInput={{true}}
-  @classDisableInput='input-disable'
-  @onClickGetUsername={{this.getUsername}}
-  @onInput={{this.inputHandler}}
-  @disabled={{true}}
-/>
-
 <Reusables::Dropdown
   @field='Select your role'
   @name='role'
@@ -79,9 +65,9 @@
   <Reusables::Button
     @text='Signup'
     @variant='dark'
-    @onClick={{this.handleButtonClick}}
+    @onClick={{this.signup}}
     @test='signup'
-    @disabled={{if this.isSignupButtonDisabled true false}}
+    @disabled={{this.isSignupButtonDisabled}}
     @type='button'
   />
 </div>

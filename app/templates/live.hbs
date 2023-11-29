@@ -123,6 +123,8 @@
     <div class='live__section'>
       <Events::LogsPage />
     </div>
+  {{else if (eq this.activeTab 'Survey')}}
+    <Events::SurveyPage />
   {{else}}
     {{! TODO - add the respective component here }}
     <p class='live__section'>Coming Soon!</p>

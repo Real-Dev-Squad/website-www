@@ -13,9 +13,9 @@ export default class LiveController extends Controller {
   @service toast;
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
-    { id: 2, label: 'Previous Events', active: false },
-    { id: 3, label: 'Real Dev Squad', active: false },
+    { id: 2, label: 'Survey', active: false },
     { id: 4, label: 'Logs', active: false },
+    { id: 3, label: 'More', active: false },
   ];
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = false;

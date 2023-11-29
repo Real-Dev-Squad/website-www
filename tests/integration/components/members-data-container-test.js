@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import Service from '@ember/service';
 
@@ -14,6 +14,10 @@ class MockService extends Service {
       { id: 4, name: 'Member 4' },
       { id: 5, name: 'Member 5' },
       { id: 6, name: 'Member 6' },
+      { id: 7, name: 'Member 7' },
+      { id: 8, name: 'Member 8' },
+      { id: 9, name: 'Member 9' },
+      { id: 10, name: 'Member 10' },
     ];
   }
 }
@@ -41,7 +45,12 @@ module('Integration | Component | members-data-container', function (hooks) {
       </ul>
     </MembersDataContainer>`);
 
-    assert.dom('ul li').exists({ count: 6 });
+    await waitFor('#member-data-container', {
+      timeoutMessage:
+        'member-data-container indicator should eventually appear',
+    });
+
+    assert.dom('ul li').exists({ count: 5 });
 
     assert.dom('ul li').hasAnyText('Member');
   });

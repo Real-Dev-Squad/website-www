@@ -31,3 +31,6 @@
 
 # broccoli-debug
 /DEBUG/
+
+# vs-code config
+/.vscode/

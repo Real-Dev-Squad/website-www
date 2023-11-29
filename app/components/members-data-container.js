@@ -3,13 +3,20 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 
-const noOfMembers = 6;
+const noOfMembersToShow = 5;
 export default class MembersDataContainerComponent extends Component {
   @service store;
+  @service inViewport;
 
   @tracked members = [];
 
-  @action async loadMembers() {
+  allMembers = [];
+  elementId = 'member-data-container';
+
+  async loadMembers() {
+    if (this.allMembers.length) {
+      return;
+    }
     // TODO: This is using users/search?role=member route, to be updated once the new route for members data is available
     const data = await this.store
       .query('user', {
@@ -19,9 +26,41 @@ export default class MembersDataContainerComponent extends Component {
         console.error(err);
         return [];
       });
-    let membersData = data.toArray();
+    this.allMembers = data.toArray();
+    this.loadRandomMembers();
+  }
+
+  loadRandomMembers() {
+    let membersData = this.allMembers;
     shuffle(membersData);
-    this.members = membersData.slice(0, noOfMembers);
+    this.members = membersData.slice(0, noOfMembersToShow);
+  }
+
+  @action
+  setupInViewport() {
+    const loader = document.getElementById(this.elementId);
+    const viewportTolerance = { bottom: 100 };
+    const { onEnter, onExit } = this.inViewport.watchElement(loader, {
+      viewportTolerance,
+    });
+    onEnter(this.didEnterViewport.bind(this));
+    onExit(this.didLeaveViewport.bind(this));
+  }
+
+  didEnterViewport() {
+    this.loadMembers();
+    this.loadRandomMembers();
+  }
+
+  didLeaveViewport() {
+    this.members = [];
+  }
+
+  willDestroy() {
+    const loader = document.getElementById(this.elementId);
+    this.inViewport.stopWatching(loader);
+
+    super.willDestroy(...arguments);
   }
 }
 

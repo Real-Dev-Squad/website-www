@@ -3,8 +3,6 @@
 <JoinSection />
 <Cards />
 <MembersDataContainer as |members|>
-  {{#unless this.fastboot.isFastBoot}}
-    <WheelAnimations @users={{members}} />
-  {{/unless}}
+  <WheelAnimations @users={{members}} />
 </MembersDataContainer>
 <MoreAbout />

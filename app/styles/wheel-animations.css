@@ -69,7 +69,7 @@
     transform: translateX(0%) translateY(0%) scale(var(--size));
     filter: blur(5px);
   }
-  60% {
+  70% {
     filter: blur(0);
   }
   100% {

@@ -27,7 +27,6 @@ export default class MembersDataContainerComponent extends Component {
         return [];
       });
     this.allMembers = data.toArray();
-    this.loadRandomMembers();
   }
 
   loadRandomMembers() {
@@ -47,8 +46,8 @@ export default class MembersDataContainerComponent extends Component {
     onExit(this.didLeaveViewport.bind(this));
   }
 
-  didEnterViewport() {
-    this.loadMembers();
+  async didEnterViewport() {
+    await this.loadMembers();
     this.loadRandomMembers();
   }
 

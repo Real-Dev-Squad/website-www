@@ -1,5 +1,5 @@
 .ask-question-modal {
-  height: 25rem;
+  height: 21rem;
   width: 31.25rem;
   background-color: var(--color-white);
   position: absolute;
@@ -8,6 +8,7 @@
   transform: translate(-50%, -50%);
   border-radius: 10px;
   padding: 1.25rem;
+  max-width: 80svw;
 }
 
 .ask-question-modal__heading {
@@ -23,7 +24,7 @@
 
 .ask-question-modal__textarea {
   width: 100%;
-  height: 55%;
+  height: 47%;
   outline: none;
   border: 0;
   resize: none;
@@ -57,8 +58,8 @@
   margin: 0;
   font: inherit;
   color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
+  width: 1.15rem;
+  height: 1.15rem;
   border: 0.15em solid var(--color-navyblue);
   border-radius: 0.15em;
   display: grid;
@@ -67,8 +68,8 @@
 
 .ask-question-modal__checkbox::before {
   content: "";
-  width: 0.65em;
-  height: 0.65em;
+  width: 0.65rem;
+  height: 0.65rem;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em var(--color-pink);
@@ -107,6 +108,35 @@ input[type="checkbox"]:checked::before {
 
 .ask-question-modal__actions {
   text-align: center;
+}
+
+.ask-question-modal__cancel-button {
+  margin-right: 1rem;
+}
+
+/* media queries */
+@media only screen and (max-width: 625px) {
+  .ask-question-modal {
+    height: 23rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .ask-question-modal__checkbox {
+    width: 1.2rem;
+  }
+
+  .ask-question-modal__submit-button,
+  .ask-question-modal__cancel-button {
+    margin-right: 0;
+    width: fit-content;
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .ask-question-modal__checkbox {
+    width: 1.6rem;
+  }
 }
 
 /* utils css */

@@ -1,1 +1,17 @@
-<p>survey page</p>
+<div class='survey-page'>
+  <Reusables::Button
+    @text='Ask Question'
+    @variant='dark btn--sm btn-pink'
+    @test='ask-question'
+    @onClick={{this.openAskQuestionModal}}
+  />
+  <AskQuestionModal
+    @isOpen={{this.isAskQuestionModalOpen}}
+    @closeModal={{this.closeAskQuestionModal}}
+    @openModal={{this.openAskQuestionModal}}
+    @onSubmit={{this.onAskQuestionButtonClick}}
+    @toggleMaxCharacterChecked={{this.toggleMaxCharacterChecked}}
+    @isMaxCharactersChecked={{this.isMaxCharactersChecked}}
+    @onCharacterLimitInput={{this.onCharacterLimitInput}}
+  />
+</div>

@@ -1,0 +1,55 @@
+<BaseModal
+  @closeModal={{@closeModal}}
+  @openModal={{@openModal}}
+  @isOpen={{@isOpen}}
+>
+  <div class='ask-question-modal'>
+    <h4 class='ask-question-modal__heading'>Ask Question</h4>
+    <textarea
+      class='ask-question-modal__textarea'
+      name='question'
+      id='question'
+      placeholder='Enter your question here'
+    ></textarea>
+    <div class='ask-question-modal__checkbox-container'>
+      <input
+        {{on 'change' @toggleMaxCharacterChecked}}
+        class='ask-question-modal__checkbox'
+        type='checkbox'
+        name='is-max-characters-checked'
+        id='is-max-characters-checked'
+      />
+      <label
+        class='ask-question-modal__checkbox-label'
+        for='is-max-characters-checked'
+      >Do you want answer to be of limited characters?</label>
+    </div>
+    <input
+      type='number'
+      name='max-characters'
+      id='max-characters'
+      class='ask-question-modal__max-characters-input
+        {{if
+          @isMaxCharactersChecked
+          "visibility--visible"
+          "visibility--hidden"
+        }}'
+      placeholder='Enter your characters limit'
+      {{on 'input' @onCharacterLimitInput}}
+    />
+    <div class='ask-question-modal__actions'>
+      <Reusables::Button
+        @text='Cancel'
+        @variant='dark btn--sm btn-light margin-right-1'
+        @test='question-modal-cancel'
+        @onClick={{@closeModal}}
+      />
+      <Reusables::Button
+        @text='Ask'
+        @variant='dark btn--sm btn-pink'
+        @test='question-modal-cancel'
+        @onClick={{@onSubmit}}
+      />
+    </div>
+  </div>
+</BaseModal>

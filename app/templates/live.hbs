@@ -1,7 +1,7 @@
 {{page-title 'Live'}}
 
 <div id='live' data-test-live>
-  {{#if this.liveService.isJoined}}
+  {{#if true}}
     <LiveHeader
       @tabs={{this.TABS}}
       @activeTab={{this.activeTab}}
@@ -60,7 +60,7 @@
         <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
       </div>
     {{else}}
-      {{#if this.liveService.isJoined}}
+      {{#if true}}
         <div class='live__container'>
           <div
             class='live__video-container

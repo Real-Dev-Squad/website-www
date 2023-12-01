@@ -17,7 +17,7 @@ export default class LiveController extends Controller {
     { id: 4, label: 'Logs', active: false },
     { id: 3, label: 'More', active: false },
   ];
-  @tracked activeTab = 'Screenshare';
+  @tracked activeTab = 'Survey';
   @tracked isLoading = false;
   @tracked name = '';
   @tracked role = '';

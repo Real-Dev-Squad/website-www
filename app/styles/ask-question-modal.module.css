@@ -1,0 +1,119 @@
+.ask-question-modal {
+  height: 25rem;
+  width: 31.25rem;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.ask-question-modal__heading {
+  text-align: center;
+  color: var(--color-pink);
+  font-family: Raleway;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.ask-question-modal__textarea {
+  width: 100%;
+  height: 55%;
+  outline: none;
+  border: 0;
+  resize: none;
+  margin-top: 1.25rem;
+  font-family: Raleway;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  overflow-y: auto;
+}
+
+.ask-question-modal__textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+.ask-question-modal__textarea::-webkit-scrollbar-thumb {
+  background: var(--color-darkgrey);
+  border-radius: 10px;
+}
+
+.ask-question-modal__checkbox-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ask-question-modal__checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid var(--color-navyblue);
+  border-radius: 0.15em;
+  display: grid;
+  place-content: center;
+}
+
+.ask-question-modal__checkbox::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--color-pink);
+  background-color: CanvasText;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked {
+  border: 2px solid var(--color-pink);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.ask-question-modal__checkbox-label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ask-question-modal__max-characters-input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  border: 2px solid var(--color-navyblue);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.ask-question-modal__max-characters-input:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 4px var(--color-light-navyblue);
+}
+
+.ask-question-modal__actions {
+  text-align: center;
+}
+
+/* utils css */
+.visibility--hidden {
+  visibility: hidden;
+}
+
+.visibility--visible {
+  visibility: visible;
+}

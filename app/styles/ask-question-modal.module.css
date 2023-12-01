@@ -124,18 +124,19 @@ input[type="checkbox"]:checked::before {
   .ask-question-modal__checkbox {
     width: 1.2rem;
   }
+}
+
+@media only screen and (max-width: 425px) {
+
+  .ask-question-modal__checkbox {
+    width: 1.6rem;
+  }
 
   .ask-question-modal__submit-button,
   .ask-question-modal__cancel-button {
     margin-right: 0;
     width: fit-content;
     padding: 0px 20px;
-  }
-}
-
-@media only screen and (max-width: 425px) {
-  .ask-question-modal__checkbox {
-    width: 1.6rem;
   }
 }
 

@@ -25,14 +25,14 @@
       <div class='answer-reply-modal__actions'>
         <Reusables::Button
           @text='Cancel'
-          @variant='dark btn--sm btn-light margin-right-1'
+          @variant='dark btn--sm btn-light answer-reply-modal__cancel-button'
           @test='question-modal-cancel'
           @onClick={{@closeModal}}
         />
         <Reusables::Button
           @type='button'
           @text='Ask'
-          @variant='dark btn--sm btn-pink'
+          @variant='dark btn--sm btn-pink answer-reply-modal__submit-button'
           @test='question-modal-cancel'
           @onClick={{@onSubmit}}
         />

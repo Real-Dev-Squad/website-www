@@ -1,12 +1,13 @@
 .answer-reply-modal {
-  /* height: 16rem; */
   width: 31.25rem;
+  box-sizing: border-box;
+
   background-color: var(--color-white);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 80svw;
+  max-width: 96svw;
   border-radius: 25px;
   padding: 1.25rem;
   padding-right: 40px;
@@ -60,4 +61,19 @@
 
 .answer-reply-modal__actions {
   text-align: center;
+}
+
+/* media queries */
+@media only screen and (max-width: 425px) {
+
+  .answer-reply-modal__submit-button,
+  .answer-reply-modal__cancel-button {
+    margin-right: 0;
+    width: fit-content;
+    padding: 0px 20px;
+  }
+
+  .answer-reply-modal__submit-button {
+    padding: 0 34px;
+  }
 }

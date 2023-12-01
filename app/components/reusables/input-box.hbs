@@ -6,7 +6,9 @@
   <input
     data-test-input-field
     name={{@name}}
-    class='input__field user-input input-regular'
+    class='input__field user-input input-regular
+      {{@variant}}
+      {{if @isError "user-input--error" ""}}'
     type={{@type}}
     id={{@name}}
     placeholder={{@placeHolder}}
@@ -14,4 +16,10 @@
     value={{@value}}
     {{on 'input' @onInput}}
   />
+  {{#if @shouldShowHelperText}}
+    <p
+      class='input-box__helper-text
+        {{if @isError "input-box__helper-text--error" ""}}'
+    >{{@helperText}}</p>
+  {{/if}}
 </div>

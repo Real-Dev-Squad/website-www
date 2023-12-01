@@ -1,0 +1,43 @@
+<BaseModal
+  @closeModal={{@closeModal}}
+  @openModal={{@openModal}}
+  @isOpen={{@isOpen}}
+>
+  <div class='answer-reply-modal'>
+    <h4 class='answer-reply-modal__heading'>Host asked you a question😀</h4>
+    <form>
+      <Reusables::InputBox
+        @field='How are you?'
+        @name='answer'
+        @type='text'
+        @placeHolder='Enter your answer'
+        @required={{true}}
+        @isError={{true}}
+        @helperText={{'Maximum character limit is 10 characters'}}
+        @variant='input--full-width'
+        @value={{@answerValue}}
+        @shouldShowHelperText={{true}}
+        @onInput={{@inputHandler}}
+      />
+      <p class='answer-reply-modal__info-text'>
+        <span class='answer-reply-modal__info-icon'>&iexcl;</span>
+        Do not use abusive words, this event is moderated!</p>
+      <div class='answer-reply-modal__actions'>
+        <Reusables::Button
+          @text='Cancel'
+          @variant='dark btn--sm btn-light margin-right-1'
+          @test='question-modal-cancel'
+          @onClick={{@closeModal}}
+        />
+        <Reusables::Button
+          @type='button'
+          @text='Ask'
+          @variant='dark btn--sm btn-pink'
+          @test='question-modal-cancel'
+          @onClick={{@onSubmit}}
+        />
+      </div>
+    </form>
+  </div>
+
+</BaseModal>

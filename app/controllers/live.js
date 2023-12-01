@@ -30,6 +30,8 @@ export default class LiveController extends Controller {
   @tracked newRoomCode = '';
   @tracked isActiveEventFound;
   @tracked buttonText = '';
+  @tracked isAnswerReplyModalOpen = true;
+  @tracked answerValue = '';
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -136,6 +138,22 @@ export default class LiveController extends Controller {
     this.isWarningModalOpen = !this.isWarningModalOpen;
   }
 
+  @action openAnswerReplyModal() {
+    this.isAnswerReplyModalOpen = true;
+  }
+
+  @action closeAnswerReplyModal() {
+    this.isAnswerReplyModalOpen = false;
+  }
+
+  @action onAnswerInput(event) {
+    console.log('on answer input ', event.target.value);
+    this.answerValue = event.target.value;
+  }
+
+  @action submitAnswer() {
+    console.log('submitting answer...');
+  }
   @action buttonClickHandler(buttonId) {
     switch (buttonId) {
       case BUTTONS_TYPE.SCREEN_SHARE:

@@ -8,7 +8,14 @@
       @tabHandler={{this.tabHandler}}
     />
   {{/if}}
-
+  <AnswerReplyModal
+    @openModal={{this.openAnswerReplyModal}}
+    @closeModal={{this.closeAnswerReplyModal}}
+    @isOpen={{this.isAnswerReplyModalOpen}}
+    @inputHandler={{this.onAnswerInput}}
+    @answerValue={{this.answerValue}}
+    @onSubmit={{this.submitAnswer}}
+  />
   <BaseModal
     @closeModal={{this.closeKickoutModal}}
     @openModal={{this.openKickoutModal}}

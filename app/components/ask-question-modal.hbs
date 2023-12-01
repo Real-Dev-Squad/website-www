@@ -28,6 +28,7 @@
       type='number'
       name='max-characters'
       id='max-characters'
+      min='1'
       class='ask-question-modal__max-characters-input
         {{if
           @isMaxCharactersChecked
@@ -45,7 +46,7 @@
         @onClick={{@closeModal}}
       />
       <Reusables::Button
-        @text='Ask'
+        @text='Submit'
         @variant='dark btn--sm btn-pink'
         @test='question-modal-cancel'
         @onClick={{@onSubmit}}

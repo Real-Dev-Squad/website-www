@@ -47,3 +47,41 @@
   justify-content: space-between;
   overflow-y: scroll;
 }
+
+.user-input--error {
+  animation: errorAnimation 0.1s ease-in-out 3;
+  border: 1px solid red;
+}
+
+.user-input--error.user-input:focus {
+  box-shadow: 0px 0px 0px 4px var(--color-soft-magenta);
+}
+
+.input-box .input--full-width {
+  width: 100%;
+}
+
+.input-box__helper-text {
+  font-size: 0.8rem;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: var(--color-lightgrey);
+}
+
+.input-box__helper-text--error {
+  color: var(--text-red);
+}
+
+@keyframes errorAnimation {
+  0% {
+    transform: translateX(-4px);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(-4px);
+  }
+}

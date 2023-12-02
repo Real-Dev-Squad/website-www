@@ -1,7 +1,7 @@
 <OnboardingCard>
   <form>
     <div class='card__getting-started'>
-      {{#if (not (eq this.currentStep 0))}}
+      {{#if (not-eq this.currentStep 0)}}
         <img
           src='assets/icons/onboarding-card-rds-logo.png'
           alt='RDS-Logo'

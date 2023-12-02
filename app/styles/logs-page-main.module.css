@@ -64,7 +64,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .logs {
     height: calc(100svh - 160px);
     margin-top: 50px;

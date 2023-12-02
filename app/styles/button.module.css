@@ -6,7 +6,7 @@
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 
 .btn-dark {
@@ -25,7 +25,7 @@
   border: none;
   color: var(--color-navyblue);
   cursor: not-allowed;
-  opacity: 60%;
+  opacity: 0.6;
 }
 
 .btn-pink {

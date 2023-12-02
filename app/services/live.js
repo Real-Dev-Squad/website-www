@@ -1,4 +1,4 @@
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import {
   HMSReactiveStore,
   selectIsSomeoneScreenSharing,
@@ -10,7 +10,6 @@ import {
 import { tracked } from '@glimmer/tracking';
 import { APPS } from 'website-www/constants/urls';
 import { globalRef } from 'ember-ref-bucket';
-import { inject as service } from '@ember/service';
 import {
   ROLES,
   PATCH_API_CONFIGS,

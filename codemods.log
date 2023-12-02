@@ -1,0 +1,4 @@
+2023-12-02T09:51:48.863Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/page-not-found.hbs
+2023-12-02T09:51:49.267Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
+2023-12-02T09:51:49.313Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/intro.hbs
+2023-12-02T09:51:49.327Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/join.hbs

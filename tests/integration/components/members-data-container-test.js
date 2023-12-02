@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, waitFor } from '@ember/test-helpers';
+import { render, waitFor, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import Service from '@ember/service';
 
@@ -49,6 +49,8 @@ module('Integration | Component | members-data-container', function (hooks) {
       timeoutMessage:
         'member-data-container indicator should eventually appear',
     });
+
+    await settled();
 
     assert.dom('ul li').exists({ count: 5 });
 

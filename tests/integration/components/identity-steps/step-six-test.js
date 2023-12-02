@@ -10,7 +10,7 @@ module('Integration | Component | identity-steps/step-six', function (hooks) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
-      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`,
     );
 
     assert.dom('[data-test=profile-service-url-Linking]').exists();
@@ -23,7 +23,7 @@ module('Integration | Component | identity-steps/step-six', function (hooks) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
-      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test=heading]')
@@ -35,7 +35,7 @@ module('Integration | Component | identity-steps/step-six', function (hooks) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
-      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test=description]')
@@ -43,7 +43,7 @@ module('Integration | Component | identity-steps/step-six', function (hooks) {
     assert
       .dom('[data-test=description]')
       .hasText(
-        'Ensure that you have deployed your profile service, Click on link button to start the linking process for joining RealDevSquad.'
+        'Ensure that you have deployed your profile service, Click on link button to start the linking process for joining RealDevSquad.',
       );
   });
 
@@ -53,7 +53,7 @@ module('Integration | Component | identity-steps/step-six', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<IdentitySteps::StepSix @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepSix @startHandler={{this.startHandler}} />`,
     );
 
     assert.dom('[data-test-button=next]').exists();

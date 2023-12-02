@@ -107,7 +107,7 @@ module('Integration | Component | navbar', function (hooks) {
       .dom('[data-test-user-image]')
       .hasAttribute(
         'src',
-        'https://avatars.githubusercontent.com/u/12345678?v=4'
+        'https://avatars.githubusercontent.com/u/12345678?v=4',
       );
     assert.dom('[data-test-icon]').exists();
   });

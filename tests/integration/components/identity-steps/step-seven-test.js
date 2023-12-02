@@ -18,7 +18,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   test('renders heading on verification page when profile status is pending', async function (assert) {
     this.set('handleRefresh', () => {});
     await render(
-      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`,
     );
 
     assert
@@ -30,7 +30,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   test('render description on verification page when profile status is pending', async function (assert) {
     this.set('handleRefresh', () => {});
     await render(
-      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`,
     );
 
     assert
@@ -47,7 +47,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
   test('render Refresh button on verification page when profile status is pending', async function (assert) {
     this.set('handleRefresh', () => {});
     await render(
-      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`,
     );
 
     assert.dom('[data-test-button=refresh]').hasText('Refresh');
@@ -62,7 +62,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
       objToCheckFunctions.isHandleRefreshWorks = true;
     });
     await render(
-      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`
+      hbs`<IdentitySteps::StepSeven @handleRefresh={{this.handleRefresh}} />`,
     );
 
     await click('[data-test-button=refresh]');
@@ -70,7 +70,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
     assert.true(
       objToCheckFunctions.isHandleRefreshWorks,
-      'handleRefresh function is working fine!'
+      'handleRefresh function is working fine!',
     );
   });
 
@@ -81,7 +81,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     await render(
       hbs`<IdentitySteps::StepSeven 
         @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
-      />`
+      />`,
     );
 
     assert
@@ -97,7 +97,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     await render(
       hbs`<IdentitySteps::StepSeven  
         @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
-      />`
+      />`,
     );
 
     assert
@@ -115,7 +115,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     await render(
       hbs`<IdentitySteps::StepSeven 
         @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
-      />`
+      />`,
     );
     assert.dom('[data-test-button=verify-again]').hasText('Verify Again');
     assert.dom('[data-test-button=verify-again]').hasProperty('type', 'button');
@@ -126,7 +126,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'VERIFIED');
     await render(
-      hbs`<IdentitySteps::StepSeven @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepSeven @startHandler={{this.startHandler}} />`,
     );
 
     assert
@@ -140,7 +140,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'VERIFIED');
     await render(
-      hbs`<IdentitySteps::StepSeven @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepSeven @startHandler={{this.startHandler}} />`,
     );
 
     assert
@@ -159,7 +159,7 @@ module('Integration | Component | identity-steps/step-seven', function (hooks) {
     this.loginService = this.owner.lookup('service:login');
     this.set('loginService.userData.profileStatus', 'VERIFIED');
     await render(
-      hbs`<IdentitySteps::StepSeven  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepSeven  @startHandler={{this.startHandler}} />`,
     );
     assert.dom('[data-test-button=next]').hasText('Next');
     assert.dom('[data-test-button=next]').hasProperty('type', 'button');

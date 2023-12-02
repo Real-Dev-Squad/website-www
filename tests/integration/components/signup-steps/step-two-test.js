@@ -13,7 +13,7 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
     });
 
     await render(
-      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test-getting-started-heading]')
@@ -29,7 +29,7 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
       await click('[data-test-button=lets-go]');
     });
     await render(
-      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`,
     );
 
     assert
@@ -48,7 +48,7 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
       await click('[data-test-button=Join-Discord]');
     });
     await render(
-      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`,
     );
 
     assert
@@ -66,7 +66,7 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
     });
 
     await render(
-      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`,
     );
 
     await click('[data-test-button=lets-go]');
@@ -80,7 +80,7 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
       await click('[data-test-button=lets-go]');
     });
     await render(
-      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test-getting-started-paragraph]')
@@ -95,12 +95,12 @@ module('Integration | Component | signup-steps/step-two', function (hooks) {
       await click('[data-test-button=Join-Discord]');
     });
     await render(
-      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`
+      hbs`<SignupSteps::StepTwo @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test-getting-started-paragraph]')
       .hasText(
-        'You can now join our Discord server where we do our discussions, learning and mentoring stuff'
+        'You can now join our Discord server where we do our discussions, learning and mentoring stuff',
       );
     window.localStorage.clear();
   });

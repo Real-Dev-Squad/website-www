@@ -46,13 +46,13 @@ export default class IdentityStepsStepFiveComponent extends Component {
         this.toast.info(
           'Updated profile URL!!',
           '',
-          toastNotificationTimeoutOptions
+          toastNotificationTimeoutOptions,
         );
       } else {
         this.toast.error(
           'Something went wrong. Please check console errors.',
           '',
-          toastNotificationTimeoutOptions
+          toastNotificationTimeoutOptions,
         );
       }
     } catch (error) {
@@ -60,7 +60,7 @@ export default class IdentityStepsStepFiveComponent extends Component {
       this.toast.error(
         'Something went wrong. Please check console errors.',
         '',
-        toastNotificationTimeoutOptions
+        toastNotificationTimeoutOptions,
       );
     } finally {
       this.isLoading = false;

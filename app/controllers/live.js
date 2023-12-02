@@ -80,7 +80,7 @@ export default class LiveController extends Controller {
         return this.toast.info(
           'No active event found!',
           'Info!',
-          TOAST_OPTIONS
+          TOAST_OPTIONS,
         );
 
       const roomId = await this.liveService.createRoom(this.name);
@@ -100,7 +100,7 @@ export default class LiveController extends Controller {
   @action tabHandler(tabId) {
     this.activeTab = this.TABS.find((tab) => tab.id === tabId).label;
     this.TABS = this.TABS.map((tab) =>
-      tab.id === tabId ? { ...tab, active: true } : { ...tab, active: false }
+      tab.id === tabId ? { ...tab, active: true } : { ...tab, active: false },
     );
   }
 

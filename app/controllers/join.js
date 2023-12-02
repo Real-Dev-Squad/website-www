@@ -39,7 +39,7 @@ export default class JoinController extends Controller {
         return this.toast.error(
           'Something went wrong. Please check console errors.',
           '',
-          toastNotificationTimeoutOptions
+          toastNotificationTimeoutOptions,
         );
 
       this.chaincode = chaincode;
@@ -47,13 +47,13 @@ export default class JoinController extends Controller {
       this.toast.info(
         'Generated New Chaincode!!',
         '',
-        toastNotificationTimeoutOptions
+        toastNotificationTimeoutOptions,
       );
     } catch (error) {
       this.toast.error(
         'Something went wrong. Please check console errors.',
         '',
-        toastNotificationTimeoutOptions
+        toastNotificationTimeoutOptions,
       );
     } finally {
       this.isLoading = false;

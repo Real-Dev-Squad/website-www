@@ -88,13 +88,13 @@ module('Integration | Component | live-join', function (hooks) {
     await click('[data-test-button="live-join-submit-button"]');
     assert.true(
       objToCheckFunctions.isClickHandlerWorks,
-      'clickHandler is working fine!'
+      'clickHandler is working fine!',
     );
 
     await click('[data-test-button="live-join-back-button"]');
     assert.true(
       objToCheckFunctions.isBackHandlerWorks,
-      'backHandler is working fine!'
+      'backHandler is working fine!',
     );
   });
 

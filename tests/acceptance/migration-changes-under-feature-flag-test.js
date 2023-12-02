@@ -112,7 +112,7 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.strictEqual(
       currentURL(),
       '/?dev=true',
-      'current pathname is /?dev=true'
+      'current pathname is /?dev=true',
     );
 
     assert.dom('[data-test-description-section]').exists();

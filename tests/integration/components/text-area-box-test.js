@@ -51,7 +51,7 @@ module('Integration | Component | text-area-box', function (hooks) {
     assert.strictEqual(
       this.value,
       'Hello, I am textarea and I am changing!',
-      'on input working!'
+      'on input working!',
     );
   });
 });

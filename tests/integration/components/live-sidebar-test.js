@@ -42,7 +42,7 @@ module('Integration | Component | live-sidebar', function (hooks) {
         .querySelector(`[data-test-sidebar-host-image]`)
         .getAttribute('src'),
       '/assets/images/profile.png',
-      'profile pic is same!'
+      'profile pic is same!',
     );
 
     assert.dom('[data-test-sidebar-host-name]').exists();

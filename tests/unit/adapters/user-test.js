@@ -19,7 +19,7 @@ module('Unit | Adapter | user', function (hooks) {
     assert.deepEqual(
       result,
       'https://staging-api.realdevsquad.com/search',
-      'it appends "/search" to the URL'
+      'it appends "/search" to the URL',
     );
   });
 
@@ -32,7 +32,7 @@ module('Unit | Adapter | user', function (hooks) {
     assert.deepEqual(
       result,
       'https://staging-api.realdevsquad.com',
-      'it does not append "/search" to the URL'
+      'it does not append "/search" to the URL',
     );
   });
 });

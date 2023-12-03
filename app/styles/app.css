@@ -1,4 +1,3 @@
-@import url("utils.module.css");
 @import url("navbar.module.css");
 @import url("header.module.css");
 @import url("description.module.css");
@@ -61,6 +60,6 @@ button {
   width: 0;
 }
 
-#toast-container>div {
+#toast-container > div {
   opacity: 1;
 }

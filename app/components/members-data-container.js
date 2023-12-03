@@ -26,7 +26,7 @@ export default class MembersDataContainerComponent extends Component {
         console.error(err);
         return [];
       });
-    this.allMembers = data.toArray();
+    this.allMembers = Array.from(data);
   }
 
   loadRandomMembers() {

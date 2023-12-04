@@ -4,7 +4,7 @@ import { AUTH } from '../constants/urls';
 
 export default class LoginService extends Service {
   @service store;
-  @tracked isLoggedIn;
+  @tracked isLoggedIn = false;
   @tracked userData;
   @tracked isLoading = true;
   @service fastboot;

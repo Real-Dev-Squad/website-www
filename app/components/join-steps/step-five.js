@@ -16,7 +16,7 @@ export default class StepFiveComponent extends Component {
     this.toast.success(
       'Successfully Copied to clipboard',
       'Link Copied!',
-      TOAST_OPTIONS
+      TOAST_OPTIONS,
     );
   }
 

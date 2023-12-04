@@ -1,4 +1,4 @@
-@import './variables.css';
+@import url("./variables.css");
 
 .nav {
   background-color: var(--color-navyblue);
@@ -114,10 +114,12 @@ nav li {
   flex-direction: column;
   justify-content: center;
   background-color: var(--color-offwhite);
-  box-shadow: var(--color-blackshadow) 0px 1px 2px 0px, var(--color-blackshadow2) 0px 2px 6px 2px;
+  box-shadow:
+    var(--color-blackshadow) 0 1px 2px 0,
+    var(--color-blackshadow2) 0 2px 6px 2px;
   border-radius: 10px;
   width: 150px;
-  padding: 15px 15px;
+  padding: 15px;
   position: absolute;
   right: 40px;
   top: 100px;
@@ -139,7 +141,7 @@ nav li {
   background-color: var(--color-greywhite);
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .hamburger--toggle {
     display: inline-block;
   }
@@ -147,8 +149,8 @@ nav li {
   .nav__menu {
     display: none;
     background-color: var(--color-offwhite);
-    padding: 10px 0px;
-    box-shadow: 0px 10px 15px var(--color-blackshadow);
+    padding: 10px 0;
+    box-shadow: 0 10px 15px var(--color-blackshadow);
   }
 
   .nav__menu a {
@@ -187,7 +189,7 @@ nav li {
   }
 }
 
-@media (max-width: 625px) {
+@media (width <= 625px) {
   .login__github {
     display: none;
   }

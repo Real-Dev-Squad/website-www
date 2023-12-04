@@ -8,7 +8,7 @@
   width: 24rem;
   padding: 1rem;
   box-sizing: border-box;
-  box-shadow: 0px 0px 10px grey;
+  box-shadow: 0 0 10px grey;
   background-color: var(--color-white);
   border-radius: 20px;
   display: flex;
@@ -21,7 +21,7 @@
   font-size: 1.5rem;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (width <= 425px) {
   .kickout-modal,
   .room-code-modal {
     width: 95%;
@@ -31,7 +31,7 @@
     font-size: 1.3rem;
   }
 
-  .kickout-modal__buttons .btn--sm{
+  .kickout-modal__buttons .btn--sm {
     width: 7rem;
   }
 }

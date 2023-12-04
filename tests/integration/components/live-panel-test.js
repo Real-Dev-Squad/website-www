@@ -13,7 +13,7 @@ module('Integration | Component | live-panel', function (hooks) {
     this.set('role', 'guest');
 
     await render(
-      hbs`<LivePanel @buttonClickHandler={{this.buttonClickHandler}} @role={{this.role}} @openRoomCodeModal={{this.toggleRoomCodeModal}}/>`
+      hbs`<LivePanel @buttonClickHandler={{this.buttonClickHandler}} @role={{this.role}} @openRoomCodeModal={{this.toggleRoomCodeModal}}/>`,
     );
 
     assert.dom('[data-test-live-panel]').exists();
@@ -51,7 +51,7 @@ module('Integration | Component | live-panel', function (hooks) {
       @role={{this.role}} 
       @openRoomCodeModal={{this.toggleRoomCodeModal}}
       @openWarningModal={{this.toggleWarningModal}}
-      />`
+      />`,
     );
 
     assert.dom(`[data-test-icon=leave-room]`).exists();
@@ -60,7 +60,7 @@ module('Integration | Component | live-panel', function (hooks) {
 
     assert.true(
       objToCheckFunctions.isOpenWarningModalWorks,
-      'Warning modal works fine'
+      'Warning modal works fine',
     );
   });
 });

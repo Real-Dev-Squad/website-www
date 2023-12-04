@@ -19,7 +19,7 @@ export default class RoomCodeComponent extends Component {
       this.args.toast.success(
         'Copied room code for maven!',
         'Success!',
-        TOAST_OPTIONS
+        TOAST_OPTIONS,
       );
       setTimeout(() => {
         this.isCopied = false;

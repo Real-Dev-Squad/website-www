@@ -30,7 +30,7 @@ module('Integration | Component | stepper', function (hooks) {
     assert
       .dom(`[data-test-message=one]`)
       .hasText(
-        'You are just a few steps 🪜 away from getting a personalized invite'
+        'You are just a few steps 🪜 away from getting a personalized invite',
       );
     assert
       .dom('[data-test-step-detail]')

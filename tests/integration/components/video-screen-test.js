@@ -26,7 +26,7 @@ module('Integration | Component | video-screen', function (hooks) {
     assert.strictEqual(
       document.querySelector('.video-screen').getAttribute('src'),
       this.src,
-      'src is equal!'
+      'src is equal!',
     );
   });
 });

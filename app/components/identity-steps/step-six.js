@@ -26,20 +26,20 @@ export default class IdentityStepsStepSixComponent extends Component {
         this.toast.info(
           'Your request has been queued successfully',
           '',
-          toastNotificationTimeoutOptions
+          toastNotificationTimeoutOptions,
         );
       } else {
         this.toast.error(
           'Something went wrong. Please check console errors.',
           '',
-          toastNotificationTimeoutOptions
+          toastNotificationTimeoutOptions,
         );
       }
     } catch (error) {
       this.toast.error(
         'Something went wrong. Please check console errors.',
         '',
-        toastNotificationTimeoutOptions
+        toastNotificationTimeoutOptions,
       );
     } finally {
       this.isLoading = false;

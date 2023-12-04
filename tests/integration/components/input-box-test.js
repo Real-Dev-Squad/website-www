@@ -52,7 +52,7 @@ module('Integration | Component | input-box', function (hooks) {
     assert.strictEqual(
       this.value,
       'Hello, I am input and I am changing!',
-      'on input working!'
+      'on input working!',
     );
   });
 });

@@ -58,7 +58,7 @@ module('Integration | Component | wheel-animations', function (hooks) {
       .exists('Animation image exists')
       .hasProperty(
         'src',
-        'https://res.cloudinary.com/realdevsquad/image/upload/w_150,h_150/1a'
+        'https://res.cloudinary.com/realdevsquad/image/upload/w_150,h_150/1a',
       )
       .hasProperty('alt', 'a z');
 
@@ -66,13 +66,13 @@ module('Integration | Component | wheel-animations', function (hooks) {
       document.querySelectorAll('[data-test-wheel-animation-member-link]')
         .length,
       3,
-      '3 members links are present'
+      '3 members links are present',
     );
     assert.deepEqual(
       document.querySelectorAll('[data-test-wheel-animation-member-image]')
         .length,
       3,
-      '3 members image are present'
+      '3 members image are present',
     );
   });
 
@@ -97,14 +97,14 @@ module('Integration | Component | wheel-animations', function (hooks) {
       .dom('[data-test-wheel-animation-member-image]')
       .hasProperty('alt', 'a z');
     console.log(
-      document.querySelector('[data-test-wheel-animation-member-image]')
+      document.querySelector('[data-test-wheel-animation-member-image]'),
     );
 
     assert.deepEqual(
       document
         .querySelector('[data-test-wheel-animation-member-image]')
         .getAttribute('src'),
-      'assets/images/profile.png'
+      'assets/images/profile.png',
     );
   });
 });

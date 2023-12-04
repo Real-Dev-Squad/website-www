@@ -28,7 +28,7 @@
 
 .intro__item {
   width: 34rem;
-  margin: 0.5rem 0rem;
+  margin: 0.5rem 0;
 }
 
 .item__label {
@@ -37,17 +37,17 @@
 
 .item__data {
   background-color: var(--color-bgpink);
-  min-height: 1.75rem;  
+  min-height: 1.75rem;
   border-radius: 10px;
   padding: 15px;
   text-align: justify;
 }
 
-.archived__heading{
-font-size: 1.4rem;
+.archived__heading {
+  font-size: 1.4rem;
 }
 
-@media screen and (max-width: 625px) {
+@media screen and (width <= 625px) {
   .intro__container {
     margin: 2rem 0;
   }

@@ -21,7 +21,7 @@ export default class StepperSignupComponent extends Component {
     super(...arguments);
 
     this.currentStep = Number(
-      new URLSearchParams(window.location.search).get('step')
+      new URLSearchParams(window.location.search).get('step'),
     );
   }
 

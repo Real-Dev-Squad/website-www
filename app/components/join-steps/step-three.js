@@ -38,11 +38,11 @@ export default class StepThreeComponent extends Component {
   isDataValid() {
     const isWhyRdsValid = validator(
       this.data.whyRds,
-      STEP_THREE_LIMITS.word.whyRds
+      STEP_THREE_LIMITS.word.whyRds,
     );
     const isFoundFromValid = validator(
       this.data.foundFrom,
-      STEP_THREE_LIMITS.word.foundFrom
+      STEP_THREE_LIMITS.word.foundFrom,
     );
     const isNumberOfHoursValid =
       parseInt(this.data.numberOfHours) >=
@@ -70,7 +70,7 @@ export default class StepThreeComponent extends Component {
       if (field !== 'numberOfHours') {
         const { isValid, remainingWords } = validator(
           this.data[field],
-          STEP_THREE_LIMITS.word[field]
+          STEP_THREE_LIMITS.word[field],
         );
         this.errorMessage = {
           ...this.errorMessage,

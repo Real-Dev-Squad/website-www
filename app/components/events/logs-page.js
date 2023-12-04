@@ -47,11 +47,11 @@ export default class LogsPageComponent extends Component {
         {
           ...GET_API_CONFIGS,
           credentials: 'include',
-        }
+        },
       );
 
       const logsFromApi = removePeerLogsTransformer(
-        (await logsResponse.json())?.logs
+        (await logsResponse.json())?.logs,
       );
 
       // filtering logs of current active event

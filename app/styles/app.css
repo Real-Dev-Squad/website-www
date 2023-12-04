@@ -1,45 +1,44 @@
-@import 'utils.module.css';
-@import 'navbar.module.css';
-@import 'header.module.css';
-@import 'description.module.css';
-@import 'cards.module.css';
-@import 'more-about.module.css';
-@import 'scroll-to-top.module.css';
-@import 'footer.module.css';
-@import 'button.module.css';
-@import 'input.module.css';
-@import 'dropdown.module.css';
-@import 'stepper.module.css';
-@import 'wheel-animations.css';
-@import 'page-not-found.module.css';
-@import 'join-section.module.css';
-@import 'live-header.module.css';
-@import 'tab.module.css';
-@import 'live.module.css';
-@import 'video-screen.module.css';
-@import 'skeleton.module.css';
-@import 'live-panel.module.css';
-@import 'icon-button.module.css';
-@import 'live-join.module.css';
-@import 'live-sidebar.module.css';
-@import 'live-roles.module.css';
-@import 'kickout-modal.module.css';
-@import 'base-modal.module.css';
-@import 'room-code-modal.module.css';
-@import 'intro.module.css';
-@import 'onboarding-card.module.css';
-@import 'logs-page-main.module.css';
-@import 'events.module.css';
-@import 'identity-card.module.css';
+@import url("navbar.module.css");
+@import url("header.module.css");
+@import url("description.module.css");
+@import url("cards.module.css");
+@import url("more-about.module.css");
+@import url("scroll-to-top.module.css");
+@import url("footer.module.css");
+@import url("button.module.css");
+@import url("input.module.css");
+@import url("dropdown.module.css");
+@import url("stepper.module.css");
+@import url("page-not-found.module.css");
+@import url("join-section.module.css");
+@import url("live-header.module.css");
+@import url("tab.module.css");
+@import url("live.module.css");
+@import url("video-screen.module.css");
+@import url("skeleton.module.css");
+@import url("live-panel.module.css");
+@import url("icon-button.module.css");
+@import url("live-join.module.css");
+@import url("live-sidebar.module.css");
+@import url("live-roles.module.css");
+@import url("kickout-modal.module.css");
+@import url("base-modal.module.css");
+@import url("room-code-modal.module.css");
+@import url("intro.module.css");
+@import url("onboarding-card.module.css");
+@import url("logs-page-main.module.css");
+@import url("events.module.css");
+@import url("identity-card.module.css");
+@import url("wheel-animations.css");
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   box-sizing: border-box;
-  font-family: 'raleway', sans-serif;
+  font-family: raleway, sans-serif;
   background-color: var(--color-white);
 }
 
@@ -54,13 +53,13 @@ h2 {
 input,
 select,
 button {
-  font-family: 'raleway', sans-serif;
+  font-family: raleway, sans-serif;
 }
 
 ::-webkit-scrollbar {
   width: 0;
 }
 
-#toast-container>div {
+#toast-container > div {
   opacity: 1;
 }

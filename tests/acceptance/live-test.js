@@ -13,7 +13,7 @@ module('Acceptance | live', function (hooks) {
     assert.strictEqual(
       currentURL(),
       '/page-not-found',
-      'url is /page-not-found'
+      'url is /page-not-found',
     );
 
     await visit('/live?dev=true');

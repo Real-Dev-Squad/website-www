@@ -1,272 +1,279 @@
 .onboarding-card {
   width: 35rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-white);
-    border-radius: 24px;
-    position: relative;
-    padding: 4rem 2rem 2rem 2rem; 
-    box-shadow: 0px 4px 10px -2px var(--color-blackshadow), 0px 6px 15px -2px var(--color-blackshadow2);
-    margin-top:5rem;
-}
-.logo__github-rds {
-    height: 5rem;
-    position: absolute;
-    top: 0;
-    transform: translateX(-50%) translateY(-50%);
-    left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-white);
+  border-radius: 24px;
+  position: relative;
+  padding: 4rem 2rem 2rem;
+  box-shadow:
+    0 4px 10px -2px var(--color-blackshadow),
+    0 6px 15px -2px var(--color-blackshadow2);
+  margin-top: 5rem;
 }
 
-.p2-description{
-    font-size: 1rem;
-    font-weight: 100;
-    text-align: center;
-    line-height: 2rem;
+.logo__github-rds {
+  height: 5rem;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+}
+
+.p2-description {
+  font-size: 1rem;
+  font-weight: 100;
+  text-align: center;
+  line-height: 2rem;
 }
 
 .signup-details__rds-logo {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%) translateY(-50%);
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .logos-container__rds {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 2rem;
 }
 
 .heading__h3 {
-    color: var(--neutral-neutral-700, #272626);
-    text-align: center;
-    font-size: 1.4rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 4rem; 
+  color: var(--neutral-neutral-700, #272626);
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 4rem;
 }
 
-.card__getting-started{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.card__getting-started {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.step-one__button{
-    margin: 0.5rem;
-    text-align: center;
+.step-one__button {
+  margin: 0.5rem;
+  text-align: center;
 }
 
-.role-confirmation__field{
-    display: flex;
-    justify-content: center;
+.role-confirmation__field {
+  display: flex;
+  justify-content: center;
 }
 
-.checkbox-label{
-    padding-top: 1rem;
-    font-size: 1.1rem;
+.checkbox-label {
+  padding-top: 1rem;
+  font-size: 1.1rem;
 }
 
-.chaincode-page{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    max-width: 25rem;
+.chaincode-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  max-width: 25rem;
 }
 
-.chaincode-page__description{
-    text-align: center;
+.chaincode-page__description {
+  text-align: center;
 }
 
-.chaincode-container{
-    min-width: 90%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-    border: 1px solid;
-    border-radius: 0.5rem;
+.chaincode-container {
+  min-width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border: 1px solid;
+  border-radius: 0.5rem;
 }
 
-.chaincode-container__value-invisible{
-    letter-spacing: 0.4rem;
-    margin-left: 1rem;
-    font-weight: bold;
+.chaincode-container__value-invisible {
+  letter-spacing: 0.4rem;
+  margin-left: 1rem;
+  font-weight: bold;
 }
 
-.chaincode-container__value-visible{
-    font-weight: bold;
-    margin-left: 1rem;
-    letter-spacing: 0.2rem;
-}
-.chaincode-container__action{
-   display: flex;
+.chaincode-container__value-visible {
+  font-weight: bold;
+  margin-left: 1rem;
+  letter-spacing: 0.2rem;
 }
 
-.chaicode-button-icon{
-    background: none;
-    border: none;
-    padding: 0 0.4rem;
-    cursor: pointer;
+.chaincode-container__action {
+  display: flex;
 }
 
-.profile-service-page{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.chaicode-button-icon {
+  background: none;
+  border: none;
+  padding: 0 0.4rem;
+  cursor: pointer;
 }
 
-.profile-service-page__description{
-    text-align: center;
+.profile-service-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.profile-service-page__inputContainer{
-    display: flex;
-    position: relative;
+.profile-service-page__description {
+  text-align: center;
 }
 
-profile-service-page__inputContainer__input-label{
-    display: none;
+.profile-service-page__inputContainer {
+  display: flex;
+  position: relative;
 }
 
-.profile-service-page__inputContainer__input-url{
-    flex: 1;
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid var(--color-shade-grey);
-    background: var(--color-white);
+profile-service-page__inputcontainer__input-label {
+  display: none;
 }
 
-.profile-service-page__inputContainer__tooltip{
-    margin-left: 1rem;
-    cursor: pointer;
-    border: none;
-    background: none;
+.profile-service-page__inputContainer__input-url {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--color-shade-grey);
+  background: var(--color-white);
 }
 
-.tooltip-info{
-    font-size: 0.7rem;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--color-offwhite);
-    box-shadow: var(--color-blackshadow) 0px 1px 2px 0px, var(--color-blackshadow2) 0px 2px 6px 2px;
-    border-radius: 10px;
-    border-top-left-radius:0;
-    width: 10rem;
-    padding: 1rem 1rem;
-    position: absolute;
-    left: 20rem;
+.profile-service-page__inputContainer__tooltip {
+  margin-left: 1rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.tooltip-info {
+  font-size: 0.7rem;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  background-color: var(--color-offwhite);
+  box-shadow:
+    var(--color-blackshadow) 0 1px 2px 0,
+    var(--color-blackshadow2) 0 2px 6px 2px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  width: 10rem;
+  padding: 1rem;
+  position: absolute;
+  left: 20rem;
+  top: 2rem;
+  display: none;
+}
+
+.active-tooltip-info {
+  display: flex;
+}
+
+.tooltip-info__container {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-service-page__button {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-service-url-linking-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  max-width: 25rem;
+}
+
+.profile-service-url-linking-page__description {
+  text-align: center;
+}
+
+@media (width <= 1024px) {
+  .btn-generateUsername {
+    width: 5rem;
+    font-size: 12px;
+  }
+
+  .checkbox-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (width <= 768px) {
+  .onboarding-card {
+    width: 30rem;
+    padding: 3.5rem 1rem;
+  }
+
+  .signup-details__rds-logo {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .heading__h3 {
+    padding-top: 0;
+  }
+
+  .logo__img--github {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  .logo__img--rds {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .logo__img--link {
+    width: 2.8rem;
+    height: 2.5rem;
+  }
+
+  .tooltip-info {
+    font-size: 0.5rem;
     top: 2rem;
-    flex-wrap: wrap;
-    display: none;
+    left: 11rem;
+    width: 8rem;
+    padding: 15px 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 0;
+  }
 }
 
-.active-tooltip-info{
-    display: flex;
-}
+@media (width <= 480px) {
+  .onboarding-card {
+    width: 90%;
+  }
 
-.tooltip-info__container{
-    margin-top: 0.5rem;
-    display: flex;
-    flex-direction: column;
-}
+  .checkbox-label {
+    font-size: 1rem;
+  }
 
-.profile-service-page__button{
-    display: flex;
-    justify-content: center;
-}
+  .chaincode-container__value-invisible {
+    letter-spacing: 0.2rem;
+  }
 
-.profile-service-url-linking-page{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    max-width: 25rem;
-}
+  .chaincode-container__value-visible {
+    letter-spacing: 0;
+  }
 
-.profile-service-url-linking-page__description{
-    text-align: center;
-}
+  .tooltip-info {
+    top: -5rem;
+    left: 9rem;
+    border-top-left-radius: 10px;
+  }
 
-@media (max-width: 1024px) {
-    .btn-generateUsername{
-        width: 5rem;
-        font-size: 12px;
-    }
-    .checkbox-label{
-        font-size: 0.8rem;
-    }
-}
-
-
-@media (max-width: 768px) {
-    .onboarding-card{
-        width: 30rem;
-        padding: 3.5rem 1rem;
-    }
-
-    .signup-details__rds-logo {
-        width: 5rem;
-        height: 5rem;
-    }
-
-    .heading__h3{
-        padding-top: 0;
-    }
-
-    .logo__img--github {
-        height: 5rem;
-        width: 5rem;
-    }
-
-    .logo__img--rds {
-        width: 5rem;
-        height: 5rem;
-    }
-
-    .logo__img--link {
-        width: 2.8rem;
-        height: 2.5rem;
-    }
-
-    .tooltip-info{
-        font-size: 0.5rem;
-        top: 2rem;
-        left: 11rem;
-        width: 8rem;
-        padding: 15px 5px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 0px;
-    }
-
-}
-
-@media (max-width: 480px) {
-    .onboarding-card{
-        width: 90%;
-    }
-    .checkbox-label{
-        font-size: 1rem;
-    }
-    .chaincode-container__value-invisible{
-        letter-spacing: 0.2rem;
-    }
-    
-    .chaincode-container__value-visible{
-        letter-spacing: 0rem;
-    }
-
-    .tooltip-info{
-        top: -5rem;
-        left: 9rem;
-        border-top-left-radius: 10px;
-    }
-    .heading__h3 {
-        line-height: 2rem; 
-    }
+  .heading__h3 {
+    line-height: 2rem;
+  }
 }

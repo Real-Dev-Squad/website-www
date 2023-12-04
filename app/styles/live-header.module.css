@@ -24,7 +24,7 @@
   justify-content: center;
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .tabs {
     width: 100%;
     flex-direction: column;
@@ -43,7 +43,7 @@
     display: block;
     flex-direction: column;
     background-color: var(--color-offwhite);
-    padding: 10px 0px;
-    box-shadow: 0px 10px 15px var(--color-blackshadow);
+    padding: 10px 0;
+    box-shadow: 0 10px 15px var(--color-blackshadow);
   }
 }

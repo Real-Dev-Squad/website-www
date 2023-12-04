@@ -30,9 +30,15 @@ export default class LiveController extends Controller {
   @tracked newRoomCode = '';
   @tracked isActiveEventFound;
   @tracked buttonText = '';
+  @tracked isExpanded = false;
+
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
+  }
+
+  @action sidebarDisplayToggle() {
+    this.isExpanded = !this.isExpanded;
   }
 
   constructor() {

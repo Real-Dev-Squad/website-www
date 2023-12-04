@@ -1,3 +1,6 @@
+# dependencies
+/node_modules/
+
 # unconventional js
 /blueprints/*/files/
 

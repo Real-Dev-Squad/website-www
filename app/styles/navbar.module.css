@@ -93,7 +93,7 @@ nav li {
   cursor: pointer;
   border: none;
   background: none;
-  margin: 8px 25px;
+  margin: 8px 0;
 }
 
 .user__msg {
@@ -155,7 +155,7 @@ nav li {
   padding: 0;
 }
 
-@media (width <= 1024px) {
+@media (width <=1024px) {
   .hamburger--toggle {
     display: inline-block;
   }
@@ -203,7 +203,7 @@ nav li {
   }
 }
 
-@media (width <= 625px) {
+@media (width <=625px) {
   .login__github {
     display: none;
   }

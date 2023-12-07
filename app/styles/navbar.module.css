@@ -155,6 +155,64 @@ nav li {
   padding: 0;
 }
 
+.skeleton-holder {
+  display: flex;
+  align-items: center;
+}
+
+.skeleton-rectangle {
+  width: 105px;
+  height: 42px;
+  margin-right: 0.9rem;
+  border-radius: 4px;
+  background: var(--skeleton-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-bg) 0%,
+    var(--skeleton-shine-color) 20%,
+    var(--skeleton-bg) 40%,
+    var(--skeleton-bg) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 300px 104px;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+}
+
+.skeleton-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--skeleton-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-bg) 0%,
+    var(--skeleton-shine-color) 20%,
+    var(--skeleton-bg) 40%,
+    var(--skeleton-bg) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 300px 104px;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
+
 @media (width <=1024px) {
   .hamburger--toggle {
     display: inline-block;

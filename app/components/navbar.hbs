@@ -62,13 +62,9 @@
 
   <div class='nav__login'>
     {{#if @isLoading}}
-      <div data-test-loading class='nav__loading'>
-        <Fa-Icon
-          class='fa-inverse'
-          @size='2x'
-          @icon='circle-notch'
-          @spin={{true}}
-        />
+      <div data-test-loading class="skeleton-holder">
+        <div class="skeleton-rectangle" id="skeleton-rectangle"></div>
+        <div class="skeleton-circle" id="skeleton-circle"></div>
       </div>
     {{else}}
       {{#if @isLoggedIn}}

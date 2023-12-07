@@ -35,7 +35,7 @@ const APP_URLS = {
     PROFILE: `${SCHEME}staging-my.${DOMAIN}/profile`,
     TASKS: `${SCHEME}staging-my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
-    API_BACKEND: `http://localhost:3000`,
+    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
   test: {
     HOME: `${SCHEME}${DOMAIN}`,

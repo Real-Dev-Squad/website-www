@@ -30,6 +30,7 @@
 @import url("events.module.css");
 @import url("identity-card.module.css");
 @import url("wheel-animations.css");
+@import url("goto.module.css");
 
 * {
   margin: 0;

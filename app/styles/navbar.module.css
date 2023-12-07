@@ -26,8 +26,8 @@ nav li {
 }
 
 .nav__home__img {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   margin: 15px;
 }
 
@@ -35,7 +35,7 @@ nav li {
   display: block;
   text-decoration: none;
   color: var(--color-white);
-  margin: 55px 40px;
+  margin: 30px 25px;
 }
 
 .nav__home__link {
@@ -62,7 +62,7 @@ nav li {
   position: absolute;
   right: 0;
   top: 0;
-  margin: 45px 40px;
+  margin: 22px 25px;
 }
 
 .login {
@@ -93,6 +93,7 @@ nav li {
   cursor: pointer;
   border: none;
   background: none;
+  margin: 8px 25px;
 }
 
 .user__msg {
@@ -119,11 +120,12 @@ nav li {
     var(--color-blackshadow2) 0 2px 6px 2px;
   border-radius: 10px;
   width: 150px;
-  padding: 15px;
+  padding: 15px 0;
   position: absolute;
-  right: 40px;
-  top: 100px;
+  right: 20px;
+  top: 70px;
   display: none;
+  z-index: 1;
 }
 
 .active-menu {
@@ -132,13 +134,25 @@ nav li {
 
 .menu__link {
   border-radius: 5px;
-  padding: 15px 10px;
+  padding: 15px 30px;
   text-decoration: none;
   cursor: pointer;
+  color: var(--color-blue);
 }
 
 .menu__link:hover {
-  background-color: var(--color-greywhite);
+  background-color: var(--color-grey);
+  transition: background-color 0.38s ease-in;
+}
+
+.line {
+  border: 0;
+  border-bottom: 1px solid;
+  margin: auto;
+  opacity: 0.25;
+  color: inherit;
+  width: 90%;
+  padding: 0;
 }
 
 @media (width <= 1024px) {

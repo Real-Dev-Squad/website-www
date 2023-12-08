@@ -166,11 +166,13 @@ nav li {
   margin-right: 0.9rem;
   border-radius: 4px;
   background: var(--skeleton-bg);
-  background-image: linear-gradient(to right,
-      var(--skeleton-bg) 0%,
-      var(--skeleton-shine-color) 20%,
-      var(--skeleton-bg) 40%,
-      var(--skeleton-bg) 100%);
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-bg) 0%,
+    var(--skeleton-shine-color) 20%,
+    var(--skeleton-bg) 40%,
+    var(--skeleton-bg) 100%
+  );
   background-repeat: no-repeat;
   background-size: 300px 104px;
   animation-duration: 1.5s;
@@ -185,11 +187,13 @@ nav li {
   height: 30px;
   border-radius: 50%;
   background: var(--skeleton-bg);
-  background-image: linear-gradient(to right,
-      var(--skeleton-bg) 0%,
-      var(--skeleton-shine-color) 20%,
-      var(--skeleton-bg) 40%,
-      var(--skeleton-bg) 100%);
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-bg) 0%,
+    var(--skeleton-shine-color) 20%,
+    var(--skeleton-bg) 40%,
+    var(--skeleton-bg) 100%
+  );
   background-repeat: no-repeat;
   background-size: 300px 104px;
   animation-duration: 1.5s;

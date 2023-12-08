@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 import { registerDestructor } from '@ember/destroyable';
 import { tracked } from '@glimmer/tracking';
 
+const SCROLL_DEBOUNCE_TIME = 500;
 export default class ScrollToTopComponent extends Component {
   @service router;
   @tracked isLive = this.router.currentRoute.name === 'live';
@@ -12,7 +13,7 @@ export default class ScrollToTopComponent extends Component {
   constructor() {
     super(...arguments);
 
-    const onBodyScroll = myDebounce(
+    const onWindowScroll = myDebounce(
       this,
       function () {
         if (window.scrollY !== 0) {
@@ -21,14 +22,13 @@ export default class ScrollToTopComponent extends Component {
           this.isScrollToTopVisible = false;
         }
       },
-      1000,
+      SCROLL_DEBOUNCE_TIME,
     );
 
-    document.body.onscroll = onBodyScroll;
-    document.body.addEventListener('scroll', onBodyScroll);
+    window.addEventListener('scroll', onWindowScroll);
 
     registerDestructor(this, () =>
-      document.body.removeEventListener('scroll', onBodyScroll),
+      window.removeEventListener('scroll', onWindowScroll),
     );
   }
 

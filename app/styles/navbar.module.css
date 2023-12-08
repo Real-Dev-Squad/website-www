@@ -26,16 +26,16 @@ nav li {
 }
 
 .nav__home__img {
-  height: 50px;
-  width: 50px;
-  margin: 15px;
+  height: 3.125rem;
+  width: 3.125rem;
+  margin: 1rem;
 }
 
 .nav__element {
   display: block;
   text-decoration: none;
   color: var(--color-white);
-  margin: 30px 25px;
+  margin: 2rem 1.5rem;
 }
 
 .nav__home__link {
@@ -62,7 +62,7 @@ nav li {
   position: absolute;
   right: 0;
   top: 0;
-  margin: 22px 25px;
+  margin: 1.4rem 1.5rem;
 }
 
 .login {
@@ -93,7 +93,7 @@ nav li {
   cursor: pointer;
   border: none;
   background: none;
-  margin: 8px 0;
+  margin: 0.5rem 0;
 }
 
 .user__msg {
@@ -119,11 +119,11 @@ nav li {
     var(--color-blackshadow) 0 1px 2px 0,
     var(--color-blackshadow2) 0 2px 6px 2px;
   border-radius: 10px;
-  width: 150px;
-  padding: 15px 0;
+  width: 9.4rem;
+  padding: 1rem 0;
   position: absolute;
-  right: 20px;
-  top: 70px;
+  right: 1.25rem;
+  top: 4.4rem;
   display: none;
   z-index: 1;
 }
@@ -133,8 +133,8 @@ nav li {
 }
 
 .menu__link {
-  border-radius: 5px;
-  padding: 15px 30px;
+  border-radius: 0.32rem;
+  padding: 1rem 2rem;
   text-decoration: none;
   cursor: pointer;
   color: var(--color-blue);
@@ -161,10 +161,10 @@ nav li {
 }
 
 .skeleton-holder__rectangle {
-  width: 105px;
-  height: 42px;
+  width: 6.5rem;
+  height: 2.7rem;
   margin-right: 0.9rem;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: var(--skeleton-bg);
   background-image: linear-gradient(
     to right,
@@ -174,7 +174,7 @@ nav li {
     var(--skeleton-bg) 100%
   );
   background-repeat: no-repeat;
-  background-size: 300px 104px;
+  background-size: 18.75rem 6.5rem;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
@@ -183,8 +183,8 @@ nav li {
 }
 
 .skeleton-holder__circle {
-  width: 30px;
-  height: 30px;
+  width: 1.9rem;
+  height: 1.9rem;
   border-radius: 50%;
   background: var(--skeleton-bg);
   background-image: linear-gradient(
@@ -195,7 +195,7 @@ nav li {
     var(--skeleton-bg) 100%
   );
   background-repeat: no-repeat;
-  background-size: 300px 104px;
+  background-size: 18.75rem 6.5rem;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
@@ -205,11 +205,11 @@ nav li {
 
 @keyframes placeholder-shimmer {
   0% {
-    background-position: -468px 0;
+    background-position: -29.25rem 0;
   }
 
   100% {
-    background-position: 468px 0;
+    background-position: 29.25rem 0;
   }
 }
 

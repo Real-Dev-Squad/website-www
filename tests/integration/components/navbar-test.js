@@ -176,7 +176,9 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-dropdown-home]').hasText('Home');
     assert.dom('[data-test-dropdown-home]').hasAttribute('href', APPS.HOME);
     assert.dom('[data-test-dropdown-status]').hasText('Status');
-    assert.dom('[data-test-dropdown-status]').hasAttribute('href', APPS.STATUS);
+    assert
+      .dom('[data-test-dropdown-status]')
+      .hasAttribute('href', APPS.MY_STATUS);
     assert.dom('[data-test-dropdown-profile]').hasText('Profile');
     assert
       .dom('[data-test-dropdown-profile]')

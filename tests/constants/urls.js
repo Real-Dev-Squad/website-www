@@ -3,10 +3,11 @@ export const APPS = {
   WELCOME: 'https://welcome.realdevsquad.com',
   EVENTS: 'https://realdevsquad.com/events',
   MEMBERS: 'https://members.realdevsquad.com',
-  STATUS: 'https://my.realdevsquad.com',
+  STATUS: 'https://status.realdevsquad.com',
   PROFILE: 'https://my.realdevsquad.com/profile',
   TASKS: 'https://my.realdevsquad.com/tasks',
   IDENTITY: 'https://my.realdevsquad.com/identity',
+  MY_STATUS: 'https://my.realdevsquad.com',
 };
 
 export const ABOUT = {

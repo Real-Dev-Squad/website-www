@@ -21,6 +21,7 @@ export default class NavbarComponent extends Component {
   LIVE_URL = APPS.LIVE;
   TASKS_URL = APPS.TASKS;
   IDENTITY_URL = APPS.IDENTITY;
+  MY_STATUS_URL = APPS.MY_STATUS;
 
   @action toggleNavbar() {
     this.isNavOpen = !this.isNavOpen;

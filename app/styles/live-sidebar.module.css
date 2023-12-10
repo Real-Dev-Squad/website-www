@@ -52,8 +52,8 @@
 .sidebar__participants--mobile {
   display: none;
   width: 100%;
-  background: rgba(255, 255, 255, 0);
-  padding: 0.5rem 0rem;
+  background: rgb(255 255 255 / 0%);
+  padding: 0.5rem 0;
   margin-bottom: 1rem;
   margin-left: 4rem;
   color: var(--color-navyblue);
@@ -139,7 +139,6 @@
   font-size: 17px;
   line-height: 20px;
   color: var(--color-black);
-  overflow-x: auto;
   width: 80%;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -178,14 +177,14 @@
   }
 }
 
-@media only screen and (max-width: 922px) {
+@media only screen and (width <=922px) {
   .loading span {
     width: 0.5rem;
     height: 0.5rem;
   }
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (width <=1025px) {
   .sidebar {
     padding: 0;
     width: 100%;
@@ -226,7 +225,7 @@
 
   @keyframes opensidebar {
     0% {
-      height: 0px;
+      height: 0;
     }
 
     100% {
@@ -240,7 +239,7 @@
     }
 
     100% {
-      height: 0px;
+      height: 0;
     }
   }
 }

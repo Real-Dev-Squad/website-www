@@ -107,7 +107,7 @@ module('Integration | Component | navbar', function (hooks) {
       .dom('[data-test-user-image]')
       .hasAttribute(
         'src',
-        'https://avatars.githubusercontent.com/u/12345678?v=4'
+        'https://avatars.githubusercontent.com/u/12345678?v=4',
       );
     assert.dom('[data-test-icon]').exists();
   });
@@ -176,7 +176,9 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-dropdown-home]').hasText('Home');
     assert.dom('[data-test-dropdown-home]').hasAttribute('href', APPS.HOME);
     assert.dom('[data-test-dropdown-status]').hasText('Status');
-    assert.dom('[data-test-dropdown-status]').hasAttribute('href', APPS.STATUS);
+    assert
+      .dom('[data-test-dropdown-status]')
+      .hasAttribute('href', APPS.MY_STATUS);
     assert.dom('[data-test-dropdown-profile]').hasText('Profile');
     assert
       .dom('[data-test-dropdown-profile]')

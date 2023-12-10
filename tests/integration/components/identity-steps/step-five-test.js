@@ -10,7 +10,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
-      hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`,
     );
 
     assert.dom('[data-test=profile-service]').exists();
@@ -21,7 +21,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
-      hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`,
     );
     assert.dom('[data-test=heading]').hasClass('profile-service-page__heading');
     assert.dom('[data-test=heading]').hasText('Deploy Profile Service');
@@ -31,7 +31,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     assert.expect(2);
     this.set('startHandler', () => {});
     await render(
-      hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test=description]')
@@ -39,7 +39,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     assert
       .dom('[data-test=description]')
       .hasText(
-        'Set the chaincode on your profile service. Deploy it and enter your profile service URL'
+        'Set the chaincode on your profile service. Deploy it and enter your profile service URL',
       );
   });
 
@@ -49,7 +49,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive  @startHandler={{this.startHandler}} />`,
     );
 
     assert
@@ -75,7 +75,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`,
     );
 
     await triggerEvent('[data-test=tooltip]', 'mouseover');
@@ -89,7 +89,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`,
     );
 
     await triggerEvent('[data-test=tooltip]', 'mouseout');
@@ -103,7 +103,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`,
     );
 
     assert.dom('[data-test-button=next]').exists();
@@ -117,12 +117,12 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`,
     );
 
     await typeIn(
       '[data-test-input-field=profile-service]',
-      'https://rds-profile-service.onrender.com'
+      'https://rds-profile-service.onrender.com',
     );
 
     assert.dom('[data-test-button=next]').hasProperty('disabled', false);
@@ -134,12 +134,12 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`,
     );
 
     await typeIn(
       '[data-test-input-field=profile-service]',
-      'rds-profile-service.onrender.com'
+      'rds-profile-service.onrender.com',
     );
 
     assert.dom('[data-test-button=next]').hasProperty('disabled', true);

@@ -1,7 +1,7 @@
 .joining__title {
   text-align: center;
   color: var(--color-darkblack);
-  margin: 100px 0px 40px;
+  margin: 100px 0 40px;
   font-size: 3.5rem;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .modal__close {
-  padding: 2px 2px;
+  padding: 2px;
   cursor: pointer;
   color: var(--color-darkblack);
   border: none;
@@ -119,13 +119,13 @@
   text-align: justify;
 }
 
-@media (max-width: 1250px) {
+@media (width <= 1250px) {
   .modal {
     width: 700px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .joining__title {
     font-size: 3rem;
     margin-bottom: 50px;
@@ -133,7 +133,7 @@
 
   .joining__content {
     font-size: 1.25rem;
-    padding: 0px;
+    padding: 0;
   }
 
   .cards {
@@ -155,7 +155,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .joining__title {
     font-size: 3rem;
     margin: 100px 20px 50px;
@@ -183,7 +183,7 @@
   }
 }
 
-@media (max-width: 625px) {
+@media (width <= 625px) {
   .joining__title {
     font-size: 2.5rem;
   }
@@ -203,7 +203,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (width <= 425px) {
   .joining__title {
     font-size: 2rem;
     margin: 50px 20px;

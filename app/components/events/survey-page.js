@@ -36,7 +36,7 @@ export default class SurveyPageComponent extends Component {
     debounce(
       setMaxCharacters,
       this.MAX_CHARACTERS_INPUT_DELAY,
-      event.target.value
+      event.target.value,
     );
   }
 }

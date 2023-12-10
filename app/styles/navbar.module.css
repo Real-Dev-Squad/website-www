@@ -1,4 +1,4 @@
-@import './variables.css';
+@import url("./variables.css");
 
 .nav {
   background-color: var(--color-navyblue);
@@ -26,16 +26,16 @@ nav li {
 }
 
 .nav__home__img {
-  height: 100px;
-  width: 100px;
-  margin: 15px;
+  height: 3.125rem;
+  width: 3.125rem;
+  margin: 1rem;
 }
 
 .nav__element {
   display: block;
   text-decoration: none;
   color: var(--color-white);
-  margin: 55px 40px;
+  margin: 2rem 1.5rem;
 }
 
 .nav__home__link {
@@ -62,7 +62,7 @@ nav li {
   position: absolute;
   right: 0;
   top: 0;
-  margin: 45px 40px;
+  margin: 1.4rem 1.5rem;
 }
 
 .login {
@@ -114,14 +114,17 @@ nav li {
   flex-direction: column;
   justify-content: center;
   background-color: var(--color-offwhite);
-  box-shadow: var(--color-blackshadow) 0px 1px 2px 0px, var(--color-blackshadow2) 0px 2px 6px 2px;
+  box-shadow:
+    var(--color-blackshadow) 0 1px 2px 0,
+    var(--color-blackshadow2) 0 2px 6px 2px;
   border-radius: 10px;
-  width: 150px;
-  padding: 15px 15px;
+  width: 9.4rem;
+  padding: 1rem 0;
   position: absolute;
-  right: 40px;
-  top: 100px;
+  right: 1.25rem;
+  top: 4.4rem;
   display: none;
+  z-index: 1;
 }
 
 .active-menu {
@@ -129,17 +132,86 @@ nav li {
 }
 
 .menu__link {
-  border-radius: 5px;
-  padding: 15px 10px;
+  padding: 1rem 2rem;
   text-decoration: none;
   cursor: pointer;
+  color: var(--color-blue);
 }
 
 .menu__link:hover {
   background-color: var(--color-greywhite);
+  transition: background-color 0.38s ease-in;
 }
 
-@media (max-width: 1024px) {
+.line {
+  border: 0;
+  border-bottom: 1px solid;
+  margin: auto;
+  opacity: 0.25;
+  color: inherit;
+  width: 90%;
+  padding: 0;
+}
+
+.skeleton-holder {
+  display: flex;
+  align-items: center;
+}
+
+.skeleton-holder__rectangle {
+  width: 6.5rem;
+  height: 2.7rem;
+  margin-right: 0.9rem;
+  border-radius: 0.25rem;
+  background: var(--skeleton-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-bg) 0%,
+    var(--skeleton-shine-color) 20%,
+    var(--skeleton-bg) 40%,
+    var(--skeleton-bg) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 18.75rem 6.5rem;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+}
+
+.skeleton-holder__circle {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--skeleton-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-bg) 0%,
+    var(--skeleton-shine-color) 20%,
+    var(--skeleton-bg) 40%,
+    var(--skeleton-bg) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 18.75rem 6.5rem;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: -29.25rem 0;
+  }
+
+  100% {
+    background-position: 29.25rem 0;
+  }
+}
+
+@media (width <=1024px) {
   .hamburger--toggle {
     display: inline-block;
   }
@@ -147,8 +219,8 @@ nav li {
   .nav__menu {
     display: none;
     background-color: var(--color-offwhite);
-    padding: 10px 0px;
-    box-shadow: 0px 10px 15px var(--color-blackshadow);
+    padding: 10px 0;
+    box-shadow: 0 10px 15px var(--color-blackshadow);
   }
 
   .nav__menu a {
@@ -187,7 +259,7 @@ nav li {
   }
 }
 
-@media (max-width: 625px) {
+@media (width <=625px) {
   .login__github {
     display: none;
   }

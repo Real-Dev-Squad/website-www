@@ -32,7 +32,7 @@
 }
 
 .user-input:focus {
-  box-shadow: 0px 0px 0px 4px var(--color-light-navyblue);
+  box-shadow: 0 0 0 4px var(--color-light-navyblue);
 }
 
 .input-regular {
@@ -49,12 +49,12 @@
 }
 
 .user-input--error {
-  animation: errorAnimation 0.1s ease-in-out 3;
+  animation: error-animation 0.1s ease-in-out 3;
   border: 1px solid red;
 }
 
 .user-input--error.user-input:focus {
-  box-shadow: 0px 0px 0px 4px var(--color-soft-magenta);
+  box-shadow: 0 0 0 4px var(--color-soft-magenta);
 }
 
 .input-box .input--full-width {
@@ -72,7 +72,7 @@
   color: var(--text-red);
 }
 
-@keyframes errorAnimation {
+@keyframes error-animation {
   0% {
     transform: translateX(-4px);
   }

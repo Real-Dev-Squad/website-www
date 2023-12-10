@@ -56,7 +56,7 @@ export default class StepTwoComponent extends Component {
       const field = e.target.name;
       const { isValid, remainingWords } = validator(
         this.data[field],
-        STEP_TWO_LIMITS[field]
+        STEP_TWO_LIMITS[field],
       );
       this.errorMessage = {
         ...this.errorMessage,

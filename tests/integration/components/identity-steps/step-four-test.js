@@ -14,7 +14,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
       hbs`<IdentitySteps::StepFour  
             @startHandler={{this.startHandler}} 
             @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-        />`
+        />`,
     );
 
     assert.dom('[data-test=chaincode]').exists();
@@ -29,7 +29,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
       hbs`<IdentitySteps::StepFour  
             @startHandler={{this.startHandler}} 
             @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-        />`
+        />`,
     );
     assert.dom('[data-test=heading]').hasClass('chaincode-page__heading');
     assert.dom('[data-test=heading]').hasText('Chaincode Generation');
@@ -43,7 +43,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
       hbs`<IdentitySteps::StepFour  
             @startHandler={{this.startHandler}} 
             @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-        />`
+        />`,
     );
     assert
       .dom('[data-test=description]')
@@ -51,7 +51,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
     assert
       .dom('[data-test=description]')
       .hasText(
-        "A private key that you need to use in your profile service URL and deploy for source that you're the source of the URL"
+        "A private key that you need to use in your profile service URL and deploy for source that you're the source of the URL",
       );
   });
 
@@ -67,7 +67,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
             @handleGenerateChaincode={{this.handleGenerateChaincode}} 
             @isChaincodeClicked={{this.isChaincodeClicked}}
             @chaincode={{this.chaincode}}
-        />`
+        />`,
     );
     assert.dom('[data-test-button=chaincode]').hasText('Generate Chaincode');
     assert.dom('[data-test-button=chaincode]').hasProperty('type', 'button');
@@ -81,7 +81,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
       hbs`<IdentitySteps::StepFour  
             @startHandler={{this.startHandler}} 
             @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-        />`
+        />`,
     );
     assert.dom('[data-test-button=next]').hasText('Next');
     assert.dom('[data-test-button=next]').hasProperty('disabled', true);
@@ -99,7 +99,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
             @startHandler={{this.startHandler}} 
             @handleGenerateChaincode={{this.handleGenerateChaincode}} 
             @isChaincodeClicked={{this.isChaincodeClicked}}
-        />`
+        />`,
     );
     await click('[data-test-button=chaincode]');
 
@@ -131,7 +131,7 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
             @handleGenerateChaincode={{this.handleGenerateChaincode}} 
             @isChaincodeClicked={{this.isChaincodeClicked}}
             @chaincode={{this.chaincode}}
-        />`
+        />`,
     );
     await click('[data-test-button=eye-icon]');
 

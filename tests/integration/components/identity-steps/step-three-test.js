@@ -14,7 +14,7 @@ module('Integration | Component | identity-steps/step-three', function (hooks) {
     });
 
     await render(
-      hbs`<IdentitySteps::StepThree @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepThree @startHandler={{this.startHandler}} />`,
     );
 
     assert
@@ -23,7 +23,7 @@ module('Integration | Component | identity-steps/step-three', function (hooks) {
     assert
       .dom('[data-test-getting-started-paragraph-1]')
       .hasText(
-        "A private that you need to use in your profile service URL and deploy for source that you're the source of the URL"
+        "A private that you need to use in your profile service URL and deploy for source that you're the source of the URL",
       );
     assert
       .dom('[data-test-getting-started-paragraph-2]')

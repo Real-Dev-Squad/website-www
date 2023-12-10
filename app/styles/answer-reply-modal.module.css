@@ -1,7 +1,6 @@
 .answer-reply-modal {
   width: 31.25rem;
   box-sizing: border-box;
-
   background-color: var(--color-white);
   position: absolute;
   top: 50%;
@@ -16,7 +15,6 @@
 .answer-reply-modal__heading {
   text-align: center;
   color: var(--color-pink);
-  font-family: Raleway;
   font-size: 1.5rem;
   text-decoration: underline;
   font-style: normal;
@@ -43,7 +41,7 @@
 
 .answer-reply-modal__answer-input:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 4px var(--color-light-navyblue);
+  box-shadow: 0 0 0 4px var(--color-light-navyblue);
 }
 
 .answer-reply-modal__info-text {
@@ -64,13 +62,12 @@
 }
 
 /* media queries */
-@media only screen and (max-width: 425px) {
-
+@media only screen and (width <= 425px) {
   .answer-reply-modal__submit-button,
   .answer-reply-modal__cancel-button {
     margin-right: 0;
     width: fit-content;
-    padding: 0px 20px;
+    padding: 0 20px;
   }
 
   .answer-reply-modal__submit-button {

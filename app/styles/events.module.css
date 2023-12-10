@@ -40,7 +40,7 @@
   border-radius: 1.25rem;
 }
 
-@media (max-width: 425px) {
+@media (width <= 425px) {
   .events-section__links-container > * {
     width: 100%;
   }

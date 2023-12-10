@@ -2,4 +2,7 @@
 <Description @isDev={{this.featureFlag.isDevMode}} />
 <JoinSection />
 <Cards />
+<MembersDataContainer as |members|>
+  <WheelAnimations @users={{members}} />
+</MembersDataContainer>
 <MoreAbout />

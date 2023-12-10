@@ -14,7 +14,6 @@
 .ask-question-modal__heading {
   text-align: center;
   color: var(--color-pink);
-  font-family: Raleway;
   font-size: 1.5rem;
   text-decoration: underline;
   font-style: normal;
@@ -29,7 +28,6 @@
   border: 0;
   resize: none;
   margin-top: 1.25rem;
-  font-family: Raleway;
   font-size: 1.1rem;
   font-style: normal;
   font-weight: 500;
@@ -52,12 +50,11 @@
 }
 
 .ask-question-modal__checkbox {
-  -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
   margin: 0;
   font: inherit;
-  color: currentColor;
+  color: currentcolor;
   width: 1.15rem;
   height: 1.15rem;
   border: 0.15em solid var(--color-navyblue);
@@ -103,7 +100,7 @@ input[type="checkbox"]:checked::before {
 
 .ask-question-modal__max-characters-input:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 4px var(--color-light-navyblue);
+  box-shadow: 0 0 0 4px var(--color-light-navyblue);
 }
 
 .ask-question-modal__actions {
@@ -115,7 +112,7 @@ input[type="checkbox"]:checked::before {
 }
 
 /* media queries */
-@media only screen and (max-width: 625px) {
+@media only screen and (width <=625px) {
   .ask-question-modal {
     height: 23rem;
     padding: 1.25rem 1rem;
@@ -126,8 +123,7 @@ input[type="checkbox"]:checked::before {
   }
 }
 
-@media only screen and (max-width: 425px) {
-
+@media only screen and (width <=425px) {
   .ask-question-modal__checkbox {
     width: 1.6rem;
   }
@@ -136,7 +132,7 @@ input[type="checkbox"]:checked::before {
   .ask-question-modal__cancel-button {
     margin-right: 0;
     width: fit-content;
-    padding: 0px 20px;
+    padding: 0 20px;
   }
 }
 

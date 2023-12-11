@@ -14,7 +14,17 @@
   margin: 0;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (width <= 768px) {
+  .card.live__join {
+    padding: 30px 20px;
+  }
+}
+
+@media screen and (width <= 425px) {
+  .card.live__join {
+    width: 80%;
+  }
+
   .live__join .user-input {
     width: 15rem;
   }

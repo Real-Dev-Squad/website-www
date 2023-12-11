@@ -5,6 +5,11 @@ import { APPS } from 'website-www/constants/urls';
 
 export default class ApplicationController extends Controller {
   @service login;
+  @service featureFlag;
+
+  get isDevMode() {
+    return this.featureFlag.isDevMode;
+  }
 
   @action async signOut() {
     try {

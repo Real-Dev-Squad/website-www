@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website-www/tests/helpers';
 import { EVENTS_CATEGORIES } from '../constants/events-data';
 import { SOCIAL_LINK_PROPERTIES } from '../constants/social-data';
@@ -36,7 +36,6 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.dom('[data-test-footer-repo-text-dev]').exists();
     assert.dom('[data-test-footer-repo-link-dev]').exists();
   });
-
   test('Migrated main section should exists when dev=true', async function (assert) {
     await visit('/');
 
@@ -68,5 +67,60 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
       assert.dom(`[data-test-social-icon=${social.title}]`).exists();
     });
     assert.dom('[data-test-vertical-separators]').exists({ count: 3 });
+  });
+
+  test('Migrated Join section should exist and join button should be disabled when dev=true', async function (assert) {
+    await visit('/');
+
+    assert.strictEqual(currentURL(), '/');
+
+    assert.dom('[data-test-join]').exists();
+    assert.dom('[data-test-join-title]').exists();
+    assert.dom('[data-test-join-title]').hasText('How to Join');
+    assert.dom('[data-test-join-title-highlighted]').exists();
+    assert.dom('[data-test-join-title-highlighted]').hasText('Real Dev Squad');
+    assert.dom('[data-test-para="1"]').exists();
+
+    await visit('/?dev=true');
+
+    assert.strictEqual(currentURL(), '/?dev=true');
+
+    assert.dom('[data-test-join]').exists();
+    assert.dom('[data-test-join-title]').exists();
+    assert.dom('[data-test-join-title]').hasText('How can you join?');
+    assert.dom('[data-test-join-title-highlighted]').doesNotExist();
+    assert.dom('[data-test-para="first"]').exists();
+    assert.dom('[data-test-join-link]').exists();
+    assert.dom('[data-test-join-link]').hasText('Join the Squad');
+    assert.dom('[data-test-join-later-text]').exists();
+    await click('[data-test-join-link]');
+
+    assert.strictEqual(currentURL(), '/?dev=true');
+  });
+
+  test('Migrated Description section should exist when dev=true', async function (assert) {
+    await visit('/');
+
+    assert.strictEqual(currentURL(), '/', 'current pathname is /');
+
+    assert.dom('[ data-test-description-img]').exists();
+    assert.dom('[data-test-description-title]').exists();
+    assert.dom('[data-test-description-content]').exists();
+
+    await visit('/?dev=true');
+
+    assert.strictEqual(
+      currentURL(),
+      '/?dev=true',
+      'current pathname is /?dev=true',
+    );
+
+    assert.dom('[data-test-description-section]').exists();
+    assert.dom('[data-test-description-section-title]').exists();
+    assert.dom('[data-test-description-section-content]').exists();
+    assert.dom('[data-test-description-section-content="para-first"]').exists();
+    assert
+      .dom('[data-test-description-section-content="para-second"]')
+      .exists();
   });
 });

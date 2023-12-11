@@ -8,7 +8,7 @@
 }
 
 .stepper__form {
-  margin: 0rem 1.5rem;
+  margin: 0 1.5rem;
 }
 
 .stepper__greeting {
@@ -23,11 +23,11 @@
 }
 
 .form__container {
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 
 .label {
-  color: var(--neutral-neutral-800, #1F1F1F);
+  color: var(--neutral-neutral-800, #1f1f1f);
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
@@ -73,7 +73,7 @@
 
 .copy__link {
   padding: 20px;
-  margin: 10px 0px;
+  margin: 10px 0;
   overflow-wrap: break-word;
   word-wrap: break-word;
   max-width: 20rem;
@@ -89,16 +89,17 @@
   padding-left: 20px;
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .user-input {
     width: 22rem;
   }
+
   .select {
     width: 23rem;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
   .stepper__greeting {
     font-size: 1.5rem;
   }
@@ -110,11 +111,12 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .user-input {
     width: 95%;
   }
-  .select{
+
+  .select {
     width: 95%;
   }
 }

@@ -107,7 +107,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
   test('It render the signup button', async function (assert) {
     assert.expect(2);
     await render(
-      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}}/>`
+      hbs`<SignupSteps::StepOne @onChange={{this.handleInputChange}}/>`,
     );
     select('[data-test-dropdown-field]', 'Developer');
     await click('[data-test-dropdown-option="Developer"]');

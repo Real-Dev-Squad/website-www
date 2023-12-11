@@ -5,7 +5,7 @@ const { Webpack } = require('@embroider/webpack');
 const { compatBuild } = require('@embroider/compat');
 
 module.exports = function (defaults) {
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
     // Add options here
   });
 

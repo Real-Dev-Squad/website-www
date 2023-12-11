@@ -1,4 +1,4 @@
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import {
   HMSReactiveStore,
   selectIsSomeoneScreenSharing,
@@ -10,7 +10,6 @@ import {
 import { tracked } from '@glimmer/tracking';
 import { APPS } from 'website-www/constants/urls';
 import { globalRef } from 'ember-ref-bucket';
-import { inject as service } from '@ember/service';
 import {
   ROLES,
   PATCH_API_CONFIGS,
@@ -51,11 +50,11 @@ export default class LiveService extends Service {
     this.hmsNotifications = this.hmsManager.notifications;
     this.hmsStore.subscribe(
       (peers) => this.renderScreenVideoToPeers(peers, this.hmsActions),
-      selectPeers
+      selectPeers,
     );
     this.hmsStore.subscribe(
       (isConnected) => this.onConnection(isConnected),
-      selectIsConnectedToRoom
+      selectIsConnectedToRoom,
     );
 
     this.hmsNotifications.onNotification((notification) => {
@@ -63,7 +62,7 @@ export default class LiveService extends Service {
         this.toast.info(
           `${notification.data.reason}`,
           'Notify!',
-          TOAST_OPTIONS
+          TOAST_OPTIONS,
         );
       }
     });
@@ -157,7 +156,7 @@ export default class LiveService extends Service {
         `${APPS.API_BACKEND}/events/${id}?isActiveRoom=true`,
         {
           ...GET_API_CONFIGS,
-        }
+        },
       );
       const { data } = await response.json();
       return data;
@@ -186,7 +185,7 @@ export default class LiveService extends Service {
         `${APPS.API_BACKEND}/events/${roomId}/codes`,
         {
           ...GET_API_CONFIGS,
-        }
+        },
       );
       const { data } = await response.json();
       return data;
@@ -206,7 +205,7 @@ export default class LiveService extends Service {
             eventCode: code,
             role: ROLES.maven,
           }),
-        }
+        },
       );
       const { data } = await response.json();
       return data;
@@ -228,7 +227,7 @@ export default class LiveService extends Service {
             role: peer?.roleName,
             joinedAt: peer?.joinedAt,
           }),
-        }
+        },
       );
       const { data } = await response.json();
       return data;
@@ -251,7 +250,7 @@ export default class LiveService extends Service {
             peerId: peerId,
             reason: reason,
           }),
-        }
+        },
       );
       const data = await response.json();
       if (response.status === 200 && data) {
@@ -282,13 +281,13 @@ export default class LiveService extends Service {
           return this.toast.info(
             'Please login to join with this role!',
             'Unauthenticated!',
-            TOAST_OPTIONS
+            TOAST_OPTIONS,
           );
         }
         this.toast.error(
           "You're not authorized to join with this role!",
           'Error!',
-          TOAST_OPTIONS
+          TOAST_OPTIONS,
         );
         this.isLoading = false;
         return;
@@ -309,7 +308,7 @@ export default class LiveService extends Service {
             this.toast.success(
               'Successfully joined the event!',
               'Success!',
-              TOAST_OPTIONS
+              TOAST_OPTIONS,
             );
           }
           this.isLoading = false;
@@ -333,7 +332,7 @@ export default class LiveService extends Service {
           this.toast.success(
             'Successfully joined the event!',
             'Success!',
-            TOAST_OPTIONS
+            TOAST_OPTIONS,
           );
         }
         this.isLoading = false;
@@ -352,7 +351,7 @@ export default class LiveService extends Service {
         this.toast.success(
           'Successfully joined the event!',
           'Success!',
-          TOAST_OPTIONS
+          TOAST_OPTIONS,
         );
       }
       this.isLoading = false;
@@ -381,7 +380,7 @@ export default class LiveService extends Service {
   async shareScreen() {
     try {
       const screenShareOn = !this.hmsStore.getState(
-        selectIsSomeoneScreenSharing
+        selectIsSomeoneScreenSharing,
       );
       await this.hmsActions.setScreenShareEnabled(screenShareOn);
       this.isScreenShareOn = screenShareOn;
@@ -404,10 +403,11 @@ export default class LiveService extends Service {
     const presenterTrackId = peers?.find((p) => p.roleName === ROLES.host)
       ?.auxiliaryTracks[0];
     if (presenterTrackId) {
-      this.isScreenShareOn = true;
       await this.hmsActions.attachVideo(presenterTrackId, this.videoEl);
+      this.isScreenShareOn = true;
     } else {
       await this.hmsActions.detachVideo(presenterTrackId, this.videoEl);
+      this.isScreenShareOn = false;
     }
   }
 

@@ -93,7 +93,7 @@ export default class SignupStepsStepOneComponent extends Component {
             'Content-Type': 'application/json',
           },
           credentials: 'include',
-        }
+        },
       );
       const data = await response.json();
       if (response.status === 200) {
@@ -105,7 +105,7 @@ export default class SignupStepsStepOneComponent extends Component {
         this.toast.error(
           'Please login to continue.',
           '',
-          toastNotificationTimeoutOptions
+          toastNotificationTimeoutOptions,
         );
       }
     } catch (err) {

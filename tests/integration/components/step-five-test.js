@@ -26,7 +26,7 @@ module('Integration | Component | step-five', function (hooks) {
     assert
       .dom('[data-test-instthree]')
       .hasText(
-        'Message this link to him with this Real Dev Squad verification link'
+        'Message this link to him with this Real Dev Squad verification link',
       );
     assert
       .dom('[data-test-instfour]')
@@ -34,7 +34,7 @@ module('Integration | Component | step-five', function (hooks) {
     assert
       .dom('[data-test-instfive]')
       .hasText(
-        'If the link is verified you will hear back with a personalized joining link within 7 working days'
+        'If the link is verified you will hear back with a personalized joining link within 7 working days',
       );
 
     assert

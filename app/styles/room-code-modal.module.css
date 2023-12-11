@@ -54,7 +54,6 @@
   width: 100%;
 }
 
-
 .room-code {
   background-color: var(--color-green-white);
   width: 90%;
@@ -74,8 +73,7 @@
   text-overflow: ellipsis;
 }
 
-
-@media only screen and (max-width: 425px) {
+@media only screen and (width <= 425px) {
   .room-code-modal__options > form {
     flex-wrap: wrap;
   }

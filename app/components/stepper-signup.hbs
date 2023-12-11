@@ -1,7 +1,7 @@
 <OnboardingCard>
   <form>
     <div class='card__getting-started'>
-      {{#if (not (eq this.currentStep 0))}}
+      {{#if (not-eq this.currentStep 0)}}
         <img
           src='assets/icons/onboarding-card-rds-logo.png'
           alt='RDS-Logo'
@@ -67,6 +67,12 @@
         <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 12)}}
         <IdentitySteps::StepSix @startHandler={{this.startHandler}} />
+      {{else if (eq this.currentStep 13)}}
+        <IdentitySteps::StepSeven
+          @handleRefresh={{this.handleRefresh}}
+          @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}}
+          @startHandler={{this.startHandler}}
+        />
       {{/if}}
     </div>
   </form>

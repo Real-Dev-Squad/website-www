@@ -28,7 +28,7 @@ module('Integration | Component | room-code-modal', function (hooks) {
             @newCode={{this.newCode}} 
             @onInput={{this.onInput}} 
             @createRoomCode={{this.createRoomCodeHandler}}
-          />`
+          />`,
     );
 
     assert.dom('[data-test-room-code-modal-input]').doesNotExist();
@@ -58,7 +58,7 @@ module('Integration | Component | room-code-modal', function (hooks) {
             @newCode={{this.newCode}} 
             @onInput={{this.onInput}} 
             @createRoomCode={{this.createRoomCodeHandler}}
-          />`
+          />`,
     );
 
     await click('[data-test-button=create-code]');

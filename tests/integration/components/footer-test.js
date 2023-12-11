@@ -42,7 +42,7 @@ module('Integration | Component | footer', function (hooks) {
     assert
       .dom('[data-footer-repo-text]')
       .hasText(
-        'The contents of the website are deployed from this open sourced repo'
+        'The contents of the website are deployed from this open sourced repo',
       );
     assert
       .dom('[data-footer-repo-link]')

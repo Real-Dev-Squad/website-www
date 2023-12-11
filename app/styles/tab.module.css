@@ -8,7 +8,7 @@
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
-  margin: 10px 0px;
+  margin: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,11 +20,11 @@
   text-decoration: underline;
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .tab {
     width: 100%;
     justify-content: flex-start;
     padding: 10px 50px;
-    border-radius: 0px;
+    border-radius: 0;
   }
 }

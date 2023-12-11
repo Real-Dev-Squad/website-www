@@ -15,7 +15,7 @@ module('Integration | Component | more-about', function (hooks) {
     assert
       .dom('[data-test-note]')
       .hasText(
-        'To know how this page is getting developed, join our Discord Channel. Contact one of our existing members for the invitation link or check our FAQ section.'
+        'To know how this page is getting developed, join our Discord Channel. Contact one of our existing members for the invitation link or check our FAQ section.',
       );
     assert.dom('[data-test-members-link]').hasAttribute('href', APPS.MEMBERS);
     assert.dom('[data-test-faq-link]').hasAttribute('href', ABOUT.FAQ);
@@ -31,7 +31,7 @@ module('Integration | Component | more-about', function (hooks) {
       .dom('[data-test-video]')
       .hasAttribute(
         'allow',
-        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
       );
   });
 });

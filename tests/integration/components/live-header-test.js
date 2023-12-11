@@ -22,7 +22,7 @@ module('Integration | Component | live-header', function (hooks) {
     this.set('tabHandler', (tabId) => {
       const selectedTab = this.tabs.find((tab) => tab.id === tabId).label;
       const newTabs = this.tabs.map((tab) =>
-        tab.id === tabId ? { ...tab, active: true } : { ...tab, active: false }
+        tab.id === tabId ? { ...tab, active: true } : { ...tab, active: false },
       );
       this.set('tabs', newTabs);
       this.set('activeTab', selectedTab);

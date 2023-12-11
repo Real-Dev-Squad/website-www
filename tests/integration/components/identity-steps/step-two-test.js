@@ -14,7 +14,7 @@ module('Integration | Component | identity-steps/step-two', function (hooks) {
     });
 
     await render(
-      hbs`<IdentitySteps::StepTwo @startHandler={{this.startHandler}} />`
+      hbs`<IdentitySteps::StepTwo @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test-getting-started-heading]')
@@ -22,7 +22,7 @@ module('Integration | Component | identity-steps/step-two', function (hooks) {
     assert
       .dom('[data-test-getting-started-paragraph-1]')
       .hasText(
-        'To add/update your profile details, link your profile service with Real Dev Squad service'
+        'To add/update your profile details, link your profile service with Real Dev Squad service',
       );
     assert
       .dom('[data-test-getting-started-paragraph-2]')

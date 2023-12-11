@@ -1,36 +1,35 @@
 :root {
-  --color-white: #ffffff;
+  --color-white: #fff;
   --color-offwhite: #fffbfb;
   --color-greywhite: #d0e7ff;
   --color-lightgrey: #c5c5c5;
   --color-darkgrey: #8c8c8c;
-  --color-green-white: #E9E9E9;
-  --color-shade-grey: #ABABAB;
+  --color-green-white: #e9e9e9;
+  --color-shade-grey: #ababab;
   --color-light-gray: #f2f2f2;
   --color-gray: #ccc;
-
-  --color-black: #000000;
+  --color-black: #000;
   --color-darkblack: #091133;
   --color-darkblack-low-opacity: #09113355;
   --color-blackshadow: #3c40434d;
   --color-blackshadow2: #3c404326;
-  --color-backdrop: #00000066;
-
+  --color-backdrop: #0006;
   --color-pink: #e30162;
   --color-carmine: #a10829;
   --color-soft-magenta: #f5c4f1;
   --color-pink-low-opacity: #e301632e;
   --color-bgpink: #feeeff;
-
+  --color-blue: #0d6efd;
   --color-navyblue: #1d1283;
   --color-green: #49a82e;
-
   --color-light-navyblue: #1d128340;
-
   --color-cultured: #f6f6f6;
-
-  --color-sidebar: #DADADA;
-  --color-sidebar-participants: #ffffff00;
-
+  --color-sidebar: #dadada;
+  --color-sidebar-participants: #fff0;
   --text-red: #fd0101;
+  --color-button-disabled: #a59f9f;
+  --color-soil: #926829;
+  --color-red: #ae03ba;
+  --skeleton-bg: #483bc0;
+  --skeleton-shine-color: #edeef1;
 }

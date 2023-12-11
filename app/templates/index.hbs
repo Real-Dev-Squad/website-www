@@ -1,5 +1,8 @@
 <Header />
-<Description />
+<Description @isDev={{this.featureFlag.isDevMode}} />
 <JoinSection />
 <Cards />
-<MoreAbout />
+<MembersDataContainer as |members|>
+  <WheelAnimations @users={{members}} />
+</MembersDataContainer>
+<MoreAbout @isDev={{this.featureFlag.isDevMode}} />

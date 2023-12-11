@@ -15,7 +15,7 @@ module('Unit | Utils | validator', function (hooks) {
     assert.strictEqual(
       result.remainingWords,
       1,
-      'There should be 1 remaining word for an empty string'
+      'There should be 1 remaining word for an empty string',
     );
   });
 
@@ -23,12 +23,12 @@ module('Unit | Utils | validator', function (hooks) {
     const result = validator('hello', 2);
     assert.notOk(
       result.isValid,
-      'isValid should be false for insufficient words'
+      'isValid should be false for insufficient words',
     );
     assert.strictEqual(
       result.remainingWords,
       1,
-      'There should be 1 remaining word for insufficient words'
+      'There should be 1 remaining word for insufficient words',
     );
   });
 
@@ -38,7 +38,7 @@ module('Unit | Utils | validator', function (hooks) {
     assert.strictEqual(
       result.remainingWords,
       0,
-      'There should be 0 remaining words for exact words'
+      'There should be 0 remaining words for exact words',
     );
   });
 });

@@ -1,4 +1,4 @@
-{{page-title 'Real Dev Squad'}}
+{{page-title "Real Dev Squad"}}
 <body>
   <Navbar
     @firstName={{this.login.userData.first_name}}
@@ -6,6 +6,7 @@
     @isLoggedIn={{this.login.isLoggedIn}}
     @isLoading={{this.login.isLoading}}
     @signOut={{this.signOut}}
+    @dev={{this.isDevMode}}
   />
   {{outlet}}
   <ScrollToTop />

@@ -28,7 +28,7 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<SignupSteps::StepZero @startHandler={{this.startHandler}} />`
+      hbs`<SignupSteps::StepZero @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test-signup-heading]')
@@ -36,7 +36,7 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
     assert
       .dom('[data-test-signup-paragraph]')
       .hasText(
-        'Please continue with Sign Up with in order to use features display yourself on members page etc'
+        'Please continue with Sign Up with in order to use features display yourself on members page etc',
       );
     assert.dom('[data-test-rds-logo-img]').exists();
     assert.dom('[data-test-button=lets-go]').hasText("Let's Go");
@@ -47,7 +47,7 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
     this.set('startHandler', () => {});
 
     await render(
-      hbs`<SignupSteps::StepZero @startHandler={{this.startHandler}} />`
+      hbs`<SignupSteps::StepZero @startHandler={{this.startHandler}} />`,
     );
 
     assert.dom('[data-test-rds-logo]').exists();

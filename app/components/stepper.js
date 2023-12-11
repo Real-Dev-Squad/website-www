@@ -27,7 +27,7 @@ export default class StepperComponent extends Component {
     super(...arguments);
     window.onpopstate = () => {
       this.currentStep = Number(
-        +new URLSearchParams(window.location.search).get('step')
+        +new URLSearchParams(window.location.search).get('step'),
       );
     };
   }
@@ -86,14 +86,14 @@ export default class StepperComponent extends Component {
         this.toast.success(
           'Successfully submitted the form',
           'Success!',
-          TOAST_OPTIONS
+          TOAST_OPTIONS,
         );
         this.incrementStep();
       } else if (response.status === 409) {
         this.toast.error(
           'You have already filled the form',
           'User Exist!',
-          TOAST_OPTIONS
+          TOAST_OPTIONS,
         );
       }
     } catch (err) {

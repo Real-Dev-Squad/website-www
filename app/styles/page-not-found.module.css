@@ -10,18 +10,18 @@
 .page-not-found__img {
   width: 400px;
 }
-  
+
 .page-not-found__text {
   font-size: 1.75rem;
-  text-align: center; 
+  text-align: center;
 }
 
-@media screen and (max-width: 625px) {
+@media screen and (width <= 625px) {
   .page-not-found__img {
     width: 70%;
   }
 
-  .page-not-found__text{
+  .page-not-found__text {
     font-size: 1.5rem;
   }
 }

@@ -7,4 +7,12 @@ export default class UserAdapter extends ApplicationAdapter {
     }
     return super.urlForQuery(...arguments);
   }
+
+  urlForQueryRecord(query) {
+    if (query.firstname && query.lastname) {
+      console.log('query 22', query);
+      return `${super.urlForQueryRecord(...arguments)}/username`;
+    }
+    return super.urlForQueryRecord(...arguments);
+  }
 }

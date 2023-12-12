@@ -2,9 +2,10 @@ import Service from '@ember/service';
 import { inject as service } from '@ember/service';
 import { APPS } from '../constants/urls';
 import { TOAST_OPTIONS } from '../constants/toast-options';
-import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
+// import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
 
 export default class OnboardingService extends Service {
+  @service store;
   @service login;
   @service toast;
 
@@ -45,28 +46,18 @@ export default class OnboardingService extends Service {
     try {
       const sanitizedFirstname = firstname.toLowerCase();
       const sanitizedLastname = lastname.toLowerCase();
-      const response = await fetch(
-        `${APPS.API_BACKEND}/users/username?firstname=${sanitizedFirstname}&lastname=${sanitizedLastname}&dev=true`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-        }
-      );
-      const data = await response.json();
-      if (response.status === 200) {
-        return data;
-      } else if (response.status === 401) {
-        this.toast.error(
-          'Please login to continue.',
-          '',
-          toastNotificationTimeoutOptions
-        );
+      const user = await this.store.queryRecord('user', {
+        firstname: sanitizedFirstname,
+        lastname: sanitizedLastname,
+        dev: true,
+      });
+
+      console.log('user', user);
+      if (user) {
+        return user;
       }
     } catch (err) {
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      console.error('error', err);
     }
   }
 }

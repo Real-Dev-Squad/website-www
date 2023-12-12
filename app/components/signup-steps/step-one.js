@@ -116,7 +116,7 @@ export default class SignupStepsStepOneComponent extends Component {
   @action async signup() {
     const { username } = await this.onboarding.generateUsername(
       this.data.firstname,
-      this.data.lastname
+      this.data.lastname,
     );
     const dataToUpdate = {
       roles: {

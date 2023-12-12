@@ -7,29 +7,31 @@ import { tracked } from '@glimmer/tracking';
 const SCROLL_DEBOUNCE_TIME = 500;
 export default class ScrollToTopComponent extends Component {
   @service router;
+  @service fastboot;
   @tracked isLive = this.router.currentRoute.name === 'live';
   @tracked isScrollToTopVisible = false;
 
   constructor() {
     super(...arguments);
+    if (!this.fastboot.isFastBoot) {
+      const onWindowScroll = myDebounce(
+        this,
+        function () {
+          if (window.scrollY !== 0) {
+            this.isScrollToTopVisible = true;
+          } else {
+            this.isScrollToTopVisible = false;
+          }
+        },
+        SCROLL_DEBOUNCE_TIME,
+      );
 
-    const onWindowScroll = myDebounce(
-      this,
-      function () {
-        if (window.scrollY !== 0) {
-          this.isScrollToTopVisible = true;
-        } else {
-          this.isScrollToTopVisible = false;
-        }
-      },
-      SCROLL_DEBOUNCE_TIME,
-    );
+      window.addEventListener('scroll', onWindowScroll);
 
-    window.addEventListener('scroll', onWindowScroll);
-
-    registerDestructor(this, () =>
-      window.removeEventListener('scroll', onWindowScroll),
-    );
+      registerDestructor(this, () =>
+        window.removeEventListener('scroll', onWindowScroll),
+      );
+    }
   }
 
   @action scrollToTop() {

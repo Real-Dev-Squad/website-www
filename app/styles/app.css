@@ -37,6 +37,10 @@
   padding: 0;
 }
 
+html {
+  scrollbar-width: thin;
+}
+
 body {
   box-sizing: border-box;
   font-family: raleway, sans-serif;
@@ -58,7 +62,14 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 0;
+  width: 10px;
+  box-shadow: inset 0 0 10px var(--color-lightgrey);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 10px;
+  background-color: var(--color-darkgrey);
 }
 
 #toast-container > div {

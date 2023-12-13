@@ -5,4 +5,4 @@
 <MembersDataContainer as |members|>
   <WheelAnimations @users={{members}} />
 </MembersDataContainer>
-<MoreAbout />
+<MoreAbout @isDev={{this.featureFlag.isDevMode}} />

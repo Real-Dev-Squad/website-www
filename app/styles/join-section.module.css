@@ -79,19 +79,19 @@
   color: var(--text-red);
 }
 
-@media (width <= 1250px) {
+@media (width <=1250px) {
   .join__title-highlighted {
     font-size: 3.5rem;
   }
 }
 
-@media (width <= 1024px) {
+@media (width <=1024px) {
   .join__para {
     width: 80%;
   }
 }
 
-@media (width <= 625px) {
+@media (width <=625px) {
   .join__title {
     font-size: 2.5rem;
   }
@@ -111,7 +111,7 @@
   }
 }
 
-@media (width <= 425px) {
+@media (width <=425px) {
   .join__title {
     font-size: 2rem;
   }

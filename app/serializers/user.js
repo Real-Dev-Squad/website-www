@@ -22,6 +22,7 @@ export default class UserSerializer extends ApplicationSerializer {
     const links = { ...payload.links, first: null, last: null };
     return { data, links };
   }
+
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
     if (requestType === 'queryRecord' && payload.username) {
       return {
@@ -42,5 +43,12 @@ export default class UserSerializer extends ApplicationSerializer {
         requestType,
       );
     }
+  }
+
+  serialize(snapshot, options) {
+    console.log('serilaize', snapshot, options);
+    let json = super.serialize(...arguments);
+    delete json.id;
+    return json;
   }
 }

@@ -1,5 +1,32 @@
 .survey-page {
   width: 100%;
-  height: 100%;
+  min-height: 65vh;
   border: 2px solid red;
+  box-sizing: border-box;
+  padding: 0.6rem 1rem;
+}
+
+.survey-page__question-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.survey-page__answers-heading {
+  border-radius: 10px;
+  background: var(--color-light-gray);
+  color: var(--color-pink);
+  font-size: 2.5rem;
+  padding: 0 10px;
+  line-height: 150%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  height: 65px;
+}
+
+@media (width <=768px) {
+  .survey-page__answers-heading {
+    font-size: 2rem;
+    line-height: 191%;
+  }
 }

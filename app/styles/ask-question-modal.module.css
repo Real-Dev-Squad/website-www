@@ -28,6 +28,7 @@
   border: 0;
   resize: none;
   margin-top: 1.25rem;
+  font-family: raleway, sans-serif;
   font-size: 1.1rem;
   font-style: normal;
   font-weight: 500;
@@ -75,11 +76,11 @@
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
-input[type="checkbox"]:checked {
+.ask-question-modal__checkbox:checked {
   border: 2px solid var(--color-pink);
 }
 
-input[type="checkbox"]:checked::before {
+.ask-question-modal__checkbox:checked::before {
   transform: scale(1);
 }
 

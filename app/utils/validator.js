@@ -13,3 +13,15 @@ export const validator = (value, words) => {
     remainingWords: remainingWords,
   };
 };
+
+// export const questionValidator = (question) => {
+//   const MIN_QUESTION_LENGTH = 5;
+//   if (!question) return { isValid: false, message: 'Please add valid question' };
+
+//   const trimmedQuestion = question.trim();
+
+//   if (!trimmedQuestion) return false;
+
+//   if (trimmedQuestion.length < MIN_QUESTION_LENGTH) return false;
+
+// }

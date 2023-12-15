@@ -3,53 +3,59 @@
   @openModal={{@openModal}}
   @isOpen={{@isOpen}}
 >
-  <div class='ask-question-modal'>
-    <h4 class='ask-question-modal__heading'>Ask Question</h4>
+  <div class="ask-question-modal">
+    <h4 class="ask-question-modal__heading">Ask Question</h4>
     <textarea
-      class='ask-question-modal__textarea'
-      name='question'
-      id='question'
-      placeholder='Enter your question here'
+      class="ask-question-modal__textarea"
+      name="question"
+      id="question"
+      placeholder="Enter your question here"
+      {{on "input" @onInput}}
+      value={{@question}}
     ></textarea>
-    <div class='ask-question-modal__checkbox-container'>
+    <div class="ask-question-modal__checkbox-container">
       <input
-        {{on 'change' @toggleMaxCharacterChecked}}
-        class='ask-question-modal__checkbox'
-        type='checkbox'
-        name='is-max-characters-checked'
-        id='is-max-characters-checked'
+        {{on "change" @toggleMaxCharacterChecked}}
+        class="ask-question-modal__checkbox"
+        type="checkbox"
+        name="is-max-characters-checked"
+        id="is-max-characters-checked"
+        checked={{@isMaxCharactersChecked}}
       />
       <label
-        class='ask-question-modal__checkbox-label'
-        for='is-max-characters-checked'
+        class="ask-question-modal__checkbox-label"
+        for="is-max-characters-checked"
       >Do you want answer to be of limited characters?</label>
     </div>
     <input
-      type='number'
-      name='max-characters'
-      id='max-characters'
-      min='1'
-      class='ask-question-modal__max-characters-input
+      type="number"
+      name="max-characters"
+      id="max-characters"
+      min="1"
+      class="ask-question-modal__max-characters-input
         {{if
           @isMaxCharactersChecked
-          "visibility--visible"
-          "visibility--hidden"
-        }}'
-      placeholder='Enter your characters limit'
-      {{on 'input' @onCharacterLimitInput}}
+          'visibility--visible'
+          'visibility--hidden'
+        }}"
+      value={{@maxCharacters}}
+      placeholder="Enter your characters limit"
+      {{on "input" @onCharacterLimitInput}}
     />
-    <div class='ask-question-modal__actions'>
+    <div class="ask-question-modal__actions">
       <Reusables::Button
-        @text='Cancel'
-        @variant='dark btn--sm btn-light ask-question-modal__cancel-button'
-        @test='question-modal-cancel'
+        @text="Cancel"
+        @variant="dark btn--sm btn-light ask-question-modal__cancel-button"
+        @test="question-modal-cancel"
         @onClick={{@closeModal}}
       />
       <Reusables::Button
-        @text='Submit'
-        @variant='dark btn--sm btn-pink ask-question-modal__submit-button'
-        @test='question-modal-cancel'
+        @text="Submit"
+        @variant="dark btn--sm btn-pink ask-question-modal__submit-button"
+        @test="question-modal-cancel"
         @onClick={{@onSubmit}}
+        @disabled={{(or @isSubmitButtonDisabled @isQuestionApiLoading)}}
+        @isLoading={{@isQuestionApiLoading}}
       />
     </div>
   </div>

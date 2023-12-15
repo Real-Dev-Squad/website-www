@@ -4,20 +4,26 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { globalRef } from 'ember-ref-bucket';
-import { ROLES, BUTTONS_TYPE } from '../constants/live';
+import { registerDestructor } from '@ember/destroyable';
+import { ROLES, BUTTONS_TYPE, ANSWER_STATUS } from '../constants/live';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import { APPS } from '../constants/urls';
 export default class LiveController extends Controller {
   queryParams = ['dev'];
   ROLES = ROLES;
   @service login;
   @service toast;
+  @service fastboot;
+  @service survey;
+  answerEventSource;
+  questionEventSource;
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
     { id: 2, label: 'Survey', active: false },
     { id: 4, label: 'Logs', active: false },
     { id: 3, label: 'More', active: false },
   ];
-  @tracked activeTab = 'Survey';
+  @tracked activeTab = 'Screenshare';
   @tracked isLoading = false;
   @tracked name = '';
   @tracked role = '';
@@ -30,8 +36,17 @@ export default class LiveController extends Controller {
   @tracked newRoomCode = '';
   @tracked isActiveEventFound;
   @tracked buttonText = '';
-  @tracked isAnswerReplyModalOpen = true;
+  @tracked isAnswerReplyModalOpen = false;
   @tracked answerValue = '';
+  @tracked answerValidationDetails = {
+    isError: false,
+    isHelperTextVisible: false,
+    helperText: '',
+  };
+  @tracked answerSubmitButtonState = {
+    isDisabled: true,
+    isLoading: false,
+  };
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -39,9 +54,18 @@ export default class LiveController extends Controller {
 
   constructor() {
     super(...arguments);
+    if (!this.fastboot.isFastBoot) {
+      this.questionSSEListener();
+      this.answerSSEListener();
+    }
     setTimeout(() => {
       this.isLoading = false;
     }, 4000);
+
+    registerDestructor(this, () => {
+      this.questionEventSource.close();
+      this.answerEventSource.close();
+    });
   }
 
   @action inputHandler(type, event) {
@@ -147,13 +171,63 @@ export default class LiveController extends Controller {
   }
 
   @action onAnswerInput(event) {
-    console.log('on answer input ', event.target.value);
+    const maxCharacters =
+      this.survey.recentQuestion.max_characters &&
+      this.survey.recentQuestion.max_characters;
     this.answerValue = event.target.value;
+
+    console.log('on answer input ln 160 ', this.survey.recentQuestion);
+
+    if (this.answerValue.trim().length > maxCharacters) {
+      this.answerValidationDetails.isError = true;
+      this.answerValidationDetails.helperText = `Maximum character limit is ${maxCharacters} characters`;
+      this.answerValidationDetails.isHelperTextVisible = true;
+      this.answerValidationDetails = this.answerValidationDetails;
+
+      this.answerSubmitButtonState.isDisabled = true;
+      this.answerSubmitButtonState = this.answerSubmitButtonState;
+    } else {
+      this.answerValidationDetails.isError = false;
+      this.answerValidationDetails.helperText = 's';
+      this.answerValidationDetails.isHelperTextVisible = false;
+      this.answerValidationDetails = this.answerValidationDetails;
+
+      this.answerSubmitButtonState.isDisabled = false;
+      this.answerSubmitButtonState = this.answerSubmitButtonState;
+    }
   }
 
-  @action submitAnswer() {
-    console.log('submitting answer...');
+  @action async submitAnswer() {
+    this.answerSubmitButtonState.isLoading = true;
+    this.answerSubmitButtonState.isDisabled = true;
+
+    this.answerSubmitButtonState = this.answerSubmitButtonState;
+
+    const answerBody = {
+      answer: this.answerValue.trim(),
+      answeredBy: this.liveService.localPeer?.id,
+      eventId: this.liveService?.activeRoomId,
+      questionId: this.survey.recentQuestion?.id,
+    };
+
+    const { error } = await this.survey.answerSubmitHandler(answerBody);
+
+    if (!error) {
+      this.isAnswerReplyModalOpen = false;
+      this.answerSubmitButtonState.isLoading = false;
+      this.answerSubmitButtonState.isDisabled = false;
+      this.answerSubmitButtonState = this.answerSubmitButtonState;
+    }
   }
+
+  @action async onAnswerReject(id) {
+    this.survey.answerRejectHandler(id);
+  }
+
+  @action async onAnswerApprove(id) {
+    this.survey.answerApproveHandler(id);
+  }
+
   @action buttonClickHandler(buttonId) {
     switch (buttonId) {
       case BUTTONS_TYPE.SCREEN_SHARE:
@@ -189,5 +263,76 @@ export default class LiveController extends Controller {
       this.liveService.roomCodesHandler(value);
       this.newRoomCode = '';
     }
+  }
+
+  questionSSEListener() {
+    const event = new EventSource(`${APPS.API_BACKEND}/questions`);
+    this.questionEventSource = event;
+
+    event.onmessage = async (event) => {
+      const parsedQuestion = JSON.parse(event.data);
+      const question = parsedQuestion || {};
+
+      const isQuestionChanged = question?.id !== this.survey.recentQuestion?.id;
+
+      this.survey.setRecentQuestion(question);
+
+      this.answerValue = '';
+      this.answerValidationDetails.isError = false;
+      this.answerValidationDetails.helperText = '';
+      this.answerValidationDetails.isHelperTextVisible = false;
+      this.answerValidationDetails = this.answerValidationDetails;
+
+      if (isQuestionChanged) {
+        this.answerEventSource.close();
+        this.answerSSEListener();
+      }
+
+      if (
+        question &&
+        this.liveService.isJoined &&
+        this.liveService.localPeer.roleName !== this.ROLES.host
+      ) {
+        this.isAnswerReplyModalOpen = true;
+      }
+    };
+
+    event.onerror = (event) => {
+      console.error(event);
+    };
+  }
+
+  answerSSEListener() {
+    const localPeerRole = this.liveService.localPeer?.roleName;
+    const isHost = localPeerRole === this.ROLES.host;
+    const isModerator = localPeerRole === this.ROLES.moderator;
+    const activeEventId = this.liveService?.activeRoomId;
+    let answersEventStreamURL = '';
+
+    if (isHost || isModerator) {
+      answersEventStreamURL = `${APPS.API_BACKEND}/answers?eventId=${activeEventId}&questionId=${this.survey.recentQuestion?.id}`;
+    } else {
+      answersEventStreamURL = `${APPS.API_BACKEND}/answers?eventId=${activeEventId}&questionId=${this.survey.recentQuestion?.id}&status=${ANSWER_STATUS.APPROVED}`;
+    }
+
+    const event = new EventSource(answersEventStreamURL);
+    this.answerEventSource = event;
+
+    event.onmessage = async (event) => {
+      const parsedAnswers = JSON.parse(event.data);
+      const answers = parsedAnswers || [];
+
+      if (isHost || isModerator) {
+        this.survey.setAnswers(answers);
+      } else {
+        this.survey.setApprovedAnswers(answers);
+      }
+
+      console.log('answerSSEListener answers ', answers);
+    };
+
+    event.onerror = (event) => {
+      console.error(event);
+    };
   }
 }

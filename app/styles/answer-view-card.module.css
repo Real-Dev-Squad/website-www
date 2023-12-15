@@ -1,0 +1,35 @@
+.answer-view-card {
+  box-shadow: 0 0 4px 0 var(--color-lightgrey);
+  min-height: 5rem;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 3 1;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.answer-view-card__text {
+  width: 80%;
+}
+
+.answer-view-card__read-more-button {
+  all: unset;
+  color: var(--color-pink);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.answer-view-card--pending {
+  background-color: #ffffe0;
+}
+
+.answer-view-card--approved {
+  background-color: #98fb98;
+}
+
+.answer-view-card--rejected {
+  background-color: var(--color-pink-low-opacity);
+}

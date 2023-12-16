@@ -1,8 +1,6 @@
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
-// import { APPS } from '../constants/urls';
 import { TOAST_OPTIONS } from '../constants/toast-options';
-// import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
 
 export default class OnboardingService extends Service {
   @service store;
@@ -48,13 +46,11 @@ export default class OnboardingService extends Service {
         lastname: sanitizedLastname,
         dev: true,
       });
-
-      console.log('user', user);
       if (user) {
         return user;
       }
     } catch (err) {
-      console.error('error', err);
+      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     }
   }
 }

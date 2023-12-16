@@ -45,8 +45,7 @@ export default class UserSerializer extends ApplicationSerializer {
     }
   }
 
-  serialize(snapshot, options) {
-    console.log('serilaize', snapshot, options);
+  serialize() {
     let json = super.serialize(...arguments);
     delete json.id;
     return json;

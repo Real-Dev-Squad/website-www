@@ -46,11 +46,11 @@ export default class OnboardingService extends Service {
         lastname: sanitizedLastname,
         dev: true,
       });
-      if (user) {
+      if (user && user.get('username')) {
         return user;
       }
     } catch (err) {
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      this.toast.error('Username cannot be generated', 'error!', TOAST_OPTIONS);
     }
   }
 }

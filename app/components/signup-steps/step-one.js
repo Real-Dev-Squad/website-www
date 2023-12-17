@@ -130,6 +130,5 @@ export default class SignupStepsStepOneComponent extends Component {
     };
     await this.onboarding.signup(dataToUpdate, this.data.role);
     this.args.incrementStep();
-    localStorage.setItem('role', this.data.role);
   }
 }

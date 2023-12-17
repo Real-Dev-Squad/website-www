@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, typeIn, select, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -73,12 +73,13 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
   });
 
   test('It display error message and disable the button for invalid input', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     await render(hbs`<SignupSteps::StepOne  />`);
     await typeIn('[data-test-input-field=firstname]', 'shubham_1');
     await typeIn('[data-test-input-field=lastname]', 'sigdar@');
     assert.dom('.error__message').exists();
+    assert.dom('[data-test-button=signup]').hasProperty('disabled', true);
   });
 
   test('it renders label and input checkbox when Maven role is chosen', async function (assert) {
@@ -116,7 +117,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert.dom('[data-test-button=signup]').hasText('Signup');
   });
 
-  skip('role based button should be enabled when all required fields are filled', async function (assert) {
+  test('signup button should be enabled when all required fields are filled', async function (assert) {
     assert.expect(1);
 
     await render(hbs`<SignupSteps::StepOne />`);
@@ -124,8 +125,8 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     await typeIn('[data-test-input-field=firstname]', 'shubham');
     await typeIn('[data-test-input-field=lastname]', 'sigdar');
 
-    select('[data-test-dropdown-field]', 'Maven');
-    await click('[data-test-dropdown-option="Maven"]');
+    select('[data-test-dropdown-field]', 'Designer');
+    await click('[data-test-dropdown-option="Designer"]');
 
     assert.dom('[data-test-button=signup]').hasProperty('disabled', false);
   });

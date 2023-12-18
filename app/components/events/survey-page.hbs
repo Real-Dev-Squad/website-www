@@ -32,20 +32,18 @@
       Answers
     </h2>
     <div class="survey-page__answers">
-      {{#each @answers as |answer|}}
-        <AnswerViewCard
-          @id={{answer.id}}
-          @answerObject={{answer}}
-          @onReject={{@onAnswerReject}}
-          @onApprove={{@onAnswerApprove}}
-        />
-      {{/each}}
-      <AnswerViewCard
-        @id={{"answer.id"}}
-        @answerObject={{"answer"}}
-        @onReject={{@onAnswerReject}}
-        @onApprove={{@onAnswerApprove}}
-      />
+      {{#if this.isAnswersPresent}}
+        {{#each @answers as |answer|}}
+          <AnswerViewCard
+            @id={{answer.id}}
+            @answerObject={{answer}}
+            @onReject={{@onAnswerReject}}
+            @onApprove={{@onAnswerApprove}}
+          />
+        {{/each}}
+      {{else}}
+        <div>No answers present currently!</div>
+      {{/if}}
     </div>
   </div>
 </div>

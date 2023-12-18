@@ -34,6 +34,7 @@
 @import url("ask-question-modal.module.css");
 @import url("answer-reply-modal.module.css");
 @import url("answer-view-card.module.css");
+@import url("word-cloud.module.css");
 
 * {
   margin: 0;

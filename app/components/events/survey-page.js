@@ -23,6 +23,9 @@ export default class SurveyPageComponent extends Component {
   @tracked isQuestionSubmitButtonDisabled = true;
   @tracked isQuestionApiLoading = false;
 
+  get isAnswersPresent() {
+    return Boolean(this.args.answers?.length);
+  }
   @action openAskQuestionModal() {
     this.isAskQuestionModalOpen = true;
   }
@@ -34,19 +37,12 @@ export default class SurveyPageComponent extends Component {
 
   @action async onQuestionSubmit() {
     this.isQuestionApiLoading = true;
-    console.log('active room id  ', this.live.activeRoomId);
     const questionBody = {
       question: this.question.trim(),
       createdBy: this.login.userData.id,
       eventId: this.live.activeRoomId, //this.live.activeRoomId will go here
       maxCharacters: this.maxCharacters || null,
     };
-
-    console.log(questionBody);
-    console.log(
-      '🚀 ~ file: survey-page.js:39 ~ SurveyPageComponent ~ @actiononAskQuestionButtonClick ~ ̥:',
-      questionBody,
-    );
 
     try {
       const questionResponse = await fetch(`${APPS.API_BACKEND}/questions`, {
@@ -75,7 +71,6 @@ export default class SurveyPageComponent extends Component {
   @action toggleMaxCharacterChecked() {
     this.isMaxCharactersChecked = !this.isMaxCharactersChecked;
 
-    console.log('this.isMaxCharactersChecked ', this.isMaxCharactersChecked);
     if (!this.isMaxCharactersChecked) {
       this.maxCharacters = null;
     }

@@ -176,8 +176,6 @@ export default class LiveController extends Controller {
       this.survey.recentQuestion.max_characters;
     this.answerValue = event.target.value;
 
-    console.log('on answer input ln 160 ', this.survey.recentQuestion);
-
     if (this.answerValue.trim().length > maxCharacters) {
       this.answerValidationDetails.isError = true;
       this.answerValidationDetails.helperText = `Maximum character limit is ${maxCharacters} characters`;
@@ -327,6 +325,7 @@ export default class LiveController extends Controller {
       } else {
         this.survey.setApprovedAnswers(answers);
       }
+      this.survey.showWordCloud();
 
       console.log('answerSSEListener answers ', answers);
     };

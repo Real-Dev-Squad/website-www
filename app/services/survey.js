@@ -1,4 +1,5 @@
 import Service, { inject as service } from '@ember/service';
+import { registerDestructor } from '@ember/destroyable';
 import { tracked } from '@glimmer/tracking';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import { APPS } from '../constants/urls';
@@ -6,15 +7,36 @@ import {
   ANSWER_STATUS,
   API_METHOD,
   PATCH_API_CONFIGS,
+  ROLES,
 } from '../constants/live';
+import { generateWordCloud } from '../d3/word-cloud';
 
 export default class SurveyService extends Service {
   @service router;
   @service toast;
-  @tracked answers;
-  @tracked approvedAnswers;
+  @service live;
+  @service fastboot;
+  @tracked answers = [];
+  @tracked approvedAnswers = [];
   @tracked recentQuestion;
+  @tracked screenWidth;
 
+  constructor() {
+    super(...arguments);
+
+    const onResize = () => {
+      this.screenWidth = window.innerWidth;
+      this.showWordCloud();
+    };
+
+    if (!this.fastboot.isFastBoot) {
+      this.screenWidth = window.innerWidth;
+      window.addEventListener('resize', onResize);
+      registerDestructor(this, () => {
+        window.removeEventListener('resize', onResize);
+      });
+    }
+  }
   setApprovedAnswers(approvedAnswers) {
     this.approvedAnswers = approvedAnswers;
   }
@@ -96,5 +118,45 @@ export default class SurveyService extends Service {
     } catch (error) {
       console.error('Error while rejecting answer: ', error);
     }
+  }
+
+  getFilteredApprovedAnswersArray() {
+    const isHost = this.live.localPeer?.roleName === ROLES.host;
+    const isModerator = this.live.localPeer?.roleName === ROLES.moderator;
+    const filteredApprovedAnswersArray = [];
+
+    if (isHost || isModerator) {
+      const filteredApprovedAnswers = this.answers?.filter(
+        (answer) => answer.status === ANSWER_STATUS.APPROVED,
+      );
+      filteredApprovedAnswers?.forEach((answer) => {
+        filteredApprovedAnswersArray.push(answer.answer);
+      });
+      return filteredApprovedAnswersArray;
+    }
+
+    this.approvedAnswers?.forEach((answer) => {
+      filteredApprovedAnswersArray.push(answer.answer);
+    });
+    return filteredApprovedAnswersArray;
+  }
+
+  showWordCloud() {
+    const element = '.word-cloud';
+    const words = this.getFilteredApprovedAnswersArray();
+
+    let wordCloudSize = {
+      x: this.screenWidth,
+      y: this.screenWidth,
+    };
+
+    if (!words?.length) return;
+
+    //for mobile/small screens
+    if (this.screenWidth < 500)
+      return generateWordCloud(words, element, wordCloudSize);
+
+    // for screen >=500px
+    generateWordCloud(words, element);
   }
 }

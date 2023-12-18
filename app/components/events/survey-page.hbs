@@ -31,9 +31,21 @@
     <h2 class="survey-page__answers-heading">
       Answers
     </h2>
+    <div class="survey-page__filter">
+      <label for="answer-status">Filter: </label>
+      <select
+        name="answer-status"
+        id="answer-status"
+        {{on "change" this.onAnswerFilterChange}}
+      >
+        {{#each this.ANSWER_STATUS_FILTERS as |status|}}
+          <option value={{status}}>{{status}}</option>
+        {{/each}}
+      </select>
+    </div>
     <div class="survey-page__answers">
       {{#if this.isAnswersPresent}}
-        {{#each @answers as |answer|}}
+        {{#each this.answers as |answer|}}
           <AnswerViewCard
             @id={{answer.id}}
             @answerObject={{answer}}

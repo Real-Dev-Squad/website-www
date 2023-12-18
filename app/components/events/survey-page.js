@@ -22,10 +22,30 @@ export default class SurveyPageComponent extends Component {
   @tracked isQuestionValid = false;
   @tracked isQuestionSubmitButtonDisabled = true;
   @tracked isQuestionApiLoading = false;
+  @tracked ANSWER_STATUS_FILTERS = ['ALL', 'PENDING', 'APPROVED', 'REJECTED'];
+  @tracked activeAnswerFilterValue = 'ALL';
 
   get isAnswersPresent() {
-    return Boolean(this.args.answers?.length);
+    return Boolean(this.answers?.length);
   }
+
+  get answers() {
+    const allAnswers = this.args.answers;
+
+    if (this.activeAnswerFilterValue === 'ALL') return allAnswers;
+
+    const answerToShow = allAnswers.filter(
+      (answer) => answer.status === this.activeAnswerFilterValue,
+    );
+
+    return answerToShow;
+  }
+
+  @action onAnswerFilterChange(event) {
+    this.activeAnswerFilterValue = event.target.value;
+    console.log(event.target.value);
+  }
+
   @action openAskQuestionModal() {
     this.isAskQuestionModalOpen = true;
   }

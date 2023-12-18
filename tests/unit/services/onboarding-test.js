@@ -33,18 +33,26 @@ module('Unit | Service | onboarding', function (hooks) {
   });
 
   test('signup method', async function (assert) {
-    assert.expect(3);
+    assert.expect(7);
 
     let service = this.owner.lookup('service:onboarding');
     let store = this.owner.lookup('service:store');
+
+    let setPropertiesCalled = false;
+    let saveCalled = false;
 
     store.peekRecord = () => null;
 
     store.createRecord = () => {
       assert.step('store.createRecord called');
       return {
-        setProperties() {},
+        setProperties() {
+          setPropertiesCalled = true;
+          assert.step('setProperties called');
+        },
         save() {
+          saveCalled = true;
+          assert.step('save called');
           return Promise.resolve();
         },
       };
@@ -60,6 +68,13 @@ module('Unit | Service | onboarding', function (hooks) {
     await service.signup(dataToUpdate, 'role');
     assert.ok(true, 'No errors were thrown');
 
-    assert.verifySteps(['store.createRecord called']);
+    assert.verifySteps([
+      'store.createRecord called',
+      'setProperties called',
+      'save called',
+    ]);
+
+    assert.ok(setPropertiesCalled, 'setProperties should be called');
+    assert.ok(saveCalled, 'save should be called');
   });
 });

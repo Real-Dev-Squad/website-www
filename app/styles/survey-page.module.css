@@ -1,15 +1,24 @@
 .survey-page {
   width: 100%;
-  min-height: 65vh;
-  border: 2px solid red;
+  margin-top: 3.1rem;
+  min-height: 80vh;
+  /* box-shadow: 0 0 10px 5px var(--color-light-gray); */
   box-sizing: border-box;
   padding: 0.6rem 1rem;
+  border-radius: 1rem;
 }
 
 .survey-page__question-container {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.survey-page__answers {
+  display: flex;
+
+  flex-direction: column;
+  gap: 10px;
 }
 
 .survey-page__answers-heading {

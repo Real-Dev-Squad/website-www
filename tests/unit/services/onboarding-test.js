@@ -32,7 +32,7 @@ module('Unit | Service | onboarding', function (hooks) {
     assert.verifySteps(['store.queryRecord called']);
   });
 
-  test('signup method', async function (assert) {
+  test('signup method for Developer role', async function (assert) {
     assert.expect(5);
 
     let service = this.owner.lookup('service:onboarding');
@@ -40,9 +40,9 @@ module('Unit | Service | onboarding', function (hooks) {
 
     store.peekRecord = () => null;
 
-    store.createRecord = () => {
+    store.createRecord = (modelName, properties) => {
       assert.step('store.createRecord called');
-      return {
+      let mockRecord = {
         setProperties() {
           assert.step('setProperties called');
         },
@@ -51,6 +51,50 @@ module('Unit | Service | onboarding', function (hooks) {
           return Promise.resolve();
         },
       };
+
+      Object.assign(mockRecord, properties);
+
+      return mockRecord;
+    };
+
+    let dataToUpdate = {
+      username: 'testuser',
+    };
+
+    await service.signup(dataToUpdate);
+    assert.ok(true, 'No errors were thrown');
+
+    assert.verifySteps([
+      'store.createRecord called',
+      'setProperties called',
+      'save called',
+    ]);
+  });
+
+  test('signup method for non-Developer role', async function (assert) {
+    assert.expect(3);
+
+    let service = this.owner.lookup('service:onboarding');
+    let store = this.owner.lookup('service:store');
+
+    store.peekRecord = () => null;
+
+    store.createRecord = (properties) => {
+      assert.step('store.createRecord called');
+
+      let mockRecord = {
+        setProperties() {
+          assert.step('setProperties called');
+        },
+        save() {
+          assert.step('save called');
+          return Promise.resolve();
+        },
+      };
+
+      Object.assign(mockRecord, properties);
+
+      return mockRecord;
     };
 
     let dataToUpdate = {
@@ -60,13 +104,9 @@ module('Unit | Service | onboarding', function (hooks) {
       },
     };
 
-    await service.signup(dataToUpdate, 'role');
+    await service.signup(dataToUpdate);
     assert.ok(true, 'No errors were thrown');
 
-    assert.verifySteps([
-      'store.createRecord called',
-      'setProperties called',
-      'save called',
-    ]);
+    assert.verifySteps(['store.createRecord called']);
   });
 });

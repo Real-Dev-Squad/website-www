@@ -11,7 +11,7 @@ export default class OnboardingService extends Service {
     super(...arguments);
     this.login.checkAuth();
   }
-  async signup(dataToUpdate, role) {
+  async signup(dataToUpdate) {
     try {
       let user = this.store.peekRecord('user', dataToUpdate.username);
 
@@ -21,17 +21,19 @@ export default class OnboardingService extends Service {
         });
       }
 
-      user.setProperties({
-        ...dataToUpdate,
-        roles: {
+      if (dataToUpdate.roles) {
+        user.set('roles', {
+          ...user.get('roles'),
           ...dataToUpdate.roles,
-          [role.toLowerCase()]: true,
-        },
+        });
+      }
+
+      user.setProperties({
+        first_name: dataToUpdate.first_name,
+        last_name: dataToUpdate.last_name,
       });
 
       await user.save();
-
-      localStorage.setItem('role', role);
     } catch (error) {
       this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     }

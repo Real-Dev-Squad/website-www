@@ -118,17 +118,23 @@ export default class SignupStepsStepOneComponent extends Component {
       this.data.firstname,
       this.data.lastname,
     );
-    const dataToUpdate = {
-      roles: {
-        maven: this.data.role === 'Maven',
-        designer: this.data.role === 'Designer',
-        productmanager: this.data.role === 'Product Manager',
-      },
+
+    let dataToUpdate = {
       username,
       first_name: this.data.firstname,
       last_name: this.data.lastname,
     };
-    await this.onboarding.signup(dataToUpdate, this.data.role);
+
+    if (this.data.role !== 'Developer') {
+      dataToUpdate.roles = {
+        maven: this.data.role === 'Maven',
+        designer: this.data.role === 'Designer',
+        productmanager: this.data.role === 'Product Manager',
+      };
+    }
+
+    await this.onboarding.signup(dataToUpdate);
+    localStorage.setItem('role', this.data.role);
     this.args.incrementStep();
   }
 }

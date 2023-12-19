@@ -37,7 +37,7 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.dom('[data-test-footer-repo-link-dev]').exists();
   });
 
-  test('Migrated main section should exists when dev=true', async function (assert) {
+  test('Old main section should exists when dev=true', async function (assert) {
     await visit('/');
 
     assert.strictEqual(currentURL(), '/');
@@ -99,22 +99,10 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.strictEqual(currentURL(), '/?dev=true');
   });
 
-  test('Migrated Description section should exist when dev=true', async function (assert) {
+  test('Old Description section should exist when dev=true', async function (assert) {
     await visit('/');
 
     assert.strictEqual(currentURL(), '/', 'current pathname is /');
-
-    assert.dom('[ data-test-description-img]').exists();
-    assert.dom('[data-test-description-title]').exists();
-    assert.dom('[data-test-description-content]').exists();
-
-    await visit('/?dev=true');
-
-    assert.strictEqual(
-      currentURL(),
-      '/?dev=true',
-      'current pathname is /?dev=true',
-    );
 
     assert.dom('[data-test-description-section]').exists();
     assert.dom('[data-test-description-section-title]').exists();
@@ -123,5 +111,15 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert
       .dom('[data-test-description-section-content="para-second"]')
       .exists();
+    await visit('/?dev=true');
+
+    assert.strictEqual(
+      currentURL(),
+      '/?dev=true',
+      'current pathname is /?dev=true',
+    );
+    assert.dom('[ data-test-description-img]').exists();
+    assert.dom('[data-test-description-title]').exists();
+    assert.dom('[data-test-description-content]').exists();
   });
 });

@@ -70,21 +70,10 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.dom('[data-test-vertical-separators-dev]').exists({ count: 3 });
   });
 
-  test('Migrated Join section should exist and join button should be disabled when dev=true', async function (assert) {
+  test('Old Join section should exist and join button should be disabled when dev=true', async function (assert) {
     await visit('/');
 
     assert.strictEqual(currentURL(), '/');
-
-    assert.dom('[data-test-join]').exists();
-    assert.dom('[data-test-join-title]').exists();
-    assert.dom('[data-test-join-title]').hasText('How to Join');
-    assert.dom('[data-test-join-title-highlighted]').exists();
-    assert.dom('[data-test-join-title-highlighted]').hasText('Real Dev Squad');
-    assert.dom('[data-test-para="1"]').exists();
-
-    await visit('/?dev=true');
-
-    assert.strictEqual(currentURL(), '/?dev=true');
 
     assert.dom('[data-test-join]').exists();
     assert.dom('[data-test-join-title]').exists();
@@ -95,6 +84,16 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.dom('[data-test-join-link]').hasText('Join the Squad');
     assert.dom('[data-test-join-later-text]').exists();
     await click('[data-test-join-link]');
+
+    await visit('/?dev=true');
+
+    assert.strictEqual(currentURL(), '/?dev=true');
+    assert.dom('[data-test-join]').exists();
+    assert.dom('[data-test-join-title]').exists();
+    assert.dom('[data-test-join-title]').hasText('How to Join');
+    assert.dom('[data-test-join-title-highlighted]').exists();
+    assert.dom('[data-test-join-title-highlighted]').hasText('Real Dev Squad');
+    assert.dom('[data-test-para="1"]').exists();
 
     assert.strictEqual(currentURL(), '/?dev=true');
   });

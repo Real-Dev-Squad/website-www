@@ -33,13 +33,10 @@ module('Unit | Service | onboarding', function (hooks) {
   });
 
   test('signup method', async function (assert) {
-    assert.expect(7);
+    assert.expect(5);
 
     let service = this.owner.lookup('service:onboarding');
     let store = this.owner.lookup('service:store');
-
-    let setPropertiesCalled = false;
-    let saveCalled = false;
 
     store.peekRecord = () => null;
 
@@ -47,11 +44,9 @@ module('Unit | Service | onboarding', function (hooks) {
       assert.step('store.createRecord called');
       return {
         setProperties() {
-          setPropertiesCalled = true;
           assert.step('setProperties called');
         },
         save() {
-          saveCalled = true;
           assert.step('save called');
           return Promise.resolve();
         },
@@ -73,8 +68,5 @@ module('Unit | Service | onboarding', function (hooks) {
       'setProperties called',
       'save called',
     ]);
-
-    assert.ok(setPropertiesCalled, 'setProperties should be called');
-    assert.ok(saveCalled, 'save should be called');
   });
 });

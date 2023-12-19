@@ -16,7 +16,7 @@ module('Integration | Component | description', function (hooks) {
     assert.dom('[data-test-description-content]').doesNotExist();
   });
 
-  test("new description content doesn't renders", async function (assert) {
+  test('new description content renders', async function (assert) {
     assert.expect(5);
 
     await render(hbs`<Description />`);

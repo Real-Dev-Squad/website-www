@@ -1,0 +1,92 @@
+{{#if this.isDevMode}}
+  <section class="header">
+    <img
+      data-test-logo
+      class="header__logo"
+      src="assets/images/rds-logo-2x.png"
+      alt="Real Dev Squad"
+    />
+    <div class="header__container">
+      <span class="container__text-social">
+        <h2 data-test-subtitle class="text__subtitle">
+          <span class="text__welcome">Welcome</span>
+          <span class="text__to">to the</span>
+        </h2>
+        <h1 data-test-title class="text__title">Real Dev Squad</h1>
+
+        <div class="social--dev">
+          {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
+            <a
+              data-test-social-link-dev={{social.title}}
+              href={{social.url}}
+              rel="noopener noreferrer"
+              target="_blank"
+              class="social__handles"
+            >
+              {{social.title}}
+              <img
+                data-test-social-icon-dev={{social.title}}
+                class="social__icon--dev"
+                src={{social.icon}}
+                alt={{social.title}}
+              />
+            </a>
+            {{#if (not-eq social.title "Instagram")}}
+              <span
+                data-test-vertical-separators-dev
+                class="social__seperators-vertical--dev"
+              ></span>
+              <span
+                data-test-round-separators
+                class="social__seperators-round"
+              >&bull;</span>
+            {{/if}}
+          {{/each}}
+        </div>
+      </span>
+      <img
+        data-test-welcome-img
+        class="container__image"
+        src="assets/images/welcome-image.png"
+        alt="Welcome"
+      />
+    </div>
+  </section>
+{{else}}
+  <section aria-label="main-section under dev feature flag" class="main">
+    <h1 data-test-main-welcome-title class="main__welcome--title">Welcome to
+      Real Dev Squad</h1>
+    <img
+      data-test-main-hero-img
+      class="main__hero--img"
+      src="assets\images\hero-community.png"
+      alt="Real Dev Squad"
+    />
+    <div data-test-main-container class="main__container">
+      <div class="social">
+        {{#each this.SOCIAL_LINK_PROPERTIES as |social|}}
+          <a
+            data-test-social-link={{social.title}}
+            href={{social.url}}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="social__link"
+          >
+            <img
+              data-test-social-icon={{social.title}}
+              class="social__icon"
+              src={{social.icon}}
+              alt={{social.title}}
+            />
+          </a>
+          {{#if (not-eq social.title "Instagram")}}
+            <span
+              data-test-vertical-separators
+              class="social__seperators-vertical"
+            > | </span>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </section>
+{{/if}}

@@ -16,9 +16,7 @@ export default class OnboardingService extends Service {
       let user = this.store.peekRecord('user', dataToUpdate.username);
 
       if (!user) {
-        user = this.store.createRecord('user', {
-          username: dataToUpdate.username,
-        });
+        user = this.store.createRecord('user', {});
       }
 
       if (dataToUpdate.roles) {

@@ -19,7 +19,7 @@
   font-size: 3rem;
 }
 
-.join__title--dev {
+.join__title--new {
   font-size: 2.8rem;
   margin-top: 150px;
   margin-bottom: 75px;
@@ -33,7 +33,7 @@
   font-size: 1.5rem;
 }
 
-.join__para--dev {
+.join__para--new {
   width: 70%;
   font-weight: 400;
   font-size: 1.25rem;
@@ -59,12 +59,12 @@
   transition-duration: 250ms;
 }
 
-.join__link--dev {
+.join__link--new {
   background-color: var(--color-button-disabled);
   cursor: not-allowed;
 }
 
-.join__link--dev:hover {
+.join__link--new:hover {
   background-color: var(--color-button-disabled);
   cursor: not-allowed;
 }

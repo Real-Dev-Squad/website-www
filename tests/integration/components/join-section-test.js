@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | join-section', function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it shouldn't renders the content for old join-section component", async function (assert) {
+  test("it shouldn't render the content for old join-section component", async function (assert) {
     assert.expect(4);
 
     await render(hbs`<JoinSection />`);
@@ -17,7 +17,7 @@ module('Integration | Component | join-section', function (hooks) {
     assert.dom('[data-test-join-link]').hasText('Join the Squad');
   });
 
-  test('it should renders the content for new join-section component', async function (assert) {
+  test('it should render the content for new join-section component', async function (assert) {
     assert.expect(7);
 
     await render(hbs`<JoinSection />`);

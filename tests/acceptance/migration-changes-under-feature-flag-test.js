@@ -8,7 +8,7 @@ import { SOCIAL_LINK_PROPERTIES } from '../constants/social-data';
 module('Acceptance | migration changes under feature flag', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Migrated footer should exists when dev=true', async function (assert) {
+  test('Migrated footer should exist when dev=true', async function (assert) {
     await visit('/');
 
     assert.strictEqual(currentURL(), '/');
@@ -37,7 +37,7 @@ module('Acceptance | migration changes under feature flag', function (hooks) {
     assert.dom('[data-test-footer-repo-link-dev]').exists();
   });
 
-  test('Old main section should exists when dev=true', async function (assert) {
+  test('Old hero section should exist when dev=true', async function (assert) {
     await visit('/');
 
     assert.strictEqual(currentURL(), '/');

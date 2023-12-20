@@ -108,57 +108,51 @@
     data-test-dropdown
     class="menu {{if this.isMenuOpen 'active-menu' ''}}"
   >
-    {{#if @dev}}
-      <LinkTo
-        data-test-dropdown-home
-        @route={{this.HOME_PAGE}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Home
-      </LinkTo>
-      <a
-        data-test-dropdown-status
-        href={{this.MY_STATUS_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Status
-      </a>
-      <a
-        data-test-dropdown-profile
-        href={{this.PROFILE_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Profile
-      </a>
-      <a
-        data-test-dropdown-tasks
-        href={{this.TASKS_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Tasks
-      </a>
-      <a
-        data-test-dropdown-identity
-        href={{this.IDENTITY_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Identity
-      </a>
-    {{else}}
-      <a data-test-profile href={{this.PROFILE_URL}} class="menu__link">
-        My Profile
-      </a>
-    {{/if}}
+    <LinkTo
+      data-test-dropdown-home
+      @route={{this.HOME_PAGE}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Home
+    </LinkTo>
+    <a
+      data-test-dropdown-status
+      href={{this.MY_STATUS_URL}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Status
+    </a>
+    <a
+      data-test-dropdown-profile
+      href={{this.PROFILE_URL}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Profile
+    </a>
+    <a
+      data-test-dropdown-tasks
+      href={{this.TASKS_URL}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Tasks
+    </a>
+    <a
+      data-test-dropdown-identity
+      href={{this.IDENTITY_URL}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Identity
+    </a>
     <hr class="line" />
     <div
       id="signout"

@@ -6,14 +6,14 @@
   </div>
   {{else}}
   {{#if this.login.userData.roles.archived}}
-<OnboardingCard>
-  <h3 class='archived__heading'>Archived User</h3>
-  <p class='archived__message'>
+<OnboardingCard data-test-onboarding-card>
+  <h3 data-test-archived-heading class='archived__heading'>Archived User</h3>
+  <p data-test-archived-message class='archived__message'>
     This user account has been archived. If you have any questions or need assistance,
     please contact Ankush via Twitter.
   </p>
-  <div class='archived__contact-container'>
-    <a href="https://twitter.com/ankushdharkar" class='archived__contact-link' target="_blank">
+  <div data-test-archived-contact-container class='archived__contact-container'>
+    <a href="https://twitter.com/ankushdharkar" data-test-archived-contact-link class='archived__contact-link' target="_blank" rel="noopener noreferrer">
       Contact Ankush on Twitter
     </a>
   </div>

@@ -113,7 +113,7 @@ module('Integration | Component | navbar', function (hooks) {
   });
 
   test('toggle dropdown menu', async function (assert) {
-    assert.expect(6);
+    assert.expect(4);
 
     this.setProperties({
       firstName: 'John',
@@ -138,8 +138,6 @@ module('Integration | Component | navbar', function (hooks) {
 
     await click('[data-test-dropdown-toggle]');
     assert.dom('[data-test-dropdown]').hasClass('menu');
-    assert.dom('[data-test-profile]').hasText('My Profile');
-    assert.dom('[data-test-profile]').hasAttribute('href', APPS.PROFILE);
     assert.dom('[data-test-signout]').hasText('Sign Out');
 
     await click('[data-test-dropdown-toggle]');

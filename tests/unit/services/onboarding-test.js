@@ -22,9 +22,8 @@ module('Unit | Service | onboarding', function (hooks) {
 
     let user = await service.generateUsername('Test', 'User');
 
-    assert.ok(user, 'User was found');
     assert.strictEqual(
-      user.get('username'),
+      user?.get('username'),
       'test-user',
       'Username is correct',
     );
@@ -33,7 +32,7 @@ module('Unit | Service | onboarding', function (hooks) {
   });
 
   test('signup method for Developer role', async function (assert) {
-    assert.expect(5);
+    assert.expect(3);
 
     let service = this.owner.lookup('service:onboarding');
     let store = this.owner.lookup('service:store');
@@ -62,7 +61,6 @@ module('Unit | Service | onboarding', function (hooks) {
     };
 
     await service.signup(dataToUpdate);
-    assert.ok(true, 'No errors were thrown');
 
     assert.verifySteps([
       'store.createRecord called',
@@ -72,7 +70,7 @@ module('Unit | Service | onboarding', function (hooks) {
   });
 
   test('signup method for non-Developer role', async function (assert) {
-    assert.expect(3);
+    assert.expect(2);
 
     let service = this.owner.lookup('service:onboarding');
     let store = this.owner.lookup('service:store');
@@ -105,7 +103,6 @@ module('Unit | Service | onboarding', function (hooks) {
     };
 
     await service.signup(dataToUpdate);
-    assert.ok(true, 'No errors were thrown');
 
     assert.verifySteps(['store.createRecord called']);
   });

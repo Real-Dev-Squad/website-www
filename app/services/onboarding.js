@@ -48,7 +48,7 @@ export default class OnboardingService extends Service {
         lastname: sanitizedLastname,
         dev: true,
       });
-      if (user && user.get('username')) {
+      if (user && user.username) {
         return user;
       }
     } catch (err) {

@@ -11,14 +11,9 @@ module('Integration | Component | join-section', function (hooks) {
 
     await render(hbs`<JoinSection />`);
 
-    // assert.dom('[data-test-join]').exists();
-    // assert.dom('[data-test-join-title]').exists();
-    // assert.dom('[data-test-join-title]').hasText('How can you join');
     assert.dom('[data-test-join-title-highlighted]').doesNotExist();
-    // assert.dom('[data-test-join-title-highlighted]').hasText('Real Dev Squad');
     assert.dom('[data-test-para="1"]').doesNotExist();
     assert.dom('[data-test-para="2"]').doesNotExist();
-    // assert.dom('[data-test-join-link]').exists();
     assert.dom('[data-test-join-link]').hasText('Join the Squad');
   });
 

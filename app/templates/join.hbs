@@ -1,25 +1,30 @@
 {{page-title 'Join'}}
 <section class='join__container'>
   {{#if this.login.isLoading}}
-    <div data-test-loading class='intro__loading'>
-      <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
-    </div>
+  <div data-test-loading class='intro__loading'>
+    <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
+  </div>
   {{else}}
-    {{#if this.login.userData.roles.archived}}
-      <OnboardingCard>
-        <h3 class='archived__heading'>Archived User</h3>
-      </OnboardingCard>
-    {{else}}
-      {{#if this.isDevMode}}
-        <StepperSignup
-          @chaincode={{this.chaincode}}
-          @isChaincodeClicked={{this.isChaincodeClicked}}
-          @isLoading={{this.isLoading}}
-          @handleGenerateChaincode={{this.handleGenerateChaincode}}
-        />
-      {{else}}
-        <Stepper />
-      {{/if}}
-    {{/if}}
+  {{#if this.login.userData.roles.archived}}
+<OnboardingCard>
+  <h3 class='archived__heading'>Archived User</h3>
+  <p class='archived__message'>
+    This user account has been archived. If you have any questions or need assistance,
+    please contact Ankush via Twitter.
+  </p>
+  <div class='archived__contact-container'>
+    <a href="https://twitter.com/ankushdharkar" class='archived__contact-link' target="_blank">
+      Contact Ankush on Twitter
+    </a>
+  </div>
+</OnboardingCard>
+  {{else}}
+  {{#if this.isDevMode}}
+  <StepperSignup @chaincode={{this.chaincode}} @isChaincodeClicked={{this.isChaincodeClicked}}
+    @isLoading={{this.isLoading}} @handleGenerateChaincode={{this.handleGenerateChaincode}} />
+  {{else}}
+  <Stepper />
+  {{/if}}
+  {{/if}}
   {{/if}}
 </section>

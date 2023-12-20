@@ -4,13 +4,13 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { SOCIAL_LINK_PROPERTIES } from '../../constants/social-data';
 
-module('Integration | Component | main-section', function (hooks) {
+module('Integration | Component | hero-section', function (hooks) {
   setupRenderingTest(hooks);
 
-  test("old main-section content doesn't renders", async function (assert) {
+  test("old hero-section content doesn't renders", async function (assert) {
     assert.expect(16);
 
-    await render(hbs`<MainSection />`);
+    await render(hbs`<HeroSection />`);
 
     assert.dom('[data-test-logo]').doesNotExist();
     assert.dom('[data-test-subtitle]').doesNotExist();
@@ -28,10 +28,10 @@ module('Integration | Component | main-section', function (hooks) {
     assert.dom('[data-test-welcome-img]').doesNotExist();
   });
 
-  test('new main-section content renders', async function (assert) {
+  test('new hero-section content renders', async function (assert) {
     assert.expect(19);
 
-    await render(hbs`<MainSection />`);
+    await render(hbs`<HeroSection />`);
 
     assert.dom('[data-test-main-welcome-title]').exists();
     assert.dom('[data-test-main-hero-img]').exists();

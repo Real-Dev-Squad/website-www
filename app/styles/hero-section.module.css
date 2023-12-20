@@ -1,4 +1,4 @@
-.main {
+.hero-section {
   background-color: var(--color-white);
   padding-bottom: 6.25rem;
   display: flex;
@@ -7,7 +7,7 @@
   gap: 2rem;
 }
 
-.main__welcome--title {
+.hero-section__welcome--title {
   color: var(--color-text-secondary);
   margin-top: 3.75rem;
   text-align: center;
@@ -15,7 +15,7 @@
   font-size: 4rem;
 }
 
-.main__hero--img {
+.hero-section__hero--img {
   width: 25rem;
   height: 25rem;
   display: block;
@@ -58,11 +58,11 @@
 }
 
 @media (width <=425px) {
-  .main__welcome--title {
+  .hero-section__welcome--title {
     font-size: 2rem;
   }
 
-  .main__hero--img {
+  .hero-section__hero--img {
     width: 19rem;
     height: 19rem;
   }

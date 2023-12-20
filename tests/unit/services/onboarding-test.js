@@ -5,7 +5,7 @@ module('Unit | Service | onboarding', function (hooks) {
   setupTest(hooks);
 
   test('generateUsername method', async function (assert) {
-    assert.expect(4);
+    assert.expect(3);
 
     let service = this.owner.lookup('service:onboarding');
     let store = this.owner.lookup('service:store');
@@ -32,7 +32,7 @@ module('Unit | Service | onboarding', function (hooks) {
   });
 
   test('signup method for Developer role', async function (assert) {
-    assert.expect(3);
+    assert.expect(4);
 
     let service = this.owner.lookup('service:onboarding');
     let store = this.owner.lookup('service:store');

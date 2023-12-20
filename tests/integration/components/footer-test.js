@@ -2,56 +2,38 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { APPS_PROPERTIES, ABOUT_PROPERTIES } from '../../constants/footer-data';
-import { SOCIAL_LINK_PROPERTIES } from '../../constants/social-data';
-import { ABOUT } from '../../constants/urls';
+import Service from '@ember/service';
+import { EVENTS_CATEGORIES } from '../../constants/events-data';
 
 module('Integration | Component | footer', function (hooks) {
   setupRenderingTest(hooks);
 
+  hooks.beforeEach(function () {
+    class RouterStub extends Service {
+      currentRoute = { name: 'index' };
+    }
+
+    this.owner.register('service:router', RouterStub);
+  });
+
   test('footer renders', async function (assert) {
-    assert.expect(29);
+    assert.expect(16);
 
-    await render(hbs`<Footer />`);
+    this.set('isHome', true);
 
-    assert.dom('[data-test-sites-title]').hasText('Sites');
-    assert.dom('[data-test-about-title]').hasText('About');
-    assert.dom('[data-test-social-media-title]').hasText('Social Media');
-    assert.dom('[data-test-newsletter-title]').hasText('Newsletter');
-    assert.dom('[data-test-underline]').exists({ count: 4 });
+    await render(hbs`<Footer @isHome={{this.isHome}} />`);
 
-    APPS_PROPERTIES.forEach((link) => {
-      assert
-        .dom(`[data-test-sites-link="${link.name}"]`)
-        .hasAttribute('href', link.url);
-    });
-
-    ABOUT_PROPERTIES.forEach((link) => {
-      assert.dom(`[data-test-about-link="${link.name}"]`).hasText(link.name);
-    });
-
-    SOCIAL_LINK_PROPERTIES?.forEach((link) => {
-      assert
-        .dom(`[data-test-social-link=${link.title}]`)
-        .hasAttribute('href', link.url);
-
-      assert.dom(`[data-test-social-icon=${link.title}]`).exists();
-    });
-
-    assert.dom('[data-footer-repo-github-img]').exists();
-    assert
-      .dom('[data-footer-repo-text]')
-      .hasText(
-        'The contents of the website are deployed from this open sourced repo',
-      );
-    assert
-      .dom('[data-footer-repo-link]')
-      .hasAttribute('href', ABOUT.REPOSITORY);
-
-    assert
-      .dom('[data-test-newsletter-input]')
-      .hasAttribute('placeholder', 'Enter your email');
-    assert.dom('[data-test-newsletter-button]').exists();
-    assert.dom('[data-test-newsletter-button-icon]').exists();
+    assert.dom('[data-test-events-section]').exists();
+    for (const eventCategory in EVENTS_CATEGORIES) {
+      assert.dom(`[data-test-events-category="${eventCategory}"]`).exists();
+      EVENTS_CATEGORIES[eventCategory].forEach((event) => {
+        assert.dom(`[data-test-events-link="${event.name}"]`).exists();
+      });
+    }
+    assert.dom('[data-test-footer-info]').exists();
+    assert.dom('[data-test-footer-info-members-link]').exists();
+    assert.dom('[data-test-footer-info-faq-link]').exists();
+    assert.dom('[data-test-footer-repo-text]').exists();
+    assert.dom('[data-test-footer-repo-link]').exists();
   });
 });

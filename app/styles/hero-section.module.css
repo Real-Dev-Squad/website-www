@@ -1,3 +1,79 @@
+.hero-section {
+  background-color: var(--color-white);
+  padding-bottom: 6.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-section__welcome--title {
+  color: var(--color-text-secondary);
+  margin-top: 3.75rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+.hero-section__hero--img {
+  width: 25rem;
+  height: 25rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.social {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.125rem;
+  display: flex;
+  place-items: center;
+}
+
+.social__link {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  border: none;
+  padding: 0.3rem;
+  background-color: var(--color-social-media-links-bg);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.social__icon {
+  vertical-align: middle;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.3rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.social__icon:hover {
+  transform: scale(1.25);
+}
+
+.social__seperators-vertical {
+  margin: 0 0.75rem;
+  color: var(--color-black);
+}
+
+@media (width <=425px) {
+  .hero-section__welcome--title {
+    font-size: 2rem;
+  }
+
+  .hero-section__hero--img {
+    width: 19rem;
+    height: 19rem;
+  }
+
+  .social__seperators-vertical {
+    margin: 0 0.25rem;
+    color: var(--color-black);
+  }
+}
+
+/* Styles for Header under feature flag  */
 .header {
   background-color: var(--color-navyblue);
   padding-bottom: 6.25rem;
@@ -28,13 +104,13 @@
   font-weight: 400;
 }
 
-.social {
+.social--dev {
   display: flex;
   align-items: center;
   margin: 0.6rem 0;
 }
 
-.social > a {
+.social--dev > a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -45,11 +121,11 @@
   cursor: pointer;
 }
 
-.social__icon {
+.social__icon--dev {
   padding: 0.25rem;
 }
 
-.social__seperators-vertical {
+.social__seperators-vertical--dev {
   margin: 0 1rem;
   border-left: 5px solid var(--color-white);
   border-radius: 5px;
@@ -69,11 +145,11 @@
     font-size: 3.5rem;
   }
 
-  .social > a {
+  .social--dev > a {
     font-size: 1rem;
   }
 
-  .social__seperators-vertical {
+  .social__seperators-vertical--dev {
     margin: 0 0.5rem;
   }
 }
@@ -100,7 +176,7 @@
     text-align: center;
   }
 
-  .social {
+  .social--dev {
     justify-content: center;
   }
 
@@ -128,11 +204,11 @@
     font-size: 3rem;
   }
 
-  .social > a {
+  .social--dev > a {
     font-size: 0.9rem;
   }
 
-  .social__seperators-vertical {
+  .social__seperators-vertical--dev {
     display: none;
   }
 
@@ -156,88 +232,12 @@
     font-size: 2.5rem;
   }
 
-  .social {
+  .social--dev {
     display: inline-flex;
   }
 
-  .social > a {
+  .social--dev > a {
     font-size: 0;
     margin: 0.3rem 0.5rem;
-  }
-}
-
-/* Styles for Header under feature flag  */
-.main--dev {
-  background-color: var(--color-white);
-  padding-bottom: 6.25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.main__welcome--title {
-  color: var(--color-text-secondary);
-  margin-top: 3.75rem;
-  text-align: center;
-  font-weight: 700;
-  font-size: 4rem;
-}
-
-.main__hero--img {
-  width: 25rem;
-  height: 25rem;
-  display: block;
-  margin: 0 auto;
-}
-
-.social--dev {
-  text-align: center;
-  font-weight: 400;
-  font-size: 1.125rem;
-  display: flex;
-  place-items: center;
-}
-
-.social__link {
-  color: var(--color-text-secondary);
-  font-size: 1rem;
-  border: none;
-  padding: 0.3rem;
-  background-color: var(--color-social-media-links-bg);
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.social__icon--dev {
-  vertical-align: middle;
-  width: 2rem;
-  height: 2rem;
-  padding: 0.3rem;
-  transition: all 0.5s ease-in-out;
-}
-
-.social__icon--dev:hover {
-  transform: scale(1.25);
-}
-
-.social__seperators-vertical--dev {
-  margin: 0 0.75rem;
-  color: var(--color-black);
-}
-
-@media (width <=425px) {
-  .main__welcome--title {
-    font-size: 2rem;
-  }
-
-  .main__hero--img {
-    width: 19rem;
-    height: 19rem;
-  }
-
-  .social__seperators-vertical--dev {
-    margin: 0 0.25rem;
-    color: var(--color-black);
   }
 }

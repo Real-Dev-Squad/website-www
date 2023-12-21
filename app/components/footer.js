@@ -6,7 +6,6 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class FooterComponent extends Component {
-  @service featureFlag;
   @service router;
 
   REPOSITORY_URL = ABOUT.REPOSITORY;
@@ -17,8 +16,4 @@ export default class FooterComponent extends Component {
   FAQ_URL = ABOUT.FAQ;
 
   @tracked isHome = this.router.currentRoute.name === 'index';
-
-  get isDevMode() {
-    return this.featureFlag.isDevMode;
-  }
 }

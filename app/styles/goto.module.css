@@ -1,0 +1,33 @@
+.redirection-wrapper {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.logo-img {
+  width: 18rem;
+  height: 18rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.redirection {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+@media (width >= 425px) {
+  .logo-img {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .redirection {
+    font-size: 2rem;
+    text-align: center;
+  }
+}

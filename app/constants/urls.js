@@ -7,7 +7,7 @@ const APP_URLS = {
   production: {
     HOME: `${SCHEME}beta.${DOMAIN}`,
     WELCOME: `${SCHEME}welcome.${DOMAIN}`,
-    EVENTS: `${SCHEME}${DOMAIN}/events`,
+    EVENTS: `${SCHEME}www-v0.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
     STATUS: `${SCHEME}status.${DOMAIN}`,
     PROFILE: `${SCHEME}my.${DOMAIN}/profile`,
@@ -19,7 +19,7 @@ const APP_URLS = {
   staging: {
     HOME: `${SCHEME}beta.${DOMAIN}`,
     WELCOME: `${SCHEME}staging-welcome.${DOMAIN}`,
-    EVENTS: `${SCHEME}staging-www.${DOMAIN}/events`,
+    EVENTS: `${SCHEME}www-v0.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
     PROFILE: `${SCHEME}staging-my.${DOMAIN}/profile`,
@@ -31,7 +31,7 @@ const APP_URLS = {
   development: {
     HOME: `${SCHEME}beta.${DOMAIN}`,
     WELCOME: `${SCHEME}staging-welcome.${DOMAIN}`,
-    EVENTS: `${SCHEME}staging-www.${DOMAIN}/events`,
+    EVENTS: `${SCHEME}www-v0.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
     PROFILE: `${SCHEME}staging-my.${DOMAIN}/profile`,

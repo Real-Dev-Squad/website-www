@@ -20,13 +20,10 @@ module('Unit | Service | onboarding', function (hooks) {
 
     assert.step('store.queryRecord called');
 
-    let user = await service.generateUsername('Test', 'User');
+    const user = await service.generateUsername('Test', 'User');
+    const username = user?.get('username');
 
-    assert.strictEqual(
-      user?.get('username'),
-      'test-user',
-      'Username is correct',
-    );
+    assert.strictEqual(username, 'test-user', 'Username is correct');
 
     assert.verifySteps(['store.queryRecord called']);
   });

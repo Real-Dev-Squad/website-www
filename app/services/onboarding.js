@@ -1,16 +1,12 @@
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import { ERROR_MESSAGES } from '../constants/error-messages';
 
 export default class OnboardingService extends Service {
   @service store;
-  @service login;
   @service toast;
 
-  constructor() {
-    super(...arguments);
-    this.login.checkAuth();
-  }
   async signup(dataToUpdate) {
     try {
       let user = this.store.peekRecord('user', dataToUpdate.username);
@@ -33,7 +29,11 @@ export default class OnboardingService extends Service {
 
       await user.save();
     } catch (error) {
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      this.toast.error(
+        ERROR_MESSAGES.somethingWentWrong,
+        'error!',
+        TOAST_OPTIONS,
+      );
     }
   }
 
@@ -50,7 +50,11 @@ export default class OnboardingService extends Service {
         return user;
       }
     } catch (err) {
-      this.toast.error('Username cannot be generated', 'error!', TOAST_OPTIONS);
+      this.toast.error(
+        ERROR_MESSAGES.usernameGeneration,
+        'error!',
+        TOAST_OPTIONS,
+      );
     }
   }
 }

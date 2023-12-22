@@ -34,9 +34,7 @@ module('Integration | Component | card', function (hooks) {
         'This user account has been archived. If you have any questions or need assistance, please contact Ankush via Twitter.',
       );
     assert
-      .dom(
-        '[data-test-archived-contact-container] [data-test-archived-contact-link]',
-      )
+      .dom('[data-test-archived-contact-link]')
       .hasText('Contact Ankush on Twitter');
   });
 });

@@ -1,6 +1,6 @@
 <section class="info-video">
   {{! TODO - remove this after migration }}
-  {{#unless @isDev}}
+  {{#if @isDev}}
     <section class="info__section">
       <span data-test-note class="info__note">
         To know how this page is getting developed, join our Discord Channel.
@@ -27,7 +27,7 @@
         />
       </span>
     </section>
-  {{/unless}}
+  {{/if}}
   <section class="video__section">
     <h1 data-test-video-title class="video__heading">
       Check out what Real Dev Squad is :

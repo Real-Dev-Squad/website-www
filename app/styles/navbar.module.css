@@ -220,7 +220,7 @@ nav li {
     display: none;
     background-color: var(--color-offwhite);
     padding: 10px 0;
-    box-shadow: 0 10px 15px var(--color-blackshadow);
+    box-shadow: 0 10px 15px var(--color-black-light);
   }
 
   .nav__menu a {
@@ -231,13 +231,13 @@ nav li {
     float: none;
   }
 
-  .nav__home {
-    display: none;
-  }
-
   .nav__home__link,
   .active {
     display: block;
+  }
+
+  .nav__home {
+    display: none;
   }
 
   .nav__element {

@@ -10,23 +10,23 @@
 
   <ul data-test-nav-menu class="nav__menu {{if this.isNavOpen 'active' ''}}">
     <li>
-      <a data-test-home-link href={{this.HOME_PAGE_URL}} class="nav__home">
+      <LinkTo data-test-home-link @route={{this.HOME_PAGE}} class="nav__home">
         <img
           data-test-home-img
           class="nav__home__img"
           src="assets/images/rds-logo.png"
           alt="Real_Dev_Squad"
         />
-      </a>
+      </LinkTo>
     </li>
     <li>
-      <a
+      <LinkTo
         data-test-home
         class="nav__home__link nav__element"
-        href={{this.HOME_URL}}
+        @route={{this.HOME_PAGE}}
       >
         Home
-      </a>
+      </LinkTo>
     </li>
     <li><a
         data-test-welcome
@@ -82,7 +82,7 @@
           <img
             data-test-user-image
             class="user__pic"
-            src={{@profilePicture}}
+            src={{(or @profilePicture "/assets/images/profile.png")}}
             alt="User"
           />
           <Fa-Icon data-test-icon @icon="chevron-down" />
@@ -108,57 +108,51 @@
     data-test-dropdown
     class="menu {{if this.isMenuOpen 'active-menu' ''}}"
   >
-    {{#if @dev}}
-      <a
-        data-test-dropdown-home
-        href={{this.HOME_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Home
-      </a>
-      <a
-        data-test-dropdown-status
-        href={{this.MY_STATUS_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Status
-      </a>
-      <a
-        data-test-dropdown-profile
-        href={{this.PROFILE_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Profile
-      </a>
-      <a
-        data-test-dropdown-tasks
-        href={{this.TASKS_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Tasks
-      </a>
-      <a
-        data-test-dropdown-identity
-        href={{this.IDENTITY_URL}}
-        class="menu__link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Identity
-      </a>
-    {{else}}
-      <a data-test-profile href={{this.PROFILE_URL}} class="menu__link">
-        My Profile
-      </a>
-    {{/if}}
+    <LinkTo
+      data-test-dropdown-home
+      @route={{this.HOME_PAGE}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Home
+    </LinkTo>
+    <a
+      data-test-dropdown-status
+      href={{this.MY_STATUS_URL}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Status
+    </a>
+    <a
+      data-test-dropdown-profile
+      href={{this.PROFILE_URL}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Profile
+    </a>
+    <a
+      data-test-dropdown-tasks
+      href={{this.TASKS_URL}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Tasks
+    </a>
+    <a
+      data-test-dropdown-identity
+      href={{this.IDENTITY_URL}}
+      class="menu__link"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Identity
+    </a>
     <hr class="line" />
     <div
       id="signout"

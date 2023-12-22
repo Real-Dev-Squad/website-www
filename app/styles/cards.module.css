@@ -184,8 +184,17 @@
 
   .modal {
     height: 85vh;
-    overflow: scroll;
+    overflow-y: scroll;
     width: 350px;
+    scrollbar-width: none;
+  }
+
+  .modal::-webkit-scrollbar {
+    display: none;
+  }
+
+  .modal::-webkit-scrollbar-thumb {
+    display: none;
   }
 
   .modal__close {

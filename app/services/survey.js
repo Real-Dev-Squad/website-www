@@ -86,7 +86,7 @@ export default class SurveyService extends Service {
         body: JSON.stringify(approvalPayload),
       });
 
-      if (!approveResponse.ok) return; //TODO add toast here
+      if (!approveResponse.ok) throw new Error();
 
       this.toast.success(
         'Answer approved successfully',
@@ -95,6 +95,7 @@ export default class SurveyService extends Service {
       );
     } catch (error) {
       console.error('Error while approving answer: ', error);
+      this.toast.error('Error while approving answer', 'Error', TOAST_OPTIONS);
     }
   }
 
@@ -108,7 +109,7 @@ export default class SurveyService extends Service {
         body: JSON.stringify(rejectionPayload),
       });
 
-      if (!rejectResponse.ok) return; //TODO add toast here
+      if (!rejectResponse.ok) throw new Error();
 
       this.toast.success(
         'Answer rejected successfully',
@@ -117,6 +118,7 @@ export default class SurveyService extends Service {
       );
     } catch (error) {
       console.error('Error while rejecting answer: ', error);
+      this.toast.error('Error while rejecting answer', 'Error', TOAST_OPTIONS);
     }
   }
 

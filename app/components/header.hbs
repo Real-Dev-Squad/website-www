@@ -62,7 +62,7 @@
     </ul>
   </nav>
 
-  <div class="nav__login">
+  <div class="header__login">
     {{#if @isLoading}}
       <div data-test-loading class="skeleton-holder">
         <div
@@ -75,7 +75,7 @@
       {{#if @isLoggedIn}}
         <button
           data-test-dropdown-toggle
-          class="nav__user"
+          class="header__user"
           type="button"
           {{on "click" this.toggleMenu}}
           {{on-click-outside this.outsideClickMenu}}

@@ -20,7 +20,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoggedIn={{this.isLoggedIn}}
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
@@ -58,7 +58,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoggedIn={{this.isLoggedIn}}
         @signOut={{this.signOut}}
       />
@@ -91,7 +91,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -126,7 +126,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -158,7 +158,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -203,7 +203,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
       />

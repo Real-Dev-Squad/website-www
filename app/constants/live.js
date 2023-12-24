@@ -42,6 +42,7 @@ export const EVENTS_LOGS_TYPE = {
 
 export const QUESTION_DEBOUNCE_TIME = 200;
 export const QUESTION_MIN_LENGTH = 2;
+export const ANSWER_MIN_LENGTH = 2;
 export const ANSWER_STATUS = {
   PENDING: 'PENDING',
   APPROVED: 'APPROVED',

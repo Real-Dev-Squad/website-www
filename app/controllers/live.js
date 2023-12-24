@@ -5,7 +5,12 @@ import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { globalRef } from 'ember-ref-bucket';
 import { registerDestructor } from '@ember/destroyable';
-import { ROLES, BUTTONS_TYPE, ANSWER_STATUS } from '../constants/live';
+import {
+  ROLES,
+  BUTTONS_TYPE,
+  ANSWER_STATUS,
+  ANSWER_MIN_LENGTH,
+} from '../constants/live';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import { APPS } from '../constants/urls';
 export default class LiveController extends Controller {
@@ -40,8 +45,8 @@ export default class LiveController extends Controller {
   @tracked answerValue = '';
   @tracked answerValidationDetails = {
     isError: false,
-    isHelperTextVisible: false,
-    helperText: '',
+    isHelperTextVisible: true,
+    helperText: `Minimum character limit is ${ANSWER_MIN_LENGTH} characters`,
   };
   @tracked answerSubmitButtonState = {
     isDisabled: true,
@@ -171,10 +176,28 @@ export default class LiveController extends Controller {
   }
 
   @action onAnswerInput(event) {
-    const maxCharacters =
-      this.survey.recentQuestion.max_characters &&
-      this.survey.recentQuestion.max_characters;
+    const maxCharacters = this.survey.recentQuestion.max_characters;
+
     this.answerValue = event.target.value;
+    const answerLength = this.answerValue.trim().length;
+    const isAnswerEqualToMinLength = answerLength >= ANSWER_MIN_LENGTH;
+
+    if (!isAnswerEqualToMinLength) {
+      this.answerValidationDetails.helperText = `Minimum character limit is ${ANSWER_MIN_LENGTH} characters`;
+      this.answerValidationDetails.isHelperTextVisible = true;
+
+      this.answerValidationDetails = this.answerValidationDetails;
+
+      this.answerSubmitButtonState.isDisabled = true;
+      this.answerSubmitButtonState = this.answerSubmitButtonState;
+
+      return;
+    }
+
+    if (maxCharacters === null) {
+      this.resetAnswerValidators();
+      return;
+    }
 
     if (this.answerValue.trim().length > maxCharacters) {
       this.answerValidationDetails.isError = true;
@@ -185,13 +208,7 @@ export default class LiveController extends Controller {
       this.answerSubmitButtonState.isDisabled = true;
       this.answerSubmitButtonState = this.answerSubmitButtonState;
     } else {
-      this.answerValidationDetails.isError = false;
-      this.answerValidationDetails.helperText = 's';
-      this.answerValidationDetails.isHelperTextVisible = false;
-      this.answerValidationDetails = this.answerValidationDetails;
-
-      this.answerSubmitButtonState.isDisabled = false;
-      this.answerSubmitButtonState = this.answerSubmitButtonState;
+      this.resetAnswerValidators();
     }
   }
 
@@ -263,6 +280,15 @@ export default class LiveController extends Controller {
     }
   }
 
+  resetAnswerValidators() {
+    this.answerValidationDetails.isError = false;
+    this.answerValidationDetails.helperText = '';
+    this.answerValidationDetails.isHelperTextVisible = false;
+    this.answerValidationDetails = this.answerValidationDetails;
+
+    this.answerSubmitButtonState.isDisabled = false;
+    this.answerSubmitButtonState = this.answerSubmitButtonState;
+  }
   questionSSEListener() {
     const event = new EventSource(`${APPS.API_BACKEND}/questions`);
     this.questionEventSource = event;
@@ -277,8 +303,8 @@ export default class LiveController extends Controller {
 
       this.answerValue = '';
       this.answerValidationDetails.isError = false;
-      this.answerValidationDetails.helperText = '';
-      this.answerValidationDetails.isHelperTextVisible = false;
+      this.answerValidationDetails.helperText = `Minimum character limit is ${ANSWER_MIN_LENGTH} characters`;
+      this.answerValidationDetails.isHelperTextVisible = true;
       this.answerValidationDetails = this.answerValidationDetails;
 
       if (isQuestionChanged) {

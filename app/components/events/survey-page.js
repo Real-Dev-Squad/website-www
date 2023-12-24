@@ -24,7 +24,7 @@ export default class SurveyPageComponent extends Component {
   @tracked isQuestionApiLoading = false;
   @tracked ANSWER_STATUS_FILTERS = ['ALL', 'PENDING', 'APPROVED', 'REJECTED'];
   @tracked activeAnswerFilterValue = 'ALL';
-
+  @tracked userData = this.login?.userData;
   get isAnswersPresent() {
     return Boolean(this.answers?.length);
   }
@@ -41,9 +41,12 @@ export default class SurveyPageComponent extends Component {
     return answerToShow;
   }
 
+  get isAskQuestionButtonDisabled() {
+    return !this.userData?.roles?.super_user;
+  }
+
   @action onAnswerFilterChange(event) {
     this.activeAnswerFilterValue = event.target.value;
-    console.log(event.target.value);
   }
 
   @action openAskQuestionModal() {
@@ -60,7 +63,7 @@ export default class SurveyPageComponent extends Component {
     const questionBody = {
       question: this.question.trim(),
       createdBy: this.login.userData.id,
-      eventId: this.live.activeRoomId, //this.live.activeRoomId will go here
+      eventId: this.live.activeRoomId,
       maxCharacters: this.maxCharacters || null,
     };
 

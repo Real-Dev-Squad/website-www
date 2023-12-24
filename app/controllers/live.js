@@ -16,6 +16,7 @@ import { APPS } from '../constants/urls';
 export default class LiveController extends Controller {
   queryParams = ['dev'];
   ROLES = ROLES;
+  @service featureFlag;
   @service login;
   @service toast;
   @service fastboot;
@@ -59,9 +60,15 @@ export default class LiveController extends Controller {
 
   constructor() {
     super(...arguments);
+
     if (!this.fastboot.isFastBoot) {
-      this.questionSSEListener();
-      this.answerSSEListener();
+      const queryParams = new URLSearchParams(window.location.search);
+      const isWordCloudFeatureOn = queryParams.get('wordCloud') === 'true';
+
+      if (isWordCloudFeatureOn) {
+        this.questionSSEListener();
+        this.answerSSEListener();
+      }
     }
     setTimeout(() => {
       this.isLoading = false;

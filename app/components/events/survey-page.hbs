@@ -19,6 +19,12 @@
       @variant="dark btn--sm btn-pink"
       @test="ask-question"
       @onClick={{this.openAskQuestionModal}}
+      @disabled={{this.isAskQuestionButtonDisabled}}
+      @title={{if
+        this.isAskQuestionButtonDisabled
+        "This is a host only feature"
+        ""
+      }}
     />
     <div class="survey-page__recent-question">
       <h3 class="survey-page__recent-question-heading">Recent Question</h3>

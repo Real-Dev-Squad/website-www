@@ -112,7 +112,7 @@
             />
           {{/if}}
         </div>
-        <WordCloud />
+        <WordCloud @isWordCloud={{this.featureFlag.isWordCloud}} />
       {{else}}
         {{#if (eq this.role "")}}
           <LiveRoles

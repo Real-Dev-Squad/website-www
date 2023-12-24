@@ -19,7 +19,7 @@
 
   <div class="answer-view-card__buttons">
     <Reusables::IconButton
-      {{!  TODO- fix this unique id eslint problem }}
+      {{! template-lint-disable no-duplicate-id}}
       @id={{@id}}
       @class="icon-button--sm icon-button--red-outlined"
       @title="Reject Answer"
@@ -28,6 +28,7 @@
     />
     <Reusables::IconButton
       {{!  TODO- fix this unique id eslint problem }}
+      {{! template-lint-disable no-duplicate-id}}
       @id={{@id}}
       @class="icon-button--sm icon-button--green"
       @title="Approve Answer"

@@ -19,7 +19,6 @@
 
 .survey-page__answers {
   display: flex;
-
   flex-direction: column;
   gap: 10px;
 }

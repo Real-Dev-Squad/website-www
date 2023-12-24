@@ -11,7 +11,7 @@ export default class NavbarComponent extends Component {
   @tracked isMenuOpen = false;
   @tracked authURL = this.generateAuthURL();
 
-  HOME_URL = APPS.HOME;
+  HOME_PAGE = 'index';
   WELCOME_URL = APPS.WELCOME;
   EVENTS_URL = APPS.EVENTS;
   MEMBERS_URL = APPS.MEMBERS;

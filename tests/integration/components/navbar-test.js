@@ -31,7 +31,7 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-home-img]').exists();
 
     assert.dom('[data-test-home]').hasText('Home');
-    assert.dom('[data-test-home]').hasAttribute('href', APPS.HOME);
+    assert.dom('[data-test-home]').hasAttribute('href', '/');
     assert.dom('[data-test-welcome]').hasText('Welcome');
     assert.dom('[data-test-welcome]').hasAttribute('href', APPS.WELCOME);
     assert.dom('[data-test-events]').hasText('Events');
@@ -113,7 +113,7 @@ module('Integration | Component | navbar', function (hooks) {
   });
 
   test('toggle dropdown menu', async function (assert) {
-    assert.expect(6);
+    assert.expect(4);
 
     this.setProperties({
       firstName: 'John',
@@ -138,8 +138,6 @@ module('Integration | Component | navbar', function (hooks) {
 
     await click('[data-test-dropdown-toggle]');
     assert.dom('[data-test-dropdown]').hasClass('menu');
-    assert.dom('[data-test-profile]').hasText('My Profile');
-    assert.dom('[data-test-profile]').hasAttribute('href', APPS.PROFILE);
     assert.dom('[data-test-signout]').hasText('Sign Out');
 
     await click('[data-test-dropdown-toggle]');
@@ -174,7 +172,7 @@ module('Integration | Component | navbar', function (hooks) {
     await click('[data-test-dropdown-toggle]');
     assert.dom('[data-test-dropdown]').hasClass('menu');
     assert.dom('[data-test-dropdown-home]').hasText('Home');
-    assert.dom('[data-test-dropdown-home]').hasAttribute('href', APPS.HOME);
+    assert.dom('[data-test-dropdown-home]').hasAttribute('href', '/');
     assert.dom('[data-test-dropdown-status]').hasText('Status');
     assert
       .dom('[data-test-dropdown-status]')

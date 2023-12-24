@@ -75,8 +75,8 @@ export default class LiveController extends Controller {
     }, 4000);
 
     registerDestructor(this, () => {
-      this.questionEventSource.close();
-      this.answerEventSource.close();
+      this.questionEventSource?.close();
+      this.answerEventSource?.close();
     });
   }
 
@@ -315,7 +315,7 @@ export default class LiveController extends Controller {
       this.answerValidationDetails = this.answerValidationDetails;
 
       if (isQuestionChanged) {
-        this.answerEventSource.close();
+        this.answerEventSource?.close();
         this.answerSSEListener();
       }
 

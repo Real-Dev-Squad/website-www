@@ -47,6 +47,7 @@ export default class UserSerializer extends ApplicationSerializer {
 
   serialize() {
     let json = super.serialize(...arguments);
+    // Remove 'id' as the user patch API does not accept it
     delete json.id;
     return json;
   }

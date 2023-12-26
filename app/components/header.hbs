@@ -1,4 +1,4 @@
-<nav class="nav">
+<header>
   <button
     data-test-toggle-button
     type="button"
@@ -8,59 +8,61 @@
     <FaIcon @icon="bars" @size="2x" />
   </button>
 
-  <ul data-test-nav-menu class="nav__menu {{if this.isNavOpen 'active' ''}}">
-    <li>
-      <LinkTo data-test-home-link @route={{this.HOME_PAGE}} class="nav__home">
-        <img
-          data-test-home-img
-          class="nav__home__img"
-          src="assets/images/rds-logo.png"
-          alt="Real_Dev_Squad"
-        />
-      </LinkTo>
-    </li>
-    <li>
-      <LinkTo
-        data-test-home
-        class="nav__home__link nav__element"
-        @route={{this.HOME_PAGE}}
-      >
-        Home
-      </LinkTo>
-    </li>
-    <li><a
-        data-test-welcome
-        class="nav__element"
-        href={{this.WELCOME_URL}}
-      >Welcome</a></li>
-    <li><a
-        data-test-events
-        class="nav__element"
-        href={{this.EVENTS_URL}}
-      >Events</a></li>
-    <li><a
-        data-test-members
-        class="nav__element"
-        href={{this.MEMBERS_URL}}
-      >Members</a></li>
-    <li><a
-        data-test-status
-        class="nav__element"
-        href={{this.STATUS_URL}}
-      >Status</a></li>
-    {{#if @dev}}
+  <nav class="nav">
+    <ul data-test-nav-menu class="nav__menu {{if this.isNavOpen 'active' ''}}">
       <li>
-        {{! TODO - remove query for dev when it goes to production }}
-        <LinkTo
-          @route={{this.LIVE_URL}}
-          @query={{hash dev="true"}}
-          class="nav__element"
-        >Live</LinkTo>
+        <LinkTo data-test-home-link @route={{this.HOME_PAGE}} class="nav__home">
+          <img
+            data-test-home-img
+            class="nav__home__img"
+            src="assets/images/rds-logo.png"
+            alt="Real_Dev_Squad"
+          />
+        </LinkTo>
       </li>
-    {{/if}}
-  </ul>
+      <li>
+        <LinkTo
+          data-test-home
+          class="nav__home__link nav__element"
+          @route={{this.HOME_PAGE}}
+        >
+          Home
+        </LinkTo>
+      </li>
+      <li><a
+          data-test-welcome
+          class="nav__element"
+          href={{this.WELCOME_URL}}
+        >Welcome</a></li>
+      <li><a
+          data-test-events
+          class="nav__element"
+          href={{this.EVENTS_URL}}
+        >Events</a></li>
+      <li><a
+          data-test-members
+          class="nav__element"
+          href={{this.MEMBERS_URL}}
+        >Members</a></li>
+      <li><a
+          data-test-status
+          class="nav__element"
+          href={{this.STATUS_URL}}
+        >Status</a></li>
+      {{#if @dev}}
+        <li>
+          {{! TODO - remove query for dev when it goes to production }}
+          <LinkTo
+            @route={{this.LIVE_URL}}
+            @query={{hash dev="true"}}
+            class="nav__element"
+          >Live</LinkTo>
+        </li>
+      {{/if}}
+    </ul>
+  </nav>
 
-  <div class="nav__login">
+  <div class="header__login">
     {{#if @isLoading}}
       <div data-test-loading class="skeleton-holder">
         <div
@@ -73,7 +75,7 @@
       {{#if @isLoggedIn}}
         <button
           data-test-dropdown-toggle
-          class="nav__user"
+          class="header__user"
           type="button"
           {{on "click" this.toggleMenu}}
           {{on-click-outside this.outsideClickMenu}}
@@ -164,4 +166,4 @@
       Sign Out
     </div>
   </section>
-</nav>
+</header>

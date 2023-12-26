@@ -4,10 +4,10 @@ import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { APPS } from '../../constants/urls';
 
-module('Integration | Component | navbar', function (hooks) {
+module('Integration | Component | header', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('navbar elements renders', async function (assert) {
+  test('header elements renders', async function (assert) {
     assert.expect(15);
 
     this.setProperties({
@@ -20,7 +20,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoggedIn={{this.isLoggedIn}}
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
@@ -50,7 +50,7 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-login-img]').exists();
   });
 
-  test('toggle navbar menu in mobile view', async function (assert) {
+  test('toggle nav menu in mobile view', async function (assert) {
     assert.expect(5);
 
     this.set('signOut', () => {
@@ -58,7 +58,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoggedIn={{this.isLoggedIn}}
         @signOut={{this.signOut}}
       />
@@ -76,7 +76,7 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-nav-menu]').doesNotHaveClass('active');
   });
 
-  test('navbar renders when user logged in', async function (assert) {
+  test('header renders when user logged in', async function (assert) {
     assert.expect(5);
 
     this.setProperties({
@@ -91,7 +91,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -126,7 +126,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -158,7 +158,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -203,7 +203,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
       />

@@ -10,7 +10,11 @@ module('Acceptance | render footer dynamically', function (hooks) {
 
     assert.strictEqual(currentURL(), '/');
 
-    assert.dom('[data-test-events-section]').exists();
+    /*
+      Events section is to be migrated, will use it once its done,
+      track it here https://github.com/Real-Dev-Squad/website-www/issues/787
+    */
+    assert.dom('[data-test-events-section]').doesNotExist();
     assert.dom('[data-test-footer-info]').exists();
     assert.dom('[data-test-footer-repo-text]').exists();
   });

@@ -6,8 +6,12 @@ import { EVENTS_CATEGORIES } from '../../constants/events-data';
 
 module('Integration | Component | events', function (hooks) {
   setupRenderingTest(hooks);
-
-  test('events renders', async function (assert) {
+  /*
+    Skipping tests
+    Events section is to be migrated, will use it once its done,
+    track it here https://github.com/Real-Dev-Squad/website-www/issues/787
+  */
+  test.skip('events renders', async function (assert) {
     await render(hbs`<Events />`);
 
     assert.dom('[data-test-events-section]').exists();

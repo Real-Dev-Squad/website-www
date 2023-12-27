@@ -8,7 +8,7 @@ module('Integration | Component | header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('header elements renders', async function (assert) {
-    assert.expect(15);
+    assert.expect(13);
 
     this.setProperties({
       isLoggedIn: false,
@@ -34,8 +34,12 @@ module('Integration | Component | header', function (hooks) {
     assert.dom('[data-test-home]').hasAttribute('href', '/');
     assert.dom('[data-test-welcome]').hasText('Welcome');
     assert.dom('[data-test-welcome]').hasAttribute('href', APPS.WELCOME);
-    assert.dom('[data-test-events]').hasText('Events');
-    assert.dom('[data-test-events]').hasAttribute('href', APPS.EVENTS);
+    /*
+      TODO: Events section is to be migrated, will use it once its done,
+      track it here https://github.com/Real-Dev-Squad/website-www/issues/787
+    */
+    // assert.dom('[data-test-events]').hasText('Events');
+    // assert.dom('[data-test-events]').hasAttribute('href', APPS.EVENTS);
     assert.dom('[data-test-members]').hasText('Members');
     assert.dom('[data-test-members]').hasAttribute('href', APPS.MEMBERS);
     assert.dom('[data-test-status]').hasText('Status');

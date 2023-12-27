@@ -31,8 +31,13 @@
   margin: 10px 0;
 }
 
+.event-card__highlights {
+  margin-left: 2rem;
+}
+
 .event-card__highlights li {
-  margin-top: 10px;
+  margin-top: 15px;
+  font-weight: 500;
 }
 
 .event-card__cta-button-container {
@@ -47,10 +52,16 @@
   text-decoration: none;
   border-radius: 5px;
   font-weight: 600;
+  text-align: center;
+  margin-top: 10px;
 }
 
 @media (width <=1024px) {
   .event-card {
     width: 94svw;
+  }
+
+  .event-card__title {
+    font-size: 3rem;
   }
 }

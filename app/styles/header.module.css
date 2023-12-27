@@ -1,6 +1,6 @@
 @import url("./variables.css");
 
-.nav {
+header {
   background-color: var(--color-navyblue);
   font-weight: 700;
 }
@@ -58,7 +58,7 @@ nav li {
   text-align: center;
 }
 
-.nav__login {
+.header__login {
   position: absolute;
   right: 0;
   top: 0;
@@ -86,7 +86,7 @@ nav li {
   margin: 3px;
 }
 
-.nav__user {
+.header__user {
   font-weight: 700;
   font-size: 1rem;
   color: var(--color-white);
@@ -220,7 +220,7 @@ nav li {
     display: none;
     background-color: var(--color-offwhite);
     padding: 10px 0;
-    box-shadow: 0 10px 15px var(--color-blackshadow);
+    box-shadow: 0 10px 15px var(--color-black-light);
   }
 
   .nav__menu a {
@@ -231,13 +231,13 @@ nav li {
     float: none;
   }
 
-  .nav__home {
-    display: none;
-  }
-
   .nav__home__link,
   .active {
     display: block;
+  }
+
+  .nav__home {
+    display: none;
   }
 
   .nav__element {
@@ -249,7 +249,7 @@ nav li {
     text-decoration: none;
   }
 
-  .nav__login {
+  .header__login {
     margin: 22px 20px;
   }
 

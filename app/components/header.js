@@ -4,14 +4,14 @@ import { action } from '@ember/object';
 import { APPS, AUTH } from '../constants/urls';
 import { inject as service } from '@ember/service';
 
-export default class NavbarComponent extends Component {
+export default class HeaderComponent extends Component {
   @service router;
   @service fastboot;
   @tracked isNavOpen = false;
   @tracked isMenuOpen = false;
   @tracked authURL = this.generateAuthURL();
 
-  HOME_URL = APPS.HOME;
+  HOME_PAGE = 'index';
   WELCOME_URL = APPS.WELCOME;
   EVENTS_URL = APPS.EVENTS;
   MEMBERS_URL = APPS.MEMBERS;

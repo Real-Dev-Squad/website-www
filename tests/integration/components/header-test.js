@@ -4,11 +4,11 @@ import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { APPS } from '../../constants/urls';
 
-module('Integration | Component | navbar', function (hooks) {
+module('Integration | Component | header', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('navbar elements renders', async function (assert) {
-    assert.expect(15);
+  test('header elements renders', async function (assert) {
+    assert.expect(13);
 
     this.setProperties({
       isLoggedIn: false,
@@ -20,7 +20,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoggedIn={{this.isLoggedIn}}
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
@@ -31,11 +31,15 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-home-img]').exists();
 
     assert.dom('[data-test-home]').hasText('Home');
-    assert.dom('[data-test-home]').hasAttribute('href', APPS.HOME);
+    assert.dom('[data-test-home]').hasAttribute('href', '/');
     assert.dom('[data-test-welcome]').hasText('Welcome');
     assert.dom('[data-test-welcome]').hasAttribute('href', APPS.WELCOME);
-    assert.dom('[data-test-events]').hasText('Events');
-    assert.dom('[data-test-events]').hasAttribute('href', APPS.EVENTS);
+    /*
+      TODO: Events section is to be migrated, will use it once its done,
+      track it here https://github.com/Real-Dev-Squad/website-www/issues/787
+    */
+    // assert.dom('[data-test-events]').hasText('Events');
+    // assert.dom('[data-test-events]').hasAttribute('href', APPS.EVENTS);
     assert.dom('[data-test-members]').hasText('Members');
     assert.dom('[data-test-members]').hasAttribute('href', APPS.MEMBERS);
     assert.dom('[data-test-status]').hasText('Status');
@@ -50,7 +54,7 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-login-img]').exists();
   });
 
-  test('toggle navbar menu in mobile view', async function (assert) {
+  test('toggle nav menu in mobile view', async function (assert) {
     assert.expect(5);
 
     this.set('signOut', () => {
@@ -58,7 +62,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoggedIn={{this.isLoggedIn}}
         @signOut={{this.signOut}}
       />
@@ -76,7 +80,7 @@ module('Integration | Component | navbar', function (hooks) {
     assert.dom('[data-test-nav-menu]').doesNotHaveClass('active');
   });
 
-  test('navbar renders when user logged in', async function (assert) {
+  test('header renders when user logged in', async function (assert) {
     assert.expect(5);
 
     this.setProperties({
@@ -91,7 +95,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -113,7 +117,7 @@ module('Integration | Component | navbar', function (hooks) {
   });
 
   test('toggle dropdown menu', async function (assert) {
-    assert.expect(6);
+    assert.expect(4);
 
     this.setProperties({
       firstName: 'John',
@@ -126,7 +130,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -138,8 +142,6 @@ module('Integration | Component | navbar', function (hooks) {
 
     await click('[data-test-dropdown-toggle]');
     assert.dom('[data-test-dropdown]').hasClass('menu');
-    assert.dom('[data-test-profile]').hasText('My Profile');
-    assert.dom('[data-test-profile]').hasAttribute('href', APPS.PROFILE);
     assert.dom('[data-test-signout]').hasText('Sign Out');
 
     await click('[data-test-dropdown-toggle]');
@@ -160,7 +162,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @firstName={{this.firstName}}
         @profilePicture={{this.profilePicture}}
         @isLoggedIn={{this.isLoggedIn}}
@@ -174,7 +176,7 @@ module('Integration | Component | navbar', function (hooks) {
     await click('[data-test-dropdown-toggle]');
     assert.dom('[data-test-dropdown]').hasClass('menu');
     assert.dom('[data-test-dropdown-home]').hasText('Home');
-    assert.dom('[data-test-dropdown-home]').hasAttribute('href', APPS.HOME);
+    assert.dom('[data-test-dropdown-home]').hasAttribute('href', '/');
     assert.dom('[data-test-dropdown-status]').hasText('Status');
     assert
       .dom('[data-test-dropdown-status]')
@@ -205,7 +207,7 @@ module('Integration | Component | navbar', function (hooks) {
     });
 
     await render(hbs`
-      <Navbar
+      <Header
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
       />

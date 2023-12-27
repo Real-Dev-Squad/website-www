@@ -9,6 +9,7 @@ import { APPS } from '../../constants/urls';
 import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
 export default class SignupStepsStepOneComponent extends Component {
   @service toast;
+  @service onboarding;
   @tracked data = { firstname: '', lastname: '', username: '', role: '' };
   @tracked isSignupButtonDisabled = true;
   @tracked isValid = true;
@@ -35,17 +36,11 @@ export default class SignupStepsStepOneComponent extends Component {
       return (
         !!this.data.firstname &&
         !!this.data.lastname &&
-        !!this.data.username &&
         !!this.data.role &&
         this.mavenRoleConfirm
       );
     } else {
-      return (
-        !!this.data.firstname &&
-        !!this.data.lastname &&
-        !!this.data.username &&
-        !!this.data.role
-      );
+      return !!this.data.firstname && !!this.data.lastname && !!this.data.role;
     }
   }
 
@@ -118,13 +113,28 @@ export default class SignupStepsStepOneComponent extends Component {
     }
   }
 
-  @action handleButtonClick() {
-    this.isSignupButtonDisabled = true;
-    this.signup();
-    localStorage.setItem('role', this.data.role);
-  }
-
   @action async signup() {
+    const { username } = await this.onboarding.generateUsername(
+      this.data.firstname,
+      this.data.lastname,
+    );
+
+    let dataToUpdate = {
+      username,
+      first_name: this.data.firstname,
+      last_name: this.data.lastname,
+    };
+
+    if (this.data.role !== 'Developer') {
+      dataToUpdate.roles = {
+        maven: this.data.role === 'Maven',
+        designer: this.data.role === 'Designer',
+        productmanager: this.data.role === 'Product Manager',
+      };
+    }
+
+    await this.onboarding.signup(dataToUpdate);
+    localStorage.setItem('role', this.data.role);
     this.args.incrementStep();
   }
 }

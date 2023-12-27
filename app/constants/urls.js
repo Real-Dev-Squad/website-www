@@ -5,7 +5,7 @@ const DOMAIN = 'realdevsquad.com';
 
 const APP_URLS = {
   production: {
-    HOME: `${SCHEME}beta.${DOMAIN}`,
+    HOME: `${SCHEME}${DOMAIN}`,
     WELCOME: `${SCHEME}welcome.${DOMAIN}`,
     EVENTS: `${SCHEME}${DOMAIN}/events`,
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
@@ -17,7 +17,7 @@ const APP_URLS = {
     API_BACKEND: `${SCHEME}api.${DOMAIN}`,
   },
   staging: {
-    HOME: `${SCHEME}beta.${DOMAIN}`,
+    HOME: `${SCHEME}staging-www.${DOMAIN}`,
     WELCOME: `${SCHEME}staging-welcome.${DOMAIN}`,
     EVENTS: `${SCHEME}staging-www.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
@@ -29,7 +29,7 @@ const APP_URLS = {
     API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
   development: {
-    HOME: `${SCHEME}beta.${DOMAIN}`,
+    HOME: `${SCHEME}staging-www.${DOMAIN}`,
     WELCOME: `${SCHEME}staging-welcome.${DOMAIN}`,
     EVENTS: `${SCHEME}staging-www.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,

@@ -10,6 +10,7 @@ export default class UserSerializer extends ApplicationSerializer {
       };
       return { error };
     }
+
     const data = payload.users.map((user) => {
       const { id, ...other } = user;
       return {
@@ -20,5 +21,34 @@ export default class UserSerializer extends ApplicationSerializer {
     });
     const links = { ...payload.links, first: null, last: null };
     return { data, links };
+  }
+
+  normalizeResponse(store, primaryModelClass, payload, id, requestType) {
+    if (requestType === 'queryRecord' && payload.username) {
+      return {
+        data: {
+          id: payload.username,
+          type: primaryModelClass.modelName,
+          attributes: {
+            username: payload.username,
+          },
+        },
+      };
+    } else {
+      return super.normalizeResponse(
+        store,
+        primaryModelClass,
+        payload,
+        id,
+        requestType,
+      );
+    }
+  }
+
+  serialize() {
+    let json = super.serialize(...arguments);
+    // Remove 'id' as the user patch API does not accept it
+    delete json.id;
+    return json;
   }
 }

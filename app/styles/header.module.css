@@ -1,6 +1,6 @@
 @import url("./variables.css");
 
-.nav {
+header {
   background-color: var(--color-navyblue);
   font-weight: 700;
 }
@@ -58,7 +58,7 @@ nav li {
   text-align: center;
 }
 
-.nav__login {
+.header__login {
   position: absolute;
   right: 0;
   top: 0;
@@ -86,7 +86,7 @@ nav li {
   margin: 3px;
 }
 
-.nav__user {
+.header__user {
   font-weight: 700;
   font-size: 1rem;
   color: var(--color-white);
@@ -249,7 +249,7 @@ nav li {
     text-decoration: none;
   }
 
-  .nav__login {
+  .header__login {
     margin: 22px 20px;
   }
 

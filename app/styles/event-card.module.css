@@ -1,0 +1,56 @@
+.event-card {
+  width: 700px;
+  border-radius: 10px;
+  padding: 40px;
+  background: var(--color-bg-card);
+  box-shadow: 2px 2px 18px 0 var(--color-darkblack-low-opacity);
+  box-sizing: border-box;
+}
+
+.event-card__title {
+  font-size: 4rem;
+  font-weight: 400;
+  margin: 3px auto;
+  color: var(--color-carmine);
+  font-family: sans-serif;
+}
+
+.event-card__timing {
+  margin: 15px 0;
+}
+
+.event-card__speaker-name {
+  color: var(--color-carmine);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 10px 0;
+  margin-top: 20px;
+}
+
+.event-card__speaker-info {
+  margin: 10px 0;
+}
+
+.event-card__highlights li {
+  margin-top: 10px;
+}
+
+.event-card__cta-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.event-card__button {
+  background-color: var(--color-navyblue);
+  padding: 20px;
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+@media (width <=1024px) {
+  .event-card {
+    width: 94svw;
+  }
+}

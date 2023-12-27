@@ -1,0 +1,30 @@
+<div class="event-card">
+    <h1 class="event-card__title">{{@title}}</h1>
+    <h3 class="event-card__description">
+        {{@description}}
+    </h3>
+    <h3 class="event-card__timing">{{@timing}}</h3>
+    {{#each @speakers as |speaker|}}
+    <h2 class="event-card__speaker-name">
+        {{speaker.name}}
+        <span class="speaker-social-info linkedin-info">
+            <a target="_blank" rel="noopener noreferrer" href="{{speaker.linkedinProfile}}">
+                <img class="social-media-logo" src="/assets/icons/linkedin-logo.png" alt="LinkedIn" />
+            </a>
+        </span>
+    </h2>
+    <h3 class="event-card__speaker-info">{{speaker.info}}</h3>
+
+    <ul class="event-card__highlights">
+        {{#each speaker.topicsCovered as |topic|}}
+        <li>{{topic}}</li>
+        {{/each}}
+    </ul>
+    {{/each}}
+
+    <div class="event-card__cta-button-container">
+        <a type="button " class="event-card__button" href="{{@eventLink}}" target="_blank" rel="noopener noreferrer">
+            <span> Register & grab your seat! </span>
+        </a>
+    </div>
+</div>

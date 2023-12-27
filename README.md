@@ -20,10 +20,10 @@ Run `npm install` after opening the repository in your editor. This will install
 For accessing APIs of Real Dev Squad, do follow this doc.
 https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
 
-## Scripts used in project
+## Scripts used in the project
 
 - `npm run check` checks the formatting of all the files in the project. This script runs in a pre-commit hook. It will warn about the improper formatting present in the file.
-- `npm run fix` can be run for fixing the formatting before commiting your changes or to solve the formatting errors one may get while commiting the changes.
+- `npm run fix` can be run to fix the formatting before committing your changes or to solve the formatting errors one may get while committing the changes.
 
 **Note** :warning: : Do run these scripts before raising the PR
 
@@ -32,11 +32,11 @@ https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
 ### Global CSS
 
 - `main.css`
-  - This css file will contain common css pertaining to all pages that can be used throughout the website.
+  - This CSS file will contain common CSS pertaining to all pages that can be used throughout the website.
   - For example, a class with name success, when used anywhere throughout the website will make the color of the text green.
 
-### Page specific CSS
+### Page-specific CSS
 
-- For example, events page css goes inside `events.css`.
-- Also, in future if we add new components, we will keep component specific css like `navbar.css`, `footer.css`, `header.css` etc.
-- For mobile responsive css, we can have a folder with multiple css files catering to different css pertaining to different resolutions.
+- For example, the events page CSS goes inside `events.css`.
+- Also, if we add new components, we will keep component-specific CSS like `navbar.css`, `footer.css`, `header.css` etc.
+- For mobile responsive CSS, we can have a folder with multiple CSS files catering to different CSS pertaining to different resolutions.

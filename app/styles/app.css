@@ -1,4 +1,4 @@
-@import url("navbar.module.css");
+@import url("header.module.css");
 @import url("hero-section.module.css");
 @import url("description.module.css");
 @import url("cards.module.css");
@@ -36,6 +36,7 @@
 @import url("answer-reply-modal.module.css");
 @import url("answer-view-card.module.css");
 @import url("word-cloud.module.css");
+@import url("event-card.module.css");
 
 * {
   margin: 0;

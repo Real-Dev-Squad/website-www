@@ -1,28 +1,30 @@
-<footer aria-label='footer' class='footer'>
+<footer aria-label="footer" class="footer">
   {{#if this.isHome}}
-    <Events />
-    <h3 data-test-footer-info class='footer__info'>
-      To know how this page is developed, join our Discord channel by
-      contacting one of
+    {{! Events section is to be migrated, will use it once its done,
+     track it here https://github.com/Real-Dev-Squad/website-www/issues/787 }}
+    {{! <PreviousEvents /> }}
+    <h3 data-test-footer-info class="footer__info">
+      To know how this page is developed, join our Discord channel by contacting
+      one of
       <a
         data-test-footer-info-members-link
         href={{this.MEMBERS_URL}}
-        class='footer__info__link'
+        class="footer__info__link"
       >our existing members</a>
       or our
       <a
         data-test-footer-info-faq-link
         href={{this.FAQ_URL}}
-        class='footer__info__link'
+        class="footer__info__link"
       > FAQ section</a>.
     </h3>
   {{/if}}
-  <p data-test-footer-repo-text class='footer__repo'>The contents of
-    the website are deployed from this
+  <p data-test-footer-repo-text class="footer__repo">The contents of the website
+    are deployed from this
     <a
       data-test-footer-repo-link
       href={{this.REPOSITORY_URL}}
-      class='footer__repo__link'
+      class="footer__repo__link"
     >open sourced repo</a>
   </p>
 </footer>

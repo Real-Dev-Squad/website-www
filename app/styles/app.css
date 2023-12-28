@@ -1,0 +1,78 @@
+@import url("header.module.css");
+@import url("hero-section.module.css");
+@import url("description.module.css");
+@import url("cards.module.css");
+@import url("more-about.module.css");
+@import url("scroll-to-top.module.css");
+@import url("footer.module.css");
+@import url("button.module.css");
+@import url("input.module.css");
+@import url("dropdown.module.css");
+@import url("stepper.module.css");
+@import url("page-not-found.module.css");
+@import url("join-section.module.css");
+@import url("live-header.module.css");
+@import url("tab.module.css");
+@import url("live.module.css");
+@import url("video-screen.module.css");
+@import url("skeleton.module.css");
+@import url("live-panel.module.css");
+@import url("icon-button.module.css");
+@import url("live-join.module.css");
+@import url("live-sidebar.module.css");
+@import url("live-roles.module.css");
+@import url("kickout-modal.module.css");
+@import url("base-modal.module.css");
+@import url("room-code-modal.module.css");
+@import url("intro.module.css");
+@import url("onboarding-card.module.css");
+@import url("logs-page-main.module.css");
+@import url("events.module.css");
+@import url("identity-card.module.css");
+@import url("wheel-animations.css");
+@import url("goto.module.css");
+@import url("event-card.module.css");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-width: thin;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: raleway, sans-serif;
+  background-color: var(--color-white);
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+input,
+select,
+button {
+  font-family: raleway, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  box-shadow: inset 0 0 10px var(--color-lightgrey);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 10px;
+  background-color: var(--color-darkgrey);
+}
+
+#toast-container > div {
+  opacity: 1;
+}

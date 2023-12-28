@@ -1,0 +1,45 @@
+<section class="info-video">
+  {{! TODO - remove this after migration }}
+  {{#if @isDev}}
+    <section class="info__section">
+      <span data-test-note class="info__note">
+        To know how this page is getting developed, join our Discord Channel.
+        Contact one of our existing
+        <a
+          data-test-members-link
+          class="info__note__link"
+          href={{this.MEMBERS_URL}}
+        >
+          members
+        </a>
+        for the invitation link or check our
+        <a data-test-faq-link class="info__note__link" href={{this.FAQ_URL}}>
+          FAQ
+        </a>
+        section.
+      </span>
+      <span class="info__img">
+        <img
+          data-test-note-image
+          class="info__img-market"
+          src="assets/images/mobile-marketing.png"
+          alt="infoNoteImg"
+        />
+      </span>
+    </section>
+  {{/if}}
+  <section class="video__section">
+    <h1 data-test-video-title class="video__heading">
+      Check out what Real Dev Squad is :
+    </h1>
+    <iframe
+      data-test-video
+      title="Real Dev Squad | About Video"
+      src={{this.VIDEO_URL}}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+  </section>
+</section>

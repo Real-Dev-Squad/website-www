@@ -1,0 +1,133 @@
+.join {
+  text-align: center;
+}
+
+.join__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 75vh;
+}
+
+.join__title-highlighted {
+  color: var(--color-pink);
+  font-weight: 800;
+}
+
+.join__title {
+  font-size: 3rem;
+}
+
+.join__title--new {
+  font-size: 2.8rem;
+  margin-top: 150px;
+  margin-bottom: 75px;
+}
+
+.join__para {
+  width: 50%;
+  text-align: justify;
+  margin: 30px auto;
+  color: var(--color-darkblack);
+  font-size: 1.5rem;
+}
+
+.join__para--new {
+  width: 70%;
+  font-weight: 400;
+  font-size: 1.25rem;
+  display: flex;
+  line-height: 175%;
+}
+
+.join__link {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  background-color: var(--color-navyblue);
+  border-radius: 1rem;
+  padding: 1.25rem 3rem;
+}
+
+.join__link:hover {
+  background-color: var(--color-pink);
+  transition-duration: 250ms;
+}
+
+.join__link--new {
+  background-color: var(--color-button-disabled);
+  cursor: not-allowed;
+}
+
+.join__link--new:hover {
+  background-color: var(--color-button-disabled);
+  cursor: not-allowed;
+}
+
+.join__later-text {
+  color: var(--text-red);
+  font-size: 1.25rem;
+  margin-top: 3rem;
+}
+
+.error__message {
+  color: var(--text-red);
+}
+
+@media (width <=1250px) {
+  .join__title-highlighted {
+    font-size: 3.5rem;
+  }
+}
+
+@media (width <=1024px) {
+  .join__para {
+    width: 80%;
+  }
+}
+
+@media (width <=625px) {
+  .join__title {
+    font-size: 2.5rem;
+  }
+
+  .join__title-highlighted {
+    font-size: 3rem;
+  }
+
+  .join__para {
+    font-size: 1.1rem;
+  }
+
+  .join__link {
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media (width <=425px) {
+  .join__title {
+    font-size: 2rem;
+  }
+
+  .join__title-highlighted {
+    font-size: 2.25rem;
+  }
+
+  .join__para {
+    font-size: 1rem;
+  }
+
+  .join__link {
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+  }
+}

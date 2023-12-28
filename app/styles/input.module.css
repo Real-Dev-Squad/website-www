@@ -1,0 +1,49 @@
+.input-box,
+.textarea-box {
+  margin: 1rem 0;
+}
+
+.input-box--btn {
+  position: relative;
+}
+
+.user-input {
+  font-weight: 300;
+  font-size: 1rem;
+  width: 30rem;
+  line-height: 32px;
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
+  outline: none;
+  transition: all 0.1s;
+  border-radius: 8px;
+  border: 1px solid var(--color-shade-grey);
+  background: var(--color-white);
+}
+
+.input-disable {
+  opacity: 1.5;
+  pointer-events: none;
+  color: var(--color-black);
+  background-color: var(--color-light-gray);
+  box-shadow: none;
+  cursor: not-allowed;
+  border: 1px solid var(--color-gray);
+}
+
+.user-input:focus {
+  box-shadow: 0 0 0 4px var(--color-light-navyblue);
+}
+
+.input-regular {
+  min-height: 2.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-big {
+  height: 6.25rem;
+  display: flex;
+  justify-content: space-between;
+  overflow-y: scroll;
+}

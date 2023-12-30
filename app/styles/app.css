@@ -31,6 +31,7 @@
 @import url("identity-card.module.css");
 @import url("wheel-animations.css");
 @import url("goto.module.css");
+@import url("event-card.module.css");
 
 * {
   margin: 0;

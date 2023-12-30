@@ -12,7 +12,7 @@ module('Integration | Component | events', function (hooks) {
     track it here https://github.com/Real-Dev-Squad/website-www/issues/787
   */
   test.skip('events renders', async function (assert) {
-    await render(hbs`<Events />`);
+    await render(hbs`<PreviousEvents />`);
 
     assert.dom('[data-test-events-section]').exists();
     assert.dom('[data-test-events-section-header]').exists();

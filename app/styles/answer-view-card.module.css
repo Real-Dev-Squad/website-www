@@ -23,11 +23,11 @@
 }
 
 .answer-view-card--pending {
-  background-color: #ffffe0;
+  background-color: var(--color-yellow-low-opacity);
 }
 
 .answer-view-card--approved {
-  background-color: #98fb98;
+  background-color: var(--color-green-low-opacity);
 }
 
 .answer-view-card--rejected {

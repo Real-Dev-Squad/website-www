@@ -52,7 +52,7 @@
 
 .ask-question-modal__checkbox {
   appearance: none;
-  background-color: #fff;
+  background-color: var(--color-white);
   margin: 0;
   font: inherit;
   color: currentcolor;

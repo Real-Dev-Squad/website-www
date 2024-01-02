@@ -76,15 +76,19 @@ export default class SurveyService extends Service {
     }
   }
   async answerApproveHandler(id) {
+    const actualId = id.split('approve-button-')[1];
     const approvalPayload = {
       status: ANSWER_STATUS.APPROVED,
     };
 
     try {
-      const approveResponse = await fetch(`${APPS.API_BACKEND}/answers/${id}`, {
-        ...PATCH_API_CONFIGS,
-        body: JSON.stringify(approvalPayload),
-      });
+      const approveResponse = await fetch(
+        `${APPS.API_BACKEND}/answers/${actualId}`,
+        {
+          ...PATCH_API_CONFIGS,
+          body: JSON.stringify(approvalPayload),
+        },
+      );
 
       if (!approveResponse.ok) throw new Error();
 
@@ -100,14 +104,19 @@ export default class SurveyService extends Service {
   }
 
   async answerRejectHandler(id) {
+    const actualId = id.split('reject-button-')[1];
     const rejectionPayload = {
       status: ANSWER_STATUS.REJECTED,
     };
+
     try {
-      const rejectResponse = await fetch(`${APPS.API_BACKEND}/answers/${id}`, {
-        ...PATCH_API_CONFIGS,
-        body: JSON.stringify(rejectionPayload),
-      });
+      const rejectResponse = await fetch(
+        `${APPS.API_BACKEND}/answers/${actualId}`,
+        {
+          ...PATCH_API_CONFIGS,
+          body: JSON.stringify(rejectionPayload),
+        },
+      );
 
       if (!rejectResponse.ok) throw new Error();
 

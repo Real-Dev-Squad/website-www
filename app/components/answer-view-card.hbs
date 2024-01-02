@@ -19,17 +19,14 @@
 
   <div class="answer-view-card__buttons">
     <Reusables::IconButton
-      {{! template-lint-disable no-duplicate-id}}
-      @id={{@id}}
+      @id="reject-button-{{@id}}"
       @class="icon-button--sm icon-button--red-outlined"
       @title="Reject Answer"
       @onClick={{@onReject}}
       @icon="material-symbols:close-small-outline-rounded"
     />
     <Reusables::IconButton
-      {{!  TODO- fix this unique id eslint problem }}
-      {{! template-lint-disable no-duplicate-id}}
-      @id={{@id}}
+      @id="approve-button-{{@id}}"
       @class="icon-button--sm icon-button--green"
       @title="Approve Answer"
       @onClick={{@onApprove}}

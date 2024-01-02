@@ -44,7 +44,27 @@
 }
 
 .archived__heading {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  padding-bottom: 2rem;
+}
+
+.archived__message {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.archived__contact-container {
+  padding-top: 1.5rem;
+}
+
+.archived__contact-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 @media screen and (width <= 625px) {

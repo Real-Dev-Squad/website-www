@@ -2,7 +2,6 @@
 
 <div id="live" data-test-live>
   {{#if this.liveService.isJoined}}
-    {{!-- {{#if true}} --}}
     <LiveHeader
       @tabs={{this.TABS}}
       @activeTab={{this.activeTab}}
@@ -64,7 +63,6 @@
       @confirmHandler={{(fn this.buttonClickHandler "leave-room")}}
     />
   </BaseModal>
-  {{! TODO - add more else if statement instead of only else }}
   {{#if (eq this.activeTab "Screenshare")}}
     {{#if this.liveService.isLoading}}
       <div data-test-loading class="live__loader-container">
@@ -72,7 +70,6 @@
       </div>
     {{else}}
       {{#if this.liveService.isJoined}}
-        {{!-- {{#if true}} --}}
         <div class="live__container">
           <div
             class="live__video-container
@@ -144,7 +141,6 @@
       @onAnswerApprove={{this.onAnswerApprove}}
     />
   {{else}}
-    {{! TODO - add the respective component here }}
     <p class="live__section">Coming Soon!</p>
   {{/if}}
 

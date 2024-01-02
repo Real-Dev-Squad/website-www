@@ -359,8 +359,6 @@ export default class LiveController extends Controller {
         this.survey.setApprovedAnswers(answers);
       }
       this.survey.showWordCloud();
-
-      console.log('answerSSEListener answers ', answers);
     };
 
     event.onerror = (event) => {

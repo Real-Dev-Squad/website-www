@@ -34,11 +34,11 @@ export default class SurveyPageComponent extends Component {
 
     if (this.activeAnswerFilterValue === 'ALL') return allAnswers;
 
-    const answerToShow = allAnswers.filter(
+    const answersToShow = allAnswers.filter(
       (answer) => answer.status === this.activeAnswerFilterValue,
     );
 
-    return answerToShow;
+    return answersToShow;
   }
 
   get isAskQuestionButtonDisabled() {

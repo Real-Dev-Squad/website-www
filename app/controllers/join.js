@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { APPS } from '../constants/urls';
+import { ANKUSH_TWITTER, APPS } from '../constants/urls';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
@@ -12,6 +12,7 @@ export default class JoinController extends Controller {
   @tracked chaincode = 'Generate chaincode';
   @tracked isChaincodeClicked = false;
   @tracked isLoading = false;
+  ANKUSH_TWITTER = ANKUSH_TWITTER;
 
   queryParams = ['step', 'dev'];
 

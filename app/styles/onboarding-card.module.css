@@ -252,7 +252,7 @@ profile-service-page__inputcontainer__input-label {
 
 @media (width <= 480px) {
   .onboarding-card {
-    width: 90%;
+    width: 82%;
   }
 
   .checkbox-label {

@@ -43,7 +43,7 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
   });
 
   test('it renders correctly when the user is not logged in', async function (assert) {
-    assert.expect(3);
+    assert.expect(4);
     this.set('startHandler', () => {});
 
     await render(
@@ -51,9 +51,12 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
     );
 
     assert.dom('[data-test-rds-logo]').exists();
+    assert.dom('[data-test-signup-heading]').hasText('Welcome to RDS');
     assert
-      .dom('[data-test-signup-heading]')
-      .hasText('You are not logged in. Please log in to continue...');
+      .dom('[ data-test-signup-paragraph]')
+      .hasText(
+        'To start your journey, please sign in with your GitHub account.',
+      );
     assert.dom('[data-test-button=login]').hasText('login');
   });
 });

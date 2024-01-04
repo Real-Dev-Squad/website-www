@@ -198,28 +198,18 @@ profile-service-page__inputcontainer__input-label {
   text-align: center;
 }
 
-/* Base structure for the welcome block */
-.welcome {
-  text-align: center;
-  margin: 20px 0;
-}
-
-/* Styling for the heading within the welcome block */
 .welcome__heading {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
   margin-bottom: 10px;
 }
 
-/* Styling for the description within the welcome block */
 .welcome__description {
   font-size: 18px;
-
-  /* color: #666; */
   max-width: 600px;
   font-weight: 400;
   margin: 0 auto;
+  text-align: center;
 }
 
 @media (width <= 1024px) {

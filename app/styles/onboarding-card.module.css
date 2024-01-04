@@ -198,6 +198,20 @@ profile-service-page__inputcontainer__input-label {
   text-align: center;
 }
 
+.welcome__heading {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.welcome__description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  font-weight: 400;
+  margin: 0 auto;
+  text-align: center;
+}
+
 @media (width <= 1024px) {
   .btn-generateUsername {
     width: 5rem;

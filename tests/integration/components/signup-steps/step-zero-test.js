@@ -57,6 +57,6 @@ module('Integration | Component | signup-steps/step-zero', function (hooks) {
       .hasText(
         'To start your journey, please sign in with your GitHub account.',
       );
-    assert.dom('[data-test-button=login]').hasText('login');
+    assert.dom('[data-test-button=signIn]').hasText('SignIn');
   });
 });

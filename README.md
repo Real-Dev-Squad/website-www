@@ -1,42 +1,56 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f178400b-1528-4bae-b454-8cddfd2fde0b/deploy-status)](https://app.netlify.com/sites/realdevsquad/deploys)
-[![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/5hut.svg)](https://betteruptime.com/?utm_source=status_badge)
+# website-www
 
-# Website
+This README outlines the details of collaborating on this Ember application.
+A short introduction of this app could easily go here.
 
-Welcome to Real Dev Squad
+## Prerequisites
 
-Code deployed on: https://realdevsquad.netlify.app/, then served to our domain
+You will need the following things properly installed on your computer.
 
-#### Production Site -> https://www.realdevsquad.com/
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (with npm)
+- [Ember CLI](https://cli.emberjs.com/release/)
+- [Google Chrome](https://google.com/chrome/)
 
-#### Staging Site -> https://staging-realdevsquad.netlify.app/
+## Installation
 
-## Running the project
+- `git clone <repository-url>` this repository
+- `cd website-www`
+- `npm install`
 
-Run `npm install` after opening the repository in your editor. This will install all the necessary packages for the project which are mentioned in the `pacakage.json` file of the project.
+## Running / Development
 
-## API Calls
+- `ember serve`
+- Visit your app at [http://localhost:4200](http://localhost:4200).
+- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-For accessing APIs of Real Dev Squad, do follow this doc.
-https://github.com/Real-Dev-Squad/docs/tree/main/docs/dev/https-dev-url-cors
+### Code Generators
 
-## Scripts used in project
+Make use of the many generators for code, try `ember help generate` for more details
 
-- `npm run check` checks the formatting of all the files in the project. This script runs in a pre-commit hook. It will warn about the improper formatting present in the file.
-- `npm run fix` can be run for fixing the formatting before commiting your changes or to solve the formatting errors one may get while commiting the changes.
+### Running Tests
 
-**Note** :warning: : Do run these scripts before raising the PR
+- `ember test`
+- `ember test --server`
 
-## CSS Structure
+### Linting
 
-### Global CSS
+- `npm run lint`
+- `npm run lint:fix`
 
-- `main.css`
-  - This css file will contain common css pertaining to all pages that can be used throughout the website.
-  - For example, a class with name success, when used anywhere throughout the website will make the color of the text green.
+### Building
 
-### Page specific CSS
+- `ember build` (development)
+- `ember build --environment production` (production)
 
-- For example, events page css goes inside `events.css`.
-- Also, in future if we add new components, we will keep component specific css like `navbar.css`, `footer.css`, `header.css` etc.
-- For mobile responsive css, we can have a folder with multiple css files catering to different css pertaining to different resolutions.
+### Deploying
+
+Specify what it takes to deploy your app.
+
+## Further Reading / Useful Links
+
+- [ember.js](https://emberjs.com/)
+- [ember-cli](https://cli.emberjs.com/release/)
+- Development Browser Extensions
+  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)

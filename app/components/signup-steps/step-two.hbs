@@ -1,0 +1,21 @@
+
+  <h3 data-test-getting-started-heading class='heading__h3'>Congratulations</h3>
+  <p data-test-getting-started-paragraph class='p2-description'>
+    {{#if (eq this.role 'Developer')}}
+      Let's get your journey started with Real Dev Squad
+    {{else}}
+      You can now join our Discord server where we do our discussions, learning
+      and mentoring stuff
+    {{/if}}
+  </p>
+  <Reusables::Button
+    @text={{if
+      (eq this.role 'Developer')
+      "Let's Get Started"
+      'Join Our Discord'
+    }}
+    @variant='dark'
+    @onClick={{@startHandler}}
+    @test={{if (eq this.role 'Developer') 'lets-go' 'Join-Discord'}}
+    @type='button'
+  />

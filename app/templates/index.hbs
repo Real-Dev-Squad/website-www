@@ -1,0 +1,10 @@
+<HeroSection />
+<Description @isDev={{this.featureFlag.isDevMode}} />
+<JoinSection />
+<Cards />
+{{#unless this.fastboot.isFastBoot}}
+  <MembersDataContainer as |members|>
+    <WheelAnimations @users={{members}} />
+  </MembersDataContainer>
+{{/unless}}
+<MoreAbout @isDev={{this.featureFlag.isDevMode}} />

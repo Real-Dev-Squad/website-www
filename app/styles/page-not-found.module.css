@@ -1,0 +1,27 @@
+.page-not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 75vh;
+  margin: 3rem 0;
+}
+
+.page-not-found__img {
+  width: 400px;
+}
+
+.page-not-found__text {
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+@media screen and (width <= 625px) {
+  .page-not-found__img {
+    width: 70%;
+  }
+
+  .page-not-found__text {
+    font-size: 1.5rem;
+  }
+}

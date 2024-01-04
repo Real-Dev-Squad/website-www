@@ -1,0 +1,83 @@
+.shine {
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 150px 150px;
+  display: inline-block;
+  position: relative;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.circle {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.animation__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 26rem;
+
+  --units: 1px;
+}
+
+.member__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.member__img {
+  position: absolute;
+
+  --size: 1;
+  --x: 300;
+  --y: 200;
+
+  animation: burst-out 2.5s cubic-bezier(0.37, -0.28, 0.55, 1.26) forwards;
+}
+
+@media only screen and (width <=595px) {
+  .circle {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@keyframes burst-out {
+  0% {
+    transform: translateX(0%) translateY(0%) scale(var(--size));
+    filter: blur(5px);
+  }
+
+  70% {
+    filter: blur(0);
+  }
+
+  100% {
+    transform: translateX(calc(var(--x) * 1px)) translateY(calc(var(--y) * 1px))
+      scale(var(--size));
+  }
+}

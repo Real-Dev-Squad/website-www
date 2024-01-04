@@ -1,0 +1,49 @@
+{{#if @isDev}}
+<section class="description--dev">
+    <div class="description__heading">
+      <img
+        data-test-description-img
+        class="description__image"
+        src="assets/images/question-mark.png"
+        alt="Question Mark Background"
+      />
+      <h2 data-test-description-title class="description__title--dev">
+        <span class="title__question">What is</span>
+        <span class="title__highlight">Real Dev Squad</span>
+      </h2>
+    </div>
+    <p data-test-description-content class="description__content--dev">
+      Real Dev Squad is an online non-profit open source free fun community for
+      people in tech, mainly developers, designers, college students, or product
+      managers, to come, learn and contribute towards building a platform for
+      our community, that helps upskill everyone.
+      <br /><br />
+      We are an inclusive, respectful, warm, motivated and commited squad of
+      people who constantly grow together and tackle bigger and harder
+      challenges to ensure we become some of the best problem solvers,
+      engineers, designers and more out there.
+    </p>
+  </section>
+{{else}}
+  <section class="description" data-test-description-section>
+    <h2 class="description__title" data-test-description-section-title>What
+      is Real Dev Squad?</h2>
+    <div
+      class="description__content"
+      data-test-description-section-content
+    >
+      <p data-test-description-section-content="para-first">
+        Real Dev Squad is an online non-profit open source free fun community
+        for people in tech, mainly developers, designers, college students, or
+        product managers, to come, learn and contribute towards building a
+        platform for our community, that helps upskill everyone.
+      </p>
+      <p data-test-description-section-content="para-second">
+        We are an inclusive, respectful, warm, motivated and commited squad of
+        people who constantly grow together and tackle bigger and harder
+        challenges to ensure we become some of the best problem solvers,
+        engineers, designers and more out there.
+      </p>
+    </div>
+  </section>
+{{/if}}

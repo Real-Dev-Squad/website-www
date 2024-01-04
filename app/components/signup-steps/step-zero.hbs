@@ -1,0 +1,28 @@
+<div class='logo logos-container__rds' data-test-rds-logo>
+{{#if this.login.isLoggedIn}}
+     <img
+      src='assets/icons/rds-github-link.png'
+      alt='RDS-Logo'
+      class='logo__github-rds'
+      data-test-rds-logo-img
+    />
+  <h2 class="heading__h3" data-test-signup-heading>Thank you for connecting your GitHub</h2>
+  <p class="p2-description" data-test-signup-paragraph>Please continue with Sign Up with in order to use features display yourself on members page etc</p> 
+  <Reusables::Button
+    @text="Let's Go"
+    @variant='dark'
+    @onClick={{@startHandler}}
+    @test='lets-go'
+    @type='button'
+  />
+  {{else}}
+  <p class="heading__h3" data-test-signup-heading>You are not logged in. Please log in to continue...</p>
+  <Reusables::Button
+    @text='login'
+    @variant='dark'
+    @onClick={{this.loginWithGithub}}
+    @test='login'
+    @type='button'
+  />
+{{/if}}
+  </div>

@@ -1,0 +1,19 @@
+.events-page {
+  min-height: 76vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.events-page__rds-image {
+  height: 200px;
+  width: 200px;
+}
+
+.events-page__heading {
+  font-size: 2rem;
+}

@@ -1,0 +1,266 @@
+@import url("./variables.css");
+
+header {
+  background-color: var(--color-navyblue);
+  font-weight: 700;
+}
+
+.hamburger--toggle {
+  display: none;
+  background: transparent;
+  color: var(--color-white);
+  border: none;
+  margin: 25px;
+  cursor: pointer;
+}
+
+.nav__menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+}
+
+.nav__home__img {
+  height: 3.125rem;
+  width: 3.125rem;
+  margin: 1rem;
+}
+
+.nav__element {
+  display: block;
+  text-decoration: none;
+  color: var(--color-white);
+  margin: 2rem 1.5rem;
+}
+
+.nav__home__link {
+  display: none;
+}
+
+.nav__element.active {
+  color: var(--color-green);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+}
+
+.nav__element:hover {
+  color: var(--color-green);
+}
+
+.nav__loading {
+  width: 100px;
+  text-align: center;
+}
+
+.header__login {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1.4rem 1.5rem;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--color-white);
+  border-radius: 6px;
+  padding: 5px;
+  background-color: none;
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.login__github {
+  margin-left: 5px;
+}
+
+.login__logo {
+  margin: 3px;
+}
+
+.header__user {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-white);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.user__msg {
+  display: inline;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.user__pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline;
+  vertical-align: middle;
+}
+
+.menu {
+  font-size: 0.87rem;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color-offwhite);
+  box-shadow:
+    var(--color-blackshadow) 0 1px 2px 0,
+    var(--color-blackshadow2) 0 2px 6px 2px;
+  border-radius: 10px;
+  width: 9.4rem;
+  padding: 1rem 0;
+  position: absolute;
+  right: 1.25rem;
+  top: 4.4rem;
+  display: none;
+  z-index: 1;
+}
+
+.active-menu {
+  display: flex;
+}
+
+.menu__link {
+  padding: 1rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-blue);
+}
+
+.menu__link:hover {
+  background-color: var(--color-greywhite);
+  transition: background-color 0.38s ease-in;
+}
+
+.line {
+  border: 0;
+  border-bottom: 1px solid;
+  margin: auto;
+  opacity: 0.25;
+  color: inherit;
+  width: 90%;
+  padding: 0;
+}
+
+.skeleton-holder {
+  display: flex;
+  align-items: center;
+}
+
+.skeleton-holder__rectangle {
+  width: 6.5rem;
+  height: 2.7rem;
+  margin-right: 0.9rem;
+  border-radius: 0.25rem;
+  background: var(--skeleton-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-bg) 0%,
+    var(--skeleton-shine-color) 20%,
+    var(--skeleton-bg) 40%,
+    var(--skeleton-bg) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 18.75rem 6.5rem;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+}
+
+.skeleton-holder__circle {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--skeleton-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--skeleton-bg) 0%,
+    var(--skeleton-shine-color) 20%,
+    var(--skeleton-bg) 40%,
+    var(--skeleton-bg) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 18.75rem 6.5rem;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: -29.25rem 0;
+  }
+
+  100% {
+    background-position: 29.25rem 0;
+  }
+}
+
+@media (width <=1024px) {
+  .hamburger--toggle {
+    display: inline-block;
+  }
+
+  .nav__menu {
+    display: none;
+    background-color: var(--color-offwhite);
+    padding: 10px 0;
+    box-shadow: 0 10px 15px var(--color-black-light);
+  }
+
+  .nav__menu a {
+    color: var(--color-navyblue);
+  }
+
+  nav li {
+    float: none;
+  }
+
+  .nav__home__link,
+  .active {
+    display: block;
+  }
+
+  .nav__home {
+    display: none;
+  }
+
+  .nav__element {
+    padding: 10px 40px;
+    margin: 10px;
+  }
+
+  .nav__element.active {
+    text-decoration: none;
+  }
+
+  .header__login {
+    margin: 22px 20px;
+  }
+
+  .menu {
+    top: 70px;
+    right: 20px;
+  }
+}
+
+@media (width <=625px) {
+  .login__github {
+    display: none;
+  }
+}

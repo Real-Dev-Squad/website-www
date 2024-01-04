@@ -1,0 +1,122 @@
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 75vh;
+  margin: 3rem 0;
+}
+
+.stepper__form {
+  margin: 0 1.5rem;
+}
+
+.stepper__greeting {
+  font-size: 1.75rem;
+  margin: 0 1rem 1rem;
+  text-align: center;
+}
+
+.stepper__buttons {
+  margin: 1.5rem;
+  text-align: center;
+}
+
+.form__container {
+  margin: 0 10px;
+}
+
+.label {
+  color: var(--neutral-neutral-800, #1f1f1f);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.required {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: var(--color-pink);
+}
+
+/* Step Four: Preview */
+.preview,
+.preview__container {
+  margin: 1.5rem 0;
+}
+
+.preview__data {
+  background-color: var(--color-bgpink);
+  min-height: 1.75rem;
+  max-width: 34rem;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: justify;
+}
+
+/* Step Five: Copy Link */
+.joining {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem;
+}
+
+.joining__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.copy__link {
+  padding: 20px;
+  margin: 10px 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 20rem;
+  border-radius: 10px;
+  text-align: center;
+  background-color: var(--color-bgpink);
+}
+
+.joining__info {
+  margin: 20px 10px;
+  font-weight: 500;
+  max-width: 350px;
+  padding-left: 20px;
+}
+
+@media (width <= 1024px) {
+  .user-input {
+    width: 22rem;
+  }
+
+  .select {
+    width: 23rem;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .stepper__greeting {
+    font-size: 1.5rem;
+  }
+
+  .details,
+  .label,
+  .preview__label {
+    font-size: 1.125rem;
+  }
+}
+
+@media (width <= 480px) {
+  .user-input {
+    width: 95%;
+  }
+
+  .select {
+    width: 95%;
+  }
+}

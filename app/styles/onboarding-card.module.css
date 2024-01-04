@@ -205,7 +205,7 @@ profile-service-page__inputcontainer__input-label {
 }
 
 .welcome__description {
-  font-size: 1.2px;
+  font-size: 1.2rem;
   max-width: 600px;
   font-weight: 400;
   margin: 0 auto;

@@ -9,6 +9,7 @@ export default class JoinController extends Controller {
   @service router;
   @service login;
   @service featureFlag;
+  @service fastboot;
   @tracked chaincode = 'Generate chaincode';
   @tracked isChaincodeClicked = false;
   @tracked isLoading = false;

@@ -117,6 +117,7 @@
   border: none;
   padding: 0 0.4rem;
   cursor: pointer;
+  position: relative;
 }
 
 .profile-service-page {
@@ -212,7 +213,7 @@ profile-service-page__inputcontainer__input-label {
   text-align: center;
 }
 
-@media (width <= 1024px) {
+@media (width <=1024px) {
   .btn-generateUsername {
     width: 5rem;
     font-size: 12px;
@@ -223,7 +224,7 @@ profile-service-page__inputcontainer__input-label {
   }
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
   .onboarding-card {
     width: 30rem;
     padding: 3.5rem 1rem;
@@ -264,7 +265,7 @@ profile-service-page__inputcontainer__input-label {
   }
 }
 
-@media (width <= 480px) {
+@media (width <=480px) {
   .onboarding-card {
     width: 82%;
   }

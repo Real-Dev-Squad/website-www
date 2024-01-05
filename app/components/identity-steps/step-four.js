@@ -9,6 +9,7 @@ export default class IdentityStepsStepFourComponent extends Component {
   @tracked hideChaincode = true;
   @tracked isCopyClicked = false;
   @tracked isChaincodePageButtonDisabled = true;
+  @tracked isTooltipVisible = true;
 
   @action toggleEye() {
     this.hideChaincode = !this.hideChaincode;
@@ -17,6 +18,7 @@ export default class IdentityStepsStepFourComponent extends Component {
   @action handleCopy() {
     navigator.clipboard.writeText(this.Chaincode);
     this.isCopyClicked = true;
+    this.isTooltipVisible = false;
     this.isChaincodePageButtonDisabled = false;
     if (this.isCopyClicked === true) {
       this.toast.info('Copied', '', toastNotificationTimeoutOptions);

@@ -1,0 +1,57 @@
+.tooltip {
+  position: absolute;
+  font-size: 12px;
+  width: 12rem;
+  top: -2.4rem;
+  left: -11.6rem;
+  right: 0;
+  background-color: var(--color-navyblue);
+  padding: 6px 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: var(--color-white);
+  z-index: 1;
+  font-weight: 600;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  transform: rotate(45deg);
+  height: 12px;
+  z-index: -1;
+  inset: 1.2rem 6rem -5px 12.2rem;
+  width: 13px;
+  background: var(--color-navyblue);
+}
+
+.fade-in {
+  animation: fade-in 0.3s linear 0s 1 normal forwards;
+  display: block;
+}
+
+.fade-out {
+  animation: fade-out 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

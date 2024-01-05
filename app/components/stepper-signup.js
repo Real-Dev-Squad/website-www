@@ -2,12 +2,15 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { APPS } from '../constants/urls';
+import { TOAST_OPTIONS } from '../constants/toast-options';
 
 const MAX_STEP = 15;
 const MIN_STEP = 0;
 export default class StepperSignupComponent extends Component {
   @service login;
   @service router;
+  @service toast;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
@@ -62,5 +65,44 @@ export default class StepperSignupComponent extends Component {
     this.currentStep -= 3;
     const queryParams = { dev: true, step: this.currentStep };
     this.router.transitionTo('join', { queryParams });
+  }
+
+  @action async applicationHandler() {
+    const firstName = this.login.userData.first_name;
+    const lastName = this.login.userData.last_name;
+    const data = JSON.stringify({
+      firstName,
+      lastName,
+      ...this.stepOneData,
+      ...this.stepTwoData,
+      ...this.stepThreeData,
+    });
+    console.log('data', data);
+    try {
+      const response = await fetch(`${APPS.API_BACKEND}/applications`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: data,
+      });
+
+      if (response.status === 201) {
+        this.toast.success(
+          'Successfully submitted the form',
+          'Success!',
+          TOAST_OPTIONS,
+        );
+        this.incrementStep();
+      } else if (response.status === 409) {
+        this.toast.error(
+          'You have already filled the form',
+          'User Exist!',
+          TOAST_OPTIONS,
+        );
+      }
+    } catch (err) {
+      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
+      console.log('Error: ', err);
+    }
   }
 }

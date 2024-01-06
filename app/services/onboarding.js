@@ -2,6 +2,7 @@ import Service from '@ember/service';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import { ERROR_MESSAGES } from '../constants/error-messages';
+import { APPS } from '../constants/urls';
 
 export default class OnboardingService extends Service {
   @service store;
@@ -55,6 +56,35 @@ export default class OnboardingService extends Service {
         'error!',
         TOAST_OPTIONS,
       );
+    }
+  }
+
+  async addApplication(data) {
+    try {
+      const response = await fetch(`${APPS.API_BACKEND}/applications`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: data,
+      });
+
+      if (response.status === 201) {
+        this.toast.success(
+          'Successfully submitted the form',
+          'Success!',
+          TOAST_OPTIONS,
+        );
+        this.incrementStep();
+      } else if (response.status === 409) {
+        this.toast.error(
+          'You have already filled the form',
+          'User Exist!',
+          TOAST_OPTIONS,
+        );
+      }
+    } catch (err) {
+      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
+      console.log('Error: ', err);
     }
   }
 }

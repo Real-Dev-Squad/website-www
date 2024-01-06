@@ -20,31 +20,33 @@
   transform: rotate(45deg);
   height: 12px;
   z-index: -1;
-  inset: 1.2rem 6rem -5px 12.2rem;
+  inset: 1.2rem 6rem -5px 12.3rem;
   width: 13px;
   background: var(--color-navyblue);
 }
 
-.fade-in {
-  animation: fade-in 0.3s linear 0s 1 normal forwards;
+.tooltip--fade-in {
+  animation: tooltip-fade-in 0.3s linear 0s 1 normal forwards;
   display: block;
 }
 
-.fade-out {
-  animation: fade-out 0.3s linear 0s 1 normal forwards;
+.tooltip--fade-out {
+  animation: tooltip-fade-out 0.3s linear 0s 1 normal forwards;
 }
 
-@keyframes fade-in {
+@keyframes tooltip-fade-in {
   0% {
     opacity: 0.2;
+    transform: translateY(5px);
   }
 
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes fade-out {
+@keyframes tooltip-fade-out {
   0% {
     opacity: 1;
     display: block;

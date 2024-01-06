@@ -14,10 +14,19 @@
           @currentStep={{this.currentStep}}
           @startHandler={{this.startHandler}}
         />
-      {{else if (eq this.currentStep 1)}}
+      {{else if (and (eq this.currentStep 1) this.login.userData.incompleteUserDetails)}}
         <SignupSteps::StepOne
           @currentStep={{this.currentStep}}
           @incrementStep={{this.incrementStep}}
+        />
+      {{else if (eq this.currentStep 1)}}
+        <p class='heading__h3'>You have already completed the sign-up process. Please proceed to the following steps.</p>
+        <Reusables::Button
+          @text='Next'
+          @variant='dark'
+          @onClick={{this.incrementStep}}
+          @test='next'
+          @type='submit'
         />
       {{else if (eq this.currentStep 2)}}
         <SignupSteps::StepTwo @startHandler={{this.startHandler}} />

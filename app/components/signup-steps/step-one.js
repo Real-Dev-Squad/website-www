@@ -8,6 +8,8 @@ import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 export default class SignupStepsStepOneComponent extends Component {
   @service toast;
   @service onboarding;
+  @service store;
+  @service login;
   @tracked data = { firstname: '', lastname: '', username: '', role: '' };
   @tracked isSignupButtonDisabled = true;
   @tracked isValid = true;
@@ -100,6 +102,14 @@ export default class SignupStepsStepOneComponent extends Component {
     }
 
     await this.onboarding.signup(dataToUpdate);
+    // Update user records firstname and lastname
+    const user = this.login.userData;
+    if (!user.first_name || !user.last_name) {
+      this.login.userData.first_name = this.data.firstname;
+      this.login.userData.last_name = this.data.lastname;
+      this.login.userData.username = username;
+    }
+    // To get user details after signup
     localStorage.setItem('role', this.data.role);
     this.args.incrementStep();
   }

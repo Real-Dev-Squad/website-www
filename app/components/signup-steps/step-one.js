@@ -8,7 +8,6 @@ import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
 export default class SignupStepsStepOneComponent extends Component {
   @service toast;
   @service onboarding;
-  @service store;
   @service login;
   @tracked data = { firstname: '', lastname: '', username: '', role: '' };
   @tracked isSignupButtonDisabled = true;

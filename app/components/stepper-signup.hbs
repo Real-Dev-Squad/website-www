@@ -1,11 +1,11 @@
 <OnboardingCard>
   <form>
-    <div class="card__getting-started">
+    <div class='card__getting-started'>
       {{#if (not-eq this.currentStep 0)}}
         <img
-          src="assets/icons/onboarding-card-rds-logo.png"
-          alt="RDS-Logo"
-          class="signup-details__rds-logo"
+          src='assets/icons/onboarding-card-rds-logo.png'
+          alt='RDS-Logo'
+          class='signup-details__rds-logo'
           data-test-rds-logo
         />
       {{/if}}
@@ -78,37 +78,37 @@
   </form>
 
   {{#if (and (gte this.currentStep 3) (lte this.currentStep 6))}}
-    <div class="stepper__buttons">
+    <div class='stepper__buttons'>
       {{#if (eq this.currentStep 6)}}
         <Reusables::Button
-          @text="Previous"
-          @variant="light"
+          @text='Previous'
+          @variant='light'
           @onClick={{this.decrementStep}}
-          @test="prev"
-          @type="button"
+          @test='prev'
+          @type='button'
         />
         <Reusables::Button
-          @text="Submit"
-          @variant="dark"
+          @text='Submit'
+          @variant='dark'
           @onClick={{this.startHandler}}
-          @test="submit"
-          @type="button"
+          @test='submit'
+          @type='button'
         />
       {{else}}
         <Reusables::Button
-          @text="Previous"
-          @variant="light"
+          @text='Previous'
+          @variant='light'
           @onClick={{this.decrementStep}}
-          @test="prev"
-          @type="button"
+          @test='prev'
+          @type='button'
         />
         <Reusables::Button
-          @text={{if (eq this.currentStep 5) "Preview" "Next"}}
-          @variant="dark"
+          @text={{if (eq this.currentStep 5) 'Preview' 'Next'}}
+          @variant='dark'
           @disabled={{if (or this.preValid this.isValid) false true}}
           @onClick={{this.incrementStep}}
-          @test="next"
-          @type="submit"
+          @test='next'
+          @type='submit'
         />
       {{/if}}
     </div>

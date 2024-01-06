@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { TOAST_OPTIONS } from '../constants/toast-options';
 
 const MAX_STEP = 15;
 const MIN_STEP = 0;
@@ -76,6 +77,22 @@ export default class StepperSignupComponent extends Component {
       ...this.stepTwoData,
       ...this.stepThreeData,
     });
-    await this.onboarding.addApplication(data);
+
+    const response = await this.onboarding.addApplication(data);
+
+    if (response.status === 201) {
+      this.toast.success(
+        'Successfully submitted the form',
+        'Success!',
+        TOAST_OPTIONS,
+      );
+      this.incrementStep();
+    } else if (response.status === 409) {
+      this.toast.error(
+        'You have already filled the form',
+        'User Exist!',
+        TOAST_OPTIONS,
+      );
+    }
   }
 }

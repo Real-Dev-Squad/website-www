@@ -67,24 +67,10 @@ export default class OnboardingService extends Service {
         credentials: 'include',
         body: data,
       });
-
-      if (response.status === 201) {
-        this.toast.success(
-          'Successfully submitted the form',
-          'Success!',
-          TOAST_OPTIONS,
-        );
-        this.incrementStep();
-      } else if (response.status === 409) {
-        this.toast.error(
-          'You have already filled the form',
-          'User Exist!',
-          TOAST_OPTIONS,
-        );
-      }
+      return response;
     } catch (err) {
-      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
       console.log('Error: ', err);
+      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
     }
   }
 }

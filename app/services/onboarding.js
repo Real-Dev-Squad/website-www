@@ -2,6 +2,7 @@ import Service from '@ember/service';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import { ERROR_MESSAGES } from '../constants/error-messages';
+import { APPS } from '../constants/urls';
 
 export default class OnboardingService extends Service {
   @service store;
@@ -55,6 +56,21 @@ export default class OnboardingService extends Service {
         'error!',
         TOAST_OPTIONS,
       );
+    }
+  }
+
+  async addApplication(data) {
+    try {
+      const response = await fetch(`${APPS.API_BACKEND}/applications`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: data,
+      });
+      return response;
+    } catch (err) {
+      console.log('Error: ', err);
+      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
     }
   }
 }

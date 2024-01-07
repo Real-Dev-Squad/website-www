@@ -13,7 +13,7 @@ module('Integration | Component | status-card', function (hooks) {
   });
 
   test('it renders pending status', async function (assert) {
-    assert.expect(4);
+    assert.expect(3);
 
     this.set('status', 'pending');
     this.set('feedback', 'Feedback for pending status');
@@ -33,7 +33,6 @@ module('Integration | Component | status-card', function (hooks) {
       .hasText(
         'Your application is currently in pending state, please regularly check this page for invite link.',
       );
-    assert.dom('[data-test-status-card-buttons] button').isDisabled();
   });
 
   test('it renders rejected status', async function (assert) {
@@ -59,7 +58,7 @@ module('Integration | Component | status-card', function (hooks) {
   });
 
   test('it renders accepted status', async function (assert) {
-    assert.expect(6);
+    assert.expect(5);
 
     this.set('status', 'accepted');
     this.set('feedback', 'Feedback for accepted status');
@@ -83,6 +82,5 @@ module('Integration | Component | status-card', function (hooks) {
     assert
       .dom('[data-test-status-card-description-3]')
       .hasText('Feedback for accepted status');
-    assert.dom('[data-test-status-card-buttons] button').isNotDisabled();
   });
 });

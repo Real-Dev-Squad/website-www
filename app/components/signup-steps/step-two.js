@@ -10,6 +10,8 @@ export default class SignupStepsStepTwoComponent extends Component {
   @action
   async generateDiscordLink() {
     const inviteLink = await this.onboarding.discordInvite();
-    window.open(inviteLink, '_blank');
+    if (inviteLink) {
+      window.open(`https://${inviteLink}`, '_blank');
+    }
   }
 }

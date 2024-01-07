@@ -34,6 +34,16 @@ export default class StepperSignupComponent extends Component {
         this.router.transitionTo('join', { queryParams });
       }
     }
+
+    console.log(this.onboarding);
+  }
+
+  get applicationStatus() {
+    console.log(
+      this.onboarding.applicationData?.status,
+      ' this.onboarding.applicationData?.status;',
+    );
+    return this.onboarding.applicationData?.status;
   }
 
   @action decrementStep() {
@@ -104,5 +114,9 @@ export default class StepperSignupComponent extends Component {
         TOAST_OPTIONS,
       );
     }
+  }
+
+  @action joinDiscordHandler() {
+    console.log('joinDiscordHandler');
   }
 }

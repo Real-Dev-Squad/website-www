@@ -34,8 +34,6 @@ export default class StepperSignupComponent extends Component {
         this.router.transitionTo('join', { queryParams });
       }
     }
-
-    console.log(this.onboarding);
   }
 
   get applicationStatus() {
@@ -116,7 +114,10 @@ export default class StepperSignupComponent extends Component {
     }
   }
 
-  @action joinDiscordHandler() {
-    console.log('joinDiscordHandler');
+  @action async joinDiscordHandler() {
+    const inviteLink = await this.onboarding.discordInvite();
+    if (inviteLink) {
+      window.open(`https://${inviteLink}`, '_blank');
+    }
   }
 }

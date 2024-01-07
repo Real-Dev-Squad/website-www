@@ -5,6 +5,7 @@ import { ERROR_MESSAGES } from '../constants/error-messages';
 import { GET_API_CONFIGS, POST_API_CONFIGS } from '../constants/live';
 import { APPS } from '../constants/urls';
 export default class OnboardingService extends Service {
+  @service login;
   @service store;
   @service toast;
   @tracked applicationData;
@@ -15,7 +16,6 @@ export default class OnboardingService extends Service {
     (async () => {
       await this.getApplicationDetails();
     })();
-    console.log('this.applicationData ', this.applicationData);
   }
 
   async signup(dataToUpdate) {
@@ -111,19 +111,18 @@ export default class OnboardingService extends Service {
 
   async getApplicationDetails() {
     try {
+      const userId = this.login.userData.id;
       const applicationResponse = await fetch(
-        `${APPS.API_BACKEND}/applications`,
+        `${APPS.API_BACKEND}/applications?userId=${userId}`,
         {
           credentials: 'include',
         },
       );
-      console.log('applicationResponse ', applicationResponse);
       const applicationData = await applicationResponse.json();
-      console.log('applicationData ', applicationData?.applications?.[0]);
 
       this.applicationData = applicationData?.applications?.[0];
     } catch (err) {
-      console.log('Error: ', err);
+      console.error('Error: ', err);
       this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
     }
   }

@@ -96,7 +96,7 @@ export default class SignupStepsStepOneComponent extends Component {
       dataToUpdate.roles = {
         maven: this.data.role === 'Maven',
         designer: this.data.role === 'Designer',
-        productmanager: this.data.role === 'Product Manager',
+        product_manager: this.data.role === 'Product Manager',
       };
     }
 

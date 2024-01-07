@@ -103,4 +103,47 @@ module('Unit | Service | onboarding', function (hooks) {
 
     assert.verifySteps(['store.createRecord called']);
   });
+
+  test('discordInvite method', async function (assert) {
+    let service = this.owner.lookup('service:onboarding');
+    let fetch = window.fetch;
+    let toast = this.owner.lookup('service:toast');
+
+    toast.error = (message) => assert.step(`toast.error: ${message}`);
+
+    window.fetch = (url, configs) => {
+      assert.step(`fetch called with url: ${url}`);
+
+      if (configs.method === 'POST') {
+        return Promise.resolve({
+          status: 409,
+          json: () => Promise.resolve({}),
+        });
+      } else {
+        return Promise.resolve({
+          status: 403,
+          json: () => Promise.resolve({ message: 'Forbidden' }),
+        });
+      }
+    };
+
+    const inviteLink = await service.discordInvite();
+
+    assert.verifySteps(
+      [
+        `fetch called with url: https://staging-api.realdevsquad.com/discord-actions/invite`,
+        'fetch called with url: https://staging-api.realdevsquad.com/discord-actions/invite',
+        'toast.error: Forbidden',
+      ],
+      'Correct methods were called in the service',
+    );
+
+    assert.strictEqual(
+      inviteLink,
+      undefined,
+      'Invite link should be undefined due to error status',
+    );
+
+    window.fetch = fetch;
+  });
 });

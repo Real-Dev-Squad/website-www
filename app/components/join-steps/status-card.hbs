@@ -24,32 +24,47 @@
   >
     {{#if (eq @status this.APPLICATION_STATUS_TYPES.pending)}}
       <p data-test-status-card-description-1>
-        Refresh to Check status-card Status
-      </p>
-      <p data-test-status-card-description-2>
-        Your Profile Service Linked with Real Dev Squad Service
+        Your application is currently in pending state, please regularly check
+        this page for invite link.
       </p>
     {{else if (eq @status this.APPLICATION_STATUS_TYPES.rejected)}}
       <p data-test-status-card-description-1>
-        Your application is reject
+        Your application is rejected
+      </p>
+      <p data-test-status-card-description-2>
+        <strong>Here's the feedback for your application</strong>
+      </p>
+      <p data-test-status-card-description-3>
+        {{@feedback}}
       </p>
     {{else if (eq @status this.APPLICATION_STATUS_TYPES.accepted)}}
       <p data-test-status-card-description-1>
         <b>Congratulations!</b>
-        Your application is approved
+        Your application is accepted by us
       </p>
       <p data-test-status-card-description-2>
+        <strong>Here's the feedback for your application</strong>
+      </p>
+      <p data-test-status-card-description-3>
+        {{@feedback}}
+      </p>
+      <p data-test-status-card-description-4>
         Take the Next Step and Join Our Discord Server.
       </p>
     {{/if}}
   </div>
   <div class="status-card__buttons">
     <Reusables::Button
-      @text="Next"
+      @text="Join Discord"
       @variant="dark"
       @onClick={{@joinDiscord}}
       @test="join-discord-link"
       @type="button"
+      @disabled={{if
+        (not-eq @status this.APPLICATION_STATUS_TYPES.accepted)
+        true
+        false
+      }}
     />
   </div>
 </div>

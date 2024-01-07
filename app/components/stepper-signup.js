@@ -39,11 +39,11 @@ export default class StepperSignupComponent extends Component {
   }
 
   get applicationStatus() {
-    console.log(
-      this.onboarding.applicationData?.status,
-      ' this.onboarding.applicationData?.status;',
-    );
     return this.onboarding.applicationData?.status;
+  }
+
+  get applicationFeedback() {
+    return this.onboarding.applicationData?.feedback;
   }
 
   @action decrementStep() {

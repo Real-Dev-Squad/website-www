@@ -88,6 +88,7 @@
       {{else if (eq this.currentStep 14)}}
         <JoinSteps::StatusCard
           @status={{this.applicationStatus}}
+          @feedback={{this.applicationFeedback}}
           @joinDiscord={{this.joinDiscordHandler}}
         />
       {{/if}}

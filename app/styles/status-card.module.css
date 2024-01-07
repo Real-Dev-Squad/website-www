@@ -9,35 +9,6 @@
   display: flex;
 }
 
-.hourglass-half-icon {
-  padding: 1.4rem 0 0 0.5rem;
-  color: var(--color-soil);
-}
-
-.ban-icon {
-  padding: 1.4rem 0 0 0.5rem;
-  color: var(--color-red);
-}
-
-.square-check-icon {
-  padding: 1.4rem 0 0 0.5rem;
-  color: var(--color-green);
-}
-
 .status-card__description {
   text-align: center;
-}
-
-@media (width <=425px) {
-  .hourglass-half-icon {
-    padding: 0.5rem 0 0 0.5rem;
-  }
-
-  .ban-icon {
-    padding: 0.4rem 0 0 0.5rem;
-  }
-
-  .square-check-icon {
-    padding: 0.4rem 0 0 0.5rem;
-  }
 }

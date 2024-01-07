@@ -1,7 +1,7 @@
 import Service, { service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import { ERROR_MESSAGES } from '../constants/error-messages';
-import { POST_API_CONFIGS } from '../constants/live';
+import { GET_API_CONFIGS, POST_API_CONFIGS } from '../constants/live';
 import { APPS } from '../constants/urls';
 
 export default class OnboardingService extends Service {
@@ -75,16 +75,24 @@ export default class OnboardingService extends Service {
   }
 
   async discordInvite() {
+    const discordInviteUrl = `${APPS.API_BACKEND}/discord-actions/invite`;
     try {
-      const response = await fetch(
-        `${APPS.API_BACKEND}/discord-actions/invite`,
-        {
-          ...POST_API_CONFIGS,
-        },
-      );
-      const { invite } = await response.json();
-      console.log('invite', invite);
-      return invite;
+      let response = await fetch(discordInviteUrl, POST_API_CONFIGS);
+
+      if (response.status === 409) {
+        response = await fetch(discordInviteUrl, {
+          ...GET_API_CONFIGS,
+          credentials: 'include',
+        });
+      }
+
+      const { inviteLink, message } = await response.json();
+
+      if (response.status === 403) {
+        this.toast.error(message, 'error!', TOAST_OPTIONS);
+      }
+
+      return inviteLink;
     } catch (error) {
       console.error(error);
       this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);

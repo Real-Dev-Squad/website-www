@@ -39,6 +39,7 @@ export default class OnboardingService extends Service {
       });
 
       await user.save();
+      this.toast.success('Signup successfully', 'Success!', TOAST_OPTIONS);
     } catch (error) {
       this.toast.error(
         ERROR_MESSAGES.somethingWentWrong,

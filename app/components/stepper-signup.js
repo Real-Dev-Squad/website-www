@@ -36,6 +36,14 @@ export default class StepperSignupComponent extends Component {
     }
   }
 
+  get applicationStatus() {
+    return this.onboarding.applicationData?.status;
+  }
+
+  get applicationFeedback() {
+    return this.onboarding.applicationData?.feedback;
+  }
+
   @action decrementStep() {
     if (this.currentStep > MIN_STEP) {
       this.currentStep -= 1;
@@ -103,6 +111,13 @@ export default class StepperSignupComponent extends Component {
         'User Exist!',
         TOAST_OPTIONS,
       );
+    }
+  }
+
+  @action async joinDiscordHandler() {
+    const inviteLink = await this.onboarding.discordInvite();
+    if (inviteLink) {
+      window.open(`https://${inviteLink}`, '_blank');
     }
   }
 }

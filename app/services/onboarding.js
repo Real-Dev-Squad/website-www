@@ -1,12 +1,22 @@
+import { tracked } from '@glimmer/tracking';
 import Service, { service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import { ERROR_MESSAGES } from '../constants/error-messages';
 import { GET_API_CONFIGS, POST_API_CONFIGS } from '../constants/live';
 import { APPS } from '../constants/urls';
-
 export default class OnboardingService extends Service {
+  @service login;
   @service store;
   @service toast;
+  @tracked applicationData;
+
+  constructor() {
+    super(...arguments);
+
+    (async () => {
+      await this.getApplicationDetails();
+    })();
+  }
 
   async signup(dataToUpdate) {
     try {
@@ -96,6 +106,24 @@ export default class OnboardingService extends Service {
     } catch (error) {
       console.error(error);
       this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+    }
+  }
+
+  async getApplicationDetails() {
+    try {
+      const userId = this.login.userData.id;
+      const applicationResponse = await fetch(
+        `${APPS.API_BACKEND}/applications?userId=${userId}`,
+        {
+          credentials: 'include',
+        },
+      );
+      const applicationData = await applicationResponse.json();
+
+      this.applicationData = applicationData?.applications?.[0];
+    } catch (err) {
+      console.error('Error: ', err);
+      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
     }
   }
 }

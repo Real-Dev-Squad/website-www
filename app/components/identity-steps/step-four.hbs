@@ -44,6 +44,10 @@
           {{on 'click' this.handleCopy}}
         >
           <FaIcon @icon='copy' @size='0.5x' />
+          <Tooltip
+            @isVisible={{this.isTooltipVisible}}
+            @text='Copy this code to go to next step'
+          />
         </button>
       </div>
     </div>

@@ -38,6 +38,7 @@
 @import url("word-cloud.module.css");
 @import url("event-card.module.css");
 @import url("status-card.module.css");
+@import url("tooltip.module.css");
 
 * {
   margin: 0;

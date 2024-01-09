@@ -37,6 +37,7 @@
 @import url("answer-view-card.module.css");
 @import url("word-cloud.module.css");
 @import url("event-card.module.css");
+@import url("status-card.module.css");
 
 * {
   margin: 0;

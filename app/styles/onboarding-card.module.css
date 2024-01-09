@@ -12,6 +12,7 @@
     0 4px 10px -2px var(--color-blackshadow),
     0 6px 15px -2px var(--color-blackshadow2);
   margin-top: 5rem;
+  min-height: 18rem;
 }
 
 .logo__github-rds {
@@ -75,87 +76,6 @@
   font-size: 1.1rem;
 }
 
-.chaincode-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  max-width: 25rem;
-}
-
-.chaincode-page__description {
-  text-align: center;
-}
-
-.chaincode-container {
-  min-width: 90%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  border: 1px solid;
-  border-radius: 0.5rem;
-}
-
-.chaincode-container__value-invisible {
-  letter-spacing: 0.4rem;
-  margin-left: 1rem;
-  font-weight: bold;
-}
-
-.chaincode-container__value-visible {
-  font-weight: bold;
-  margin-left: 1rem;
-  letter-spacing: 0.2rem;
-}
-
-.chaincode-container__action {
-  display: flex;
-}
-
-.chaicode-button-icon {
-  background: none;
-  border: none;
-  padding: 0 0.4rem;
-  cursor: pointer;
-  position: relative;
-}
-
-.profile-service-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.profile-service-page__description {
-  text-align: center;
-}
-
-.profile-service-page__inputContainer {
-  display: flex;
-  position: relative;
-}
-
-profile-service-page__inputcontainer__input-label {
-  display: none;
-}
-
-.profile-service-page__inputContainer__input-url {
-  flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid var(--color-shade-grey);
-  background: var(--color-white);
-}
-
-.profile-service-page__inputContainer__tooltip {
-  margin-left: 1rem;
-  cursor: pointer;
-  border: none;
-  background: none;
-  padding: 1rem;
-  position: relative;
-}
-
 .tooltip-info {
   font-size: 0.7rem;
   flex-flow: column wrap;
@@ -211,23 +131,6 @@ profile-service-page__inputcontainer__input-label {
   margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
-}
-
-.profile-service-page__button {
-  display: flex;
-  justify-content: center;
-}
-
-.profile-service-url-linking-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  max-width: 25rem;
-}
-
-.profile-service-url-linking-page__description {
-  text-align: center;
 }
 
 .welcome__heading {

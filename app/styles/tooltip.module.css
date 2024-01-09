@@ -2,8 +2,8 @@
   position: absolute;
   font-size: 12px;
   width: 12rem;
-  top: -2.4rem;
-  left: -11.6rem;
+  top: 13rem;
+  left: 17.2rem;
   right: 0;
   background-color: var(--color-navyblue);
   padding: 6px 10px;
@@ -55,5 +55,19 @@
   100% {
     opacity: 0;
     display: none;
+  }
+}
+
+@media (width <= 768px) {
+  .tooltip {
+    top: 12.5rem;
+    left: 13.6rem;
+  }
+}
+
+@media (width <= 480px) {
+  .tooltip {
+    top: 11.2rem;
+    left: 7rem;
   }
 }

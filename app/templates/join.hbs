@@ -1,27 +1,27 @@
-{{page-title "Join"}}
-<section class="join__container">
+{{page-title 'Join'}}
+<section class='join__container'>
   {{#if this.login.isLoading}}
-    <div data-test-loading class="intro__loading">
-      <Fa-Icon @size="2x" @icon="circle-notch" @spin={{true}} />
+    <div data-test-loading class='intro__loading'>
+      <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
     </div>
   {{else}}
     {{#if this.login.userData.roles.archived}}
       <OnboardingCard>
-        <h3 data-test-archived-heading class="archived__heading">Archived User</h3>
-        <p data-test-archived-message class="archived__message">
+        <h3 data-test-archived-heading class='archived__heading'>Archived User</h3>
+        <p data-test-archived-message class='archived__message'>
           This user account has been archived. If you have any questions or need
           assistance, please contact Ankush via Twitter.
         </p>
         <div
           data-test-archived-contact-container
-          class="archived__contact-container"
+          class='archived__contact-container'
         >
           <a
             href={{this.ANKUSH_TWITTER}}
             data-test-archived-contact-link
-            class="archived__contact-link"
-            target="_blank"
-            rel="noopener noreferrer"
+            class='archived__contact-link'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Contact Ankush on Twitter
           </a>

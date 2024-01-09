@@ -1,51 +1,51 @@
-<div data-test="profile-service" class="profile-service-page">
-  <h3 data-test="heading" class="profile-service-page__heading heading__h3">
+<div data-test='profile-service' class='profile-service-page'>
+  <h3 data-test='heading' class='profile-service-page__heading heading__h3'>
     Deploy Profile Service
   </h3>
-  <p data-test="description" class="profile-service-page__description">
+  <p data-test='description' class='profile-service-page__description'>
     Set the chaincode on your profile service.<br />
     Deploy it and enter your profile service URL
   </p>
-  <div class="profile-service-page__inputContainer">
+  <div class='profile-service-page__inputContainer'>
     <label
-      for="profile-service-url"
-      class="profile-service-page__inputContainer__input-label"
+      for='profile-service-url'
+      class='profile-service-page__inputContainer__input-label'
     ></label>
     <input
-      data-test-input-field="profile-service"
-      id="profile-service-url"
-      class="profile-service-page__inputContainer__input-url"
-      type="text"
-      placeholder="Enter your profile service URL"
+      data-test-input-field='profile-service'
+      id='profile-service-url'
+      class='profile-service-page__inputContainer__input-url'
+      type='text'
+      placeholder='Enter your profile service URL'
       value={{this.profileURL}}
-      {{on "keyup" this.changeProfileURL}}
+      {{on 'keyup' this.changeProfileURL}}
     />
     <button
-      data-test="tooltip"
-      type="button"
-      class="profile-service-page__inputContainer__tooltip"
-      {{on "mouseover" this.openTooltipInfo}}
-      {{on "mouseout" this.closeTooltipInfo}}
+      data-test='tooltip'
+      type='button'
+      class='profile-service-page__inputContainer__tooltip'
+      {{on 'mouseover' this.openTooltipInfo}}
+      {{on 'mouseout' this.closeTooltipInfo}}
     >
-      <FaIcon @icon="info-circle" @size="1x" />
+      <FaIcon @icon='info-circle' @size='1x' />
       <span
-        data-test="tooltip-info"
-        class="tooltip-info
+        data-test='tooltip-info'
+        class='tooltip-info
           {{if
             this.isMouseOnTooltip
             'tooltip-info--show'
             'tooltip-info--hidden'
-          }}"
+          }}'
       >
-        <p class="tooltip-info__heading">What is Profile Service URL?</p>
-        <div class="tooltip-info__container">
+        <p class='tooltip-info__heading'>What is Profile Service URL?</p>
+        <div class='tooltip-info__container'>
           <span>Details in the template:</span>
           {{! TODO fix this eslint error }}
           {{! template-lint-disable no-nested-interactive}}
           <a
-            href="https://github.com/RahulGoyal-tech/profile-service-rds"
-            target="_blank"
-            rel="noopener noreferrer"
+            href='https://github.com/RahulGoyal-tech/profile-service-rds'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             https://github.com/RahulGoyal-tech/profile-service-rds
           </a>
@@ -54,14 +54,14 @@
     </button>
   </div>
 
-  <div class="profile-service-page__button">
+  <div class='profile-service-page__button'>
     <Reusables::Button
-      @text="Next"
-      @variant="dark"
+      @text='Next'
+      @variant='dark'
       @onClick={{this.handleEdit}}
-      @test="next"
+      @test='next'
       @disabled={{this.nextButtonDisabled}}
-      @type="button"
+      @type='button'
       @isLoading={{this.isLoading}}
     />
   </div>

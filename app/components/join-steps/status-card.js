@@ -12,17 +12,17 @@ export default class StatusCardComponent extends Component {
     {
       status: APPLICATION_STATUS_TYPES.pending,
       heading: 'Pending',
-      icon: 'mdi:timer-sand',
+      icon: 'hourglass-half',
     },
     {
       status: APPLICATION_STATUS_TYPES.rejected,
       heading: 'Rejected',
-      icon: 'mdi:close-circle',
+      icon: 'ban',
     },
     {
       status: APPLICATION_STATUS_TYPES.accepted,
       heading: 'Accepted',
-      icon: 'mdi:check-circle',
+      icon: 'square-check',
     },
   ];
 }

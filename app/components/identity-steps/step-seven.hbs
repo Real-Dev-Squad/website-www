@@ -1,6 +1,6 @@
 <div data-test-verification-page class='verification-page'>
   {{#each this.profileStatuses as |currentStatus|}}
-    {{#if (eq this.login.userData.profileStatus currentStatus.status)}}
+    {{#if (eq this.activeProfileStatus currentStatus.status)}}
       <div
         data-test-verification-heading-icon
         class='verification-page__heading-Icon'
@@ -22,7 +22,7 @@
         class='verification-page__description'
       >
         {{#if
-          (eq this.login.userData.profileStatus this.PROFILE_STATUS.PENDING)
+          (eq this.activeProfileStatus this.PROFILE_STATUS.PENDING)
         }}
           <p data-test-verification-description-1>
             Refresh to Check Verification Status
@@ -31,7 +31,7 @@
             Your Profile Service Linked with Real Dev Squad Service
           </p>
         {{else if (eq
-          this.login.userData.profileStatus this.PROFILE_STATUS.BLOCKED
+          this.activeProfileStatus this.PROFILE_STATUS.BLOCKED
         )}}
           <p data-test-verification-description-1>
             Your previous
@@ -39,7 +39,7 @@
             is Blocked.
           </p>
         {{else if (eq
-          this.login.userData.profileStatus this.PROFILE_STATUS.VERIFIED
+          this.activeProfileStatus this.PROFILE_STATUS.VERIFIED
         )}}
           <p data-test-verification-description-1>
             <b>Congratulations!</b>
@@ -53,7 +53,7 @@
     {{/if}}
   {{/each}}
   <div class='verification-page__button'>
-    {{#if (eq this.login.userData.profileStatus this.PROFILE_STATUS.PENDING)}}
+    {{#if (eq this.activeProfileStatus this.PROFILE_STATUS.PENDING)}}
       <Reusables::Button
         @text='Refresh'
         @variant='dark'
@@ -62,7 +62,7 @@
         @type='button'
       />
     {{else if (eq
-      this.login.userData.profileStatus this.PROFILE_STATUS.BLOCKED
+      this.activeProfileStatus this.PROFILE_STATUS.BLOCKED
     )}}
       <Reusables::Button
         @text='Verify Again'
@@ -72,7 +72,7 @@
         @type='button'
       />
     {{else if (eq
-      this.login.userData.profileStatus this.PROFILE_STATUS.VERIFIED
+      this.activeProfileStatus this.PROFILE_STATUS.VERIFIED
     )}}
       <Reusables::Button
         @text='Next'

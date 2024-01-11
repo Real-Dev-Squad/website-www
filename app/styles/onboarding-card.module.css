@@ -192,6 +192,7 @@
 @media (width <=480px) {
   .onboarding-card {
     width: 82%;
+    min-height: 12rem;
   }
 
   .checkbox-label {

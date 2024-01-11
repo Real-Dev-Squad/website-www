@@ -7,6 +7,10 @@ export default class IdentityStepsStepSevenComponent extends Component {
   @service router;
 
   PROFILE_STATUS = PROFILE_STATUS;
+  get activeProfileStatus() {
+    const activeProfileStatus = this.login.userData.profileStatus;
+    return activeProfileStatus;
+  }
 
   profileStatuses = [
     {

@@ -20,38 +20,6 @@
       value={{this.profileURL}}
       {{on 'keyup' this.changeProfileURL}}
     />
-    <button
-      data-test='tooltip'
-      type='button'
-      class='profile-service-page__inputContainer__tooltip'
-      {{on 'mouseover' this.openTooltipInfo}}
-      {{on 'mouseout' this.closeTooltipInfo}}
-    >
-      <FaIcon @icon='info-circle' @size='1x' />
-      <span
-        data-test='tooltip-info'
-        class='tooltip-info
-          {{if
-            this.isMouseOnTooltip
-            'tooltip-info--show'
-            'tooltip-info--hidden'
-          }}'
-      >
-        <p class='tooltip-info__heading'>What is Profile Service URL?</p>
-        <div class='tooltip-info__container'>
-          <span>Details in the template:</span>
-          {{! TODO fix this eslint error }}
-          {{! template-lint-disable no-nested-interactive}}
-          <a
-            href='https://github.com/RahulGoyal-tech/profile-service-rds'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            https://github.com/RahulGoyal-tech/profile-service-rds
-          </a>
-        </div>
-      </span>
-    </button>
   </div>
 
   <div class='profile-service-page__button'>

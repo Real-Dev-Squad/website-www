@@ -2,8 +2,8 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
 import { APPS } from '../../constants/urls';
+import { TOAST_OPTIONS } from '../../constants/toast-options';
 
 export default class IdentityStepsStepSixComponent extends Component {
   @service toast;
@@ -21,25 +21,17 @@ export default class IdentityStepsStepSixComponent extends Component {
         },
         credentials: 'include',
       });
-
-      if (response.ok) {
-        this.toast.info(
+      if (response.ok)
+        return this.toast.info(
           'Your request has been queued successfully',
           '',
-          toastNotificationTimeoutOptions,
+          TOAST_OPTIONS,
         );
-      } else {
-        this.toast.error(
-          'Something went wrong. Please check console errors.',
-          '',
-          toastNotificationTimeoutOptions,
-        );
-      }
     } catch (error) {
       this.toast.error(
         'Something went wrong. Please check console errors.',
         '',
-        toastNotificationTimeoutOptions,
+        TOAST_OPTIONS,
       );
     } finally {
       this.isLoading = false;

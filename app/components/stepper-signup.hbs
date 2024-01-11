@@ -66,8 +66,6 @@
       {{else if (eq this.currentStep 8)}}
         <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 9)}}
-        <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
-      {{else if (eq this.currentStep 10)}}
         <IdentitySteps::StepFour
           @startHandler={{this.startHandler}}
           @chaincode={{@chaincode}}
@@ -75,17 +73,17 @@
           @isLoading={{@isLoading}}
           @handleGenerateChaincode={{@handleGenerateChaincode}}
         />
-      {{else if (eq this.currentStep 11)}}
+      {{else if (eq this.currentStep 10)}}
         <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
-      {{else if (eq this.currentStep 12)}}
+      {{else if (eq this.currentStep 11)}}
         <IdentitySteps::StepSix @startHandler={{this.startHandler}} />
-      {{else if (eq this.currentStep 13)}}
+      {{else if (eq this.currentStep 12)}}
         <IdentitySteps::StepSeven
           @handleRefresh={{this.handleRefresh}}
           @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}}
           @startHandler={{this.startHandler}}
         />
-      {{else if (eq this.currentStep 14)}}
+      {{else if (eq this.currentStep 13)}}
         <JoinSteps::StatusCard
           @status={{this.applicationStatus}}
           @feedback={{this.applicationFeedback}}

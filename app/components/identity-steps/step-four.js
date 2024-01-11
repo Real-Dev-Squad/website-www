@@ -16,7 +16,7 @@ export default class IdentityStepsStepFourComponent extends Component {
   }
 
   @action handleCopy() {
-    navigator.clipboard.writeText(this.Chaincode);
+    navigator.clipboard.writeText(this.args.chaincode);
     this.isCopyClicked = true;
     this.isTooltipVisible = false;
     this.isChaincodePageButtonDisabled = false;

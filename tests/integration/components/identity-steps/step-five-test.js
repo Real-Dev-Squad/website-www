@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, triggerEvent, typeIn } from '@ember/test-helpers';
+import { render, typeIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | identity-steps/step-five', function (hooks) {
@@ -67,34 +67,6 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
     assert
       .dom('[data-test-input-field=profile-service]')
       .hasProperty('placeholder', 'Enter your profile service URL');
-  });
-
-  test('Display Tooltip Information on Mouse Hover', async function (assert) {
-    assert.expect(1);
-
-    this.set('startHandler', () => {});
-
-    await render(
-      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`,
-    );
-
-    await triggerEvent('[data-test=tooltip]', 'mouseover');
-
-    assert.dom('[data-test=tooltip-info]').hasClass('tooltip-info');
-  });
-
-  test('Not Display Tooltip Information on Mouse Out', async function (assert) {
-    assert.expect(1);
-
-    this.set('startHandler', () => {});
-
-    await render(
-      hbs`<IdentitySteps::StepFive @startHandler={{this.startHandler}} />`,
-    );
-
-    await triggerEvent('[data-test=tooltip]', 'mouseout');
-
-    assert.dom('[data-test=tooltip-info]').hasClass('tooltip-info');
   });
 
   test('Render Next button on profile page', async function (assert) {

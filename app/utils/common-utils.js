@@ -1,6 +1,6 @@
 export const readMoreFormatter = (string, lengthToDisplay) => {
   if (!string) {
-    return;
+    return string;
   }
 
   if (string.length > lengthToDisplay) {

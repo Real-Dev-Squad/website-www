@@ -117,6 +117,7 @@
   border: none;
   padding: 0 0.4rem;
   cursor: pointer;
+  position: relative;
 }
 
 .profile-service-page {
@@ -151,6 +152,8 @@ profile-service-page__inputcontainer__input-label {
   cursor: pointer;
   border: none;
   background: none;
+  padding: 1rem;
+  position: relative;
 }
 
 .tooltip-info {
@@ -162,17 +165,46 @@ profile-service-page__inputcontainer__input-label {
     var(--color-blackshadow) 0 1px 2px 0,
     var(--color-blackshadow2) 0 2px 6px 2px;
   border-radius: 10px;
-  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
   width: 10rem;
   padding: 1rem;
   position: absolute;
-  left: 20rem;
-  top: 2rem;
+  left: -10rem;
+  top: -5.5rem;
   display: none;
 }
 
-.active-tooltip-info {
+.tooltip-info--show {
+  animation: fade-in 0.3s linear 0s 1 normal forwards;
   display: flex;
+}
+
+.tooltip-info--hidden {
+  animation: fade-out 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.2;
+    transform: translateY(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
 .tooltip-info__container {
@@ -198,7 +230,21 @@ profile-service-page__inputcontainer__input-label {
   text-align: center;
 }
 
-@media (width <= 1024px) {
+.welcome__heading {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.welcome__description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  font-weight: 400;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (width <=1024px) {
   .btn-generateUsername {
     width: 5rem;
     font-size: 12px;
@@ -209,7 +255,7 @@ profile-service-page__inputcontainer__input-label {
   }
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
   .onboarding-card {
     width: 30rem;
     padding: 3.5rem 1rem;
@@ -238,19 +284,9 @@ profile-service-page__inputcontainer__input-label {
     width: 2.8rem;
     height: 2.5rem;
   }
-
-  .tooltip-info {
-    font-size: 0.5rem;
-    top: 2rem;
-    left: 11rem;
-    width: 8rem;
-    padding: 15px 5px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 0;
-  }
 }
 
-@media (width <= 480px) {
+@media (width <=480px) {
   .onboarding-card {
     width: 82%;
   }
@@ -265,12 +301,6 @@ profile-service-page__inputcontainer__input-label {
 
   .chaincode-container__value-visible {
     letter-spacing: 0;
-  }
-
-  .tooltip-info {
-    top: -5rem;
-    left: 9rem;
-    border-top-left-radius: 10px;
   }
 
   .heading__h3 {

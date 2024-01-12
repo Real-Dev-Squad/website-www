@@ -9,7 +9,12 @@
   {{on "click" @onClick}}
 >
   {{#if @isLoading}}
-    <FaIcon @icon="spinner" @size="0.5x" class="fa-spin" />
+    <FaIcon
+      data-test-button-loader
+      @icon="spinner"
+      @size="0.5x"
+      class="fa-spin"
+    />
   {{/if}}
   {{@text}}
 </button>

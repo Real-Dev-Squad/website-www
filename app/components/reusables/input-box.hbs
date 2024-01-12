@@ -18,6 +18,7 @@
   />
   {{#if @shouldShowHelperText}}
     <p
+      data-test-input-helper-text
       class="input-box__helper-text
         {{if @isError 'input-box__helper-text--error' ''}}"
     >{{@helperText}}</p>

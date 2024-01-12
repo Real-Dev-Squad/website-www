@@ -5,11 +5,10 @@ import { debounce } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { ROLE } from '../../constants/stepper-signup-data';
 import { JOIN_DEBOUNCE_TIME } from '../../constants/join';
-import { APPS } from '../../constants/urls';
-import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
 export default class SignupStepsStepOneComponent extends Component {
   @service toast;
   @service onboarding;
+  @service login;
   @tracked data = { firstname: '', lastname: '', username: '', role: '' };
   @tracked isSignupButtonDisabled = true;
   @tracked isValid = true;
@@ -81,38 +80,6 @@ export default class SignupStepsStepOneComponent extends Component {
     debounce(this.data, passVal, JOIN_DEBOUNCE_TIME);
   }
 
-  @action async getUsername() {
-    try {
-      const firstname = this.data.firstname.toLowerCase();
-      const lastname = this.data.lastname.toLowerCase();
-      const response = await fetch(
-        `${APPS.API_BACKEND}/users/username?firstname=${firstname}&lastname=${lastname}&dev=true`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-        },
-      );
-      const data = await response.json();
-      if (response.status === 200) {
-        this.data = {
-          ...this.data,
-          username: data.username,
-        };
-      } else if (response.status === 401) {
-        this.toast.error(
-          'Please login to continue.',
-          '',
-          toastNotificationTimeoutOptions,
-        );
-      }
-    } catch (err) {
-      console.log('Error: ', 'Something went wrong');
-    }
-  }
-
   @action async signup() {
     const { username } = await this.onboarding.generateUsername(
       this.data.firstname,
@@ -129,11 +96,19 @@ export default class SignupStepsStepOneComponent extends Component {
       dataToUpdate.roles = {
         maven: this.data.role === 'Maven',
         designer: this.data.role === 'Designer',
-        productmanager: this.data.role === 'Product Manager',
+        product_manager: this.data.role === 'Product Manager',
       };
     }
 
     await this.onboarding.signup(dataToUpdate);
+    // Update user records firstname and lastname
+    const user = this.login.userData;
+    if (!user.first_name || !user.last_name) {
+      this.login.userData.first_name = this.data.firstname;
+      this.login.userData.last_name = this.data.lastname;
+      this.login.userData.username = username;
+    }
+    // To get user details after signup
     localStorage.setItem('role', this.data.role);
     this.args.incrementStep();
   }

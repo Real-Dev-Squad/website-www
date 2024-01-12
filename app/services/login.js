@@ -8,6 +8,7 @@ export default class LoginService extends Service {
   @tracked userData;
   @tracked isLoading = true;
   @service fastboot;
+  @service featureFlag;
 
   constructor() {
     super(...arguments);
@@ -20,7 +21,8 @@ export default class LoginService extends Service {
     this.store
       .findRecord('user', 'self')
       .then((user) => {
-        if (user.incompleteUserDetails) window.location.replace(AUTH.SIGN_UP);
+        if (user.incompleteUserDetails && !this.featureFlag.isDevMode)
+          window.location.replace(AUTH.SIGN_UP);
         this.isLoggedIn = true;
         this.userData = user;
       })

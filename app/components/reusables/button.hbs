@@ -1,14 +1,20 @@
 <button
   data-test-button={{@test}}
-  class='btn btn-{{@variant}}
+  class="btn btn-{{@variant}}
     btn-{{@classGenerateUsername}}
-    {{if @disabled "btn-disabled" ""}}'
+    {{if @disabled 'btn-disabled' ''}}"
   type={{@type}}
   disabled={{@disabled}}
-  {{on 'click' @onClick}}
+  title={{@title}}
+  {{on "click" @onClick}}
 >
   {{#if @isLoading}}
-    <FaIcon @icon='spinner' @size='0.5x' class='fa-spin' />
+    <FaIcon
+      data-test-button-loader
+      @icon="spinner"
+      @size="0.5x"
+      class="fa-spin"
+    />
   {{/if}}
   {{@text}}
 </button>

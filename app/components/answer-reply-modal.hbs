@@ -1,0 +1,58 @@
+<BaseModal
+  @closeModal={{@closeModal}}
+  @openModal={{@openModal}}
+  @isOpen={{@isOpen}}
+>
+  <div data-test-answer-reply-modal class="answer-reply-modal">
+    <h4
+      data-test-answer-reply-modal="heading"
+      class="answer-reply-modal__heading"
+    >Host asked you a question😀</h4>
+    <form>
+      <Reusables::InputBox
+        @field={{@questionAsked.question}}
+        @name="answer"
+        @type="text"
+        @placeHolder="Enter your answer"
+        @required={{true}}
+        @isError={{@validationDetails.isError}}
+        @helperText={{@validationDetails.helperText}}
+        @variant="input--full-width"
+        @value={{@answerValue}}
+        @shouldShowHelperText={{@validationDetails.isHelperTextVisible}}
+        @onInput={{@inputHandler}}
+      />
+      <p
+        data-test-answer-reply-modal="info-text"
+        class="answer-reply-modal__info-text"
+      >
+        <span
+          data-test-answer-reply-modal="info-icon"
+          class="answer-reply-modal__info-icon"
+        >&iexcl;</span>
+        Do not use abusive words, this event is moderated!</p>
+      <div
+        data-test-answer-reply-modal="actions"
+        class="answer-reply-modal__actions"
+      >
+        <Reusables::Button
+          @text="Cancel"
+          @type="button"
+          @variant="dark btn--sm btn-light answer-reply-modal__cancel-button"
+          @test="answer-reply-modal-cancel"
+          @onClick={{@closeModal}}
+        />
+        <Reusables::Button
+          @type="button"
+          @text="Submit"
+          @variant="dark btn--sm btn-pink answer-reply-modal__submit-button"
+          @test="answer-reply-modal-submit"
+          @disabled={{@submitButtonState.isDisabled}}
+          @isLoading={{@submitButtonState.isLoading}}
+          @onClick={{@onSubmit}}
+        />
+      </div>
+    </form>
+  </div>
+
+</BaseModal>

@@ -1,14 +1,25 @@
-{{page-title 'Live'}}
+{{page-title "Live"}}
 
-<div id='live' data-test-live>
+<div id="live" data-test-live>
   {{#if this.liveService.isJoined}}
+    {{!-- {{#if true}} --}}
     <LiveHeader
       @tabs={{this.TABS}}
       @activeTab={{this.activeTab}}
       @tabHandler={{this.tabHandler}}
     />
   {{/if}}
-
+  <AnswerReplyModal
+    @openModal={{this.openAnswerReplyModal}}
+    @closeModal={{this.closeAnswerReplyModal}}
+    @isOpen={{this.isAnswerReplyModalOpen}}
+    @inputHandler={{this.onAnswerInput}}
+    @answerValue={{this.answerValue}}
+    @questionAsked={{this.survey.recentQuestion}}
+    @onSubmit={{this.submitAnswer}}
+    @validationDetails={{this.answerValidationDetails}}
+    @submitButtonState={{this.answerSubmitButtonState}}
+  />
   <BaseModal
     @closeModal={{this.closeKickoutModal}}
     @openModal={{this.openKickoutModal}}
@@ -17,9 +28,9 @@
   >
     <KickoutModal
       @closeModal={{modal.closeModal}}
-      @message='Do you want to remove {{this.peerToRemove.name}}?'
-      @closeText='Cancel'
-      @confirmText='Remove'
+      @message="Do you want to remove {{this.peerToRemove.name}}?"
+      @closeText="Cancel"
+      @confirmText="Remove"
       @confirmHandler={{this.removePeer}}
     />
   </BaseModal>
@@ -33,7 +44,7 @@
       @roomCodes={{this.liveService.roomCodesForMaven}}
       @closeModal={{modal.closeModal}}
       @newCode={{this.newRoomCode}}
-      @onInput={{fn this.inputHandler 'newRoomCode'}}
+      @onInput={{fn this.inputHandler "newRoomCode"}}
       @createRoomCode={{this.createRoomCodeHandler}}
       @toast={{this.liveService.toast}}
       @isLoading={{this.liveService.roomCodeLoading}}
@@ -47,34 +58,35 @@
   >
     <KickoutModal
       @closeModal={{modal.closeModal}}
-      @message='Are you sure to end this event?'
-      @closeText='Cancel'
-      @confirmText='End'
-      @confirmHandler={{(fn this.buttonClickHandler 'leave-room')}}
+      @message="Are you sure to end this event?"
+      @closeText="Cancel"
+      @confirmText="End"
+      @confirmHandler={{(fn this.buttonClickHandler "leave-room")}}
     />
   </BaseModal>
   {{! TODO - add more else if statement instead of only else }}
-  {{#if (eq this.activeTab 'Screenshare')}}
+  {{#if (eq this.activeTab "Screenshare")}}
     {{#if this.liveService.isLoading}}
-      <div data-test-loading class='live__loader-container'>
-        <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
+      <div data-test-loading class="live__loader-container">
+        <Fa-Icon @size="2x" @icon="circle-notch" @spin={{true}} />
       </div>
     {{else}}
       {{#if this.liveService.isJoined}}
-        <div class='live__container'>
+        {{!-- {{#if true}} --}}
+        <div class="live__container">
           <div
-            class='live__video-container
-              {{if this.liveService.isScreenShareOn "bg-black" ""}}'
+            class="live__video-container
+              {{if this.liveService.isScreenShareOn 'bg-black' ''}}"
             data-test-video-container
           >
             {{! TODO - add skeleton to the whole structure }}
             {{#if this.isLoading}}
               <Reusables::Skeleton />
             {{else}}
-              <VideoScreen @src='/assets/starting-soon.mp4' />
+              <VideoScreen @src="/assets/starting-soon.mp4" />
             {{/if}}
           </div>
-          <div class='container__sidebar'>
+          <div class="container__sidebar">
             {{#if this.isLoading}}
               <Reusables::Skeleton />
             {{else}}
@@ -86,7 +98,7 @@
             {{/if}}
           </div>
         </div>
-        <div class='live__panel-container'>
+        <div class="live__panel-container">
           {{#if this.isLoading}}
             <Reusables::Skeleton />
           {{else}}
@@ -100,8 +112,9 @@
             />
           {{/if}}
         </div>
+        <WordCloud @isWordCloud={{this.featureFlag.isWordCloud}} />
       {{else}}
-        {{#if (eq this.role '')}}
+        {{#if (eq this.role "")}}
           <LiveRoles
             @roles={{this.ROLES}}
             @clickHandler={{this.selectRoleHandler}}
@@ -119,13 +132,20 @@
         {{/if}}
       {{/if}}
     {{/if}}
-  {{else if (eq this.activeTab 'Logs')}}
-    <div class='live__section'>
+  {{else if (eq this.activeTab "Logs")}}
+    <div class="live__section">
       <Events::LogsPage />
     </div>
+  {{else if (eq this.activeTab "Survey")}}
+    <Events::SurveyPage
+      @questionAsked={{this.survey.recentQuestion}}
+      @answers={{this.survey.answers}}
+      @onAnswerReject={{this.onAnswerReject}}
+      @onAnswerApprove={{this.onAnswerApprove}}
+    />
   {{else}}
     {{! TODO - add the respective component here }}
-    <p class='live__section'>Coming Soon!</p>
+    <p class="live__section">Coming Soon!</p>
   {{/if}}
 
 </div>

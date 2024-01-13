@@ -27,7 +27,36 @@
   transform: translate(50%, 50%);
 }
 
-@media (width <= 425px) {
+.icon-button--sm {
+  border-radius: 50%;
+  height: 37px;
+  width: 38px;
+  margin-right: 2rem;
+  position: relative;
+}
+
+.icon-button--sm .iconify.iconify--material-symbols {
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+}
+
+.icon-button--green {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border: none;
+}
+
+.icon-button--red-outlined {
+  border: 2px solid var(--text-red);
+  background-color: var(--color-white);
+  color: var(--text-red);
+}
+
+@media (width <=425px) {
   .icon-button--md {
     margin-right: 1rem;
   }

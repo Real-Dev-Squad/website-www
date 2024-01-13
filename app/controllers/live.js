@@ -4,18 +4,30 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { globalRef } from 'ember-ref-bucket';
-import { ROLES, BUTTONS_TYPE } from '../constants/live';
+import { registerDestructor } from '@ember/destroyable';
+import {
+  ROLES,
+  BUTTONS_TYPE,
+  ANSWER_STATUS,
+  ANSWER_MIN_LENGTH,
+} from '../constants/live';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import { APPS } from '../constants/urls';
 export default class LiveController extends Controller {
   queryParams = ['dev'];
   ROLES = ROLES;
+  @service featureFlag;
   @service login;
   @service toast;
+  @service fastboot;
+  @service survey;
+  answerEventSource;
+  questionEventSource;
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
-    { id: 2, label: 'Previous Events', active: false },
-    { id: 3, label: 'Real Dev Squad', active: false },
+    { id: 2, label: 'Survey', active: false },
     { id: 4, label: 'Logs', active: false },
+    { id: 3, label: 'More', active: false },
   ];
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = false;
@@ -30,6 +42,17 @@ export default class LiveController extends Controller {
   @tracked newRoomCode = '';
   @tracked isActiveEventFound;
   @tracked buttonText = '';
+  @tracked isAnswerReplyModalOpen = false;
+  @tracked answerValue = '';
+  @tracked answerValidationDetails = {
+    isError: false,
+    isHelperTextVisible: true,
+    helperText: `Minimum character limit is ${ANSWER_MIN_LENGTH} characters`,
+  };
+  @tracked answerSubmitButtonState = {
+    isDisabled: true,
+    isLoading: false,
+  };
   @globalRef('videoEl') videoEl;
   get liveService() {
     return getOwner(this).lookup('service:live');
@@ -37,9 +60,24 @@ export default class LiveController extends Controller {
 
   constructor() {
     super(...arguments);
+
+    if (!this.fastboot.isFastBoot) {
+      const queryParams = new URLSearchParams(window.location.search);
+      const isWordCloudFeatureOn = queryParams.get('wordCloud') === 'true';
+
+      if (isWordCloudFeatureOn) {
+        this.questionSSEListener();
+        this.answerSSEListener();
+      }
+    }
     setTimeout(() => {
       this.isLoading = false;
     }, 4000);
+
+    registerDestructor(this, () => {
+      this.questionEventSource?.close();
+      this.answerEventSource?.close();
+    });
   }
 
   @action inputHandler(type, event) {
@@ -136,6 +174,82 @@ export default class LiveController extends Controller {
     this.isWarningModalOpen = !this.isWarningModalOpen;
   }
 
+  @action openAnswerReplyModal() {
+    this.isAnswerReplyModalOpen = true;
+  }
+
+  @action closeAnswerReplyModal() {
+    this.isAnswerReplyModalOpen = false;
+  }
+
+  @action onAnswerInput(event) {
+    const maxCharacters = this.survey.recentQuestion.max_characters;
+
+    this.answerValue = event.target.value;
+    const answerLength = this.answerValue.trim().length;
+    const isAnswerEqualToMinLength = answerLength >= ANSWER_MIN_LENGTH;
+
+    if (!isAnswerEqualToMinLength) {
+      this.answerValidationDetails.helperText = `Minimum character limit is ${ANSWER_MIN_LENGTH} characters`;
+      this.answerValidationDetails.isHelperTextVisible = true;
+
+      this.answerValidationDetails = this.answerValidationDetails;
+
+      this.answerSubmitButtonState.isDisabled = true;
+      this.answerSubmitButtonState = this.answerSubmitButtonState;
+
+      return;
+    }
+
+    if (maxCharacters === null) {
+      this.resetAnswerValidators();
+      return;
+    }
+
+    if (this.answerValue.trim().length > maxCharacters) {
+      this.answerValidationDetails.isError = true;
+      this.answerValidationDetails.helperText = `Maximum character limit is ${maxCharacters} characters`;
+      this.answerValidationDetails.isHelperTextVisible = true;
+      this.answerValidationDetails = this.answerValidationDetails;
+
+      this.answerSubmitButtonState.isDisabled = true;
+      this.answerSubmitButtonState = this.answerSubmitButtonState;
+    } else {
+      this.resetAnswerValidators();
+    }
+  }
+
+  @action async submitAnswer() {
+    this.answerSubmitButtonState.isLoading = true;
+    this.answerSubmitButtonState.isDisabled = true;
+
+    this.answerSubmitButtonState = this.answerSubmitButtonState;
+
+    const answerBody = {
+      answer: this.answerValue.trim(),
+      answeredBy: this.liveService.localPeer?.id,
+      eventId: this.liveService?.activeRoomId,
+      questionId: this.survey.recentQuestion?.id,
+    };
+
+    const { error } = await this.survey.answerSubmitHandler(answerBody);
+
+    if (!error) {
+      this.isAnswerReplyModalOpen = false;
+      this.answerSubmitButtonState.isLoading = false;
+      this.answerSubmitButtonState.isDisabled = false;
+      this.answerSubmitButtonState = this.answerSubmitButtonState;
+    }
+  }
+
+  @action async onAnswerReject(id) {
+    this.survey.answerRejectHandler(id);
+  }
+
+  @action async onAnswerApprove(id) {
+    this.survey.answerApproveHandler(id);
+  }
+
   @action buttonClickHandler(buttonId) {
     switch (buttonId) {
       case BUTTONS_TYPE.SCREEN_SHARE:
@@ -171,5 +285,86 @@ export default class LiveController extends Controller {
       this.liveService.roomCodesHandler(value);
       this.newRoomCode = '';
     }
+  }
+
+  resetAnswerValidators() {
+    this.answerValidationDetails.isError = false;
+    this.answerValidationDetails.helperText = '';
+    this.answerValidationDetails.isHelperTextVisible = false;
+    this.answerValidationDetails = this.answerValidationDetails;
+
+    this.answerSubmitButtonState.isDisabled = false;
+    this.answerSubmitButtonState = this.answerSubmitButtonState;
+  }
+  questionSSEListener() {
+    const event = new EventSource(`${APPS.API_BACKEND}/questions`);
+    this.questionEventSource = event;
+
+    event.onmessage = async (event) => {
+      const parsedQuestion = JSON.parse(event.data);
+      const question = parsedQuestion || {};
+
+      const isQuestionChanged = question?.id !== this.survey.recentQuestion?.id;
+
+      this.survey.setRecentQuestion(question);
+
+      this.answerValue = '';
+      this.answerValidationDetails.isError = false;
+      this.answerValidationDetails.helperText = `Minimum character limit is ${ANSWER_MIN_LENGTH} characters`;
+      this.answerValidationDetails.isHelperTextVisible = true;
+      this.answerValidationDetails = this.answerValidationDetails;
+
+      if (isQuestionChanged) {
+        this.answerEventSource?.close();
+        this.answerSSEListener();
+      }
+
+      if (
+        question &&
+        this.liveService.isJoined &&
+        this.liveService.localPeer.roleName !== this.ROLES.host
+      ) {
+        this.isAnswerReplyModalOpen = true;
+      }
+    };
+
+    event.onerror = (event) => {
+      console.error(event);
+    };
+  }
+
+  answerSSEListener() {
+    const localPeerRole = this.liveService.localPeer?.roleName;
+    const isHost = localPeerRole === this.ROLES.host;
+    const isModerator = localPeerRole === this.ROLES.moderator;
+    const activeEventId = this.liveService?.activeRoomId;
+    let answersEventStreamURL = '';
+
+    if (isHost || isModerator) {
+      answersEventStreamURL = `${APPS.API_BACKEND}/answers?eventId=${activeEventId}&questionId=${this.survey.recentQuestion?.id}`;
+    } else {
+      answersEventStreamURL = `${APPS.API_BACKEND}/answers?eventId=${activeEventId}&questionId=${this.survey.recentQuestion?.id}&status=${ANSWER_STATUS.APPROVED}`;
+    }
+
+    const event = new EventSource(answersEventStreamURL);
+    this.answerEventSource = event;
+
+    event.onmessage = async (event) => {
+      const parsedAnswers = JSON.parse(event.data);
+      const answers = parsedAnswers || [];
+
+      if (isHost || isModerator) {
+        this.survey.setAnswers(answers);
+      } else {
+        this.survey.setApprovedAnswers(answers);
+      }
+      this.survey.showWordCloud();
+
+      console.log('answerSSEListener answers ', answers);
+    };
+
+    event.onerror = (event) => {
+      console.error(event);
+    };
   }
 }

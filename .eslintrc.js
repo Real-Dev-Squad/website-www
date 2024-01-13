@@ -24,6 +24,7 @@ module.exports = {
   },
   rules: {
     'qunit/require-expect': [1, 'except-simple'],
+    'no-self-assign': ['warn'],
   },
   overrides: [
     // node files

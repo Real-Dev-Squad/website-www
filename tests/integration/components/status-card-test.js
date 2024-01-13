@@ -107,4 +107,22 @@ module('Integration | Component | status-card', function (hooks) {
       .dom('[data-test-status-card-description-2]')
       .doesNotExist("Here's the feedback for your application");
   });
+
+  test('it handles unknown status', async function (assert) {
+    assert.expect(2);
+
+    this.set('status', 'unknown');
+    this.set('feedback', 'This is unexpected');
+
+    await render(hbs`
+      <JoinSteps::StatusCard
+        @status={{this.status}}
+        @feedback={{this.feedback}}
+        @joinDiscord={{this.joinDiscordHandler}}
+      />
+    `);
+
+    assert.dom('[data-test-status-card-heading]').doesNotExist();
+    assert.dom('[data-test-icon]').doesNotExist();
+  });
 });

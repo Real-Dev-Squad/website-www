@@ -1,61 +1,36 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { APPS } from '../../constants/urls';
-import checkURL from '../../utils/check-url';
 import { TOAST_OPTIONS } from '../../constants/toast-options';
 
-export default class IdentityStepsStepFiveComponent extends Component {
+export default class IdentityStepsStepSixComponent extends Component {
   @service toast;
-  @tracked isMouseOnTooltip = false;
-  @tracked profileURL = '';
-  @tracked nextButtonDisabled = true;
   @tracked isLoading = false;
 
-  @action openTooltipInfo() {
-    this.isMouseOnTooltip = true;
-  }
-
-  @action closeTooltipInfo() {
-    this.isMouseOnTooltip = false;
-  }
-
-  @action changeProfileURL(e) {
-    this.profileURL = e.target.value;
-    if (this.profileURL === '' || !checkURL(this.profileURL)) {
-      this.nextButtonDisabled = true;
-    } else {
-      this.nextButtonDisabled = false;
-    }
-  }
-
-  @action async handleEdit(e) {
+  @action async handleVerify(e) {
     e.preventDefault();
     this.isLoading = true;
+
     try {
-      const response = await fetch(`${APPS.API_BACKEND}/users/profileURL`, {
-        method: 'PATCH',
-        body: JSON.stringify({ profileURL: this.profileURL }),
+      const response = await fetch(`${APPS.API_BACKEND}/users/verify`, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
       });
-      if (response.ok) {
-        this.toast.info('Profile Service Updated!!', '', TOAST_OPTIONS);
-      } else {
-        this.toast.error(
-          'Something went wrong. Please check console errors.',
-          '',
+      if (response.ok)
+        return this.toast.info(
+          'Your request has been queued successfully',
+          'Info',
           TOAST_OPTIONS,
         );
-      }
     } catch (error) {
-      console.error(error);
       this.toast.error(
         'Something went wrong. Please check console errors.',
-        '',
+        'Error',
         TOAST_OPTIONS,
       );
     } finally {

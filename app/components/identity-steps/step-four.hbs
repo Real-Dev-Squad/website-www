@@ -1,74 +1,36 @@
-<div data-test='chaincode' class='chaincode-page'>
-  <h3 data-test='heading' class='chaincode-page__heading heading__h3'>
-    Chaincode Generation
+<div data-test='profile-service' class='profile-service-page'>
+  <h3 data-test='heading' class='profile-service-page__heading heading__h3'>
+    Deploy Profile Service
   </h3>
-  <p data-test='description' class='chaincode-page__description'>
-    A private key that you need to use in your profile service URL and deploy
-    for source that you're the source of the URL
+  <p data-test='description' class='profile-service-page__description'>
+    Set the chaincode on your profile service.<br />
+    Deploy it and enter your profile service URL
   </p>
-  {{#if @isChaincodeClicked}}
-    <div data-test='chaincode-container' class='chaincode-container'>
-      <div
-        data-test='chaincode-container__value'
-        class={{if
-          this.hideChaincode
-          'chaincode-container__value-invisible'
-          'chaincode-container__value-visible'
-        }}
-      >
-        {{#if this.hideChaincode}}
-          ********************
-        {{else}}
-          {{@chaincode}}
-        {{/if}}
-      </div>
-      <div
-        data-test='chaincode-container__action'
-        class='chaincode-container__action'
-      >
-        <button
-          data-test-button='eye-icon'
-          class='chaicode-button-icon'
-          type='button'
-          {{on 'click' this.toggleEye}}
-        >
-          <FaIcon
-            @icon={{if this.hideChaincode 'eye' 'eye-slash'}}
-            @size='0.5px'
-          />
-        </button>
-        <button
-          data-test-button='copy-icon'
-          class='chaicode-button-icon'
-          type='button'
-          {{on 'click' this.handleCopy}}
-        >
-          <FaIcon @icon='copy' @size='0.5x' />
-          <Tooltip
-            @isVisible={{this.isTooltipVisible}}
-            @text='Copy this code to go to next step'
-          />
-        </button>
-      </div>
-    </div>
-  {{else}}
-    <Reusables::Button
-      @text={{@chaincode}}
-      @variant='chaincode'
-      @onClick={{@handleGenerateChaincode}}
-      @test='chaincode'
-      @isLoading={{@isLoading}}
-      @type='button'
+  <div class='profile-service-page__inputContainer'>
+    <label
+      for='profile-service-url'
+      class='profile-service-page__inputContainer__input-label'
+    ></label>
+    <input
+      data-test-input-field='profile-service'
+      id='profile-service-url'
+      class='profile-service-page__inputContainer__input-url'
+      type='text'
+      placeholder='Enter your profile service URL'
+      value={{this.profileURL}}
+      {{on 'keyup' this.changeProfileURL}}
     />
-  {{/if}}
-  <div class='chaincode-page__button'>
+  </div>
+
+  <div class='profile-service-page__button'>
     <Reusables::Button
       @text='Next'
       @variant='dark'
-      @onClick={{@startHandler}}
+      @onClick={{this.handleEdit}}
       @test='next'
-      @disabled={{if this.isChaincodePageButtonDisabled true false}}
+      @disabled={{this.nextButtonDisabled}}
       @type='button'
+      @isLoading={{this.isLoading}}
     />
   </div>
 </div>

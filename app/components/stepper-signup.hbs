@@ -66,7 +66,7 @@
       {{else if (eq this.currentStep 8)}}
         <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 9)}}
-        <IdentitySteps::StepFour
+        <IdentitySteps::StepThree
           @startHandler={{this.startHandler}}
           @chaincode={{@chaincode}}
           @isChaincodeClicked={{@isChaincodeClicked}}
@@ -74,11 +74,11 @@
           @handleGenerateChaincode={{@handleGenerateChaincode}}
         />
       {{else if (eq this.currentStep 10)}}
-        <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
+        <IdentitySteps::StepFour @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 11)}}
-        <IdentitySteps::StepSix @startHandler={{this.startHandler}} />
+        <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 12)}}
-        <IdentitySteps::StepSeven
+        <IdentitySteps::StepSix
           @handleRefresh={{this.handleRefresh}}
           @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}}
           @startHandler={{this.startHandler}}

@@ -1,34 +1,28 @@
-<div data-test='profile-service' class='profile-service-page'>
-  <h3 data-test='heading' class='profile-service-page__heading heading__h3'>
-    Deploy Profile Service
+<div
+  data-test='profile-service-url-Linking'
+  class='profile-service-url-linking-page'
+>
+  <h3
+    data-test='heading'
+    class='profile-service-url-linking-page__heading heading__h3'
+  >
+    Link Profile Service
   </h3>
-  <p data-test='description' class='profile-service-page__description'>
-    Set the chaincode on your profile service.<br />
-    Deploy it and enter your profile service URL
+  <p
+    data-test='description'
+    class='profile-service-url-linking-page__description'
+  >
+    Ensure that you have deployed your profile service,
+    <br />
+    Click on link button to start the linking process for joining RealDevSquad.
   </p>
-  <div class='profile-service-page__inputContainer'>
-    <label
-      for='profile-service-url'
-      class='profile-service-page__inputContainer__input-label'
-    ></label>
-    <input
-      data-test-input-field='profile-service'
-      id='profile-service-url'
-      class='profile-service-page__inputContainer__input-url'
-      type='text'
-      placeholder='Enter your profile service URL'
-      value={{this.profileURL}}
-      {{on 'keyup' this.changeProfileURL}}
-    />
-  </div>
 
-  <div class='profile-service-page__button'>
+  <div class='profile-service-url-linking-page__button'>
     <Reusables::Button
-      @text='Next'
+      @text='Link'
       @variant='dark'
-      @onClick={{this.handleEdit}}
+      @onClick={{this.handleVerify}}
       @test='next'
-      @disabled={{this.nextButtonDisabled}}
       @type='button'
       @isLoading={{this.isLoading}}
     />

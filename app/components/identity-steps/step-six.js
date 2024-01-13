@@ -1,41 +1,32 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { APPS } from '../../constants/urls';
-import { TOAST_OPTIONS } from '../../constants/toast-options';
+import { PROFILE_STATUS } from '../../constants/stepper-signup-data';
 
-export default class IdentityStepsStepSixComponent extends Component {
-  @service toast;
-  @tracked isLoading = false;
+export default class IdentityStepsStepSevenComponent extends Component {
+  @service login;
+  @service router;
 
-  @action async handleVerify(e) {
-    e.preventDefault();
-    this.isLoading = true;
-
-    try {
-      const response = await fetch(`${APPS.API_BACKEND}/users/verify`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      });
-      if (response.ok)
-        return this.toast.info(
-          'Your request has been queued successfully',
-          '',
-          TOAST_OPTIONS,
-        );
-    } catch (error) {
-      this.toast.error(
-        'Something went wrong. Please check console errors.',
-        '',
-        TOAST_OPTIONS,
-      );
-    } finally {
-      this.isLoading = false;
-      this.args.startHandler();
-    }
+  PROFILE_STATUS = PROFILE_STATUS;
+  get activeProfileStatus() {
+    const activeProfileStatus = this.login.userData.profileStatus;
+    return activeProfileStatus;
   }
+
+  profileStatuses = [
+    {
+      status: PROFILE_STATUS.PENDING,
+      heading: 'Pending',
+      icon: 'hourglass-half',
+    },
+    {
+      status: PROFILE_STATUS.BLOCKED,
+      heading: 'Blocked',
+      icon: 'ban',
+    },
+    {
+      status: PROFILE_STATUS.VERIFIED,
+      heading: 'Successful',
+      icon: 'square-check',
+    },
+  ];
 }

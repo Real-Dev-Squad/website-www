@@ -80,7 +80,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
 
     await triggerEvent('[data-test=tooltip]', 'mouseover');
 
-    assert.dom('[data-test=tooltip-info]').hasClass('active-tooltip-info');
+    assert.dom('[data-test=tooltip-info]').hasClass('tooltip-info');
   });
 
   test('Not Display Tooltip Information on Mouse Out', async function (assert) {

@@ -32,6 +32,8 @@
 @import url("wheel-animations.css");
 @import url("goto.module.css");
 @import url("event-card.module.css");
+@import url("status-card.module.css");
+@import url("tooltip.module.css");
 
 * {
   margin: 0;

@@ -1,0 +1,36 @@
+<div
+  class="answer-view-card
+    {{if this.isApproved 'answer-view-card--approved' ''}}
+    {{if this.isPending 'answer-view-card--pending' ''}}
+    {{if this.isRejected 'answer-view-card--rejected' ''}}
+    "
+>
+  <p class="answer-view-card__text">
+    {{this.answerText}}
+
+    {{#if this.isTextMoreThanMaxCharacters}}
+      <button
+        class="answer-view-card__read-more-button"
+        {{on "click" this.toggleReadMore}}
+        type="button"
+      >{{this.readMoreOrLessText}}</button>
+    {{/if}}
+  </p>
+
+  <div class="answer-view-card__buttons">
+    <Reusables::IconButton
+      @id="reject-button-{{@id}}"
+      @class="icon-button--sm icon-button--red-outlined"
+      @title="Reject Answer"
+      @onClick={{@onReject}}
+      @icon="material-symbols:close-small-outline-rounded"
+    />
+    <Reusables::IconButton
+      @id="approve-button-{{@id}}"
+      @class="icon-button--sm icon-button--green"
+      @title="Approve Answer"
+      @onClick={{@onApprove}}
+      @icon="material-symbols:done-rounded"
+    />
+  </div>
+</div>

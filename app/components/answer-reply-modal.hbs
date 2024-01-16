@@ -1,0 +1,46 @@
+<BaseModal
+  @closeModal={{@closeModal}}
+  @openModal={{@openModal}}
+  @isOpen={{@isOpen}}
+>
+  <div class="answer-reply-modal">
+    <h4 class="answer-reply-modal__heading">Host asked you a question😀</h4>
+    <form>
+      <Reusables::InputBox
+        @field={{@questionAsked.question}}
+        @name="answer"
+        @type="text"
+        @placeHolder="Enter your answer"
+        @required={{true}}
+        @isError={{@validationDetails.isError}}
+        @helperText={{@validationDetails.helperText}}
+        @variant="input--full-width"
+        @value={{@answerValue}}
+        @shouldShowHelperText={{@validationDetails.isHelperTextVisible}}
+        @onInput={{@inputHandler}}
+      />
+      <p class="answer-reply-modal__info-text">
+        <span class="answer-reply-modal__info-icon">&iexcl;</span>
+        Do not use abusive words, this event is moderated!</p>
+      <div class="answer-reply-modal__actions">
+        <Reusables::Button
+          @text="Cancel"
+          @type="button"
+          @variant="dark btn--sm btn-light answer-reply-modal__cancel-button"
+          @test="question-modal-cancel"
+          @onClick={{@closeModal}}
+        />
+        <Reusables::Button
+          @type="button"
+          @text="Submit"
+          @variant="dark btn--sm btn-pink answer-reply-modal__submit-button"
+          @test="question-modal-cancel"
+          @disabled={{@submitButtonState.isDisabled}}
+          @isLoading={{@submitButtonState.isLoading}}
+          @onClick={{@onSubmit}}
+        />
+      </div>
+    </form>
+  </div>
+
+</BaseModal>

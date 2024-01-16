@@ -7,4 +7,9 @@ export default class FeatureFlagService extends Service {
     const queryParams = this.router?.currentRoute?.queryParams;
     return queryParams?.dev === 'true';
   }
+
+  get isWordCloud() {
+    const queryParams = this.router?.currentRoute?.queryParams;
+    return queryParams?.wordCloud === 'true';
+  }
 }

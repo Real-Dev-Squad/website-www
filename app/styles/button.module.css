@@ -32,6 +32,11 @@
   background-color: var(--color-pink);
 }
 
+.btn-pink:disabled {
+  opacity: 0.4;
+  color: var(--color-white);
+}
+
 .btn--sm {
   width: 8rem;
 }

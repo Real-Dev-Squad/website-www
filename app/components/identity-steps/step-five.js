@@ -21,12 +21,16 @@ export default class IdentityStepsStepFiveComponent extends Component {
         },
         credentials: 'include',
       });
-      if (response.ok)
-        return this.toast.info(
+      if (response.ok) {
+        this.toast.info(
           'Your request has been queued successfully',
           'Info',
           TOAST_OPTIONS,
         );
+        this.args.startHandler();
+      } else {
+        throw new Error('Your request has not been queued');
+      }
     } catch (error) {
       this.toast.error(
         'Something went wrong. Please check console errors.',
@@ -35,7 +39,6 @@ export default class IdentityStepsStepFiveComponent extends Component {
       );
     } finally {
       this.isLoading = false;
-      this.args.startHandler();
     }
   }
 }

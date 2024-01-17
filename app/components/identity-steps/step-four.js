@@ -44,12 +44,9 @@ export default class IdentityStepsStepFourComponent extends Component {
       });
       if (response.ok) {
         this.toast.info('Profile Service Updated!!', 'Info', TOAST_OPTIONS);
+        this.args.startHandler();
       } else {
-        this.toast.error(
-          'Something went wrong. Please check console errors.',
-          'Error',
-          TOAST_OPTIONS,
-        );
+        throw new Error('Profile update failed');
       }
     } catch (error) {
       console.error(error);
@@ -60,7 +57,6 @@ export default class IdentityStepsStepFourComponent extends Component {
       );
     } finally {
       this.isLoading = false;
-      this.args.startHandler();
     }
   }
 }

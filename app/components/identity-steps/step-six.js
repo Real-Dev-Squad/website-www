@@ -2,11 +2,12 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { PROFILE_STATUS } from '../../constants/stepper-signup-data';
 
-export default class IdentityStepsStepSevenComponent extends Component {
+export default class IdentityStepsStepSixComponent extends Component {
   @service login;
   @service router;
 
   PROFILE_STATUS = PROFILE_STATUS;
+
   get activeProfileStatus() {
     const activeProfileStatus = this.login.userData.profileStatus;
     return activeProfileStatus;

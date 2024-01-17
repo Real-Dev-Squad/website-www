@@ -21,7 +21,7 @@
   padding: 4px 0;
 }
 
-.chaincode-container__action {
+.chaincode-container-action {
   display: flex;
 }
 
@@ -40,18 +40,19 @@
 
 .profile-service-page__description {
   text-align: center;
+  line-height: 1.5rem;
 }
 
-.profile-service-page__inputContainer {
+.profile-service-page__input-container {
   display: flex;
   position: relative;
 }
 
-profile-service-page__inputcontainer__input-label {
+profile-service-page__input-label {
   display: none;
 }
 
-.profile-service-page__inputContainer__input-url {
+.profile-service-page__input-url {
   flex: 1;
   padding: 8px;
   border-radius: 8px;
@@ -59,7 +60,7 @@ profile-service-page__inputcontainer__input-label {
   background: var(--color-white);
 }
 
-.profile-service-page__inputContainer__tooltip {
+.profile-service-page__input-container__tooltip {
   margin-left: 1rem;
   cursor: pointer;
   border: none;

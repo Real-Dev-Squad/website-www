@@ -6,7 +6,7 @@ import { APPS } from '../../constants/urls';
 import checkURL from '../../utils/check-url';
 import { TOAST_OPTIONS } from '../../constants/toast-options';
 
-export default class IdentityStepsStepFiveComponent extends Component {
+export default class IdentityStepsStepFourComponent extends Component {
   @service toast;
   @tracked isMouseOnTooltip = false;
   @tracked profileURL = '';

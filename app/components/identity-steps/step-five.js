@@ -5,7 +5,7 @@ import { inject as service } from '@ember/service';
 import { APPS } from '../../constants/urls';
 import { TOAST_OPTIONS } from '../../constants/toast-options';
 
-export default class IdentityStepsStepSixComponent extends Component {
+export default class IdentityStepsStepFiveComponent extends Component {
   @service toast;
   @tracked isLoading = false;
 

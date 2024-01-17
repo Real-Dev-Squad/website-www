@@ -54,7 +54,7 @@ module('Integration | Component | identity-steps/step-five', function (hooks) {
 
     assert
       .dom('[data-test-input-field=profile-service]')
-      .hasClass('profile-service-page__inputContainer__input-url');
+      .hasClass('profile-service-page__input-url');
     assert
       .dom('[data-test-input-field=profile-service]')
       .hasAttribute('id', 'profile-service-url');

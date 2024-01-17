@@ -23,8 +23,8 @@
         {{/if}}
       </div>
       <div
-        data-test='chaincode-container__action'
-        class='chaincode-container__action'
+        data-test='chaincode-container-action'
+        class='chaincode-container-action'
       >
         <button
           data-test-button='eye-icon'
@@ -34,7 +34,6 @@
         >
           <FaIcon
             @icon={{if this.hideChaincode 'eye' 'eye-slash'}}
-            @size='0.5px'
           />
         </button>
         <button
@@ -43,7 +42,7 @@
           type='button'
           {{on 'click' this.handleCopy}}
         >
-          <FaIcon @icon='copy' @size='0.5x' />
+          <FaIcon @icon='copy' />
           <Tooltip
             @isVisible={{this.isTooltipVisible}}
             @text='Copy this code to go to next step'

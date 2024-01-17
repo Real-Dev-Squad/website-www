@@ -112,8 +112,8 @@ module('Integration | Component | identity-steps/step-four', function (hooks) {
       .hasText('********************');
 
     assert
-      .dom('[data-test=chaincode-container__action]')
-      .hasClass('chaincode-container__action');
+      .dom('[data-test=chaincode-container-action]')
+      .hasClass('chaincode-container-action');
 
     assert.dom('[data-test-button=eye-icon]').hasClass('chaicode-button-icon');
     assert.dom('[data-test-button=copy-icon]').hasClass('chaicode-button-icon');

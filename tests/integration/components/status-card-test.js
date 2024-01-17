@@ -103,9 +103,7 @@ module('Integration | Component | status-card', function (hooks) {
     assert
       .dom('[data-test-status-card-description-1]')
       .hasText('Congratulations! Your application is accepted by us');
-    assert
-      .dom('[data-test-status-card-description-2]')
-      .doesNotExist("Here's the feedback for your application");
+    assert.dom('[data-test-status-card-description-2]').doesNotExist();
   });
 
   test('it handles unknown status', async function (assert) {

@@ -7,9 +7,11 @@ module('Integration | Component | stepper-signup', function (hooks) {
   setupRenderingTest(hooks);
 
   test('stepper-signup page render', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     await render(hbs`<StepperSignup />`);
+
     assert.dom('[data-test-onboarding-card-modal]').exists();
+    assert.dom('[data-test-error-message]').doesNotExist();
   });
 });

@@ -6,6 +6,7 @@ import { TOAST_OPTIONS } from '../constants/toast-options';
 
 const MAX_STEP = 15;
 const MIN_STEP = 0;
+
 export default class StepperSignupComponent extends Component {
   @service login;
   @service router;
@@ -13,14 +14,21 @@ export default class StepperSignupComponent extends Component {
   @service featureFlag;
   @service toast;
   @service onboarding;
+
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep = Number(localStorage.getItem('currentStep')) ?? 0;
   @tracked stepOneData = JSON.parse(localStorage.getItem('stepOneData'));
   @tracked stepTwoData = JSON.parse(localStorage.getItem('stepTwoData'));
   @tracked stepThreeData = JSON.parse(localStorage.getItem('stepThreeData'));
-  setIsValid = (newVal) => (this.isValid = newVal);
-  setIsPreValid = (newVal) => (this.preValid = newVal);
+
+  @action setIsValid(newVal) {
+    this.isValid = newVal;
+  }
+
+  @action setIsPreValid(newVal) {
+    this.preValid = newVal;
+  }
 
   constructor() {
     super(...arguments);
@@ -42,6 +50,23 @@ export default class StepperSignupComponent extends Component {
 
   get applicationFeedback() {
     return this.onboarding.applicationData?.feedback;
+  }
+
+  get isAllFieldsFilled() {
+    return (
+      this.isValid &&
+      this.stepOneData.city &&
+      this.stepOneData.state &&
+      this.stepOneData.country &&
+      this.stepTwoData.introduction &&
+      this.stepTwoData.skills &&
+      this.stepTwoData.college &&
+      this.stepTwoData.forFun &&
+      this.stepTwoData.funFact &&
+      this.stepThreeData.whyRds &&
+      this.stepThreeData.numberOfHours &&
+      this.stepThreeData.foundFrom
+    );
   }
 
   @action decrementStep() {
@@ -85,7 +110,8 @@ export default class StepperSignupComponent extends Component {
     this.router.transitionTo('join', { queryParams });
   }
 
-  @action async applicationHandler() {
+  @action
+  async applicationHandler() {
     const firstName = this.login.userData.first_name;
     const lastName = this.login.userData.last_name;
     const data = JSON.stringify({
@@ -114,7 +140,8 @@ export default class StepperSignupComponent extends Component {
     }
   }
 
-  @action async joinDiscordHandler() {
+  @action
+  async joinDiscordHandler() {
     const inviteLink = await this.onboarding.discordInvite();
     if (inviteLink) {
       window.open(`https://${inviteLink}`, '_blank');

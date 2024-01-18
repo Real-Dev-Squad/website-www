@@ -1,11 +1,98 @@
-.verification-page {
+.chaincode-container {
+  min-width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border: 1px solid;
+  border-radius: 0.5rem;
+}
+
+.chaincode-container__value-invisible {
+  letter-spacing: 0.4rem;
+  margin-left: 1rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.chaincode-container__value-visible {
+  font-weight: bold;
+  margin-left: 1rem;
+  letter-spacing: 0.2rem;
+  padding: 4px 0;
+}
+
+.chaincode-container-action {
+  display: flex;
+}
+
+.chaicode-button-icon {
+  background: none;
+  border: none;
+  padding: 0 0.4rem;
+  cursor: pointer;
+}
+
+.profile-service-page {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: center;
 }
 
-.verification-page__heading-Icon {
+.profile-service-page__description {
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.profile-service-page__input-container {
+  display: flex;
+  position: relative;
+}
+
+profile-service-page__input-label {
+  display: none;
+}
+
+.profile-service-page__input-url {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--color-shade-grey);
+  background: var(--color-white);
+}
+
+.profile-service-page__input-container__tooltip {
+  margin-left: 1rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 1rem;
+  position: relative;
+}
+
+.profile-service-page__button {
+  display: flex;
+  justify-content: center;
+}
+
+.chaincode-page,
+.profile-service-url-linking-page,
+.verification-page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  max-width: 25rem;
+}
+
+.chaincode-page__description,
+.profile-service-url-linking-page__description,
+.verification-page__description {
+  text-align: center;
+  line-height: 1.5rem;
+  padding-bottom: 8px;
+}
+
+.verification-page__heading-icon {
   display: flex;
 }
 
@@ -24,8 +111,13 @@
   color: var(--color-green);
 }
 
-.verification-page__description {
+.profile-service__link {
+  padding: 10px 0;
   text-align: center;
+}
+
+.profile-service__link:hover {
+  cursor: pointer;
 }
 
 @media (width <= 425px) {

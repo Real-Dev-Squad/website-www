@@ -1,0 +1,68 @@
+<div class="survey-page">
+  <AskQuestionModal
+    @isOpen={{this.isAskQuestionModalOpen}}
+    @closeModal={{this.closeAskQuestionModal}}
+    @openModal={{this.openAskQuestionModal}}
+    @onSubmit={{this.onQuestionSubmit}}
+    @toggleMaxCharacterChecked={{this.toggleMaxCharacterChecked}}
+    @isMaxCharactersChecked={{this.isMaxCharactersChecked}}
+    @maxCharacters={{this.maxCharacters}}
+    @onCharacterLimitInput={{this.onCharacterLimitInput}}
+    @onInput={{this.onQuestionInput}}
+    @isSubmitButtonDisabled={{this.isQuestionSubmitButtonDisabled}}
+    @question={{this.question}}
+    @isQuestionApiLoading={{this.isQuestionApiLoading}}
+  />
+  <div class="survey-page__question-container">
+    <Reusables::Button
+      @text="Ask Question"
+      @variant="dark btn--sm btn-pink"
+      @test="ask-question"
+      @onClick={{this.openAskQuestionModal}}
+      @disabled={{this.isAskQuestionButtonDisabled}}
+      @title={{if
+        this.isAskQuestionButtonDisabled
+        "This is a host only feature"
+        ""
+      }}
+    />
+    <div class="survey-page__recent-question">
+      <h3 class="survey-page__recent-question-heading">Recent Question</h3>
+      <p class="survey-page__recent-question-text">{{(or
+          @questionAsked.question "No recent question"
+        )}}</p>
+    </div>
+  </div>
+  <div class="survey-page__answers-container">
+    <h2 class="survey-page__answers-heading">
+      Answers
+    </h2>
+    <div class="survey-page__filter">
+      <label for="answer-status">Filter: </label>
+      <select
+        name="answer-status"
+        id="answer-status"
+        {{on "change" this.onAnswerFilterChange}}
+      >
+        {{#each this.ANSWER_STATUS_FILTERS as |status|}}
+          <option value={{status}}>{{status}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="survey-page__answers">
+      {{#if this.isAnswersPresent}}
+        {{#each this.answers as |answer|}}
+          <AnswerViewCard
+            @id={{answer.id}}
+            @answerObject={{answer}}
+            @onReject={{@onAnswerReject}}
+            @onApprove={{@onAnswerApprove}}
+          />
+        {{/each}}
+      {{else}}
+        <div>No answers present currently!</div>
+      {{/if}}
+
+    </div>
+  </div>
+</div>

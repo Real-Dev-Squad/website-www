@@ -1,0 +1,15 @@
+.status-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-card__heading-Icon {
+  display: flex;
+}
+
+.status-card__description {
+  text-align: center;
+  line-height: 2rem;
+  padding-bottom: 12px;
+}

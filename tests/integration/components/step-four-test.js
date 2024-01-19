@@ -7,73 +7,74 @@ module('Integration | Component | step-four', function (hooks) {
   setupRenderingTest(hooks);
 
   test('step four renders', async function (assert) {
-    assert.expect(27);
+    assert.expect(23);
 
     await render(hbs`<JoinSteps::StepFour />`);
 
     const joinData = [
       {
         id: 'one',
-        label: 'First Name',
-        data: '',
-      },
-      {
-        id: 'two',
-        label: 'Last Name',
-        data: '',
-      },
-      {
-        id: 'three',
+        key: 'city',
         label: 'Your City',
         data: '',
       },
       {
-        id: 'four',
+        id: 'two',
+        key: 'state',
         label: 'Your State',
         data: '',
       },
       {
-        id: 'five',
+        id: 'three',
+        key: 'country',
         label: 'Your Country',
         data: '',
       },
       {
-        id: 'six',
+        id: 'four',
+        key: 'introduction',
         label: 'Your Introduction',
         data: '',
       },
       {
-        id: 'seven',
+        id: 'five',
+        key: 'skills',
         label: 'Your Skills',
         data: '',
       },
       {
-        id: 'eight',
+        id: 'six',
+        key: 'college',
         label: 'Your Institution',
         data: '',
       },
       {
-        id: 'nine',
+        id: 'seven',
+        key: 'forFun',
         label: 'What do you do for fun?',
         data: '',
       },
       {
-        id: 'ten',
+        id: 'eight',
+        key: 'funFact',
         label: 'Fun facts about you',
         data: '',
       },
       {
-        id: 'eleven',
+        id: 'nine',
+        key: 'whyRds',
         label: 'Why do you want to join Real Dev Squad?',
         data: '',
       },
       {
-        id: 'twelve',
+        id: 'ten',
+        key: 'numberOfHours',
         label: 'How many hours per week, are you willing to contribute?',
         data: '',
       },
       {
-        id: 'thirteen',
+        id: 'eleven',
+        key: 'foundFrom',
         label: 'How did you hear about us?',
         data: '',
       },

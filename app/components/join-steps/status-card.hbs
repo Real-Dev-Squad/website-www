@@ -8,12 +8,11 @@
         >
           {{statusDetails.heading}}
         </h3>
-        <IconifyIcon
+        <FaIcon
           data-test-icon={{@status}}
-          @icon={{statusDetails.status.icon}}
-          width="36"
-          height="36"
-          color="red"
+          @icon={{statusDetails.icon}}
+          @size='lg'
+          class='{{statusDetails.icon}}-icon'
         />
       {{/if}}
     {{/each}}
@@ -31,23 +30,27 @@
       <p data-test-status-card-description-1>
         Your application is rejected
       </p>
-      <p data-test-status-card-description-2>
-        <strong>Here's the feedback for your application</strong>
-      </p>
-      <p data-test-status-card-description-3>
-        {{@feedback}}
-      </p>
+      {{#if @feedback}}
+        <p data-test-status-card-description-2>
+          <strong>Here's the feedback for your application</strong>
+        </p>
+        <p data-test-status-card-description-3>
+          {{@feedback}}
+        </p>
+      {{/if}}
     {{else if (eq @status this.APPLICATION_STATUS_TYPES.accepted)}}
       <p data-test-status-card-description-1>
         <b>Congratulations!</b>
         Your application is accepted by us
       </p>
-      <p data-test-status-card-description-2>
-        <strong>Here's the feedback for your application</strong>
-      </p>
-      <p data-test-status-card-description-3>
-        {{@feedback}}
-      </p>
+      {{#if @feedback}}
+        <p data-test-status-card-description-2>
+          <strong>Here's the feedback for your application</strong>
+        </p>
+        <p data-test-status-card-description-3>
+          {{@feedback}}
+        </p>
+      {{/if}}
       <p data-test-status-card-description-4>
         Take the Next Step and Join Our Discord Server.
       </p>

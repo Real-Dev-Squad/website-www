@@ -1,63 +1,167 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import Service from '@ember/service';
 
-module('Integration | Component | identity-steps/step-six', function (hooks) {
+class LoginStub extends Service {
+  userData = { profileStatus: 'PENDING' };
+}
+
+module('Integration | Component | identity-steps/step-seven', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('render main container div on profile service url Linking page', async function (assert) {
-    assert.expect(2);
-    this.set('startHandler', () => {});
-    await render(
-      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`,
-    );
-
-    assert.dom('[data-test=profile-service-url-Linking]').exists();
-    assert
-      .dom('[data-test=profile-service-url-Linking]')
-      .hasClass('profile-service-url-linking-page');
+  hooks.beforeEach(function () {
+    this.owner.register('service:login', LoginStub);
   });
 
-  test('render heading on profile service url Linking page', async function (assert) {
-    assert.expect(2);
-    this.set('startHandler', () => {});
+  test('renders heading on verification page when profile status is pending', async function (assert) {
+    this.set('handleRefresh', () => {});
     await render(
-      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`,
+      hbs`<IdentitySteps::StepSix @handleRefresh={{this.handleRefresh}} />`,
     );
+
     assert
-      .dom('[data-test=heading]')
-      .hasClass('profile-service-url-linking-page__heading');
-    assert.dom('[data-test=heading]').hasText('Link Profile Service');
+      .dom('[data-test-verification-heading]')
+      .hasClass('verification-page__heading');
+    assert.dom('[data-test-verification-heading]').hasText('Pending');
   });
 
-  test('render description on profile service url Linking page', async function (assert) {
-    assert.expect(2);
-    this.set('startHandler', () => {});
+  test('render description on verification page when profile status is pending', async function (assert) {
+    this.set('handleRefresh', () => {});
     await render(
-      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`,
+      hbs`<IdentitySteps::StepSix @handleRefresh={{this.handleRefresh}} />`,
     );
+
     assert
-      .dom('[data-test=description]')
-      .hasClass('profile-service-url-linking-page__description');
+      .dom('[data-test-verification-description-container]')
+      .hasClass('verification-page__description');
     assert
-      .dom('[data-test=description]')
-      .hasText(
-        'Ensure that you have deployed your profile service, Click on link button to start the linking process for joining RealDevSquad.',
-      );
+      .dom('[data-test-verification-description-1]')
+      .hasText('Refresh to Check Verification Status');
+    assert
+      .dom('[data-test-verification-description-2]')
+      .hasText('Your Profile Service Linked with Real Dev Squad Service');
   });
 
-  test('Render Link button on profile service url Linking page', async function (assert) {
-    assert.expect(3);
+  test('render Refresh button on verification page when profile status is pending', async function (assert) {
+    this.set('handleRefresh', () => {});
+    await render(
+      hbs`<IdentitySteps::StepSix @handleRefresh={{this.handleRefresh}} />`,
+    );
 
+    assert.dom('[data-test-button=refresh]').hasText('Refresh');
+    assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
+  });
+
+  test('clicking Refresh button refresh the verification page when profile status is pending', async function (assert) {
+    const objToCheckFunctions = {
+      isHandleRefreshWorks: false,
+    };
+    this.set('handleRefresh', () => {
+      objToCheckFunctions.isHandleRefreshWorks = true;
+    });
+    await render(
+      hbs`<IdentitySteps::StepSix @handleRefresh={{this.handleRefresh}} />`,
+    );
+
+    await click('[data-test-button=refresh]');
+    assert.dom('[data-test-button=refresh]').hasText('Refresh');
+    assert.dom('[data-test-button=refresh]').hasProperty('type', 'button');
+    assert.true(
+      objToCheckFunctions.isHandleRefreshWorks,
+      'handleRefresh function is working fine!',
+    );
+  });
+
+  test('renders heading on verification page when profile status is blocked', async function (assert) {
+    this.set('goToGenerateChaincodePage', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'BLOCKED');
+    await render(
+      hbs`<IdentitySteps::StepSix 
+        @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
+      />`,
+    );
+
+    assert
+      .dom('[data-test-verification-heading]')
+      .hasClass('verification-page__heading');
+    assert.dom('[data-test-verification-heading]').hasText('Blocked');
+  });
+
+  test('render description on verification page when profile status is blocked', async function (assert) {
+    this.set('goToGenerateChaincodePage', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'BLOCKED');
+    await render(
+      hbs`<IdentitySteps::StepSix  
+        @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
+      />`,
+    );
+
+    assert
+      .dom('[data-test-verification-description-container]')
+      .hasClass('verification-page__description');
+    assert
+      .dom('[data-test-verification-description-1]')
+      .hasText('Your previous Chaincode is Blocked.');
+  });
+
+  test('render Verify Again button on verification page when profile status is blocked', async function (assert) {
+    this.set('goToGenerateChaincodePage', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'BLOCKED');
+    await render(
+      hbs`<IdentitySteps::StepSix 
+        @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}} 
+      />`,
+    );
+    assert.dom('[data-test-button=verify-again]').hasText('Verify Again');
+    assert.dom('[data-test-button=verify-again]').hasProperty('type', 'button');
+  });
+
+  test('renders heading on verification page when profile status is verified', async function (assert) {
     this.set('startHandler', () => {});
-
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
     await render(
       hbs`<IdentitySteps::StepSix @startHandler={{this.startHandler}} />`,
     );
 
-    assert.dom('[data-test-button=next]').exists();
-    assert.dom('[data-test-button=next]').hasText('Link');
+    assert
+      .dom('[data-test-verification-heading]')
+      .hasClass('verification-page__heading');
+    assert.dom('[data-test-verification-heading]').hasText('Successful');
+  });
+
+  test('render description on verification page when profile status is verified', async function (assert) {
+    this.set('startHandler', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(
+      hbs`<IdentitySteps::StepSix @startHandler={{this.startHandler}} />`,
+    );
+
+    assert
+      .dom('[data-test-verification-description-container]')
+      .hasClass('verification-page__description');
+    assert
+      .dom('[data-test-verification-description-1]')
+      .hasText('Congratulations! Your Profile Service is Verified.');
+    assert
+      .dom('[data-test-verification-description-2]')
+      .hasText('Take the Next Step and Join Our Discord Server.');
+  });
+
+  test('render Next button on verification page when profile status is verified', async function (assert) {
+    this.set('startHandler', () => {});
+    this.loginService = this.owner.lookup('service:login');
+    this.set('loginService.userData.profileStatus', 'VERIFIED');
+    await render(
+      hbs`<IdentitySteps::StepSix  @startHandler={{this.startHandler}} />`,
+    );
+    assert.dom('[data-test-button=next]').hasText('Next');
     assert.dom('[data-test-button=next]').hasProperty('type', 'button');
   });
 });

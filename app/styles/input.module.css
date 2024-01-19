@@ -85,3 +85,15 @@
     transform: translateX(-4px);
   }
 }
+
+@media (width <=1024px) {
+  .input-box__hour {
+    padding-left: 4rem;
+  }
+}
+
+@media (width <=480px) {
+  .input-box__hour {
+    padding-left: 0;
+  }
+}

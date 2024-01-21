@@ -11,8 +11,8 @@
         <FaIcon
           data-test-icon={{@status}}
           @icon={{statusDetails.icon}}
-          @size='lg'
-          class='{{statusDetails.icon}}-icon'
+          @size="lg"
+          class="{{statusDetails.icon}}-icon"
         />
       {{/if}}
     {{/each}}
@@ -58,16 +58,19 @@
   </div>
   <div class="status-card__buttons">
     <Reusables::Button
-      @text="Join Discord"
+      @text="Go to home"
       @variant="dark"
-      @onClick={{@joinDiscord}}
+      {{!-- @onClick={{@joinDiscord}} --}}
+      @onClick={{this.redirectToHome}}
       @test="join-discord-link"
       @type="button"
-      @disabled={{if
+      {{!-- @disabled={{if
         (not-eq @status this.APPLICATION_STATUS_TYPES.accepted)
         true
         false
-      }}
+      }} --}}
+      {{! TODO : This was done for onboarding developers and should be removed later }}
+      {{!-- @disabled={{true}} --}}
     />
   </div>
 </div>

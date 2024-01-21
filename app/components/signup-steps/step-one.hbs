@@ -1,12 +1,12 @@
-<h3 data-test-required-heading class='heading__h3'>
+<h3 data-test-required-heading class="heading__h3">
   Sign up to your account
 </h3>
 
 <Reusables::OnboardingInput
-  @field='First Name'
-  @name='firstname'
-  @placeHolder='Write your first name'
-  @type='text'
+  @field="First Name"
+  @name="firstname"
+  @placeHolder="Write your first name"
+  @type="text"
   @required={{true}}
   @value={{this.data.firstname}}
   @onInput={{this.inputHandler}}
@@ -15,14 +15,14 @@
 />
 
 {{#if this.errorMessage.firstname}}
-  <div class='error__message'>{{this.errorMessage.firstname}}</div>
+  <div class="error__message">{{this.errorMessage.firstname}}</div>
 {{/if}}
 
 <Reusables::OnboardingInput
-  @field='Last Name'
-  @name='lastname'
-  @placeHolder='Write your last name'
-  @type='text'
+  @field="Last Name"
+  @name="lastname"
+  @placeHolder="Write your last name"
+  @type="text"
   @required={{true}}
   @value={{this.data.lastname}}
   @onInput={{this.inputHandler}}
@@ -31,43 +31,44 @@
 />
 
 {{#if this.errorMessage.lastname}}
-  <div class='error__message'>{{this.errorMessage.lastname}}</div>
+  <div class="error__message">{{this.errorMessage.lastname}}</div>
 {{/if}}
 
 <Reusables::Dropdown
-  @field='Select your role'
-  @name='role'
-  @placeHolder='Choose Your Role'
+  @field="Select your role"
+  @name="role"
+  @placeHolder="Choose Your Role"
   @required={{true}}
   @value={{this.data.role}}
   @options={{this.role}}
   @onChange={{this.inputHandler}}
 />
 
-{{#if (eq this.data.role 'Maven')}}
-  <div data-test-checkbox class='role-confirmation__field'>
-    <label data-test-label='maven-role' for='maven-role' class='checkbox-label'>
+{{#if (eq this.data.role "Maven")}}
+  <div data-test-checkbox class="role-confirmation__field">
+    <label data-test-label="maven-role" for="maven-role" class="checkbox-label">
       <input
         data-test-checkbox-field
-        type='checkbox'
-        name='maven-role'
-        class='checkbox-input'
-        id='maven-role'
+        type="checkbox"
+        name="maven-role"
+        class="checkbox-input"
+        id="maven-role"
         checked={{false}}
-        {{on 'change' this.inputHandler}}
+        {{on "change" this.inputHandler}}
       />
       Are you sure about mentoring people in RealDevSquad?
     </label>
   </div>
 {{/if}}
 
-<div class='step-one__button'>
+<div class="step-one__button">
   <Reusables::Button
-    @text='Signup'
-    @variant='dark'
+    @text="Signup"
+    @variant="dark"
     @onClick={{this.signup}}
-    @test='signup'
+    @test="signup"
     @disabled={{this.isSignupButtonDisabled}}
-    @type='button'
+    @type="button"
+    @isLoading={{this.isSignupButtonLoading}}
   />
 </div>

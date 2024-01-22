@@ -1,3 +1,4 @@
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { APPLICATION_STATUS_TYPES } from '../../constants/join';
@@ -25,4 +26,7 @@ export default class StatusCardComponent extends Component {
       icon: 'square-check',
     },
   ];
+  @action redirectToHome() {
+    this.router.transitionTo('/');
+  }
 }

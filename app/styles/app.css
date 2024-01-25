@@ -39,6 +39,7 @@
 @import url("event-card.module.css");
 @import url("status-card.module.css");
 @import url("tooltip.module.css");
+@import url("debug.module.css");
 
 * {
   margin: 0;

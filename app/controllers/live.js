@@ -302,7 +302,7 @@ export default class LiveController extends Controller {
 
     event.onmessage = async (event) => {
       const parsedQuestion = JSON.parse(event.data);
-      const question = parsedQuestion || {};
+      const question = parsedQuestion;
 
       const isQuestionChanged = question?.id !== this.survey.recentQuestion?.id;
 

@@ -65,7 +65,11 @@
           <h3 class="debug-semibold">Apply privileges: </h3>
           <div class="privileges-toggle__container">
             <label class="privileges-toggle">
-              <input type="checkbox" class="privileges-toggle__checkbox" />
+              <input
+                type="checkbox"
+                class="privileges-toggle__checkbox"
+                {{on "change" this.setPrivilages}}
+              />
               <span class="privileges-toggle__slider"></span>
             </label>
           </div>

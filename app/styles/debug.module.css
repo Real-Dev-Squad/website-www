@@ -3,7 +3,7 @@
   min-height: calc(100vh - 10rem);
 }
 
-.debug-bold {
+.debug--bold {
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -12,7 +12,7 @@
   list-style: none;
 }
 
-.debug-semibold {
+.debug--semibold {
   font-size: 1.15rem;
   font-weight: 700;
 }

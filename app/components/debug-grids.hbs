@@ -10,7 +10,7 @@
       <ul>
         {{#each-in this.debugSocialData as |social socialId|}}
           <li>
-            <p><span class="debug-bold">{{social}}:</span>
+            <p><span class="debug--bold">{{social}}:</span>
               {{socialId}}</p>
           </li>
         {{/each-in}}
@@ -20,15 +20,15 @@
       <ul>
         {{#each-in this.debugUserData as |key value|}}
           <li>
-            <p><span class="debug-bold"> {{key}}:</span>
+            <p><span class="debug--bold"> {{key}}:</span>
               {{value}}</p>
           </li>
         {{/each-in}}
         <li class="debug-user__roles-container">
-          <p class="debug-bold">Roles:</p>
+          <p class="debug--bold">Roles:</p>
           <ul>
             {{#each-in this.debugUserRolesData as |role value|}}
-              <li><span class="debug-semibold">{{role}}:</span>
+              <li><span class="debug--semibold">{{role}}:</span>
                 {{value}}</li>
             {{/each-in}}
           </ul>
@@ -37,7 +37,7 @@
     </div>
     <div class="debug-features debug__grid-item">
       <div class="debug-features__feature-flag">
-        <h3 class="debug-bold">Features Flags:</h3>
+        <h3 class="debug--bold">Features Flags:</h3>
         <ul>
           {{#each this.debugFeaturesData.featureFlags as |featureFlag|}}
             <li><p>{{featureFlag}}</p></li>
@@ -46,7 +46,7 @@
       </div>
       <div class="debug-features__superuser">
         <div class="debug-features__superuser__indicator-container">
-          <h3 class="debug-bold">Super User</h3>
+          <h3 class="debug--bold">Super User</h3>
           <div
             class="debug-features__superuser__indicator
               {{if
@@ -62,7 +62,7 @@
       </div>
       {{#if this.debugFeaturesData.isSuperUser}}
         <div class="debug-features__superuser-privileges">
-          <h3 class="debug-semibold">Apply privileges: </h3>
+          <h3 class="debug--semibold">Apply privileges: </h3>
           <div class="privileges-toggle__container">
             <label class="privileges-toggle">
               <input

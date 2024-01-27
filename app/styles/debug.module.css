@@ -22,7 +22,7 @@
 }
 
 .debug__grid-container {
-  max-width: 100rem;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
@@ -180,6 +180,12 @@
 
 .privileges-toggle__checkbox:checked + .privileges-toggle__slider::before {
   transform: translateX(1.35rem);
+}
+
+@media only screen and (width > 1600px) {
+  .debug__grid-container {
+    max-width: 100rem;
+  }
 }
 
 @media only screen and (width <= 940px) {

@@ -16,6 +16,8 @@ export default class DebugGridsComponent extends Component {
   @tracked debugUserRolesData;
   @tracked debugFeaturesData;
 
+  DEFAULT_IMAGE = 'assets/images/profile.png';
+
   constructor() {
     super(...arguments);
     if (!this.fastboot.isFastBoot) {
@@ -42,7 +44,7 @@ export default class DebugGridsComponent extends Component {
   parseDebugData(data) {
     this.debugProfileData = {
       fullName: `${data.first_name} ${data.last_name}`,
-      imageURL: data.picture.url,
+      imageURL: data.picture.url ?? this.DEFAULT_IMAGE,
     };
 
     this.debugSocialData = {

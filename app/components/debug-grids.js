@@ -34,7 +34,6 @@ export default class DebugGridsComponent extends Component {
       .then((user) => {
         this.userData = user;
         this.parseDebugData(this.userData);
-        console.log(user);
       })
       .catch((error) => {
         console.error(error);

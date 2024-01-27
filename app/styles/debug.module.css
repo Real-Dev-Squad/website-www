@@ -1,9 +1,10 @@
 .debug {
   padding: 2rem;
+  min-height: calc(100vh - 10rem);
 }
 
 .debug-bold {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
@@ -12,7 +13,7 @@
 }
 
 .debug-semibold {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
@@ -27,6 +28,12 @@
   border: 1px solid var(--color-navyblue);
   padding: 1.5rem 2rem;
   border-radius: 10px;
+  box-shadow: var(--color-grayish-blue-shadow) 1px 1px 4px 0px;
+  transition: all 0.2s;
+}
+
+.debug__grid-item:hover {
+  box-shadow: var(--color-grayish-blue-shadow) 6px 6px 4px 0px;
 }
 
 .debug-profile {
@@ -85,6 +92,9 @@
 
 .debug-features__feature-flag ul {
   margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .debug-features__superuser {
@@ -99,9 +109,13 @@
 
 .debug-features__superuser__indicator {
   border-radius: 50%;
-  background-color: var(--color-green);
   width: 1.2rem;
   height: 1.2rem;
+  background: var(--color-shade-grey);
+}
+
+.debug-features__superuser__indicator--active {
+  background: var(--color-green);
 }
 
 .debug-features__superuser__message {

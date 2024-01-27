@@ -1,3 +1,2 @@
 import Route from '@ember/routing/route';
-
 export default class DebugRoute extends Route {}

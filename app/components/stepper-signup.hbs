@@ -66,26 +66,24 @@
       {{else if (eq this.currentStep 8)}}
         <IdentitySteps::StepTwo @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 9)}}
-        <IdentitySteps::StepThree @startHandler={{this.startHandler}} />
-      {{else if (eq this.currentStep 10)}}
-        <IdentitySteps::StepFour
+        <IdentitySteps::StepThree
           @startHandler={{this.startHandler}}
           @chaincode={{@chaincode}}
           @isChaincodeClicked={{@isChaincodeClicked}}
           @isLoading={{@isLoading}}
           @handleGenerateChaincode={{@handleGenerateChaincode}}
         />
+      {{else if (eq this.currentStep 10)}}
+        <IdentitySteps::StepFour @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 11)}}
         <IdentitySteps::StepFive @startHandler={{this.startHandler}} />
       {{else if (eq this.currentStep 12)}}
-        <IdentitySteps::StepSix @startHandler={{this.startHandler}} />
-      {{else if (eq this.currentStep 13)}}
-        <IdentitySteps::StepSeven
+        <IdentitySteps::StepSix
           @handleRefresh={{this.handleRefresh}}
           @goToGenerateChaincodePage={{this.goToGenerateChaincodePage}}
           @startHandler={{this.startHandler}}
         />
-      {{else if (eq this.currentStep 14)}}
+      {{else if (eq this.currentStep 13)}}
         <JoinSteps::StatusCard
           @status={{this.applicationStatus}}
           @feedback={{this.applicationFeedback}}

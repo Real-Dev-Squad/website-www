@@ -26,7 +26,7 @@
           />
         {{/if}}
       {{else if (eq tab.label "Survey")}}
-        {{#if this.isWordCloudFeatureOn}}
+        {{#if (and this.isWordCloudFeatureOn this.isSurveyTabVisible)}}
           <Tab
             @tabId={{tab.id}}
             @test={{tab.label}}

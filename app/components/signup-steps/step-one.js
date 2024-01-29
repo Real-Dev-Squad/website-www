@@ -11,6 +11,7 @@ export default class SignupStepsStepOneComponent extends Component {
   @service login;
   @tracked data = { firstname: '', lastname: '', username: '', role: '' };
   @tracked isSignupButtonDisabled = true;
+  @tracked isSignupButtonLoading = false;
   @tracked isValid = true;
   @tracked mavenRoleConfirm = false;
   role = ROLE;
@@ -81,6 +82,8 @@ export default class SignupStepsStepOneComponent extends Component {
   }
 
   @action async signup() {
+    this.isSignupButtonLoading = true;
+    this.isSignupButtonDisabled = true;
     const { username } = await this.onboarding.generateUsername(
       this.data.firstname,
       this.data.lastname,
@@ -111,5 +114,6 @@ export default class SignupStepsStepOneComponent extends Component {
     // To get user details after signup
     localStorage.setItem('role', this.data.role);
     this.args.incrementStep();
+    this.isSignupButtonLoading = false;
   }
 }

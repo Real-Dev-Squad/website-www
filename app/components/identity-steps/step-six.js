@@ -1,49 +1,33 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
-import { APPS } from '../../constants/urls';
+import { PROFILE_STATUS } from '../../constants/stepper-signup-data';
 
 export default class IdentityStepsStepSixComponent extends Component {
-  @service toast;
-  @tracked isLoading = false;
+  @service login;
+  @service router;
 
-  @action async handleVerify(e) {
-    e.preventDefault();
-    this.isLoading = true;
+  PROFILE_STATUS = PROFILE_STATUS;
 
-    try {
-      const response = await fetch(`${APPS.API_BACKEND}/users/verify`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      });
-
-      if (response.ok) {
-        this.toast.info(
-          'Your request has been queued successfully',
-          '',
-          toastNotificationTimeoutOptions,
-        );
-      } else {
-        this.toast.error(
-          'Something went wrong. Please check console errors.',
-          '',
-          toastNotificationTimeoutOptions,
-        );
-      }
-    } catch (error) {
-      this.toast.error(
-        'Something went wrong. Please check console errors.',
-        '',
-        toastNotificationTimeoutOptions,
-      );
-    } finally {
-      this.isLoading = false;
-      this.args.startHandler();
-    }
+  get activeProfileStatus() {
+    const activeProfileStatus = this.login.userData.profileStatus;
+    return activeProfileStatus;
   }
+
+  profileStatuses = [
+    {
+      status: PROFILE_STATUS.PENDING,
+      heading: 'Pending',
+      icon: 'hourglass-half',
+    },
+    {
+      status: PROFILE_STATUS.BLOCKED,
+      heading: 'Blocked',
+      icon: 'ban',
+    },
+    {
+      status: PROFILE_STATUS.VERIFIED,
+      heading: 'Successful',
+      icon: 'square-check',
+    },
+  ];
 }

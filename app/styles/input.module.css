@@ -87,13 +87,13 @@
 }
 
 @media (width <=1024px) {
-  .input-box__hour {
+  .input-box__time {
     padding-left: 4rem;
   }
 }
 
 @media (width <=480px) {
-  .input-box__hour {
+  .input-box__time {
     padding-left: 0;
   }
 }

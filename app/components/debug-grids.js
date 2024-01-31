@@ -56,7 +56,7 @@ export default class DebugGridsComponent extends Component {
 
     this.debugUserData = {
       Username: data.username ?? 'N/A',
-      'Realdevsquad Id': data.id,
+      'Real-Dev-Squad Id': data.id,
       'Incomplete User Details': data.incompleteUserDetails ?? true,
       'Discord Joined At': isoToLocalDate(data.discordJoinedAt) ?? 'N/A',
       'Github Name': data.github_display_name,

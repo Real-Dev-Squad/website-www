@@ -28,19 +28,16 @@ export default class DebugGridsComponent extends Component {
     }
   }
 
-  checkAuth() {
-    this.store
-      .findRecord('user', 'self')
-      .then((user) => {
-        this.userData = user;
-        this.parseDebugData(this.userData);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        this.isLoading = false;
-      });
+  async checkAuth() {
+    try {
+      const user = await this.store.findRecord('user', 'self');
+      this.userData = user;
+      this.parseDebugData(this.userData);
+    } catch (error) {
+      console.log('Failed to authenticate');
+    } finally {
+      this.isLoading = false;
+    }
   }
 
   parseDebugData(data) {

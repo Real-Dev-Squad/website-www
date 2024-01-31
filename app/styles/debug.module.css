@@ -182,6 +182,14 @@
   transform: translateX(1.35rem);
 }
 
+.debug__error-message {
+  text-align: center;
+}
+
+.debug__error-message p {
+  margin-bottom: 1rem;
+}
+
 @media only screen and (width > 1600px) {
   .debug__grid-container {
     max-width: 100rem;

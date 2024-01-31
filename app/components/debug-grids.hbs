@@ -1,4 +1,6 @@
-{{#if this.userData}}
+{{#if this.isLoading}}
+  loading...
+{{else if this.userData}}
   <div class="debug__grid-container">
     <div class="debug-profile debug__grid-item">
       <div class="debug-profile__image-container">
@@ -78,5 +80,8 @@
     </div>
   </div>
 {{else}}
-  loading...
+  <div class="debug__error-message">
+    <p>Something went wrong... </p>
+    <p>Please try again.</p>
+  </div>
 {{/if}}

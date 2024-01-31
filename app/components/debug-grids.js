@@ -24,11 +24,11 @@ export default class DebugGridsComponent extends Component {
   constructor() {
     super(...arguments);
     if (!this.fastboot.isFastBoot) {
-      this.checkAuth();
+      this.authenticateUserAndFetchdata();
     }
   }
 
-  async checkAuth() {
+  async authenticateUserAndFetchdata() {
     try {
       const user = await this.store.findRecord('user', 'self');
       this.userData = user;

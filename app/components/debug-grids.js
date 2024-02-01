@@ -1,14 +1,11 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { isoToLocalDate } from '../utils/common-utils';
-import { TOAST_OPTIONS } from '../constants/toast-options';
 
 export default class DebugGridsComponent extends Component {
   @service store;
   @service fastboot;
-  @service toast;
 
   @tracked userData;
   @tracked isLoading = true;
@@ -74,13 +71,5 @@ export default class DebugGridsComponent extends Component {
       featureFlags: ['dev'],
       isSuperUser: data.roles.super_user ?? false,
     };
-  }
-
-  @action setPrivilages() {
-    this.toast.success(
-      'Your privileges are applied',
-      'Success!',
-      TOAST_OPTIONS,
-    );
   }
 }

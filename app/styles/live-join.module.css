@@ -9,14 +9,17 @@
   color: var(--color-pink);
   box-shadow: 0 10px 10px var(--color-darkblack-low-opacity);
 }
+
 .card__live__title {
   font-size: 2.25rem;
   text-align: center;
 }
+
 .card__live .live__join {
   max-width: 40rem;
   margin: 1rem auto;
 }
+
 .card__form {
   display: flex;
   flex-direction: column;

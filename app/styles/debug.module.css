@@ -85,7 +85,7 @@
 }
 
 .debug-user__roles-container ul {
-  margin-top: 0.08rem;
+  margin-top: 1.5px;
   gap: 1rem;
 }
 
@@ -196,7 +196,7 @@
   }
 }
 
-@media only screen and (width <= 940px) {
+@media only screen and (width <= 922px) {
   .debug__grid-container {
     grid-template-columns: repeat(1, 1fr);
   }

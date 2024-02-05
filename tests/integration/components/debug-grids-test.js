@@ -38,26 +38,25 @@ module('Integration | Component | debug-grids', function (hooks) {
     assert
       .dom('[data-test-debug-image]')
       .exists()
-      .hasAttribute(
-        'src',
-        'https://res.cloudinary.com/realdevsquad/image/upload/mock-image.png',
-      );
-    assert.dom('[data-test-debug-name]').hasText('John Doe');
+      .hasAttribute('src', superUserData.picture.url);
+    assert
+      .dom('[data-test-debug-name]')
+      .hasText(`${superUserData.first_name} ${superUserData.last_name}`);
     assert
       .dom('[data-test-debug-social-id="Twitter Id"]')
-      .hasText('Twitter Id: N/A');
+      .hasText(`Twitter Id: ${superUserData.twitter_id ?? 'N/A'}`);
     assert
       .dom('[data-test-debug-social-id="Linkedin Id"]')
-      .hasText('Linkedin Id: https://www.linkedin.com/in/john-doe/');
+      .hasText(`Linkedin Id: ${superUserData.linkedin_id}`);
     assert
       .dom('[data-test-debug-user-data="Username"]')
-      .hasText('Username: johndoe');
+      .hasText(`Username: ${superUserData.username}`);
     assert
       .dom('[data-test-debug-user-data="Website"]')
-      .hasText('Website: https://johndoe.app/');
+      .hasText(`Website: ${superUserData.website}`);
     assert
       .dom('[data-test-debug-role="super_user"]')
-      .hasText('super_user: true');
+      .hasText(`super_user: ${superUserData.roles.super_user}`);
     assert.dom('[data-test-debug-feature-flags]').hasText('dev');
     assert
       .dom('[data-test-debug-superuser-indicator]')
@@ -86,7 +85,7 @@ module('Integration | Component | debug-grids', function (hooks) {
 
     assert
       .dom('[data-test-debug-role="super_user"]')
-      .hasText('super_user: false');
+      .hasText(`super_user: ${nonSuperUserData.roles.super_user}`);
     assert
       .dom('[data-test-debug-superuser-indicator]')
       .doesNotHaveClass('debug__features__superuser__indicator--active');

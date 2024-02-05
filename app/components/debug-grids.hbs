@@ -2,13 +2,13 @@
   loading...
 {{else if this.login.userData}}
   <div class="debug__grid-container">
-    <div class="debug-profile debug__grid-item">
-      <div class="debug-profile__image-container">
+    <div class="debug__profile debug__grid-item">
+      <div class="debug__profile__image-container">
         <img alt="user Profile" src={{this.debugProfileData.imageURL}} />
       </div>
-      <h2 class="debug-profile__name">{{this.debugProfileData.fullName}}</h2>
+      <h2 class="debug__profile__name">{{this.debugProfileData.fullName}}</h2>
     </div>
-    <div class="debug-social debug__grid-item">
+    <div class="debug__social debug__grid-item">
       <ul>
         {{#each-in this.debugSocialData as |social socialId|}}
           <li>
@@ -18,7 +18,7 @@
         {{/each-in}}
       </ul>
     </div>
-    <div class="debug-user debug__grid-item">
+    <div class="debug__user debug__grid-item">
       <ul>
         {{#each-in this.debugUserData as |key value|}}
           <li>
@@ -26,7 +26,7 @@
               {{value}}</p>
           </li>
         {{/each-in}}
-        <li class="debug-user__roles-container">
+        <li class="debug__user__roles-container">
           <p class="debug--bold">Roles:</p>
           <ul>
             {{#each-in this.debugUserRolesData as |role value|}}
@@ -37,8 +37,8 @@
         </li>
       </ul>
     </div>
-    <div class="debug-features debug__grid-item">
-      <div class="debug-features__feature-flag">
+    <div class="debug__features debug__grid-item">
+      <div class="debug__features__feature-flag">
         <h3 class="debug--bold">Features Flags:</h3>
         <ul>
           {{#each this.debugFeaturesData.featureFlags as |featureFlag|}}
@@ -46,24 +46,24 @@
           {{/each}}
         </ul>
       </div>
-      <div class="debug-features__superuser">
-        <div class="debug-features__superuser__indicator-container">
+      <div class="debug__features__superuser">
+        <div class="debug__features__superuser__indicator-container">
           <h3 class="debug--bold">Super User</h3>
           <div
-            class="debug-features__superuser__indicator
+            class="debug__features__superuser__indicator
               {{if
                 this.debugFeaturesData.isSuperUser
-                'debug-features__superuser__indicator--active'
+                'debug__features__superuser__indicator--active'
               }}"
           ></div>
         </div>
-        <p class="debug-features__superuser__message">{{#if
+        <p class="debug__features__superuser__message">{{#if
             this.debugFeaturesData.isSuperUser
           }}You're a super user. Remember, with great power comes great
             responsibilities!{{else}}You're not a super user.{{/if}}</p>
       </div>
       {{#if this.debugFeaturesData.isSuperUser}}
-        <div class="debug-features__superuser-privileges">
+        <div class="debug__features__superuser-privileges">
           <h3 class="debug--semibold">Apply privileges: </h3>
           <div class="privileges-toggle__container">
             <label class="privileges-toggle">

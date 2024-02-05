@@ -41,7 +41,7 @@
   box-shadow: var(--color-grayish-blue-shadow) 6px 6px 4px 0;
 }
 
-.debug-profile {
+.debug__profile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,25 +50,25 @@
   color: var(--color-navyblue);
 }
 
-.debug-profile__name {
+.debug__profile__name {
   font-size: 2rem;
   text-align: center;
 }
 
-.debug-profile__image-container {
+.debug__profile__image-container {
   border-radius: 50%;
   width: 10rem;
   height: 10rem;
   overflow: hidden;
 }
 
-.debug-profile__image-container img {
+.debug__profile__image-container img {
   width: 100%;
   object-fit: cover;
 }
 
-.debug-social ul,
-.debug-user ul {
+.debug__social ul,
+.debug__user ul {
   height: 100%;
   display: flex;
   gap: 1.2rem;
@@ -77,19 +77,19 @@
   word-break: break-all;
 }
 
-.debug-user__roles-container {
+.debug__user__roles-container {
   display: flex;
   flex-direction: row;
   max-height: fit-content;
   gap: 1rem;
 }
 
-.debug-user__roles-container ul {
+.debug__user__roles-container ul {
   margin-top: 1.5px;
   gap: 1rem;
 }
 
-.debug-features {
+.debug__features {
   background: var(--color-navyblue);
   color: var(--color-white);
   display: flex;
@@ -97,44 +97,44 @@
   gap: 1.5rem;
 }
 
-.debug-features__feature-flag {
+.debug__features__feature-flag {
   margin-bottom: 3rem;
 }
 
-.debug-features__feature-flag ul {
+.debug__features__feature-flag ul {
   margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.debug-features__superuser {
+.debug__features__superuser {
   margin-top: auto;
 }
 
-.debug-features__superuser__indicator-container {
+.debug__features__superuser__indicator-container {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.debug-features__superuser__indicator {
+.debug__features__superuser__indicator {
   border-radius: 50%;
   width: 1.2rem;
   height: 1.2rem;
   background: var(--color-shade-grey);
 }
 
-.debug-features__superuser__indicator--active {
+.debug__features__superuser__indicator--active {
   background: var(--color-green);
 }
 
-.debug-features__superuser__message {
+.debug__features__superuser__message {
   margin-top: 0.6rem;
   font-size: 0.9rem;
 }
 
-.debug-features__superuser-privileges {
+.debug__features__superuser-privileges {
   display: flex;
   gap: 1rem;
 }
@@ -221,7 +221,7 @@
     padding: 1rem;
   }
 
-  .debug-profile__name {
+  .debug__profile__name {
     font-size: 1.4rem;
   }
 

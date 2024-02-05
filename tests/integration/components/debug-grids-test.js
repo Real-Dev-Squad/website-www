@@ -61,7 +61,7 @@ module('Integration | Component | debug-grids', function (hooks) {
     assert.dom('[data-test-debug-feature-flags]').hasText('dev');
     assert
       .dom('[data-test-debug-superuser-indicator]')
-      .hasClass('debug-features__superuser__indicator--active');
+      .hasClass('debug__features__superuser__indicator--active');
     assert
       .dom('[data-test-debug-superuser-message]')
       .hasText(
@@ -89,7 +89,7 @@ module('Integration | Component | debug-grids', function (hooks) {
       .hasText('super_user: false');
     assert
       .dom('[data-test-debug-superuser-indicator]')
-      .doesNotHaveClass('debug-features__superuser__indicator--active');
+      .doesNotHaveClass('debug__features__superuser__indicator--active');
     assert
       .dom('[data-test-debug-superuser-message]')
       .hasText(`You're not a super user.`);

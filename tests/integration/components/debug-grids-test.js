@@ -3,26 +3,30 @@ import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import EmberObject from '@ember/object';
-import { set } from '@ember/object';
 import { nonSuperUserData, superUserData } from '../../constants/users-data';
 
 module('Integration | Component | debug-grids', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(async function () {
+  hooks.beforeEach(function () {
     this.owner.register(
       'service:fastboot',
       class extends EmberObject {
         isFastBoot = false;
       },
     );
+
+    this.owner.register(
+      'service:login',
+      class extends EmberObject {
+        isLoading = false;
+        isLoggedIn = true;
+        userData = superUserData;
+      },
+    );
   });
 
   test('it renders user data when authenticated', async function (assert) {
-    set(this.owner.lookup('service:store'), 'findRecord', () => {
-      return superUserData;
-    });
-
     await render(hbs`<DebugGrids />`);
 
     assert.dom('[data-test-debug-grids]').exists();
@@ -67,9 +71,14 @@ module('Integration | Component | debug-grids', function (hooks) {
   });
 
   test('non superuser', async function (assert) {
-    set(this.owner.lookup('service:store'), 'findRecord', () => {
-      return nonSuperUserData;
-    });
+    this.owner.register(
+      'service:login',
+      class extends EmberObject {
+        isLoading = false;
+        isLoggedIn = true;
+        userData = nonSuperUserData;
+      },
+    );
 
     await render(hbs`<DebugGrids />`);
 
@@ -88,9 +97,13 @@ module('Integration | Component | debug-grids', function (hooks) {
   });
 
   test('it shows error message when authentication fails', async function (assert) {
-    set(this.owner.lookup('service:store'), 'findRecord', () => {
-      return;
-    });
+    this.owner.register(
+      'service:login',
+      class extends EmberObject {
+        isLoading = false;
+        isLoggedIn = false;
+      },
+    );
 
     await render(hbs`<DebugGrids />`);
 

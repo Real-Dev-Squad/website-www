@@ -3,7 +3,7 @@
 {{else if this.login.userData}}
   <div data-test-debug-grids class="debug__grid-container">
     <div data-test-debug-profile class="debug__profile debug__grid-item">
-      <div class="debug__profile__image-container">
+      <div class="debug__image-container">
         <img
           data-test-debug-image
           src={{this.debugProfileData.imageURL}}
@@ -12,7 +12,7 @@
       </div>
       <h2
         data-test-debug-name
-        class="debug__profile__name"
+        class="debug__name"
       >{{this.debugProfileData.fullName}}</h2>
     </div>
     <div data-test-debug-social class="debug__social debug__grid-item">
@@ -36,7 +36,7 @@
               {{value}}</p>
           </li>
         {{/each-in}}
-        <li class="debug__user__roles-container">
+        <li class="debug__roles-container">
           <p class="debug--bold">Roles:</p>
           <ul>
             {{#each-in this.debugUserRolesData as |role value|}}
@@ -50,7 +50,7 @@
       </ul>
     </div>
     <div data-test-debug-features class="debug__features debug__grid-item">
-      <div class="debug__features__feature-flag">
+      <div class="debug__feature-flag">
         <h3 class="debug--bold">Features Flags:</h3>
         <ul data-test-debug-feature-flags>
           {{#each this.debugFeaturesData.featureFlags as |featureFlag|}}
@@ -58,27 +58,27 @@
           {{/each}}
         </ul>
       </div>
-      <div data-test-debug class="debug__features__superuser">
-        <div class="debug__features__superuser__indicator-container">
+      <div class="debug__superuser">
+        <div class="debug__superuser-indicator-container">
           <h3 class="debug--bold">Super User</h3>
           <div
             data-test-debug-superuser-indicator
-            class="debug__features__superuser__indicator
+            class="debug__superuser-indicator
               {{if
                 this.debugFeaturesData.isSuperUser
-                'debug__features__superuser__indicator--active'
+                'debug__superuser-indicator--active'
               }}"
           ></div>
         </div>
         <p
           data-test-debug-superuser-message
-          class="debug__features__superuser__message"
+          class="debug__superuser__message"
         >{{#if this.debugFeaturesData.isSuperUser}}You're a super user.
             Remember, with great power comes great responsibilities!{{else}}You're
             not a super user.{{/if}}</p>
       </div>
       {{#if this.debugFeaturesData.isSuperUser}}
-        <div class="debug__features__superuser-privileges">
+        <div class="debug__superuser-privileges">
           <h3 class="debug--semibold">Apply privileges: </h3>
           <div class="privileges-toggle__container">
             <label
@@ -94,8 +94,5 @@
     </div>
   </div>
 {{else}}
-  <div data-test-debug-error-message class="debug__error-message">
-    <p>Something went wrong... </p>
-    <p>Please try again.</p>
-  </div>
+  <Unauthenticated />
 {{/if}}

@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   font-size: 1rem;
 }
 
@@ -50,19 +51,19 @@
   color: var(--color-navyblue);
 }
 
-.debug__profile__name {
+.debug__name {
   font-size: 2rem;
   text-align: center;
 }
 
-.debug__profile__image-container {
+.debug__image-container {
   border-radius: 50%;
   width: 10rem;
   height: 10rem;
   overflow: hidden;
 }
 
-.debug__profile__image-container img {
+.debug__image-container img {
   width: 100%;
   object-fit: cover;
 }
@@ -77,14 +78,14 @@
   word-break: break-all;
 }
 
-.debug__user__roles-container {
+.debug__roles-container {
   display: flex;
   flex-direction: row;
   max-height: fit-content;
   gap: 1rem;
 }
 
-.debug__user__roles-container ul {
+.debug__roles-container ul {
   margin-top: 1.5px;
   gap: 1rem;
 }
@@ -97,44 +98,44 @@
   gap: 1.5rem;
 }
 
-.debug__features__feature-flag {
+.debug__feature-flag {
   margin-bottom: 3rem;
 }
 
-.debug__features__feature-flag ul {
+.debug__feature-flag ul {
   margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.debug__features__superuser {
+.debug__superuser {
   margin-top: auto;
 }
 
-.debug__features__superuser__indicator-container {
+.debug__superuser-indicator-container {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.debug__features__superuser__indicator {
+.debug__superuser-indicator {
   border-radius: 50%;
   width: 1.2rem;
   height: 1.2rem;
   background: var(--color-shade-grey);
 }
 
-.debug__features__superuser__indicator--active {
+.debug__superuser-indicator--active {
   background: var(--color-green);
 }
 
-.debug__features__superuser__message {
+.debug__superuser__message {
   margin-top: 0.6rem;
   font-size: 0.9rem;
 }
 
-.debug__features__superuser-privileges {
+.debug__superuser-privileges {
   display: flex;
   gap: 1rem;
 }
@@ -221,7 +222,7 @@
     padding: 1rem;
   }
 
-  .debug__profile__name {
+  .debug__name {
     font-size: 1.4rem;
   }
 

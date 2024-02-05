@@ -60,7 +60,7 @@ module('Integration | Component | debug-grids', function (hooks) {
     assert.dom('[data-test-debug-feature-flags]').hasText('dev');
     assert
       .dom('[data-test-debug-superuser-indicator]')
-      .hasClass('debug__features__superuser__indicator--active');
+      .hasClass('debug__superuser-indicator--active');
     assert
       .dom('[data-test-debug-superuser-message]')
       .hasText(
@@ -88,7 +88,7 @@ module('Integration | Component | debug-grids', function (hooks) {
       .hasText(`super_user: ${nonSuperUserData.roles.super_user}`);
     assert
       .dom('[data-test-debug-superuser-indicator]')
-      .doesNotHaveClass('debug__features__superuser__indicator--active');
+      .doesNotHaveClass('debug__superuser-indicator--active');
     assert
       .dom('[data-test-debug-superuser-message]')
       .hasText(`You're not a super user.`);
@@ -107,6 +107,6 @@ module('Integration | Component | debug-grids', function (hooks) {
     await render(hbs`<DebugGrids />`);
 
     assert.dom('[data-test-debug-grids]').doesNotExist();
-    assert.dom('[data-test-debug-error-message]').exists();
+    assert.dom('[data-test-unauthenticated]').exists();
   });
 });

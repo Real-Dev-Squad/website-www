@@ -12,7 +12,7 @@ export default class DebugGridsComponent extends Component {
 
   @tracked debugProfileData = {
     fullName: `${this.login.userData.first_name} ${this.login.userData.last_name}`,
-    imageURL: this.login.userData.picture.url ?? this.DEFAULT_IMAGE,
+    imageURL: this.login.userData.picture?.url ?? this.DEFAULT_IMAGE,
   };
 
   @tracked debugSocialData = {
@@ -35,14 +35,14 @@ export default class DebugGridsComponent extends Component {
   };
 
   @tracked debugUserRolesData = {
-    archived: this.login.userData.roles.archived ?? true,
-    super_user: this.login.userData.roles.super_user ?? false,
-    member: this.login.userData.roles.member ?? false,
-    in_discord: this.login.userData.roles.in_discord ?? false,
+    archived: this.login.userData.roles?.archived ?? true,
+    super_user: this.login.userData.roles?.super_user ?? false,
+    member: this.login.userData.roles?.member ?? false,
+    in_discord: this.login.userData.roles?.in_discord ?? false,
   };
 
   @tracked debugFeaturesData = {
     featureFlags: ['dev'],
-    isSuperUser: this.login.userData.roles.super_user ?? false,
+    isSuperUser: this.login.userData.roles?.super_user ?? false,
   };
 }

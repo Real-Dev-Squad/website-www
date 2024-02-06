@@ -14,4 +14,5 @@ Router.map(function () {
   this.route('intro');
   this.route('goto');
   this.route('events');
+  this.route('debug');
 });

@@ -19,7 +19,7 @@ export default class DebugGridsComponent extends Component {
     'Twitter Id': this.login.userData.twitter_id ?? 'N/A',
     'Github Id': this.login.userData.github_id ?? 'N/A',
     'Linkedin Id': this.login.userData.linkedin_id ?? 'N/A',
-    'Discord Id': this.login.userData.discord_id ?? 'N/A',
+    'Discord Id': this.login.userData.discordId ?? 'N/A',
     'Instagram Id': this.login.userData.instagram_id ?? 'N/A',
   };
 

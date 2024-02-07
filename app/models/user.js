@@ -15,7 +15,7 @@ export default class UserModel extends Model {
   @attr instagram_id;
   @attr linkedin_id;
   @attr twitter_id;
-  @attr discord_id;
+  @attr discordId;
   @attr discordJoinedAt;
   @attr profileURL;
   @attr profileStatus;

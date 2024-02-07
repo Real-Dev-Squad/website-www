@@ -28,8 +28,9 @@ export default class DebugGridsComponent extends Component {
     'Real-Dev-Squad Id': this.login.userData.id,
     'Incomplete User Details':
       this.login.userData.incompleteUserDetails ?? true,
-    'Discord Joined At':
-      isoToLocalDate(this.login.userData.discordJoinedAt) ?? 'N/A',
+    'Discord Joined At': this.login.userData.discordJoinedAt
+      ? isoToLocalDate(this.login.userData.discordJoinedAt)
+      : 'N/A',
     'Github Name': this.login.userData.github_display_name,
     Website: this.login.userData.website ?? 'N/A',
   };

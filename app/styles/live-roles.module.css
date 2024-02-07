@@ -1,5 +1,6 @@
 .card__subtitle {
   margin: 1rem auto;
+  color: var(--color-darkblack);
 }
 
 .live__roles {

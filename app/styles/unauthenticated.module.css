@@ -1,0 +1,26 @@
+.unauthenticated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 3rem 0;
+}
+
+.unauthenticated__img {
+  width: 25rem;
+}
+
+.unauthenticated__text {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+@media screen and (width <= 625px) {
+  .unauthenticated__img {
+    width: 70%;
+  }
+
+  .unauthenticated__text {
+    font-size: 1.25rem;
+  }
+}

@@ -1,28 +1,38 @@
 {{#if this.login.isLoading}}
   loading...
 {{else if this.login.userData}}
-  <div class="debug__grid-container">
-    <div class="debug__profile debug__grid-item">
+  <div data-test-debug-grids class="debug__grid-container">
+    <div data-test-debug-profile class="debug__profile debug__grid-item">
       <div class="debug__image-container">
-        <img alt="user Profile" src={{this.debugProfileData.imageURL}} />
+        <img
+          data-test-debug-image
+          src={{this.debugProfileData.imageURL}}
+          alt="user Profile"
+        />
       </div>
-      <h2 class="debug__name">{{this.debugProfileData.fullName}}</h2>
+      <h2
+        data-test-debug-name
+        class="debug__name"
+      >{{this.debugProfileData.fullName}}</h2>
     </div>
-    <div class="debug__social debug__grid-item">
+    <div data-test-debug-social class="debug__social debug__grid-item">
       <ul>
         {{#each-in this.debugSocialData as |social socialId|}}
           <li>
-            <p><span class="debug--bold">{{social}}:</span>
+            <p data-test-debug-social-id={{social}}><span
+                class="debug--bold"
+              >{{social}}:</span>
               {{socialId}}</p>
           </li>
         {{/each-in}}
       </ul>
     </div>
-    <div class="debug__user debug__grid-item">
+    <div data-test-debug-user class="debug__user debug__grid-item">
       <ul>
         {{#each-in this.debugUserData as |key value|}}
           <li>
-            <p><span class="debug--bold"> {{key}}:</span>
+            <p data-test-debug-user-data={{key}}><span class="debug--bold">
+                {{key}}:</span>
               {{value}}</p>
           </li>
         {{/each-in}}
@@ -30,17 +40,19 @@
           <p class="debug--bold">Roles:</p>
           <ul>
             {{#each-in this.debugUserRolesData as |role value|}}
-              <li><span class="debug--semibold">{{role}}:</span>
-                {{value}}</li>
+              <li><p data-test-debug-role={{role}}><span
+                    class="debug--semibold"
+                  >{{role}}:</span>
+                  {{value}}</p></li>
             {{/each-in}}
           </ul>
         </li>
       </ul>
     </div>
-    <div class="debug__features debug__grid-item">
+    <div data-test-debug-features class="debug__features debug__grid-item">
       <div class="debug__feature-flag">
         <h3 class="debug--bold">Features Flags:</h3>
-        <ul>
+        <ul data-test-debug-feature-flags>
           {{#each this.debugFeaturesData.featureFlags as |featureFlag|}}
             <li><p>{{featureFlag}}</p></li>
           {{/each}}
@@ -50,6 +62,7 @@
         <div class="debug__superuser-indicator-container">
           <h3 class="debug--bold">Super User</h3>
           <div
+            data-test-debug-superuser-indicator
             class="debug__superuser-indicator
               {{if
                 this.debugFeaturesData.isSuperUser
@@ -57,16 +70,21 @@
               }}"
           ></div>
         </div>
-        <p class="debug__superuser__message">{{#if
-            this.debugFeaturesData.isSuperUser
-          }}You're a super user. Remember, with great power comes great
-            responsibilities!{{else}}You're not a super user.{{/if}}</p>
+        <p
+          data-test-debug-superuser-message
+          class="debug__superuser__message"
+        >{{#if this.debugFeaturesData.isSuperUser}}You're a super user.
+            Remember, with great power comes great responsibilities!{{else}}You're
+            not a super user.{{/if}}</p>
       </div>
       {{#if this.debugFeaturesData.isSuperUser}}
         <div class="debug__superuser-privileges">
           <h3 class="debug--semibold">Apply privileges: </h3>
           <div class="privileges-toggle__container">
-            <label class="privileges-toggle">
+            <label
+              data-test-debug-apply-privileges-button
+              class="privileges-toggle"
+            >
               <input type="checkbox" class="privileges-toggle__checkbox" />
               <span class="privileges-toggle__slider"></span>
             </label>

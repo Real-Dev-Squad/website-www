@@ -1,0 +1,76 @@
+.answer-reply-modal {
+  width: 31.25rem;
+  box-sizing: border-box;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 96svw;
+  border-radius: 25px;
+  padding: 1.25rem;
+  padding-right: 40px;
+}
+
+.answer-reply-modal__heading {
+  text-align: center;
+  color: var(--color-pink);
+  font-size: 1.5rem;
+  text-decoration: underline;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-bottom: 40px;
+}
+
+.answer-reply-modal__answer-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-navyblue);
+}
+
+.answer-reply-modal__answer-input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  border: 2px solid var(--color-navyblue);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.answer-reply-modal__answer-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--color-light-navyblue);
+}
+
+.answer-reply-modal__info-text {
+  font-size: 0.8rem;
+  color: var(--color-lightgrey);
+}
+
+.answer-reply-modal__info-icon {
+  border: 1px solid var(--color-darkgrey);
+  padding: 1px 7px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  color: var(--color-darkgrey);
+}
+
+.answer-reply-modal__actions {
+  text-align: center;
+}
+
+/* media queries */
+@media only screen and (width <= 425px) {
+  .answer-reply-modal__submit-button,
+  .answer-reply-modal__cancel-button {
+    margin-right: 0;
+    width: fit-content;
+    padding: 0 20px;
+  }
+
+  .answer-reply-modal__submit-button {
+    padding: 0 34px;
+  }
+}

@@ -1,27 +1,37 @@
-<Tabs data-test-tabs class='tabs'>
-  <section class='tabs_info'>
+<Tabs data-test-tabs class="tabs">
+  <section class="tabs_info">
     <button
       data-test-toggle-button
-      type='button'
-      class='tabs_toggle'
-      {{on 'click' this.toggleTabs}}
+      type="button"
+      class="tabs_toggle"
+      {{on "click" this.toggleTabs}}
     >
       <FaIcon
-        @icon={{if this.isTabOpen 'chevron-down' 'chevron-right'}}
-        @size='2x'
+        @icon={{if this.isTabOpen "chevron-down" "chevron-right"}}
+        @size="2x"
       />
     </button>
     {{@activeTab}}
   </section>
-  <section class='tabs_list {{if this.isTabOpen "active" ""}}'>
+  <section class="tabs_list {{if this.isTabOpen 'active' ''}}">
     {{#each @tabs as |tab|}}
-      {{#if (eq tab.label 'Logs')}}
+      {{#if (eq tab.label "Logs")}}
         {{#if this.live.userData.roles.super_user}}
           <Tab
             @tabId={{tab.id}}
             @test={{tab.label}}
             @label={{tab.label}}
-            @variant={{if tab.active 'active' ''}}
+            @variant={{if tab.active "active" ""}}
+            @onClick={{@tabHandler}}
+          />
+        {{/if}}
+      {{else if (eq tab.label "Survey")}}
+        {{#if (and this.isWordCloudFeatureOn this.isSurveyTabVisible)}}
+          <Tab
+            @tabId={{tab.id}}
+            @test={{tab.label}}
+            @label={{tab.label}}
+            @variant={{if tab.active "active" ""}}
             @onClick={{@tabHandler}}
           />
         {{/if}}
@@ -30,7 +40,7 @@
           @tabId={{tab.id}}
           @test={{tab.label}}
           @label={{tab.label}}
-          @variant={{if tab.active 'active' ''}}
+          @variant={{if tab.active "active" ""}}
           @onClick={{@tabHandler}}
         />
       {{/if}}

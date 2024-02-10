@@ -1,30 +1,86 @@
-<div
-  data-test='profile-service-url-Linking'
-  class='profile-service-url-linking-page'
->
-  <h3
-    data-test='heading'
-    class='profile-service-url-linking-page__heading heading__h3'
-  >
-    Link Profile Service
-  </h3>
-  <p
-    data-test='description'
-    class='profile-service-url-linking-page__description'
-  >
-    Ensure that you have deployed your profile service,
-    <br />
-    Click on link button to start the linking process for joining RealDevSquad.
-  </p>
-
-  <div class='profile-service-url-linking-page__button'>
-    <Reusables::Button
-      @text='Link'
-      @variant='dark'
-      @onClick={{this.handleVerify}}
-      @test='next'
-      @type='button'
-      @isLoading={{this.isLoading}}
-    />
+<div data-test-verification-page class='verification-page'>
+  {{#each this.profileStatuses as |currentStatus|}}
+    {{#if (eq this.activeProfileStatus currentStatus.status)}}
+      <div
+        data-test-verification-heading-icon
+        class='verification-page__heading-icon'
+      >
+        <h3
+          data-test-verification-heading
+          class='verification-page__heading heading__h3'
+        >
+          {{currentStatus.heading}}
+        </h3>
+        <FaIcon
+          @icon={{currentStatus.icon}}
+          @size='lg'
+          class='{{currentStatus.icon}}-icon'
+        />
+      </div>
+      <div
+        data-test-verification-description-container
+        class='verification-page__description'
+      >
+        {{#if
+          (eq this.activeProfileStatus this.PROFILE_STATUS.PENDING)
+        }}
+          <p data-test-verification-description-1>
+            Refresh to Check Verification Status
+          </p>
+          <p data-test-verification-description-2>
+            Your Profile Service Linked with Real Dev Squad Service
+          </p>
+        {{else if (eq
+          this.activeProfileStatus this.PROFILE_STATUS.BLOCKED
+        )}}
+          <p data-test-verification-description-1>
+            Your previous
+            <b>Chaincode</b>
+            is Blocked.
+          </p>
+        {{else if (eq
+          this.activeProfileStatus this.PROFILE_STATUS.VERIFIED
+        )}}
+          <p data-test-verification-description-1>
+            <b>Congratulations!</b>
+            Your Profile Service is Verified.
+          </p>
+          <p data-test-verification-description-2>
+            Take the Next Step and Join Our Discord Server.
+          </p>
+        {{/if}}
+      </div>
+    {{/if}}
+  {{/each}}
+  <div class='verification-page__button'>
+    {{#if (eq this.activeProfileStatus this.PROFILE_STATUS.PENDING)}}
+      <Reusables::Button
+        @text='Refresh'
+        @variant='dark'
+        @onClick={{@handleRefresh}}
+        @test='refresh'
+        @type='button'
+      />
+    {{else if (eq
+      this.activeProfileStatus this.PROFILE_STATUS.BLOCKED
+    )}}
+      <Reusables::Button
+        @text='Verify Again'
+        @variant='dark'
+        @onClick={{@goToGenerateChaincodePage}}
+        @test='verify-again'
+        @type='button'
+      />
+    {{else if (eq
+      this.activeProfileStatus this.PROFILE_STATUS.VERIFIED
+    )}}
+      <Reusables::Button
+        @text='Next'
+        @variant='dark'
+        @onClick={{@startHandler}}
+        @test='next'
+        @type='button'
+      />
+    {{/if}}
   </div>
 </div>

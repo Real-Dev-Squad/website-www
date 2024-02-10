@@ -23,11 +23,11 @@ module('Integration | Component | identity-steps/step-one', function (hooks) {
     assert
       .dom('[data-test-getting-started-paragraph-1]')
       .hasText(
-        'Thank you for providing all the details Before joining the community we would want you to complete a small challenge which will also help you in setting up your identity across Real Dev Squad',
+        'Thank you for providing all the details. Before joining the community, we would want you to complete a small challenge which will also help you in setting up your identity across Real Dev Squad.',
       );
     assert
       .dom('[data-test-getting-started-paragraph-2]')
-      .hasText('Please click proceed to know about the task');
+      .hasText('Please click proceed to know about the task.');
     assert.dom('[data-test-button=identity-proceed]').hasText('Proceed');
     await click('[data-test-button=identity-proceed]');
     assert.true(clicked, 'startHandler is called');

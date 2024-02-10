@@ -57,7 +57,7 @@ module('Integration | Component | status-card', function (hooks) {
       .hasText("Here's the feedback for your application");
   });
 
-  test('it renders accepted status', async function (assert) {
+  test('it renders accepted status with feedback', async function (assert) {
     assert.expect(5);
 
     this.set('status', 'accepted');
@@ -82,5 +82,45 @@ module('Integration | Component | status-card', function (hooks) {
     assert
       .dom('[data-test-status-card-description-3]')
       .hasText('Feedback for accepted status');
+  });
+
+  test('it renders accepted status without feedback', async function (assert) {
+    assert.expect(4);
+
+    this.set('status', 'accepted');
+    this.set('feedback', null);
+
+    await render(hbs`
+      <JoinSteps::StatusCard
+        @status={{this.status}}
+        @feedback={{this.feedback}}
+        @joinDiscord={{this.joinDiscordHandler}}
+      />
+    `);
+
+    assert.dom('[data-test-status-card-heading]').hasText('Accepted');
+    assert.dom('[data-test-icon="accepted"]').exists();
+    assert
+      .dom('[data-test-status-card-description-1]')
+      .hasText('Congratulations! Your application is accepted by us');
+    assert.dom('[data-test-status-card-description-2]').doesNotExist();
+  });
+
+  test('it handles unknown status', async function (assert) {
+    assert.expect(2);
+
+    this.set('status', 'unknown');
+    this.set('feedback', 'This is unexpected');
+
+    await render(hbs`
+      <JoinSteps::StatusCard
+        @status={{this.status}}
+        @feedback={{this.feedback}}
+        @joinDiscord={{this.joinDiscordHandler}}
+      />
+    `);
+
+    assert.dom('[data-test-status-card-heading]').doesNotExist();
+    assert.dom('[data-test-icon]').doesNotExist();
   });
 });

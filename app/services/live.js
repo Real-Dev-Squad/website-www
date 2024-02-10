@@ -327,6 +327,7 @@ export default class LiveService extends Service {
         });
         const peer = this.hmsStore.getState(selectLocalPeer);
         this.localPeer = peer;
+        this.activeRoomId = roomId;
         const addedPeerData = await this.addPeer(roomId, peer);
         if (addedPeerData) {
           this.toast.success(
@@ -346,6 +347,7 @@ export default class LiveService extends Service {
       });
       const peer = this.hmsStore.getState(selectLocalPeer);
       this.localPeer = peer;
+      this.activeRoomId = roomId;
       const addedPeerData = await this.addPeer(roomId, peer);
       if (addedPeerData) {
         this.toast.success(

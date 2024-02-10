@@ -12,9 +12,12 @@ export default class UserModel extends Model {
   @attr incompleteUserDetails;
   @attr github_display_name;
   @attr github_id;
-  @attr instragram_id;
+  @attr instagram_id;
   @attr linkedin_id;
   @attr twitter_id;
+  @attr discordId;
+  @attr discordJoinedAt;
   @attr profileURL;
   @attr profileStatus;
+  @attr website;
 }

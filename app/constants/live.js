@@ -1,8 +1,8 @@
 export const ROLES = {
-  Host: 'host',
-  Maven: 'maven',
-  Moderator: 'moderator',
-  Guest: 'guest',
+  host: 'host',
+  maven: 'maven',
+  moderator: 'moderator',
+  guest: 'guest',
 };
 export const BUTTONS_TYPE = {
   SCREEN_SHARE: 'screen-share',

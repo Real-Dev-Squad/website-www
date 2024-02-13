@@ -266,6 +266,7 @@ export default class LiveController extends Controller {
   @action async selectRoleHandler(selectedRole) {
     this.role = selectedRole;
 
+    this.buttonText = 'Loading...';
     const activeEventData = await this.liveService.getActiveEvents();
     const isActiveEvent = Boolean(activeEventData?.[0]?.enabled);
     this.isActiveEventFound = isActiveEvent;

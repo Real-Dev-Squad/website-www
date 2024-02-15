@@ -31,7 +31,7 @@ export default class LiveController extends Controller {
   ];
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = false;
-  @tracked name = '';
+  @tracked name = this.login?.userData?.first_name ?? '';
   @tracked role = '';
   @tracked roomCode = '';
   @tracked isCopied = false;

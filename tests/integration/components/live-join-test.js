@@ -169,4 +169,40 @@ module('Integration | Component | live-join', function (hooks) {
 
     assert.dom('[data-test-live-join-title]').containsText('Create a Event');
   });
+
+  test('it should prefill name in input box', async function (assert) {
+    const objToCheckFunctions = {
+      isInputHandler: assert.ok(true, 'inputHandler is working fine!'),
+      isClickHandlerWorks: assert.ok(true, 'clickHandler is working fine!'),
+      isBackHandlerWorks: assert.ok(true, 'backHandler is working fine!'),
+    };
+    this.setProperties({
+      role: 'host',
+      name: 'Jayasurya',
+      roomCode: '',
+      inputHandler: () => {
+        objToCheckFunctions.isInputHandler;
+      },
+      clickHandler: () => {
+        objToCheckFunctions.isClickHandlerWorks;
+      },
+      backHandler: () => {
+        objToCheckFunctions.isBackHandlerWorks;
+      },
+      buttonText: 'Create',
+    });
+
+    await render(hbs`
+    <LiveJoin
+    @role={{this.role}}
+    @name={{this.name}}
+    @roomCode={{this.roomCode}}
+    @inputHandler={{this.inputHandler}}
+    @clickHandler={{this.clickHandler}}
+    @backHandler={{this.backHandler}}
+    @buttonText={{this.buttonText}}
+    />`);
+
+    assert.dom('[data-test-input-field]').hasProperty('value', 'Jayasurya');
+  });
 });

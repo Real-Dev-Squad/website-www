@@ -170,7 +170,13 @@ module('Integration | Component | live-join', function (hooks) {
     assert.dom('[data-test-live-join-title]').containsText('Create a Event');
   });
 
-  test('it should prefill name in input box', async function (assert) {
+  test('it should prefill first name in input box', async function (assert) {
+    const loginService = this.owner.lookup('service:login');
+    loginService.userData = { first_name: 'Jayasurya' };
+
+    const controller = this.owner.lookup('controller:live');
+    assert.deepEqual(controller.name, 'Jayasurya');
+
     const objToCheckFunctions = {
       isInputHandler: assert.ok(true, 'inputHandler is working fine!'),
       isClickHandlerWorks: assert.ok(true, 'clickHandler is working fine!'),
@@ -178,7 +184,7 @@ module('Integration | Component | live-join', function (hooks) {
     };
     this.setProperties({
       role: 'host',
-      name: 'Jayasurya',
+      name: controller.name,
       roomCode: '',
       inputHandler: () => {
         objToCheckFunctions.isInputHandler;
@@ -193,15 +199,15 @@ module('Integration | Component | live-join', function (hooks) {
     });
 
     await render(hbs`
-    <LiveJoin
-    @role={{this.role}}
-    @name={{this.name}}
-    @roomCode={{this.roomCode}}
-    @inputHandler={{this.inputHandler}}
-    @clickHandler={{this.clickHandler}}
-    @backHandler={{this.backHandler}}
-    @buttonText={{this.buttonText}}
-    />`);
+      <LiveJoin
+        @role={{this.role}}
+        @name={{this.name}}
+        @roomCode={{this.roomCode}}
+        @inputHandler={{this.inputHandler}}
+        @clickHandler={{this.clickHandler}}
+        @backHandler={{this.backHandler}}
+        @buttonText={{this.buttonText}}
+      />`);
 
     assert.dom('[data-test-input-field]').hasProperty('value', 'Jayasurya');
   });

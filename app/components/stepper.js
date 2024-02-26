@@ -65,40 +65,50 @@ export default class StepperComponent extends Component {
   }
 
   @action async joinHandler() {
-    const firstName = localStorage.getItem('first_name');
-    const lastName = localStorage.getItem('last_name');
-    const data = JSON.stringify({
-      firstName,
-      lastName,
-      ...this.stepOneData,
-      ...this.stepTwoData,
-      ...this.stepThreeData,
-    });
-    try {
-      const response = await fetch(this.JOIN_URL, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: data,
-      });
+    /* @todo-1 remove this toast and return statement when join flow gets opened*/
+    return this.toast.info(
+      "Currently we're not taking applications please keep an eye on our website for openings",
+      'Hey there👋',
+      TOAST_OPTIONS,
+    );
+    /* @todo-1 ends here*/
 
-      if (response.status === 201) {
-        this.toast.success(
-          'Successfully submitted the form',
-          'Success!',
-          TOAST_OPTIONS,
-        );
-        this.incrementStep();
-      } else if (response.status === 409) {
-        this.toast.error(
-          'You have already filled the form',
-          'User Exist!',
-          TOAST_OPTIONS,
-        );
-      }
-    } catch (err) {
-      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
-      console.log('Error: ', err);
-    }
+    /* @todo-2 uncomment this part when join flow gets opened  */
+    // const firstName = localStorage.getItem('first_name');
+    // const lastName = localStorage.getItem('last_name');
+    // const data = JSON.stringify({
+    //   firstName,
+    //   lastName,
+    //   ...this.stepOneData,
+    //   ...this.stepTwoData,
+    //   ...this.stepThreeData,
+    // });
+    // try {
+    //   const response = await fetch(this.JOIN_URL, {
+    //     method: 'PUT',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     credentials: 'include',
+    //     body: data,
+    //   });
+
+    //   if (response.status === 201) {
+    //     this.toast.success(
+    //       'Successfully submitted the form',
+    //       'Success!',
+    //       TOAST_OPTIONS,
+    //     );
+    //     this.incrementStep();
+    //   } else if (response.status === 409) {
+    //     this.toast.error(
+    //       'You have already filled the form',
+    //       'User Exist!',
+    //       TOAST_OPTIONS,
+    //     );
+    //   }
+    // } catch (err) {
+    //   this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
+    //   console.log('Error: ', err);
+    // }
+    /*@todo-2 ends here */
   }
 }

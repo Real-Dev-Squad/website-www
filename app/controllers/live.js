@@ -31,7 +31,7 @@ export default class LiveController extends Controller {
   ];
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = false;
-  @tracked name = '';
+  @tracked name = this.login?.userData?.first_name ?? '';
   @tracked role = '';
   @tracked roomCode = '';
   @tracked isCopied = false;
@@ -107,11 +107,11 @@ export default class LiveController extends Controller {
 
     if (!canJoin) return;
 
-    const activeEventsdata = await this.liveService.getActiveEvents();
-    const activeEvent = this.isActiveEventFound && activeEventsdata?.[0];
+    const activeEventsData = await this.liveService.getActiveEvents();
+    this.isActiveEventFound = Boolean(activeEventsData?.[0]?.enabled);
 
     if (this.isActiveEventFound) {
-      const roomId = activeEvent?.room_id;
+      const roomId = activeEventsData?.[0]?.room_id;
       this.liveService.joinSession(roomId, this.name, this.role, this.roomCode);
     } else {
       if (this.role !== ROLES.host)
@@ -266,11 +266,11 @@ export default class LiveController extends Controller {
   @action async selectRoleHandler(selectedRole) {
     this.role = selectedRole;
 
+    this.buttonText = 'Loading...';
     const activeEventData = await this.liveService.getActiveEvents();
-    const isActiveEvent = Boolean(activeEventData?.[0]?.enabled);
-    this.isActiveEventFound = isActiveEvent;
+    this.isActiveEventFound = Boolean(activeEventData?.[0]?.enabled);
 
-    if (!activeEventData && selectedRole === ROLES.host) {
+    if (!this.isActiveEventFound && selectedRole === ROLES.host) {
       this.buttonText = 'Create Event';
     } else if (activeEventData) {
       this.buttonText = 'Join';

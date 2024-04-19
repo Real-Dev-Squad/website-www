@@ -91,11 +91,23 @@
   z-index: 1;
   box-shadow: 0 10px 10px var(--color-darkblack-low-opacity);
   width: 800px;
+  animation: fadeIn 1s ease;
 }
 
 .modal--visible {
   display: flex;
   pointer-events: auto;
+  background-color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .modal__close {

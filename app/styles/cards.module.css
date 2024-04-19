@@ -91,7 +91,7 @@
   z-index: 1;
   box-shadow: 0 10px 10px var(--color-darkblack-low-opacity);
   width: 800px;
-  animation: fadeIn 1s ease;
+  animation: fade 1s ease;
 }
 
 .modal--visible {
@@ -100,7 +100,7 @@
   background-color: white;
 }
 
-@keyframes fadeIn {
+@keyframes fade {
   from {
     opacity: 0;
   }

@@ -1,5 +1,14 @@
 {{page-title "Live"}}
-
+<script>
+  window.addEventListener('beforeunload', function(event) {
+    // Cancel the event
+    event.preventDefault(); 
+    // Chrome requires returnValue to be set
+    event.returnValue = '';
+    // Display a confirmation dialog
+    return '';
+  });
+</script>
 <div id="live" data-test-live>
   {{#if this.liveService.isJoined}}
     <LiveHeader

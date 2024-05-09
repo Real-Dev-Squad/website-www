@@ -69,18 +69,6 @@ export default class LiveController extends Controller {
         this.questionSSEListener();
         this.answerSSEListener();
       }
-
-      if (window?.location?.href.includes('live')) {
-        window.addEventListener('beforeunload', function (event) {
-          console.log('Before Unload Starts');
-          // Cancel the event
-          event.preventDefault();
-          // Chrome requires returnValue to be set
-          event.returnValue = '';
-          // Display a confirmation dialog
-          return '';
-        });
-      }
     }
     setTimeout(() => {
       this.isLoading = false;

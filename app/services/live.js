@@ -70,9 +70,24 @@ export default class LiveService extends Service {
 
   onConnection(isConnected) {
     this.isJoined = isConnected;
+    if (this.isJoined) {
+      window.addEventListener('beforeunload', this.onCloseAlert);
+    } else {
+      window.removeEventListener('beforeunload', this.onCloseAlert);
+    }
     if (isConnected) {
       this.isLoading = false;
     }
+  }
+
+  onCloseAlert(event) {
+    console.log('Before Unload Starts');
+    // Cancel the event
+    event.preventDefault();
+    // Chrome requires returnValue to be set
+    event.returnValue = '';
+    // Display a confirmation dialog
+    return '';
   }
 
   async joinRoom(roomId, role, userName, eventCode = null) {

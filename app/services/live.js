@@ -81,8 +81,11 @@ export default class LiveService extends Service {
   }
 
   onCloseAlert(event) {
+    // Cancel the event
     event.preventDefault();
+    // Chrome requires returnValue to be set
     event.returnValue = '';
+    // Display a confirmation dialog
     return '';
   }
 

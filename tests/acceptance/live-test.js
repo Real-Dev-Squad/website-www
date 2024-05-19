@@ -26,7 +26,7 @@ module('Acceptance | live', function (hooks) {
     /*
       Line 30 has been commented as currently the click serves no meaning, as the test is incomplete and
       the button click fires a network call which causes test to fail
-      
+
       Currently the when the button is clicked it makes a api call, which fails after some time
       When a promise was fired by this test, but this test don't wait for it to get resolved before this test is torn down,
       So later when the promise is resolved/rejected there no reference to the tests which had fired the event, so it gives error
@@ -40,8 +40,8 @@ module('Acceptance | live', function (hooks) {
         getInjection@http://localhost:4200/assets/vendor.js:23778:20
         get/<@http://localhost:4200/assets/vendor.js:21679:25
         untrack@http://localhost:4200/assets/vendor.js:61174:14
-      
-        This can be solved by waiting for the promise to get resolved before the test is torn down
+
+      This can be solved by waiting for the promise to get resolved before the test is torn down
     */
   });
 });

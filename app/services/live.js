@@ -81,7 +81,6 @@ export default class LiveService extends Service {
   }
 
   onCloseAlert(event) {
-    console.log('Before Unload Starts');
     event.preventDefault();
     event.returnValue = '';
     return '';

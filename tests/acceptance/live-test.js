@@ -30,11 +30,11 @@ module('Acceptance | live', function (hooks) {
       Currently the when the button is clicked it makes a api call, which fails after some time
       When a promise was fired by this test, but this test don't wait for it to get resolved before this test is torn down,
       So later when the promise is resolved/rejected there no reference to the tests which had fired the event, so it gives error
-      
+
       **ERROR message
         global failure: Error: Cannot call `.lookup` after the owner has been destroyed@ 30 ms
         Source:
-        
+
         lookup@http://localhost:4200/assets/vendor.js:11608:15
         lookup@http://localhost:4200/assets/vendor.js:33127:33
         getInjection@http://localhost:4200/assets/vendor.js:23778:20

@@ -82,11 +82,8 @@ export default class LiveService extends Service {
 
   onCloseAlert(event) {
     console.log('Before Unload Starts');
-    // Cancel the event
     event.preventDefault();
-    // Chrome requires returnValue to be set
     event.returnValue = '';
-    // Display a confirmation dialog
     return '';
   }
 

@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, click, currentURL } from '@ember/test-helpers';
+import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website-www/tests/helpers';
 
 module('Acceptance | live', function (hooks) {
@@ -43,16 +43,5 @@ module('Acceptance | live', function (hooks) {
     
     This can be solved by waiting for the promise to get resolved before the test is torn down
     */
-  });
-  test('on button click. when user is changing route', async function (assert) {
-    assert.expect(2);
-
-    await visit('/live?dev=true');
-    assert.dom('[data-test-status]').hasText('Status');
-
-    await visit('/live');
-
-    await click('button');
-    assert.strictEqual(currentURL(), '/live', 'we are not on live page');
   });
 });

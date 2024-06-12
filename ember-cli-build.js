@@ -7,6 +7,10 @@ const { compatBuild } = require('@embroider/compat');
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     // Add options here
+
+    'ember-fetch': {
+      preferNative: true,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

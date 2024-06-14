@@ -5,6 +5,7 @@
 /blueprints/*/files/
 
 # compiled output
+/declarations/
 /dist/
 
 # misc

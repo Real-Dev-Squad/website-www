@@ -14,9 +14,9 @@ module('Unit | Service | login', function (hooks) {
     this.originalFetch = window.fetch;
     this.owner.register('service:fastboot', MockFasbootService);
 
+    //for mocking the fetch will be needing this for disabling eslint for next line only
+    // eslint-disable-next-line no-unused-vars
     window.fetch = (url, configs) => {
-      console.log(`fetch called with url: ${url}`);
-      console.log('configs ', configs);
       const response = {
         status: 200,
         json: () =>
@@ -62,9 +62,10 @@ module('Unit | Service | login', function (hooks) {
   test('it should set isLoggedIn to false if promise gets rejected', async function (assert) {
     assert.expect(1);
     let fetch = window.fetch;
+
+    //for mocking the fetch will be needing this for disabling eslint for next line only
+    // eslint-disable-next-line no-unused-vars
     window.fetch = (url, configs) => {
-      console.log(`fetch called with url: ${url}`);
-      console.log('configs ', configs);
       const response = {
         status: 200,
         json: () => Promise.reject('Authentication failed'),

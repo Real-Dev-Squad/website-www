@@ -1,6 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { APPS } from '../constants/urls';
+import { APPS, AUTH } from '../constants/urls';
 import fetch from 'fetch';
 
 export default class LoginService extends Service {
@@ -20,35 +20,30 @@ export default class LoginService extends Service {
   }
 
   checkAuth() {
+    //TODO: try working this with ember-data
     fetch(`${APPS.API_BACKEND}/users/self`, {
       credentials: 'include',
       headers: this.buildHeaders(),
     })
       .then(function (response) {
-        return response.json();
+        if (response.status === 200) {
+          return response.json();
+        }
+        throw response;
       })
-      .then((data) => {
-        this.userData = data;
+      .then((user) => {
+        if (user.incompleteUserDetails && !this.featureFlag.isDevMode)
+          window.location.replace(AUTH.SIGN_UP);
         this.isLoggedIn = true;
+        this.userData = user;
+      })
+      .catch((error) => {
+        this.isLoggedIn = false;
+        console.error(error);
       })
       .finally(() => {
         this.isLoading = false;
       });
-    // this.store
-    //   .findRecord('user', 'self')
-    //   .then((user) => {
-    //     if (user.incompleteUserDetails && !this.featureFlag.isDevMode)
-    //       window.location.replace(AUTH.SIGN_UP);
-    //     this.isLoggedIn = true;
-    //     this.userData = user;
-    //   })
-    //   .catch((error) => {
-    //     this.isLoggedIn = false;
-    //     console.error(error);
-    //   })
-    //   .finally(() => {
-    //     this.isLoading = false;
-    //   });
   }
 
   buildHeaders(headers = {}) {

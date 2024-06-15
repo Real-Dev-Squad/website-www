@@ -7,6 +7,11 @@ const { compatBuild } = require('@embroider/compat');
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     // Add options here
+
+    //prefer native fetch on the client side and do not use ember-fetch pollyfill on client side
+    'ember-fetch': {
+      preferNative: true,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

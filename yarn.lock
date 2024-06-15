@@ -8851,7 +8851,7 @@ ember-cli-version-checker@^5.1.1, ember-cli-version-checker@^5.1.2:
     semver "^7.3.4"
     silent-error "^1.1.1"
 
-ember-cli@~5.9.0:
+ember-cli@5.9.0:
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-5.9.0.tgz#ee5683b4f73158bde2e5be4be19a068578098af6"
   integrity sha512-3+4F9STw4yRttzMCCrbpAwwQLtUqIwVug/Ve6rvUFvcpK//n8Q6N7iaPBHhYOFGwwok8Nr0jfkINxLWTl6WrlA==
@@ -8982,7 +8982,7 @@ ember-d3@0.5.1:
     d3-selection-multi "^1.0.1"
     ember-cli-babel "^7.1.2"
 
-ember-data@~5.3.3:
+ember-data@5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-5.3.3.tgz#87d2fb9abd1ac0b612d809e8aed3899928fcdb0f"
   integrity sha512-T8+cfFtkZ9hPZ+7t1SAjXkAqvW3dSpY83IuOzUZf7kgoiJkR0C3cQTBteULrseDR9GoKQOkmiWrTphRzyy9RFg==
@@ -9170,7 +9170,7 @@ ember-set-helper@2.0.1:
   dependencies:
     ember-cli-babel "^7.18.0"
 
-ember-source@~5.9.0:
+ember-source@5.9.0:
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-5.9.0.tgz#50833a3ac0fb199031864ab22e27499851531bbe"
   integrity sha512-sZdrRxsNJq49N+GlRpkrUfBagiCw5OUngXUcJO7tvoWPLTvO8RRip+1L2B868YkxlmSq22hLci9tgQUdmPmcXQ==

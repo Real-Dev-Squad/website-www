@@ -109,7 +109,11 @@
           @onClick={{this.applicationHandler}}
           @test="submit"
           @type="button"
+          @disabled={{unless this.isAllFieldsFilled true false}}
         />
+{{#unless this.isAllFieldsFilled}}
+  <p class="error-message" data-test-error-message>Please fill in all the required fields</p>
+{{/unless}}
       {{else}}
         <Reusables::Button
           @text="Previous"

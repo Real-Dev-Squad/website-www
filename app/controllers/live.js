@@ -26,8 +26,7 @@ export default class LiveController extends Controller {
   @tracked TABS = [
     { id: 1, label: 'Screenshare', active: true },
     { id: 2, label: 'Survey', active: false },
-    { id: 4, label: 'Logs', active: false },
-    { id: 3, label: 'More', active: false },
+    { id: 3, label: 'Logs', active: false },
   ];
   @tracked activeTab = 'Screenshare';
   @tracked isLoading = false;

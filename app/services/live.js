@@ -90,7 +90,7 @@ export default class LiveService extends Service {
       return token;
     } catch (error) {
       console.error(error);
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      this.toast.error('Something went wrong!', 'Error!', TOAST_OPTIONS);
     }
   }
 
@@ -108,7 +108,7 @@ export default class LiveService extends Service {
       return token;
     } catch (error) {
       console.error(error);
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      this.toast.error('Something went wrong!', 'Error!', TOAST_OPTIONS);
     }
   }
 
@@ -127,8 +127,7 @@ export default class LiveService extends Service {
       const { room_id } = await response.json();
       return room_id;
     } catch (error) {
-      console.error(error);
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      throw new Error(error);
     }
   }
 
@@ -146,7 +145,7 @@ export default class LiveService extends Service {
       return message;
     } catch (error) {
       console.error(error);
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      this.toast.error('Something went wrong!', 'Error!', TOAST_OPTIONS);
     }
   }
 
@@ -162,7 +161,7 @@ export default class LiveService extends Service {
       return data;
     } catch (error) {
       console.error(error);
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      this.toast.error('Something went wrong!', 'Error!', TOAST_OPTIONS);
     }
   }
 
@@ -175,7 +174,6 @@ export default class LiveService extends Service {
       return data;
     } catch (error) {
       console.error(error);
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
     }
   }
 
@@ -359,7 +357,7 @@ export default class LiveService extends Service {
       this.isLoading = false;
     } catch (error) {
       this.isLoading = false;
-      console.error('my error ', error);
+      console.error('Something went wrong while joining the event ', error);
       this.toast.error('Something went wrong!', 'Error!', TOAST_OPTIONS);
     }
   }

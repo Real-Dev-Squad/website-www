@@ -120,6 +120,8 @@ export default class LiveController extends Controller {
     if (this.isActiveEventFound) {
       const roomId = this.activeEvent?.room_id;
       this.liveService.joinSession(roomId, this.name, this.role, this.roomCode);
+      this.name = '';
+      this.roomCode = '';
     } else {
       if (this.role !== ROLES.host)
         return this.toast.info(
@@ -128,12 +130,35 @@ export default class LiveController extends Controller {
           TOAST_OPTIONS,
         );
 
-      const roomId = await this.liveService.createRoom(this.name);
-      this.liveService.joinSession(roomId, this.name, this.role, this.roomCode);
+      try {
+        const roomId = await this.liveService.createRoom(this.name);
+        if (roomId) {
+          this.toast.success(
+            'Successfully created the event!',
+            'Success!',
+            TOAST_OPTIONS,
+          );
+        }
+        await this.liveService.joinSession(
+          roomId,
+          this.name,
+          this.role,
+          this.roomCode,
+        );
+        this.name = '';
+        this.roomCode = '';
+      } catch (error) {
+        console.error(
+          'Something went wrong while creating and joining the event ',
+          error,
+        );
+        this.toast.error(
+          "Couldn't create or join event!",
+          'Error!',
+          TOAST_OPTIONS,
+        );
+      }
     }
-
-    this.name = '';
-    this.roomCode = '';
   }
 
   @action backHandler() {

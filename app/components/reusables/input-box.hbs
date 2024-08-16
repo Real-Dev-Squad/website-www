@@ -1,17 +1,25 @@
-<div data-test-input class='input-box'>
-  <label data-test-label class='label' for={{@name}}>{{@field}}</label>
+<div data-test-input class="input-box">
+  <label data-test-label class="label" for={{@name}}>{{@field}}</label>
   {{#if @required}}
-    <span data-test-required class='required'>*</span>
+    <span data-test-required class="required">*</span>
   {{/if}}
   <input
     data-test-input-field
     name={{@name}}
-    class='input__field user-input input-regular'
+    class="input__field user-input input-regular
+      {{@variant}}
+      {{if @isError 'user-input--error' ''}}"
     type={{@type}}
     id={{@name}}
     placeholder={{@placeHolder}}
     required={{@required}}
     value={{@value}}
-    {{on 'input' @onInput}}
+    {{on "input" @onInput}}
   />
+  {{#if @shouldShowHelperText}}
+    <p
+      class="input-box__helper-text
+        {{if @isError 'input-box__helper-text--error' ''}}"
+    >{{@helperText}}</p>
+  {{/if}}
 </div>

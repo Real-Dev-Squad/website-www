@@ -23,6 +23,7 @@
   --color-blue: #0d6efd;
   --color-navyblue: #1d1283;
   --color-green: #49a82e;
+  --color-green-low-opacity: #98fb98;
   --color-light-navyblue: #1d128340;
   --color-cultured: #f6f6f6;
   --color-sidebar: #dadada;
@@ -33,4 +34,6 @@
   --color-red: #ae03ba;
   --skeleton-bg: #483bc0;
   --skeleton-shine-color: #edeef1;
+  --color-yellow-low-opacity: #ffffe0;
+  --color-grayish-blue-shadow: rgba(136 165 191/ 48%);
 }

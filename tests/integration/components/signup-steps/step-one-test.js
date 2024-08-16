@@ -61,7 +61,7 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert.dom('[data-test-dropdown-field]').hasAttribute('name', 'role');
     assert.dom('[data-test-dropdown-field]').hasAttribute('id', 'role');
 
-    assert.dom('[data-test-dropdown-option]').exists({ count: 4 });
+    assert.dom('[data-test-dropdown-option]').exists({ count: 1 });
 
     assert.dom('[data-test-dropdown-default]').hasText('Choose Your Role');
     assert.dom('[data-test-dropdown-default]').hasAttribute('disabled');
@@ -82,7 +82,8 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     assert.dom('[data-test-button=signup]').hasProperty('disabled', true);
   });
 
-  test('it renders label and input checkbox when Maven role is chosen', async function (assert) {
+  // TODO : remove this skip when opening onboarding for different roles - maven, product manager, designer
+  test.skip('it renders label and input checkbox when Maven role is chosen', async function (assert) {
     assert.expect(8);
 
     await render(hbs`<SignupSteps::StepOne />`);
@@ -125,8 +126,8 @@ module('Integration | Component | signup-steps/step-one', function (hooks) {
     await typeIn('[data-test-input-field=firstname]', 'shubham');
     await typeIn('[data-test-input-field=lastname]', 'sigdar');
 
-    select('[data-test-dropdown-field]', 'Designer');
-    await click('[data-test-dropdown-option="Designer"]');
+    select('[data-test-dropdown-field]', 'Developer');
+    await click('[data-test-dropdown-option="Developer"]');
 
     assert.dom('[data-test-button=signup]').hasProperty('disabled', false);
   });

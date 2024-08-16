@@ -1,5 +1,6 @@
 .card__subtitle {
   margin: 1rem auto;
+  color: var(--color-darkblack);
 }
 
 .live__roles {
@@ -9,6 +10,7 @@
 
 .live__roles > .btn {
   width: 20rem;
+  text-transform: capitalize;
 }
 
 @media screen and (width <= 768px) {

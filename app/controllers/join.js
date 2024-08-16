@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { ANKUSH_TWITTER, APPS } from '../constants/urls';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
+import { TOAST_OPTIONS } from '../constants/toast-options';
 
 export default class JoinController extends Controller {
   @service router;
@@ -40,21 +40,17 @@ export default class JoinController extends Controller {
         return this.toast.error(
           'Something went wrong. Please check console errors.',
           '',
-          toastNotificationTimeoutOptions,
+          TOAST_OPTIONS,
         );
 
       this.chaincode = chaincode;
       this.isChaincodeClicked = true;
-      this.toast.info(
-        'Generated New Chaincode!!',
-        '',
-        toastNotificationTimeoutOptions,
-      );
+      this.toast.info('Generated New Chaincode!!', '', TOAST_OPTIONS);
     } catch (error) {
       this.toast.error(
         'Something went wrong. Please check console errors.',
         '',
-        toastNotificationTimeoutOptions,
+        TOAST_OPTIONS,
       );
     } finally {
       this.isLoading = false;

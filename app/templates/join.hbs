@@ -5,7 +5,8 @@
       <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
     </div>
   {{else}}
-    {{#if this.login.userData.roles.archived}}
+    {{!-- Quick hack for unblocking everyone - https://github.com/Real-Dev-Squad/website-www/issues/895 --}}
+    {{#if false}} {{!-- {{#if this.login.userData.roles.archived}} --}}
       <OnboardingCard>
         <h3 data-test-archived-heading class='archived__heading'>Archived User</h3>
         <p data-test-archived-message class='archived__message'>

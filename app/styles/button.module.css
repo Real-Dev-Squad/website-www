@@ -53,3 +53,34 @@
   transition: all 0.5s ease;
   width: 14rem;
 }
+
+.action-buttons {
+  margin-bottom: 20px;
+}
+
+.action-buttons button {
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.approve-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.reject-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.approve-button:hover {
+  background-color: #218838;
+}
+
+.reject-button:hover {
+  background-color: #c82333;
+}

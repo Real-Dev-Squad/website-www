@@ -2,24 +2,55 @@
 
 <section class="intro__container">
   {{#if this.login.isLoading}}
-    <div data-test-loading class='intro__loading'>
-      <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
+    <div data-test-loading class="intro__loading">
+      <Fa-Icon @size="2x" @icon="circle-notch" @spin={{true}} />
     </div>
   {{else}}
     {{#if this.login.userData.roles.super_user}}
-      <ApplicantIntro 
-        @data={{this.model}} 
+      <ApplicantIntro
+        @data={{this.model}}
         @isLoading={{this.login.isLoading}}
-        @isSuperUser={{this.login.userData.roles.super_user}} />
+        @isSuperUser={{this.login.userData.roles.super_user}}
+      />
 
-        <!-- Textbox with no limit -->
-        <textarea class="comment-box" placeholder="Enter your comments here..."></textarea>  
+      {{! Textbox with no limit }}
+      <label for="comment-box">Your Comment:</label>
+      <textarea
+        id="comment-box"
+        class="comment-box"
+        placeholder="Enter your comments here..."
+      ></textarea>
 
-        <!-- Approve/Reject Buttons -->
-        <div class="action-buttons">
-          <button class="approve-button" {{on "click" this.approveAction}}>Approve</button>
-          <button class="reject-button" {{on "click" this.rejectAction}}>Reject</button>
+      {{! Approve/Reject Buttons }}
+      <div class="action-buttons">
+        <button
+          type="button"
+          class="approve-button"
+          {{on "click" this.approveAction}}
+        >Approve</button>
+        <button
+          type="button"
+          class="reject-button"
+          {{on "click" this.rejectAction}}
+        >Reject</button>
+      </div>
+
+      {{#if this.model.inviteLink}}
+        <div>
+          <p>Congratulations. You've been approved to join our Discord server
+            using this link:</p>
+          <a
+            href="{{this.model.inviteLink}}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{{this.model.inviteLink}}</a>
+          <button
+            type="button"
+            class="copy-button"
+            {{on "click" (fn this.copyToClipboard this.model.inviteLink)}}
+          >Copy Link</button>
         </div>
+      {{/if}}
 
     {{else}}
       <Unauthorized />

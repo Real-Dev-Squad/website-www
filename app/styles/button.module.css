@@ -84,3 +84,18 @@
 .reject-button:hover {
   background-color: #c82333;
 }
+
+.copy-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.copy-button:hover {
+  background-color: #0056b3;
+}

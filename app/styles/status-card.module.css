@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px;
-  font-family: Arial, sans-serif;
 }
 
 .status-card__heading-icon {

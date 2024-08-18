@@ -70,6 +70,8 @@ export default class StepperComponent extends Component {
       localStorage.setItem('first_name', this.login.userData.first_name);
       localStorage.setItem('last_name', this.login.userData.last_name);
       this.incrementStep();
+    } else {
+      alert('You must be logged in to continue');
     }
   }
 

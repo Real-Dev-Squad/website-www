@@ -1,10 +1,18 @@
-.comment-box {
-  width: 100%;
-  height: 200px;
-  padding: 15px;
-  margin-top: 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  resize: none;
+.superuser-feedback {
+  width: 34rem;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.superuser-feedback__label {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+}
+
+.superuser-feedback__textarea {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }

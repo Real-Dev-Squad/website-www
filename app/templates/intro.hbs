@@ -19,13 +19,17 @@
           @isSuperUser={{this.login.userData.roles.super_user}}
         />
 
-        <label for="comment-box">Your Comment:</label>
-        <textarea
-          aria-label="Application remarks"
-          class="comment-box"
-          placeholder="Enter your comments here..."
-          {{on "change" this.updateRemarks}}
-        ></textarea>
+        <div class="superuser-feedback">
+          <label for="superuserFeedback" class="superuser-feedback__label">
+            Your remarks:
+          </label>
+          <textarea
+            id="superuserFeedback"
+            class="superuser-feedback__textarea"
+            placeholder="Enter your remarks"
+            {{on "change" this.updateRemarks}}
+          ></textarea>
+        </div>
 
         <div class="action-buttons">
           <button

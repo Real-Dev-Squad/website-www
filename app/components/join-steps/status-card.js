@@ -14,8 +14,8 @@ export default class StatusCardComponent extends Component {
   @service toast;
 
   @tracked joinLink = USER_JOINED_LINK(this.login.userData?.id);
-  @tracked status;
-  @tracked feedback;
+  @tracked fetchedStatus;
+  @tracked fetchedFeedback;
 
   APPLICATION_STATUS_TYPES = APPLICATION_STATUS_TYPES;
   ANKUSH_TWITTER = ANKUSH_TWITTER;
@@ -43,19 +43,23 @@ export default class StatusCardComponent extends Component {
     this.fetchStatus();
   }
 
-  get applicationStatus() {
-    return this.onboarding.applicationData?.status;
+  get status() {
+    return this.args.status || this.fetchedStatus;
   }
 
-  get applicationFeedback() {
-    return this.onboarding.applicationData?.feedback;
+  get feedback() {
+    return this.args.feedback || this.fetchedFeedback;
+  }
+
+  get currentStatusDetails() {
+    return this.APPLICATION_STATUSES.find((s) => s.status === this.status);
   }
 
   @action
   async fetchStatus() {
     await this.onboarding.getApplicationDetails();
-    this.status = this.applicationStatus;
-    this.feedback = this.applicationFeedback;
+    this.fetchedStatus = this.onboarding.applicationData?.status;
+    this.fetchedFeedback = this.onboarding.applicationData?.feedback;
   }
 
   @action redirectToHome() {

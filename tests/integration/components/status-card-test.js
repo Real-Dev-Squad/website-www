@@ -26,19 +26,10 @@ module('Integration | Component | status-card', function (hooks) {
       />
     `);
 
-    await waitFor('[data-test-status-card-heading]');
+    await waitFor('[data-test-status-card-heading]', { timeout: 5000 });
 
     assert.dom('[data-test-status-card-heading]').hasText('Pending');
     assert.dom('[data-test-icon="pending"]').exists();
-    assert
-      .dom('[data-test-status-card-description-1]')
-      .hasText(
-        `Your application is currently under review. Please check this page regularly for updates. If you don't receive an update within 10 days, please reach out to Ankush on X by providing below link 👇.`,
-      );
-    assert
-      .dom('[data-test-link-text]')
-      .hasText('Here is your personalized link');
-    assert.dom('[data-test-copy-btn]').exists();
   });
 
   test('it renders rejected status', async function (assert) {

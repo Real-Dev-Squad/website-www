@@ -1,4 +1,19 @@
 <div data-test-status-card class="status-card">
+    <div class='joining__copy'>
+    <h3 class='details' data-test-link-text>Here is your personalized link</h3>
+    <p id='url' class='copy__link'>
+      {{this.joinLink}}
+    </p>
+    <CopyButton
+      data-test-copy-btn
+      @target='#url'
+      @onSuccess={{this.onSuccess}}
+      @onError={{this.onError}}
+      class='btn btn-dark'
+    >
+      Copy
+    </CopyButton>
+  </div>
   <div data-test-status-card-heading-icon class="status-card__heading-Icon">
     {{#each this.APPLICATION_STATUSES as |statusDetails|}}
       {{#if (eq @status statusDetails.status)}}
@@ -57,20 +72,17 @@
     {{/if}}
   </div>
   <div class="status-card__buttons">
-    <Reusables::Button
-      @text="Go to home"
+ <Reusables::Button
+      @text="Join Discord"
       @variant="dark"
-      {{!-- @onClick={{@joinDiscord}} --}}
-      @onClick={{this.redirectToHome}}
+      @onClick={{@joinDiscord}}
       @test="join-discord-link"
       @type="button"
-      {{!-- @disabled={{if
+      @disabled={{if
         (not-eq @status this.APPLICATION_STATUS_TYPES.accepted)
         true
         false
-      }} --}}
-      {{! TODO : This was done for onboarding developers and should be removed later }}
-      {{!-- @disabled={{true}} --}}
+      }}
     />
   </div>
 </div>

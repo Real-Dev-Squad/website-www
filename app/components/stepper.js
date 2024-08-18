@@ -10,6 +10,8 @@ export default class StepperComponent extends Component {
   @service login;
   @service toast;
   @service router;
+  @service onboarding;
+  @service featureFlag;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
@@ -23,6 +25,12 @@ export default class StepperComponent extends Component {
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
 
+  queryParams = ['dev'];
+
+  get isDevMode() {
+    return this.featureFlag.isDevMode;
+  }
+
   constructor() {
     super(...arguments);
     window.onpopstate = () => {
@@ -30,6 +38,14 @@ export default class StepperComponent extends Component {
         +new URLSearchParams(window.location.search).get('step'),
       );
     };
+  }
+
+  get applicationStatus() {
+    return this.onboarding.applicationData?.status;
+  }
+
+  get applicationFeedback() {
+    return this.onboarding.applicationData?.feedback;
   }
 
   @action incrementStep() {
@@ -65,8 +81,8 @@ export default class StepperComponent extends Component {
   }
 
   @action async joinHandler() {
-    const firstName = localStorage.getItem('first_name');
-    const lastName = localStorage.getItem('last_name');
+    const firstName = this.login.userData.first_name;
+    const lastName = this.login.userData.last_name;
     const data = JSON.stringify({
       firstName,
       lastName,
@@ -74,31 +90,29 @@ export default class StepperComponent extends Component {
       ...this.stepTwoData,
       ...this.stepThreeData,
     });
-    try {
-      const response = await fetch(this.JOIN_URL, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: data,
-      });
 
-      if (response.status === 201) {
-        this.toast.success(
-          'Successfully submitted the form',
-          'Success!',
-          TOAST_OPTIONS,
-        );
-        this.incrementStep();
-      } else if (response.status === 409) {
-        this.toast.error(
-          'You have already filled the form',
-          'User Exist!',
-          TOAST_OPTIONS,
-        );
-      }
-    } catch (err) {
-      this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
-      console.log('Error: ', err);
+    const response = await this.onboarding.addApplication(data);
+
+    if (response.status === 201) {
+      this.toast.success(
+        'Successfully submitted the form',
+        'Success!',
+        TOAST_OPTIONS,
+      );
+      this.incrementStep();
+    } else if (response.status === 409) {
+      this.toast.error(
+        'You have already filled the form',
+        'User Exist!',
+        TOAST_OPTIONS,
+      );
+    }
+  }
+
+  @action async joinDiscordHandler() {
+    const inviteLink = await this.onboarding.discordInvite();
+    if (inviteLink) {
+      window.open(`https://${inviteLink}`, '_blank');
     }
   }
 }

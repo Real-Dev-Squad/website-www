@@ -28,6 +28,6 @@ export const TITLE_MESSAGES = [
   {
     id: 'five',
     step: 5,
-    greeting: 'Thank you 🫂 for completing all the steps',
+    greeting: 'Thank you 🙏 for completing all the steps',
   },
 ];

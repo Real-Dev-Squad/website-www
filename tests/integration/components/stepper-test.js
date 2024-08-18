@@ -59,7 +59,7 @@ module('Integration | Component | stepper', function (hooks) {
     await click('[data-test-button=submit]');
     assert
       .dom(`[data-test-message=five]`)
-      .hasText('Thank you 🫂 for completing all the steps');
+      .hasText('Thank you 🙏 for completing all the steps');
     assert.dom('[data-test-step-detail]').doesNotExist();
 
     assert.dom('[data-test-button=next]').hasAttribute('disabled', true);

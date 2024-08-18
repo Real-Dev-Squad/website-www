@@ -18,6 +18,7 @@ export default class StatusCardComponent extends Component {
 
   APPLICATION_STATUS_TYPES = APPLICATION_STATUS_TYPES;
   ANKUSH_TWITTER = ANKUSH_TWITTER;
+
   APPLICATION_STATUSES = [
     {
       status: APPLICATION_STATUS_TYPES.pending,
@@ -41,7 +42,6 @@ export default class StatusCardComponent extends Component {
     if (!this.login.userData?.id) {
       this.showLoginRequiredToast();
     } else {
-      this.introLink = USER_JOINED_LINK(this.login.userData.id);
       this.fetchStatus();
     }
   }
@@ -56,6 +56,10 @@ export default class StatusCardComponent extends Component {
 
   get currentStatusDetails() {
     return this.APPLICATION_STATUSES.find((s) => s.status === this.status);
+  }
+
+  get introLink() {
+    return USER_JOINED_LINK(this.login.userData.id);
   }
 
   @action

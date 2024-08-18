@@ -7,5 +7,5 @@ export const APPLICATION_URL = (userId) => {
 };
 
 export const USER_JOINED_LINK = (userId) => {
-  return `${APPS.HOME}/intro?id=${userId}`;
+  return `${APPS.HOME}/intro?id=${userId}&status=submited`;
 };

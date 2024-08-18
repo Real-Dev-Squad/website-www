@@ -1,17 +1,20 @@
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import { APPLICATION_STATUS_TYPES } from '../../constants/join';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { APPLICATION_STATUS_TYPES } from '../../constants/join';
 import { USER_JOINED_LINK } from '../../constants/apis';
 import { TOAST_OPTIONS } from '../../constants/toast-options';
 
 export default class StatusCardComponent extends Component {
   @service login;
   @service router;
+  @service onboarding;
   @service toast;
 
-  @tracked joinLink = USER_JOINED_LINK(this.login.userData.id);
+  @tracked joinLink = USER_JOINED_LINK(this.args.userId);
+  @tracked status;
+  @tracked feedback;
 
   APPLICATION_STATUS_TYPES = APPLICATION_STATUS_TYPES;
 
@@ -32,19 +35,42 @@ export default class StatusCardComponent extends Component {
       icon: 'square-check',
     },
   ];
+
+  constructor() {
+    super(...arguments);
+    this.fetchStatus();
+  }
+
+  get applicationStatus() {
+    return this.onboarding.applicationData?.status;
+  }
+
+  get applicationFeedback() {
+    return this.onboarding.applicationData?.feedback;
+  }
+
+  @action
+  async fetchStatus() {
+    await this.onboarding.getApplicationDetails();
+    this.status = this.applicationStatus;
+    this.feedback = this.applicationFeedback;
+  }
+
   @action redirectToHome() {
     this.router.transitionTo('/');
   }
 
-  @action onSuccess() {
+  @action
+  onSuccess() {
     this.toast.success(
-      'Successfully Copied to clipboard',
+      'Successfully copied to clipboard',
       'Link Copied!',
       TOAST_OPTIONS,
     );
   }
 
-  @action onError() {
+  @action
+  onError() {
     this.toast.error('Error in copying to clipboard', 'Error!', TOAST_OPTIONS);
   }
 }

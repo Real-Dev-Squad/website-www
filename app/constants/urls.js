@@ -15,6 +15,7 @@ const APP_URLS = {
     IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}my.${DOMAIN}`,
     API_BACKEND: `${SCHEME}api.${DOMAIN}`,
+    DASHBOARD: `${SCHEME}dashboard.${DOMAIN}`,
   },
   staging: {
     HOME: `${SCHEME}staging-www.${DOMAIN}`,
@@ -27,6 +28,7 @@ const APP_URLS = {
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
     API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
+    DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
   },
   development: {
     HOME: `${SCHEME}staging-www.${DOMAIN}`,
@@ -38,6 +40,7 @@ const APP_URLS = {
     TASKS: `${SCHEME}staging-my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
+    DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
     API_BACKEND: `http://localhost:3000`,
   },
   test: {
@@ -51,6 +54,7 @@ const APP_URLS = {
     IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}my.${DOMAIN}`,
     API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
+    DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
   },
 };
 

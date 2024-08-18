@@ -12,7 +12,7 @@ export default class StatusCardComponent extends Component {
   @service onboarding;
   @service toast;
 
-  @tracked joinLink = USER_JOINED_LINK(this.args.userId);
+  @tracked joinLink = USER_JOINED_LINK(this.login.userData?.id);
   @tracked status;
   @tracked feedback;
 

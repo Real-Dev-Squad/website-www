@@ -13,13 +13,11 @@ export default class StatusCardComponent extends Component {
   @service onboarding;
   @service toast;
 
-  @tracked joinLink = USER_JOINED_LINK(this.login.userData?.id);
   @tracked fetchedStatus;
   @tracked fetchedFeedback;
 
   APPLICATION_STATUS_TYPES = APPLICATION_STATUS_TYPES;
   ANKUSH_TWITTER = ANKUSH_TWITTER;
-
   APPLICATION_STATUSES = [
     {
       status: APPLICATION_STATUS_TYPES.pending,
@@ -40,7 +38,12 @@ export default class StatusCardComponent extends Component {
 
   constructor() {
     super(...arguments);
-    this.fetchStatus();
+    if (!this.login.userData?.id) {
+      this.showLoginRequiredToast();
+    } else {
+      this.introLink = USER_JOINED_LINK(this.login.userData.id);
+      this.fetchStatus();
+    }
   }
 
   get status() {
@@ -62,8 +65,18 @@ export default class StatusCardComponent extends Component {
     this.fetchedFeedback = this.onboarding.applicationData?.feedback;
   }
 
-  @action redirectToHome() {
+  @action
+  redirectToHome() {
     this.router.transitionTo('/');
+  }
+
+  @action
+  showLoginRequiredToast() {
+    this.toast.error(
+      'Please log in to view your application status',
+      'Login Required',
+      TOAST_OPTIONS,
+    );
   }
 
   @action

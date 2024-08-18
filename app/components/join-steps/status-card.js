@@ -9,6 +9,7 @@ import { TOAST_OPTIONS } from '../../constants/toast-options';
 export default class StatusCardComponent extends Component {
   @service login;
   @service router;
+  @service toast;
 
   @tracked joinLink = USER_JOINED_LINK(this.login.userData.id);
 

@@ -11,9 +11,16 @@ export default class IntroController extends Controller {
 
   @action
   async approveAction() {
+    const userId = this.model.userId;
+
+    if (!userId) {
+      alert('User ID is missing. Unable to generate invite link.');
+      return;
+    }
+
     try {
       const response = await fetch(
-        `https://api.realdevsquad.com/discord-actions/invite`,
+        `https://api.realdevsquad.com/discord/invites?userId=${userId}`,
         {
           method: 'POST',
           credentials: 'include',
@@ -27,6 +34,11 @@ export default class IntroController extends Controller {
         this.model.inviteLink = inviteLink;
 
         alert('User approved and invite link generated.');
+      } else if (response.status === 409) {
+        alert('Invite link is already present for this user.');
+      } else if (response.status === 403 || response.status === 404) {
+        const errorData = await response.json();
+        alert(`Failed to generate invite link: ${errorData.message}`);
       } else {
         const errorData = await response.json();
         alert(`Failed to generate invite link: ${errorData.message}`);

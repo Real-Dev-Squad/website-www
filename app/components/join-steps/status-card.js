@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import { APPLICATION_STATUS_TYPES } from '../../constants/join';
 import { USER_JOINED_LINK } from '../../constants/apis';
 import { TOAST_OPTIONS } from '../../constants/toast-options';
+import { ANKUSH_TWITTER } from '../../constants/urls';
 
 export default class StatusCardComponent extends Component {
   @service login;
@@ -17,6 +18,7 @@ export default class StatusCardComponent extends Component {
   @tracked feedback;
 
   APPLICATION_STATUS_TYPES = APPLICATION_STATUS_TYPES;
+  ANKUSH_TWITTER = ANKUSH_TWITTER;
 
   APPLICATION_STATUSES = [
     {

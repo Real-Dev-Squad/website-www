@@ -1,9 +1,13 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class IntroController extends Controller {
   @service login;
+
+  @tracked rejectionNote = localStorage.getItem('rejectionNote') || '';
+  @tracked isRejected = localStorage.getItem('isRejected') === 'true';
 
   @action
   async approveAction() {
@@ -47,7 +51,12 @@ export default class IntroController extends Controller {
 
   @action
   rejectAction() {
-    alert('Rejected');
-    //  logic for rejection
+    const feedbackNote = document.querySelector('.comment-box').value.trim();
+    this.rejectionNote = feedbackNote;
+    this.isRejected = true;
+
+    // Store in local storage
+    localStorage.setItem('rejectionNote', feedbackNote);
+    localStorage.setItem('isRejected', 'true');
   }
 }

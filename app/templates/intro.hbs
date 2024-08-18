@@ -7,53 +7,66 @@
     </div>
   {{else}}
     {{#if this.login.userData.roles.super_user}}
-      <ApplicantIntro
-        @data={{this.model}}
-        @isLoading={{this.login.isLoading}}
-        @isSuperUser={{this.login.userData.roles.super_user}}
-      />
+      {{#if this.isRejected}}
+        <div class="rejection-message">
+          <p>Unfortunately, at this time, your application is not approved.</p>
+          <p>{{this.rejectionNote}}</p>
+        </div>
+      {{else}}
+        <ApplicantIntro
+          @data={{this.model}}
+          @isLoading={{this.login.isLoading}}
+          @isSuperUser={{this.login.userData.roles.super_user}}
+        />
 
-      {{! Textbox with no limit }}
-      <label for="comment-box">Your Comment:</label>
-      <textarea
-        id="comment-box"
-        class="comment-box"
-        placeholder="Enter your comments here..."
-      ></textarea>
+        <label for="comment-box">Your Comment:</label>
+        <textarea
+          id="comment-box"
+          class="comment-box"
+          placeholder="Enter your comments here..."
+        ></textarea>
 
-      {{! Approve/Reject Buttons }}
-      <div class="action-buttons">
-        <button
-          type="button"
-          class="approve-button"
-          {{on "click" this.approveAction}}
-        >Approve</button>
-        <button
-          type="button"
-          class="reject-button"
-          {{on "click" this.rejectAction}}
-        >Reject</button>
-      </div>
-
-      {{#if this.model.inviteLink}}
-        <div>
-          <p>Congratulations. You've been approved to join our Discord server
-            using this link:</p>
-          <a
-            href="{{this.model.inviteLink}}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >{{this.model.inviteLink}}</a>
+        <div class="action-buttons">
           <button
             type="button"
-            class="copy-button"
-            {{on "click" (fn this.copyToClipboard this.model.inviteLink)}}
-          >Copy Link</button>
+            class="approve-button"
+            {{on "click" this.approveAction}}
+          >Approve</button>
+          <button
+            type="button"
+            class="reject-button"
+            {{on "click" this.rejectAction}}
+          >Reject</button>
+        </div>
+
+        {{#if this.model.inviteLink}}
+          <div>
+            <p>Congratulations. You've been approved to join our Discord server
+              using this link:</p>
+            <a
+              href="{{this.model.inviteLink}}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >{{this.model.inviteLink}}</a>
+            <button
+              type="button"
+              class="copy-button"
+              {{on "click" (fn this.copyToClipboard this.model.inviteLink)}}
+            >Copy Link</button>
+          </div>
+        {{/if}}
+      {{/if}}
+    {{else}}
+      {{#if this.isRejected}}
+        <div class="rejection-message">
+          <p>Unfortunately, at this time, your application is not approved.</p>
+          <p>{{this.rejectionNote}}</p>
+        </div>
+      {{else}}
+        <div class="under-review-message">
+          <p>Superusers are reviewing your application. Please check again after a few days.</p>
         </div>
       {{/if}}
-
-    {{else}}
-      <Unauthorized />
     {{/if}}
   {{/if}}
 </section>

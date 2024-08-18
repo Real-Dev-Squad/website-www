@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { ANKUSH_TWITTER } from '../../constants/urls';
 
 module('Integration | Component | status-card', function (hooks) {
   setupRenderingTest(hooks);
@@ -10,11 +11,10 @@ module('Integration | Component | status-card', function (hooks) {
     this.set('joinDiscordHandler', () => {
       window.open = this.spy();
     });
+    this.set('ANKUSH_TWITTER', ANKUSH_TWITTER);
   });
 
   test('it renders pending status', async function (assert) {
-    assert.expect(3);
-
     this.set('status', 'pending');
     this.set('feedback', 'Feedback for pending status');
 
@@ -26,19 +26,27 @@ module('Integration | Component | status-card', function (hooks) {
       />
     `);
 
+    await waitFor('[data-test-status-card-heading]');
+
     assert.dom('[data-test-status-card-heading]').hasText('Pending');
     assert.dom('[data-test-icon="pending"]').exists();
     assert
       .dom('[data-test-status-card-description-1]')
       .hasText(
-        'Your application is currently in pending state, please regularly check this page for invite link.',
+        `Your application is currently under review. Please check this page regularly for updates. If you don't receive an update within 10 days, please reach out to Ankush on X by providing below link 👇.`,
       );
+    assert
+      .dom('[data-test-link-text]')
+      .hasText('Here is your personalized link');
+    assert.dom('[data-test-copy-btn]').exists();
   });
 
   test('it renders rejected status', async function (assert) {
-    assert.expect(4);
+    assert.expect(5);
+
     this.set('status', 'rejected');
     this.set('feedback', 'Feedback for rejected status');
+
     await render(hbs`
       <JoinSteps::StatusCard
         @status={{this.status}}
@@ -51,10 +59,14 @@ module('Integration | Component | status-card', function (hooks) {
     assert.dom('[data-test-icon="rejected"]').exists();
     assert
       .dom('[data-test-status-card-description-1]')
-      .hasText('Your application is rejected');
+      .hasText(
+        `We're sorry to inform you that your application has been rejected.`,
+      );
+
+    assert.dom('[data-test-status-card-feedback-title]').hasText('Feedback:');
     assert
-      .dom('[data-test-status-card-description-2]')
-      .hasText("Here's the feedback for your application");
+      .dom('[data-test-status-card-feedback-content]')
+      .hasText('Feedback for rejected status');
   });
 
   test('it renders accepted status with feedback', async function (assert) {
@@ -75,10 +87,8 @@ module('Integration | Component | status-card', function (hooks) {
     assert.dom('[data-test-icon="accepted"]').exists();
     assert
       .dom('[data-test-status-card-description-1]')
-      .hasText('Congratulations! Your application is accepted by us');
-    assert
-      .dom('[data-test-status-card-description-2]')
-      .hasText("Here's the feedback for your application");
+      .hasText('Congratulations! Your application has been accepted.');
+    assert.dom('[data-test-status-card-description-2]').hasText('Feedback:');
     assert
       .dom('[data-test-status-card-description-3]')
       .hasText('Feedback for accepted status');
@@ -102,7 +112,7 @@ module('Integration | Component | status-card', function (hooks) {
     assert.dom('[data-test-icon="accepted"]').exists();
     assert
       .dom('[data-test-status-card-description-1]')
-      .hasText('Congratulations! Your application is accepted by us');
+      .hasText('Congratulations! Your application has been accepted.');
     assert.dom('[data-test-status-card-description-2]').doesNotExist();
   });
 

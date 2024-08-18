@@ -1,74 +1,60 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import { APPS } from '../constants/urls';
+import { validateApplicationDetails } from '../utils/validate-application-details';
+import { APPLICATION_STATUS_TYPES } from '../constants/application';
 
 export default class IntroController extends Controller {
   @service login;
-
-  @tracked rejectionNote = localStorage.getItem('rejectionNote') || '';
-  @tracked isRejected = localStorage.getItem('isRejected') === 'true';
+  @tracked remarks = '';
+  statusTypes = APPLICATION_STATUS_TYPES;
 
   @action
-  async approveAction() {
-    const userId = this.model.userId;
+  updateRemarks(e) {
+    const value = e.currentTarget.value;
+    this.remarks = value;
+  }
 
-    if (!userId) {
-      alert('User ID is missing. Unable to generate invite link.');
+  @action
+  async approveRejectAction(status) {
+    const initialApplicationDetails = this.model?.[0];
+
+    const { isValid, data } = validateApplicationDetails(
+      initialApplicationDetails,
+    );
+
+    if (!isValid || !data) {
+      alert('Invalid application details.');
       return;
     }
 
+    const applicationId = data.id;
+    const body = { status, feedback: this.remarks };
+
     try {
       const response = await fetch(
-        `https://api.realdevsquad.com/discord/invites?userId=${userId}`,
+        `${APPS.API_BACKEND}/applications/${applicationId}`,
         {
-          method: 'POST',
+          method: 'PATCH',
           credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
         },
       );
 
-      if (response.ok) {
-        const result = await response.json();
-        const inviteLink = result.inviteLink;
-
-        this.model.inviteLink = inviteLink;
-
-        alert('User approved and invite link generated.');
-      } else if (response.status === 409) {
-        alert('Invite link is already present for this user.');
-      } else if (response.status === 403 || response.status === 404) {
-        const errorData = await response.json();
-        alert(`Failed to generate invite link: ${errorData.message}`);
-      } else {
-        const errorData = await response.json();
-        alert(`Failed to generate invite link: ${errorData.message}`);
+      if (!response.ok || response.status >= 400) {
+        alert('Failed to update application status.');
+        return;
       }
+
+      alert(`Application ${status.toLowerCase()} successfully.`);
     } catch (error) {
-      console.error('Error generating invite link:', error);
-      alert('An error occurred. Please try again later.');
+      alert('Something went wrong, please try again later.');
+      console.error('Error :', error);
     }
-  }
-
-  @action
-  copyToClipboard(link) {
-    navigator.clipboard
-      .writeText(link)
-      .then(() => {
-        alert('Invite link copied to clipboard!');
-      })
-      .catch((err) => {
-        console.error('Failed to copy the text: ', err);
-      });
-  }
-
-  @action
-  rejectAction() {
-    const feedbackNote = document.querySelector('.comment-box').value.trim();
-    this.rejectionNote = feedbackNote;
-    this.isRejected = true;
-
-    // Store in local storage
-    localStorage.setItem('rejectionNote', feedbackNote);
-    localStorage.setItem('isRejected', 'true');
   }
 }

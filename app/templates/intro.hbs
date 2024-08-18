@@ -21,21 +21,29 @@
 
         <label for="comment-box">Your Comment:</label>
         <textarea
-          id="comment-box"
+          aria-label="Application remarks"
           class="comment-box"
           placeholder="Enter your comments here..."
+          {{on "change" this.updateRemarks}}
         ></textarea>
 
         <div class="action-buttons">
           <button
             type="button"
             class="approve-button"
-            {{on "click" this.approveAction}}
-          >Approve</button>
+            {{on
+              "click"
+              (fn this.approveRejectAction this.statusTypes.accepted)
+            }}
+          >Accept</button>
+
           <button
             type="button"
             class="reject-button"
-            {{on "click" this.rejectAction}}
+            {{on
+              "click"
+              (fn this.approveRejectAction this.statusTypes.rejected)
+            }}
           >Reject</button>
         </div>
 
@@ -64,7 +72,8 @@
         </div>
       {{else}}
         <div class="under-review-message">
-          <p>Superusers are reviewing your application. Please check again after a few days.</p>
+          <p>Superusers are reviewing your application. Please check again after
+            a few days.</p>
         </div>
       {{/if}}
     {{/if}}

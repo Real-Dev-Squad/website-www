@@ -36,15 +36,11 @@
     {{else if (eq this.currentStep 4)}}
       <JoinSteps::StepFour login={{this.login}} />
     {{else if (eq this.currentStep 5)}}
-      {{#if this.this.isDevMode}}
-        <JoinSteps::StepFive />
-      {{else}}
         <JoinSteps::StatusCard 
         @status={{this.applicationStatus}}
         @feedback={{this.applicationFeedback}}
         @joinDiscord={{this.joinDiscordHandler}}
           />
-      {{/if}}
     {{/if}}
 
     {{#if (eq this.currentStep 0)}}

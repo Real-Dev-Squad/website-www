@@ -11,7 +11,6 @@ export default class StepperComponent extends Component {
   @service toast;
   @service router;
   @service onboarding;
-  @service featureFlag;
   @tracked preValid = false;
   @tracked isValid = JSON.parse(localStorage.getItem('isValid')) ?? false;
   @tracked currentStep =
@@ -24,12 +23,6 @@ export default class StepperComponent extends Component {
 
   setIsValid = (newVal) => (this.isValid = newVal);
   setIsPreValid = (newVal) => (this.preValid = newVal);
-
-  queryParams = ['dev'];
-
-  get isDevMode() {
-    return this.featureFlag.isDevMode;
-  }
 
   constructor() {
     super(...arguments);
@@ -67,8 +60,8 @@ export default class StepperComponent extends Component {
   @action startHandler() {
     if (this.login.isLoggedIn && !this.login.isLoading) {
       localStorage.setItem('id', this.login.userData.id);
-      localStorage.setItem('first_name', this.login.userData.first_name);
-      localStorage.setItem('last_name', this.login.userData.last_name);
+      localStorage.setItem('first_name', this.login.userData?.first_name);
+      localStorage.setItem('last_name', this.login.userData?.last_name);
       this.incrementStep();
     } else {
       alert('You must be logged in to continue');

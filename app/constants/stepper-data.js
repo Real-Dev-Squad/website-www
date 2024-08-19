@@ -25,9 +25,4 @@ export const TITLE_MESSAGES = [
     step: 4,
     greeting: 'Here’s a preview 👀 of the data you entered',
   },
-  {
-    id: 'five',
-    step: 5,
-    greeting: 'Thank you 🫂 for completing all the steps',
-  },
 ];

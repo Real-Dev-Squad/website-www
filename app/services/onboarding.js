@@ -99,14 +99,18 @@ export default class OnboardingService extends Service {
 
       const { inviteLink, message } = await response.json();
 
-      if (response.status === 403) {
+      if (response.status >= 400) {
         this.toast.error(message, 'error!', TOAST_OPTIONS);
       }
 
       return inviteLink;
     } catch (error) {
       console.error(error);
-      this.toast.error('Something went wrong!', 'error!', TOAST_OPTIONS);
+      this.toast.error(
+        'Something went wrong! Please try again later.',
+        'Error!',
+        TOAST_OPTIONS,
+      );
     }
   }
 

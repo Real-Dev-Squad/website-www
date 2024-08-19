@@ -1,0 +1,18 @@
+.superuser-feedback {
+  width: 34rem;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.superuser-feedback__label {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+}
+
+.superuser-feedback__textarea {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}

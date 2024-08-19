@@ -41,6 +41,7 @@
 @import url("tooltip.module.css");
 @import url("debug.module.css");
 @import url("unauthenticated.module.css");
+@import url("feedback.css");
 
 * {
   margin: 0;

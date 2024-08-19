@@ -13,3 +13,7 @@ export const USER_JOINED_LINK = (userId) => {
 export const USER_APPLICATION_LINK = (userId) => {
   return `${APPS.DASHBOARD}/applications?id=${userId}`;
 };
+
+export const APPLICATION_ID_LINK = (id) => {
+  return `${APPS.DASHBOARD}/applications/${id}`;
+};

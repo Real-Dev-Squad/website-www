@@ -35,13 +35,13 @@ export default class IntroRoute extends Route {
         credentials: 'include',
       });
 
-      const applicationData = await response.json();
-      const applicationId = applicationData.data[0].id;
-
       if (response.status === 404) {
         this.router.transitionTo('/page-not-found');
         return;
       }
+
+      const applicationData = await response.json();
+      const applicationId = applicationData.data[0].id;
 
       if (userData?.roles?.super_user) {
         window.location.replace(APPLICATION_ID_LINK(applicationId));

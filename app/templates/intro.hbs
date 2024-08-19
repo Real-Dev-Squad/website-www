@@ -1,14 +1,26 @@
-{{page-title "Intro"}}
-
 <section class="intro__container">
   {{#if this.login.isLoading}}
     <div data-test-loading class="intro__loading">
       <Fa-Icon @size="2x" @icon="circle-notch" @spin={{true}} />
     </div>
-  {{else}}
-    {{#if this.login.userData.roles.super_user}}
+  {{else if this.applicationDetails}}
+    {{#if this.isAccepted}}
+      <div>
+        <p>Congratulations. You've been approved to join our Discord server using this link:</p>
+        <a href="{{this.inviteLink}}" target="_blank" rel="noopener noreferrer">{{this.inviteLink}}</a>
+        <button type="button" class="copy-button" {{on "click" (fn this.copyToClipboard this.inviteLink)}}>Copy Link</button>
+        <p>{{this.feedback}}</p>
+      </div>
+    {{else if this.isRejected}}
+      <div>
+        <p>Unfortunately, at this time, your application is not approved.</p>
+        <p>{{this.feedback}}</p>
+      </div>
+    {{else if this.isPending}}
+      <div>We are reviewing your application. Please check again here after some time for an update.</div>
+    {{else if this.login.userData.roles.super_user}}
       <ApplicantIntro
-        @data={{this.model}}
+        @data={{get this.model.data 0}}
         @isLoading={{this.login.isLoading}}
         @isSuperUser={{this.login.userData.roles.super_user}}
       />
@@ -37,26 +49,17 @@
           class="reject-button"
           {{on "click" (fn this.approveRejectAction this.statusTypes.rejected)}}
         >Reject</button>
-      </div>
 
-      {{#if this.model.inviteLink}}
-        <div>
-          <p>Congratulations. You've been approved to join our Discord server
-            using this link:</p>
-          <a
-            href="{{this.model.inviteLink}}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >{{this.model.inviteLink}}</a>
-          <button
-            type="button"
-            class="copy-button"
-            {{on "click" (fn this.copyToClipboard this.model.inviteLink)}}
-          >Copy Link</button>
-        </div>
-      {{/if}}
+        <button
+          type="button"
+          class="pending-button"
+          {{on "click" (fn this.approveRejectAction this.statusTypes.pending)}}
+        >Pending</button>
+      </div>
     {{else}}
       <div>You're not authorized to view this page.</div>
     {{/if}}
+  {{else}}
+    <div>No application details found.</div>
   {{/if}}
 </section>

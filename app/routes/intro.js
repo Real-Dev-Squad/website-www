@@ -13,15 +13,25 @@ export default class IntroRoute extends Route {
 
   async model(params) {
     const userId = params.id;
-    const response = await fetch(APPLICATION_URL(userId), {
-      credentials: 'include',
-    });
+    try {
+      const response = await fetch(APPLICATION_URL(userId), {
+        credentials: 'include',
+      });
+      if (response.status === 404) {
+        this.router.transitionTo('/page-not-found');
+        return {};
+      }
 
-    if (response.status === 404) {
-      this.router.transitionTo('/page-not-found');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching application data:', error);
+      return {};
     }
+  }
 
-    const data = await response.json();
-    return data.data;
+  setupController(controller, model) {
+    super.setupController(controller, model);
+    controller.initializeStatusFlags();
   }
 }

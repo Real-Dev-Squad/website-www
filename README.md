@@ -8,7 +8,7 @@ A short introduction of this app could easily go here.
 You will need the following things properly installed on your computer.
 
 - [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/) (with npm)
+- [Node.js](https://nodejs.org/) (with yarn)
 - [Ember CLI](https://cli.emberjs.com/release/)
 - [Google Chrome](https://google.com/chrome/)
 
@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 
 - `git clone <repository-url>` this repository
 - `cd website-www`
-- `npm install`
+- `yarn install`
 
 ## Running / Development
 

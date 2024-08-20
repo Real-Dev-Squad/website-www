@@ -3,6 +3,15 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { ANKUSH_TWITTER } from '../../constants/urls';
+import Service from '@ember/service';
+import sinon from 'sinon';
+
+class LoginStub extends Service {
+  userData = { id: 'fZ0itx5x2ltOSMzON9kb' };
+}
+class OnboardingStub extends Service {
+  getApplicationDetails = sinon.spy;
+}
 
 module('Integration | Component | status-card', function (hooks) {
   setupRenderingTest(hooks);
@@ -12,9 +21,12 @@ module('Integration | Component | status-card', function (hooks) {
       window.open = this.spy();
     });
     this.set('ANKUSH_TWITTER', ANKUSH_TWITTER);
+
+    this.owner.register('service:login', LoginStub);
+    this.owner.register('service:onboarding', OnboardingStub);
   });
 
-  test.skip('it renders pending status', async function (assert) {
+  test('it renders pending status', async function (assert) {
     this.set('status', 'pending');
     this.set('feedback', 'Feedback for pending status');
 

@@ -7,7 +7,7 @@ import { ANKUSH_TWITTER } from '../../constants/urls';
 module('Integration | Component | step-five', function (hooks) {
   setupRenderingTest(hooks);
 
-  test.skip('it renders', async function (assert) {
+  test('it renders', async function (assert) {
     assert.expect(12);
 
     await render(hbs`<JoinSteps::StepFive />`);
@@ -18,16 +18,14 @@ module('Integration | Component | step-five', function (hooks) {
     assert.dom('[data-test-copy-btn]').hasText('Copy');
     assert.dom('[data-test-next-text]').hasText('Next Steps :');
     assert.dom('[data-test-instructions]').hasTagName('ol');
-    assert.dom('[data-test-instone]').hasText('Copy the above link');
+    assert.dom('[data-test-instone]').hasText('Click on the copy button.');
     assert
       .dom('[data-test-insttwo]')
-      .hasText('Follow Ankush Dharkar on Twitter');
+      .hasText('Message copied link to Ankush Dharkar on Twitter');
     assert.dom('[data-test-insttwo-link]').hasProperty('href', ANKUSH_TWITTER);
     assert
       .dom('[data-test-instthree]')
-      .hasText(
-        'Message this link to him with this Real Dev Squad verification link',
-      );
+      .hasText('Wait for him to verify the link');
     assert
       .dom('[data-test-instfour]')
       .hasText('Wait for him to verify the link');

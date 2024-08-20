@@ -7,7 +7,7 @@ import { APPS } from '../constants/urls';
 export default class IntroRoute extends Route {
   queryParams = {
     id: { refreshModel: true },
-    status: { refreshModel: true },
+    redirect: { refreshModel: true },
   };
 
   @service fastboot;
@@ -18,18 +18,16 @@ export default class IntroRoute extends Route {
       return;
     }
     const userId = params.id;
-    const status = params.status;
+    const redirect = params.redirect;
 
     try {
       let userResponse;
       let userData;
 
-      if (status === 'submitted') {
-        userResponse = await fetch(`${APPS.API_BACKEND}/users/self`, {
-          credentials: 'include',
-        });
-        userData = await userResponse.json();
-      }
+      userResponse = await fetch(`${APPS.API_BACKEND}/users/self`, {
+        credentials: 'include',
+      });
+      userData = await userResponse.json();
 
       const response = await fetch(APPLICATION_URL(userId), {
         credentials: 'include',
@@ -43,7 +41,7 @@ export default class IntroRoute extends Route {
       const applicationData = await response.json();
       const applicationId = applicationData.data[0].id;
 
-      if (userData?.roles?.super_user) {
+      if (userData?.roles?.super_user && redirect !== 'false') {
         window.location.replace(APPLICATION_ID_LINK(applicationId));
       }
 

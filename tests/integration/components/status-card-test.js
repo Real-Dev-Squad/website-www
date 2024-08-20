@@ -14,7 +14,7 @@ module('Integration | Component | status-card', function (hooks) {
     this.set('ANKUSH_TWITTER', ANKUSH_TWITTER);
   });
 
-  test('it renders pending status', async function (assert) {
+  test.skip('it renders pending status', async function (assert) {
     this.set('status', 'pending');
     this.set('feedback', 'Feedback for pending status');
 

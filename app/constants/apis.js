@@ -15,5 +15,5 @@ export const USER_APPLICATION_LINK = (userId) => {
 };
 
 export const APPLICATION_ID_LINK = (id) => {
-  return `${APPS.DASHBOARD}/applications/${id}`;
+  return `${APPS.DASHBOARD}/applications/?id=${id}`;
 };

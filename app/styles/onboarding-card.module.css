@@ -147,6 +147,12 @@
   text-align: center;
 }
 
+.error-message {
+  color: var(--text-red);
+  padding: 1rem;
+  font-weight: 600;
+}
+
 @media (width <=1024px) {
   .btn-generateUsername {
     width: 5rem;

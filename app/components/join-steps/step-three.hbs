@@ -15,7 +15,7 @@
 {{#if this.errorMessage.whyRds}}
   <div class='error__message'>{{this.errorMessage.whyRds}}</div>
 {{/if}}
-
+<div class="input-box__time" data-test-hour-input-box>
 <Reusables::InputBox 
   @field='How many hours per week, are you willing to contribute?' 
   @name='numberOfHours' 
@@ -25,6 +25,7 @@
   @value={{this.data.numberOfHours}} 
   @onInput={{this.inputHandler}}
 />
+</div>
 {{#if this.errorMessage.numberOfHours}}
   <div class='error__message'>{{this.errorMessage.numberOfHours}}</div>
 {{/if}}

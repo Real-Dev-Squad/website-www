@@ -29,7 +29,7 @@ export default class IntroRoute extends Route {
       });
       userData = await userResponse.json();
 
-      if (!userData?.roles?.super_user) {
+      if (!userData.roles.super_user) {
         this.router.transitionTo('/join');
         return;
       }

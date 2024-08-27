@@ -9,15 +9,25 @@ export default class JoinController extends Controller {
   @service router;
   @service login;
   @service featureFlag;
+  @service onboarding;
   @tracked chaincode = 'Generate chaincode';
   @tracked isChaincodeClicked = false;
   @tracked isLoading = false;
+
   ANKUSH_TWITTER = ANKUSH_TWITTER;
 
   queryParams = ['step', 'dev'];
 
   get isDevMode() {
     return this.featureFlag.isDevMode;
+  }
+
+  get applicationData() {
+    return this.onboarding.applicationData;
+  }
+
+  get loading() {
+    return this.login.isLoading || this.onboarding.loadingApplicationData;
   }
 
   @action async handleGenerateChaincode(e) {

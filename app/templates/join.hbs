@@ -1,6 +1,6 @@
 {{page-title 'Join'}}
 <section class='join__container'>
-  {{#if this.login.isLoading}}
+  {{#if this.loading}}
     <div data-test-loading class='intro__loading'>
       <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
     </div>
@@ -29,15 +29,23 @@
         </div>
       </OnboardingCard>
     {{else}}
-      {{#if this.isDevMode}}
-        <StepperSignup
-          @chaincode={{this.chaincode}}
-          @isChaincodeClicked={{this.isChaincodeClicked}}
-          @isLoading={{this.isLoading}}
-          @handleGenerateChaincode={{this.handleGenerateChaincode}}
+      {{#if this.applicationData}}
+        <JoinSteps::StatusCard 
+          @status={{this.applicationData.status}}
+          @feedback={{this.applicationData.feedback}}
+          @joinDiscord={{this.joinDiscordHandler}}
         />
       {{else}}
-        <Stepper />
+        {{#if this.isDevMode}}
+          <StepperSignup
+            @chaincode={{this.chaincode}}
+            @isChaincodeClicked={{this.isChaincodeClicked}}
+            @isLoading={{this.isLoading}}
+            @handleGenerateChaincode={{this.handleGenerateChaincode}}
+          />
+        {{else}}
+          <Stepper />
+        {{/if}}
       {{/if}}
     {{/if}}
   {{/if}}

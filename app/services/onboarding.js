@@ -9,6 +9,7 @@ export default class OnboardingService extends Service {
   @service store;
   @service toast;
   @tracked applicationData;
+  @tracked loadingApplicationData = true;
 
   constructor() {
     super(...arguments);
@@ -126,6 +127,8 @@ export default class OnboardingService extends Service {
       const applicationData = await applicationResponse.json();
 
       this.applicationData = applicationData?.applications?.[0];
+
+      this.loadingApplicationData = false;
     } catch (err) {
       console.error('Error: ', err);
       this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);

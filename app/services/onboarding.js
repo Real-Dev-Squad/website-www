@@ -132,6 +132,7 @@ export default class OnboardingService extends Service {
     } catch (err) {
       console.error('Error: ', err);
       this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
+      this.loadingApplicationData = false;
     }
   }
 }

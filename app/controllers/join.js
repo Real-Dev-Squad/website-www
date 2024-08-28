@@ -30,6 +30,10 @@ export default class JoinController extends Controller {
     return this.login.isLoading || this.onboarding.loadingApplicationData;
   }
 
+  get isLoggedIn() {
+    return this.login.isLoggedIn && this.login.userData;
+  }
+
   @action async handleGenerateChaincode(e) {
     e.preventDefault();
 

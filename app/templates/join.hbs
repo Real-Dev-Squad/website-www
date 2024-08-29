@@ -5,48 +5,56 @@
       <Fa-Icon @size='2x' @icon='circle-notch' @spin={{true}} />
     </div>
   {{else}}
-    {{!-- Quick hack for unblocking everyone - https://github.com/Real-Dev-Squad/website-www/issues/895 --}}
-    {{#if false}} {{!-- {{#if this.login.userData.roles.archived}} --}}
-      <OnboardingCard>
-        <h3 data-test-archived-heading class='archived__heading'>Archived User</h3>
-        <p data-test-archived-message class='archived__message'>
-          This user account has been archived. If you have any questions or need
-          assistance, please contact Ankush via Twitter.
-        </p>
-        <div
-          data-test-archived-contact-container
-          class='archived__contact-container'
-        >
-          <a
-            href={{this.ANKUSH_TWITTER}}
-            data-test-archived-contact-link
-            class='archived__contact-link'
-            target='_blank'
-            rel='noopener noreferrer'
+    {{#if this.isLoggedIn}}
+      {{!-- Existing content when the user is logged in --}}
+      {{!-- Quick hack for unblocking everyone - https://github.com/Real-Dev-Squad/website-www/issues/895 --}}
+      {{#if false}} {{!-- {{#if this.login.userData.roles.archived}} --}}
+        <OnboardingCard>
+          <h3 data-test-archived-heading class='archived__heading'>Archived User</h3>
+          <p data-test-archived-message class='archived__message'>
+            This user account has been archived. If you have any questions or need
+            assistance, please contact Ankush via Twitter.
+          </p>
+          <div
+            data-test-archived-contact-container
+            class='archived__contact-container'
           >
-            Contact Ankush on Twitter
-          </a>
-        </div>
-      </OnboardingCard>
-    {{else}}
-      {{#if this.applicationData}}
-        <JoinSteps::StatusCard 
-          @status={{this.applicationData.status}}
-          @feedback={{this.applicationData.feedback}}
-          @joinDiscord={{this.joinDiscordHandler}}
-        />
+            <a
+              href={{this.ANKUSH_TWITTER}}
+              data-test-archived-contact-link
+              class='archived__contact-link'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Contact Ankush on Twitter
+            </a>
+          </div>
+        </OnboardingCard>
       {{else}}
-        {{#if this.isDevMode}}
-          <StepperSignup
-            @chaincode={{this.chaincode}}
-            @isChaincodeClicked={{this.isChaincodeClicked}}
-            @isLoading={{this.isLoading}}
-            @handleGenerateChaincode={{this.handleGenerateChaincode}}
+        {{#if this.applicationData}}
+          <JoinSteps::StatusCard 
+            @status={{this.applicationData.status}}
+            @feedback={{this.applicationData.feedback}}
+            @joinDiscord={{this.joinDiscordHandler}}
           />
         {{else}}
-          <Stepper />
+          {{#if this.isDevMode}}
+            <StepperSignup
+              @chaincode={{this.chaincode}}
+              @isChaincodeClicked={{this.isChaincodeClicked}}
+              @isLoading={{this.isLoading}}
+              @handleGenerateChaincode={{this.handleGenerateChaincode}}
+            />
+          {{else}}
+            <Stepper />
+          {{/if}}
         {{/if}}
       {{/if}}
+    {{else}}
+      <div class="login-message">
+        <h3>Please log in to continue</h3>
+        <p>You need to be logged in with GitHub to access the join page. Please log in and try again.</p>
+      </div>
     {{/if}}
   {{/if}}
 </section>

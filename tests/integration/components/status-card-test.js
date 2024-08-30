@@ -17,7 +17,7 @@ module('Integration | Component | status-card', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    this.set('joinDiscordHandler', () => {
+    this.set('joinDiscordAction', () => {
       window.open = this.spy();
     });
     this.set('ANKUSH_TWITTER', ANKUSH_TWITTER);
@@ -34,7 +34,7 @@ module('Integration | Component | status-card', function (hooks) {
       <JoinSteps::StatusCard
         @status={{this.status}}
         @feedback={{this.feedback}}
-        @joinDiscord={{this.joinDiscordHandler}}
+        @joinDiscord={{this.joinDiscordAction}}
       />
     `);
 
@@ -63,7 +63,7 @@ module('Integration | Component | status-card', function (hooks) {
       <JoinSteps::StatusCard
         @status={{this.status}}
         @feedback={{this.feedback}}
-        @joinDiscord={{this.joinDiscordHandler}}
+        @joinDiscord={{this.joinDiscordAction}}
       />
     `);
 
@@ -91,7 +91,7 @@ module('Integration | Component | status-card', function (hooks) {
       <JoinSteps::StatusCard
         @status={{this.status}}
         @feedback={{this.feedback}}
-        @joinDiscord={{this.joinDiscordHandler}}
+        @joinDiscord={{this.joinDiscordAction}}
       />
     `);
 
@@ -116,7 +116,7 @@ module('Integration | Component | status-card', function (hooks) {
       <JoinSteps::StatusCard
         @status={{this.status}}
         @feedback={{this.feedback}}
-        @joinDiscord={{this.joinDiscordHandler}}
+        @joinDiscord={{this.joinDiscordAction}}
       />
     `);
 
@@ -138,7 +138,7 @@ module('Integration | Component | status-card', function (hooks) {
       <JoinSteps::StatusCard
         @status={{this.status}}
         @feedback={{this.feedback}}
-        @joinDiscord={{this.joinDiscordHandler}}
+        @joinDiscord={{this.joinDiscordAction}}
       />
     `);
 

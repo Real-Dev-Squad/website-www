@@ -71,7 +71,7 @@ export default class JoinController extends Controller {
     }
   }
 
-  @action async joinDiscordHandler() {
+  @action async joinDiscordAction() {
     const inviteLink = await this.onboarding.discordInvite();
     if (inviteLink) {
       window.open(`https://${inviteLink}`, '_blank');

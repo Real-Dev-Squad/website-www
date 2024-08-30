@@ -46,7 +46,8 @@
               @handleGenerateChaincode={{this.handleGenerateChaincode}}
             />
           {{else}}
-            <Stepper />
+            <Stepper 
+            @joinDiscord={{this.joinDiscordHandler}} />
           {{/if}}
         {{/if}}
       {{/if}}

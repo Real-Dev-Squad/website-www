@@ -70,4 +70,11 @@ export default class JoinController extends Controller {
       this.isLoading = false;
     }
   }
+
+  @action async joinDiscordHandler() {
+    const inviteLink = await this.onboarding.discordInvite();
+    if (inviteLink) {
+      window.open(`https://${inviteLink}`, '_blank');
+    }
+  }
 }

@@ -35,7 +35,7 @@
           <JoinSteps::StatusCard 
             @status={{this.applicationData.status}}
             @feedback={{this.applicationData.feedback}}
-            @joinDiscord={{this.joinDiscordHandler}}
+            @joinDiscord={{this.joinDiscordAction}}
           />
         {{else}}
           {{#if this.isDevMode}}
@@ -46,7 +46,8 @@
               @handleGenerateChaincode={{this.handleGenerateChaincode}}
             />
           {{else}}
-            <Stepper />
+            <Stepper 
+            @joinDiscord={{this.joinDiscordAction}} />
           {{/if}}
         {{/if}}
       {{/if}}

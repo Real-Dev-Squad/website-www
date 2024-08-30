@@ -103,11 +103,4 @@ export default class StepperComponent extends Component {
       );
     }
   }
-
-  @action async joinDiscordHandler() {
-    const inviteLink = await this.onboarding.discordInvite();
-    if (inviteLink) {
-      window.open(`https://${inviteLink}`, '_blank');
-    }
-  }
 }

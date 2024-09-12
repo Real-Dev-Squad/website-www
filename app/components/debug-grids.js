@@ -2,6 +2,8 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { isoToLocalDate } from '../utils/common-utils';
+import { action } from '@ember/object';
+import { APPS } from '../constants/urls';
 
 export default class DebugGridsComponent extends Component {
   @service store;
@@ -44,6 +46,25 @@ export default class DebugGridsComponent extends Component {
 
   @tracked debugFeaturesData = {
     featureFlags: ['dev'],
-    isSuperUser: this.login.userData.roles?.super_user ?? false,
+    isSuperUser:
+      this.login.userData.roles?.super_user ||
+      this.login.userData?.disabled_roles?.includes('super_user'),
   };
+
+  @action async toggleSuperUser({ target }) {
+    const response = await fetch(`${APPS.API_BACKEND}/users/self`, {
+      method: 'PATCH',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ disabled_roles: ['super_user'] }),
+    });
+    if (response.ok) {
+      this.debugUserRolesData = {
+        ...this.debugUserRolesData,
+        super_user: target.checked,
+      };
+    }
+  }
 }

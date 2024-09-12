@@ -1,9 +1,10 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, click, find } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import EmberObject from '@ember/object';
 import { nonSuperUserData, superUserData } from '../../constants/users-data';
+import sinon from 'sinon';
 
 module('Integration | Component | debug-grids', function (hooks) {
   setupRenderingTest(hooks);
@@ -108,5 +109,33 @@ module('Integration | Component | debug-grids', function (hooks) {
 
     assert.dom('[data-test-debug-grids]').doesNotExist();
     assert.dom('[data-test-unauthenticated]').exists();
+  });
+
+  test('it changes the super_role from true to false', async function (assert) {
+    let fetchStub = sinon
+      .stub(window, 'fetch')
+      .resolves(
+        new Response(JSON.stringify({ message: 'done' }), { status: 200 }),
+      );
+    await render(hbs`<DebugGrids />`);
+
+    let checkbox = find('[data-test-toggle-checkbox]');
+    assert.dom('[data-test-debug-role=super_user]').exists();
+    assert.dom('[data-test-debug-role=super_user]').hasText('super_user: true');
+    assert.dom('[data-test-toggle-checkbox]').exists();
+    assert.ok(
+      checkbox.checked,
+      "initially the toggle is is on as user object don't have anything in disbaled_roles",
+    );
+    await click('[data-test-toggle-checkbox]');
+    assert.notOk(
+      checkbox.checked,
+      'after clicking the toggle it value should be change to false',
+    );
+    assert
+      .dom('[data-test-debug-role=super_user]')
+      .hasText('super_user: false');
+
+    fetchStub.restore();
   });
 });

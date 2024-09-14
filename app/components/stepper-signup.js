@@ -114,7 +114,7 @@ export default class StepperSignupComponent extends Component {
     }
   }
 
-  @action async joinDiscordHandler() {
+  @action async joinDiscordAction() {
     const inviteLink = await this.onboarding.discordInvite();
     if (inviteLink) {
       window.open(`https://${inviteLink}`, '_blank');

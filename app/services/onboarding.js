@@ -9,6 +9,7 @@ export default class OnboardingService extends Service {
   @service store;
   @service toast;
   @tracked applicationData;
+  @tracked loadingApplicationData = true;
 
   constructor() {
     super(...arguments);
@@ -116,19 +117,23 @@ export default class OnboardingService extends Service {
 
   async getApplicationDetails() {
     try {
-      const userId = this.login.userData.id;
-      const applicationResponse = await fetch(
-        `${APPS.API_BACKEND}/applications?userId=${userId}`,
-        {
-          credentials: 'include',
-        },
-      );
-      const applicationData = await applicationResponse.json();
+      const userId = this.login.userData?.id;
+      if (userId) {
+        const applicationResponse = await fetch(
+          `${APPS.API_BACKEND}/applications?userId=${userId}`,
+          {
+            credentials: 'include',
+          },
+        );
+        const applicationData = await applicationResponse.json();
 
-      this.applicationData = applicationData?.applications?.[0];
+        this.applicationData = applicationData?.applications?.[0];
+      }
     } catch (err) {
       console.error('Error: ', err);
       this.toast.error('Some error occured', 'Error ocurred!', TOAST_OPTIONS);
+    } finally {
+      this.loadingApplicationData = false;
     }
   }
 }

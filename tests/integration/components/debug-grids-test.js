@@ -125,12 +125,12 @@ module('Integration | Component | debug-grids', function (hooks) {
     assert.dom('[data-test-toggle-checkbox]').exists();
     assert.ok(
       checkbox.checked,
-      "initially the toggle is is on as user object don't have anything in disbaled_roles",
+      "Initially, the toggle is on as the user object doesn't have anything in disabled_roles",
     );
     await click('[data-test-toggle-checkbox]');
     assert.notOk(
       checkbox.checked,
-      'after clicking the toggle it value should be change to false',
+      'After clicking the toggle, the value should change to false',
     );
     assert
       .dom('[data-test-debug-role=super_user]')

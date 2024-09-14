@@ -47,7 +47,7 @@ export default class DebugGridsComponent extends Component {
   @tracked debugFeaturesData = {
     featureFlags: ['dev'],
     isSuperUser:
-      this.login.userData.roles?.super_user ||
+      this.login.userData?.roles?.super_user ||
       this.login.userData?.disabled_roles?.includes('super_user'),
   };
 

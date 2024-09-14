@@ -1,5 +1,3 @@
-// import FastBootAppServer from 'fastboot-app-server';
-
 // eslint-disable-next-line no-undef
 const FastBootAppServer = require('fastboot-app-server');
 const MY_GLOBAL = 'MY GLOBAL';

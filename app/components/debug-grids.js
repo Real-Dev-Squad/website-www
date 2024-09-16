@@ -52,7 +52,7 @@ export default class DebugGridsComponent extends Component {
   };
 
   @action async toggleSuperUser({ target }) {
-    const response = await fetch(`${APPS.API_BACKEND}/users/self`, {
+    const response = await fetch(`${APPS.API_BACKEND}/users/self?dev=true`, {
       method: 'PATCH',
       credentials: 'include',
       headers: {

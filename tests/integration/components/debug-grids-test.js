@@ -138,4 +138,30 @@ module('Integration | Component | debug-grids', function (hooks) {
 
     fetchStub.restore();
   });
+
+  test("it doesn't change the super_role from true to false if request fails", async function (assert) {
+    let fetchStub = sinon
+      .stub(window, 'fetch')
+      .resolves(
+        new Response(JSON.stringify({ message: 'error' }), { status: 400 }),
+      );
+    await render(hbs`<DebugGrids />`);
+
+    let checkbox = find('[data-test-toggle-checkbox]');
+    assert.dom('[data-test-debug-role=super_user]').exists();
+    assert.dom('[data-test-debug-role=super_user]').hasText('super_user: true');
+    assert.dom('[data-test-toggle-checkbox]').exists();
+    assert.ok(
+      checkbox.checked,
+      "Initially, the toggle is on as the user object doesn't have anything in disabled_roles",
+    );
+    await click('[data-test-toggle-checkbox]');
+    assert.ok(
+      checkbox.checked,
+      "After clicking the toggle, the value shouldn't change to false",
+    );
+    assert.dom('[data-test-debug-role=super_user]').hasText('super_user: true');
+
+    fetchStub.restore();
+  });
 });

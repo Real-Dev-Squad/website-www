@@ -58,7 +58,7 @@ export default class DebugGridsComponent extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ disabled_roles: ['super_user'] }),
+      body: JSON.stringify({ disabledRoles: ['super_user'] }),
     });
     if (response.ok) {
       this.debugUserRolesData = {

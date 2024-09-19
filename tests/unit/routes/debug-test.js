@@ -14,7 +14,7 @@ module('Unit | Route | debug', function (hooks) {
     await visit('/debug');
     assert.expect(1);
 
-    assert.dom('[data-test-debug]').exists();
+    assert.dom('[data-test-debug]').doesNotExist();
   });
 
   test('visiting /debug under feature flag', async function (assert) {

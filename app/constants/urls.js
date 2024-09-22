@@ -28,7 +28,6 @@ const APP_URLS = {
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
     API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
-    DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
   },
   development: {
     HOME: `${SCHEME}staging-www.${DOMAIN}`,

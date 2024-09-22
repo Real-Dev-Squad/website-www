@@ -33,10 +33,10 @@
     "d3-cloud": "1.2.7",
     "dotenv": "16.0.2",
     "ember-d3": "0.5.1",
-    "exists-sync": "0.1.0",
-    "fastboot-app-server": "3.3.2"
+    "exists-sync": "0.1.0"
   },
   "devDependencies": {
+    "fastboot-app-server": "4.1.4",
     "@babel/core": "7.24.7",
     "@babel/eslint-parser": "7.24.7",
     "@babel/plugin-proposal-decorators": "7.24.7",

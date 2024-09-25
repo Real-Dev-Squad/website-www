@@ -17,6 +17,7 @@ export default class SubscribeController extends Controller {
   }
 
   @action toggleFormModal() {
+    console.log("button clicked")
     this.isFormOpen = !this.isFormOpen;
   }
   @action toggleModalOpen() {

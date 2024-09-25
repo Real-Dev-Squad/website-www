@@ -21,14 +21,21 @@ module.exports = function (environment) {
     fastboot: {
       hostWhitelist: [/^localhost:\d+$/, 'dev.realdevsquad.com'],
     },
+    phoneInput: {
+      lazyLoad: true,
+      hasPrepend: false  
+    }
   };
 
   if (environment === 'production') {
     ENV.fastboot.hostWhitelist = ['realdevsquad.com'];
+    ENV.phoneInput.hasPrepend = true;
   }
 
   if (environment === 'staging') {
     ENV.fastboot.hostWhitelist = ['beta.realdevsquad.com'];
+    ENV.phoneInput.hasPrepend = true;
+
   }
 
   if (environment === 'development') {

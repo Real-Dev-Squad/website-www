@@ -3,7 +3,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-
 export default class SubscribeController extends Controller {
   queryParams = ['dev'];
   @service login;

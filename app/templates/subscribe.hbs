@@ -1,0 +1,50 @@
+{{page-title 'Subscribe'}}
+<div class='subscribe__container'>
+  {{#if this.isFormOpen}}
+    {{!-- If isFormOpen is true, render the form modal --}}
+      <div class="subscribe__form_container">
+        <h1>Subscribe to Notifications</h1>
+        <p>Get notified as soon as new applications open and never miss an update!</p>
+        <div class="subscribe__form">
+        <form {{on "submit" this.handleSubmit}}>
+          <div class="input__group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="eg: Realdev@gmail.com" required />
+          </div>
+
+          <div class="input__group">
+            <label for="phone">Phone Number <span class="input__group__span">( Optional but recommended )</span></label>
+            <input type="tel" id="phone" placeholder="123 4567 890" />
+          </div>
+
+          <button class="notify__btn subscribe__button" disabled={{true}} type="submit" {{on "click" this.toggleFormModal}}>Subscribe</button>
+        </form>
+        </div>
+      </div>
+  {{else}}
+    {{!-- If isFormOpen is false, render the upper content --}}
+      <h1>Join the Real Dev Squad Community</h1>
+      <p class="notification__text">We're currently not accepting new applications. Please check back in 2024.</p>
+      <p class="sub__text">Be the first to know when applications open!</p>
+      <button class="notify__btn" type="button" {{on "click" this.toggleFormModal}}>Notify Me When Applications Open</button>
+  {{/if}}
+
+  {{!-- <BaseModal
+  @closeModal={{this.toggleModalOpen}}
+  @openModal={{this.toggleModalOpen}}
+  @isOpen={{this.modelOpen}}
+  as |modal|
+>
+  <div class="subscribed__confirmed">
+    <button class="subscribed__confirmed__close__btn" type="button" {{on "click" this.toggleModalOpen}}>x</button>
+    <h1>Subscription Confirmed! 🎉</h1>
+    <p>Thank you for subscribing! You will be notified when new applications open.</p>
+    <p>In the meantime, feel free to explore our Twitter page and stay connected with us.</p>
+    <nav class="notify__btn">
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Explore Twitter page</a>
+    </nav>
+  </div>
+</BaseModal> --}}
+
+  
+</div>

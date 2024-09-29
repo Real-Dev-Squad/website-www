@@ -113,12 +113,19 @@
   position: absolute;
   top: 12px;
   right: 15px;
-  padding: 0;
+  padding: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  font: inherit 48px;
+  font-size: 24px;
   line-height: 1;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
 .input__group {
@@ -213,4 +220,76 @@
 
 .subscribed__confirmed nav a:hover {
   background-color: #163a7b;
+}
+
+.login__message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.login__message h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.login__message p {
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #6b7280;
+}
+
+.login__message .sub__text {
+  font-size: 16px;
+  color: #374151;
+  margin-top: 1rem;
+}
+
+.already-subscribed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.already-subscribed h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e429f;
+  text-align: center;
+}
+
+.already-subscribed p {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #374151;
+  text-align: center;
+}
+
+.discord-link {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #1e429f;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.discord-link:hover {
+  background-color: #1558b0;
 }

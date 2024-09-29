@@ -14,7 +14,7 @@ const APP_URLS = {
     TASKS: `${SCHEME}my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}my.${DOMAIN}`,
-    API_BACKEND: `${SCHEME}api.${DOMAIN}`,
+    API_BACKEND: `http://localhost:3000`,
     DASHBOARD: `${SCHEME}dashboard.${DOMAIN}`,
   },
   staging: {
@@ -27,7 +27,7 @@ const APP_URLS = {
     TASKS: `${SCHEME}staging-my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
-    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
+    API_BACKEND: `http://localhost:3000`,
     DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
   },
   development: {
@@ -41,7 +41,7 @@ const APP_URLS = {
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
     DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
-    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
+    API_BACKEND: `http://localhost:3000`,
   },
   test: {
     HOME: `${SCHEME}${DOMAIN}`,
@@ -53,7 +53,7 @@ const APP_URLS = {
     TASKS: `${SCHEME}my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}my.${DOMAIN}`,
-    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
+    API_BACKEND: `http://localhost:3000`,
     DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
   },
 };
@@ -98,4 +98,6 @@ export const SOCIALS = {
   },
 };
 
-export const ANKUSH_TWITTER = 'https://twitter.com/ankushdharkar';
+export const ANKUSH_TWITTER = 'https://x.com/ankushdharkar';
+export const RDS_TWITTER = 'https://x.com/realdevsquad';
+export const JS_TS_DISCORD_URL = 'https://discord.gg/uTd3RbJUjg';

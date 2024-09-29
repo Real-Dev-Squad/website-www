@@ -23,8 +23,8 @@ module.exports = function (environment) {
     },
     phoneInput: {
       lazyLoad: true,
-      hasPrepend: false  
-    }
+      hasPrepend: false,
+    },
   };
 
   if (environment === 'production') {
@@ -35,7 +35,6 @@ module.exports = function (environment) {
   if (environment === 'staging') {
     ENV.fastboot.hostWhitelist = ['beta.realdevsquad.com'];
     ENV.phoneInput.hasPrepend = true;
-
   }
 
   if (environment === 'development') {

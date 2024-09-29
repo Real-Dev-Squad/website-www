@@ -42,6 +42,7 @@
 @import url("debug.module.css");
 @import url("unauthenticated.module.css");
 @import url("subscribe.module.css");
+@import url("phone-input.module.css");
 
 * {
   margin: 0;

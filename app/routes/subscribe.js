@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class SubscribeRoute extends Route {
-  // No additional logic needed for static content
+  @service login;
 }

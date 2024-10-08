@@ -51,12 +51,11 @@
           class="nav__element"
           href={{this.STATUS_URL}}
         >Status</a></li>
-        {{!-- {{#if @dev}} --}}
+        {{#if @dev}}
         <li>
-          {{! TODO - remove query for dev when it goes to production }}
           <LinkTo @route="subscribe" class="nav__element">Subscribe</LinkTo>
         </li>
-      {{!-- {{/if}} --}}
+      {{/if}}
       {{#if @dev}}
         <li>
           {{! TODO - remove query for dev when it goes to production }}

@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { RDS_TWITTER, APPS } from '../constants/urls';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import {PHONE_REGEX} from '../constants/regex';
 export default class SubscribeController extends Controller {
   @service login;
   @tracked isFormOpen = false;
@@ -29,7 +30,7 @@ export default class SubscribeController extends Controller {
   }
 
   get isSubmitDisabled() {
-    return !this.email || (this.phone && !/^\+91\d{10}$/.test(this.phone));
+    return !this.email || (this.phone && !PHONE_REGEX.test(this.phone));
   }
 
   @action

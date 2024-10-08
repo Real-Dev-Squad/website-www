@@ -100,4 +100,3 @@ export const SOCIALS = {
 
 export const ANKUSH_TWITTER = 'https://x.com/ankushdharkar';
 export const RDS_TWITTER = 'https://x.com/realdevsquad';
-export const JS_TS_DISCORD_URL = 'https://discord.gg/uTd3RbJUjg';

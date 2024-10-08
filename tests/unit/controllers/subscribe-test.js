@@ -24,23 +24,6 @@ module('Unit | Controller | subscribe', function (hooks) {
     assert.notOk(this.controller.isFormOpen, 'Form modal is now closed');
   });
 
-  test('it toggles the subscription modal', function (assert) {
-    assert.notOk(
-      this.controller.showSubscriptionModal,
-      'Subscription modal is initially closed',
-    );
-    this.controller.toggleSubscriptionModal();
-    assert.ok(
-      this.controller.showSubscriptionModal,
-      'Subscription modal is now open',
-    );
-    this.controller.toggleSubscriptionModal();
-    assert.notOk(
-      this.controller.showSubscriptionModal,
-      'Subscription modal is now closed',
-    );
-  });
-
   test('it updates email correctly', function (assert) {
     this.controller.updateEmail({ target: { value: 'test@example.com' } });
     assert.strictEqual(

@@ -23,6 +23,7 @@ export default class SubscribeController extends Controller {
     super(...arguments);
     this.userData = this.login.userData;
     if (this.isLoggedIn && this.userData?.isSubscribed) {
+      console.log("testing")
       this.isSubscribed = true;
     }
     console.log('Constructor ended');

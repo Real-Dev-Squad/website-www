@@ -9,7 +9,11 @@
 }
 
 .base-modal--show {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000b2;
+  backdrop-filter: blur(5px);
 }
 
 .base-modal--hide {

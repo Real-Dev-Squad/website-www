@@ -30,9 +30,18 @@
                 >
               </div>
 
-              <button class="notify__btn subscribe__button" disabled={{this.isSubmitDisabled}} type="submit">Subscribe</button>
+              <button class="notify__btn subscribe__button" disabled={{this.isSubmitDisabled}} type="submit">{{#if this.isLoading}} Subscribing... {{else}} Subscribe {{/if}}</button>
             </form>
           </div>
+        </div>
+      {{else if this.showSubscriptionConfirmation}}
+        <div class="subscribed__confirmed">
+          <h1>Subscription Confirmed! 🎉</h1>
+          <p>Thank you for subscribing! You will be notified when new applications open.</p>
+          <p>In the meantime, feel free to explore our Twitter page and stay connected with us.</p>
+          <nav class="notify__btn">
+            <a href="{{this.RDS_TWITTER}}" target="_blank" rel="noopener noreferrer">Explore Twitter page</a>
+          </nav>
         </div>
       {{else}}
         <h1>Join the Real Dev Squad Community</h1>
@@ -47,19 +56,4 @@
       <p>Please connect with GitHub to subscribe for notifications.</p>
     </div>
   {{/if}}
-  <BaseModal
-  @closeModal={{this.toggleSubscriptionModal}}
-  @openModal={{this.toggleSubscriptionModal}}
-  @isOpen={{this.showSubscriptionModal}}
->
-  <div class="subscribed__confirmed">
-    <button class="subscribed__confirmed__close__btn" type="button" {{on "click" this.toggleSubscriptionModal}}>x</button>
-    <h1>Subscription Confirmed! 🎉</h1>
-    <p>Thank you for subscribing! You will be notified when new applications open.</p>
-    <p>In the meantime, feel free to explore our Twitter page and stay connected with us.</p>
-    <nav class="notify__btn">
-      <a href="{{this.RDS_TWITTER}}" target="_blank" rel="noopener noreferrer">Explore Twitter page</a>
-    </nav>
-  </div>
-</BaseModal>
 </div>

@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 import { RDS_TWITTER, APPS } from '../constants/urls';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import { PHONE_REGEX, PHONE_NUMBER_CLEANUP_REGEX } from '../constants/regex';
+
 export default class SubscribeController extends Controller {
   @service login;
   @tracked isFormOpen = false;
@@ -12,7 +13,7 @@ export default class SubscribeController extends Controller {
   @tracked phone = '';
   @tracked userData = null;
   @tracked isLoading = false;
-  @tracked showSubscriptionModal = false;
+  @tracked showSubscriptionConfirmation = false;
 
   RDS_TWITTER = RDS_TWITTER;
 
@@ -36,14 +37,6 @@ export default class SubscribeController extends Controller {
   @action
   toggleFormModal() {
     this.isFormOpen = !this.isFormOpen;
-  }
-
-  @action
-  toggleSubscriptionModal() {
-    this.showSubscriptionModal = !this.showSubscriptionModal;
-    if (!this.showSubscriptionModal) {
-      window.location.reload();
-    }
   }
 
   @action
@@ -83,7 +76,8 @@ export default class SubscribeController extends Controller {
           );
         } else {
           this.login.userData.isSubscribed = true;
-          this.toggleSubscriptionModal();
+          this.isFormOpen = false;
+          this.showSubscriptionConfirmation = true;
           this.toast.info('🎉 Thank you for subscribing!', '', TOAST_OPTIONS);
         }
       } catch (error) {
@@ -96,7 +90,6 @@ export default class SubscribeController extends Controller {
       } finally {
         this.isLoading = false;
       }
-      this.toggleFormModal();
       this.email = '';
       this.phone = '';
     }

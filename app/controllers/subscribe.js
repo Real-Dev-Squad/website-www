@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { RDS_TWITTER, APPS } from '../constants/urls';
 import { TOAST_OPTIONS } from '../constants/toast-options';
-import { PHONE_REGEX, PHONE_NUMBER_CLEANUP_REGEX } from '../constants/regex';
 
 export default class SubscribeController extends Controller {
   @service login;
@@ -31,7 +30,7 @@ export default class SubscribeController extends Controller {
   }
 
   get isSubmitDisabled() {
-    return !this.email || (this.phone && !PHONE_REGEX.test(this.phone));
+    return !this.email || (this.phone && !/^\+?\d*$/.test(this.phone));
   }
 
   @action
@@ -47,7 +46,10 @@ export default class SubscribeController extends Controller {
   @action
   updatePhone(event) {
     const input = event.target.value;
-    this.phone = input.replace(PHONE_NUMBER_CLEANUP_REGEX, '');
+    const isValidPhone = /^\+?\d*$/.test(input);
+    if (isValidPhone) {
+      this.phone = input;
+    }
   }
 
   @action

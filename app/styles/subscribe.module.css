@@ -13,7 +13,7 @@
 
 .subscribe__container h1,
 .subscribe__form_container h1 {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
   color: #111827;
   text-align: center;
@@ -22,9 +22,9 @@
 .subscribe__container p,
 .subscribe__form_container p {
   font-family: Inter, sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 400;
-  line-height: 30px;
+  line-height: 1.875rem;
   text-align: center;
 }
 
@@ -42,7 +42,7 @@
   font-size: 16px;
   background-color: #1e429f;
   color: white;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -182,15 +182,17 @@
   justify-content: center;
   align-items: center;
   background: white;
-  max-width: 480px;
-  min-height: 356px;
+  max-width: 30rem;
+  max-height: 16rem;
+  height: 25rem;
   padding: 1.5rem;
-  gap: 25px;
+  gap: 0.625rem;
   position: relative;
   font-family: Inter, sans-serif;
-  border: 1px solid var(--gray-200, #e5e7eb);
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  border: 0.0625rem solid var(--gray-200, #e5e7eb);
+  border-radius: 0.375rem;
+  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 10%);
+  margin-top: 9rem;
 }
 
 .subscribed__confirmed h1 {

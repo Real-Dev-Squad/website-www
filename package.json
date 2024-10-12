@@ -33,6 +33,7 @@
     "d3-cloud": "1.2.7",
     "dotenv": "16.0.2",
     "ember-d3": "0.5.1",
+    "ember-phone-input": "^10.0.0",
     "exists-sync": "0.1.0",
     "fastboot-app-server": "3.3.2"
   },

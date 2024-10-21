@@ -140,7 +140,8 @@
     font-size: 1.1rem;
   }
 
-  .join__link {
+  .join__link,
+  .subscribe__link {
     border-radius: 0.75rem;
     font-size: 1.25rem;
     padding: 1rem 2.5rem;
@@ -164,7 +165,8 @@
     font-size: 1rem;
   }
 
-  .join__link {
+  .join__link,
+  .subscribe__link {
     border-radius: 0.5rem;
     margin-top: 1rem;
     font-size: 1rem;

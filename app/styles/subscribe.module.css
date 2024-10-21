@@ -146,6 +146,10 @@
   color: #374151;
 }
 
+.input__group input::placeholder {
+  color: #6b7280;
+}
+
 .input__group input {
   padding: 0.75rem;
   border: 1px solid #d1d5db;
@@ -155,7 +159,7 @@
   font-weight: 400;
   line-height: 17.5px;
   text-align: left;
-  color: #6b7280;
+  color: #000;
 }
 
 .submit__btn {

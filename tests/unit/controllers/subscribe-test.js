@@ -1,0 +1,46 @@
+import { module, test } from 'qunit';
+import { setupTest } from 'website-www/tests/helpers';
+import Service from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+class MockLoginService extends Service {
+  @tracked isLoggedIn = false;
+}
+
+module('Unit | Controller | Subscribe', function (hooks) {
+  setupTest(hooks);
+
+  hooks.beforeEach(function () {
+    this.owner.register('service:login', MockLoginService);
+  });
+
+  test('it exists', function (assert) {
+    let controller = this.owner.lookup('controller:subscribe');
+    assert.ok(controller);
+  });
+
+  test('it correctly identifies when a user is logged in', function (assert) {
+    let controller = this.owner.lookup('controller:join');
+    let loginService = this.owner.lookup('service:login');
+
+    loginService.isLoggedIn = false;
+    loginService.userData = null;
+    assert.notOk(
+      controller.isLoggedIn,
+      'isLoggedIn is false when user is not logged in',
+    );
+
+    loginService.isLoggedIn = true;
+    loginService.userData = null;
+    assert.notOk(
+      controller.isLoggedIn,
+      'isLoggedIn is false when userData is null',
+    );
+
+    loginService.isLoggedIn = true;
+    loginService.userData = { id: '123', username: 'testuser' };
+    assert.ok(
+      controller.isLoggedIn,
+      'isLoggedIn is true when user is logged in and userData is present',
+    );
+  });
+});

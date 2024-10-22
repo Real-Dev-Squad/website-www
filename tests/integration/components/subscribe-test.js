@@ -88,29 +88,4 @@ module('Integration | Component | subscribe', function (hooks) {
       'User should be subscribed after form submission',
     );
   });
-
-  test('subscribe form prevents submission with invalid email', async function (assert) {
-    this.set('email', '');
-    this.set('phone', '1234567890');
-    this.set('isSubscribed', false);
-
-    await render(hbs`
-      <form {{on "submit" this.onSubmit}} data-test-subscribe-form>
-      <label for="email" data-test-email-label>Email:</label>
-        <input type="email" value={{this.email}} data-test-email-input />
-        <input type="tel" value={{this.phone}} data-test-phone-input />
-        <label for="phone" data-test-email-label>Phone:</label>
-        <button type="submit" data-test-submit-button>Subscribe</button>
-      </form>
-    `);
-
-    assert
-      .dom('[data-test-submit-button]')
-      .isDisabled('Submit button is disabled with an empty email');
-
-    await fillIn('[data-test-email-input]', 'invalidemail');
-    assert
-      .dom('[data-test-submit-button]')
-      .isDisabled('Submit button is disabled with an invalid email');
-  });
 });

@@ -22,7 +22,7 @@
              <div class="input__group">
               <label for="phone" class="{{if this.isPhoneValid '' 'invalid-input'}}">Phone Number <span class="input__group__span" >(Optional)</span></label>
               <input 
-                type="text" 
+                type="tel" 
                 id="phone"
                 value="{{this.phone}}"
                 {{on "input" this.updatePhone}}

@@ -162,6 +162,11 @@
   color: #000;
 }
 
+.invalid-input {
+  border-color: #dc2626;
+  color: red;
+}
+
 .submit__btn {
   padding: 1rem;
   background-color: #1e429f;

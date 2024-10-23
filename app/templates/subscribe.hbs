@@ -19,17 +19,16 @@
                 <input type="email" id="email" placeholder="eg: johndoe@gmail.com" required value={{this.email}} {{on "input" this.updateEmail}} />
               </div>
 
-              <div class="input__group">
-                <label for="phone">Phone Number <span class="input__group__span">(Optional)</span></label>
-                <input 
-                  type="text" 
-                  id="phone"
-                  value={{this.phone}} 
-                  {{on "input" this.updatePhone}}
-                  placeholder="Please enter with the country code (e.g., +91 1234567890)."
-                >
-              </div>
-
+             <div class="input__group">
+              <label for="phone" class="{{if this.isPhoneValid '' 'invalid-input'}}">Phone Number <span class="input__group__span" >(Optional)</span></label>
+              <input 
+                type="text" 
+                id="phone"
+                value="{{this.phone}}"
+                {{on "input" this.updatePhone}}
+                placeholder="Please enter with the country code (e.g., +91 1234567890)."
+              >
+            </div>
               <button class="notify__btn subscribe__button" disabled={{this.isSubmitDisabled}} type="submit">{{#if this.isLoading}} Subscribing... {{else}} Subscribe {{/if}}</button>
             </form>
           </div>

@@ -15,6 +15,7 @@ export default class SubscribeController extends Controller {
   @tracked isLoading = false;
   @tracked showSubscribedMessage = false;
   @service toast;
+  @tracked isPhoneValid = true;
 
   RDS_TWITTER = RDS_TWITTER;
 
@@ -49,6 +50,7 @@ export default class SubscribeController extends Controller {
   @action
   updatePhone(event) {
     this.phone = event.target.value;
+    this.isPhoneValid = !this.phone || phoneNumberRegex.test(this.phone);
   }
 
   @action

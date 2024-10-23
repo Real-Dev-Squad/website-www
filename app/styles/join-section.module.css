@@ -48,8 +48,7 @@
   width: 100%;
 }
 
-.join__link,
-.subscribe__link {
+.join__link {
   display: inline-block;
   margin-top: 2rem;
   text-decoration: none;
@@ -70,8 +69,7 @@
   padding: 1.125rem 3.75rem;
 }
 
-.join__link:hover,
-.subscribe__link:hover {
+.join__link:hover {
   background-color: var(--color-pink);
   transition-duration: 250ms;
 }
@@ -142,15 +140,14 @@
     font-size: 1.1rem;
   }
 
-  .join__link,
-  .subscribe__link {
+  .join__link {
     border-radius: 0.75rem;
     font-size: 1.25rem;
     padding: 1rem 2.5rem;
   }
 
   .subscribe__link span {
-    font-size: 0.75px;
+    font-size: 0.75rem;
   }
 }
 
@@ -167,8 +164,7 @@
     font-size: 1rem;
   }
 
-  .join__link,
-  .subscribe__link {
+  .join__link {
     border-radius: 0.5rem;
     margin-top: 1rem;
     font-size: 1rem;
@@ -176,6 +172,6 @@
   }
 
   .subscribe__link span {
-    font-size: 0.75px;
+    font-size: 0.75rem;
   }
 }

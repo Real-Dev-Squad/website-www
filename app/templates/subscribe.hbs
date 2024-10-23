@@ -16,7 +16,7 @@
             <form {{on "submit" this.handleSubmit}}>
               <div class="input__group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="eg: Realdev@gmail.com" required value={{this.email}} {{on "input" this.updateEmail}} />
+                <input type="email" id="email" placeholder="eg: johndoe@gmail.com" required value={{this.email}} {{on "input" this.updateEmail}} />
               </div>
 
               <div class="input__group">
@@ -26,7 +26,7 @@
                   id="phone"
                   value={{this.phone}} 
                   {{on "input" this.updatePhone}}
-                  placeholder="eg: +91 1234567890"
+                  placeholder="Please enter with the country code (e.g., +91 1234567890)."
                 >
               </div>
 

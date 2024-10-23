@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { RDS_TWITTER, APPS } from '../constants/urls';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import { phoneNumberRegex } from '../constants/regex';
 
 export default class SubscribeController extends Controller {
   @service login;
@@ -13,6 +14,8 @@ export default class SubscribeController extends Controller {
   @tracked userData = null;
   @tracked isLoading = false;
   @tracked showSubscribedMessage = false;
+  @service toast;
+  @tracked isPhoneValid = true;
 
   RDS_TWITTER = RDS_TWITTER;
 
@@ -30,7 +33,8 @@ export default class SubscribeController extends Controller {
   }
 
   get isSubmitDisabled() {
-    return !this.email || (this.phone && !/^\+?\d*$/.test(this.phone));
+    const isPhoneValid = !this.phone || phoneNumberRegex.test(this.phone);
+    return !this.email || !isPhoneValid;
   }
 
   @action
@@ -45,11 +49,8 @@ export default class SubscribeController extends Controller {
 
   @action
   updatePhone(event) {
-    const input = event.target.value;
-    const isValidPhone = /^\+?\d*$/.test(input);
-    if (isValidPhone) {
-      this.phone = input;
-    }
+    this.phone = event.target.value;
+    this.isPhoneValid = !this.phone || phoneNumberRegex.test(this.phone);
   }
 
   @action
@@ -80,7 +81,7 @@ export default class SubscribeController extends Controller {
           this.login.userData.isSubscribed = true;
           this.isFormOpen = false;
           this.showSubscribedMessage = true;
-          this.toast.info('🎉 You are already subscribed!', '', TOAST_OPTIONS);
+          this.toast.success('🎉 Thankyou for subscribing!', '', TOAST_OPTIONS);
         }
       } catch (error) {
         console.log(error);

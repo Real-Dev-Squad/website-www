@@ -99,3 +99,4 @@ export const SOCIALS = {
 };
 
 export const ANKUSH_TWITTER = 'https://twitter.com/ankushdharkar';
+export const RDS_TWITTER = 'https://x.com/realdevsquad';

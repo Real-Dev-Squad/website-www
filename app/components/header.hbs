@@ -53,9 +53,6 @@
         >Status</a></li>
         {{#if @dev}}
         <li>
-          <LinkTo @route="subscribe" class="nav__element">Subscribe</LinkTo>
-        </li>
-        <li>
           {{! TODO - remove query for dev when it goes to production }}
           <LinkTo
             @route={{this.LIVE_URL}}

@@ -20,7 +20,4 @@ export default class UserModel extends Model {
   @attr profileURL;
   @attr profileStatus;
   @attr website;
-  @attr isSubscribed;
-  @attr phoneNumber;
-  @attr email;
 }

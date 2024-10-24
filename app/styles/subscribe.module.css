@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.subscribe__container {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+  min-height: 76vh;
+}
+
+.subscribe__container h1,
+.subscribe__form_container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+
+.subscribe__container p,
+.subscribe__form_container p {
+  font-family: Inter, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.875rem;
+  text-align: center;
+}
+
+.notification__text {
+  font-size: 18px;
+  color: #dc2626;
+}
+
+.sub__text {
+  font-size: 16px;
+  color: #374151;
+}
+
+.notify__btn {
+  font-size: 16px;
+  background-color: #1e429f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.notify__btn:hover {
+  background-color: #1558b0;
+}
+
+.notify__btn a {
+  display: block;
+  padding: 12px;
+  background-color: #1e429f;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.subscribed__confirmed nav a {
+  display: block;
+  padding: 12px;
+  background-color: #1e429f;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.notify__btn a:hover,
+.notify__btn:hover a {
+  background-color: #163a7b;
+}
+
+.subscribe__form_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.subscribe__form_container p {
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #6b7280;
+}
+
+.subscribe__form {
+  background-color: white;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 30px;
+  box-shadow: rgb(17 12 46 / 15%) 0 48px 100px 0;
+  border-radius: 8px;
+  margin-top: 5rem;
+}
+
+.subscribed__confirmed__close__btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  padding: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.input__group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input__group label {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
+
+.input__group__span {
+  color: #374151;
+}
+
+.input__group input::placeholder {
+  color: #6b7280;
+}
+
+.input__group input {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17.5px;
+  text-align: left;
+  color: #000;
+}
+
+.invalid-input {
+  border-color: #dc2626;
+  color: red;
+}
+
+.submit__btn {
+  padding: 1rem;
+  background-color: #1e429f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe__button {
+  width: 100%;
+}
+
+.subscribe__button:disabled {
+  background-color: #dadada;
+}
+
+.login__message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.login__message h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.login__message p {
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #6b7280;
+}
+
+.login__message .sub__text {
+  font-size: 16px;
+  color: #374151;
+  margin-top: 1rem;
+}
+
+.already-subscribed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.already-subscribed h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e429f;
+  text-align: center;
+}
+
+.already-subscribed p {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #374151;
+  text-align: center;
+}

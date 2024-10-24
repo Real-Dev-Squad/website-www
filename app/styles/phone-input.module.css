@@ -1,0 +1,23 @@
+.phone-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.country-code-select {
+  margin-right: 10px;
+}
+
+.phone-number-input {
+  flex-grow: 1;
+}
+
+.phone-input select,
+.phone-input input[type="tel"] {
+  width: 100%;
+  padding: 5px;
+}
+
+button {
+  padding: 5px 10px;
+}

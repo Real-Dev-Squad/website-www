@@ -64,7 +64,7 @@ export default class SubscribeController extends Controller {
           method: 'POST',
           body: JSON.stringify({
             email: this.email,
-            phoneNumber: this.phone,
+            phone: this.phone,
           }),
           headers: {
             'Content-Type': 'application/json',

@@ -3110,15 +3110,6 @@
     ember-cli-babel "^7.26.11"
     ember-modifier-manager-polyfill "^1.2.0"
 
-"@ember/render-modifiers@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ember/render-modifiers/-/render-modifiers-2.1.0.tgz#f4fff95a8b5cfbe947ec46644732d511711c5bf9"
-  integrity sha512-LruhfoDv2itpk0fA0IC76Sxjcnq/7BC6txpQo40hOko8Dn6OxwQfxkPIbZGV0Cz7df+iX+VJrcYzNIvlc3w2EQ==
-  dependencies:
-    "@embroider/macros" "^1.0.0"
-    ember-cli-babel "^7.26.11"
-    ember-modifier-manager-polyfill "^1.2.0"
-
 "@ember/string@3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@ember/string/-/string-3.1.1.tgz#0a5ac0d1e4925259e41d5c8d55ef616117d47ff0"
@@ -9197,16 +9188,6 @@ ember-page-title@8.2.3:
     "@embroider/addon-shim" "^1.8.7"
     "@simple-dom/document" "^1.4.0"
 
-ember-phone-input@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/ember-phone-input/-/ember-phone-input-10.0.0.tgz#0aaac5e57e3cbd3f20973138d39c77caf5c6b36b"
-  integrity sha512-kebV05W7Y2+DN+xSwvPWe0ocVI3gK2UlaOjw8G1g5rw1Aoe0ouFI5ecCs+/5YvHRzPZzpASyrC3w63vpgSo9jA==
-  dependencies:
-    "@ember/render-modifiers" "^2.1.0"
-    "@embroider/addon-shim" "^1.8.7"
-    intl-tel-input "^18.0.0"
-    rsvp "^4.8.5"
-
 ember-qunit@8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-8.0.2.tgz#a6346136cba785853f176dfa6ed25e3f0a11b7a0"
@@ -11394,11 +11375,6 @@ intersection-observer-admin@~0.3.2:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/intersection-observer-admin/-/intersection-observer-admin-0.3.3.tgz#176a2a08c1cfa9ec3bc74d81cb9ba6483c30e625"
   integrity sha512-aKMJPw/8cxybcgYTbnwGn87VgSFbSNNqeChRJahD+ai+jtwlCOdIcEvtuBd2BWO9bPuylVgeQVmGGfX2aS1NIg==
-
-intl-tel-input@^18.0.0:
-  version "18.5.3"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-18.5.3.tgz#20b18431cb802d33c118f52e332e218e641ec09b"
-  integrity sha512-ncFqSpkdGf2YC/FvAiwBH44KAeRG8L7aqDODEpOvMAT3ZpBtvc/WtwaQ/6X4+HKDTlGkobdBjr6P3nAMwO8jtA==
 
 invariant@^2.2.2:
   version "2.2.4"

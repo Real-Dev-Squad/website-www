@@ -70,9 +70,23 @@ export default class LiveService extends Service {
 
   onConnection(isConnected) {
     this.isJoined = isConnected;
+    if (this.isJoined) {
+      window.addEventListener('beforeunload', this.onCloseAlert);
+    } else {
+      window.removeEventListener('beforeunload', this.onCloseAlert);
+    }
     if (isConnected) {
       this.isLoading = false;
     }
+  }
+
+  onCloseAlert(event) {
+    // Cancel the event
+    event.preventDefault();
+    // Chrome requires returnValue to be set
+    event.returnValue = '';
+    // Display a confirmation dialog
+    return '';
   }
 
   async joinRoom(roomId, role, userName, eventCode = null) {
@@ -327,6 +341,7 @@ export default class LiveService extends Service {
         });
         const peer = this.hmsStore.getState(selectLocalPeer);
         this.localPeer = peer;
+        this.activeRoomId = roomId;
         const addedPeerData = await this.addPeer(roomId, peer);
         if (addedPeerData) {
           this.toast.success(
@@ -346,6 +361,7 @@ export default class LiveService extends Service {
       });
       const peer = this.hmsStore.getState(selectLocalPeer);
       this.localPeer = peer;
+      this.activeRoomId = roomId;
       const addedPeerData = await this.addPeer(roomId, peer);
       if (addedPeerData) {
         this.toast.success(

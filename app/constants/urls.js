@@ -5,7 +5,7 @@ const DOMAIN = 'realdevsquad.com';
 
 const APP_URLS = {
   production: {
-    HOME: `${SCHEME}beta.${DOMAIN}`,
+    HOME: `${SCHEME}${DOMAIN}`,
     WELCOME: `${SCHEME}welcome.${DOMAIN}`,
     EVENTS: `${SCHEME}www-v0.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
@@ -15,9 +15,10 @@ const APP_URLS = {
     IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}my.${DOMAIN}`,
     API_BACKEND: `${SCHEME}api.${DOMAIN}`,
+    DASHBOARD: `${SCHEME}dashboard.${DOMAIN}`,
   },
   staging: {
-    HOME: `${SCHEME}beta.${DOMAIN}`,
+    HOME: `${SCHEME}staging-www.${DOMAIN}`,
     WELCOME: `${SCHEME}staging-welcome.${DOMAIN}`,
     EVENTS: `${SCHEME}www-v0.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
@@ -27,9 +28,10 @@ const APP_URLS = {
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
     API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
+    DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
   },
   development: {
-    HOME: `${SCHEME}beta.${DOMAIN}`,
+    HOME: `${SCHEME}staging-www.${DOMAIN}`,
     WELCOME: `${SCHEME}staging-welcome.${DOMAIN}`,
     EVENTS: `${SCHEME}www-v0.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
@@ -38,7 +40,8 @@ const APP_URLS = {
     TASKS: `${SCHEME}staging-my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
-    API_BACKEND: `http://localhost:3000`,
+    DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
+    API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
   },
   test: {
     HOME: `${SCHEME}${DOMAIN}`,
@@ -51,6 +54,7 @@ const APP_URLS = {
     IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}my.${DOMAIN}`,
     API_BACKEND: `${SCHEME}staging-api.${DOMAIN}`,
+    DASHBOARD: `${SCHEME}staging-dashboard.${DOMAIN}`,
   },
 };
 
@@ -95,3 +99,4 @@ export const SOCIALS = {
 };
 
 export const ANKUSH_TWITTER = 'https://twitter.com/ankushdharkar';
+export const RDS_TWITTER = 'https://x.com/realdevsquad';

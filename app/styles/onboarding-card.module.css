@@ -12,6 +12,7 @@
     0 4px 10px -2px var(--color-blackshadow),
     0 6px 15px -2px var(--color-blackshadow2);
   margin-top: 5rem;
+  min-height: 18rem;
 }
 
 .logo__github-rds {
@@ -75,84 +76,6 @@
   font-size: 1.1rem;
 }
 
-.chaincode-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  max-width: 25rem;
-}
-
-.chaincode-page__description {
-  text-align: center;
-}
-
-.chaincode-container {
-  min-width: 90%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  border: 1px solid;
-  border-radius: 0.5rem;
-}
-
-.chaincode-container__value-invisible {
-  letter-spacing: 0.4rem;
-  margin-left: 1rem;
-  font-weight: bold;
-}
-
-.chaincode-container__value-visible {
-  font-weight: bold;
-  margin-left: 1rem;
-  letter-spacing: 0.2rem;
-}
-
-.chaincode-container__action {
-  display: flex;
-}
-
-.chaicode-button-icon {
-  background: none;
-  border: none;
-  padding: 0 0.4rem;
-  cursor: pointer;
-}
-
-.profile-service-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.profile-service-page__description {
-  text-align: center;
-}
-
-.profile-service-page__inputContainer {
-  display: flex;
-  position: relative;
-}
-
-profile-service-page__inputcontainer__input-label {
-  display: none;
-}
-
-.profile-service-page__inputContainer__input-url {
-  flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid var(--color-shade-grey);
-  background: var(--color-white);
-}
-
-.profile-service-page__inputContainer__tooltip {
-  margin-left: 1rem;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
 .tooltip-info {
   font-size: 0.7rem;
   flex-flow: column wrap;
@@ -162,17 +85,46 @@ profile-service-page__inputcontainer__input-label {
     var(--color-blackshadow) 0 1px 2px 0,
     var(--color-blackshadow2) 0 2px 6px 2px;
   border-radius: 10px;
-  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
   width: 10rem;
   padding: 1rem;
   position: absolute;
-  left: 20rem;
-  top: 2rem;
+  left: -10rem;
+  top: -5.5rem;
   display: none;
 }
 
-.active-tooltip-info {
+.tooltip-info--show {
+  animation: fade-in 0.3s linear 0s 1 normal forwards;
   display: flex;
+}
+
+.tooltip-info--hidden {
+  animation: fade-out 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.2;
+    transform: translateY(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
 .tooltip-info__container {
@@ -181,24 +133,21 @@ profile-service-page__inputcontainer__input-label {
   flex-direction: column;
 }
 
-.profile-service-page__button {
-  display: flex;
-  justify-content: center;
+.welcome__heading {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.profile-service-url-linking-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  max-width: 25rem;
-}
-
-.profile-service-url-linking-page__description {
+.welcome__description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  font-weight: 400;
+  margin: 0 auto;
   text-align: center;
 }
 
-@media (width <= 1024px) {
+@media (width <=1024px) {
   .btn-generateUsername {
     width: 5rem;
     font-size: 12px;
@@ -209,7 +158,7 @@ profile-service-page__inputcontainer__input-label {
   }
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
   .onboarding-card {
     width: 30rem;
     padding: 3.5rem 1rem;
@@ -238,21 +187,12 @@ profile-service-page__inputcontainer__input-label {
     width: 2.8rem;
     height: 2.5rem;
   }
-
-  .tooltip-info {
-    font-size: 0.5rem;
-    top: 2rem;
-    left: 11rem;
-    width: 8rem;
-    padding: 15px 5px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 0;
-  }
 }
 
-@media (width <= 480px) {
+@media (width <=480px) {
   .onboarding-card {
-    width: 90%;
+    width: 82%;
+    min-height: 12rem;
   }
 
   .checkbox-label {
@@ -265,12 +205,6 @@ profile-service-page__inputcontainer__input-label {
 
   .chaincode-container__value-visible {
     letter-spacing: 0;
-  }
-
-  .tooltip-info {
-    top: -5rem;
-    left: 9rem;
-    border-top-left-radius: 10px;
   }
 
   .heading__h3 {

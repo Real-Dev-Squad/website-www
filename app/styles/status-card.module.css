@@ -1,0 +1,53 @@
+.status-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+}
+
+.status-card__heading-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.status-card__heading {
+  font-size: 28px;
+  margin-right: 10px;
+  margin-top: 18px;
+}
+
+.status-card__description {
+  text-align: center;
+  line-height: 1.6;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.status-card__congrats {
+  font-size: 22px;
+  color: #4caf50;
+  margin-bottom: 15px;
+}
+
+.status-card__feedback {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.joining__copy {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.copy__link {
+  font-size: 16px;
+  margin: 10px 0;
+  word-break: break-all;
+}
+
+.status-card__buttons {
+  margin-top: 20px;
+}

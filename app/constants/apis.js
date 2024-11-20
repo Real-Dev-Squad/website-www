@@ -7,5 +7,13 @@ export const APPLICATION_URL = (userId) => {
 };
 
 export const USER_JOINED_LINK = (userId) => {
-  return `Real Dev Squad Verification Link: ${APPS.HOME}/intro?id=${userId}`;
+  return `${APPS.HOME}/intro?id=${userId}`;
+};
+
+export const USER_APPLICATION_LINK = (userId) => {
+  return `${APPS.DASHBOARD}/applications?id=${userId}`;
+};
+
+export const APPLICATION_ID_LINK = (id) => {
+  return `${APPS.DASHBOARD}/applications/?id=${id}`;
 };

@@ -12,6 +12,7 @@ export default class HeaderComponent extends Component {
   @tracked authURL = this.generateAuthURL();
 
   HOME_PAGE = 'index';
+  EVENTS_PAGE = '/events';
   WELCOME_URL = APPS.WELCOME;
   EVENTS_URL = APPS.EVENTS;
   MEMBERS_URL = APPS.MEMBERS;

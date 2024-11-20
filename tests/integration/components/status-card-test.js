@@ -1,0 +1,148 @@
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, waitFor } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
+import { ANKUSH_TWITTER } from '../../constants/urls';
+import Service from '@ember/service';
+import sinon from 'sinon';
+
+class LoginStub extends Service {
+  userData = { id: 'fZ0itx5x2ltOSMzON9kb' };
+}
+class OnboardingStub extends Service {
+  getApplicationDetails = sinon.spy;
+}
+
+module('Integration | Component | status-card', function (hooks) {
+  setupRenderingTest(hooks);
+
+  hooks.beforeEach(function () {
+    this.set('joinDiscordAction', () => {
+      window.open = this.spy();
+    });
+    this.set('ANKUSH_TWITTER', ANKUSH_TWITTER);
+
+    this.owner.register('service:login', LoginStub);
+    this.owner.register('service:onboarding', OnboardingStub);
+  });
+
+  test('it renders pending status', async function (assert) {
+    this.set('status', 'pending');
+    this.set('feedback', 'Feedback for pending status');
+
+    await render(hbs`
+      <JoinSteps::StatusCard
+        @status={{this.status}}
+        @feedback={{this.feedback}}
+        @joinDiscord={{this.joinDiscordAction}}
+      />
+    `);
+
+    await waitFor('[data-test-status-card-heading]');
+
+    assert.dom('[data-test-status-card-heading]').hasText('Pending');
+    assert.dom('[data-test-icon="pending"]').exists();
+    assert
+      .dom('[data-test-status-card-description-1]')
+      .hasText(
+        `Your application is currently under review. Please check this page regularly for updates. If you don't receive an update within 10 days, please reach out to Ankush on X by providing below link 👇.`,
+      );
+    assert
+      .dom('[data-test-link-text]')
+      .hasText('Here is your personalized link');
+    assert.dom('[data-test-copy-btn]').exists();
+  });
+
+  test('it renders rejected status', async function (assert) {
+    assert.expect(5);
+
+    this.set('status', 'rejected');
+    this.set('feedback', 'Feedback for rejected status');
+
+    await render(hbs`
+      <JoinSteps::StatusCard
+        @status={{this.status}}
+        @feedback={{this.feedback}}
+        @joinDiscord={{this.joinDiscordAction}}
+      />
+    `);
+
+    assert.dom('[data-test-status-card-heading]').hasText('Rejected');
+    assert.dom('[data-test-icon="rejected"]').exists();
+    assert
+      .dom('[data-test-status-card-description-1]')
+      .hasText(
+        `We're sorry to inform you that your application has been rejected.`,
+      );
+
+    assert.dom('[data-test-status-card-feedback-title]').hasText('Feedback:');
+    assert
+      .dom('[data-test-status-card-feedback-content]')
+      .hasText('Feedback for rejected status');
+  });
+
+  test('it renders accepted status with feedback', async function (assert) {
+    assert.expect(5);
+
+    this.set('status', 'accepted');
+    this.set('feedback', 'Feedback for accepted status');
+
+    await render(hbs`
+      <JoinSteps::StatusCard
+        @status={{this.status}}
+        @feedback={{this.feedback}}
+        @joinDiscord={{this.joinDiscordAction}}
+      />
+    `);
+
+    assert.dom('[data-test-status-card-heading]').hasText('Accepted');
+    assert.dom('[data-test-icon="accepted"]').exists();
+    assert
+      .dom('[data-test-status-card-description-1]')
+      .hasText('Congratulations! Your application has been accepted.');
+    assert.dom('[data-test-status-card-description-2]').hasText('Feedback:');
+    assert
+      .dom('[data-test-status-card-description-3]')
+      .hasText('Feedback for accepted status');
+  });
+
+  test('it renders accepted status without feedback', async function (assert) {
+    assert.expect(4);
+
+    this.set('status', 'accepted');
+    this.set('feedback', null);
+
+    await render(hbs`
+      <JoinSteps::StatusCard
+        @status={{this.status}}
+        @feedback={{this.feedback}}
+        @joinDiscord={{this.joinDiscordAction}}
+      />
+    `);
+
+    assert.dom('[data-test-status-card-heading]').hasText('Accepted');
+    assert.dom('[data-test-icon="accepted"]').exists();
+    assert
+      .dom('[data-test-status-card-description-1]')
+      .hasText('Congratulations! Your application has been accepted.');
+    assert.dom('[data-test-status-card-description-2]').doesNotExist();
+  });
+
+  test('it handles unknown status', async function (assert) {
+    assert.expect(2);
+
+    this.set('status', 'unknown');
+    this.set('feedback', 'This is unexpected');
+
+    await render(hbs`
+      <JoinSteps::StatusCard
+        @status={{this.status}}
+        @feedback={{this.feedback}}
+        @joinDiscord={{this.joinDiscordAction}}
+      />
+    `);
+
+    assert.dom('[data-test-status-card-heading]').doesNotExist();
+    assert.dom('[data-test-icon]').doesNotExist();
+  });
+});

@@ -1,140 +1,119 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, click } from '@ember/test-helpers';
+import { render, typeIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | identity-steps/step-four', function (hooks) {
+module('Integration | Component | identity-steps/step-five', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('render main container div on generate chaincode page', async function (assert) {
+  test('render main container div on profile service page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
-    this.set('handleGenerateChaincode', () => {});
     await render(
-      hbs`<IdentitySteps::StepFour  
-            @startHandler={{this.startHandler}} 
-            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-        />`,
+      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`,
     );
 
-    assert.dom('[data-test=chaincode]').exists();
-    assert.dom('[data-test=chaincode]').hasClass('chaincode-page');
+    assert.dom('[data-test=profile-service]').exists();
+    assert.dom('[data-test=profile-service]').hasClass('profile-service-page');
   });
 
-  test('render heading on generate chaincode page', async function (assert) {
+  test('render heading on profile service page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
-    this.set('handleGenerateChaincode', () => {});
     await render(
-      hbs`<IdentitySteps::StepFour  
-            @startHandler={{this.startHandler}} 
-            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-        />`,
+      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`,
     );
-    assert.dom('[data-test=heading]').hasClass('chaincode-page__heading');
-    assert.dom('[data-test=heading]').hasText('Chaincode Generation');
+    assert.dom('[data-test=heading]').hasClass('profile-service-page__heading');
+    assert.dom('[data-test=heading]').hasText('Deploy Profile Service');
   });
 
-  test('render description on generate chaincode page', async function (assert) {
+  test('render description on profile service page', async function (assert) {
     assert.expect(2);
     this.set('startHandler', () => {});
-    this.set('handleGenerateChaincode', () => {});
     await render(
-      hbs`<IdentitySteps::StepFour  
-            @startHandler={{this.startHandler}} 
-            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-        />`,
+      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`,
     );
     assert
       .dom('[data-test=description]')
-      .hasClass('chaincode-page__description');
+      .hasClass('profile-service-page__description');
     assert
       .dom('[data-test=description]')
       .hasText(
-        "A private key that you need to use in your profile service URL and deploy for source that you're the source of the URL",
+        'Set the chaincode on your profile service. Deploy it and enter your profile service URL',
       );
   });
 
-  test('render Generation Chaincode button on chaincode page', async function (assert) {
-    assert.expect(2);
+  test('render input field on profile service page', async function (assert) {
+    assert.expect(5);
+
     this.set('startHandler', () => {});
-    this.set('handleGenerateChaincode', () => {});
-    this.set('chaincode', 'Generate Chaincode');
-    this.set('isChaincodeClicked', false);
+
     await render(
-      hbs`<IdentitySteps::StepFour  
-            @startHandler={{this.startHandler}} 
-            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-            @isChaincodeClicked={{this.isChaincodeClicked}}
-            @chaincode={{this.chaincode}}
-        />`,
+      hbs`<IdentitySteps::StepFour  @startHandler={{this.startHandler}} />`,
     );
-    assert.dom('[data-test-button=chaincode]').hasText('Generate Chaincode');
-    assert.dom('[data-test-button=chaincode]').hasProperty('type', 'button');
+
+    assert
+      .dom('[data-test-input-field=profile-service]')
+      .hasClass('profile-service-page__input-url');
+    assert
+      .dom('[data-test-input-field=profile-service]')
+      .hasAttribute('id', 'profile-service-url');
+    assert
+      .dom('[data-test-input-field=profile-service]')
+      .hasProperty('type', 'text');
+    assert
+      .dom('[data-test-input-field=profile-service]')
+      .hasProperty('value', '');
+    assert
+      .dom('[data-test-input-field=profile-service]')
+      .hasProperty('placeholder', 'Enter your profile service URL');
   });
 
-  test('render disabled Next button on chaincode page', async function (assert) {
-    assert.expect(2);
+  test('Render Next button on profile page', async function (assert) {
+    assert.expect(3);
+
     this.set('startHandler', () => {});
-    this.set('handleGenerateChaincode', () => {});
+
     await render(
-      hbs`<IdentitySteps::StepFour  
-            @startHandler={{this.startHandler}} 
-            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-        />`,
+      hbs`<IdentitySteps::StepFour @startHandler={{this.startHandler}} />`,
     );
+
+    assert.dom('[data-test-button=next]').exists();
     assert.dom('[data-test-button=next]').hasText('Next');
-    assert.dom('[data-test-button=next]').hasProperty('disabled', true);
+    assert.dom('[data-test-button=next]').hasProperty('type', 'button');
   });
 
-  test('Clicking "Generate Chaincode" button renders div with text and 2 button with icons on Chaincode page', async function (assert) {
-    assert.expect(6);
-    this.set('startHandler', () => {});
-    this.set('handleGenerateChaincode', () => {
-      this.set('isChaincodeClicked', true);
-    });
-
-    await render(
-      hbs`<IdentitySteps::StepFour  
-            @startHandler={{this.startHandler}} 
-            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-            @isChaincodeClicked={{this.isChaincodeClicked}}
-        />`,
-    );
-    await click('[data-test-button=chaincode]');
-
-    assert.dom('[data-test=chaincode-container]').exists();
-    assert
-      .dom('[data-test=chaincode-container__value]')
-      .hasClass('chaincode-container__value-invisible');
-    assert
-      .dom('[data-test=chaincode-container__value]')
-      .hasText('********************');
-
-    assert
-      .dom('[data-test=chaincode-container__action]')
-      .hasClass('chaincode-container__action');
-
-    assert.dom('[data-test-button=eye-icon]').hasClass('chaicode-button-icon');
-    assert.dom('[data-test-button=copy-icon]').hasClass('chaicode-button-icon');
-  });
-
-  test('Clicking eye-icon button show generated code', async function (assert) {
+  test("Ensure the 'Next' Button is Enabled Only When a Valid Profile URL is Entered", async function (assert) {
     assert.expect(1);
-    this.set('startHandler', () => {});
-    this.set('handleGenerateChaincode', () => {});
-    this.set('isChaincodeClicked', true);
-    this.set('chaincode', 'hv2hz3xh1h');
-    await render(
-      hbs`<IdentitySteps::StepFour  
-            @startHandler={{this.startHandler}} 
-            @handleGenerateChaincode={{this.handleGenerateChaincode}} 
-            @isChaincodeClicked={{this.isChaincodeClicked}}
-            @chaincode={{this.chaincode}}
-        />`,
-    );
-    await click('[data-test-button=eye-icon]');
 
-    assert.dom('[data-test=chaincode-container__value]').hasText('hv2hz3xh1h');
+    this.set('startHandler', () => {});
+
+    await render(
+      hbs`<IdentitySteps::StepFour @startHandler={{this.startHandler}} />`,
+    );
+
+    await typeIn(
+      '[data-test-input-field=profile-service]',
+      'https://rds-profile-service.onrender.com',
+    );
+
+    assert.dom('[data-test-button=next]').hasProperty('disabled', false);
+  });
+
+  test("Ensure the 'Next' Button is Disabled When a InValid Profile URL is Entered", async function (assert) {
+    assert.expect(1);
+
+    this.set('startHandler', () => {});
+
+    await render(
+      hbs`<IdentitySteps::StepFour @startHandler={{this.startHandler}} />`,
+    );
+
+    await typeIn(
+      '[data-test-input-field=profile-service]',
+      'rds-profile-service.onrender.com',
+    );
+
+    assert.dom('[data-test-button=next]').hasProperty('disabled', true);
   });
 });

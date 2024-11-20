@@ -1,6 +1,7 @@
 import Service, { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { AUTH } from '../constants/urls';
+import { APPS, AUTH } from '../constants/urls';
+import fetch from 'fetch';
 
 export default class LoginService extends Service {
   @service store;
@@ -8,19 +9,31 @@ export default class LoginService extends Service {
   @tracked userData;
   @tracked isLoading = true;
   @service fastboot;
+  @service featureFlag;
+
+  HeadersToCopy = ['Host', 'Cookie', 'User-Agent'];
 
   constructor() {
     super(...arguments);
-    if (!this.fastboot.isFastBoot) {
-      this.checkAuth();
-    }
+
+    this.checkAuth();
   }
 
   checkAuth() {
-    this.store
-      .findRecord('user', 'self')
+    //TODO: try working this with ember-data
+    fetch(`${APPS.API_BACKEND}/users/self`, {
+      credentials: 'include',
+      headers: this.buildHeaders(),
+    })
+      .then(function (response) {
+        if (response.status === 200) {
+          return response.json();
+        }
+        throw response;
+      })
       .then((user) => {
-        if (user.incompleteUserDetails) window.location.replace(AUTH.SIGN_UP);
+        if (user.incompleteUserDetails && !this.featureFlag.isDevMode)
+          window.location.replace(AUTH.SIGN_UP);
         this.isLoggedIn = true;
         this.userData = user;
       })
@@ -31,5 +44,19 @@ export default class LoginService extends Service {
       .finally(() => {
         this.isLoading = false;
       });
+  }
+
+  buildHeaders(headers = {}) {
+    let isFastBoot = this.fastboot.isFastBoot;
+
+    if (!isFastBoot) {
+      return headers;
+    }
+
+    let requestHeaders = this.fastboot.request.headers;
+    this.HeadersToCopy.forEach((n) => (headers[n] = requestHeaders.get(n)));
+    headers['X-forwarded-by'] = 'FastBoot';
+
+    return headers;
   }
 }

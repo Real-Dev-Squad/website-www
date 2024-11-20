@@ -20,3 +20,9 @@ export const STEP_THREE_LIMITS = {
     numberOfHours: { min: 1, max: 100 },
   },
 };
+
+export const APPLICATION_STATUS_TYPES = {
+  accepted: 'accepted',
+  rejected: 'rejected',
+  pending: 'pending',
+};

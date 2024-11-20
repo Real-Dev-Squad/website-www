@@ -31,6 +31,18 @@
 @import url("identity-card.module.css");
 @import url("wheel-animations.css");
 @import url("goto.module.css");
+@import url("survey-page.module.css");
+@import url("ask-question-modal.module.css");
+@import url("answer-reply-modal.module.css");
+@import url("answer-view-card.module.css");
+@import url("word-cloud.module.css");
+@import url("event-card.module.css");
+@import url("status-card.module.css");
+@import url("tooltip.module.css");
+@import url("debug.module.css");
+@import url("unauthenticated.module.css");
+@import url("subscribe.module.css");
+@import url("phone-input.module.css");
 
 * {
   margin: 0;

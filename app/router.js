@@ -13,4 +13,7 @@ Router.map(function () {
   this.route('page-not-found', { path: '/*' });
   this.route('intro');
   this.route('goto');
+  this.route('events');
+  this.route('debug');
+  this.route('subscribe');
 });

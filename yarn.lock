@@ -9372,7 +9372,7 @@ ember-template-recast@^6.1.4:
     tmp "^0.2.1"
     workerpool "^6.4.0"
 
-ember-toastr@3.0.1:
+ember-toastr@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ember-toastr/-/ember-toastr-3.0.1.tgz#a9ddb421d920e0d81b70cf2bc3aea999d33f55f8"
   integrity sha512-4H9BuSfWgiBf0nTWbxnWl9zgLp/83RV3FkG4E0ANAEnGYEHs+V/ZiJNolVq5atlUbyl5bSYu+AqSNWu5Q33T5w==

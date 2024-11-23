@@ -1,0 +1,14 @@
+{{page-title "Profile"}}
+
+<h1>User Profile</h1>
+
+<p><strong>Name:</strong> {{this.model.name}}</p>
+<p><strong>Email:</strong> {{this.model.email}}</p>
+
+{{#if this.model.isDeveloper}}
+  <p><strong>Developer Role:</strong> Yes</p>
+{{else}}
+  <p><strong>Developer Role:</strong> No</p>
+{{/if}}
+
+{{outlet}}

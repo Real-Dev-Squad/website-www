@@ -71,6 +71,9 @@ export const AUTH = {
   SIGN_UP: `${APPS.PROFILE}/new-signup`,
 };
 
+export const AUTH_URL =
+  'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
+
 export const SOCIALS = {
   LINKEDIN: {
     URL: 'https://www.linkedin.com/company/real-dev-squad',

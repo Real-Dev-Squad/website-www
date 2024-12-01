@@ -1,20 +1,7 @@
-:root {
-    --white: #ffffff;
-    --light-black: rgba(0, 0, 0, 0.3);
-    --grey-white: rgb(174, 174, 174);
-    --gray: #f1f1f1;
-    --scrollbar-thumb: #888;
-    --scrollbar-thumb-hover: #555;
-    --primary-text-color: #041187;
-    --task-card-border: 2px solid #d9d9d9;
-    --range-slider-background: #e5e5e5;
-  --black-grey: #252525;
-}
-
 .tasks-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--tasks-page--text);
-    margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--tasks-page-text);
+  margin-top: 2.5rem;
 }

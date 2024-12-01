@@ -36,4 +36,16 @@
   --skeleton-shine-color: #edeef1;
   --color-yellow-low-opacity: #ffffe0;
   --color-grayish-blue-shadow: rgba(136 165 191/ 48%);
+  --tasks-page-text: #fff;
+  --light-black: rgb(0 0 0 / 30%);
+  --grey-white: rgb(174 174 174);
+  --gray: #f1f1f1;
+  --scrollbar-thumb: #888;
+  --scrollbar-thumb-hover: #555;
+  --primary-text-color: #041187;
+  --task-card-border: 2px solid #d9d9d9;
+  --range-slider-background: #e5e5e5;
+  --black-grey: #252525;
+  --tabs-border-color: rgb(212 212 213);
+  --button-task-tabs-dropdown-container-bg: white;
 }

@@ -1,3 +1,13 @@
-<div>
-  Tasks
+{{page-title 'My Tasks'}}
+
+<div class='tasks-page'>
+  <TaskTabs
+    @taskStatusList={{this.tabsTaskStatusList}}
+    @showDropDown={{this.showDropDown}}
+    @toggleDropDown={{this.toggleDropDown}}
+    @changeUserSelectedTask={{this.changeUserSelectedTask}}
+    @userSelectedTaskText={{this.userSelectedTask.displayLabel}}
+    @showTasks={{this.showTasks}}
+    @toggleTasks={{this.toggleTasks}}
+  />
 </div>

@@ -1,0 +1,31 @@
+<div class='task-tabs' data-test-task-tabs>
+  <div
+    class='task-tabs__dropdown-container
+      {{if @showTasks "task-tabs__dropdown-active"}}'
+  >
+    {{#each @taskStatusList as |status|}}
+      <button
+        data-test-task-tabs-button
+        href='#'
+        class='task-tabs__dropdown-container__button
+          {{if
+            (eq @userSelectedTaskText status.displayLabel)
+            "task-tabs__dropdown-container__button-active"
+          }}'
+        {{on 'click' (fn @changeUserSelectedTask status)}}
+        type='button'
+      >
+        {{status.displayLabel}}
+      </button>
+    {{/each}}
+  </div>
+  {{#unless @showTasks}}
+    <div class='task-tabs__task-selector'>
+      <button href='#' {{on 'click' @toggleTasks}} type='button'>
+        {{@userSelectedTaskText}}
+        <i class='arrow-down'></i>
+      </button>
+
+    </div>
+  {{/unless}}
+</div>

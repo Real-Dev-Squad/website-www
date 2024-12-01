@@ -43,6 +43,8 @@
 @import url("unauthenticated.module.css");
 @import url("subscribe.module.css");
 @import url("phone-input.module.css");
+@import url("tasks.css");
+@import url("task-tabs.css");
 
 * {
   margin: 0;

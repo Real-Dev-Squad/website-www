@@ -1,11 +1,13 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import ENV from 'website-www/config/environment';
+import fetch from 'fetch';
 import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
 import redirectAuth from '../utils/redirect-auth';
 
 export default class ProfileRoute extends Route {
   @service toast;
+  @service fastboot;
   async model() {
     try {
       const res = await fetch(`${ENV.BASE_API_URL}/users/isDeveloper`, {
@@ -28,7 +30,13 @@ export default class ProfileRoute extends Route {
       console.error(error.message);
       this.toast.error(error, '', toastNotificationTimeoutOptions);
 
-      setTimeout(redirectAuth, 5000);
+      if (!this.fastboot.isFastBoot && !this.isRedirecting) {
+        this.isRedirecting = true;
+        setTimeout(() => {
+          redirectAuth();
+          this.isRedirecting = false;
+        }, 2000);
+      }
     }
   }
 }

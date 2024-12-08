@@ -7615,6 +7615,11 @@ cosmiconfig@^8.2.0:
     parse-json "^5.2.0"
     path-type "^4.0.0"
 
+cropperjs@^1.5.12:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/cropperjs/-/cropperjs-1.6.2.tgz#d1a5d627d880581cca41b7901f06923500e4201b"
+  integrity sha512-nhymn9GdnV3CqiEHJVai54TULFAE3VshJTXSqSJKa8yXAKyBKDWdhHarnlIPrshJ0WMFTGuFvG02YjLXfPiuOA==
+
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -9372,7 +9377,7 @@ ember-template-recast@^6.1.4:
     tmp "^0.2.1"
     workerpool "^6.4.0"
 
-ember-toastr@3.0.1:
+ember-toastr@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ember-toastr/-/ember-toastr-3.0.1.tgz#a9ddb421d920e0d81b70cf2bc3aea999d33f55f8"
   integrity sha512-4H9BuSfWgiBf0nTWbxnWl9zgLp/83RV3FkG4E0ANAEnGYEHs+V/ZiJNolVq5atlUbyl5bSYu+AqSNWu5Q33T5w==

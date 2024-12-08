@@ -24,7 +24,7 @@ export default class IntroRoute extends Route {
       let userResponse;
       let userData;
 
-      userResponse = await fetch(`${APPS.API_BACKEND}/users/self`, {
+      userResponse = await fetch(`${APPS.API_BACKEND}/users?profile=true`, {
         credentials: 'include',
       });
       userData = await userResponse.json();

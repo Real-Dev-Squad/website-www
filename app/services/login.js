@@ -21,7 +21,7 @@ export default class LoginService extends Service {
 
   checkAuth() {
     //TODO: try working this with ember-data
-    fetch(`${APPS.API_BACKEND}/users/self`, {
+    fetch(`${APPS.API_BACKEND}/users?profile=true`, {
       credentials: 'include',
       headers: this.buildHeaders(),
     })

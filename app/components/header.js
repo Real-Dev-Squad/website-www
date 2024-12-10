@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 
 export default class HeaderComponent extends Component {
   @service router;
+  @service featureFlag;
   @service fastboot;
   @tracked isNavOpen = false;
   @tracked isMenuOpen = false;
@@ -36,6 +37,10 @@ export default class HeaderComponent extends Component {
     this.isMenuOpen = false;
   }
 
+  get isDevMode() {
+    return this.featureFlag.isDevMode;
+  }
+
   generateAuthURL() {
     const currentURL = this.fastboot.isFastBoot
       ? this.fastboot.request.protocol +
@@ -43,6 +48,6 @@ export default class HeaderComponent extends Component {
         this.fastboot.request.host +
         this.fastboot.request.path
       : window.location.href;
-    return `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
+    return `${AUTH.GITHUB_SIGN_IN}?redirectURL=${currentURL}`;
   }
 }

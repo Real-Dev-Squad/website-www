@@ -1,0 +1,37 @@
+<div class="login__container">
+  <img class="logo__img" src="assets/images/rds-logo.png" alt="RealDevSquad" />
+  <h3>
+    Sign In to
+    <br />
+    <span>Real Dev Squad</span>
+  </h3>
+  <div class="link__container">
+    <small>For Developers:</small>
+    <a data-test-github-auth class="join__link" href={{this.AUTH_URL.GITHUB}}>
+      <span>Sign In with GitHub</span>
+      <img
+        data-test-login-img
+        class="login__logo"
+        src="assets/icons/github-logo.png"
+        alt="GitHub"
+        height="24px"
+        width="24px"
+      />
+    </a>
+  </div>
+
+  <div class="link__container">
+    <small>For Designers/PMs:</small>
+    <a data-test-google-auth class="join__link" href={{this.AUTH_URL.GOOGLE}}>
+      <span>Sign In with Google</span>
+      <img
+        data-test-login-img
+        class="login__logo"
+        src="assets/icons/google-logo.png"
+        alt="Google"
+        height="24px"
+        width="24px"
+      />
+    </a>
+  </div>
+</div>

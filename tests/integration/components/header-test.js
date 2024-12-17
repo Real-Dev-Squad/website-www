@@ -8,11 +8,12 @@ module('Integration | Component | header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('header elements renders', async function (assert) {
-    assert.expect(13);
+    assert.expect(15);
 
     this.setProperties({
       isLoggedIn: false,
       isLoading: false,
+      dev: false,
     });
 
     this.set('signOut', () => {
@@ -24,6 +25,7 @@ module('Integration | Component | header', function (hooks) {
         @isLoggedIn={{this.isLoggedIn}}
         @isLoading={{this.isLoading}}
         @signOut={{this.signOut}}
+        @dev={{this.dev}}
       />
     `);
 
@@ -52,6 +54,10 @@ module('Integration | Component | header', function (hooks) {
      */
     // assert.dom('[data-test-login]').hasAttribute('href', AUTH.SIGN_IN);
     assert.dom('[data-test-login-img]').exists();
+
+    this.set('dev', true);
+    assert.dom('[data-test-login]').hasAttribute('href', '/login?dev=true');
+    assert.dom('[data-test-login]').hasText('Sign In');
   });
 
   test('toggle nav menu in mobile view', async function (assert) {

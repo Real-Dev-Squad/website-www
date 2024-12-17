@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { AUTH } from '../constants/urls';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 export default class LoginComponent extends Component {
   @service router;

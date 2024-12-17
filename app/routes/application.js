@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 
 export default class ApplicationRoute extends Route {

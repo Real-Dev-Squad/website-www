@@ -6,7 +6,6 @@ import { inject as service } from '@ember/service';
 
 export default class HeaderComponent extends Component {
   @service router;
-  @service featureFlag;
   @service fastboot;
   @tracked isNavOpen = false;
   @tracked isMenuOpen = false;
@@ -35,10 +34,6 @@ export default class HeaderComponent extends Component {
 
   @action outsideClickMenu() {
     this.isMenuOpen = false;
-  }
-
-  get isDevMode() {
-    return this.featureFlag.isDevMode;
   }
 
   generateAuthURL() {

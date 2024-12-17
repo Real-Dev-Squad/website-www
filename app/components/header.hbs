@@ -95,9 +95,9 @@
         <a
           data-test-login
           class="login"
-          href={{if this.isDevMode "/login?dev=true" this.AUTH_URL}}
+          href={{if @dev "/login?dev=true" this.AUTH_URL}}
         >
-          {{#if this.isDevMode}}
+          {{#if @dev}}
             <span class="login__signin">Sign In</span>
           {{else}}
             <span class="login__signin">Sign In</span>

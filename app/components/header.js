@@ -43,6 +43,6 @@ export default class HeaderComponent extends Component {
         this.fastboot.request.host +
         this.fastboot.request.path
       : window.location.href;
-    return `${AUTH.SIGN_IN}?redirectURL=${currentURL}`;
+    return `${AUTH.GITHUB_SIGN_IN}?redirectURL=${currentURL}`;
   }
 }

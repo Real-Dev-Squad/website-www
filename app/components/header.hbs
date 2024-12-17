@@ -51,7 +51,7 @@
           class="nav__element"
           href={{this.STATUS_URL}}
         >Status</a></li>
-        {{#if @dev}}
+      {{#if @dev}}
         <li>
           {{! TODO - remove query for dev when it goes to production }}
           <LinkTo
@@ -92,17 +92,25 @@
           <Fa-Icon data-test-icon @icon="chevron-down" />
         </button>
       {{else}}
-        <a data-test-login class="login" href={{this.AUTH_URL}}>
-          <span class="login__signin">Sign In</span>
-          <span class="login__github">with GitHub</span>
-          <img
-            data-test-login-img
-            class="login__logo"
-            src="assets/icons/github-logo.png"
-            alt="GitHub"
-            height="20px"
-            width="20px"
-          />
+        <a
+          data-test-login
+          class="login"
+          href={{if @dev "/login?dev=true" this.AUTH_URL}}
+        >
+          {{#if @dev}}
+            <span class="login__signin">Sign In</span>
+          {{else}}
+            <span class="login__signin">Sign In</span>
+            <span class="login__github">with GitHub</span>
+            <img
+              data-test-login-img
+              class="login__logo"
+              src="assets/icons/github-logo.png"
+              alt="GitHub"
+              height="20px"
+              width="20px"
+            />
+          {{/if}}
         </a>
       {{/if}}
     {{/if}}

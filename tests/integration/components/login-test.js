@@ -18,14 +18,14 @@ module('Integration | Component | login', function (hooks) {
       .exists()
       .hasAttribute(
         'href',
-        `${APPS.API_BACKEND}/auth/github/login?redirectURL=${window.location.href}`,
+        `${APPS.STAGING_API_BACKEND}/auth/github/login?redirectURL=${window.location.href}`,
       );
     assert
       .dom('[data-test-login=google]')
       .exists()
       .hasAttribute(
         'href',
-        `${APPS.API_BACKEND}/auth/google/login?dev=true&redirectURL=${window.location.href}`,
+        `${APPS.STAGING_API_BACKEND}/auth/google/login?dev=true&redirectURL=${window.location.href}`,
       );
   });
 });

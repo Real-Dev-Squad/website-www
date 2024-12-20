@@ -1,13 +1,10 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { AUTH } from '../constants/urls';
 import { service } from '@ember/service';
 
 export default class LoginComponent extends Component {
   @service router;
   @service fastboot;
-  @service login;
-  @tracked authURL = this.generateAuthURL();
 
   AUTH_URL = this.generateAuthURL();
 

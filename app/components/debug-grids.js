@@ -59,7 +59,7 @@ export default class DebugGridsComponent extends Component {
     const previousState = target.checked;
 
     try {
-      const response = await fetch(`${APPS.API_BACKEND}/users/self?dev=true`, {
+      const response = await fetch(`${APPS.API_BACKEND}/users?profile=true`, {
         method: 'PATCH',
         credentials: 'include',
         headers: {

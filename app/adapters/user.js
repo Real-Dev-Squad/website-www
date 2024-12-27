@@ -16,6 +16,6 @@ export default class UserAdapter extends ApplicationAdapter {
   }
 
   urlForUpdateRecord() {
-    return `${this.host}/users/self`;
+    return `${this.host}/users?profile=true`;
   }
 }

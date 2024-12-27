@@ -4,11 +4,14 @@
 }
 
 .not-found__img {
-  width: 60%;
+  width: 35%;
 }
 
 .not-found__text {
   font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 @media only screen and (width <= 644px) {

@@ -1,5 +1,5 @@
 {{#if this.isImageSelected}}
-  <h1>
+  <h1 class="image-h1">
     Crop Selected Image
   </h1>
 
@@ -9,7 +9,7 @@
   />
   <div>
     <button
-      class='button_secondary btn'
+      class='image-form__button btn'
       type='button'
       disabled={{this.isImageUploading}}
       data-test-btn='back'
@@ -42,10 +42,10 @@
   </p>
 
 {{else}}
-  <h1>
+  <h1 class="image-h1">
     Upload Image
   </h1>
-  <p>( Max size 2MB )</p>
+  <p class="image-p">( Max size 2MB )</p>
   <div
     data-test-drop-area
     class='drop-area {{if this.overDropZone "drop-area__highlight"}}'

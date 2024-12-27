@@ -24,7 +24,6 @@ export default class ProfileRoute extends Route {
         throw new Error('You are not logged in. Please login to continue.');
       }
       userData.isDeveloper = developerRoleExistsOnUser;
-      console.log(userData);
       return userData;
     } catch (error) {
       console.error(error.message);

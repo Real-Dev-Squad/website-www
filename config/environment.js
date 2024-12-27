@@ -46,7 +46,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.BASE_API_URL = 'https://staging-api.realdevsquad.com'; //-----NEEDS TO BE REMOVED
+    ENV.BASE_API_URL = 'https://staging-api.realdevsquad.com';
   }
 
   if (environment === 'test') {

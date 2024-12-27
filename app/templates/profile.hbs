@@ -1,5 +1,10 @@
 {{page-title 'Profile'}}
 
+
+
+
+ {{#if this.isDev}}
+
 <div class='profile-container'>
   <form class='profile-form' {{on 'submit' this.handleSubmit}}>
     <div class='picture_container'>
@@ -13,19 +18,11 @@
         />
       {{/if}}
 
-         {{#if this.isDev}}
-        <Button @onClick={{this.handleShowEditProfilePictureModal}}
-         @class='profile-edit-button '
+       <Button @onClick={{this.handleShowEditProfilePictureModal}}
+         @class='profile-edit-button'
          @data-test-btn='edit'>
           <FaIcon @icon="edit" />
         </Button>
-      {{else}}
-        <Button @onClick={{this.handleShowEditProfilePictureModal}}
-         @class='edit-btn btn'
-         @data-test-btn='edit'>
-          Update Picture
-        </Button>
-        {{/if}}
 
     </div>
     <div class='profile-form-grid'>
@@ -61,6 +58,13 @@
     >Submit</button>
   </form>
 </div>
+{{else}}
+   <div class="not-found">
+     <img class="not-found__img" src="/assets/images/page-not-found.png" alt="page-not-found">
+         <h1 class="not-found__text">The page you're looking for cannot be found!</h1>
+    </div>
+{{/if}}
+
 
 
 {{#if this.showEditProfilePictureModal}}
@@ -70,7 +74,7 @@
       class='image-upload-modal'
       {{on-click-outside this.closeModal}}
     >
-      <button class='modal__close' type='button' {{on 'click' this.closeModal}}>
+      <button class='image-modal__close' type='button' {{on 'click' this.closeModal}}>
         <FaIcon @icon='xmark' @size='2x' />
       </button>
       <Profile::UploadImage

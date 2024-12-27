@@ -100,16 +100,6 @@
   object-fit: cover;
 }
 
-.btn {
-  width: 200px;
-  border: 1px solid black;
-  align-content: center;
-  background-color: #1c1282;
-  color: white;
-  margin-top: 20px;
-  border-radius: 5px;
-}
-
 .edit-btn {
   padding: 0;
   margin-top: 0.5rem;
@@ -142,6 +132,19 @@
   position: fixed;
   top: 0;
   z-index: 1;
+}
+
+.image-modal__close {
+  background-color: var(--close-bg);
+  border: none;
+  align-self: flex-end;
+  margin-right: 0.5rem;
+}
+
+@media screen and (width <= 480px) {
+  .image-modal__close {
+    margin-right: -0.5rem;
+  }
 }
 
 .image-upload-modal {

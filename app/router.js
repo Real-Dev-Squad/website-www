@@ -16,4 +16,5 @@ Router.map(function () {
   this.route('events');
   this.route('debug');
   this.route('subscribe');
+  this.route('profile');
 });

@@ -16,5 +16,9 @@
       {{on 'blur' this.checkInputValidation}}
     />
   </div>
-  <p data-test-profile-field-error class="profile-field-error-message">{{if @showError @errorMessage ''}}</p>
+  {{#if @showError}}
+  <p data-test-profile-field-error class="profile-field-error-message">
+    {{@errorMessage}}
+  </p>
+  {{/if}}
 </section>

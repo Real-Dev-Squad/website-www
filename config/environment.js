@@ -27,12 +27,15 @@ module.exports = function (environment) {
     },
   };
 
+  ENV.BASE_API_URL = 'https://api.realdevsquad.com';
   if (environment === 'production') {
+    ENV.BASE_API_URL = 'https://api.realdevsquad.com';
     ENV.fastboot.hostWhitelist = ['realdevsquad.com'];
     ENV.phoneInput.hasPrepend = true;
   }
 
   if (environment === 'staging') {
+    ENV.BASE_API_URL = 'https://api.realdevsquad.com';
     ENV.fastboot.hostWhitelist = ['beta.realdevsquad.com'];
     ENV.phoneInput.hasPrepend = true;
   }

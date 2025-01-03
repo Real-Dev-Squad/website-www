@@ -1,0 +1,73 @@
+{{#if @showUserStateModal}}
+  <div class="overlay">
+    <div class="status-modal" data-test-modal>
+      <div class="modal__inputs">
+        <label
+          class="modal__inputs--description"
+          for="fromDate"
+          data-test-label-from
+        >From</label>
+        <Input
+          id="fromDate"
+          name="fromDate"
+          @type="date"
+          min={{this.disableDatesPrior}}
+          @value={{this.fromDate}}
+          {{on "change" this.updateValue}}
+          data-test-date-picker-from
+        />
+        <label
+          class="modal__inputs--description"
+          for="untilDate"
+          data-test-label-until
+        >Until</label>
+        <Input
+          id="untilDate"
+          name="untilDate"
+          @type="date"
+          min={{if this.fromDate this.fromDate this.disableDatesPrior}}
+          @value={{this.untilDate}}
+          {{on "change" this.updateValue}}
+          data-test-date-picker-until
+        />
+
+        <label
+          class="modal__inputs--description"
+          for="reason"
+          data-test-label-reason
+        >Reason</label>
+
+        <textarea
+          id="reason"
+          name="reason"
+          class="modal__text-area"
+          value={{this.reason}}
+          {{on "input" this.handleInput}}
+          data-test-textarea-reason
+        ></textarea>
+
+      </div>
+      <button
+        disabled={{this.disableSubmitButton}}
+        type="button"
+        class={{if
+          this.disableSubmitButton
+          "modal__submit--disabled"
+          "modal__submit"
+        }}
+        {{on "click" this.getCurrentStatusObj}}
+        data-test-submit-button
+      >
+        Submit
+      </button>
+      <button
+        type="button"
+        class="modal__close"
+        {{on "click" this.onCancelModal}}
+        data-test-cancel-button
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+{{/if}}

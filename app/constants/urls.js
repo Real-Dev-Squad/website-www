@@ -67,7 +67,8 @@ export const ABOUT = {
 };
 
 export const AUTH = {
-  SIGN_IN: `${APPS.API_BACKEND}/auth/github/login`,
+  GITHUB_SIGN_IN: `${APPS.API_BACKEND}/auth/github/login`,
+  GOOGLE_SIGN_IN: `${APPS.API_BACKEND}/auth/google/login?dev=true`,
   SIGN_UP: `${APPS.PROFILE}/new-signup`,
 };
 

@@ -45,6 +45,9 @@
 @import url("phone-input.module.css");
 @import url("login.module.css");
 @import url("identity.module.css");
+@import url("status-module.css");
+@import url("user-status.module.css");
+@import url("user-status-modal.module.css");
 
 * {
   margin: 0;
@@ -88,4 +91,12 @@ button {
 
 #toast-container > div {
   opacity: 1;
+}
+
+.loading {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
 }

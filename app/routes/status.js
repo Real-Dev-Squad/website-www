@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@emberjs/service';
-import ENV from '../../config/environment';
+import { inject as service } from '@ember/service';
+import fetch from 'fetch';
+import ENV from 'website-www/config/environment';
 import { USER_STATES } from '../constants/user-status';
 import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
 import redirectAuth from '../utils/redirect-auth';
@@ -15,8 +16,8 @@ export default class StatusRoute extends Route {
       });
       const userData = await response.json();
       if (response.status === 200) {
-        return userData?.data?.currentStatus?.status ?? USER_STATES.DNE;
-      } else if (response.status === 403) {
+        return userData?.data?.currentStatus?.state ?? USER_STATES.DNE;
+      } else if (response.status === 401) {
         this.toast.error(
           'You are not logged in. Please login to continue.',
           '',

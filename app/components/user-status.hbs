@@ -1,0 +1,68 @@
+{{#if @isStatusUpdating}}
+  loading...
+{{else}}
+  <div class="heading">
+    {{#each this.currentUserStatus as |currentStatus|}}
+      {{#if (eq @status currentStatus.status)}}
+        {{#if (eq currentStatus.status "ONBOARDING")}}
+          <div data-test-onboarding-details class="onboarding-details">
+            <h2 data-test-status>You are undergoing onboarding</h2>
+            <p data-test-details>
+              If you are a Developer, please complete your submission for
+              <a href="https://github.com/Real-Dev-Squad/lift-simulation">Lift
+                Simulation</a>, and ask for doubts in the team chat on Discord.
+            </p>
+            <p data-test-details>If you are not a developer, please contact
+              Ankush for next steps.</p>
+          </div>
+        {{else}}
+          <h2 data-test-status>{{currentStatus.message}}</h2>
+        {{/if}}
+      {{/if}}
+    {{/each}}
+  </div>
+
+  <div class="buttons">
+    {{#each this.currentUserStatus as |currentStatus|}}
+      {{#if (eq @status currentStatus.status)}}
+        {{#if @dev}}
+          <button
+            data-test-request-status-OOO
+            class="buttons__request--ooo"
+            type="button"
+            {{on "click" this.changeStatus}}
+          >
+            <span>Request OOO Status</span>
+          </button>
+        {{else}}
+          {{#if (eq currentStatus.status "OOO")}}
+            <button
+              data-test-cancel-status-OOO
+              class="buttons__cancel--ooo"
+              type="button"
+              disabled={{@isStatusUpdating}}
+              {{on "click" (fn this.cancelOOOStatus currentStatus.status)}}
+            >
+              <span>Cancel OOO</span>
+            </button>
+          {{else}}
+            {{#each
+              currentStatus.otherAvailableStatus
+              as |otherPossibleStatus|
+            }}
+              <button
+                data-test-update-status-OOO
+                class={{otherPossibleStatus.class}}
+                type="button"
+                disabled={{@isStatusUpdating}}
+                {{on "click" (fn this.changeStatus otherPossibleStatus.status)}}
+              >
+                <span>{{otherPossibleStatus.message}}</span>
+              </button>
+            {{/each}}
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    {{/each}}
+  </div>
+{{/if}}

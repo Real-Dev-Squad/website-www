@@ -23,6 +23,8 @@
       />
     {{else if (eq this.state 'step3')}}
       <Identity::Step3 @setState={{this.setState}} />
+     {{else if (eq this.state 'reload')}}
+      <Identity::Reload />
     {{/if}}
   </div>
   

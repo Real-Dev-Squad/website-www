@@ -16,6 +16,11 @@
       <Identity::GetStarted @setState={{this.setState}} />
     {{else if (eq this.state 'step1')}}
       <Identity::Step1 @setState={{this.setState}} />
+    {{else if (eq this.state 'step2')}}
+      <Identity::Step2
+        @setState={{this.setState}}
+        @profileURL={{this.profileURL}}
+      />
     {{/if}}
   </div>
   

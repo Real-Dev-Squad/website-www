@@ -171,6 +171,18 @@
   }
 }
 
+.identity-copy-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
 @media (height <= 870px) and (width >= 460px) {
   .identity-rds-logo {
     width: 174px;
@@ -198,5 +210,92 @@
     padding: 10px;
     font-size: 16px;
     margin-top: 18px;
+  }
+}
+
+.identity-next-button {
+  border-radius: 15px;
+  background: #1d1283;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 25%);
+  padding: 12px 24px;
+  color: #fff;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+}
+
+@media (width <= 460px) {
+  .identity-box-input {
+    width: 90%;
+  }
+
+  .identity-chaincode-box {
+    font-size: 12px;
+  }
+
+  .identity-chaincode-copy-box {
+    width: 90%;
+  }
+
+  .identity-box-button {
+    font-size: 12px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .identity-next-button {
+    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    bottom: 4%;
+  }
+
+  .identity-hero {
+    width: 50%;
+  }
+
+  .identity-box {
+    border-radius: 25px;
+  }
+
+  .identity-rds-logo {
+    margin-top: 5%;
+    margin-bottom: 0;
+    height: 100px;
+    width: 100px;
+  }
+
+  .identity-header-hero {
+    position: absolute;
+    width: 20%;
+    right: 12px;
+    top: 8px;
+  }
+
+  .identity-box-heading {
+    font-size: 16px;
+  }
+
+  .identity-box-desc {
+    font-size: 12px;
+  }
+
+  .identity-heading {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .identity-box-desc-bold {
+    font-size: 12px;
+  }
+
+  .identity-box-desc-a {
+    font-size: 12px;
   }
 }

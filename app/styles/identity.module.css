@@ -230,6 +230,30 @@
   bottom: 8%;
 }
 
+.identity-box-input {
+  border: 1px solid rgb(0 0 0 / 50%);
+  background: #fff;
+  width: 50%;
+  margin-top: 16px;
+  padding: 8px;
+  color: #0000af;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 8px;
+}
+
+.identity-box-input::placeholder {
+  color: #808080;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 @media (width <= 460px) {
   .identity-box-input {
     width: 90%;

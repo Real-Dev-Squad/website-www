@@ -254,6 +254,13 @@
   line-height: normal;
 }
 
+.identity-box-input-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 @media (width <= 460px) {
   .identity-box-input {
     width: 90%;

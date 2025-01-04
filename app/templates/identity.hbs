@@ -21,6 +21,8 @@
         @setState={{this.setState}}
         @profileURL={{this.profileURL}}
       />
+    {{else if (eq this.state 'step3')}}
+      <Identity::Step3 @setState={{this.setState}} />
     {{/if}}
   </div>
   

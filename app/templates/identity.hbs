@@ -25,6 +25,8 @@
       <Identity::Step3 @setState={{this.setState}} />
      {{else if (eq this.state 'reload')}}
       <Identity::Reload />
+       {{else if (eq this.state 'verified')}}
+      <Identity::Verified />
     {{/if}}
   </div>
   

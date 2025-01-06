@@ -9,6 +9,12 @@ const BASE_URL = APPS.API_BACKEND;
 
 export default class StatusRoute extends Route {
   @service toast;
+  @service router;
+  beforeModel(transition) {
+    if (transition?.to?.queryParams?.dev !== 'true') {
+      this.router.transitionTo('/page-not-found');
+    }
+  }
   async model() {
     try {
       const response = await fetch(`${BASE_URL}/users/status/self`, {

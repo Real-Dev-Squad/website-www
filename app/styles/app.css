@@ -44,6 +44,7 @@
 @import url("subscribe.module.css");
 @import url("phone-input.module.css");
 @import url("login.module.css");
+@import url("identity.module.css");
 
 * {
   margin: 0;

@@ -8,6 +8,7 @@ export const APPS = {
   TASKS: 'https://my.realdevsquad.com/tasks',
   IDENTITY: 'https://my.realdevsquad.com/identity',
   MY_STATUS: 'https://my.realdevsquad.com',
+  STAGING_API_BACKEND: 'https://staging-api.realdevsquad.com',
 };
 
 export const ABOUT = {

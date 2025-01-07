@@ -1,26 +1,94 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | user-status', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<UserStatus />`);
-
-    assert.dom().hasText('');
-
-    // Template block usage:
+  test('show relevant data when status is Onboarding', async (assert) => {
+    this.setProperties({
+      changeStatus: () => {},
+      updateStatus: () => {},
+      status: 'ONBOARDING',
+      isStatusUpdating: false,
+    });
     await render(hbs`
-      <UserStatus>
-        template block text
-      </UserStatus>
+      <UserStatus 
+        @status={{this.status}} 
+        @changeStatus={{this.changeStatus}} 
+        @isStatusUpdating={{this.isStatusUpdating}}
+        @updateStatus={{this.updateStatus}}
+      />`);
+
+    assert.dom('[data-test-onboarding-details]').exists();
+    assert
+      .dom('[data-test-status]')
+      .containsText('You are undergoing onboarding');
+  });
+
+  test('show relevant data when status is IDLE', async (assert) => {
+    this.setProperties({
+      changeStatus: () => {},
+      updateStatus: () => {},
+      status: 'IDLE',
+      isStatusUpdating: false,
+    });
+    await render(hbs`
+      <UserStatus 
+        @status={{this.status}} 
+        @changeStatus={{this.changeStatus}} 
+        @isStatusUpdating={{this.isStatusUpdating}}
+        @updateStatus={{this.updateStatus}}
+      />
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom('[data-test-status]').containsText('You are Idle');
+    assert
+      .dom('[data-test-update-status-OOO]')
+      .containsText('Change your status to OOO');
+  });
+
+  test('show relevant data when status is OOO', async (assert) => {
+    this.setProperties({
+      status: 'OOO',
+      isStatusUpdating: false,
+      changeStatus: () => {},
+      updateStatus: () => {},
+    });
+    await render(hbs`
+        <UserStatus 
+          @status={{this.status}} 
+          @changeStatus={{this.changeStatus}} 
+          @isStatusUpdating={{this.isStatusUpdating}}
+          @updateStatus={{this.updateStatus}}
+        />
+    `);
+
+    assert.dom('[data-test-status]').containsText('You are OOO');
+    assert.dom('[ data-test-cancel-status-OOO]').hasProperty('button');
+    assert.dom('[ data-test-cancel-status-OOO]').containsText('Cancel OOO');
+  });
+
+  test('payload shows relevant data when status is changed from OOO', async (assert) => {
+    assert.expect(1);
+    this.setProperties({
+      status: 'OOO',
+      isStatusUpdating: false,
+      changeStatus: () => {},
+      updateStatus: (cancelOOOPayload) => {
+        const { cancelOoo } = cancelOOOPayload;
+        assert.true(cancelOoo, 'cancel OOO status');
+      },
+    });
+    await render(hbs`
+      <UserStatus 
+        @status={{this.status}} 
+        @changeStatus={{this.changeStatus}} 
+        @isStatusUpdating={{this.isStatusUpdating}}
+        @updateStatus={{this.updateStatus}}
+      />
+  `);
+    await click('.buttons__cancel--ooo');
   });
 });

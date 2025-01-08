@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | user-status', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('show relevant data when status is Onboarding', async (assert) => {
+  test('show relevant data when status is Onboarding', async function (assert) {
     this.setProperties({
       changeStatus: () => {},
       updateStatus: () => {},
@@ -27,7 +27,7 @@ module('Integration | Component | user-status', function (hooks) {
       .containsText('You are undergoing onboarding');
   });
 
-  test('show relevant data when status is IDLE', async (assert) => {
+  test('show relevant data when status is IDLE', async function (assert) {
     this.setProperties({
       changeStatus: () => {},
       updateStatus: () => {},
@@ -49,7 +49,7 @@ module('Integration | Component | user-status', function (hooks) {
       .containsText('Change your status to OOO');
   });
 
-  test('show relevant data when status is OOO', async (assert) => {
+  test('show relevant data when status is OOO', async function (assert) {
     this.setProperties({
       status: 'OOO',
       isStatusUpdating: false,
@@ -70,7 +70,7 @@ module('Integration | Component | user-status', function (hooks) {
     assert.dom('[ data-test-cancel-status-OOO]').containsText('Cancel OOO');
   });
 
-  test('payload shows relevant data when status is changed from OOO', async (assert) => {
+  test('payload shows relevant data when status is changed from OOO', async function (assert) {
     assert.expect(1);
     this.setProperties({
       status: 'OOO',

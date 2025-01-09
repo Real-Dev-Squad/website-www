@@ -18,7 +18,7 @@
 
 .identity-heading {
   font-family: Hanuman, serif;
-  color: #000;
+  color: var(--color-black);
   text-align: center;
   font-size: 28px;
   font-style: normal;
@@ -33,9 +33,9 @@
   max-width: 90%;
   margin-top: 24px;
   border-radius: 47px;
-  border: 1px solid rgb(0 0 0 / 25%);
-  background: #fff;
-  box-shadow: 3px 3px 3px 0 rgb(0 0 0 / 25%);
+  border: 1px solid var(--color-black-25);
+  background: var(--color-white);
+  box-shadow: var(--color-black-shadow-3);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,7 +44,7 @@
 }
 
 .identity-box-heading {
-  color: #1d1283;
+  color: var(--color-navyblue);
   text-align: center;
   font-family: Inter, sans-serif;
   font-size: 26px;
@@ -55,7 +55,7 @@
 }
 
 .identity-box-desc {
-  color: #000;
+  color: var(--color-black);
   font-family: Inter, sans-serif;
   font-size: 21px;
   font-style: normal;
@@ -65,7 +65,7 @@
 }
 
 .identity-box-desc-bold {
-  color: #000;
+  color: var(--color-black);
   font-family: Inter, sans-serif;
   font-size: 17px;
   font-style: normal;
@@ -74,7 +74,7 @@
 }
 
 .identity-box-desc-a {
-  color: #0000af;
+  color: var(--color-navy-link);
   font-family: Inter, sans-serif;
   font-size: 15px;
   font-style: normal;
@@ -107,8 +107,8 @@
 .identity-box-button {
   padding: 12px;
   border-radius: 15px;
-  background: #1d1283;
-  color: #fff;
+  background: var(--color-navyblue);
+  color: var(--color-white);
   text-align: center;
   font-family: Inter, sans-serif;
   font-size: 18px;
@@ -171,10 +171,22 @@
   }
 }
 
+.identity-copy-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
 @media (height <= 870px) and (width >= 460px) {
   .identity-rds-logo {
     width: 174px;
-    margin-top: 3%;
+    margin-top: 6%;
   }
 
   .identity-heading {
@@ -198,5 +210,92 @@
     padding: 10px;
     font-size: 16px;
     margin-top: 18px;
+  }
+}
+
+.identity-next-button {
+  border-radius: 15px;
+  background: var(--color-navyblue);
+  box-shadow: var(--color-black-shadow-8);
+  padding: 12px 24px;
+  color: var(--color-white);
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+}
+
+@media (width <= 460px) {
+  .identity-box-input {
+    width: 90%;
+  }
+
+  .identity-chaincode-box {
+    font-size: 12px;
+  }
+
+  .identity-chaincode-copy-box {
+    width: 90%;
+  }
+
+  .identity-box-button {
+    font-size: 12px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .identity-next-button {
+    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    bottom: 4%;
+  }
+
+  .identity-hero {
+    width: 50%;
+  }
+
+  .identity-box {
+    border-radius: 25px;
+  }
+
+  .identity-rds-logo {
+    margin-top: 5%;
+    margin-bottom: 0;
+    height: 100px;
+    width: 100px;
+  }
+
+  .identity-header-hero {
+    position: absolute;
+    width: 20%;
+    right: 12px;
+    top: 8px;
+  }
+
+  .identity-box-heading {
+    font-size: 16px;
+  }
+
+  .identity-box-desc {
+    font-size: 12px;
+  }
+
+  .identity-heading {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .identity-box-desc-bold {
+    font-size: 12px;
+  }
+
+  .identity-box-desc-a {
+    font-size: 12px;
   }
 }

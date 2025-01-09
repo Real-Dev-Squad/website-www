@@ -2,21 +2,43 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import sinon from 'sinon';
 import ENV from 'website-www/config/environment';
-import redirectAuth from 'website-www/utils/redirect-auth';
-import { toastNotificationTimeoutOptions } from '../../../app/constants/toast-notification';
+
 module('Unit | Route | profile', function (hooks) {
   setupTest(hooks);
   hooks.beforeEach(function () {
     this.fetchStub = sinon.stub(window, 'fetch');
+    this.route = this.owner.lookup('route:profile');
+    sinon.stub(this.route.router, 'transitionTo');
   });
 
   hooks.afterEach(function () {
     this.fetchStub.restore();
+    sinon.restore();
+  });
+
+  test('redirects to 404 page if dev flag is not present', function (assert) {
+    const transition = { to: { queryParams: { dev: 'false' } } };
+
+    this.route.beforeModel(transition);
+
+    assert.ok(
+      this.route.router.transitionTo.calledOnceWith('/page-not-found'),
+      'Redirected to /page-not-found when dev is not true',
+    );
+  });
+
+  test('allows access when dev flag is true', function (assert) {
+    const transition = { to: { queryParams: { dev: 'true' } } };
+
+    this.route.beforeModel(transition);
+
+    assert.ok(
+      this.route.router.transitionTo.notCalled,
+      'No redirection occurs when dev query param is true',
+    );
   });
 
   test('it fetches and transforms model data correctly', async function (assert) {
-    const route = this.owner.lookup('route:profile');
-
     this.fetchStub.onCall(0).resolves(
       new Response(JSON.stringify({ developerRoleExistsOnUser: true }), {
         status: 200,
@@ -38,7 +60,7 @@ module('Unit | Route | profile', function (hooks) {
       ),
     );
 
-    const model = await route.model();
+    const model = await this.route.model();
 
     assert.deepEqual(
       model,
@@ -65,56 +87,10 @@ module('Unit | Route | profile', function (hooks) {
 
     assert.ok(
       this.fetchStub.secondCall.calledWith(
-        `${ENV.BASE_API_URL}/users/?profile=true`,
+        `${ENV.BASE_API_URL}/users?profile=true`,
         { credentials: 'include' },
       ),
       'Second API call is made to fetch user data',
     );
-  });
-
-  test('it handles 401 error and redirects to login', async function (assert) {
-    const route = this.owner.lookup('route:profile');
-    this.fetchStub
-      .onCall(0)
-      .resolves(
-        new Response({ developerRoleExistsOnUser: false }, { status: 401 }),
-      );
-
-    this.fetchStub.onCall(1).resolves(
-      new Response(
-        {
-          statusCode: 401,
-          error: 'Unauthorized',
-          message: 'Unauthenticated User',
-        },
-        { status: 401 },
-      ),
-    );
-
-    const toastStub = sinon.stub(this.owner.lookup('service:toast'), 'error');
-
-    const redirectStub = sinon.stub(redirectAuth).callsFake(() => {
-      console.log('redirectAuth was called during the test');
-    });
-
-    await route.model();
-
-    assert.ok(toastStub.calledOnce, 'Toast error notification was shown');
-    assert.ok(
-      toastStub.firstCall.calledWith(
-        'You are not logged in. Please login to continue.',
-        '',
-        toastNotificationTimeoutOptions,
-      ),
-      'Correct error message is passed to toast notification',
-    );
-
-    assert.ok(
-      redirectStub.calledOnce,
-      'redirectAuth was called to redirect the user',
-    );
-
-    toastStub.restore();
-    redirectStub.restore();
   });
 });

@@ -8,6 +8,12 @@ import redirectAuth from '../utils/redirect-auth';
 export default class ProfileRoute extends Route {
   @service toast;
   @service fastboot;
+  @service router;
+  beforeModel(transition) {
+    if (transition?.to?.queryParams?.dev !== 'true') {
+      this.router.transitionTo('/page-not-found');
+    }
+  }
   async model() {
     try {
       const res = await fetch(`${ENV.BASE_API_URL}/users/isDeveloper`, {
@@ -15,7 +21,7 @@ export default class ProfileRoute extends Route {
       });
       const { developerRoleExistsOnUser } = await res.json();
 
-      const response = await fetch(`${ENV.BASE_API_URL}/users/?profile=true`, {
+      const response = await fetch(`${ENV.BASE_API_URL}/users?profile=true`, {
         credentials: 'include',
       });
       const userData = await response.json();

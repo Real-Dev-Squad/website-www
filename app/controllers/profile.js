@@ -26,7 +26,7 @@ export default class ProfileController extends Controller {
   @tracked showEditProfilePictureModal = false;
   @tracked title = 'Profile Details';
   @tracked isSubmitDisabled = true;
-
+  @tracked userId = this.model.id || '';
   @tracked formData = {
     first_name: this.model.first_name,
     last_name: this.model.last_name,
@@ -149,14 +149,17 @@ export default class ProfileController extends Controller {
     e.preventDefault();
     const cleanReqObject = this.removeEmptyFields(this.formData);
     try {
-      const response = await fetch(`${BASE_URL}/users/?profile=true`, {
-        method: 'PATCH',
-        body: JSON.stringify(cleanReqObject),
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${BASE_URL}/users/${this.userId}?profile=true&dev=true`,
+        {
+          method: 'PATCH',
+          body: JSON.stringify(cleanReqObject),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
         },
-        credentials: 'include',
-      });
+      );
 
       const { status } = response;
       if (status === 204) {

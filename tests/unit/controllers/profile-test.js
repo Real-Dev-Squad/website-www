@@ -86,6 +86,9 @@ module('Unit | Controller | profile', function (hooks) {
       company: 'RDS',
     };
 
+    const userId = 'stYhhjzmiD9ZLS91xw01';
+    controller.userId = userId;
+
     const fetchStub = sinon.stub(window, 'fetch');
     fetchStub.resolves(new Response(null, { status: 204 }));
 
@@ -94,12 +97,15 @@ module('Unit | Controller | profile', function (hooks) {
     await controller.handleSubmit({ preventDefault: () => {} });
 
     assert.ok(
-      fetchStub.calledWithMatch(`${ENV.BASE_API_URL}/users/?profile=true`, {
-        method: 'PATCH',
-        body: JSON.stringify(controller.formData),
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-      }),
+      fetchStub.calledWithMatch(
+        `${ENV.BASE_API_URL}/users/${userId}?profile=true&dev=true`,
+        {
+          method: 'PATCH',
+          body: JSON.stringify(controller.formData),
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+        },
+      ),
       'API request is sent correctly',
     );
 

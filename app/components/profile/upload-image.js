@@ -71,7 +71,6 @@ export default class UploadImageComponent extends Component {
 
   @action onSubmit(e) {
     this.preventDefaults(e);
-
     this.formData.set('coordinates', JSON.stringify(this.imageCoordinates));
     this.uploadImage(this.formData);
   }

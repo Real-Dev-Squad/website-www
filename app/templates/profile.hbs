@@ -1,15 +1,9 @@
 {{page-title 'Profile'}}
-
-
-
-
- {{#if this.isDev}}
-
-<div class='profile-container'>
-  <form class='profile-form' {{on 'submit' this.handleSubmit}}>
+  <div class='profile-container'>
+   <form class='profile-form' {{on 'submit' this.handleSubmit}}>
     <div class='picture_container'>
       {{#if @model.picture.url}}
-        <img class='user__pic' src={{@model.picture.url}} alt='user profile ' />
+        <img class='user__pic' src="{{@model.picture.url}}?nocache={{this.nocacheToken}}" alt='user profile ' />
       {{else}}
         <img
           class='user__pic'
@@ -22,8 +16,7 @@
          @class='profile-edit-button'
          @data-test-btn='edit'>
           <FaIcon @icon="edit" />
-        </Button>
-
+       </Button>
     </div>
     <div class='profile-form-grid'>
         <p class='profile-page-error'>You can't update the profile data from UI.
@@ -58,13 +51,6 @@
     >Submit</button>
   </form>
 </div>
-{{else}}
-   <div class="not-found">
-     <img class="not-found__img" src="/assets/images/page-not-found.png" alt="page-not-found">
-         <h1 class="not-found__text">The page you're looking for cannot be found!</h1>
-    </div>
-{{/if}}
-
 
 
 {{#if this.showEditProfilePictureModal}}

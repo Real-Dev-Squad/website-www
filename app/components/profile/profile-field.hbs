@@ -2,12 +2,11 @@
   <label data-test-profile-field-label class='profile-field-label' for={{@id}}>{{@label}}</label>
   <div class="profile-field-input-container">
     <img data-test-profile-field-icon src={{@icon_url}} alt="">
-    {{!-- template-lint-disable builtin-component-arguments --}}
     <Input 
       data-test-profile-field-input
-      type="text" 
+      @type="text" 
       id={{@id}}
-      value={{@value}}
+      @value={{@value}}
       placeholder={{@placeholder}} 
       class="profile-field-input"
       required={{@required}}

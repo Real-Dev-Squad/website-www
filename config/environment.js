@@ -35,7 +35,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'staging') {
-    ENV.BASE_API_URL = 'https://api.realdevsquad.com';
+    ENV.BASE_API_URL = 'https://staging-api.realdevsquad.com';
     ENV.fastboot.hostWhitelist = ['beta.realdevsquad.com'];
     ENV.phoneInput.hasPrepend = true;
   }
@@ -46,6 +46,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.BASE_API_URL = 'https://staging-api.realdevsquad.com';
   }
 
   if (environment === 'test') {

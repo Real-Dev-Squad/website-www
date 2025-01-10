@@ -158,7 +158,6 @@ export default class UserStatusModalComponent extends Component {
 
   @action
   onCancelModal() {
-    console.log('Cancel button clicked');
     this.resetInputFields();
     this.args.toggleUserStateModal();
   }

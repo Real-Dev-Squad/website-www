@@ -54,7 +54,7 @@ export default class StatusController extends Controller {
           }
         });
     } catch (error) {
-      console.error('Error : ', error);
+      console.error('Error: ', error);
       this.toast.error(
         'Status Update failed. Something went wrong.',
         '',
@@ -67,6 +67,7 @@ export default class StatusController extends Controller {
 
   @action
   async statusUpdateDevApi(from, until, message) {
+    this.isStatusUpdating = true;
     const statusRequestBody = {
       type: 'OOO',
       from: getUTCMidnightTimestampFromDate(from),

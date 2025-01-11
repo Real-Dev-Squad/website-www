@@ -1,0 +1,73 @@
+{{page-title 'Profile'}}
+  <div class='profile-container'>
+   <form class='profile-form' {{on 'submit' this.handleSubmit}}>
+    <div class='picture_container'>
+      {{#if @model.picture.url}}
+        <img class='user__pic' src="{{@model.picture.url}}?nocache={{this.nocacheToken}}" alt='user profile ' />
+      {{else}}
+        <img
+          class='user__pic'
+          src="/assets/images/dummyProfilePicture.png"
+          alt='user profile'
+        />
+      {{/if}}
+
+       <Button @onClick={{this.handleShowEditProfilePictureModal}}
+         @class='profile-edit-button'
+         @data-test-btn='edit'>
+          <FaIcon @icon="edit" />
+       </Button>
+    </div>
+    <div class='profile-form-grid'>
+        <p class='profile-page-error'>You can't update the profile data from UI.
+          You have to create a profile service(if not created yet). Find more
+          details about profile service
+          <a
+            href='https://github.com/Real-Dev-Squad/sample-profile-service'
+            target='_blank'
+            rel="noopener noreferrer"
+          >here</a>.</p>
+      {{#each this.fields as |field|}}
+        <Profile::ProfileField
+          @id={{field.id}}
+          @type={{field.type}}
+          @value={{get @model field.id}}
+          @placeholder={{field.placeholder}}
+          @label={{field.label}}
+          @icon_url={{field.icon_url}}
+          @errorMessage={{field.errorMessage}}
+          @showError={{field.showError}}
+          @required={{field.required}}
+          @onChange={{this.handleFieldChange}}
+          @onBlur={{this.handleFieldValidation}}
+          @isDeveloper={{get @model 'isDeveloper'}}
+        />
+      {{/each}}
+    </div>
+    <button
+      type='submit'
+      class='profile-form-submit'
+      disabled={{this.isSubmitDisabled}}
+    >Submit</button>
+  </form>
+</div>
+
+
+{{#if this.showEditProfilePictureModal}}
+  <div class='model_background'>
+    <section
+      data-test-modal='image-upload'
+      class='image-upload-modal'
+      {{on-click-outside this.closeModal}}
+    >
+      <button class='image-modal__close' type='button' {{on 'click' this.closeModal}}>
+        <FaIcon @icon='xmark' @size='2x' />
+      </button>
+      <Profile::UploadImage
+        @uploadUrl={{this.imageUploadUrl}}
+        @formKeyName={{this.formDataKeyName}}
+        @outsideClickModel={{this.closeModal}}
+      />
+    </section>
+  </div>
+{{/if}}

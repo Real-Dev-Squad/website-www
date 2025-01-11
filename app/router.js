@@ -19,4 +19,5 @@ Router.map(function () {
   this.route('login');
   this.route('identity');
   this.route('discord');
+  this.route('profile');
 });

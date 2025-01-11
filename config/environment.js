@@ -27,14 +27,17 @@ module.exports = function (environment) {
     },
   };
 
+  ENV.BASE_API_URL = 'https://api.realdevsquad.com';
   if (environment === 'production') {
     ENV.fastboot.hostWhitelist = ['realdevsquad.com'];
     ENV.phoneInput.hasPrepend = true;
+    ENV.BASE_API_URL = 'https://api.realdevsquad.com';
   }
 
   if (environment === 'staging') {
     ENV.fastboot.hostWhitelist = ['beta.realdevsquad.com'];
     ENV.phoneInput.hasPrepend = true;
+    ENV.BASE_API_URL = 'https://staging-api.realdevsquad.com';
   }
 
   if (environment === 'development') {
@@ -43,6 +46,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.BASE_API_URL = '';
   }
 
   if (environment === 'test') {

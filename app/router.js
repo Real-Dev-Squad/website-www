@@ -18,4 +18,5 @@ Router.map(function () {
   this.route('subscribe');
   this.route('login');
   this.route('identity');
+  this.route('profile');
 });

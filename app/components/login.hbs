@@ -1,0 +1,32 @@
+<div class="login__container">
+  <LinkTo data-test-home-link @route={{"index"}}>
+    <img
+      class="logo__img"
+      src="assets/images/rds-logo.png"
+      alt="RealDevSquad"
+    />
+  </LinkTo>
+  <h3>
+    Sign In to
+    <br />
+    <span>Real Dev Squad</span>
+  </h3>
+
+  <Reusables::LoginLink
+    @label="For Developers:"
+    @auth="github"
+    @authUrl={{this.AUTH_URL.GITHUB}}
+    @signInText="Sign In with GitHub"
+    @iconSrc="assets/icons/github-logo.png"
+    @altText="GitHub"
+  />
+
+  <Reusables::LoginLink
+    @label="For Designers/PMs:"
+    @auth="google"
+    @authUrl={{this.AUTH_URL.GOOGLE}}
+    @signInText="Sign In with Google"
+    @iconSrc="assets/icons/google-logo.png"
+    @altText="Google"
+  />
+</div>

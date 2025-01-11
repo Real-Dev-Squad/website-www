@@ -1,0 +1,35 @@
+{{page-title "Identity"}}
+
+<div class="identity-page">
+  <img alt="header" class="identity-header" src="/assets/images/identity/header.svg" />
+  <img alt="hero" class="identity-hero" src="/assets/images/identity/hero.svg" />
+  <img alt="rds" class="identity-rds-logo" src="/assets/images/identity/logo.svg" />
+
+  {{#if (eq this.initialState "getStarted")}}
+    <div class="identity-heading">
+      Connect your Profile Service with Identity Service
+    </div>
+  {{/if}}
+  
+  <div class="identity-box">
+    {{#if (eq this.state "getStarted")}}
+      <Identity::GetStarted @setState={{this.setState}} />
+    {{else if (eq this.state 'step1')}}
+      <Identity::Step1 @setState={{this.setState}} />
+    {{/if}}
+  </div>
+  
+  <img
+    alt='header-hero'
+    class='identity-header-hero'
+    src='/assets/images/identity/header-hero.svg'
+    width='10%'
+  />
+  <img
+    alt='footer'
+    class='identity-footer'
+    src='/assets/images/identity/footer.svg'
+    width='100%'
+  />
+</div>
+

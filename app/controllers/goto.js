@@ -52,7 +52,7 @@ export default class GotoController extends Controller {
   }
 
   async getSelfUser() {
-    const response = await fetch(`${APPS.API_BACKEND}/users/self`, {
+    const response = await fetch(`${APPS.API_BACKEND}/users?profile=true`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

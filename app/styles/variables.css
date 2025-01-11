@@ -16,6 +16,7 @@
   --color-blackshadow2: #3c404326;
   --color-backdrop: #0006;
   --color-pink: #e30162;
+  --color-pink-light: #e32476;
   --color-carmine: #a10829;
   --color-soft-magenta: #f5c4f1;
   --color-pink-low-opacity: #e301632e;
@@ -65,4 +66,8 @@
   --modal-text: #000;
   --modal-title-text: #000;
   --close-bg: #fff;
+  --color-black-25: rgb(0 0 0 / 25%);
+  --color-black-shadow-3: 3px 3px 3px 0 rgb(0 0 0 / 25%);
+  --color-black-shadow-8: 0 4px 8px 0 rgb(0 0 0 / 25%);
+  --color-navy-link: #0000af;
 }

@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanuman:wght@700&family=Inter:wght@400;700&display=swap");
+
+.identity-page {
+  height: 91.5vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.identity-hero {
+  width: 25%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.identity-heading {
+  font-family: Hanuman, serif;
+  color: var(--color-black);
+  text-align: center;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.identity-box {
+  position: relative;
+  height: 252px;
+  width: 656px;
+  max-width: 90%;
+  margin-top: 24px;
+  border-radius: 47px;
+  border: 1px solid var(--color-black-25);
+  background: var(--color-white);
+  box-shadow: var(--color-black-shadow-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.identity-box-heading {
+  color: var(--color-navyblue);
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 12px;
+}
+
+.identity-box-desc {
+  color: var(--color-black);
+  font-family: Inter, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.identity-box-desc-bold {
+  color: var(--color-black);
+  font-family: Inter, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.identity-box-desc-a {
+  color: var(--color-navy-link);
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.identity-rds-logo {
+  width: 214px;
+  margin-top: 6%;
+}
+
+.identity-header-hero {
+  position: absolute;
+  right: 22px;
+  top: 32px;
+}
+
+.identity-header {
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.identity-footer {
+  bottom: 0;
+  position: absolute;
+}
+
+.identity-box-button {
+  padding: 12px;
+  border-radius: 15px;
+  background: var(--color-navyblue);
+  color: var(--color-white);
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 20px;
+}
+
+@media (width <= 460px) {
+  .identity-box-button {
+    font-size: 12px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .identity-hero {
+    width: 50%;
+  }
+
+  .identity-box {
+    border-radius: 25px;
+  }
+
+  .identity-rds-logo {
+    margin-top: 5%;
+    margin-bottom: 0;
+    height: 100px;
+    width: 100px;
+  }
+
+  .identity-header-hero {
+    position: absolute;
+    width: 20%;
+    right: 12px;
+    top: 8px;
+  }
+
+  .identity-box-heading {
+    font-size: 16px;
+  }
+
+  .identity-box-desc {
+    font-size: 12px;
+  }
+
+  .identity-heading {
+    font-size: 16px;
+    max-width: 90%;
+    line-height: normal;
+    margin-top: 8px;
+  }
+
+  .identity-box-desc-bold {
+    font-size: 12px;
+  }
+
+  .identity-box-desc-a {
+    font-size: 12px;
+  }
+}
+
+.identity-copy-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+@media (height <= 870px) and (width >= 460px) {
+  .identity-rds-logo {
+    width: 174px;
+    margin-top: 6%;
+  }
+
+  .identity-heading {
+    font-size: 24px;
+  }
+
+  .identity-box {
+    height: 202px;
+    padding-top: 12px;
+  }
+
+  .identity-box-heading {
+    font-size: 22px;
+  }
+
+  .identity-box-desc {
+    font-size: 18px;
+  }
+
+  .identity-box-button {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 18px;
+  }
+}
+
+.identity-next-button {
+  border-radius: 15px;
+  background: var(--color-navyblue);
+  box-shadow: var(--color-black-shadow-8);
+  padding: 12px 24px;
+  color: var(--color-white);
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+}
+
+@media (width <= 460px) {
+  .identity-box-input {
+    width: 90%;
+  }
+
+  .identity-chaincode-box {
+    font-size: 12px;
+  }
+
+  .identity-chaincode-copy-box {
+    width: 90%;
+  }
+
+  .identity-box-button {
+    font-size: 12px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .identity-next-button {
+    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    bottom: 4%;
+  }
+
+  .identity-hero {
+    width: 50%;
+  }
+
+  .identity-box {
+    border-radius: 25px;
+  }
+
+  .identity-rds-logo {
+    margin-top: 5%;
+    margin-bottom: 0;
+    height: 100px;
+    width: 100px;
+  }
+
+  .identity-header-hero {
+    position: absolute;
+    width: 20%;
+    right: 12px;
+    top: 8px;
+  }
+
+  .identity-box-heading {
+    font-size: 16px;
+  }
+
+  .identity-box-desc {
+    font-size: 12px;
+  }
+
+  .identity-heading {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .identity-box-desc-bold {
+    font-size: 12px;
+  }
+
+  .identity-box-desc-a {
+    font-size: 12px;
+  }
+}

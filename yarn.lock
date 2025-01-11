@@ -4469,37 +4469,30 @@
   resolved "https://registry.yarnpkg.com/@simple-dom/void-map/-/void-map-1.4.0.tgz#f15f07568fe1076740407266aa5e6eac249bc78c"
   integrity sha512-VDhLEyVCbuhOBBgHol9ShzIv9O8UCzdXeH4FoXu2DOcu/nnvTjLTck+BgXsCLv5ynDiUdoqsREEVFnoyPpFKVw==
 
-"@sinonjs/commons@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-2.0.0.tgz#fd4ca5b063554307e8327b4564bd56d3b73924a3"
-  integrity sha512-uLa0j859mMrg2slwQYdO/AkrOfmH+X6LTVmNTS9CqexuE2IvVORIkSpJLqePAbEnKJ77aMmCwr1NUZ57120Xcg==
-  dependencies:
-    type-detect "4.0.8"
-
-"@sinonjs/commons@^3.0.0", "@sinonjs/commons@^3.0.1":
+"@sinonjs/commons@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-3.0.1.tgz#1029357e44ca901a615585f6d27738dbc89084cd"
   integrity sha512-K3mCHKQ9sVh8o1C9cxkwxaOmXoAMlDxC1mYyHrjqOWEcBjYr76t96zL2zlj5dUGZ3HSw240X1qgH3Mjf1yJWpQ==
   dependencies:
     type-detect "4.0.8"
 
-"@sinonjs/fake-timers@^11.2.2":
-  version "11.2.2"
-  resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-11.2.2.tgz#50063cc3574f4a27bd8453180a04171c85cc9699"
-  integrity sha512-G2piCSxQ7oWOxwGSAyFHfPIsyeJGXYtc6mFbnFA+kRXkiEnTl8c/8jul2S329iFBnDI9HGoeWWAZvuvOkZccgw==
+"@sinonjs/fake-timers@^13.0.1", "@sinonjs/fake-timers@^13.0.2":
+  version "13.0.5"
+  resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-13.0.5.tgz#36b9dbc21ad5546486ea9173d6bea063eb1717d5"
+  integrity sha512-36/hTbH2uaWuGVERyC6da9YwGWnzUZXuPro/F2LfsdOsLnCojz/iSH8MxUt/FD2S5XBSVPhmArFUXcpCQ2Hkiw==
   dependencies:
-    "@sinonjs/commons" "^3.0.0"
+    "@sinonjs/commons" "^3.0.1"
 
-"@sinonjs/samsam@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@sinonjs/samsam/-/samsam-8.0.0.tgz#0d488c91efb3fa1442e26abea81759dfc8b5ac60"
-  integrity sha512-Bp8KUVlLp8ibJZrnvq2foVhP0IVX2CIprMJPK0vqGqgrDa0OHVKeZyBykqskkrdxV6yKBPmGasO8LVjAKR3Gew==
+"@sinonjs/samsam@^8.0.1":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@sinonjs/samsam/-/samsam-8.0.2.tgz#e4386bf668ff36c95949e55a38dc5f5892fc2689"
+  integrity sha512-v46t/fwnhejRSFTGqbpn9u+LQ9xJDse10gNnPgAcxgdoCDMXj/G2asWAC/8Qs+BAZDicX+MNZouXT1A7c83kVw==
   dependencies:
-    "@sinonjs/commons" "^2.0.0"
+    "@sinonjs/commons" "^3.0.1"
     lodash.get "^4.4.2"
-    type-detect "^4.0.8"
+    type-detect "^4.1.0"
 
-"@sinonjs/text-encoding@^0.7.2":
+"@sinonjs/text-encoding@^0.7.3":
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.3.tgz#282046f03e886e352b2d5f5da5eb755e01457f3f"
   integrity sha512-DE427ROAphMQzU4ENbliGYrBSYPXF+TtLg9S8vzeA+OF4ZKzoDdzfL8sxuMUGS/lgRhM6j1URSk9ghf7Xo1tyA==
@@ -7615,6 +7608,11 @@ cosmiconfig@^8.2.0:
     parse-json "^5.2.0"
     path-type "^4.0.0"
 
+cropperjs@^1.5.12:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/cropperjs/-/cropperjs-1.6.2.tgz#d1a5d627d880581cca41b7901f06923500e4201b"
+  integrity sha512-nhymn9GdnV3CqiEHJVai54TULFAE3VshJTXSqSJKa8yXAKyBKDWdhHarnlIPrshJ0WMFTGuFvG02YjLXfPiuOA==
+
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -8202,10 +8200,10 @@ diff@^5.1.0:
   resolved "https://registry.yarnpkg.com/diff/-/diff-5.1.0.tgz#bc52d298c5ea8df9194800224445ed43ffc87e40"
   integrity sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==
 
-diff@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-5.2.0.tgz#26ded047cd1179b78b9537d5ef725503ce1ae531"
-  integrity sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==
+diff@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-7.0.0.tgz#3fb34d387cd76d803f6eebea67b921dab0182a9a"
+  integrity sha512-PJWHUb1RFevKCwaFA9RlG5tCd+FO5iRh9A8HEtkmBH2Li03iJriB6m6JIN4rGz3K3JLawI7/veA1xzRKP6ISBw==
 
 dir-glob@^3.0.1:
   version "3.0.1"
@@ -8584,17 +8582,18 @@ ember-cli-clean-css@3.0.0:
     clean-css "^5.3.2"
     json-stable-stringify "^1.0.1"
 
-ember-cli-clipboard@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-clipboard/-/ember-cli-clipboard-1.0.0.tgz#8d599610250348186b1cde40d2094e98a4e8a87b"
-  integrity sha512-PdsSnWK6OkPQJMxkw/J+5TU2uaVm5KCb9gk8fad/bhwkMjkl6TMvPNyFkqtfxVhh7tGfs0Ka4Xjsi6oQzyigeg==
+ember-cli-clipboard@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-clipboard/-/ember-cli-clipboard-1.2.1.tgz#69afcf9e92220660357f35a2d562994686f6c7ac"
+  integrity sha512-EVMH+Sd8EiegKomx7Uh1Gz8Kl3I9mzHnPygkkcG96NPKgqzKMUBuf/wjfDms+r7EHsPXQb4n5ILPGPo4HmDOLA==
   dependencies:
+    "@embroider/macros" "^1.10.0"
     clipboard "^2.0.11"
     ember-arg-types "^1.0.0"
     ember-auto-import "^2.4.2"
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.1.0"
-    ember-modifier "^3.2.7"
+    ember-modifier "^3.2.7 || ^4.1.0"
     prop-types "^15.8.1"
 
 ember-cli-dependency-checker@3.3.2:
@@ -8608,10 +8607,10 @@ ember-cli-dependency-checker@3.3.2:
     resolve "^1.22.0"
     semver "^5.7.1"
 
-ember-cli-fastboot@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-fastboot/-/ember-cli-fastboot-4.1.1.tgz#a16db66c7dce32c5450d7a4c34e3e96792c3ae31"
-  integrity sha512-9B/qJUfDVqRmZlXxP23V2AZ3hiez99DKT2cPJ0MWkjwRom/kmVJHvv5X4fxvT7MCokjOVFvzas79D5toV4GLIA==
+ember-cli-fastboot@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/ember-cli-fastboot/-/ember-cli-fastboot-4.1.5.tgz#31800c2b6c9d94bf050d27bf9f6b399bd7fe8c7c"
+  integrity sha512-XVigHzn+xXMqvovdrPNQHXRCzVOkU78ij6adU8Qt7PAaF3stR9oPh/35f30aJ2vcL6jwR72glnuCyXpm3EL22A==
   dependencies:
     broccoli-concat "^4.2.5"
     broccoli-file-creator "^2.1.1"
@@ -8619,12 +8618,12 @@ ember-cli-fastboot@4.1.1:
     broccoli-merge-trees "^4.2.0"
     broccoli-plugin "^4.0.7"
     chalk "^4.1.2"
-    ember-cli-babel "^7.26.6"
+    ember-cli-babel "^7.26.11"
     ember-cli-lodash-subset "^2.0.1"
     ember-cli-preprocess-registry "^3.3.0"
     ember-cli-version-checker "^5.1.2"
-    fastboot "4.1.1"
-    fastboot-express-middleware "4.1.1"
+    fastboot "4.1.5"
+    fastboot-express-middleware "4.1.2"
     fastboot-transform "^0.1.3"
     fs-extra "^10.0.0"
     json-stable-stringify "^1.0.1"
@@ -9178,7 +9177,7 @@ ember-modifier@4.1.0, "ember-modifier@^2.1.2 || ^3.0.0 || ^4.0.0", "ember-modifi
     ember-cli-normalize-entity-name "^1.0.0"
     ember-cli-string-utils "^1.1.0"
 
-"ember-modifier@^2.1.2 || ^3.1.0 || ^4.0.0", ember-modifier@^3.2.0, ember-modifier@^3.2.7:
+"ember-modifier@^2.1.2 || ^3.1.0 || ^4.0.0", ember-modifier@^3.2.0:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.7.tgz#f2d35b7c867cbfc549e1acd8d8903c5ecd02ea4b"
   integrity sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==
@@ -9188,6 +9187,16 @@ ember-modifier@4.1.0, "ember-modifier@^2.1.2 || ^3.0.0 || ^4.0.0", "ember-modifi
     ember-cli-string-utils "^1.1.0"
     ember-cli-typescript "^5.0.0"
     ember-compatibility-helpers "^1.2.5"
+
+"ember-modifier@^3.2.7 || ^4.1.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-4.2.0.tgz#f99cb817b9b85c5188c63f853cd06aa62e8dde57"
+  integrity sha512-BJ48eTEGxD8J7+lofwVmee7xDgNDgpr5dd6+MSu4gk+I6xb35099RMNorXY5hjjwMJEyi/IRR6Yn3M7iJMz8Zw==
+  dependencies:
+    "@embroider/addon-shim" "^1.8.7"
+    decorator-transforms "^2.0.0"
+    ember-cli-normalize-entity-name "^1.0.0"
+    ember-cli-string-utils "^1.1.0"
 
 ember-page-title@8.2.3:
   version "8.2.3"
@@ -9372,7 +9381,7 @@ ember-template-recast@^6.1.4:
     tmp "^0.2.1"
     workerpool "^6.4.0"
 
-ember-toastr@3.0.1:
+ember-toastr@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ember-toastr/-/ember-toastr-3.0.1.tgz#a9ddb421d920e0d81b70cf2bc3aea999d33f55f8"
   integrity sha512-4H9BuSfWgiBf0nTWbxnWl9zgLp/83RV3FkG4E0ANAEnGYEHs+V/ZiJNolVq5atlUbyl5bSYu+AqSNWu5Q33T5w==
@@ -10110,13 +10119,13 @@ fastboot-express-middleware@3.3.2:
     chalk "^4.1.2"
     fastboot "3.3.2"
 
-fastboot-express-middleware@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/fastboot-express-middleware/-/fastboot-express-middleware-4.1.1.tgz#44e7bfd04887f92a9491816ea36b7b3ae2d341bf"
-  integrity sha512-RzobJdJXtFLOp+QtQlRSEm4RjepprLDITyYxPzd7M8LTH9jo2COhG0NFz2LFcv9Jtqlp8IzKh/0w2+hOt7JZow==
+fastboot-express-middleware@4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/fastboot-express-middleware/-/fastboot-express-middleware-4.1.2.tgz#6a383c282fdc07ee3f90039701bb0dab11129179"
+  integrity sha512-vnzEBV7gZ3lSoGiqG/7+006nHNA3z+ZnU/5u9jPHtKpjH28yEbvZq6PnAeTu24UR98jZVR0pnFbfX0co+O9PeA==
   dependencies:
     chalk "^4.1.2"
-    fastboot "4.1.1"
+    fastboot "4.1.2"
 
 fastboot-transform@^0.1.3:
   version "0.1.3"
@@ -10139,10 +10148,23 @@ fastboot@3.3.2:
     simple-dom "^1.4.0"
     source-map-support "^0.5.21"
 
-fastboot@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/fastboot/-/fastboot-4.1.1.tgz#b686dc522ef805557ff76ded23328c486991cbaa"
-  integrity sha512-XG7YprsAuAGZrUDhmJ0NFuEP0gpWg9LZwGWSS1I5+f0ETHKPWqb4x59sN2rU1nvCEETBK70z68tLsWsl9daomg==
+fastboot@4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/fastboot/-/fastboot-4.1.2.tgz#65627882d03962818f0f5331ca052d2da209ba98"
+  integrity sha512-VJLmF0xdCNwIIuA7DQtN1KTAKfEGsbZGJ0cfKh64h6DeMh3Fhr2FCCxkPh8zYqGoqzjXFdFbtk60WS3f6HKqBg==
+  dependencies:
+    chalk "^4.1.2"
+    cookie "^0.4.1"
+    debug "^4.3.3"
+    jsdom "^19.0.0"
+    resolve "^1.22.0"
+    simple-dom "^1.4.0"
+    source-map-support "^0.5.21"
+
+fastboot@4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/fastboot/-/fastboot-4.1.5.tgz#ed24af3ed68a1a4428e8ff1dd0106c7edb2065ab"
+  integrity sha512-2FkJWrpxgJjy5kLb3KrYp0pKdB4WgT/6qxtQO7ozYtQqMBOAARMnp59xp/Hdosa1cE2jslZgwDAv3v11OlQfAw==
   dependencies:
     chalk "^4.1.2"
     cookie "^0.4.1"
@@ -12863,16 +12885,16 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-nise@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/nise/-/nise-6.0.0.tgz#ae56fccb5d912037363c3b3f29ebbfa28bde8b48"
-  integrity sha512-K8ePqo9BFvN31HXwEtTNGzgrPpmvgciDsFz8aztFjt4LqKO/JeFD8tBOeuDiCMXrIl/m1YvfH8auSpxfaD09wg==
+nise@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/nise/-/nise-6.1.1.tgz#78ea93cc49be122e44cb7c8fdf597b0e8778b64a"
+  integrity sha512-aMSAzLVY7LyeM60gvBS423nBmIPP+Wy7St7hsb+8/fc1HmeoHJfLO8CKse4u3BtOZvQLJghYPI2i/1WZrEj5/g==
   dependencies:
-    "@sinonjs/commons" "^3.0.0"
-    "@sinonjs/fake-timers" "^11.2.2"
-    "@sinonjs/text-encoding" "^0.7.2"
+    "@sinonjs/commons" "^3.0.1"
+    "@sinonjs/fake-timers" "^13.0.1"
+    "@sinonjs/text-encoding" "^0.7.3"
     just-extend "^6.2.0"
-    path-to-regexp "^6.2.1"
+    path-to-regexp "^8.1.0"
 
 no-case@^3.0.4:
   version "3.0.4"
@@ -13423,10 +13445,10 @@ path-to-regexp@0.1.7:
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==
 
-path-to-regexp@^6.2.1:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.2.2.tgz#324377a83e5049cbecadc5554d6a63a9a4866b36"
-  integrity sha512-GQX3SSMokngb36+whdpRXE+3f9V8UzyAorlYvOGx87ufGHehNTn5lCxrKtLyZ4Yl/wEKnNnr98ZzOwwDZV5ogw==
+path-to-regexp@^8.1.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-8.2.0.tgz#73990cc29e57a3ff2a0d914095156df5db79e8b4"
+  integrity sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==
 
 path-type@^4.0.0:
   version "4.0.0"
@@ -14704,17 +14726,17 @@ simple-html-tokenizer@^0.5.11:
   resolved "https://registry.yarnpkg.com/simple-html-tokenizer/-/simple-html-tokenizer-0.5.11.tgz#4c5186083c164ba22a7b477b7687ac056ad6b1d9"
   integrity sha512-C2WEK/Z3HoSFbYq8tI7ni3eOo/NneSPRoPpcM7WdLjFOArFuyXEjAoCdOC3DgMfRyziZQ1hCNR4mrNdWEvD0og==
 
-sinon@^18.0.0:
-  version "18.0.0"
-  resolved "https://registry.yarnpkg.com/sinon/-/sinon-18.0.0.tgz#69ca293dbc3e82590a8b0d46c97f63ebc1e5fc01"
-  integrity sha512-+dXDXzD1sBO6HlmZDd7mXZCR/y5ECiEiGCBSGuFD/kZ0bDTofPYc6JaeGmPSF+1j1MejGUWkORbYOLDyvqCWpA==
+sinon@^19.0.2:
+  version "19.0.2"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-19.0.2.tgz#944cf771d22236aa84fc1ab70ce5bffc3a215dad"
+  integrity sha512-euuToqM+PjO4UgXeLETsfQiuoyPXlqFezr6YZDFwHR3t4qaX0fZUe1MfPMznTL5f8BWrVS89KduLdMUsxFCO6g==
   dependencies:
     "@sinonjs/commons" "^3.0.1"
-    "@sinonjs/fake-timers" "^11.2.2"
-    "@sinonjs/samsam" "^8.0.0"
-    diff "^5.2.0"
-    nise "^6.0.0"
-    supports-color "^7"
+    "@sinonjs/fake-timers" "^13.0.2"
+    "@sinonjs/samsam" "^8.0.1"
+    diff "^7.0.0"
+    nise "^6.1.1"
+    supports-color "^7.2.0"
 
 slash@^3.0.0:
   version "3.0.0"
@@ -15249,7 +15271,7 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-supports-color@^7, supports-color@^7.0.0, supports-color@^7.1.0:
+supports-color@^7.0.0, supports-color@^7.1.0, supports-color@^7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
@@ -15714,7 +15736,7 @@ type-detect@4.0.8:
   resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
   integrity sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==
 
-type-detect@^4.0.8:
+type-detect@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.1.0.tgz#deb2453e8f08dcae7ae98c626b13dddb0155906c"
   integrity sha512-Acylog8/luQ8L7il+geoSxhEkazvkslg7PSNKOX59mbB9cOveP5aq9h74Y7YU8yDpJwetzQQrfIwtf4Wp4LKcw==

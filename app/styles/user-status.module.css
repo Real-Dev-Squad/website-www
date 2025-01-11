@@ -33,6 +33,7 @@
   color: var(--heading-h2-text);
   margin: 40px 0;
   font-size: 1.75rem;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -137,8 +138,12 @@
   cursor: pointer;
 }
 
-@media (width <= 460px) {
+@media (width <=460px) {
   .buttons__active {
     width: 21rem;
+  }
+
+  .buttons__ooo {
+    width: fit-content;
   }
 }

@@ -1,0 +1,21 @@
+.not-found {
+  margin: auto;
+  text-align: center;
+}
+
+.not-found__img {
+  width: 35%;
+}
+
+.not-found__text {
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+@media only screen and (width <= 644px) {
+  .not-found__text {
+    font-size: 20px;
+  }
+}

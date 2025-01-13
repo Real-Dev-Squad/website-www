@@ -8,11 +8,13 @@ export default class IdentityController extends Controller {
 
   @tracked userData = null;
   @tracked state = 'getStarted';
+  @tracked profileURL = null;
 
   constructor() {
     super(...arguments);
     this.userData = this.login.userData;
     this.state = this.initialState;
+    this.profileURL = this.userData?.profileURL;
   }
 
   get initialState() {

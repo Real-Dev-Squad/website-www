@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { APPS } from '../constants/urls'; 
+import { APPS } from '../constants/urls';
 export default class IdentityRoute extends Route {
   @service router;
   @service login;

@@ -1,14 +1,12 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { APPS } from '../constants/urls'; // Assuming this is where your API_BACKEND is defined
-
+import { APPS } from '../constants/urls'; 
 export default class IdentityRoute extends Route {
   @service router;
   @service login;
   @service fastboot;
 
   beforeModel(transition) {
-    // Keep the dev check if needed
     if (transition?.to?.queryParams?.dev !== 'true') {
       this.router.transitionTo('page-not-found');
       return;

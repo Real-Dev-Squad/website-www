@@ -99,8 +99,5 @@ export const SOCIALS = {
   },
 };
 
-export const AUTH_URL =
-  'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
-
 export const ANKUSH_TWITTER = 'https://twitter.com/ankushdharkar';
 export const RDS_TWITTER = 'https://x.com/realdevsquad';

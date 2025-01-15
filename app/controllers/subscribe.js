@@ -15,6 +15,7 @@ export default class SubscribeController extends Controller {
   @tracked isLoading = false;
   @tracked showSubscribedMessage = false;
   @service toast;
+  @service featureFlag;
   @tracked isPhoneValid = true;
 
   RDS_TWITTER = RDS_TWITTER;
@@ -22,6 +23,10 @@ export default class SubscribeController extends Controller {
   constructor() {
     super(...arguments);
     this.userData = this.login.userData;
+  }
+
+  get isDevMode() {
+    return this.featureFlag.isDevMode;
   }
 
   get isLoggedIn() {

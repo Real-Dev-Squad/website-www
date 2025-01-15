@@ -34,8 +34,20 @@
       @route='index'
       class='join__link join__link--new'
       @disabled={{true}}
-    >Join the Squad</LinkTo>
+    >
+      Join the Squad
+    </LinkTo>
+    
+    {{!-- NOTE: This has the new code on feature flag off --}}
+    {{!-- If something goes wrong, we can enable a flag to restore previous behaviour --}}
+    {{!-- TODO: Clean up by Jan, 2025 --}}
     <p data-test-join-later-text class='join__later-text'>
-      We're currently not accepting new applications. Please check back in 2024.</p>
+      {{#if this.isDevMode}}
+      We're currently not accepting new applications. Please come back later.
+      {{else}}
+      <NoticeForJoining />
+      {{/if}}
+    </p>
+
   </section>
 {{/if}}

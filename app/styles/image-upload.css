@@ -69,7 +69,7 @@
   border: 1px solid var(--button-image-form-border);
 }
 
-.image-form__button--disabled {
+.image-form__button:disabled {
   background: var(--button-image-form-bg-disabled);
 }
 

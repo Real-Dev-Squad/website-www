@@ -18,14 +18,17 @@ export default class IdentityController extends Controller {
   }
 
   get initialState() {
-    if (this.userData?.profileStatus === 'PENDING') {
-      return 'reload';
-    } else if (this.userData?.profileStatus === 'VERIFIED') {
-      return 'verified';
-    } else if (this.userData?.profileStatus === 'BLOCKED') {
-      return 'blocked';
+    const profileStatus = this.model?.profileStatus;
+    switch (profileStatus) {
+      case 'PENDING':
+        return 'reload';
+      case 'VERIFIED':
+        return 'verified';
+      case 'BLOCKED':
+        return 'blocked';
+      default:
+        return 'getStarted';
     }
-    return 'getStarted';
   }
 
   @action

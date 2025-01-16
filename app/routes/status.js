@@ -1,11 +1,11 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import fetch from 'fetch';
-import ENV from 'website-www/config/environment';
 import { USER_STATES } from '../constants/user-status';
 import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
 import redirectAuth from '../utils/redirect-auth';
-const API_BASE_URL = ENV.BASE_API_URL;
+import { APPS } from '../constants/urls';
+const BASE_URL = APPS.API_BACKEND;
 
 export default class StatusRoute extends Route {
   @service toast;
@@ -15,9 +15,9 @@ export default class StatusRoute extends Route {
       this.router.transitionTo('/page-not-found');
     }
   }
-  model = async () => {
+  async model() {
     try {
-      const response = await fetch(`${API_BASE_URL}/users/status/self`, {
+      const response = await fetch(`${BASE_URL}/users/status/self`, {
         credentials: 'include',
       });
       const userData = await response.json();
@@ -42,5 +42,5 @@ export default class StatusRoute extends Route {
     } catch (error) {
       console.error(error.message);
     }
-  };
+  }
 }

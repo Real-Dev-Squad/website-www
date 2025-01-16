@@ -1,12 +1,12 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import ENV from 'website-www/config/environment';
 import { inject as service } from '@ember/service';
 import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
 import { USER_STATES } from '../constants/user-status';
 import { getUTCMidnightTimestampFromDate } from '../utils/date-conversion';
-const BASE_URL = ENV.BASE_API_URL;
+import { APPS } from '../constants/urls';
+const BASE_URL = APPS.API_BACKEND;
 
 export default class StatusController extends Controller {
   @service featureFlag;

@@ -1,4 +1,4 @@
-.overlay {
+.status-modal-overlay {
   background: var(--overlay-bg);
   position: fixed;
   left: 0;

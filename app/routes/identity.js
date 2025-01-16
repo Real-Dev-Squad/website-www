@@ -48,7 +48,6 @@ export default class IdentityRoute extends Route {
       console.error('Error fetching user data:', error);
       this.router.transitionTo('index');
       return null;
-
     }
   }
 }

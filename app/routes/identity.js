@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+
 import { APPS } from '../constants/urls';
 export default class IdentityRoute extends Route {
   @service router;
@@ -47,6 +48,7 @@ export default class IdentityRoute extends Route {
       console.error('Error fetching user data:', error);
       this.router.transitionTo('index');
       return null;
+
     }
   }
 }

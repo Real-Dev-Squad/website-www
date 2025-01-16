@@ -18,6 +18,7 @@ export default class IdentityController extends Controller {
   }
 
   get initialState() {
+
     const profileStatus = this.model?.profileStatus;
     switch (profileStatus) {
       case 'PENDING':
@@ -29,6 +30,7 @@ export default class IdentityController extends Controller {
       default:
         return 'getStarted';
     }
+
   }
 
   @action

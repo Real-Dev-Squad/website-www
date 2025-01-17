@@ -7,7 +7,6 @@ import { TOAST_OPTIONS } from '../constants/toast-options';
 export default class DiscordRoute extends Route {
   @service router;
   @service toast;
-
   queryParams = {
     token: { refreshModel: true },
   };
@@ -27,7 +26,6 @@ export default class DiscordRoute extends Route {
           credentials: 'include',
         },
       );
-
       const userResponse = await fetch(
         `${APPS.API_BACKEND}/users?profile=true`,
         {
@@ -35,25 +33,33 @@ export default class DiscordRoute extends Route {
         },
       );
 
-      const externalAccountData = await externalAccountResponse.json();
-      const userData = await userResponse.json();
+      if (userResponse.status === 401) {
+        const userData = await userResponse.json();
+        this.toast.error(userData.message, '', TOAST_OPTIONS);
+        setTimeout(redirectAuth, 2000);
+        return { isTokenExpired: true };
+      }
+
+      if (externalAccountResponse.status === 401) {
+        const externalAccountData = await externalAccountResponse.json();
+        this.toast.error(externalAccountData.message, '', TOAST_OPTIONS);
+        return { isTokenExpired: true };
+      }
 
       if (
         userResponse.status === 200 &&
         externalAccountResponse.status === 200
       ) {
-        return { externalAccountData, userData, isTokenEpired: false };
-      } else if (userResponse.status === 401) {
-        this.toast.error(userData.message, '', TOAST_OPTIONS);
-        setTimeout(redirectAuth, 2000);
-      } else if (externalAccountResponse.status === 401) {
-        this.toast.error(externalAccountData.message, '', TOAST_OPTIONS);
-
-        return { isTokenExpired: true };
+        const externalAccountData = await externalAccountResponse.json();
+        const userData = await userResponse.json();
+        return { externalAccountData, userData, isTokenExpired: false };
       }
+
+      throw new Error('Unexpected response status');
     } catch (error) {
       this.toast.error(error.message, '', TOAST_OPTIONS);
       console.error(error.message);
+      return { isTokenExpired: true, error: error.message };
     }
   }
 }

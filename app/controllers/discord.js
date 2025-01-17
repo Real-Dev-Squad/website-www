@@ -6,6 +6,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class DiscordController extends Controller {
+  queryParams = ['token'];
   @service router;
   @service toast;
   @tracked discordId =
@@ -13,12 +14,7 @@ export default class DiscordController extends Controller {
   @tracked linkStatus = 'not-linked';
   @tracked isLinking = false;
   @tracked consent = false;
-
   @tracked token = '';
-
-  queryParams = {
-    token: { refreshModel: true },
-  };
 
   async model() {
     this.token = this.paramsFor('discord').token;

@@ -1,0 +1,78 @@
+.status-modal-overlay {
+  background: var(--overlay-bg);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-modal {
+  width: 90%;
+  max-width: 450px;
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  height: fit-content;
+  align-items: center;
+}
+
+.modal__inputs {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.modal__inputs--description {
+  padding: 0.5rem 0.5rem 0.1rem 0;
+}
+
+.modal__submit {
+  display: block;
+  width: 20%;
+  margin: 0.4rem;
+  padding: 0.5rem;
+  background-color: var(--button-proceed-bg);
+  border: none;
+  color: var(--button-proceed-text);
+  cursor: pointer;
+}
+
+.modal__submit--disabled {
+  display: block;
+  width: 20%;
+  margin: 0.4rem;
+  padding: 0.5rem;
+  background-color: var(--fetch-button-bg-disabled);
+  border: none;
+  color: var(--button-proceed-text);
+  cursor: pointer;
+}
+
+.modal__close {
+  background-color: var(--close-bg);
+  border: none;
+  align-self: flex-end;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+@media screen and (width <=480px) {
+  .modal__close {
+    margin-right: -0.5rem;
+  }
+}
+
+.modal__text-area {
+  width: 100%;
+  height: 7rem;
+  padding: 0.4rem;
+  text-align: justify;
+}

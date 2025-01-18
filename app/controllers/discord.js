@@ -12,7 +12,7 @@ export default class DiscordController extends Controller {
   @tracked discordId =
     this.model.externalAccountData.attributes.discordId || '';
   @tracked linkStatus = 'not-linked';
-  @tracked isLinking = false;
+  @tracked isLinkingInProgress = false;
   @tracked consent = false;
   @tracked token = '';
 
@@ -24,38 +24,35 @@ export default class DiscordController extends Controller {
   }
 
   @action async linkDiscordAccount() {
+    if (!this.consent) {
+      this.toast.error(
+        'Please provide consent by checking the checkbox',
+        'ERROR',
+        TOAST_OPTIONS,
+      );
+      return;
+    }
+
     try {
-      this.isLinking = true;
+      this.isLinkingInProgress = true;
 
-      if (this.consent) {
-        const response = await fetch(
-          `${APPS.API_BACKEND}/external-accounts/link/${this.token}`,
-          {
-            method: 'PATCH',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            credentials: 'include',
+      const response = await fetch(
+        `${APPS.API_BACKEND}/external-accounts/link/${this.token}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
           },
-        );
+          credentials: 'include',
+        },
+      );
 
-        if (response.status === 204) {
-          this.linkStatus = 'linked';
-        } else {
-          this.linkStatus = 'failure';
-        }
-      } else {
-        this.toast.error(
-          'Please provide the consent by clicking the checkbox!',
-          'ERROR',
-          TOAST_OPTIONS,
-        );
-      }
+      this.linkStatus = response.status === 204 ? 'linked' : 'failure';
     } catch (error) {
       this.linkStatus = 'failure';
-      console.error(error.message);
+      console.error('Failed to link Discord account:', error.message);
     } finally {
-      this.isLinking = false;
+      this.isLinkingInProgress = false;
     }
   }
 }

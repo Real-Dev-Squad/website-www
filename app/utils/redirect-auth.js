@@ -1,9 +1,10 @@
-import { AUTH_URL } from '../constants/urls';
+import { AUTH } from '../constants/urls';
 
 export default function () {
-  let authUrl = AUTH_URL;
+  let authUrl = AUTH.GITHUB_SIGN_IN;
   if (typeof window !== 'undefined' && window.location) {
-    authUrl = `${authUrl}&state=${window.location.href}`;
+    const separator = authUrl.includes('?') ? '&' : '?';
+    authUrl = `${authUrl}${separator}redirectURL=${encodeURIComponent(window.location.href)}`;
     window.open(authUrl, '_self');
   }
 }

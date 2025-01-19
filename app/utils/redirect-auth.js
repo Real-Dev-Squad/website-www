@@ -1,10 +1,12 @@
 import { AUTH } from '../constants/urls';
 
-export default function () {
+export default function redirectAuth() {
   let authUrl = AUTH.GITHUB_SIGN_IN;
   if (typeof window !== 'undefined' && window.location) {
-    const separator = authUrl.includes('?') ? '&' : '?';
-    authUrl = `${authUrl}${separator}redirectURL=${encodeURIComponent(window.location.href)}`;
-    window.open(authUrl, '_self');
+    const url = new URL(authUrl);
+    const searchParams = new URLSearchParams(url.search);
+    searchParams.set('redirectURL', window.location.href);
+    url.search = searchParams.toString();
+    window.location.href = url.toString();
   }
 }

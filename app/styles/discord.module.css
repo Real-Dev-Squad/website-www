@@ -22,10 +22,11 @@
   width: 50%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
   padding: calc(var(--base-unit) * 4);
+  padding-top: calc(var(--base-unit) * 20);
 }
 
 .line {
@@ -93,6 +94,7 @@
 .discord__success,
 .discord__error {
   text-align: center;
+  margin-top: calc(var(--base-unit) * 10);
 }
 
 .success__text,

@@ -41,4 +41,9 @@
   --color-black-shadow-3: 3px 3px 3px 0 rgb(0 0 0 / 25%);
   --color-black-shadow-8: 0 4px 8px 0 rgb(0 0 0 / 25%);
   --color-navy-link: #0000af;
+  --color-blue-primary: #0034a5;
+  --color-gray-medium: #808080;
+  --color-black-40: #00000040;
+  --color-black-59: rgb(0 0 0 / 58.9%);
+  --color-gray-37: rgb(158 158 158 / 36.8%);
 }

@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Template | discord', function (hooks) {
+module('Acceptance | discord', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it shows expired token message', async function (assert) {

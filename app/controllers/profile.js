@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action, set } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import { profile_fields } from '../constants/profile-field';
 const BASE_URL = APPS.API_BACKEND;
 
 export default class ProfileController extends Controller {
@@ -36,78 +37,7 @@ export default class ProfileController extends Controller {
     website: this.model.website,
   };
 
-  @tracked fields = [
-    {
-      id: 'first_name',
-      label: 'First Name*',
-      type: 'text',
-      required: true,
-      placeholder: 'First Name',
-      icon_url: '/assets/icons/user.svg',
-      showError: false,
-      errorMessage: 'First name is required',
-    },
-    {
-      id: 'last_name',
-      label: 'Last Name*',
-      type: 'text',
-      required: true,
-      placeholder: 'Last Name',
-      icon_url: '/assets/icons/user.svg',
-      showError: false,
-      errorMessage: 'Last name is required',
-    },
-    {
-      id: 'company',
-      label: 'Company or College name*',
-      type: 'text',
-      required: true,
-      placeholder: 'e.g Google or Dr. Kalam University',
-      icon_url: '/assets/icons/company.svg',
-      showError: false,
-      errorMessage: 'Company name is required',
-    },
-    {
-      id: 'designation',
-      label: 'Designation*',
-      type: 'text',
-      required: true,
-      placeholder: 'e.g SDE - 2 or 3rd Year CSE Student',
-      icon_url: '/assets/icons/user.svg',
-      showError: false,
-      errorMessage: 'Designation is required',
-    },
-    {
-      id: 'linkedin_id',
-      label: 'LinkedIn ID*',
-      type: 'text',
-      required: true,
-      placeholder: 'e.g johndoe',
-      icon_url: '/assets/icons/linkedin.svg',
-      showError: false,
-      errorMessage: 'Linkedin handle is required',
-    },
-    {
-      id: 'twitter_id',
-      label: 'Twitter Username*',
-      type: 'text',
-      required: true,
-      placeholder: 'e.g johndoe',
-      icon_url: '/assets/icons/twitter.svg',
-      showError: false,
-      errorMessage: 'Twitter handle is required',
-    },
-    {
-      id: 'website',
-      label: 'Personal Website',
-      type: 'text',
-      required: false,
-      placeholder: 'e.g mysite.com',
-      icon_url: '/assets/icons/website.svg',
-      showError: false,
-      errorMessage: '',
-    },
-  ];
+  @tracked fields = profile_fields;
 
   @action handleFieldChange(name, value) {
     set(this.formData, name, value);

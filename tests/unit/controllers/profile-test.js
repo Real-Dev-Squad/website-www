@@ -1,7 +1,9 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
 import sinon from 'sinon';
-import ENV from 'website-www/config/environment.js';
+import { APPS } from '../../constants/urls';
+
+const BASE_URL = APPS.STAGING_API_BACKEND;
 
 module('Unit | Controller | profile', function (hooks) {
   setupTest(hooks);
@@ -98,7 +100,7 @@ module('Unit | Controller | profile', function (hooks) {
 
     assert.ok(
       fetchStub.calledWithMatch(
-        `${ENV.BASE_API_URL}/users/${userId}?profile=true&dev=true`,
+        `${BASE_URL}/users/${userId}?profile=true&dev=true`,
         {
           method: 'PATCH',
           body: JSON.stringify(controller.formData),

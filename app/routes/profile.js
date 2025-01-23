@@ -1,9 +1,11 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ENV from 'website-www/config/environment';
+import { APPS } from '../constants/urls';
 import fetch from 'fetch';
-import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
+import { TOAST_OPTIONS } from '../constants/toast-options';
 import redirectAuth from '../utils/redirect-auth';
+
+const BASE_URL = APPS.API_BACKEND;
 
 export default class ProfileRoute extends Route {
   @service toast;
@@ -16,12 +18,12 @@ export default class ProfileRoute extends Route {
   }
   async model() {
     try {
-      const res = await fetch(`${ENV.BASE_API_URL}/users/isDeveloper`, {
+      const res = await fetch(`${BASE_URL}/users/isDeveloper`, {
         credentials: 'include',
       });
       const { developerRoleExistsOnUser } = await res.json();
 
-      const response = await fetch(`${ENV.BASE_API_URL}/users?profile=true`, {
+      const response = await fetch(`${BASE_URL}/users?profile=true`, {
         credentials: 'include',
       });
       const userData = await response.json();
@@ -33,7 +35,7 @@ export default class ProfileRoute extends Route {
       return userData;
     } catch (error) {
       console.error(error.message);
-      this.toast.error(error, '', toastNotificationTimeoutOptions);
+      this.toast.error(error, '', TOAST_OPTIONS);
 
       if (!this.fastboot.isFastBoot && !this.isRedirecting) {
         this.isRedirecting = true;

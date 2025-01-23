@@ -1,7 +1,9 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import sinon from 'sinon';
-import ENV from 'website-www/config/environment';
+import { APPS } from '../../constants/urls';
+
+const BASE_URL = APPS.STAGING_API_BACKEND;
 
 module('Unit | Route | profile', function (hooks) {
   setupTest(hooks);
@@ -78,18 +80,16 @@ module('Unit | Route | profile', function (hooks) {
     );
 
     assert.ok(
-      this.fetchStub.firstCall.calledWith(
-        `${ENV.BASE_API_URL}/users/isDeveloper`,
-        { credentials: 'include' },
-      ),
+      this.fetchStub.firstCall.calledWith(`${BASE_URL}/users/isDeveloper`, {
+        credentials: 'include',
+      }),
       'First API call is made to check developer status',
     );
 
     assert.ok(
-      this.fetchStub.secondCall.calledWith(
-        `${ENV.BASE_API_URL}/users?profile=true`,
-        { credentials: 'include' },
-      ),
+      this.fetchStub.secondCall.calledWith(`${BASE_URL}/users?profile=true`, {
+        credentials: 'include',
+      }),
       'Second API call is made to fetch user data',
     );
   });

@@ -18,5 +18,6 @@ Router.map(function () {
   this.route('subscribe');
   this.route('login');
   this.route('identity');
+  this.route('status');
   this.route('discord');
 });

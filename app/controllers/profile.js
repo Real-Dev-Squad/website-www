@@ -3,8 +3,7 @@ import { APPS } from '../constants/urls';
 import { tracked } from '@glimmer/tracking';
 import { action, set } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
-
+import { TOAST_OPTIONS } from '../constants/toast-options';
 const BASE_URL = APPS.API_BACKEND;
 
 export default class ProfileController extends Controller {
@@ -164,14 +163,14 @@ export default class ProfileController extends Controller {
       const { status } = response;
       if (status === 204) {
         this.toast.success('Updated details successfully', '', {
-          ...toastNotificationTimeoutOptions,
+          ...TOAST_OPTIONS,
           timeOut: '1000',
         });
       } else if (status !== 204) {
         this.toast.error(
           'Something went wrong. Please check console errors.',
           '',
-          toastNotificationTimeoutOptions,
+          TOAST_OPTIONS,
         );
       }
     } catch (error) {

@@ -1,0 +1,12 @@
+{{page-title "User Status"}}
+
+<div class="status-container">
+  <UserStatus
+    @status={{this.status}}
+    @changeStatus={{this.changeStatus}}
+    @isStatusUpdating={{this.isStatusUpdating}}
+    @updateStatus={{this.updateStatus}}
+    @dev={{this.isDevMode}}
+    @statusUpdateDevApi={{this.statusUpdateDevApi}}
+  />
+</div>

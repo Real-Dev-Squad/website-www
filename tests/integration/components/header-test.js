@@ -186,7 +186,7 @@ module('Integration | Component | header', function (hooks) {
     assert.dom('[data-test-dropdown-status]').hasText('Status');
     assert
       .dom('[data-test-dropdown-status]')
-      .hasAttribute('href', APPS.MY_STATUS);
+      .hasAttribute('href', '/status?dev=true');
     assert.dom('[data-test-dropdown-profile]').hasText('Profile');
     assert
       .dom('[data-test-dropdown-profile]')

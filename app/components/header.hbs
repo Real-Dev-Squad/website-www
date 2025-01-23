@@ -131,7 +131,7 @@
     </LinkTo>
     <a
       data-test-dropdown-status
-      href={{this.MY_STATUS_URL}}
+      href={{if @dev "/status?dev=true" this.MY_STATUS_URL}}
       class="menu__link"
       rel="noopener noreferrer"
       target="_blank"

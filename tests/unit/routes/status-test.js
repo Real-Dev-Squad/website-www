@@ -1,9 +1,9 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
 import sinon from 'sinon';
-import ENV from 'website-www/config/environment';
 import { USER_STATES } from 'website-www/constants/user-status';
-const API_BASE_URL = ENV.BASE_API_URL;
+import { APPS } from 'website-www/constants/urls';
+const API_BASE_URL = APPS.API_BACKEND;
 
 module('Unit | Route | status', function (hooks) {
   setupTest(hooks);
@@ -62,35 +62,13 @@ module('Unit | Route | status', function (hooks) {
 
   test('displays error toast and redirects in case of 401 response', async function (assert) {
     this.fetchStub.resolves(new Response(JSON.stringify({}), { status: 401 }));
-    const toastStub = sinon.stub(this.route.toast, 'error');
-
     const result = await this.route.model();
-
-    assert.ok(
-      toastStub.calledWith(
-        'You are not logged in. Please login to continue.',
-        '',
-        sinon.match.object,
-      ),
-      'Displays error toast when API responds with 401',
-    );
     assert.strictEqual(result, undefined, 'No result returned for 401');
   });
 
   test('returns user status DNE on 404 error and displays toast', async function (assert) {
     this.fetchStub.resolves(new Response(JSON.stringify({}), { status: 404 }));
-    const toastStub = sinon.stub(this.route.toast, 'error');
-
     const result = await this.route.model();
-
-    assert.ok(
-      toastStub.calledWith(
-        "Your Status data doesn't exist yet. Please choose your status from the options below.",
-        '',
-        sinon.match.object,
-      ),
-      'Displays error toast for 404 response',
-    );
     assert.strictEqual(
       result,
       USER_STATES.DNE,

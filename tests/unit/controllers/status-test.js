@@ -2,8 +2,9 @@ import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
 import { USER_STATES } from 'website-www/constants/user-status';
 import Service from '@ember/service';
-import ENV from 'website-www/config/environment';
 import sinon from 'sinon';
+import { APPS } from 'website-www/constants/urls';
+const API_BASE_URL = APPS.API_BACKEND;
 
 class MockToastService extends Service {
   success() {}
@@ -60,7 +61,7 @@ module('Unit | Controller | status', function (hooks) {
     assert.ok(this.fetchStub.calledOnce, 'Fetch was called once');
     assert.ok(
       this.fetchStub.calledWith(
-        `${ENV.BASE_API_URL}/users/status/self?userStatusFlag=true`,
+        `${API_BASE_URL}/users/status/self?userStatusFlag=true`,
       ),
       'Fetch was called with the correct URL',
     );

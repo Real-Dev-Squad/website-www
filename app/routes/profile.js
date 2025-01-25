@@ -23,7 +23,6 @@ export default class ProfileRoute extends Route {
       });
       const { developerRoleExistsOnUser } = await res.json();
 
-
       const response = await fetch(`${BASE_URL}/users?profile=true`, {
         credentials: 'include',
       });
@@ -36,7 +35,6 @@ export default class ProfileRoute extends Route {
       return userData;
     } catch (error) {
       console.error(error.message);
-
       this.toast.error(error, '', TOAST_OPTIONS);
 
       if (!this.fastboot.isFastBoot && !this.isRedirecting) {

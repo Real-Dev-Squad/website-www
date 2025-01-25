@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { toastNotificationTimeoutOptions } from '../../constants/toast-notification';
+import { TOAST_OPTIONS } from '../../constants/toast-options';
 import { inject as service } from '@ember/service';
 
 export default class UploadImageComponent extends Component {
@@ -111,7 +111,7 @@ export default class UploadImageComponent extends Component {
     if (status === 200) {
       this.setImageUploadSuccess(true);
       this.args.outsideClickModel();
-      this.toast.success(message, '', toastNotificationTimeoutOptions);
+      this.toast.success(message, '', TOAST_OPTIONS);
     } else {
       this.setImageUploadSuccess(false);
       this.setStatusMessage(message);

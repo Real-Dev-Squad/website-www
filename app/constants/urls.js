@@ -10,7 +10,7 @@ const APP_URLS = {
     EVENTS: `${SCHEME}${DOMAIN}/events`,
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
     STATUS: `${SCHEME}status.${DOMAIN}`,
-    PROFILE: `${SCHEME}my.${DOMAIN}/profile`,
+    PROFILE: `${SCHEME}www.${DOMAIN}/profile?dev=true`,
     TASKS: `${SCHEME}my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}my.${DOMAIN}`,
@@ -23,7 +23,7 @@ const APP_URLS = {
     EVENTS: `${SCHEME}staging-www.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
-    PROFILE: `${SCHEME}staging-my.${DOMAIN}/profile`,
+    PROFILE: `${SCHEME}staging-www.${DOMAIN}/profile?dev=true`,
     TASKS: `${SCHEME}staging-my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
@@ -36,7 +36,7 @@ const APP_URLS = {
     EVENTS: `${SCHEME}staging-www.${DOMAIN}/events`,
     MEMBERS: `${SCHEME}staging-members.${DOMAIN}`,
     STATUS: `${SCHEME}staging-status.${DOMAIN}`,
-    PROFILE: `${SCHEME}staging-my.${DOMAIN}/profile`,
+    PROFILE: `${SCHEME}staging-www.${DOMAIN}/profile?dev=true`,
     TASKS: `${SCHEME}staging-my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}staging-my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}staging-my.${DOMAIN}`,
@@ -49,7 +49,7 @@ const APP_URLS = {
     EVENTS: `${SCHEME}${DOMAIN}/events`,
     MEMBERS: `${SCHEME}members.${DOMAIN}`,
     STATUS: `${SCHEME}status.${DOMAIN}`,
-    PROFILE: `${SCHEME}my.${DOMAIN}/profile`,
+    PROFILE: `${SCHEME}www.${DOMAIN}/profile?dev=true`,
     TASKS: `${SCHEME}my.${DOMAIN}/tasks`,
     IDENTITY: `${SCHEME}my.${DOMAIN}/identity`,
     MY_STATUS: `${SCHEME}my.${DOMAIN}`,
@@ -71,9 +71,6 @@ export const AUTH = {
   GOOGLE_SIGN_IN: `${APPS.API_BACKEND}/auth/google/login?dev=true`,
   SIGN_UP: `${APPS.PROFILE}/new-signup`,
 };
-
-export const AUTH_URL =
-  'https://github.com/login/oauth/authorize?client_id=23c78f66ab7964e5ef97';
 
 export const SOCIALS = {
   LINKEDIN: {

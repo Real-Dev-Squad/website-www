@@ -4,7 +4,7 @@ export const APPS = {
   EVENTS: 'https://realdevsquad.com/events',
   MEMBERS: 'https://members.realdevsquad.com',
   STATUS: 'https://status.realdevsquad.com',
-  PROFILE: 'https://my.realdevsquad.com/profile',
+  PROFILE: 'https://www.realdevsquad.com/profile?dev=true',
   TASKS: 'https://my.realdevsquad.com/tasks',
   IDENTITY: 'https://my.realdevsquad.com/identity',
   MY_STATUS: 'https://my.realdevsquad.com',

@@ -230,6 +230,37 @@
   bottom: 8%;
 }
 
+.identity-box-input {
+  border: 1px solid var(--color-black-50);
+  background: var(--color-white);
+  width: 50%;
+  margin-top: 16px;
+  padding: 8px;
+  color: var(--color-navy-link);
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 8px;
+}
+
+.identity-box-input::placeholder {
+  color: var(--color-darkgrey);
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.identity-box-input-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 @media (width <= 460px) {
   .identity-box-input {
     width: 90%;

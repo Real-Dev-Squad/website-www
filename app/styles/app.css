@@ -43,11 +43,15 @@
 @import url("unauthenticated.module.css");
 @import url("subscribe.module.css");
 @import url("phone-input.module.css");
+@import url("profile.css");
+@import url("404.css");
+@import url("image-upload.css");
 @import url("login.module.css");
 @import url("identity.module.css");
 @import url("profile.css");
 @import url("404.css");
 @import url("image-upload.css");
+@import url("discord.module.css");
 
 * {
   margin: 0;

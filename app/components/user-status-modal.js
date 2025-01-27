@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { toastNotificationTimeoutOptions } from '../constants/toast-notification';
 import {
   WARNING_MESSAGE_FOR_IDLE,
   WARNING_MESSAGE_FOR_OOO,
@@ -15,7 +14,11 @@ import {
   UNTIL_DATE,
   REASON,
 } from '../constants/user-status';
-import { getUTCMidnightTimestampFromDate } from '../utils/date-conversion';
+import {
+  getCurrentDateString,
+  getUTCMidnightTimestampFromDate,
+} from '../utils/date-conversion';
+import { TOAST_OPTIONS } from '../constants/toast-options';
 
 export default class UserStatusModalComponent extends Component {
   @service toast;
@@ -25,7 +28,7 @@ export default class UserStatusModalComponent extends Component {
   @tracked untilDate = '';
   @tracked reason = '';
   @tracked disableSubmitButton = true;
-  @tracked disableDatesPrior = new Date().toJSON().slice(0, 10);
+  @tracked disableDatesPrior = getCurrentDateString();
   USER_STATES = USER_STATES;
 
   @action
@@ -46,53 +49,16 @@ export default class UserStatusModalComponent extends Component {
     let from;
     let until;
     const isDevMode = this.featureFlag.isDevMode;
+
     if (this.args.newStatus === USER_STATES.OOO) {
-      if (!this.fromDate) {
-        this.toast.error(
-          WARNING_MESSAGE_FOR_FROM_FIELD,
-          '',
-          toastNotificationTimeoutOptions,
-        );
-        return;
-      }
-      if (!this.untilDate) {
-        this.toast.error(
-          WARNING_MESSAGE_FOR_UNTIL_FIELD,
-          '',
-          toastNotificationTimeoutOptions,
-        );
-        return;
-      }
-      if (this.untilDate < this.fromDate) {
-        this.toast.error(
-          WARNING_FROM_DATE_EXCEEDS_UNTIL_DATE,
-          '',
-          toastNotificationTimeoutOptions,
-        );
-        return;
-      }
+      if (!this.validateOOOInputs()) return false;
       from = getUTCMidnightTimestampFromDate(this.fromDate);
       until = getUTCMidnightTimestampFromDate(this.untilDate);
-      const isReasonReq = !this.checkIfFromToDatesAreClose();
-
-      if (isReasonReq && !this.reason.length) {
-        this.toast.error(
-          WARNING_MESSAGE_FOR_OOO,
-          '',
-          toastNotificationTimeoutOptions,
-        );
-        return;
-      }
     } else if (this.args.newStatus === USER_STATES.IDLE) {
-      const currentDate = new Date();
-      const currentDateString = currentDate.toISOString().slice(0, 10);
+      const currentDateString = getCurrentDateString();
       from = getUTCMidnightTimestampFromDate(currentDateString);
       if (!this.reason.length) {
-        this.toast.error(
-          WARNING_MESSAGE_FOR_IDLE,
-          '',
-          toastNotificationTimeoutOptions,
-        );
+        this.toast.error(WARNING_MESSAGE_FOR_IDLE, '', TOAST_OPTIONS);
         return;
       }
     }
@@ -104,8 +70,34 @@ export default class UserStatusModalComponent extends Component {
       message: this.reason,
       state: this.args.newStatus,
     };
+    await this.updateStatusBasedOnMode(isDevMode, newStateObj);
+    this.resetInputFields();
+    this.disableSubmitButton = true;
+  }
+
+  validateOOOInputs() {
+    if (!this.fromDate) {
+      this.toast.error(WARNING_MESSAGE_FOR_FROM_FIELD, '', TOAST_OPTIONS);
+      return false;
+    }
+    if (!this.untilDate) {
+      this.toast.error(WARNING_MESSAGE_FOR_UNTIL_FIELD, '', TOAST_OPTIONS);
+      return false;
+    }
+    if (this.untilDate < this.fromDate) {
+      this.toast.error(WARNING_FROM_DATE_EXCEEDS_UNTIL_DATE, '', TOAST_OPTIONS);
+      return false;
+    }
+    if (!this.reason.length && !this.checkIfFromToDatesAreClose()) {
+      this.toast.error(WARNING_MESSAGE_FOR_OOO, '', TOAST_OPTIONS);
+      return false;
+    }
+    return true;
+  }
+
+  async updateStatusBasedOnMode(isDevMode, newStateObj) {
     if (isDevMode) {
-      await this.args.statusUpdateDevApi(
+      await this.args.statusUpdateForDev(
         this.fromDate,
         this.untilDate,
         this.reason,
@@ -113,8 +105,6 @@ export default class UserStatusModalComponent extends Component {
     } else {
       await this.args.updateStatus({ currentStatus: newStateObj });
     }
-    this.resetInputFields();
-    this.disableSubmitButton = true;
   }
 
   @action

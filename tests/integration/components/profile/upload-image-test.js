@@ -7,7 +7,7 @@ module('Integration | Component | image uploader', function (hooks) {
   setupRenderingTest(hooks);
 
   const file = new File(['dummy image data'], 'RDSLogo.png', {
-    type: 'image/jpeg',
+    type: 'jpeg',
   });
 
   test('it renders correct initial state', async function (assert) {

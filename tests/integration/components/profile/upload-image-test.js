@@ -7,7 +7,7 @@ module('Integration | Component | image uploader', function (hooks) {
   setupRenderingTest(hooks);
 
   const file = new File(['dummy image data'], 'RDSLogo.png', {
-    type: 'jpeg',
+    type: 'image/png',
   });
 
   test('it renders correct initial state', async function (assert) {
@@ -55,6 +55,32 @@ module('Integration | Component | image uploader', function (hooks) {
       );
   });
 
+  test('it handles files of other types properly when dragged and dropped', async function (assert) {
+    await render(hbs`
+      <Profile::UploadImage
+        @uploadUrl="/upload"
+        @formKeyName="image"
+        @imageCoordinates="{x:1,y:2,width:3,height:5}"
+      />
+    `);
+    const gifFile = new File(['dummy image data'], 'newGif.gif', {
+      type: 'image/gif',
+    });
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(gifFile);
+
+    await triggerEvent('[data-test-drop-area]', 'dragover', { dataTransfer });
+    await triggerEvent('[data-test-drop-area]', 'drop', { dataTransfer });
+    await triggerEvent('[data-test-btn="upload-image"]', 'click', {
+      dataTransfer,
+    });
+    assert
+      .dom('p.message-text__failure')
+      .hasText(
+        'Error occured, please try again and if the issue still exists contact administrator and create a issue on the repo with logs',
+      );
+  });
+
   test('it renders crop UI when an image is selected', async function (assert) {
     await render(hbs`
       <Profile::UploadImage
@@ -88,7 +114,6 @@ module('Integration | Component | image uploader', function (hooks) {
     const dataTransfer = new DataTransfer();
     dataTransfer.items.add(file);
 
-    // Simulate drag-and-drop functionality
     await triggerEvent('[data-test-drop-area]', 'dragover', { dataTransfer });
     assert
       .dom('[data-test-drop-area]')

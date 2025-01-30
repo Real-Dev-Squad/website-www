@@ -29,7 +29,6 @@ export default class UserStatusModalComponent extends Component {
   @tracked reason = '';
   @tracked disableSubmitButton = true;
   @tracked disableDatesPrior = getCurrentDateString();
-  USER_STATES = USER_STATES;
 
   @action
   updateValue(event) {

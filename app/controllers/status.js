@@ -87,16 +87,22 @@ export default class StatusController extends Controller {
         },
         credentials: 'include',
       });
-      if (response.ok) {
-        const data = await response.json();
-        this.toast.success(data.message, 'Success!', TOAST_OPTIONS);
-      } else {
+      if (!response.ok) {
         this.toast.error(
           OOO_STATUS_REQUEST_FAILURE_MESSAGE,
           'Error!',
           TOAST_OPTIONS,
         );
+        return;
       }
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        this.toast.error('Failed to parse response', 'Error!', TOAST_OPTIONS);
+        return;
+      }
+      this.toast.success(data.message, 'Success!', TOAST_OPTIONS);
     } catch (error) {
       this.toast.error(
         OOO_STATUS_REQUEST_FAILURE_MESSAGE,

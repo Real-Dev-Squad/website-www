@@ -45,27 +45,14 @@ export default class UserStatusModalComponent extends Component {
 
   @action
   async getCurrentStatusObj() {
-    let from;
-    let until;
     const isDevMode = this.featureFlag.isDevMode;
+    if (!this.isValidStatusChange()) return;
 
-    if (this.args.newStatus === USER_STATES.OOO) {
-      if (!this.validateOOOInputs()) return false;
-      from = getUTCMidnightTimestampFromDate(this.fromDate);
-      until = getUTCMidnightTimestampFromDate(this.untilDate);
-    } else if (this.args.newStatus === USER_STATES.IDLE) {
-      const currentDateString = getCurrentDateString();
-      from = getUTCMidnightTimestampFromDate(currentDateString);
-      if (!this.reason.length) {
-        this.toast.error(WARNING_MESSAGE_FOR_IDLE, '', TOAST_OPTIONS);
-        return;
-      }
-    }
     const updatedAt = Date.now();
     const newStateObj = {
       updatedAt,
-      from,
-      until,
+      from: this.getFromTimestamp(),
+      until: this.getUntilTimestamp(),
       message: this.reason,
       state: this.args.newStatus,
     };
@@ -74,24 +61,49 @@ export default class UserStatusModalComponent extends Component {
     this.disableSubmitButton = true;
   }
 
-  validateOOOInputs() {
-    if (!this.fromDate) {
-      this.toast.error(WARNING_MESSAGE_FOR_FROM_FIELD, '', TOAST_OPTIONS);
-      return false;
+  isValidStatusChange() {
+    if (this.args.newStatus === USER_STATES.OOO) {
+      return this.validateOOOInputs();
     }
-    if (!this.untilDate) {
-      this.toast.error(WARNING_MESSAGE_FOR_UNTIL_FIELD, '', TOAST_OPTIONS);
-      return false;
-    }
-    if (this.untilDate < this.fromDate) {
-      this.toast.error(WARNING_FROM_DATE_EXCEEDS_UNTIL_DATE, '', TOAST_OPTIONS);
-      return false;
-    }
-    if (!this.reason.length && !this.checkIfFromToDatesAreClose()) {
-      this.toast.error(WARNING_MESSAGE_FOR_OOO, '', TOAST_OPTIONS);
-      return false;
+    if (this.args.newStatus === USER_STATES.IDLE) {
+      if (!this.reason.length) {
+        this.toast.error(WARNING_MESSAGE_FOR_IDLE, '', TOAST_OPTIONS);
+        return false;
+      }
     }
     return true;
+  }
+
+  validateOOOInputs() {
+    if (!this.fromDate) return this.showError(WARNING_MESSAGE_FOR_FROM_FIELD);
+    if (!this.untilDate) return this.showError(WARNING_MESSAGE_FOR_UNTIL_FIELD);
+    if (this.untilDate < this.fromDate)
+      return this.showError(WARNING_FROM_DATE_EXCEEDS_UNTIL_DATE);
+    if (!this.reason.length && !this.checkIfFromToDatesAreClose())
+      return this.showError(WARNING_MESSAGE_FOR_OOO);
+    return true;
+  }
+
+  getFromTimestamp() {
+    if (this.args.newStatus === USER_STATES.OOO) {
+      return getUTCMidnightTimestampFromDate(this.fromDate);
+    }
+    if (this.args.newStatus === USER_STATES.IDLE) {
+      return getUTCMidnightTimestampFromDate(getCurrentDateString());
+    }
+    return null;
+  }
+
+  getUntilTimestamp() {
+    if (this.args.newStatus === USER_STATES.OOO) {
+      return getUTCMidnightTimestampFromDate(this.untilDate);
+    }
+    return null;
+  }
+
+  showError(message) {
+    this.toast.error(message, '', TOAST_OPTIONS);
+    return false;
   }
 
   async updateStatusBasedOnMode(isDevMode, newStateObj) {
@@ -115,16 +127,10 @@ export default class UserStatusModalComponent extends Component {
 
   @action
   checkSubmitBtnState() {
-    this.disableSubmitButton = true;
-    if (this.checkIfFromToDatesAreClose()) {
-      this.disableSubmitButton = false;
-    } else if (
-      this.fromDate !== '' &&
-      this.untilDate !== '' &&
-      this.reason !== ''
-    ) {
-      this.disableSubmitButton = false;
-    }
+    this.disableSubmitButton = !(
+      this.checkIfFromToDatesAreClose() ||
+      (this.fromDate && this.untilDate && this.reason.trim())
+    );
   }
 
   @action

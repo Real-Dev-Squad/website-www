@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import { APPS } from '../constants/urls';
 import redirectAuth from '../utils/redirect-auth';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import { ERROR_MESSAGES } from '../constants/error-messages';
 export default class IdentityRoute extends Route {
   @service router;
   @service login;
@@ -30,11 +31,7 @@ export default class IdentityRoute extends Route {
 
       if (!response.ok) {
         if (response.status === 401) {
-          this.toast.error(
-            'You are not logged in. Please login to continue.',
-            '',
-            TOAST_OPTIONS,
-          );
+          this.toast.error(ERROR_MESSAGES.notLoggedIn, '', TOAST_OPTIONS);
           setTimeout(redirectAuth, 2000);
           return null;
         }

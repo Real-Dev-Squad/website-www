@@ -13,31 +13,32 @@
   "scripts": {
     "build": "ember build --environment=production",
     "build:staging": "ember build --environment=staging",
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint": "concurrently \"pnpm:lint:*\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:css:fix": "pnpm run lint:css -- --fix",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "dev": "concurrently \"npm:dev:*\" --names \"dev:\"",
+    "dev": "concurrently \"pnpm:dev:*\" --names \"dev:\"",
     "dev:ember": "ember server -p 4200",
     "dev:reverse-ssl": "local-ssl-proxy --source 443 --target 4200",
     "start": "ember serve",
-    "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test"
+    "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
+    "test:ember": "ember test",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@100mslive/hms-video-store": "0.10.6",
     "cropperjs": "^1.5.12",
     "d3-cloud": "1.2.7",
     "dotenv": "16.0.2",
-    "ember-cli-fastboot": "4.1.1",
+    "ember-cli-fastboot": "4.1.5",
     "ember-d3": "0.5.1",
     "ember-phone-input": "^10.0.0",
     "exists-sync": "0.1.0",
-    "fastboot-app-server": "3.3.2"
+    "fastboot-app-server": "4.1.4"
   },
   "devDependencies": {
     "@babel/core": "7.24.7",
@@ -48,9 +49,9 @@
     "@ember/render-modifiers": "2.0.5",
     "@ember/string": "3.1.1",
     "@ember/test-helpers": "3.3.0",
-    "@embroider/compat": "3.0.0",
-    "@embroider/core": "3.0.0",
-    "@embroider/webpack": "3.0.0",
+    "@embroider/compat": "^3.0.0",
+    "@embroider/core": "^3.0.0",
+    "@embroider/webpack": "^3.0.0",
     "@fortawesome/ember-fontawesome": "0.4.1",
     "@fortawesome/free-solid-svg-icons": "6.2.0",
     "@glimmer/component": "1.1.2",
@@ -118,10 +119,12 @@
     "edition": "octane"
   },
   "volta": {
-    "node": "18.19.1",
-    "yarn": "1.22.19"
+    "node": "18.19.1"
   },
   "pre-commit": {
     "run": "lint"
+  },
+  "resolutions": {
+    "ember-cli-htmlbars": "6.3.0"
   }
 }

@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { waitFor } from '@ember/test-helpers';
 import sinon from 'sinon';
 
 module('Integration | Component | image-cropper', function (hooks) {
@@ -21,10 +22,12 @@ module('Integration | Component | image-cropper', function (hooks) {
       />
     `);
 
-    const image = this.element.querySelector('#image-cropper');
-    const expectedFullUrl = `${window.location.origin}${this.imageUrl}`;
+    await waitFor('#image-cropper');
 
+    const image = this.element.querySelector('#image-cropper');
     assert.ok(image, 'Image element exists');
+
+    const expectedFullUrl = `${window.location.origin}${this.imageUrl}`;
     assert.strictEqual(image.src, expectedFullUrl, 'Image has correct src');
     assert.strictEqual(image.id, 'image-cropper', 'Image has correct id');
     assert.strictEqual(image.alt, 'Cropper', 'Image has correct alt text');

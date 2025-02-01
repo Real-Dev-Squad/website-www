@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, triggerEvent } from '@ember/test-helpers';
+import { waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | image uploader', function (hooks) {
@@ -71,9 +72,12 @@ module('Integration | Component | image uploader', function (hooks) {
 
     await triggerEvent('[data-test-drop-area]', 'dragover', { dataTransfer });
     await triggerEvent('[data-test-drop-area]', 'drop', { dataTransfer });
+
     await triggerEvent('[data-test-btn="upload-image"]', 'click', {
       dataTransfer,
     });
+    await waitFor('p.message-text__failure');
+
     assert
       .dom('p.message-text__failure')
       .hasText(

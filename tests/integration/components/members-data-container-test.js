@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
-import { render, waitFor, settled } from '@ember/test-helpers';
+import { render, waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import Service from '@ember/service';
 
@@ -22,12 +22,48 @@ class MockService extends Service {
   }
 }
 
+class MockInViewportService extends Service {
+  constructor() {
+    super(...arguments);
+    this.onEnterCallback = null;
+    this.onExitCallback = null;
+  }
+
+  watchElement() {
+    return {
+      onEnter: (callback) => {
+        this.onEnterCallback = callback;
+      },
+      onExit: (callback) => {
+        this.onExitCallback = callback;
+      },
+    };
+  }
+
+  triggerEnter() {
+    if (this.onEnterCallback) {
+      this.onEnterCallback();
+    }
+  }
+
+  triggerExit() {
+    if (this.onExitCallback) {
+      this.onExitCallback();
+    }
+  }
+
+  stopWatching() {
+    // mock func
+  }
+}
+
 module('Integration | Component | members-data-container', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
     // Register the mock service
     this.owner.register('service:store', MockService);
+    this.owner.register('service:inViewport', MockInViewportService);
   });
 
   // TODO: Write this test after having some way to mock api calls
@@ -37,24 +73,24 @@ module('Integration | Component | members-data-container', function (hooks) {
   });
 
   test('it renders with member data', async function (assert) {
-    await render(hbs`<MembersDataContainer as |members|>
-      <ul>
-        {{#each members as |member|}}
-          <li>{{member.name}}</li>
-        {{/each}}
-      </ul>
-    </MembersDataContainer>`);
+    await render(hbs`
+      <MembersDataContainer as |members|>
+        <ul>
+          {{#each members as |member|}}
+            <li>{{member.name}}</li>
+          {{/each}}
+        </ul>
+      </MembersDataContainer>
+    `);
 
-    await waitFor('#member-data-container', {
-      timeoutMessage:
-        'member-data-container indicator should eventually appear',
-    });
+    const inViewportService = this.owner.lookup('service:inViewport');
 
-    await settled();
+    inViewportService.triggerEnter();
 
-    assert.dom('ul li').exists({ count: 5 });
+    await waitFor('ul li', { timeout: 1000, count: 5 });
 
-    assert.dom('ul li').hasAnyText('Member');
+    assert.dom('ul li').exists({ count: 5 }, '5 member items are rendered');
+    assert.dom('ul li').hasAnyText('Member', 'Each member item has text');
   });
 
   test('it renders with no members', async function (assert) {

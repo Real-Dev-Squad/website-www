@@ -7,6 +7,16 @@
     @isStatusUpdating={{this.isStatusUpdating}}
     @updateStatus={{this.updateStatus}}
     @dev={{this.isDevMode}}
-    @statusUpdateDevApi={{this.statusUpdateDevApi}}
+    @statusUpdateForDev={{this.statusUpdateForDev}}
+  />
+
+  <UserStatusModal
+    @isStatusUpdating={{this.isStatusUpdating}}
+    @newStatus={{this.newStatus}}
+    @showUserStateModal={{this.showUserStateModal}}
+    @toggleUserStateModal={{this.toggleUserStateModal}}
+    @updateStatus={{this.updateStatus}}
+    @dev={{this.isDevMode}}
+    @statusUpdateForDev={{this.statusUpdateForDev}}
   />
 </div>

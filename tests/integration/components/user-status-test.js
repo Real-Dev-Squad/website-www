@@ -77,8 +77,8 @@ module('Integration | Component | user-status', function (hooks) {
       isStatusUpdating: false,
       changeStatus: () => {},
       updateStatus: (cancelOOOPayload) => {
-        const { cancelOoo } = cancelOOOPayload;
-        assert.true(cancelOoo, 'cancel OOO status');
+        const { cancelOOOStatus } = cancelOOOPayload;
+        assert.true(cancelOOOStatus, 'cancel OOO status');
       },
     });
     await render(hbs`

@@ -231,7 +231,7 @@
 }
 
 .identity-box-input {
-  border: 1px solid var(--color-black-50);
+  border: 1px solid var(--color-black-25);
   background: var(--color-white);
   width: 50%;
   margin-top: 16px;
@@ -259,6 +259,31 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.identity-chaincode-copy-box {
+  display: flex;
+  width: 60%;
+}
+
+.identity-chaincode-box {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-top: 16px;
+  border: 1px solid var(--color-black-25);
+  background: var(--color-white);
+  width: 90%;
+  height: 2rem;
+  color: var(--color-black);
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 @media (width <= 460px) {

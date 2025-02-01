@@ -28,7 +28,7 @@
        {{else if (eq this.initialState 'verified')}}
       <Identity::Verified />
       {{else if (eq this.initialState 'blocked')}}
-      <Identity::Blocked />
+      <Identity::Blocked @setState={{this.setState}} />
     {{/if}}
   </div>
   

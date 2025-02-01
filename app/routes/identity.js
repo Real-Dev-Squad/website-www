@@ -1,6 +1,9 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { APPS } from '../constants/urls';
+import redirectAuth from '../utils/redirect-auth';
+import { TOAST_OPTIONS } from '../constants/toast-options';
+import { ERROR_MESSAGES } from '../constants/error-messages';
 export default class IdentityRoute extends Route {
   @service router;
   @service login;
@@ -8,8 +11,7 @@ export default class IdentityRoute extends Route {
 
   beforeModel(transition) {
     if (transition?.to?.queryParams?.dev !== 'true') {
-      this.router.transitionTo('page-not-found');
-      return;
+      this.router.transitionTo('/page-not-found');
     }
   }
 
@@ -29,7 +31,8 @@ export default class IdentityRoute extends Route {
 
       if (!response.ok) {
         if (response.status === 401) {
-          this.router.transitionTo('index');
+          this.toast.error(ERROR_MESSAGES.notLoggedIn, '', TOAST_OPTIONS);
+          setTimeout(redirectAuth, 2000);
           return null;
         }
         throw new Error(`HTTP error! status: ${response.status}`);

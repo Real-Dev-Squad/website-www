@@ -106,7 +106,7 @@
     "stylelint-prettier": "4.1.0",
     "toastr": "2.1.4",
     "tracked-built-ins": "3.3.0",
-    "webpack": "5.91.0"
+    "webpack": "5.94.0"
   },
   "fastbootDependencies": [
     "crypto"

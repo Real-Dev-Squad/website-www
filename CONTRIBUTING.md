@@ -39,7 +39,7 @@ Now you should install the required packages to run this project by doing:
 
 ```
 
-yarn or yarn install
+pnpm install
 
 ```
 

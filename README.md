@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 
 - `git clone <repository-url>` this repository
 - `cd website-www`
-- `yarn install`
+- `pnpm install`
 
 ## Running / Development
 
@@ -35,8 +35,8 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Linting
 
-- `npm run lint`
-- `npm run lint:fix`
+- `pnpm run lint`
+- `pnpm run lint:fix`
 
 ### Building
 

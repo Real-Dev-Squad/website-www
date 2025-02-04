@@ -12,7 +12,9 @@
   {{/if}}
   
   <div class="identity-box">
+
     {{#if (eq this.initialState "getStarted")}}
+
       <Identity::GetStarted @setState={{this.setState}} />
     {{else if (eq this.state 'step1')}}
       <Identity::Step1 @setState={{this.setState}} />
@@ -23,6 +25,7 @@
       />
     {{else if (eq this.state 'step3')}}
       <Identity::Step3 @setState={{this.setState}} />
+
      {{else if (eq this.initialState 'reload')}}
       <Identity::Reload />
        {{else if (eq this.initialState 'verified')}}

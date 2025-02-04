@@ -13,9 +13,9 @@
   "scripts": {
     "build": "ember build --environment=production",
     "build:staging": "ember build --environment=staging",
-    "lint": "concurrently \"pnpm:lint:*\" --names \"lint:\"",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "pnpm run lint:css -- --fix",
+    "lint:css:fix": "pnpm run lint:css --fix",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",

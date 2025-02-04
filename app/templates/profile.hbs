@@ -12,11 +12,11 @@
         />
       {{/if}}
 
-       <Button @onClick={{this.handleShowEditProfilePictureModal}}
+       <Profile::Button @onClick={{this.handleShowEditProfilePictureModal}}
          @class='profile-edit-button'
          @data-test-btn='edit'>
           <FaIcon @icon="edit" />
-       </Button>
+       </Profile::Button>
     </div>
     <div class='profile-form-grid'>
         <p class='profile-page-error'>You can't update the profile data from UI.

@@ -1,0 +1,5 @@
+<div class="notifications">
+  {{#each this.notifications as |post|}}
+    <NotificationCard @title={{post.title}} @description={{post.description}} />
+  {{/each}}
+</div>

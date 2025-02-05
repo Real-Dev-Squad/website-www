@@ -21,4 +21,5 @@ Router.map(function () {
   this.route('status');
   this.route('discord');
   this.route('profile');
+  this.route('notifications');
 });

@@ -52,6 +52,7 @@
 @import url("user-status.module.css");
 @import url("user-status-modal.module.css");
 @import url("discord.module.css");
+@import url("notifications.css");
 
 * {
   margin: 0;

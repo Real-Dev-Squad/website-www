@@ -140,7 +140,7 @@
     </a>
     <a
       data-test-dropdown-profile
-      href={{this.PROFILE_URL}}
+      href={{if @dev "/profile?dev=true" this.PROFILE_URL}}
       class="menu__link"
       rel="noopener noreferrer"
       target="_blank"

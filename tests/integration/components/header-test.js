@@ -190,7 +190,7 @@ module('Integration | Component | header', function (hooks) {
     assert.dom('[data-test-dropdown-profile]').hasText('Profile');
     assert
       .dom('[data-test-dropdown-profile]')
-      .hasAttribute('href', APPS.PROFILE);
+      .hasAttribute('href', '/profile?dev=true');
     assert.dom('[data-test-dropdown-tasks]').hasText('Tasks');
     assert.dom('[data-test-dropdown-tasks]').hasAttribute('href', APPS.TASKS);
     assert.dom('[data-test-dropdown-identity]').hasText('Identity');

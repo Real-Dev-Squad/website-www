@@ -40,14 +40,13 @@
     
     {{!-- NOTE: This has the new code on feature flag off --}}
     {{!-- If something goes wrong, we can enable a flag to restore previous behaviour --}}
-    {{!-- TODO: Clean up by Jan, 2025 --}}
+    {{!-- TODO: Clean up by Feb, 2025 --}}
+    {{#if this.isDevMode}}
     <p data-test-join-later-text class='join__later-text'>
-      {{#if this.isDevMode}}
       We're currently not accepting new applications. Please come back later.
-      {{else}}
-      <NoticeForJoining />
-      {{/if}}
     </p>
-
+    {{else}}
+    <NoticeForJoining data-test-join-later-text class="join__later-text"/>
+    {{/if}}
   </section>
 {{/if}}

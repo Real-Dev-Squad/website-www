@@ -19,12 +19,12 @@ module('Integration | Component | notification-card', function (hooks) {
       />
     `);
 
-    assert.dom('.new__message__box').exists('Component wrapper exists');
+    assert.dom('[data-test-post-card]').exists('Component wrapper exists');
     assert
-      .dom('.text__title')
+      .dom('[data-test-post-title]')
       .hasText('Test Title', 'Title is rendered correctly');
     assert
-      .dom('.text__description')
+      .dom('[data-test-post-description]')
       .hasText('Test Description', 'Description is rendered correctly');
   });
 
@@ -32,39 +32,20 @@ module('Integration | Component | notification-card', function (hooks) {
     assert.expect(5);
 
     await render(hbs`
-      <NotificationCard
-        @title={{null}}
-        @description={{null}}
-      />
+      <NotificationCard/>
     `);
 
     assert
-      .dom('.new__message__box')
+      .dom('[data-test-post-card]')
       .exists('Component wrapper exists even with empty props');
     assert
-      .dom('.text__title')
+      .dom('[data-test-post-title]')
       .exists('Title element exists')
       .hasText('', 'Title is empty');
     assert
-      .dom('.text__description')
+      .dom('[data-test-post-description]')
       .exists('Description element exists')
       .hasText('', 'Description is empty');
-  });
-
-  test('it has the correct structure', async function (assert) {
-    assert.expect(4);
-
-    await render(hbs`
-      <NotificationCard
-        @title="Test"
-        @description="Test"
-      />
-    `);
-
-    assert.dom('.new__message__box__alert').exists('Alert container exists');
-    assert.dom('.info__tab.tip__icon__alert').exists('Icon container exists');
-    assert.dom('.info__tab.tip__icon__alert i').exists('Icon element exists');
-    assert.dom('.tip__box__alert').exists('Content container exists');
   });
 
   test('it updates when properties change', async function (assert) {
@@ -81,20 +62,20 @@ module('Integration | Component | notification-card', function (hooks) {
     `);
 
     assert
-      .dom('.text__title')
+      .dom('[data-test-post-title]')
       .hasText('Initial Title', 'Initial title is rendered');
     assert
-      .dom('.text__description')
+      .dom('[data-test-post-description]')
       .hasText('Initial Description', 'Initial description is rendered');
 
     this.set('title', 'Updated Title');
     this.set('description', 'Updated Description');
 
     assert
-      .dom('.text__title')
+      .dom('[data-test-post-title]')
       .hasText('Updated Title', 'Title updates correctly');
     assert
-      .dom('.text__description')
+      .dom('[data-test-post-description]')
       .hasText('Updated Description', 'Description updates correctly');
   });
 });

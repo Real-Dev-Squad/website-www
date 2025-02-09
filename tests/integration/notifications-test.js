@@ -5,7 +5,13 @@ import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | notifications', function (hooks) {
   setupRenderingTest(hooks);
-
+  const notificationTemplate = hbs`
+      <div class="notifications" data-test-notifications-container>
+        {{#each this.notifications as |post|}}
+          <NotificationCard @title={{post.title}} @description={{post.description}} />
+        {{/each}}
+      </div>
+    `
   test('it renders multiple notification cards', async function (assert) {
     assert.expect(3);
 
@@ -15,20 +21,14 @@ module('Integration | Component | notifications', function (hooks) {
       { title: 'Third Post', description: 'Third Description' },
     ]);
 
-    await render(hbs`
-      <div class="notifications">
-        {{#each this.notifications as |post|}}
-          <NotificationCard @title={{post.title}} @description={{post.description}} />
-        {{/each}}
-      </div>
-    `);
+    await render(notificationTemplate);
 
-    assert.dom('.notifications').exists('Notifications container exists');
+    assert.dom('[data-test-notifications-container]').exists('Notifications container exists');
     assert
-      .dom('.new__message__box')
+      .dom('[data-test-post-card]')
       .exists({ count: 3 }, 'Renders correct number of notification cards');
     assert
-      .dom('.text__title')
+      .dom('[data-test-post-title]')
       .exists({ count: 3 }, 'Renders correct number of titles');
   });
 
@@ -40,16 +40,10 @@ module('Integration | Component | notifications', function (hooks) {
       { title: 'Second Post', description: 'Second Description' },
     ]);
 
-    await render(hbs`
-      <div class="notifications">
-        {{#each this.notifications as |post|}}
-          <NotificationCard @title={{post.title}} @description={{post.description}} />
-        {{/each}}
-      </div>
-    `);
+    await render(notificationTemplate);
 
-    const titles = this.element.querySelectorAll('.text__title');
-    const descriptions = this.element.querySelectorAll('.text__description');
+    const titles = this.element.querySelectorAll('[data-test-post-title]');
+    const descriptions = this.element.querySelectorAll('[data-test-post-description]');
 
     assert.strictEqual(
       titles[0].textContent.trim(),
@@ -79,16 +73,16 @@ module('Integration | Component | notifications', function (hooks) {
     this.set('notifications', []);
 
     await render(hbs`
-      <div class="notifications">
+      <div class="notifications" data-test-notifications-container>
         {{#each this.notifications as |post|}}
           <NotificationCard @title={{post.title}} @description={{post.description}} />
         {{/each}}
       </div>
     `);
 
-    assert.dom('.notifications').exists('Notifications container exists');
+    assert.dom('[data-test-notifications-container]').exists('Notifications container exists');
     assert
-      .dom('.new__message__box')
+      .dom('[data-test-post-card]')
       .doesNotExist('No notification cards are rendered when array is empty');
   });
 
@@ -100,7 +94,7 @@ module('Integration | Component | notifications', function (hooks) {
     ]);
 
     await render(hbs`
-      <div class="notifications">
+      <div class="notifications" data-test-notifications-container>
         {{#each this.notifications as |post|}}
           <NotificationCard @title={{post.title}} @description={{post.description}} />
         {{/each}}
@@ -108,7 +102,7 @@ module('Integration | Component | notifications', function (hooks) {
     `);
 
     assert
-      .dom('.new__message__box')
+      .dom('[data-test-post-card]')
       .exists({ count: 1 }, 'Initially renders one notification card');
 
     this.set('notifications', [
@@ -117,10 +111,10 @@ module('Integration | Component | notifications', function (hooks) {
     ]);
 
     assert
-      .dom('.new__message__box')
+      .dom('[data-test-post-card]')
       .exists({ count: 2 }, 'Updates to render two notification cards');
 
-    const titles = this.element.querySelectorAll('.text__title');
+    const titles = this.element.querySelectorAll('[data-test-post-title]');
     assert.strictEqual(
       titles[0].textContent.trim(),
       'Initial Post',

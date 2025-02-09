@@ -1,4 +1,4 @@
-<div class="notifications">
+<div class="notifications" data-test-notifications-container>
   {{#each this.notifications as |post|}}
     <NotificationCard @title={{post.title}} @description={{post.description}} />
   {{/each}}

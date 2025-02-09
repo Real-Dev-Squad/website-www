@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
+import { currentURL } from '@ember/test-helpers';
 
 module('Unit | Route | notifications', function (hooks) {
   setupTest(hooks);
@@ -10,46 +11,35 @@ module('Unit | Route | notifications', function (hooks) {
     assert.ok(route);
   });
 
-  test('beforeModel redirects to page-not-found when dev param is not true', function (assert) {
-    assert.expect(5);
+  test('it should redirect to "/page-not-found" page when dev flag is not present', async function (assert) {
+    assert.expect(3);
+
     const route = this.owner.lookup('route:notifications');
-    let transitionToCount = 0;
 
-    route.router = {
-      transitionTo(routeName) {
-        transitionToCount++;
-        assert.strictEqual(
-          routeName,
-          'page-not-found',
-          'should redirect to 404',
-        );
-      },
-    };
-
-    route.beforeModel({
+    await route.beforeModel({
       to: {
         queryParams: {
           dev: 'false',
         },
       },
     });
-    assert.strictEqual(transitionToCount, 1, 'transition occurred');
+    assert.strictEqual(currentURL(), '/page-not-found');
 
-    route.beforeModel({
+    await route.beforeModel({
       to: {
         queryParams: {},
       },
     });
-    assert.strictEqual(transitionToCount, 2, 'transition occurred');
+    assert.strictEqual(currentURL(), '/page-not-found');
 
-    route.beforeModel({
+    await route.beforeModel({
       to: {
         queryParams: {
           dev: 'true',
         },
       },
     });
-    assert.strictEqual(transitionToCount, 2, 'no transition occurred');
+    assert.strictEqual(currentURL(), '/notifications');
   });
 
   test('queryParams configuration', function (assert) {

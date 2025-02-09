@@ -11,7 +11,7 @@ module('Integration | Component | notifications', function (hooks) {
           <NotificationCard @title={{post.title}} @description={{post.description}} />
         {{/each}}
       </div>
-    `
+    `;
   test('it renders multiple notification cards', async function (assert) {
     assert.expect(3);
 
@@ -23,7 +23,9 @@ module('Integration | Component | notifications', function (hooks) {
 
     await render(notificationTemplate);
 
-    assert.dom('[data-test-notifications-container]').exists('Notifications container exists');
+    assert
+      .dom('[data-test-notifications-container]')
+      .exists('Notifications container exists');
     assert
       .dom('[data-test-post-card]')
       .exists({ count: 3 }, 'Renders correct number of notification cards');
@@ -43,7 +45,9 @@ module('Integration | Component | notifications', function (hooks) {
     await render(notificationTemplate);
 
     const titles = this.element.querySelectorAll('[data-test-post-title]');
-    const descriptions = this.element.querySelectorAll('[data-test-post-description]');
+    const descriptions = this.element.querySelectorAll(
+      '[data-test-post-description]',
+    );
 
     assert.strictEqual(
       titles[0].textContent.trim(),
@@ -80,7 +84,9 @@ module('Integration | Component | notifications', function (hooks) {
       </div>
     `);
 
-    assert.dom('[data-test-notifications-container]').exists('Notifications container exists');
+    assert
+      .dom('[data-test-notifications-container]')
+      .exists('Notifications container exists');
     assert
       .dom('[data-test-post-card]')
       .doesNotExist('No notification cards are rendered when array is empty');

@@ -19,12 +19,14 @@ module('Integration | Component | notification-card', function (hooks) {
       />
     `);
 
-    assert.dom('[data-test-post-card]').exists('Component wrapper exists');
     assert
-      .dom('[data-test-post-title]')
+      .dom('[data-test-notification-card]')
+      .exists('Component wrapper exists');
+    assert
+      .dom('[data-test-notification-title]')
       .hasText('Test Title', 'Title is rendered correctly');
     assert
-      .dom('[data-test-post-description]')
+      .dom('[data-test-notification-description]')
       .hasText('Test Description', 'Description is rendered correctly');
   });
 
@@ -36,14 +38,14 @@ module('Integration | Component | notification-card', function (hooks) {
     `);
 
     assert
-      .dom('[data-test-post-card]')
+      .dom('[data-test-notification-card]')
       .exists('Component wrapper exists even with empty props');
     assert
-      .dom('[data-test-post-title]')
+      .dom('[data-test-notification-title]')
       .exists('Title element exists')
       .hasText('', 'Title is empty');
     assert
-      .dom('[data-test-post-description]')
+      .dom('[data-test-notification-description]')
       .exists('Description element exists')
       .hasText('', 'Description is empty');
   });
@@ -62,20 +64,20 @@ module('Integration | Component | notification-card', function (hooks) {
     `);
 
     assert
-      .dom('[data-test-post-title]')
+      .dom('[data-test-notification-title]')
       .hasText('Initial Title', 'Initial title is rendered');
     assert
-      .dom('[data-test-post-description]')
+      .dom('[data-test-notification-description]')
       .hasText('Initial Description', 'Initial description is rendered');
 
     this.set('title', 'Updated Title');
     this.set('description', 'Updated Description');
 
     assert
-      .dom('[data-test-post-title]')
+      .dom('[data-test-notification-title]')
       .hasText('Updated Title', 'Title updates correctly');
     assert
-      .dom('[data-test-post-description]')
+      .dom('[data-test-notification-description]')
       .hasText('Updated Description', 'Description updates correctly');
   });
 });

@@ -1,6 +1,5 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
-import { currentURL } from '@ember/test-helpers';
 
 module('Unit | Route | notifications', function (hooks) {
   setupTest(hooks);
@@ -8,38 +7,54 @@ module('Unit | Route | notifications', function (hooks) {
   test('it exists', function (assert) {
     assert.expect(1);
     const route = this.owner.lookup('route:notifications');
-    assert.ok(route);
+    assert.ok(route, 'The route exists');
   });
 
-  test('it should redirect to "/page-not-found" page when dev flag is not present', async function (assert) {
+  test('it should redirect to "/page-not-found" page when dev flag is not present', function (assert) {
     assert.expect(3);
 
     const route = this.owner.lookup('route:notifications');
 
-    await route.beforeModel({
+    let transitionToCalls = [];
+
+    route.router = {
+      transitionTo(routeName) {
+        transitionToCalls.push(routeName);
+      },
+    };
+
+    route.beforeModel({
       to: {
-        queryParams: {
-          dev: 'false',
-        },
+        queryParams: { dev: 'false' },
       },
     });
-    assert.strictEqual(currentURL(), '/page-not-found');
+    assert.strictEqual(
+      transitionToCalls[0],
+      'page-not-found',
+      'Redirected to /page-not-found when dev=false',
+    );
 
-    await route.beforeModel({
+    route.beforeModel({
       to: {
         queryParams: {},
       },
     });
-    assert.strictEqual(currentURL(), '/page-not-found');
+    assert.strictEqual(
+      transitionToCalls[1],
+      'page-not-found',
+      'Redirected to /page-not-found when dev flag is missing',
+    );
 
-    await route.beforeModel({
+    route.beforeModel({
       to: {
-        queryParams: {
-          dev: 'true',
-        },
+        queryParams: { dev: 'true' },
       },
     });
-    assert.strictEqual(currentURL(), '/notifications');
+    assert.strictEqual(
+      transitionToCalls.length,
+      2,
+      'Did not redirect when dev=true',
+    );
   });
 
   test('queryParams configuration', function (assert) {

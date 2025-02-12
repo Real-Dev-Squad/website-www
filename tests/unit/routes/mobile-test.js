@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
 import sinon from 'sinon';
 import { FETCH_USER_PROFILE } from 'website-www/constants/apis';
+import { nonSuperUserData } from 'website-www/tests/constants/users-data';
 
 module('Unit | Route | mobile', function (hooks) {
   setupTest(hooks);
@@ -40,7 +41,7 @@ module('Unit | Route | mobile', function (hooks) {
   });
 
   test('it fetches user profile and returns userId if API responds with 200', async function (assert) {
-    const userId = 'aE3CoSEBaslkZ3E2rTef';
+    const userId = nonSuperUserData.userId;
     this.fetchStub.resolves(
       new Response(JSON.stringify({ id: userId }), { status: 200 }),
     );

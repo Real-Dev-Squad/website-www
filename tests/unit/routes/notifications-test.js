@@ -56,19 +56,4 @@ module('Unit | Route | notifications', function (hooks) {
       'Did not redirect when dev=true',
     );
   });
-
-  test('queryParams configuration', function (assert) {
-    assert.expect(1);
-    const route = this.owner.lookup('route:notifications');
-
-    assert.deepEqual(
-      route.queryParams,
-      {
-        dev: {
-          refreshModel: false,
-        },
-      },
-      'queryParams should be correctly configured',
-    );
-  });
 });

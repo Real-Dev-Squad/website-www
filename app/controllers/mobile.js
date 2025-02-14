@@ -42,7 +42,7 @@ export default class MobileController extends Controller {
     } else {
       try {
         const checkStatus = await this.fetchAuthStatus(AUTH_STATUS.REJECTED);
-        if (checkStatus.response.status !== 200) {
+        if (checkStatus.status !== 200) {
           throw Error(ERROR_MESSAGES.somethingWentWrong);
         }
         this.toast.success(REQUEST_CANCEL_MESSAGE, 'Success');
@@ -61,7 +61,7 @@ export default class MobileController extends Controller {
         },
         credentials: 'include',
       });
-      if (!response.ok) {
+      if (response.status !== 200) {
         this.toast.error(QR_SCAN_MESSAGE, 'Not verified', TOAST_OPTIONS);
       }
       await this.verifyAuth();

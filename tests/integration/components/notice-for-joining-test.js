@@ -8,7 +8,7 @@ module('Integration | Component | notice-for-joining', function (hooks) {
 
   test('it renders', async function (assert) {
     await render(hbs`<NoticeForJoining />`);
-    assert.dom().includesText('not accepting');
-    assert.dom().includesText('come back later');
+    assert.dom().includesText('currently accepting');
+    assert.dom().includesText('referrals');
   });
 });

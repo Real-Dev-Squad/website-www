@@ -21,3 +21,5 @@ export const APPLICATION_ID_LINK = (id) => {
 export const UPDATE_USER_STATUS = `${APPS.API_BACKEND}/users/status/self?userStatusFlag=true`;
 
 export const UPDATE_USER_STATUS_FOR_DEV = `${APPS.API_BACKEND}/requests?dev=true`;
+
+export const FETCH_USER_PROFILE = `${APPS.API_BACKEND}/users?profile=true`;

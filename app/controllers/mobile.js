@@ -61,10 +61,9 @@ export default class MobileController extends Controller {
         },
         credentials: 'include',
       });
-      if (response.status !== 200) {
-        this.toast.error(QR_SCAN_MESSAGE, 'Not verified', TOAST_OPTIONS);
-      }
-      await this.verifyAuth();
+      if (response.status === 200) {
+        await this.verifyAuth();
+      } else this.toast.error(QR_SCAN_MESSAGE, 'Not verified', TOAST_OPTIONS);
     } catch (error) {
       this.toast.error('error');
     }

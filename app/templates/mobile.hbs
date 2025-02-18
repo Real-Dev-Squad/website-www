@@ -1,2 +1,10 @@
 {{page-title "Mobile"}}
-{{outlet}}
+<div class="mobile">
+  <Qrcode @text={{@model}} />
+  <button
+    type="button"
+    class="qr-verify-status-btn"
+    {{on "click" this.buttonClicked}}
+    data-test-verify-button
+  >Verify Status</button>
+</div>

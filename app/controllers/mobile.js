@@ -52,7 +52,7 @@ export default class MobileController extends Controller {
     }
   }
 
-  @action async buttonClicked() {
+  @action async verifyBtnClicked() {
     try {
       const response = await fetch(FETCH_DEVICE_INFO, {
         method: 'GET',

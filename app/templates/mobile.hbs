@@ -1,10 +1,2 @@
 {{page-title "Mobile"}}
-<div class="mobile">
-  <Qrcode @text={{@model}} />
-  <button
-    type="button"
-    class="qr-verify-status-btn"
-    {{on "click" this.buttonClicked}}
-    data-test-verify-button
-  >Verify Status</button>
-</div>
+<QrAuth @qrCodeText={{@model}} @verifyStatus={{this.verifyBtnClicked}} />

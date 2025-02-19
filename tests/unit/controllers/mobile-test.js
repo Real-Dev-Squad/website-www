@@ -124,7 +124,7 @@ module('Unit | Controller | mobile', function (hooks) {
     fetchStub.resolves(new Response(null, { status: 200 }));
     confirmStub.returns(true);
 
-    await controller.buttonClicked();
+    await controller.verifyBtnClicked();
     await settled();
 
     assert.ok(
@@ -140,7 +140,7 @@ module('Unit | Controller | mobile', function (hooks) {
   test('shows error toast when device info fetch fails', async function (assert) {
     fetchStub.rejects(new Error('Network error'));
 
-    await controller.buttonClicked();
+    await controller.verifyBtnClicked();
     await settled();
 
     assert.ok(controller.toast.error.calledWith('error'), 'Shows error toast');

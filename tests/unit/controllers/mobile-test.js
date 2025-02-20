@@ -9,7 +9,7 @@ import {
 } from 'website-www/constants/auth-status';
 import { ERROR_MESSAGES } from 'website-www/constants/error-messages';
 import {
-  FETCH_AUTH_STATUS,
+  AUTH_STATUS_ENDPOINT,
   FETCH_DEVICE_INFO,
 } from 'website-www/constants/apis';
 
@@ -44,11 +44,14 @@ module('Unit | Controller | mobile', function (hooks) {
     await controller.fetchAuthStatus(AUTH_STATUS.AUTHORIZED);
 
     assert.ok(
-      fetchStub.calledWith(`${FETCH_AUTH_STATUS}/${AUTH_STATUS.AUTHORIZED}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-      }),
+      fetchStub.calledWith(
+        `${AUTH_STATUS_ENDPOINT}/${AUTH_STATUS.AUTHORIZED}`,
+        {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+        },
+      ),
       'Makes correct API call',
     );
   });

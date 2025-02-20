@@ -24,6 +24,6 @@ export const UPDATE_USER_STATUS_FOR_DEV = `${APPS.API_BACKEND}/requests?dev=true
 
 export const FETCH_USER_PROFILE = `${APPS.API_BACKEND}/users?profile=true`;
 
-export const FETCH_AUTH_STATUS = `${APPS.API_BACKEND}/auth/qr-code-auth/authorization_status/`;
+export const AUTH_STATUS_ENDPOINT = `${APPS.API_BACKEND}/auth/qr-code-auth/authorization_status`;
 
 export const FETCH_DEVICE_INFO = `${APPS.API_BACKEND}/auth/device`;

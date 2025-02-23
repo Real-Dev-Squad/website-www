@@ -9,31 +9,25 @@ import {
   QR_SCAN_MESSAGE,
   REQUEST_CANCEL_MESSAGE,
 } from '../constants/auth-status';
-import { AUTH_STATUS_ENDPOINT, FETCH_DEVICE_INFO } from '../constants/apis';
+import {
+  QR_AUTHORIZATION_STATUS_URL,
+  USER_AUTHENTICATED_DEVICES_URL,
+} from '../constants/apis';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 
 export default class MobileController extends Controller {
   @service toast;
   @service router;
 
-  async fetchAuthStatus(authStatus) {
+  async updateQRAuthStatus(status, successMessage) {
     try {
-      const response = await fetch(`${AUTH_STATUS_ENDPOINT}/${authStatus}`, {
+      const response = await fetch(`${QR_AUTHORIZATION_STATUS_URL}/${status}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
       });
-      return response;
-    } catch (error) {
-      this.toast.error(ERROR_MESSAGES.somethingWentWrong, '', TOAST_OPTIONS);
-    }
-  }
-
-  async handleAuthStatus(status, successMessage) {
-    try {
-      const response = await this.fetchAuthStatus(status);
       if (!response || response.status !== 200) {
         throw new Error(ERROR_MESSAGES.somethingWentWrong);
       }
@@ -46,20 +40,23 @@ export default class MobileController extends Controller {
     }
   }
 
-  @action async verifyAuth() {
+  @action async confirmQRAuth() {
     if (confirm(QR_SCAN_CONFIRMATION_MESSAGE)) {
-      await this.handleAuthStatus(
+      await this.updateQRAuthStatus(
         AUTH_STATUS.AUTHORIZED,
         MOBILE_LOGIN_SUCCESS_MESSAGE,
       );
     } else {
-      await this.handleAuthStatus(AUTH_STATUS.REJECTED, REQUEST_CANCEL_MESSAGE);
+      await this.updateQRAuthStatus(
+        AUTH_STATUS.REJECTED,
+        REQUEST_CANCEL_MESSAGE,
+      );
     }
   }
 
-  @action async verifyBtnClicked() {
+  @action async getQRScannedDevices() {
     try {
-      const response = await fetch(FETCH_DEVICE_INFO, {
+      const response = await fetch(USER_AUTHENTICATED_DEVICES_URL, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +64,7 @@ export default class MobileController extends Controller {
         credentials: 'include',
       });
       if (response.status === 200) {
-        await this.verifyAuth();
+        await this.confirmQRAuth();
       } else this.toast.error(QR_SCAN_MESSAGE, 'Not verified', TOAST_OPTIONS);
     } catch (error) {
       this.toast.error('error');

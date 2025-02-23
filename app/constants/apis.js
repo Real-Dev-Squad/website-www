@@ -22,8 +22,8 @@ export const UPDATE_USER_STATUS = `${APPS.API_BACKEND}/users/status/self?userSta
 
 export const UPDATE_USER_STATUS_FOR_DEV = `${APPS.API_BACKEND}/requests?dev=true`;
 
-export const FETCH_USER_PROFILE = `${APPS.API_BACKEND}/users?profile=true`;
+export const SELF_USER_PROFILE_URL = `${APPS.API_BACKEND}/users?profile=true`;
 
-export const AUTH_STATUS_ENDPOINT = `${APPS.API_BACKEND}/auth/qr-code-auth/authorization_status`;
+export const QR_AUTHORIZATION_STATUS_URL = `${APPS.API_BACKEND}/auth/qr-code-auth/authorization_status`;
 
-export const FETCH_DEVICE_INFO = `${APPS.API_BACKEND}/auth/device`;
+export const USER_AUTHENTICATED_DEVICES_URL = `${APPS.API_BACKEND}/auth/device`;

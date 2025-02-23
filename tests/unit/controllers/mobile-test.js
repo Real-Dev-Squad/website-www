@@ -9,8 +9,8 @@ import {
 } from 'website-www/constants/auth-status';
 import { ERROR_MESSAGES } from 'website-www/constants/error-messages';
 import {
-  AUTH_STATUS_ENDPOINT,
-  FETCH_DEVICE_INFO,
+  QR_AUTHORIZATION_STATUS_URL,
+  USER_AUTHENTICATED_DEVICES_URL,
 } from 'website-www/constants/apis';
 
 module('Unit | Controller | mobile', function (hooks) {
@@ -41,11 +41,11 @@ module('Unit | Controller | mobile', function (hooks) {
   test('makes correct API call with given auth status', async function (assert) {
     fetchStub.resolves(new Response(null, { status: 200 }));
 
-    await controller.fetchAuthStatus(AUTH_STATUS.AUTHORIZED);
+    await controller.updateQRAuthStatus(AUTH_STATUS.AUTHORIZED);
 
     assert.ok(
       fetchStub.calledWith(
-        `${AUTH_STATUS_ENDPOINT}/${AUTH_STATUS.AUTHORIZED}`,
+        `${QR_AUTHORIZATION_STATUS_URL}/${AUTH_STATUS.AUTHORIZED}`,
         {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
@@ -60,7 +60,7 @@ module('Unit | Controller | mobile', function (hooks) {
     confirmStub.returns(true);
     fetchStub.resolves(new Response(null, { status: 200 }));
 
-    await controller.verifyAuth();
+    await controller.confirmQRAuth();
     await settled();
 
     assert.ok(
@@ -80,7 +80,7 @@ module('Unit | Controller | mobile', function (hooks) {
     confirmStub.returns(true);
     fetchStub.resolves(new Response(null, { status: 400 }));
 
-    await controller.verifyAuth();
+    await controller.confirmQRAuth();
     await settled();
 
     assert.ok(
@@ -97,7 +97,7 @@ module('Unit | Controller | mobile', function (hooks) {
     confirmStub.returns(false);
     fetchStub.resolves(new Response(null, { status: 200 }));
 
-    await controller.verifyAuth();
+    await controller.confirmQRAuth();
     await settled();
 
     assert.ok(
@@ -110,7 +110,7 @@ module('Unit | Controller | mobile', function (hooks) {
     confirmStub.returns(false);
     fetchStub.resolves(new Response(null, { status: 400 }));
 
-    await controller.verifyAuth();
+    await controller.confirmQRAuth();
     await settled();
 
     assert.ok(
@@ -127,11 +127,11 @@ module('Unit | Controller | mobile', function (hooks) {
     fetchStub.resolves(new Response(null, { status: 200 }));
     confirmStub.returns(true);
 
-    await controller.verifyBtnClicked();
+    await controller.getQRScannedDevices();
     await settled();
 
     assert.ok(
-      fetchStub.calledWith(FETCH_DEVICE_INFO, {
+      fetchStub.calledWith(USER_AUTHENTICATED_DEVICES_URL, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -143,7 +143,7 @@ module('Unit | Controller | mobile', function (hooks) {
   test('shows error toast when device info fetch fails', async function (assert) {
     fetchStub.rejects(new Error('Network error'));
 
-    await controller.verifyBtnClicked();
+    await controller.getQRScannedDevices();
     await settled();
 
     assert.ok(controller.toast.error.calledWith('error'), 'Shows error toast');

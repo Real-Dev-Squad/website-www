@@ -8,19 +8,21 @@ module('Integration | Component | qr-auth', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    this.mockVerifyAuth = sinon.stub();
+    this.mockConfirmQRAuth = sinon.stub();
   });
 
   test('it renders QR code when @qrCodeText is provided', async function (assert) {
     await render(
-      hbs`<QrAuth @qrCodeText="test-qr-code" @verifyStatus={{this.mockVerifyAuth}} />`,
+      hbs`<QrAuth @qrCodeText="test-qr-code" @verifyQRAuthStatus={{this.mockConfirmQRAuth}} />`,
     );
 
     assert.dom('[data-test="qr-code"]').exists('QR Code should be displayed');
   });
 
   test('it does not render QR code when @qrCodeText is missing', async function (assert) {
-    await render(hbs`<QrAuth @verifyStatus={{this.mockVerifyAuth}} />`);
+    await render(
+      hbs`<QrAuth @verifyQRAuthStatus={{this.mockConfirmQRAuth}} />`,
+    );
 
     assert
       .dom('[data-test="qr-code"]')
@@ -29,7 +31,7 @@ module('Integration | Component | qr-auth', function (hooks) {
 
   test('it renders the verify status button', async function (assert) {
     await render(
-      hbs`<QrAuth @qrCodeText="test-qr-code" @verifyStatus={{this.mockVerifyAuth}} />`,
+      hbs`<QrAuth @qrCodeText="test-qr-code" @verifyQRAuthStatus={{this.mockConfirmQRAuth}} />`,
     );
 
     assert
@@ -37,12 +39,12 @@ module('Integration | Component | qr-auth', function (hooks) {
       .exists('Verify Status button should be displayed');
   });
 
-  test('clicking verify status button triggers @verifyStatus action', async function (assert) {
+  test('clicking verify status button triggers @verifyQRAuthStatus action', async function (assert) {
     await render(
-      hbs`<QrAuth @qrCodeText="test-qr-code" @verifyStatus={{this.mockVerifyAuth}} />`,
+      hbs`<QrAuth @qrCodeText="test-qr-code" @verifyQRAuthStatus={{this.mockConfirmQRAuth}} />`,
     );
     await click('[data-test-verify-button]');
 
-    assert.ok(this.mockVerifyAuth.calledOnce, 'Verify action is called');
+    assert.ok(this.mockConfirmQRAuth.calledOnce, 'Verify action is called');
   });
 });

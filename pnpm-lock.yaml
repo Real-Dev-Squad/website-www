@@ -26,6 +26,9 @@ importers:
       ember-cli-fastboot:
         specifier: 4.1.5
         version: 4.1.5(ember-source@5.9.0(@babel/core@7.24.7)(@glimmer/component@1.1.2(@babel/core@7.24.7))(rsvp@4.8.5)(webpack@5.91.0))
+      ember-cli-qrcode:
+        specifier: ^2.1.0
+        version: 2.1.0
       ember-d3:
         specifier: 0.5.1
         version: 0.5.1
@@ -119,9 +122,6 @@ importers:
         version: 6.3.0
       ember-cli-inject-live-reload:
         specifier: 2.1.0
-        version: 2.1.0
-      ember-cli-qrcode:
-        specifier: ^2.1.0
         version: 2.1.0
       ember-cli-sri:
         specifier: 2.1.1

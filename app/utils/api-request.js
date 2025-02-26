@@ -17,5 +17,10 @@ export default async function apiRequest(
     options.body = JSON.stringify(body);
   }
 
-  return await fetch(url, options);
+  try {
+    return await fetch(url, options);
+  } catch (error) {
+    console.error('API request failed:', error);
+    throw error;
+  }
 }

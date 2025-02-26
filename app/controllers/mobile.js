@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { ERROR_MESSAGES } from '../constants/error-messages';
 import {
   AUTH_STATUS,
@@ -14,6 +14,7 @@ import {
   USER_AUTHENTICATED_DEVICES_URL,
 } from '../constants/apis';
 import { TOAST_OPTIONS } from '../constants/toast-options';
+import apiRequest from '../utils/api-request';
 
 export default class MobileController extends Controller {
   @service toast;
@@ -21,13 +22,11 @@ export default class MobileController extends Controller {
 
   async updateQRAuthStatus(status, successMessage) {
     try {
-      const response = await fetch(`${QR_AUTHORIZATION_STATUS_URL}/${status}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      });
+      const response = await apiRequest(
+        `${QR_AUTHORIZATION_STATUS_URL}/${status}`,
+        'PATCH',
+      );
+
       if (!response || response.status !== 200) {
         throw new Error(ERROR_MESSAGES.somethingWentWrong);
       }
@@ -36,7 +35,11 @@ export default class MobileController extends Controller {
         this.router.transitionTo('/');
       }
     } catch (error) {
-      this.toast.error(ERROR_MESSAGES.somethingWentWrong, '', TOAST_OPTIONS);
+      this.toast.error(
+        ERROR_MESSAGES.somethingWentWrong,
+        'Error!',
+        TOAST_OPTIONS,
+      );
     }
   }
 
@@ -56,18 +59,18 @@ export default class MobileController extends Controller {
 
   @action async getQRScannedDevices() {
     try {
-      const response = await fetch(USER_AUTHENTICATED_DEVICES_URL, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      });
+      const response = await apiRequest(USER_AUTHENTICATED_DEVICES_URL, 'GET');
       if (response.status === 200) {
         await this.confirmQRAuth();
-      } else this.toast.error(QR_SCAN_MESSAGE, 'Not verified', TOAST_OPTIONS);
+      } else {
+        this.toast.error(QR_SCAN_MESSAGE, 'Not verified', TOAST_OPTIONS);
+      }
     } catch (error) {
-      this.toast.error('error');
+      this.toast.error(
+        ERROR_MESSAGES.somethingWentWrong,
+        'Error!',
+        TOAST_OPTIONS,
+      );
     }
   }
 }

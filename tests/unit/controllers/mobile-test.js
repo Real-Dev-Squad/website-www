@@ -86,7 +86,7 @@ module('Unit | Controller | mobile', function (hooks) {
     assert.ok(
       controller.toast.error.calledWith(
         ERROR_MESSAGES.somethingWentWrong,
-        '',
+        'Error!',
         sinon.match.object,
       ),
       'Shows error toast',
@@ -116,7 +116,7 @@ module('Unit | Controller | mobile', function (hooks) {
     assert.ok(
       controller.toast.error.calledWith(
         ERROR_MESSAGES.somethingWentWrong,
-        '',
+        'Error!',
         sinon.match.object,
       ),
       'Shows error toast',
@@ -146,6 +146,13 @@ module('Unit | Controller | mobile', function (hooks) {
     await controller.getQRScannedDevices();
     await settled();
 
-    assert.ok(controller.toast.error.calledWith('error'), 'Shows error toast');
+    assert.ok(
+      controller.toast.error.calledWith(
+        ERROR_MESSAGES.somethingWentWrong,
+        'Error!',
+        sinon.match.object,
+      ),
+      'Shows error toast',
+    );
   });
 });

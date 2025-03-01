@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
 import sinon from 'sinon';
-import { FETCH_USER_PROFILE } from 'website-www/constants/apis';
+import { SELF_USER_PROFILE_URL } from 'website-www/constants/apis';
 import { nonSuperUserData } from 'website-www/tests/constants/users-data';
 
 module('Unit | Route | mobile', function (hooks) {
@@ -49,7 +49,7 @@ module('Unit | Route | mobile', function (hooks) {
     const result = await this.route.model();
 
     assert.ok(
-      this.fetchStub.calledOnceWith(FETCH_USER_PROFILE, {
+      this.fetchStub.calledOnceWith(SELF_USER_PROFILE_URL, {
         credentials: 'include',
       }),
       'Fetch called with correct URL and options',

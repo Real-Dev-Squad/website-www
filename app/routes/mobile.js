@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import redirectAuth from '../utils/redirect-auth';
-import { FETCH_USER_PROFILE } from '../constants/apis';
+import { SELF_USER_PROFILE_URL } from '../constants/apis';
 import { ERROR_MESSAGES } from '../constants/error-messages';
 
 export default class MobileRoute extends Route {
@@ -17,7 +17,7 @@ export default class MobileRoute extends Route {
 
   async model() {
     try {
-      const response = await fetch(FETCH_USER_PROFILE, {
+      const response = await fetch(SELF_USER_PROFILE_URL, {
         credentials: 'include',
       });
       const userData = await response.json();

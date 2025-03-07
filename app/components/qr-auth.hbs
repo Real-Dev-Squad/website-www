@@ -1,0 +1,20 @@
+<div class="mobile">
+  {{#if @qrCodeText}}
+    <div class="qr-code-container">
+      <QrCode
+        data-test="qr-code"
+        @text={{@qrCodeText}}
+        @darkColor="#000000"
+        class="qr-code"
+      />
+    </div>
+    <p class="qr-code-text">Check out our RDS mobile app</p>
+  {{/if}}
+
+  <button
+    type="button"
+    class="qr-verify-status-btn"
+    {{on "click" @verifyQRAuthStatus}}
+    data-test-verify-button
+  >Verify Status</button>
+</div>

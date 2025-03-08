@@ -3,8 +3,7 @@ import { setupTest } from 'website-www/tests/helpers';
 import { USER_STATES } from 'website-www/constants/user-status';
 import Service from '@ember/service';
 import sinon from 'sinon';
-import { APPS } from 'website-www/constants/urls';
-const API_BASE_URL = APPS.API_BACKEND;
+import { UPDATE_USER_STATUS } from 'website-www/constants/apis';
 
 class MockToastService extends Service {
   success() {}
@@ -60,9 +59,7 @@ module('Unit | Controller | status', function (hooks) {
 
     assert.ok(this.fetchStub.calledOnce, 'Fetch was called once');
     assert.ok(
-      this.fetchStub.calledWith(
-        `${API_BASE_URL}/users/status/self?userStatusFlag=true`,
-      ),
+      this.fetchStub.calledWith(UPDATE_USER_STATUS),
       'Fetch was called with the correct URL',
     );
   });

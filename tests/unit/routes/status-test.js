@@ -2,8 +2,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
 import sinon from 'sinon';
 import { USER_STATES } from 'website-www/constants/user-status';
-import { APPS } from 'website-www/constants/urls';
-const API_BASE_URL = APPS.API_BACKEND;
+import { SELF_USER_STATUS_URL } from 'website-www/constants/apis';
 
 module('Unit | Route | status', function (hooks) {
   setupTest(hooks);
@@ -38,7 +37,7 @@ module('Unit | Route | status', function (hooks) {
     const result = await this.route.model();
 
     assert.ok(
-      this.fetchStub.calledOnceWith(`${API_BASE_URL}/users/status/self`),
+      this.fetchStub.calledOnceWith(SELF_USER_STATUS_URL),
       'Fetch called with correct URL',
     );
     assert.strictEqual(result, userStatus, 'Returns the user status from API');

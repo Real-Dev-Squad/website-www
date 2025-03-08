@@ -10,6 +10,8 @@ export const FUTURE_STATUS_UPDATE_SUCCESS =
   'Future status updated successfully.';
 export const STATUS_UPDATE_FAILURE_MESSAGE =
   'Status Update failed. Something went wrong.';
+export const STATUS_NOT_EXIST_FAILURE_MESSAGE =
+  "Your Status data doesn't exist yet. Please choose your status from the options below.";
 export const OOO_STATUS_REQUEST_FAILURE_MESSAGE =
   'OOO status request failed. Something went wrong.';
 export const USER_STATES = {

@@ -31,7 +31,7 @@ export default class StatusController extends Controller {
 
   @action async updateStatus(newStatus) {
     this.isStatusUpdating = true;
-    if (!('cancelOOOStatus' in newStatus)) {
+    if (!('cancelOoo' in newStatus)) {
       if (newStatus.currentStatus.state !== USER_STATES.ACTIVE) {
         this.toggleUserStateModal();
       }

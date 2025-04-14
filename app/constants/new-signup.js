@@ -27,7 +27,7 @@ export const SIGNUP_ERROR_MESSAGES = {
   usernameGeneration: 'Username cannot be generated',
   loggedIn: 'You have not logged in. Please login first to fill this form.',
   formAlreadyFilled:
-    "You already have filled the up form. You'll now be redirected.",
+    "You already have filled up the form. You'll now be redirected.",
 };
 
 export const CHECK_BOX_DATA = [
@@ -53,4 +53,4 @@ export const GET_STARTED_MAIN_HEADING = 'Thank you for connecting your GitHub!';
 export const GET_STARTED_SUB_HEADING =
   'Please complete the signup in order to:';
 export const THANK_YOU_MAIN_HEADING = 'Congratulations!';
-export const THANK_YOU_SUB_HEADING = 'Lets get you started on your journey';
+export const THANK_YOU_SUB_HEADING = "Let's get you started on your journey";

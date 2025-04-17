@@ -68,6 +68,41 @@ export default class NewSignupController extends Controller {
     }
   }
 
+  async checkUserName(userName) {
+    try {
+      const response = await apiRequest(CHECK_USERNAME_AVAILABILITY(userName));
+      const data = await response.json();
+      const { isUsernameAvailable } = data;
+      return isUsernameAvailable;
+    } catch (error) {
+      console.error('Error: ', error);
+      this.toast.error(SIGNUP_ERROR_MESSAGES.others, 'error!', TOAST_OPTIONS);
+      return false;
+    }
+  }
+
+  async registerUser(user) {
+    await apiRequest(SELF_USERS_URL, 'PATCH', user);
+  }
+
+  async newRegisterUser(signupDetails, roles) {
+    const getResponse = await apiRequest(SELF_USER_PROFILE_URL);
+    const userData = await getResponse.json();
+
+    const res = await this.registerUser({
+      ...signupDetails,
+      roles: {
+        ...userData.roles,
+        ...roles,
+      },
+    });
+
+    if (!res) {
+      throw new Error(SIGNUP_ERROR_MESSAGES.others);
+    }
+    return res;
+  }
+
   @action changeStepToTwo() {
     this.currentStep = this.SECOND_STEP;
   }
@@ -103,7 +138,7 @@ export default class NewSignupController extends Controller {
   @action handleInputChange(key, value) {
     this.error = '';
     set(this.signupDetails, key, value);
-    if (this.signupDetails[key] > '') this.isButtonDisabled = false;
+    if (this.signupDetails[key].trim() !== '') this.isButtonDisabled = false;
     else this.isButtonDisabled = true;
   }
 

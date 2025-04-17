@@ -18,6 +18,15 @@ export const APPLICATION_ID_LINK = (id) => {
   return `${APPS.DASHBOARD}/applications/?id=${id}`;
 };
 
+export const GENERATE_USERNAME_LINK = (
+  sanitizedFirstname,
+  sanitizedLastname,
+) => {
+  return `${APPS.API_BACKEND}/users/username?dev=true&firstname=${sanitizedFirstname}&lastname=${sanitizedLastname}`;
+};
+
+export const SELF_USERS_URL = `${APPS.API_BACKEND}/users/self`;
+
 export const SELF_USER_STATUS_URL = `${APPS.API_BACKEND}/users/status/self`;
 
 export const UPDATE_USER_STATUS = `${APPS.API_BACKEND}/users/status/self?userStatusFlag=true`;

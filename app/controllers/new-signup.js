@@ -57,8 +57,8 @@ export default class NewSignupController extends Controller {
       if (user && user.username) {
         return user;
       }
+      throw new Error(SIGNUP_ERROR_MESSAGES.usernameGeneration);
     } catch (error) {
-      console.log(error);
       this.toast.error(
         SIGNUP_ERROR_MESSAGES.usernameGeneration,
         'error!',
@@ -103,23 +103,14 @@ export default class NewSignupController extends Controller {
     return res;
   }
 
-  @action changeStepToTwo() {
-    this.currentStep = this.SECOND_STEP;
-  }
+  @action changeStep(step) {
+    this.currentStep = step;
 
-  @action changeStepToThree() {
-    this.currentStep = this.THIRD_STEP;
-    this.isButtonDisabled = true;
-  }
-
-  @action changeStepToFour() {
-    this.currentStep = this.FOURTH_STEP;
-    this.isButtonDisabled = true;
-  }
-
-  @action changeStepToFive() {
-    this.currentStep = this.FIFTH_STEP;
-    this.isButtonDisabled = true;
+    if (step !== this.SECOND_STEP) {
+      this.isButtonDisabled = true;
+    } else {
+      this.isButtonDisabled = false;
+    }
   }
 
   @action register() {
@@ -180,16 +171,15 @@ export default class NewSignupController extends Controller {
       }
 
       const res = this.isDevMode
-        ? await newRegisterUser(signupDetails, roles)
-        : await registerUser(signupDetails);
-      if (res.status === 204) {
+        ? await this.newRegisterUser(signupDetails, roles)
+        : await this.registerUser(signupDetails);
+      if (res?.status === 204) {
         this.currentStep = this.LAST_STEP;
       } else {
         this.error = SIGNUP_ERROR_MESSAGES.others;
         this.isButtonDisabled = false;
       }
     } catch (error) {
-      console.log(error);
       this.error = error?.message || SIGNUP_ERROR_MESSAGES.others;
       this.isButtonDisabled = false;
     } finally {

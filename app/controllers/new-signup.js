@@ -4,14 +4,17 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { APPS } from '../constants/urls';
 import { TOAST_OPTIONS } from '../constants/toast-options';
-import { GENERATE_USERNAME_LINK } from '../constants/apis';
+import {
+  CHECK_USERNAME_AVAILABILITY,
+  GENERATE_USERNAME_LINK,
+  SELF_USER_PROFILE_URL,
+  SELF_USERS_URL,
+} from '../constants/apis';
 import {
   SIGNUP_ERROR_MESSAGES,
   NEW_SIGNUP_STEPS,
 } from '../constants/new-signup';
-import { registerUser, newRegisterUser } from '../utils/register-api';
 import apiRequest from '../utils/api-request';
-import checkUserName from '../utils/check-username';
 
 export default class NewSignupController extends Controller {
   @service toast;
@@ -75,7 +78,6 @@ export default class NewSignupController extends Controller {
       const { isUsernameAvailable } = data;
       return isUsernameAvailable;
     } catch (error) {
-      console.error('Error: ', error);
       this.toast.error(SIGNUP_ERROR_MESSAGES.others, 'error!', TOAST_OPTIONS);
       return false;
     }
@@ -163,7 +165,9 @@ export default class NewSignupController extends Controller {
         }
       });
 
-      const isUsernameAvailable = await checkUserName(signupDetails.username);
+      const isUsernameAvailable = await this.checkUserName(
+        signupDetails.username,
+      );
       if (!isUsernameAvailable) {
         this.isLoading = false;
         this.isButtonDisabled = false;

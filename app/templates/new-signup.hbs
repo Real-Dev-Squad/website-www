@@ -3,14 +3,14 @@
 <div class="user-details-container">
   {{#if (eq this.currentStep this.FIRST_STEP)}}
     <NewSignup::Info
-      @onClick={{this.changeStepToTwo}}
+      @onClick={{fn this.changeStep this.SECOND_STEP}}
       @currentStep={{this.currentStep}}
     />
   {{/if}}
 
   {{#if (eq this.currentStep this.SECOND_STEP)}}
     <NewSignup::Input
-      @onClick={{this.changeStepToThree}}
+      @onClick={{fn this.changeStep this.THIRD_STEP}}
       @currentStep={{this.currentStep}}
       @onChange={{this.handleInputChange}}
       @isButtonDisabled={{this.isButtonDisabled}}
@@ -21,7 +21,7 @@
   {{#if (eq this.currentStep this.THIRD_STEP)}}
     {{#if this.isDevMode}}
       <NewSignup::Input
-        @onClick={{this.changeStepToFour}}
+        @onClick={{fn this.changeStep this.FOURTH_STEP}}
         @currentStep={{this.currentStep}}
         @onChange={{this.handleInputChange}}
         @isButtonDisabled={{this.isButtonDisabled}}
@@ -42,7 +42,7 @@
   {{#if this.isDevMode}}
     {{#if (eq this.currentStep this.FOURTH_STEP)}}
       <NewSignup::Input
-        @onClick={{this.changeStepToFive}}
+        @onClick={{fn this.changeStep this.FIFTH_STEP}}
         @currentStep={{this.currentStep}}
         @dev={{this.isDevMode}}
         @onChange={{this.handleInputChange}}

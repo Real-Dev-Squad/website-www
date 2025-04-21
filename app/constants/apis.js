@@ -25,6 +25,10 @@ export const GENERATE_USERNAME_LINK = (
   return `${APPS.API_BACKEND}/users/username?dev=true&firstname=${sanitizedFirstname}&lastname=${sanitizedLastname}`;
 };
 
+export const CHECK_USERNAME_AVAILABILITY = (userName) => {
+  return `${APPS.API_BACKEND}/users/isUsernameAvailable/${userName}`;
+};
+
 export const SELF_USERS_URL = `${APPS.API_BACKEND}/users/self`;
 
 export const SELF_USER_STATUS_URL = `${APPS.API_BACKEND}/users/status/self`;

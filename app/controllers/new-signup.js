@@ -19,9 +19,10 @@ import apiRequest from '../utils/api-request';
 export default class NewSignupController extends Controller {
   @service toast;
 
-  queryParams = ['currentStep', 'dev'];
+  queryParams = ['currentStep', 'dev', 'oldSignup'];
 
   @tracked dev;
+  @tracked oldSignup;
   @tracked isLoading = false;
   @tracked isButtonDisabled = true;
   @tracked error = '';
@@ -40,8 +41,9 @@ export default class NewSignupController extends Controller {
     roles: {},
   };
 
-  get isDevMode() {
-    return this.dev === 'true';
+  // replace this oldSignup flag with dev flag once new-signup page is not under dev flag
+  get useOldSignup() {
+    return this.oldSignup === 'true';
   }
 
   async generateUsername(firstname, lastname) {
@@ -122,7 +124,7 @@ export default class NewSignupController extends Controller {
 
   @action completeSignUp() {
     const url = new URL(APPS.GOTO);
-    if (this.isDevMode) {
+    if (this.dev === 'true') {
       url.searchParams.set('dev', 'true');
     }
     window.open(url.toString(), '_self');
@@ -148,7 +150,7 @@ export default class NewSignupController extends Controller {
     try {
       let user;
       this.isLoading = true;
-      if (!this.isDevMode)
+      if (!this.useOldSignup)
         user = await this.generateUsername(
           this.signupDetails.firstName,
           this.signupDetails.lastName,
@@ -156,7 +158,9 @@ export default class NewSignupController extends Controller {
       const signupDetails = {
         first_name: this.signupDetails.firstName,
         last_name: this.signupDetails.lastName,
-        username: this.isDevMode ? this.signupDetails.username : user.username,
+        username: this.useOldSignup
+          ? this.signupDetails.username
+          : user.username,
       };
       const roles = {};
       Object.entries(this.signupDetails.roles).forEach(([key, value]) => {
@@ -174,9 +178,9 @@ export default class NewSignupController extends Controller {
         return (this.error = SIGNUP_ERROR_MESSAGES.userName);
       }
 
-      const res = this.isDevMode
-        ? await this.newRegisterUser(signupDetails, roles)
-        : await this.registerUser(signupDetails);
+      const res = this.useOldSignup
+        ? await this.registerUser(signupDetails)
+        : await this.newRegisterUser(signupDetails, roles);
       if (res?.status === 204) {
         this.currentStep = this.LAST_STEP;
       } else {

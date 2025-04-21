@@ -1,3 +1,72 @@
 {{page-title "New Sign Up"}}
 
-New Signup Page
+<div class="user-details-container">
+  {{#if (eq this.currentStep this.FIRST_STEP)}}
+    <NewSignup::Info
+      @onClick={{this.changeStepToTwo}}
+      @currentStep={{this.currentStep}}
+    />
+  {{/if}}
+
+  {{#if (eq this.currentStep this.SECOND_STEP)}}
+    <NewSignup::Input
+      @onClick={{this.changeStepToThree}}
+      @currentStep={{this.currentStep}}
+      @onChange={{this.handleInputChange}}
+      @isButtonDisabled={{this.isButtonDisabled}}
+      @isLoading={{this.isLoading}}
+    />
+  {{/if}}
+
+  {{#if (eq this.currentStep this.THIRD_STEP)}}
+    {{#if this.isDevMode}}
+      <NewSignup::Input
+        @onClick={{this.changeStepToFour}}
+        @currentStep={{this.currentStep}}
+        @onChange={{this.handleInputChange}}
+        @isButtonDisabled={{this.isButtonDisabled}}
+        @isLoading={{this.isLoading}}
+      />
+    {{else}}
+      <NewSignup::Input
+        @onClick={{this.register}}
+        @currentStep={{this.currentStep}}
+        @onChange={{this.handleInputChange}}
+        @isButtonDisabled={{this.isButtonDisabled}}
+        @isLoading={{this.isLoading}}
+        @error={{this.error}}
+      />
+    {{/if}}
+  {{/if}}
+
+  {{#if this.isDevMode}}
+    {{#if (eq this.currentStep this.FOURTH_STEP)}}
+      <NewSignup::Input
+        @onClick={{this.changeStepToFive}}
+        @currentStep={{this.currentStep}}
+        @dev={{this.isDevMode}}
+        @onChange={{this.handleInputChange}}
+        @isButtonDisabled={{this.isButtonDisabled}}
+        @isLoading={{this.isLoading}}
+        @error={{this.error}}
+      />
+    {{/if}}
+
+    {{#if (eq this.currentStep this.FIFTH_STEP)}}
+      <NewSignup::Checkbox
+        @onClick={{this.register}}
+        @currentStep={{this.currentStep}}
+        @onChange={{this.handleCheckboxInputChange}}
+        @isButtonDisabled={{this.isButtonDisabled}}
+        @isLoading={{this.isLoading}}
+      />
+    {{/if}}
+  {{/if}}
+
+  {{#if (eq this.currentStep this.LAST_STEP)}}
+    <NewSignup::Info
+      @onClick={{this.completeSignUp}}
+      @currentStep={{this.currentStep}}
+    />
+  {{/if}}
+</div>

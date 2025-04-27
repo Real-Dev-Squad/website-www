@@ -118,7 +118,7 @@ module('Unit | Controller | new-signup', function (hooks) {
       fakeUserData.last_name,
     );
     assert.strictEqual(
-      result.username,
+      result,
       fakeUserData.username,
       'Generated username returned successfully',
     );
@@ -151,9 +151,7 @@ module('Unit | Controller | new-signup', function (hooks) {
       roles: { developer: true },
     };
 
-    sinon
-      .stub(controller, 'generateUsername')
-      .resolves({ username: fakeUserData.username });
+    sinon.stub(controller, 'generateUsername').resolves(fakeUserData.username);
     sinon.stub(controller, 'checkUserName').resolves(true);
     sinon.stub(controller, 'registerUser').resolves({ status: 204 });
 
@@ -174,8 +172,35 @@ module('Unit | Controller | new-signup', function (hooks) {
       roles: { developer: true },
     };
 
-    controller.generateUsername = sinon
-      .stub()
+    sinon.stub(controller, 'generateUsername').resolves(fakeUserData.username);
+    sinon.stub(controller, 'checkUserName').resolves(true);
+    sinon
+      .stub(controller, 'registerUser')
+      .throws(new Error(SIGNUP_ERROR_MESSAGES.others));
+
+    await controller.signup();
+
+    assert.strictEqual(
+      controller.error,
+      SIGNUP_ERROR_MESSAGES.others,
+      'Error message shown',
+    );
+    assert.false(controller.isLoading, 'Loading state reset');
+    assert.false(controller.isButtonDisabled, 'Button re-enabled after error');
+  });
+
+  test('signup catches error and shows correct error message (dev flag enabled)', async function (assert) {
+    controller.signupDev = 'true'; // replace signupDev with dev once dev is removed from new-signup
+    controller.signupDetails = {
+      firstName: fakeUserData.first_name,
+      lastName: fakeUserData.last_name,
+      username: 'mock-username',
+      roles: { developer: true },
+    };
+
+    sinon.stub(controller, 'checkUserName').resolves(true);
+    sinon
+      .stub(controller, 'newRegisterUser')
       .throws(new Error(SIGNUP_ERROR_MESSAGES.others));
 
     await controller.signup();

@@ -18,7 +18,7 @@ export const APPLICATION_ID_LINK = (id) => {
   return `${APPS.DASHBOARD}/applications/?id=${id}`;
 };
 
-export const GENERATE_USERNAME_LINK = (
+export const GENERATE_USERNAME_URL = (
   sanitizedFirstname,
   sanitizedLastname,
 ) => {

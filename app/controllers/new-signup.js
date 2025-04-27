@@ -6,7 +6,7 @@ import { APPS } from '../constants/urls';
 import { TOAST_OPTIONS } from '../constants/toast-options';
 import {
   CHECK_USERNAME_AVAILABILITY,
-  GENERATE_USERNAME_LINK,
+  GENERATE_USERNAME_URL,
   SELF_USER_PROFILE_URL,
   SELF_USERS_URL,
 } from '../constants/apis';
@@ -55,12 +55,12 @@ export default class NewSignupController extends Controller {
       const sanitizedLastname = lastname.toLowerCase();
 
       const response = await apiRequest(
-        GENERATE_USERNAME_LINK(sanitizedFirstname, sanitizedLastname),
+        GENERATE_USERNAME_URL(sanitizedFirstname, sanitizedLastname),
       );
 
       const user = await response.json();
       if (user && user.username) {
-        return user;
+        return user.username;
       }
       throw new Error(SIGNUP_ERROR_MESSAGES.usernameGeneration);
     } catch (error) {
@@ -148,17 +148,17 @@ export default class NewSignupController extends Controller {
 
   @action async signup() {
     try {
-      let user;
+      let username;
       this.isLoading = true;
       if (!this.isDevMode)
-        user = await this.generateUsername(
+        username = await this.generateUsername(
           this.signupDetails.firstName,
           this.signupDetails.lastName,
         );
       const signupDetails = {
         first_name: this.signupDetails.firstName,
         last_name: this.signupDetails.lastName,
-        username: this.isDevMode ? this.signupDetails.username : user.username,
+        username: this.isDevMode ? this.signupDetails.username : username,
       };
       const roles = {};
       Object.entries(this.signupDetails.roles).forEach(([key, value]) => {

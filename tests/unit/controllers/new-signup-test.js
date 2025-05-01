@@ -6,6 +6,7 @@ import {
   NEW_SIGNUP_STEPS,
 } from 'website-www/constants/new-signup';
 import { fakeUserData } from 'website-www/tests/constants/users-data';
+import { TOAST_OPTIONS } from 'website-www/constants/toast-options';
 
 module('Unit | Controller | new-signup', function (hooks) {
   setupTest(hooks);
@@ -125,20 +126,29 @@ module('Unit | Controller | new-signup', function (hooks) {
   });
 
   test('generateUsername shows error toast on failure', async function (assert) {
-    fetchStub.rejects(new Error('API failed'));
-    assert.expect(2);
+    fetchStub.rejects(new Error(SIGNUP_ERROR_MESSAGES.usernameGeneration));
 
-    try {
-      await controller.generateUsername('Fail', 'Case');
-      assert.ok(false, 'Should throw error');
-    } catch (e) {
-      assert.ok(controller.toast.error.calledOnce, 'Toast error called');
-      assert.strictEqual(
-        e.message,
+    await assert.rejects(
+      controller.generateUsername(
+        fakeUserData.first_name,
+        fakeUserData.last_name,
+      ),
+      new Error(SIGNUP_ERROR_MESSAGES.usernameGeneration),
+      'Function should throw the correct error',
+    );
+
+    assert.ok(
+      controller.toast.error.calledOnce,
+      'Toast error should be called once',
+    );
+    assert.ok(
+      controller.toast.error.calledWith(
         SIGNUP_ERROR_MESSAGES.usernameGeneration,
-        'Correct error message thrown',
-      );
-    }
+        'error!',
+        TOAST_OPTIONS,
+      ),
+      'Toast error should be called with correct parameters',
+    );
   });
 
   test('signup handles successful flow', async function (assert) {

@@ -12,7 +12,7 @@ module('Integration | Component | new-signup/input', function (hooks) {
 
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.THIRD_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[2];
       },
       currentStep: 'firstName',
     });
@@ -33,7 +33,7 @@ module('Integration | Component | new-signup/input', function (hooks) {
 
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.FOURTH_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[3];
       },
       currentStep: 'lastName',
     });
@@ -54,7 +54,7 @@ module('Integration | Component | new-signup/input', function (hooks) {
 
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.FIFTH_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[4];
       },
       currentStep: 'username',
     });
@@ -74,7 +74,7 @@ module('Integration | Component | new-signup/input', function (hooks) {
     assert.expect(2);
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.THIRD_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[2];
       },
       currentStep: 'firstName',
     });
@@ -93,7 +93,7 @@ module('Integration | Component | new-signup/input', function (hooks) {
     assert.expect(2);
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.LAST_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'lastName',
     });
@@ -112,7 +112,7 @@ module('Integration | Component | new-signup/input', function (hooks) {
     assert.expect(2);
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.FIFTH_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[4];
       },
       currentStep: 'username',
       dev: true,
@@ -134,7 +134,7 @@ module('Integration | Component | new-signup/input', function (hooks) {
 
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.THIRD_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[2];
       },
       currentStep: 'firstName',
     });

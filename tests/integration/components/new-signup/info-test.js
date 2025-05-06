@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { NEW_SIGNUP_STEPS } from 'website-www/constants/new-signup';
 
 module('Integration | Component | new-signup/info', function (hooks) {
   setupRenderingTest(hooks);
@@ -10,7 +11,7 @@ module('Integration | Component | new-signup/info', function (hooks) {
     assert.expect(4);
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.SECOND_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[1];
       },
       currentStep: 'get-started',
     });
@@ -54,9 +55,10 @@ module('Integration | Component | new-signup/info', function (hooks) {
   });
 
   test('two list items should be there if current state is get-started', async function (assert) {
+    assert.expect(2);
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.SECOND_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[1];
       },
       currentStep: 'get-started',
     });

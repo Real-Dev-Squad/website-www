@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'website-www/tests/helpers';
 import { render, click, find } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { NEW_SIGNUP_STEPS } from 'website-www/constants/new-signup';
 
 module('Integration | Component | new-signup/checkbox', function (hooks) {
   setupRenderingTest(hooks);
@@ -11,7 +12,7 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
 
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.LAST_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'role',
       dev: true,
@@ -31,7 +32,7 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
     assert.expect(2);
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.LAST_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'role',
       dev: true,
@@ -53,7 +54,7 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
 
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.LAST_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'role',
       dev: true,
@@ -85,7 +86,7 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
 
     this.setProperties({
       onClick: function () {
-        this.currentStep = this.LAST_STEP;
+        this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'role',
       dev: true,

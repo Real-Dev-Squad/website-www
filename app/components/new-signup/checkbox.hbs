@@ -1,0 +1,31 @@
+<div class="user-details">
+  <h2 class="user-details__heading" data-test-signup-form-label>
+    {{this.label}}
+  </h2>
+
+  <div class="role-details__field">
+    {{#each this.checkboxData as |data|}}
+      <label class="checkbox-label">
+        <input
+          type="checkbox"
+          name={{data.name}}
+          checked={{false}}
+          {{on "change" this.checkboxFieldChanged}}
+          class="checkbox-input"
+        />
+        {{data.label}}
+      </label>
+    {{/each}}
+  </div>
+
+  <div class="signup-action__btn">
+    <Reusables::Button
+      @type="button"
+      @text="Submit"
+      @test="signup"
+      @disabled={{@isButtonDisabled}}
+      @isLoading={{@isLoading}}
+      @onClick={{@onClick}}
+    />
+  </div>
+</div>

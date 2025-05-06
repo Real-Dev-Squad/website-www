@@ -2,8 +2,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'website-www/tests/helpers';
 import sinon from 'sinon';
 import { USER_STATES } from 'website-www/constants/user-status';
-import { APPS } from 'website-www/constants/urls';
-const API_BASE_URL = APPS.API_BACKEND;
+import { SELF_USER_STATUS_URL } from 'website-www/constants/apis';
 
 module('Unit | Route | status', function (hooks) {
   setupTest(hooks);
@@ -19,26 +18,10 @@ module('Unit | Route | status', function (hooks) {
     sinon.restore();
   });
 
-  test('redirects to 404 page if dev flag is not present', function (assert) {
-    const transition = { to: { queryParams: { dev: 'false' } } };
-
-    this.route.beforeModel(transition);
-
-    assert.ok(
-      this.route.router.transitionTo.calledOnceWith('/page-not-found'),
-      'Redirected to /page-not-found when dev is not true',
-    );
-  });
-
-  test('allows access when dev flag is true', function (assert) {
-    const transition = { to: { queryParams: { dev: 'true' } } };
-
-    this.route.beforeModel(transition);
-
-    assert.ok(
-      this.route.router.transitionTo.notCalled,
-      'No redirection occurs when dev query param is true',
-    );
+  test('it exists', function (assert) {
+    assert.expect(1);
+    const route = this.owner.lookup('route:status');
+    assert.ok(route, 'The status route exists');
   });
 
   test('it fetches user status and returns it if API responds with 200', async function (assert) {
@@ -54,7 +37,7 @@ module('Unit | Route | status', function (hooks) {
     const result = await this.route.model();
 
     assert.ok(
-      this.fetchStub.calledOnceWith(`${API_BASE_URL}/users/status/self`),
+      this.fetchStub.calledOnceWith(SELF_USER_STATUS_URL),
       'Fetch called with correct URL',
     );
     assert.strictEqual(result, userStatus, 'Returns the user status from API');

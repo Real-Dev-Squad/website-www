@@ -7,7 +7,6 @@ export default class IdentityController extends Controller {
   @service login;
 
   @tracked userData = null;
-  @tracked state = 'getStarted';
   @tracked profileURL = null;
 
   constructor() {
@@ -30,6 +29,8 @@ export default class IdentityController extends Controller {
         return 'getStarted';
     }
   }
+
+  @tracked state = this.initialState;
 
   @action
   setState(newState) {

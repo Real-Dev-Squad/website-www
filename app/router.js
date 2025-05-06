@@ -23,4 +23,5 @@ Router.map(function () {
   this.route('profile');
   this.route('notifications');
   this.route('mobile');
+  this.route('new-signup');
 });

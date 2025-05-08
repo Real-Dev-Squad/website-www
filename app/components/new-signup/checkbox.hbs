@@ -3,15 +3,15 @@
     {{this.label}}
   </h2>
 
-  <div class="role-details__field">
+  <div class="user-details__role-field">
     {{#each this.checkboxData as |data|}}
-      <label class="checkbox-label">
+      <label class="user_details__checkbox-label">
         <input
           type="checkbox"
           name={{data.name}}
           checked={{false}}
           {{on "change" this.checkboxFieldChanged}}
-          class="checkbox-input"
+          class="user-details__checkbox-input"
         />
         {{data.label}}
       </label>

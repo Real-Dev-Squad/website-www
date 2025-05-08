@@ -1,6 +1,6 @@
 {{page-title "New Sign Up"}}
 
-<div class="user-details-container">
+<div class="user-details__container">
   {{#if (eq this.currentStep this.FIRST_STEP)}}
     <NewSignup::Info
       @onClick={{fn this.changeStep this.SECOND_STEP}}

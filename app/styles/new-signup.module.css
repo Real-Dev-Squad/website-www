@@ -1,4 +1,4 @@
-.user-details-container {
+.user-details__container {
   margin: 0;
   padding: 0;
   display: flex;
@@ -35,20 +35,20 @@
   font-size: 2rem;
 }
 
-.role-details__field {
+.user-details__role-field {
   display: flex;
   flex-direction: column;
   padding: 2rem 4rem;
 }
 
-.checkbox-label {
+.user_details__checkbox-label {
   display: flex;
   width: 12rem;
   margin: 0 auto;
   font-size: 1.3rem;
 }
 
-.checkbox-label .checkbox-input {
+.user-details__checkbox-input {
   margin-right: 10px;
 }
 
@@ -123,7 +123,7 @@
   border: none;
 }
 
-.signup-error-message {
+.signup-action__error-message {
   color: var(--error);
   padding: 0.4rem;
   font-size: 1rem;
@@ -164,7 +164,7 @@
   }
 
   .get-started__btn button {
-    width: 70%;
+    width: 100%;
   }
 }
 
@@ -173,7 +173,7 @@
     font-size: 1.6rem;
   }
 
-  .checkbox-label {
+  .user_details__checkbox-label {
     font-size: 1rem;
   }
 

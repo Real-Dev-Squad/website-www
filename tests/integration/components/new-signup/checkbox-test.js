@@ -67,18 +67,20 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
         @dev={{this.dev}}
       />`);
 
-    assert.dom('.checkbox-label').exists({ count: 4 });
-    assert.dom('.checkbox-input').exists({ count: 4 });
+    assert.dom('[data-test-checkbox-label]').exists({ count: 4 });
+    assert.dom('[data-test-checkbox-input]').exists({ count: 4 });
 
-    assert.dom('.checkbox-input[name="developer"]').isNotChecked();
-    assert.dom('.checkbox-input[name="designer"]').isNotChecked();
-    assert.dom('.checkbox-input[name="maven"]').isNotChecked();
-    assert.dom('.checkbox-input[name="productmanager"]').isNotChecked();
+    assert.dom('[data-test-checkbox-input="developer"]').isNotChecked();
+    assert.dom('[data-test-checkbox-input="designer"]').isNotChecked();
+    assert.dom('[data-test-checkbox-input="maven"]').isNotChecked();
+    assert.dom('[data-test-checkbox-input="productmanager"]').isNotChecked();
 
-    assert.dom('.checkbox-label:nth-child(1)').hasText('Developer');
-    assert.dom('.checkbox-label:nth-child(2)').hasText('Designer');
-    assert.dom('.checkbox-label:nth-child(3)').hasText('Maven');
-    assert.dom('.checkbox-label:nth-child(4)').hasText('Product Manager');
+    assert.dom('[data-test-checkbox-label="developer"]').hasText('Developer');
+    assert.dom('[data-test-checkbox-label="designer"]').hasText('Designer');
+    assert.dom('[data-test-checkbox-label="maven"]').hasText('Maven');
+    assert
+      .dom('[data-test-checkbox-label="productmanager"]')
+      .hasText('Product Manager');
   });
 
   test('checkbox is checked after the click', async function (assert) {
@@ -109,7 +111,7 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
       @dev={{this.dev}}
     />`);
 
-    const developerCheckbox = find('.checkbox-input[name="developer"]');
+    const developerCheckbox = find('[data-test-checkbox-input="developer"]');
     assert.notOk(developerCheckbox.checked, 'Checkbox is unchecked');
     await click(developerCheckbox);
     assert.ok(developerCheckbox.checked, 'Checkbox is checked');

@@ -59,10 +59,7 @@ export default class NewSignupController extends Controller {
       );
 
       const user = await response.json();
-      if (user && user.username) {
-        return user.username;
-      }
-      throw new Error(SIGNUP_ERROR_MESSAGES.usernameGeneration);
+      return user.username;
     } catch (error) {
       this.toast.error(
         SIGNUP_ERROR_MESSAGES.usernameGeneration,

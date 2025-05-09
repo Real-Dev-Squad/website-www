@@ -15,14 +15,14 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
         this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'role',
-      dev: true,
+      isDevMode: true,
     });
 
     await render(hbs`
       <NewSignup::Checkbox
         @onClick={{this.onClick}} 
         @currentStep={{this.currentStep}}
-        @dev={{this.dev}}
+        @dev={{this.isDevMode}}
       />`);
 
     assert.dom('[data-test-signup-form-label]').hasText('Select your role');
@@ -35,14 +35,14 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
         this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'role',
-      dev: true,
+      isDevMode: true,
     });
 
     await render(hbs`
       <NewSignup::Checkbox
         @onClick={{this.onClick}} 
         @currentStep={{this.currentStep}}
-        @dev={{this.dev}}
+        @dev={{this.isDevMode}}
       />`);
 
     assert.dom('[data-test-button="signup"]').exists();
@@ -57,14 +57,14 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
         this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'role',
-      dev: true,
+      isDevMode: true,
     });
 
     await render(hbs`
       <NewSignup::Checkbox
         @onClick={{this.onClick}} 
         @currentStep={{this.currentStep}}
-        @dev={{this.dev}}
+        @dev={{this.isDevMode}}
       />`);
 
     assert.dom('[data-test-checkbox-label]').exists({ count: 4 });
@@ -91,7 +91,7 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
         this.currentStep = NEW_SIGNUP_STEPS[5];
       },
       currentStep: 'role',
-      dev: true,
+      isDevMode: true,
     });
 
     this.set('onChange', function (roleKey, value) {
@@ -108,7 +108,7 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
       @onClick={{this.onClick}} 
       @onChange={{this.onChange}}
       @currentStep={{this.currentStep}}
-      @dev={{this.dev}}
+      @dev={{this.isDevMode}}
     />`);
 
     const developerCheckbox = find('[data-test-checkbox-input="developer"]');

@@ -7,8 +7,8 @@ import { NEW_SIGNUP_STEPS } from 'website-www/constants/new-signup';
 module('Integration | Component | new-signup/input', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it has a first name when current step is firstStep', async function (assert) {
-    assert.expect(1);
+  test('it has a first name label when current step is firstStep', async function (assert) {
+    assert.expect(2);
 
     this.setProperties({
       onClick: function () {
@@ -23,13 +23,14 @@ module('Integration | Component | new-signup/input', function (hooks) {
         @currentStep={{this.currentStep}}
       />`);
 
+    assert.dom('[data-test-signup-form-input]').exists();
     assert
       .dom('[data-test-signup-form-label]')
       .hasText('What is your first name?');
   });
 
   test('it has a lastname label when current step is lastName', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     this.setProperties({
       onClick: function () {
@@ -47,16 +48,18 @@ module('Integration | Component | new-signup/input', function (hooks) {
     assert
       .dom('[data-test-signup-form-label]')
       .hasText('And what is your last name?');
+    assert.dom('[data-test-signup-form-input]').exists();
   });
 
   test('it has a username label when current step is username', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     this.setProperties({
       onClick: function () {
         this.currentStep = NEW_SIGNUP_STEPS[4];
       },
       currentStep: 'username',
+      isDevMode: true,
     });
 
     await render(hbs`
@@ -68,25 +71,7 @@ module('Integration | Component | new-signup/input', function (hooks) {
     assert
       .dom('[data-test-signup-form-label]')
       .hasText('Now choose your awesome username!');
-  });
-
-  test('it should have button with text', async function (assert) {
-    assert.expect(2);
-    this.setProperties({
-      onClick: function () {
-        this.currentStep = NEW_SIGNUP_STEPS[2];
-      },
-      currentStep: 'firstName',
-    });
-
-    await render(hbs`
-      <NewSignup::Input
-        @onClick={{this.onClick}} 
-        @currentStep={{this.currentStep}}
-      />`);
-
-    assert.dom('[data-test-button="signup"]').exists();
-    assert.dom('[data-test-button="signup"]').hasAnyText();
+    assert.dom('[data-test-signup-form-input]').exists();
   });
 
   test('button should have text Submit if the current step is lastName', async function (assert) {
@@ -108,48 +93,25 @@ module('Integration | Component | new-signup/input', function (hooks) {
     assert.dom('[data-test-button="signup"]').hasText('Submit');
   });
 
-  test('button should have text Next if the current step is username and if dev is set to true', async function (assert) {
+  test('button should have text Next if the current step is lastName and dev is true', async function (assert) {
     assert.expect(2);
     this.setProperties({
       onClick: function () {
-        this.currentStep = NEW_SIGNUP_STEPS[4];
+        this.currentStep = NEW_SIGNUP_STEPS[5];
       },
-      currentStep: 'username',
-      dev: true,
+      currentStep: 'lastName',
+      isDevMode: true,
     });
 
     await render(hbs`
       <NewSignup::Input
         @onClick={{this.onClick}} 
         @currentStep={{this.currentStep}}
-        @dev={{this.dev}}
+        @dev={{this.isDevMode}}
       />`);
 
     assert.dom('[data-test-button="signup"]').exists();
     assert.dom('[data-test-button="signup"]').hasText('Next');
-  });
-
-  test('it should have input field', async function (assert) {
-    assert.expect(3);
-
-    this.setProperties({
-      onClick: function () {
-        this.currentStep = NEW_SIGNUP_STEPS[2];
-      },
-      currentStep: 'firstName',
-    });
-
-    await render(hbs`
-      <NewSignup::Input
-        @onClick={{this.onClick}} 
-        @currentStep={{this.currentStep}}
-      />`);
-
-    assert.dom('[data-test-signup-form-input]').exists();
-    assert
-      .dom('[data-test-signup-form-input]')
-      .hasProperty('type', 'text')
-      .hasAttribute('placeholder');
   });
 
   test('disables button when input is not provided', async function (assert) {

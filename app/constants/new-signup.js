@@ -22,9 +22,10 @@ export const LABEL_TEXT = {
 };
 
 export const SIGNUP_ERROR_MESSAGES = {
-  userName: 'username already taken!',
-  others: 'something went wrong',
-  usernameGeneration: 'Username cannot be generated',
+  invalidInput: 'Invalid input: firstname and lastname must be strings',
+  userName: 'Username already taken!',
+  others: 'Something went wrong!',
+  usernameGeneration: 'Username cannot be generated!',
   loggedIn: 'You have not logged in. Please login first to fill this form.',
   formAlreadyFilled:
     "You already have filled up the form. You'll now be redirected.",

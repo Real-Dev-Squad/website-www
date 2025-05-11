@@ -83,7 +83,7 @@ module('Integration | Component | new-signup/checkbox', function (hooks) {
       .hasText('Product Manager');
   });
 
-  test('checkbox is checked after the click', async function (assert) {
+  test('checkbox is checked after the click (under dev flag)', async function (assert) {
     assert.expect(4);
 
     this.setProperties({

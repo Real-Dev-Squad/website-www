@@ -13,7 +13,7 @@ module('Integration | Component | new-signup/info', function (hooks) {
       onClick: function () {
         this.currentStep = NEW_SIGNUP_STEPS[1];
       },
-      currentStep: 'get-started',
+      currentStep: NEW_SIGNUP_STEPS[0],
     });
     await render(hbs`
       <NewSignup::Info
@@ -36,7 +36,7 @@ module('Integration | Component | new-signup/info', function (hooks) {
     assert.expect(4);
     this.setProperties({
       onClick: function () {},
-      currentStep: 'thank-you',
+      currentStep: NEW_SIGNUP_STEPS[5],
     });
 
     await render(hbs`
@@ -60,7 +60,7 @@ module('Integration | Component | new-signup/info', function (hooks) {
       onClick: function () {
         this.currentStep = NEW_SIGNUP_STEPS[1];
       },
-      currentStep: 'get-started',
+      currentStep: NEW_SIGNUP_STEPS[0],
     });
     await render(hbs`
       <NewSignup::Info

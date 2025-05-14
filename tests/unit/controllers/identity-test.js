@@ -4,9 +4,13 @@ import { setupTest } from 'website-www/tests/helpers';
 module('Unit | Controller | index', function (hooks) {
   setupTest(hooks);
 
-  test('it initializes userData and profileURL correctly', function (assert) {
-    const controller = this.owner.lookup('controller:identity');
+  let controller;
 
+  hooks.beforeEach(function () {
+    controller = this.owner.lookup('controller:identity');
+  });
+
+  test('it initializes userData and profileURL correctly', function (assert) {
     assert.strictEqual(
       controller.userData,
       null,
@@ -20,8 +24,6 @@ module('Unit | Controller | index', function (hooks) {
   });
 
   test('it checks if setState updates the state correctly', function (assert) {
-    const controller = this.owner.lookup('controller:identity');
-
     controller.setState('getStarted');
 
     assert.strictEqual(
@@ -30,9 +32,8 @@ module('Unit | Controller | index', function (hooks) {
       'state is updated correctly',
     );
   });
-  test('action setState updates the state correctly', function (assert) {
-    const controller = this.owner.lookup('controller:identity');
 
+  test('action setState updates the state correctly', function (assert) {
     controller.setState('not-linked');
 
     assert.strictEqual(

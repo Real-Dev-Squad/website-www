@@ -83,7 +83,7 @@ export default class NewSignupController extends Controller {
   }
 
   async registerUser(user) {
-    await apiRequest(SELF_USERS_URL, 'PATCH', user);
+    return await apiRequest(SELF_USERS_URL, 'PATCH', user);
   }
 
   async newRegisterUser(signupDetails, roles) {

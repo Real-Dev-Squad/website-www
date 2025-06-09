@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import { ERROR_MESSAGES } from '../constants/error-messages';
 import {
   AUTH_STATUS,
@@ -17,11 +18,15 @@ import { TOAST_OPTIONS } from '../constants/toast-options';
 import apiRequest from '../utils/api-request';
 
 export default class MobileController extends Controller {
+  @tracked showConfirmModal = false;
+  @tracked displayMessage = QR_SCAN_CONFIRMATION_MESSAGE;
+  @tracked actionButtonDisabled = false;
   @service toast;
   @service router;
 
   async updateQRAuthStatus(status, successMessage) {
     try {
+      this.actionButtonDisabled = true;
       const response = await apiRequest(
         `${QR_AUTHORIZATION_STATUS_URL}/${status}`,
         'PATCH',
@@ -40,20 +45,8 @@ export default class MobileController extends Controller {
         'Error!',
         TOAST_OPTIONS,
       );
-    }
-  }
-
-  @action async confirmQRAuth() {
-    if (confirm(QR_SCAN_CONFIRMATION_MESSAGE)) {
-      await this.updateQRAuthStatus(
-        AUTH_STATUS.AUTHORIZED,
-        MOBILE_LOGIN_SUCCESS_MESSAGE,
-      );
-    } else {
-      await this.updateQRAuthStatus(
-        AUTH_STATUS.REJECTED,
-        REQUEST_CANCEL_MESSAGE,
-      );
+    } finally {
+      this.actionButtonDisabled = false;
     }
   }
 
@@ -61,7 +54,7 @@ export default class MobileController extends Controller {
     try {
       const response = await apiRequest(USER_AUTHENTICATED_DEVICES_URL, 'GET');
       if (response.status === 200) {
-        await this.confirmQRAuth();
+        this.showConfirmModal = true;
       } else {
         this.toast.error(QR_SCAN_MESSAGE, 'Not verified', TOAST_OPTIONS);
       }
@@ -72,5 +65,18 @@ export default class MobileController extends Controller {
         TOAST_OPTIONS,
       );
     }
+  }
+
+  @action authorizeDeviceAccess() {
+    this.updateQRAuthStatus(
+      AUTH_STATUS.AUTHORIZED,
+      MOBILE_LOGIN_SUCCESS_MESSAGE,
+    );
+    this.showConfirmModal = false;
+  }
+
+  @action rejectDeviceAccess() {
+    this.updateQRAuthStatus(AUTH_STATUS.REJECTED, REQUEST_CANCEL_MESSAGE);
+    this.showConfirmModal = false;
   }
 }

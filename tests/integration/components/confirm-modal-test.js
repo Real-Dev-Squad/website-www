@@ -9,8 +9,6 @@ module('Integration | Component | confirm-modal', function (hooks) {
   test('it renders the modal with correct message and buttons', async function (assert) {
     this.setProperties({
       isOpen: true,
-      message:
-        'Are you sure you are the one who scanned this QR code?  Do you want to proceed?',
       actionButtonDisabled: false,
       onConfirm: () => {},
       onCancel: () => {},
@@ -19,7 +17,6 @@ module('Integration | Component | confirm-modal', function (hooks) {
     await render(hbs`
       <ConfirmModal
         @isOpen={{this.isOpen}}
-        @message={{this.message}}
         @actionButtonDisabled={{this.actionButtonDisabled}}
         @onConfirm={{this.onConfirm}}
         @onCancel={{this.onCancel}}
@@ -40,7 +37,6 @@ module('Integration | Component | confirm-modal', function (hooks) {
   test('action buttons are disabled when @actionButtonDisabled=true', async function (assert) {
     this.setProperties({
       isOpen: true,
-      message: 'Confirmation Message',
       actionButtonDisabled: true,
       onConfirm: () => {},
       onCancel: () => {},
@@ -49,7 +45,6 @@ module('Integration | Component | confirm-modal', function (hooks) {
     await render(hbs`
       <ConfirmModal
         @isOpen={{this.isOpen}}
-        @message={{this.message}}
         @actionButtonDisabled={{this.actionButtonDisabled}}
         @onConfirm={{this.onConfirm}}
         @onCancel={{this.onCancel}}
@@ -67,7 +62,6 @@ module('Integration | Component | confirm-modal', function (hooks) {
   test('calls @onCancel and @onConfirm actions when respective buttons are clicked', async function (assert) {
     this.setProperties({
       isOpen: true,
-      message: 'Confirmation Message',
       actionButtonDisabled: false,
       onConfirm: () => assert.step('confirm-called'),
       onCancel: () => assert.step('cancel-called'),
@@ -76,7 +70,6 @@ module('Integration | Component | confirm-modal', function (hooks) {
     await render(hbs`
       <ConfirmModal
         @isOpen={{this.isOpen}}
-        @message={{this.message}}
         @actionButtonDisabled={{this.actionButtonDisabled}}
         @onConfirm={{this.onConfirm}}
         @onCancel={{this.onCancel}}

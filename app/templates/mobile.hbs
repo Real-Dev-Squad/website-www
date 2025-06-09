@@ -1,14 +1,13 @@
 {{page-title "Mobile"}}
 
 <QrAuth
-  @qrCodeText={{@model}}
+  @qrCodeText={{@model.userId}}
   @verifyQRAuthStatus={{this.getQRScannedDevices}}
 />
 
 <ConfirmModal
   @isOpen={{this.showConfirmModal}}
   @actionButtonDisabled={{this.actionButtonDisabled}}
-  @message={{this.displayMessage}}
   @onConfirm={{this.authorizeDeviceAccess}}
   @onCancel={{this.rejectDeviceAccess}}
 />

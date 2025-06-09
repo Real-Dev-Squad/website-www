@@ -18,7 +18,6 @@ module('Unit | Controller | mobile', function (hooks) {
 
   let controller;
   let fetchStub;
-  let confirmStub;
 
   hooks.beforeEach(function () {
     controller = this.owner.lookup('controller:mobile');
@@ -30,12 +29,10 @@ module('Unit | Controller | mobile', function (hooks) {
       transitionTo: sinon.stub(),
     };
     fetchStub = sinon.stub(window, 'fetch');
-    confirmStub = sinon.stub(window, 'confirm');
   });
 
   hooks.afterEach(function () {
     fetchStub.restore();
-    confirmStub.restore();
   });
 
   test('makes correct API call with given auth status', async function (assert) {
@@ -57,7 +54,6 @@ module('Unit | Controller | mobile', function (hooks) {
   });
 
   test('handles successful authorization when user confirms', async function (assert) {
-    confirmStub.returns(true);
     fetchStub.resolves(new Response(null, { status: 200 }));
 
     await controller.authorizeDeviceAccess();
@@ -77,7 +73,6 @@ module('Unit | Controller | mobile', function (hooks) {
   });
 
   test('handles failed authorization when user confirms', async function (assert) {
-    confirmStub.returns(true);
     fetchStub.resolves(new Response(null, { status: 400 }));
 
     await controller.authorizeDeviceAccess();
@@ -94,7 +89,6 @@ module('Unit | Controller | mobile', function (hooks) {
   });
 
   test('handles rejection when user cancels', async function (assert) {
-    confirmStub.returns(false);
     fetchStub.resolves(new Response(null, { status: 200 }));
 
     await controller.rejectDeviceAccess();
@@ -107,7 +101,6 @@ module('Unit | Controller | mobile', function (hooks) {
   });
 
   test('handles error when rejection fails', async function (assert) {
-    confirmStub.returns(false);
     fetchStub.resolves(new Response(null, { status: 400 }));
 
     await controller.rejectDeviceAccess();
@@ -125,7 +118,6 @@ module('Unit | Controller | mobile', function (hooks) {
 
   test('initiates verification flow when device info fetch succeeds', async function (assert) {
     fetchStub.resolves(new Response(null, { status: 200 }));
-    confirmStub.returns(true);
 
     await controller.getQRScannedDevices();
     await settled();

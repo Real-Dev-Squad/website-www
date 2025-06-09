@@ -6,7 +6,6 @@ import { ERROR_MESSAGES } from '../constants/error-messages';
 import {
   AUTH_STATUS,
   MOBILE_LOGIN_SUCCESS_MESSAGE,
-  QR_SCAN_CONFIRMATION_MESSAGE,
   QR_SCAN_MESSAGE,
   REQUEST_CANCEL_MESSAGE,
 } from '../constants/auth-status';
@@ -19,7 +18,6 @@ import apiRequest from '../utils/api-request';
 
 export default class MobileController extends Controller {
   @tracked showConfirmModal = false;
-  @tracked displayMessage = QR_SCAN_CONFIRMATION_MESSAGE;
   @tracked actionButtonDisabled = false;
   @service toast;
   @service router;

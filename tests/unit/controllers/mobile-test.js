@@ -60,7 +60,7 @@ module('Unit | Controller | mobile', function (hooks) {
     confirmStub.returns(true);
     fetchStub.resolves(new Response(null, { status: 200 }));
 
-    await controller.confirmQRAuth();
+    await controller.authorizeDeviceAccess();
     await settled();
 
     assert.ok(
@@ -80,7 +80,7 @@ module('Unit | Controller | mobile', function (hooks) {
     confirmStub.returns(true);
     fetchStub.resolves(new Response(null, { status: 400 }));
 
-    await controller.confirmQRAuth();
+    await controller.authorizeDeviceAccess();
     await settled();
 
     assert.ok(
@@ -97,7 +97,7 @@ module('Unit | Controller | mobile', function (hooks) {
     confirmStub.returns(false);
     fetchStub.resolves(new Response(null, { status: 200 }));
 
-    await controller.confirmQRAuth();
+    await controller.rejectDeviceAccess();
     await settled();
 
     assert.ok(
@@ -110,7 +110,7 @@ module('Unit | Controller | mobile', function (hooks) {
     confirmStub.returns(false);
     fetchStub.resolves(new Response(null, { status: 400 }));
 
-    await controller.confirmQRAuth();
+    await controller.rejectDeviceAccess();
     await settled();
 
     assert.ok(

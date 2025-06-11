@@ -29,9 +29,13 @@ module('Acceptance | render footer dynamically', function (hooks) {
     assert.dom('[data-test-footer-repo-text]').exists();
   });
 
-  test('Should redirect to page-not-found when visiting /join', async function (assert) {
+  test('Should render only repo details in footer when visiting /join', async function (assert) {
     await visit('/join');
 
-    assert.strictEqual(currentURL(), '/page-not-found');
+    assert.strictEqual(currentURL(), '/join');
+
+    assert.dom('[data-test-events-section]').doesNotExist();
+    assert.dom('[data-test-footer-info]').doesNotExist();
+    assert.dom('[data-test-footer-repo-text]').exists();
   });
 });

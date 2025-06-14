@@ -2,11 +2,13 @@
 
 <QrAuth
   @qrCodeText={{@model.userId}}
-  @verifyQRAuthStatus={{this.getQRScannedDevices}}
+  @verifyQRAuthStatus={{this.verifyQRScanned}}
 />
 
 <ConfirmModal
   @isOpen={{this.showConfirmModal}}
+  @openModal={{this.openConfirmModal}}
+  @closeModal={{this.closeConfirmModal}}
   @actionButtonDisabled={{this.actionButtonDisabled}}
   @onConfirm={{this.authorizeDeviceAccess}}
   @onCancel={{this.rejectDeviceAccess}}

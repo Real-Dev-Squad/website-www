@@ -48,7 +48,15 @@ export default class MobileController extends Controller {
     }
   }
 
-  @action async getQRScannedDevices() {
+  @action openConfirmModal() {
+    this.showConfirmModal = true;
+  }
+
+  @action closeConfirmModal() {
+    this.showConfirmModal = false;
+  }
+
+  @action async verifyQRScanned() {
     try {
       const response = await apiRequest(USER_AUTHENTICATED_DEVICES_URL, 'GET');
       if (response.status === 200) {
@@ -70,11 +78,11 @@ export default class MobileController extends Controller {
       AUTH_STATUS.AUTHORIZED,
       MOBILE_LOGIN_SUCCESS_MESSAGE,
     );
-    this.showConfirmModal = false;
+    this.closeConfirmModal();
   }
 
   @action rejectDeviceAccess() {
     this.updateQRAuthStatus(AUTH_STATUS.REJECTED, REQUEST_CANCEL_MESSAGE);
-    this.showConfirmModal = false;
+    this.closeConfirmModal();
   }
 }

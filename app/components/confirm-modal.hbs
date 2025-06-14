@@ -1,6 +1,6 @@
 <BaseModal
-  @closeModal={{@closeModal}}
-  @openModal={{@openModal}}
+  @closeModal={{@closeConfirmModal}}
+  @openModal={{@openConfirmModal}}
   @isOpen={{@isOpen}}
 >
   <div data-test-confirm-modal class="confirm-modal">
@@ -22,7 +22,7 @@
         @type="button"
         @text="Confirm"
         @variant="dark btn--sm"
-        @test="confirm-modal-submit"
+        @test="confirm-modal-authorise"
         @disabled={{@actionButtonDisabled}}
         @onClick={{@onConfirm}}
       />

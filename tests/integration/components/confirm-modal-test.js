@@ -27,11 +27,11 @@ module('Integration | Component | confirm-modal', function (hooks) {
     assert
       .dom('[data-test-confirm-modal-message]')
       .hasText(
-        'Are you sure you are the one who scanned this QR code?  Do you want to proceed?',
+        'Are you sure you are the one who scanned this QR code? Do you want to proceed?',
         'Correct message is shown',
       );
     assert.dom('[data-test-button=confirm-modal-cancel]').exists();
-    assert.dom('[data-test-button=confirm-modal-submit]').exists();
+    assert.dom('[data-test-button=confirm-modal-authorise]').exists();
   });
 
   test('action buttons are disabled when @actionButtonDisabled=true', async function (assert) {
@@ -52,7 +52,7 @@ module('Integration | Component | confirm-modal', function (hooks) {
     `);
 
     assert
-      .dom('[data-test-button=confirm-modal-submit]')
+      .dom('[data-test-button=confirm-modal-authorise]')
       .isDisabled('Confirm button is disabled');
     assert
       .dom('[data-test-button=confirm-modal-cancel]')
@@ -76,8 +76,11 @@ module('Integration | Component | confirm-modal', function (hooks) {
       />
     `);
 
-    await click('[data-test-button=confirm-modal-submit]');
+    await click('[data-test-button=confirm-modal-authorise]');
     assert.verifySteps(['confirm-called'], 'Confirm action was called');
+
+    assert.step('reset');
+    assert.verifySteps(['reset']);
 
     await click('[data-test-button=confirm-modal-cancel]');
     assert.verifySteps(['cancel-called'], 'Cancel action was called');

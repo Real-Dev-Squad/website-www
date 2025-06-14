@@ -75,7 +75,7 @@ module('Unit | Controller | mobile', function (hooks) {
   test('handles failed authorization when user confirms', async function (assert) {
     fetchStub.resolves(new Response(null, { status: 400 }));
 
-    await controller.authorizeDeviceAccess();
+    await controller.rejectDeviceAccess();
     await settled();
 
     assert.ok(
@@ -119,7 +119,7 @@ module('Unit | Controller | mobile', function (hooks) {
   test('initiates verification flow when device info fetch succeeds', async function (assert) {
     fetchStub.resolves(new Response(null, { status: 200 }));
 
-    await controller.getQRScannedDevices();
+    await controller.verifyQRScanned();
     await settled();
 
     assert.ok(
@@ -135,7 +135,7 @@ module('Unit | Controller | mobile', function (hooks) {
   test('shows error toast when device info fetch fails', async function (assert) {
     fetchStub.rejects(new Error('Network error'));
 
-    await controller.getQRScannedDevices();
+    await controller.verifyQRScanned();
     await settled();
 
     assert.ok(

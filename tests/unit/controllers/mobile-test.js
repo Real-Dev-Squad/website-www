@@ -75,7 +75,7 @@ module('Unit | Controller | mobile', function (hooks) {
   test('handles failed authorization when user confirms', async function (assert) {
     fetchStub.resolves(new Response(null, { status: 400 }));
 
-    await controller.rejectDeviceAccess();
+    await controller.authorizeDeviceAccess();
     await settled();
 
     assert.ok(

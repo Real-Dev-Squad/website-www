@@ -120,6 +120,7 @@
   "fastbootDependencies": [
     "crypto"
   ],
+  "packageManager": "pnpm@10.34.5",
   "engines": {
     "node": ">= 25"
   },

@@ -26,7 +26,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: latest
+          version: 10.34.5
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint
@@ -48,7 +48,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: latest
+          version: 10.34.5
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Build

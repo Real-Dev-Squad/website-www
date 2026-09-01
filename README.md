@@ -8,9 +8,33 @@ A short introduction of this app could easily go here.
 You will need the following things properly installed on your computer.
 
 - [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/) (with yarn)
+- [pnpm](https://pnpm.io/installation) 11 (see [Installing pnpm](#installing-pnpm) below)
 - [Ember CLI](https://cli.emberjs.com/release/)
 - [Google Chrome](https://google.com/chrome/)
+
+You do not need to install Node.js yourself: `devEngines` in
+[`package.json`](package.json) makes pnpm download and use the pinned Node
+version automatically when you run `pnpm install`.
+
+### Installing pnpm
+
+Install pnpm with the standalone script, which ships its own Node runtime:
+
+```sh
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
+
+On Windows (PowerShell):
+
+```powershell
+iwr https://get.pnpm.io/install.ps1 -useb | iex
+```
+
+Avoid installing pnpm through npm or Corepack for this project. Installed
+that way, pnpm runs on whatever Node you already have, and pnpm 11 needs
+Node >= 22.13 just to start (it uses `node:sqlite`). On an older Node
+(e.g. 20) pnpm crashes before it can download the project's pinned Node
+version. The standalone install avoids this bootstrap problem entirely.
 
 ## Installation
 

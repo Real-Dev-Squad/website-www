@@ -36,6 +36,11 @@ git checkout develop-ember
 
 ```
 
+If you don't have pnpm yet, install it with the standalone script (not via
+npm or Corepack); see [Installing pnpm](README.md#installing-pnpm) in the
+README. You don't need to install Node.js: pnpm downloads the project's
+pinned Node version automatically.
+
 Now you should install the required packages to run this project by doing:
 
 ```

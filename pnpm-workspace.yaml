@@ -3,6 +3,7 @@ allowBuilds:
   pre-commit: true
   spawn-sync: false
 
+engineStrict: true
 autoInstallPeers: true
 strictPeerDependencies: false
 shamefullyHoist: true

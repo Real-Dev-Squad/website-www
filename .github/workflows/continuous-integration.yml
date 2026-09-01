@@ -2,6 +2,10 @@
 # devEngines in package.json (resolved and checksummed in pnpm-lock.yaml),
 # so this workflow only installs pnpm and restores the store cache.
 #
+# pnpm is installed standalone (@pnpm/exe bundles its own Node) because
+# pnpm 11 needs Node >= 22.13 just to start; this keeps the bootstrap
+# independent of whatever Node the runner image ships.
+#
 # Action refs are pinned to commit SHAs on purpose; see "CI Maintenance"
 # in README.md for how and when to refresh them.
 name: Continuous Integration
@@ -23,6 +27,7 @@ jobs:
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
         with:
           version: 11
+          standalone: true
       - name: Locate pnpm store
         run: echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_ENV"
       - name: Restore pnpm store
@@ -46,6 +51,7 @@ jobs:
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
         with:
           version: 11
+          standalone: true
       - name: Locate pnpm store
         run: echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_ENV"
       - name: Restore pnpm store

@@ -47,6 +47,21 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 Specify what it takes to deploy your app.
 
+## CI Maintenance
+
+The GitHub Actions in [`.github/workflows`](.github/workflows) are pinned to
+full commit SHAs (with the release tag in a trailing comment), so a compromised
+action repository cannot change the code our CI runs by moving a tag.
+
+The trade-off is that pins never update themselves. Refresh them periodically
+(every few months, or when an action ships a fix we need):
+
+1. Find the latest release and its commit SHA:
+   `git ls-remote --tags https://github.com/actions/checkout 'refs/tags/v5*'`
+   (for annotated tags, use the peeled `^{}` entry, which is the actual commit)
+2. Update the `uses:` line with the new SHA and update the version comment in
+   the same edit, so the comment never lies about what the SHA points to.
+
 ## Further Reading / Useful Links
 
 - [ember.js](https://emberjs.com/)

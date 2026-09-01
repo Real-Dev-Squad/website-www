@@ -1,6 +1,9 @@
 # Node.js and the exact pnpm version are provisioned by pnpm itself from
 # devEngines in package.json (resolved and checksummed in pnpm-lock.yaml),
 # so this workflow only installs pnpm and restores the store cache.
+#
+# Action refs are pinned to commit SHAs on purpose; see "CI Maintenance"
+# in README.md for how and when to refresh them.
 name: Continuous Integration
 
 on:

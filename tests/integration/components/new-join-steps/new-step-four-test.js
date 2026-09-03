@@ -117,7 +117,7 @@ module(
       assert.dom('input[name="dribbble"]').doesNotExist();
     });
 
-    test('extracts username from URL', async function (assert) {
+    test('normalizes profile URLs without changing usernames', async function (assert) {
       localStorage.setItem(
         STEP_DATA_STORAGE_KEY.stepOne,
         JSON.stringify({ role: 'Developer' }),
@@ -127,12 +127,30 @@ module(
         hbs`<NewJoinSteps::NewStepFour @setIsPreValid={{this.setIsPreValid}} @setIsValid={{this.setIsValid}} />`,
       );
 
-      await fillIn('input[name="twitter"]', 'https://twitter.com/username');
+      const cases = [
+        ['github', 'https://github.com/user/repo'],
+        ['twitter', 'https://x.com/user/status/123'],
+        ['linkedin', 'https://linkedin.com/in/john-doe'],
+        ['instagram', 'instagram.comedy'],
+      ];
 
-      const storedData = JSON.parse(
+      for (const [field, value] of cases) {
+        await fillIn(`input[name="${field}"]`, value);
+      }
+
+      const { github, twitter, linkedin, instagram } = JSON.parse(
         localStorage.getItem(STEP_DATA_STORAGE_KEY.stepFour),
       );
-      assert.strictEqual(storedData.twitter, 'username');
+
+      assert.deepEqual(
+        { github, twitter, linkedin, instagram },
+        {
+          github: 'user',
+          twitter: 'user',
+          linkedin: 'john-doe',
+          instagram: 'instagram.comedy',
+        },
+      );
     });
 
     test('form data persists to localStorage', async function (assert) {

@@ -6,7 +6,11 @@ import {
   STEP_FOUR_SOCIAL_FIELDS,
 } from '../../constants/new-join-form';
 import { phoneNumberRegex } from '../../constants/regex';
-import { mapSocialUrls, socialFields } from '../../constants/applications';
+import {
+  mapSocialUrls,
+  SOCIAL_HOST_ALIASES,
+  socialFields,
+} from '../../constants/applications';
 
 export default class NewStepFourComponent extends BaseStepComponent {
   get storageKey() {
@@ -74,26 +78,34 @@ export default class NewStepFourComponent extends BaseStepComponent {
   extractUsername(field, value) {
     if (!value || !socialFields.includes(field)) return value;
 
-    const trimmedValue = value.trim().replace(/^@/, '');
-    try {
-      const normalized = trimmedValue.startsWith('http')
-        ? trimmedValue
-        : `https://${trimmedValue}`;
+    const trimmed = value.trim().replace(/^@/, '');
+    const base = (mapSocialUrls[field] || '').replace(/^https?:\/\//i, '');
+    if (!base) return trimmed;
 
-      const url = new URL(normalized);
-      const segments = url.pathname.split('/').filter(Boolean);
-      return segments.length > 0 ? segments[segments.length - 1] : trimmedValue;
-    } catch {
-      return trimmedValue;
-    }
+    const stripped = trimmed
+      .replace(/^https?:\/\//i, '')
+      .replace(/^www\./i, '');
+    const hosts = [base, ...(SOCIAL_HOST_ALIASES[field] || [])];
+    const lower = stripped.toLowerCase();
+    const matched = hosts.find((host) =>
+      lower.startsWith(`${host.toLowerCase()}/`),
+    );
+    if (!matched) return trimmed;
+
+    const rest = stripped
+      .slice(matched.length)
+      .replace(/^\/+/, '')
+      .split(/[/?#]/)[0];
+    return rest || trimmed;
   }
 
-  @action inputHandler(e) {
-    if (e?.target) {
-      const { name, value } = e.target;
-      e.target.value = this.extractUsername(name, value);
-    }
-    super.inputHandler(e);
+  @action normalizeHandler(e) {
+    if (!e?.target) return;
+    const { name, value } = e.target;
+    const username = this.extractUsername(name, value);
+    if (username === value) return;
+    e.target.value = username;
+    this.handleFieldUpdate(name, username);
   }
 
   validateField(field, value) {

@@ -41,6 +41,7 @@
             value={{get this.data social.key}}
             required={{if social.required "required"}}
             {{on "input" this.inputHandler}}
+            {{on "change" this.normalizeHandler}}
           />
         </div>
       </div>

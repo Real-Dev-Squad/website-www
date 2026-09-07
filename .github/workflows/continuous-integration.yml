@@ -2,9 +2,9 @@
 # devEngines in package.json (resolved and checksummed in pnpm-lock.yaml),
 # so this workflow only installs pnpm and restores the store cache.
 #
-# pnpm is installed standalone (@pnpm/exe bundles its own Node) because
-# pnpm 11 needs Node >= 22.13 just to start; this keeps the bootstrap
-# independent of whatever Node the runner image ships.
+# pnpm is installed standalone (a self-contained native executable) because
+# the npm package only becomes that binary when its install script runs;
+# this keeps the bootstrap independent of the runner image's Node.
 #
 # Action refs are pinned to commit SHAs on purpose; see "CI Maintenance"
 # in README.md for how and when to refresh them.
@@ -26,7 +26,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
         with:
-          version: 11
+          version: 12
           standalone: true
       - name: Locate pnpm store
         run: echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_ENV"
@@ -50,7 +50,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v4.4.0
         with:
-          version: 11
+          version: 12
           standalone: true
       - name: Locate pnpm store
         run: echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_ENV"

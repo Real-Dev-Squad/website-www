@@ -8,7 +8,7 @@ A short introduction of this app could easily go here.
 You will need the following things properly installed on your computer.
 
 - [Git](https://git-scm.com/)
-- [pnpm](https://pnpm.io/installation) 11 (see [Installing pnpm](#installing-pnpm) below)
+- [pnpm](https://pnpm.io/installation) 12 (see [Installing pnpm](#installing-pnpm) below)
 - [Google Chrome](https://google.com/chrome/)
 
 You do not need to install Node.js yourself: `devEngines` in
@@ -17,7 +17,8 @@ version automatically when you run `pnpm install`.
 
 ### Installing pnpm
 
-Install pnpm with the standalone script, which ships its own Node runtime:
+Install pnpm with the standalone script, which installs the native executable
+without requiring an existing Node.js installation:
 
 ```sh
 curl -fsSL https://get.pnpm.io/install.sh | sh -
@@ -29,17 +30,13 @@ On Windows (PowerShell):
 iwr https://get.pnpm.io/install.ps1 -useb | iex
 ```
 
-Avoid installing pnpm through npm or Corepack for this project. Installed
-that way, pnpm runs on whatever Node you already have, and pnpm 11 needs
-Node >= 22.13 just to start (it uses `node:sqlite`). On an older Node
-(e.g. 20) pnpm crashes before it can download the project's pinned Node
-version. The standalone install avoids this bootstrap problem entirely.
-
-Installing through npm also leaves pnpm on a slower path. The npm package
-ships a placeholder that only becomes pnpm's native binary when its install
-script runs, so if that build is skipped or denied, every pnpm command
-silently falls back to running through Node. The standalone script links the
-native binary directly and has no install script to approve.
+Avoid installing pnpm through npm or Corepack for this project. pnpm 12 is
+a native executable that needs no Node.js of its own, but the npm package
+ships only a placeholder that becomes that binary when its install script
+runs. If that build is skipped or denied, pnpm silently falls back to
+running through whatever Node you already have, with no error shown outside
+an interactive terminal. The standalone install links the native binary
+directly and has no install script to approve.
 
 ## Installation
 

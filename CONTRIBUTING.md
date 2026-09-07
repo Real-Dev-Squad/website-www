@@ -61,7 +61,7 @@ git remote add upstream https://github.com/Real-Dev-Squad/website-www/
 
 4. **Getting the latest code from the develop branch** (Can be skipped if you've cloned the repo just now)
 
-If it's been quite a while after you have cloned the repo/made the last pull request, it's recommended to take a pull from the develop branch after swithcing to `develop` by command `git checkout develop`. Reason being, there may be some changes which could have merged after you had cloned the repo/made the last pull request.
+If it's been quite a while after you have cloned the repo/made the last pull request, it's recommended to take a pull from the develop branch after switching to `develop` by command `git checkout develop`. Reason being, there may be some changes which could have merged after you had cloned the repo/made the last pull request.
 
 To do so, make sure you're in the develop branch by checking out to the **develop** branch:
 

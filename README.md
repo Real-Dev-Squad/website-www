@@ -9,7 +9,6 @@ You will need the following things properly installed on your computer.
 
 - [Git](https://git-scm.com/)
 - [pnpm](https://pnpm.io/installation) 11 (see [Installing pnpm](#installing-pnpm) below)
-- [Ember CLI](https://cli.emberjs.com/release/)
 - [Google Chrome](https://google.com/chrome/)
 
 You do not need to install Node.js yourself: `devEngines` in
@@ -36,6 +35,12 @@ Node >= 22.13 just to start (it uses `node:sqlite`). On an older Node
 (e.g. 20) pnpm crashes before it can download the project's pinned Node
 version. The standalone install avoids this bootstrap problem entirely.
 
+Installing through npm also leaves pnpm on a slower path. The npm package
+ships a placeholder that only becomes pnpm's native binary when its install
+script runs, so if that build is skipped or denied, every pnpm command
+silently falls back to running through Node. The standalone script links the
+native binary directly and has no install script to approve.
+
 ## Installation
 
 - `git clone <repository-url>` this repository
@@ -44,18 +49,23 @@ version. The standalone install avoids this bootstrap problem entirely.
 
 ## Running / Development
 
-- `ember serve`
+- `pnpm start`
+- `pnpm dev` (also runs an HTTPS proxy on port 443)
 - Visit your app at [http://localhost:4200](http://localhost:4200).
 - Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
+Ember CLI is a project dependency, so you do not need it installed globally.
+Use the pnpm scripts above, or prefix one-off commands with `pnpm exec`.
+
 ### Code Generators
 
-Make use of the many generators for code, try `ember help generate` for more details
+Make use of the many generators for code, try `pnpm exec ember help generate` for more details
 
 ### Running Tests
 
-- `ember test`
-- `ember test --server`
+- `pnpm test:ember`
+- `pnpm test` (lint and tests together, as CI runs them)
+- `pnpm exec ember test --server` (interactive test server)
 
 ### Linting
 
@@ -64,8 +74,9 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Building
 
-- `ember build` (development)
-- `ember build --environment production` (production)
+- `pnpm exec ember build` (development)
+- `pnpm build` (production)
+- `pnpm build:staging` (staging)
 
 ### Deploying
 

@@ -28,11 +28,11 @@ Once you have cloned the repository, now you should go into the folder containin
 cd website-www
 ```
 
-Now since we are migrating this project from `Vanilla JS` to `emberJS` we had to run the following command to switch to the `ember` branch to install the required packages.
+All work is based on the `develop` branch, so switch to it before installing the required packages.
 
 ```
 
-git checkout develop-ember
+git checkout develop
 
 ```
 
@@ -59,23 +59,23 @@ git remote add upstream https://github.com/Real-Dev-Squad/website-www/
 
 ```
 
-4. **Getting the latest code from the develop-ember branch** (Can be skipped if you've cloned the repo just now)
+4. **Getting the latest code from the develop branch** (Can be skipped if you've cloned the repo just now)
 
-If it's been quite a while after you have cloned the repo/made the last pull request, it's recommended to take a pull from the develop-ember branch after swithcing to `develop-ember` by command `git checkout develop-ember`. Reason being, there may be some changes which could have merged after you had cloned the repo/made the last pull request.
+If it's been quite a while after you have cloned the repo/made the last pull request, it's recommended to take a pull from the develop branch after swithcing to `develop` by command `git checkout develop`. Reason being, there may be some changes which could have merged after you had cloned the repo/made the last pull request.
 
-To do so, make sure you're in the develop-ember branch by checking out to the **develop-ember** branch:
-
-```
-
-git checkout develop-ember
+To do so, make sure you're in the develop branch by checking out to the **develop** branch:
 
 ```
 
-Once you're in the **develop-ember** branch, it's time to take a pull:
+git checkout develop
 
 ```
 
-git pull upstream develop-ember
+Once you're in the **develop** branch, it's time to take a pull:
+
+```
+
+git pull upstream develop
 
 ```
 
@@ -83,7 +83,7 @@ Now that you've made sure that you've got latest changes, we can proceed to crea
 
 5. **Creating a new branch**
 
-Let's create a new branch to work on. We require a different branch so that we always have a stable, working version in the default (develop-ember) branch. We're not supposed to touch the **main** branch as it is the one getting deployed on production.
+Let's create a new branch to work on. We require a different branch so that we always have a stable, working version in the default (develop) branch. We're not supposed to touch the **main** branch as it is the one getting deployed on production.
 
 ```
 
@@ -116,27 +116,27 @@ git commit -m "Write message about your commit"
 
 ```
 
-8. **Making sure you have the latest changes from the develop-ember branch**
+8. **Making sure you have the latest changes from the develop branch**
 
-It may so happen that since the last time you cloned the repo/took a pull from develop-ember, some changes may be merged in the develop-ember branch. So to be on the safer side, we should have those changes as well.
+It may so happen that since the last time you cloned the repo/took a pull from develop, some changes may be merged in the develop branch. So to be on the safer side, we should have those changes as well.
 
-In order to do that, we first checkout to **develop-ember** branch by:
-
-```
-
-git checkout develop-ember
+In order to do that, we first checkout to **develop** branch by:
 
 ```
 
-Once we're in develop-ember, it's time to take a pull:
+git checkout develop
 
 ```
 
-git pull upstream develop-ember
+Once we're in develop, it's time to take a pull:
 
 ```
 
-Now that our **local** develop-ember branch is in sync with **remote** develop-ember branch (of the Real Dev Squad Repository), we should let our branch know about the changes from the develop-ember branch (if any). To do so we first checkout to our branch:
+git pull upstream develop
+
+```
+
+Now that our **local** develop branch is in sync with **remote** develop branch (of the Real Dev Squad Repository), we should let our branch know about the changes from the develop branch (if any). To do so we first checkout to our branch:
 
 ```
 
@@ -144,11 +144,11 @@ git checkout <branch-name>
 
 ```
 
-Once we're in our branch, we **rebase** our branch on top of the current develop-ember branch (we change the base of our branch, so that it appears as if we have worked from the time the latest changes were merged in the develop-ember branch). To do so:
+Once we're in our branch, we **rebase** our branch on top of the current develop branch (we change the base of our branch, so that it appears as if we have worked from the time the latest changes were merged in the develop branch). To do so:
 
 ```
 
-git rebase develop-ember
+git rebase develop
 
 ```
 
@@ -172,7 +172,7 @@ The **origin** refers to your GitHub fork. You can check it by entering `git rem
 
 Your GitHub fork now has the changes, but you want those changes to be merged in the Real Dev Squad repository, right? There's a twist, you can't directly merge your code in the Real Dev Squad. Imagine you own a company whose code is open sourced, would you like if anyone could code make changes directly to the deployed branch without asking you? For the same reason, **Pull Requests** exist. You `request` the repository maintainers/admins to `pull` your code in their repository.
 
-To make a pull request, go to your **forked repository** and you'll see **<branch-name> had recent pushes less than a minute ago** . Right next to it will be an option to **Compare & pull request**. Make sure the base branch is **develop-ember** while raising the pull requests.
+To make a pull request, go to your **forked repository** and you'll see **<branch-name> had recent pushes less than a minute ago** . Right next to it will be an option to **Compare & pull request**. Make sure the base branch is **develop** while raising the pull requests.
 Click on it, submit your pull request (also known as _PR_) explaining what you've done. Again, the PR title should be self-explanatory but concise. If you want to write details, you can add it in the description. If you're making some UI (User Interface) changes, please make sure to add a short screen recording. If that's not possible, at least add some screenshots.
 
 ![how-to-create-pull-request](https://i.imgur.com/zYSuNY7.png)

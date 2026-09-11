@@ -31,7 +31,7 @@
     "test:ember": "ember test"
   },
   "dependencies": {
-    "@100mslive/hms-video-store": "0.10.6",
+    "@100mslive/hms-video-store": "0.15.0",
     "@warp-drive/ember": "5.7.0",
     "cropperjs": "^2.1.0",
     "d3-cloud": "1.2.8",

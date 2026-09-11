@@ -110,8 +110,8 @@ importers:
   .:
     dependencies:
       '@100mslive/hms-video-store':
-        specifier: 0.10.6
-        version: 0.10.6
+        specifier: 0.15.0
+        version: 0.15.0
       '@warp-drive/ember':
         specifier: 5.7.0
         version: 5.7.0(@ember/test-waiters@3.1.0(supports-color@8.1.1))(supports-color@8.1.1)
@@ -362,13 +362,9 @@ importers:
 
 packages:
 
-  '@100mslive/hms-video-store@0.10.6':
-    resolution: {integrity: sha512-K0y3PBIAl4YnSsNRcX+/Mk1sa1uCGMHASf8j1ngI5vwhF/3CIxob66A1WgsF0wjXWDe5PcxHnLSANpAmdtuOPA==}
+  '@100mslive/hms-video-store@0.15.0':
+    resolution: {integrity: sha512-YbaR0ANwy/upNSYc00b/84p30Lj5wbhJTtpUVCUBf25pBisulY0Di6P3oPjMvpm36pIJmUxaTzmKDXgbgq1+Pg==}
     engines: {node: '>=12'}
-
-  '@100mslive/hms-video@0.9.6':
-    resolution: {integrity: sha512-zbs6lFnfki8GDbbzIdxQU+3X8pOMPzuamqyjfkRbwxzwsIT5NZ+9RKTbHy4PiNIFouLMZDlZdCEa7bUe3TWFrQ==}
-    engines: {node: '>=10'}
 
   '@asamuzakjp/css-color@2.8.3':
     resolution: {integrity: sha512-GIc76d9UI1hCvOATjZPyHFmE5qhRccp3/zGfMPapK3jBi+yocEzp6BBB0UnfRYP9NP4FANqUZYb0hnfs3TM3hw==}
@@ -3365,6 +3361,9 @@ packages:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
 
+  detect-europe-js@0.1.2:
+    resolution: {integrity: sha512-lgdERlL3u0aUdHocoouzT10d9I89VVhk0qNRmll7mXdGfJT1/wqZ2ZLA4oJAjeACPY5fT1wsbq2AT+GkuInsow==}
+
   detect-file@1.0.0:
     resolution: {integrity: sha512-DtCOLG98P007x7wiiOmfI0fi3eIKyWiLTGJ2MDnVi/E04lWGbf+JzrRHMm0rgIIZJGtHpKpbVgLWHrv8xXpc3Q==}
     engines: {node: '>=0.10.0'}
@@ -4865,6 +4864,9 @@ packages:
     resolution: {integrity: sha512-ISWac8drv4ZGfwKl5slpHG9OwPNty4jOWPRIhBpxOoD+hqITiwuipOQ2bNthAzwA3B4fIjO4Nln74N0S9byq8A==}
     engines: {node: '>= 0.4'}
 
+  is-standalone-pwa@0.1.1:
+    resolution: {integrity: sha512-9Cbovsa52vNQCjdXOzeQq5CnCbAcRk05aU62K20WO372NrTv0NxibLFCK6lQ4/iZEFdEA3p3t2VNOn8AJ53F5g==}
+
   is-stream@1.1.0:
     resolution: {integrity: sha512-uQPm8kcs47jx38atAcWTVxyltQYoPT68y9aWYdV6yWXSyW8mzSat0TL6CiWdZeCdF3KrAvpVtnHbTv4RN+rqdQ==}
     engines: {node: '>=0.10.0'}
@@ -5173,6 +5175,10 @@ packages:
 
   lodash.isarray@3.0.4:
     resolution: {integrity: sha512-JwObCrNJuT0Nnbuecmqr5DgtuBppuCvGD9lxjFpAzwnVtdGoDQ1zig+5W8k5/6Gcn0gZ3936HDAlGd28i7sOGQ==}
+
+  lodash.isequal@4.5.0:
+    resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+    deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
 
   lodash.kebabcase@4.1.1:
     resolution: {integrity: sha512-N8XRTIMMqqDgSy4VLKPnJ/+hpGZN+PHQiJnSenYqPaVV/NCqEogTnAdZLQiGKhxX+JCs8waWq2t1XHWKOmlY8g==}
@@ -7046,8 +7052,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ua-parser-js@1.0.41:
-    resolution: {integrity: sha512-LbBDqdIC5s8iROCUjMbW1f5dJQTEFB1+KO9ogbvlb3nm9n4YHa5p4KTvFPWvh2Hs8gZMBuiB1/8+pdfe/tDPug==}
+  ua-is-frozen@0.1.2:
+    resolution: {integrity: sha512-RwKDW2p3iyWn4UbaxpP2+VxwqXh0jpvdxsYpZ5j/MLLiQOfbsV5shpgQiw93+KMYQPcteeMQ289MaAFzs3G9pw==}
+
+  ua-parser-js@2.0.10:
+    resolution: {integrity: sha512-t+3Ktbq0Ies2vaSezfOaWiolH4OigQIO1dk+1xDpOydB1COVPocVYOrEV5rqZ0kFY9XYG1v9LutCyMgYBpABcw==}
     hasBin: true
 
   uc.micro@2.1.0:
@@ -7154,6 +7163,10 @@ packages:
   utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
+
+  uuid@11.1.1:
+    resolution: {integrity: sha512-vIYxrBCC/N/K+Js3qSN88go7kIfNPssr/hHCesKCQNAjmgvYS2oqr69kIufEG+O4+PfezOH4EbIeHCfFov8ZgQ==}
+    hasBin: true
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
@@ -7466,23 +7479,19 @@ packages:
 
 snapshots:
 
-  '@100mslive/hms-video-store@0.10.6':
+  '@100mslive/hms-video-store@0.15.0':
     dependencies:
-      '@100mslive/hms-video': 0.9.6
       eventemitter2: 6.4.9
       immer: 9.0.21
+      lodash.isequal: 4.5.0
       reselect: 4.0.0
+      sdp-transform: 2.15.0
+      ua-parser-js: 2.0.10
+      uuid: 11.1.1
+      webrtc-adapter: 8.2.4
       zustand: 3.5.7
     transitivePeerDependencies:
       - react
-
-  '@100mslive/hms-video@0.9.6':
-    dependencies:
-      eventemitter2: 6.4.9
-      sdp-transform: 2.15.0
-      ua-parser-js: 1.0.41
-      uuid: 8.3.2
-      webrtc-adapter: 8.2.4
 
   '@asamuzakjp/css-color@2.8.3':
     dependencies:
@@ -11630,6 +11639,8 @@ snapshots:
 
   destroy@1.2.0: {}
 
+  detect-europe-js@0.1.2: {}
+
   detect-file@1.0.0: {}
 
   detect-indent@7.0.2: {}
@@ -14032,6 +14043,8 @@ snapshots:
     dependencies:
       call-bound: 1.0.3
 
+  is-standalone-pwa@0.1.1: {}
+
   is-stream@1.1.0: {}
 
   is-stream@2.0.1: {}
@@ -14391,6 +14404,8 @@ snapshots:
   lodash.isarguments@3.1.0: {}
 
   lodash.isarray@3.0.4: {}
+
+  lodash.isequal@4.5.0: {}
 
   lodash.kebabcase@4.1.1: {}
 
@@ -16386,7 +16401,13 @@ snapshots:
 
   typescript@5.7.3: {}
 
-  ua-parser-js@1.0.41: {}
+  ua-is-frozen@0.1.2: {}
+
+  ua-parser-js@2.0.10:
+    dependencies:
+      detect-europe-js: 0.1.2
+      is-standalone-pwa: 0.1.1
+      ua-is-frozen: 0.1.2
 
   uc.micro@2.1.0: {}
 
@@ -16476,6 +16497,8 @@ snapshots:
   util-deprecate@1.0.2: {}
 
   utils-merge@1.0.1: {}
+
+  uuid@11.1.1: {}
 
   uuid@8.3.2: {}
 
